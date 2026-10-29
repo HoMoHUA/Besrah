@@ -5,7 +5,7 @@
   "from_airport": "departure from airport terminal",
   "from_ghadir": "departure from Ghadir toward airport (= pass time of through-service B)"
  },
- "quality": "transcribed from photo; arithmetic series verified, irregular morning/normal-day cells need human re-check",
+ "quality": "transcribed from photo; re-verified against full-resolution photo 2026-10-16 (all three day types, every cell matches). Row pairing added: first row has no Ghadir cell (grey in print).",
  "friday": {
   "from_airport": [
    "07:38",
@@ -75,6 +75,206 @@
    "19:17",
    "19:41",
    "20:05"
+  ],
+  "rows": [
+   {
+    "row": 1,
+    "from_ghadir": null,
+    "from_airport": "07:38",
+    "gap_min": null
+   },
+   {
+    "row": 2,
+    "from_ghadir": "07:41",
+    "from_airport": "08:02",
+    "gap_min": 21
+   },
+   {
+    "row": 3,
+    "from_ghadir": "08:05",
+    "from_airport": "08:26",
+    "gap_min": 21
+   },
+   {
+    "row": 4,
+    "from_ghadir": "08:29",
+    "from_airport": "08:50",
+    "gap_min": 21
+   },
+   {
+    "row": 5,
+    "from_ghadir": "08:53",
+    "from_airport": "09:14",
+    "gap_min": 21
+   },
+   {
+    "row": 6,
+    "from_ghadir": "09:17",
+    "from_airport": "09:38",
+    "gap_min": 21
+   },
+   {
+    "row": 7,
+    "from_ghadir": "09:41",
+    "from_airport": "10:02",
+    "gap_min": 21
+   },
+   {
+    "row": 8,
+    "from_ghadir": "10:05",
+    "from_airport": "10:26",
+    "gap_min": 21
+   },
+   {
+    "row": 9,
+    "from_ghadir": "10:29",
+    "from_airport": "10:50",
+    "gap_min": 21
+   },
+   {
+    "row": 10,
+    "from_ghadir": "10:53",
+    "from_airport": "11:14",
+    "gap_min": 21
+   },
+   {
+    "row": 11,
+    "from_ghadir": "11:17",
+    "from_airport": "11:38",
+    "gap_min": 21
+   },
+   {
+    "row": 12,
+    "from_ghadir": "11:41",
+    "from_airport": "12:02",
+    "gap_min": 21
+   },
+   {
+    "row": 13,
+    "from_ghadir": "12:05",
+    "from_airport": "12:26",
+    "gap_min": 21
+   },
+   {
+    "row": 14,
+    "from_ghadir": "12:29",
+    "from_airport": "12:50",
+    "gap_min": 21
+   },
+   {
+    "row": 15,
+    "from_ghadir": "12:53",
+    "from_airport": "13:14",
+    "gap_min": 21
+   },
+   {
+    "row": 16,
+    "from_ghadir": "13:17",
+    "from_airport": "13:38",
+    "gap_min": 21
+   },
+   {
+    "row": 17,
+    "from_ghadir": "13:41",
+    "from_airport": "14:02",
+    "gap_min": 21
+   },
+   {
+    "row": 18,
+    "from_ghadir": "14:05",
+    "from_airport": "14:26",
+    "gap_min": 21
+   },
+   {
+    "row": 19,
+    "from_ghadir": "14:29",
+    "from_airport": "14:50",
+    "gap_min": 21
+   },
+   {
+    "row": 20,
+    "from_ghadir": "14:53",
+    "from_airport": "15:14",
+    "gap_min": 21
+   },
+   {
+    "row": 21,
+    "from_ghadir": "15:17",
+    "from_airport": "15:38",
+    "gap_min": 21
+   },
+   {
+    "row": 22,
+    "from_ghadir": "15:41",
+    "from_airport": "16:02",
+    "gap_min": 21
+   },
+   {
+    "row": 23,
+    "from_ghadir": "16:05",
+    "from_airport": "16:26",
+    "gap_min": 21
+   },
+   {
+    "row": 24,
+    "from_ghadir": "16:29",
+    "from_airport": "16:50",
+    "gap_min": 21
+   },
+   {
+    "row": 25,
+    "from_ghadir": "16:53",
+    "from_airport": "17:14",
+    "gap_min": 21
+   },
+   {
+    "row": 26,
+    "from_ghadir": "17:17",
+    "from_airport": "17:38",
+    "gap_min": 21
+   },
+   {
+    "row": 27,
+    "from_ghadir": "17:41",
+    "from_airport": "18:02",
+    "gap_min": 21
+   },
+   {
+    "row": 28,
+    "from_ghadir": "18:05",
+    "from_airport": "18:26",
+    "gap_min": 21
+   },
+   {
+    "row": 29,
+    "from_ghadir": "18:29",
+    "from_airport": "18:50",
+    "gap_min": 21
+   },
+   {
+    "row": 30,
+    "from_ghadir": "18:53",
+    "from_airport": "19:14",
+    "gap_min": 21
+   },
+   {
+    "row": 31,
+    "from_ghadir": "19:17",
+    "from_airport": "19:38",
+    "gap_min": 21
+   },
+   {
+    "row": 32,
+    "from_ghadir": "19:41",
+    "from_airport": "20:02",
+    "gap_min": 21
+   },
+   {
+    "row": 33,
+    "from_ghadir": "20:05",
+    "from_airport": "20:26",
+    "gap_min": 21
+   }
   ]
  },
  "thursday": {
@@ -138,6 +338,182 @@
    "19:16",
    "19:46",
    "20:16"
+  ],
+  "rows": [
+   {
+    "row": 1,
+    "from_ghadir": null,
+    "from_airport": "06:30",
+    "gap_min": null
+   },
+   {
+    "row": 2,
+    "from_ghadir": "06:41",
+    "from_airport": "07:10",
+    "gap_min": 29
+   },
+   {
+    "row": 3,
+    "from_ghadir": "07:16",
+    "from_airport": "07:40",
+    "gap_min": 24
+   },
+   {
+    "row": 4,
+    "from_ghadir": "07:46",
+    "from_airport": "08:10",
+    "gap_min": 24
+   },
+   {
+    "row": 5,
+    "from_ghadir": "08:16",
+    "from_airport": "08:40",
+    "gap_min": 24
+   },
+   {
+    "row": 6,
+    "from_ghadir": "08:46",
+    "from_airport": "09:10",
+    "gap_min": 24
+   },
+   {
+    "row": 7,
+    "from_ghadir": "09:16",
+    "from_airport": "09:40",
+    "gap_min": 24
+   },
+   {
+    "row": 8,
+    "from_ghadir": "09:46",
+    "from_airport": "10:10",
+    "gap_min": 24
+   },
+   {
+    "row": 9,
+    "from_ghadir": "10:16",
+    "from_airport": "10:40",
+    "gap_min": 24
+   },
+   {
+    "row": 10,
+    "from_ghadir": "10:46",
+    "from_airport": "11:10",
+    "gap_min": 24
+   },
+   {
+    "row": 11,
+    "from_ghadir": "11:16",
+    "from_airport": "11:40",
+    "gap_min": 24
+   },
+   {
+    "row": 12,
+    "from_ghadir": "11:46",
+    "from_airport": "12:10",
+    "gap_min": 24
+   },
+   {
+    "row": 13,
+    "from_ghadir": "12:16",
+    "from_airport": "12:40",
+    "gap_min": 24
+   },
+   {
+    "row": 14,
+    "from_ghadir": "12:46",
+    "from_airport": "13:10",
+    "gap_min": 24
+   },
+   {
+    "row": 15,
+    "from_ghadir": "13:16",
+    "from_airport": "13:40",
+    "gap_min": 24
+   },
+   {
+    "row": 16,
+    "from_ghadir": "13:46",
+    "from_airport": "14:10",
+    "gap_min": 24
+   },
+   {
+    "row": 17,
+    "from_ghadir": "14:16",
+    "from_airport": "14:40",
+    "gap_min": 24
+   },
+   {
+    "row": 18,
+    "from_ghadir": "14:46",
+    "from_airport": "15:10",
+    "gap_min": 24
+   },
+   {
+    "row": 19,
+    "from_ghadir": "15:16",
+    "from_airport": "15:40",
+    "gap_min": 24
+   },
+   {
+    "row": 20,
+    "from_ghadir": "15:46",
+    "from_airport": "16:10",
+    "gap_min": 24
+   },
+   {
+    "row": 21,
+    "from_ghadir": "16:16",
+    "from_airport": "16:40",
+    "gap_min": 24
+   },
+   {
+    "row": 22,
+    "from_ghadir": "16:46",
+    "from_airport": "17:10",
+    "gap_min": 24
+   },
+   {
+    "row": 23,
+    "from_ghadir": "17:16",
+    "from_airport": "17:40",
+    "gap_min": 24
+   },
+   {
+    "row": 24,
+    "from_ghadir": "17:46",
+    "from_airport": "18:10",
+    "gap_min": 24
+   },
+   {
+    "row": 25,
+    "from_ghadir": "18:16",
+    "from_airport": "18:40",
+    "gap_min": 24
+   },
+   {
+    "row": 26,
+    "from_ghadir": "18:46",
+    "from_airport": "19:10",
+    "gap_min": 24
+   },
+   {
+    "row": 27,
+    "from_ghadir": "19:16",
+    "from_airport": "19:40",
+    "gap_min": 24
+   },
+   {
+    "row": 28,
+    "from_ghadir": "19:46",
+    "from_airport": "20:10",
+    "gap_min": 24
+   },
+   {
+    "row": 29,
+    "from_ghadir": "20:16",
+    "from_airport": "20:40",
+    "gap_min": 24
+   }
   ]
  },
  "normal_days": {
@@ -209,7 +585,208 @@
    "19:24",
    "19:48",
    "20:12"
+  ],
+  "rows": [
+   {
+    "row": 1,
+    "from_ghadir": null,
+    "from_airport": "06:38",
+    "gap_min": null
+   },
+   {
+    "row": 2,
+    "from_ghadir": "06:41",
+    "from_airport": "07:10",
+    "gap_min": 29
+   },
+   {
+    "row": 3,
+    "from_ghadir": "07:10",
+    "from_airport": "07:34",
+    "gap_min": 24
+   },
+   {
+    "row": 4,
+    "from_ghadir": "07:41",
+    "from_airport": "08:00",
+    "gap_min": 19
+   },
+   {
+    "row": 5,
+    "from_ghadir": "08:05",
+    "from_airport": "08:30",
+    "gap_min": 25
+   },
+   {
+    "row": 6,
+    "from_ghadir": "08:37",
+    "from_airport": "09:00",
+    "gap_min": 23
+   },
+   {
+    "row": 7,
+    "from_ghadir": "09:06",
+    "from_airport": "09:30",
+    "gap_min": 24
+   },
+   {
+    "row": 8,
+    "from_ghadir": "09:36",
+    "from_airport": "10:00",
+    "gap_min": 24
+   },
+   {
+    "row": 9,
+    "from_ghadir": "10:06",
+    "from_airport": "10:30",
+    "gap_min": 24
+   },
+   {
+    "row": 10,
+    "from_ghadir": "10:36",
+    "from_airport": "11:00",
+    "gap_min": 24
+   },
+   {
+    "row": 11,
+    "from_ghadir": "11:06",
+    "from_airport": "11:30",
+    "gap_min": 24
+   },
+   {
+    "row": 12,
+    "from_ghadir": "11:36",
+    "from_airport": "11:57",
+    "gap_min": 21
+   },
+   {
+    "row": 13,
+    "from_ghadir": "12:06",
+    "from_airport": "12:29",
+    "gap_min": 23
+   },
+   {
+    "row": 14,
+    "from_ghadir": "12:36",
+    "from_airport": "12:53",
+    "gap_min": 17
+   },
+   {
+    "row": 15,
+    "from_ghadir": "13:00",
+    "from_airport": "13:17",
+    "gap_min": 17
+   },
+   {
+    "row": 16,
+    "from_ghadir": "13:24",
+    "from_airport": "13:41",
+    "gap_min": 17
+   },
+   {
+    "row": 17,
+    "from_ghadir": "13:48",
+    "from_airport": "14:05",
+    "gap_min": 17
+   },
+   {
+    "row": 18,
+    "from_ghadir": "14:12",
+    "from_airport": "14:29",
+    "gap_min": 17
+   },
+   {
+    "row": 19,
+    "from_ghadir": "14:36",
+    "from_airport": "14:53",
+    "gap_min": 17
+   },
+   {
+    "row": 20,
+    "from_ghadir": "15:00",
+    "from_airport": "15:17",
+    "gap_min": 17
+   },
+   {
+    "row": 21,
+    "from_ghadir": "15:24",
+    "from_airport": "15:41",
+    "gap_min": 17
+   },
+   {
+    "row": 22,
+    "from_ghadir": "15:48",
+    "from_airport": "16:05",
+    "gap_min": 17
+   },
+   {
+    "row": 23,
+    "from_ghadir": "16:12",
+    "from_airport": "16:29",
+    "gap_min": 17
+   },
+   {
+    "row": 24,
+    "from_ghadir": "16:36",
+    "from_airport": "16:53",
+    "gap_min": 17
+   },
+   {
+    "row": 25,
+    "from_ghadir": "17:00",
+    "from_airport": "17:17",
+    "gap_min": 17
+   },
+   {
+    "row": 26,
+    "from_ghadir": "17:24",
+    "from_airport": "17:41",
+    "gap_min": 17
+   },
+   {
+    "row": 27,
+    "from_ghadir": "17:48",
+    "from_airport": "18:05",
+    "gap_min": 17
+   },
+   {
+    "row": 28,
+    "from_ghadir": "18:12",
+    "from_airport": "18:29",
+    "gap_min": 17
+   },
+   {
+    "row": 29,
+    "from_ghadir": "18:36",
+    "from_airport": "18:53",
+    "gap_min": 17
+   },
+   {
+    "row": 30,
+    "from_ghadir": "19:00",
+    "from_airport": "19:17",
+    "gap_min": 17
+   },
+   {
+    "row": 31,
+    "from_ghadir": "19:24",
+    "from_airport": "19:41",
+    "gap_min": 17
+   },
+   {
+    "row": 32,
+    "from_ghadir": "19:48",
+    "from_airport": "20:05",
+    "gap_min": 17
+   },
+   {
+    "row": 33,
+    "from_ghadir": "20:12",
+    "from_airport": "20:29",
+    "gap_min": 17
+   }
   ]
  },
- "conflict": "official JSON says weekdays(Sat-Thu) airport route every 30 min 06:30-19:30; this sheet has Thursday=30 min but normal days irregular/24 min after midday"
+ "conflict": "official JSON says weekdays(Sat-Thu) airport route every 30 min 06:30-19:30; this sheet has Thursday=30 min but normal days irregular/24 min after midday",
+ "rows_note": "rows[i]: same printed row. gap_min = from_airport minus from_ghadir in the same row. Friday gap is constant 21; Thursday 24 (29 first row); normal days irregular, 17 min from 12:36 on. Whether same-row cells are the same trainset is NOT confirmed."
 }

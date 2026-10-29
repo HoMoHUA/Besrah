@@ -969,7 +969,44 @@
           "status": "unmeasured"
         }
       },
-      "data_note": "Segments Tabarsi..Shariati are legacy estimates (user says unchanged); Shariati..Fakouri measured and differ from legacy by -24..-68 s"
+      "data_note": "Segments Tabarsi..Shariati are legacy estimates (user says unchanged); Shariati..Fakouri measured and differ from legacy by -24..-68 s",
+      "official_site": {
+        "source": "metro.mashhad.ir schedule, last_updated 1405/07/21",
+        "route_id": "line2_main",
+        "title": "طبرسی تا شهید فکوری و بالعکس",
+        "terminals": [
+          "ایستگاه طبرسی",
+          "ایستگاه شهید فکوری"
+        ],
+        "schedules": {
+          "weekdays": {
+            "days_fa": "شنبه تا پنج شنبه",
+            "slots": [
+              {
+                "from": "06:00",
+                "to": "22:00",
+                "headway_min": 12
+              }
+            ]
+          },
+          "fridays_and_holidays": {
+            "days_fa": "جمعه و روزهای تعطیل",
+            "slots": [
+              {
+                "from": "07:00",
+                "to": "22:00",
+                "headway_min": 12
+              }
+            ]
+          }
+        },
+        "quality": "official_average_headway"
+      },
+      "headway_conflict": {
+        "legacy_n8n": "Sat-Wed 10 min 05:50-22:02; Thu/Fri 12 min (Time-Cal config)",
+        "site_1405_07_21": "12 min all days 06:00-22:00 (weekdays) and 07:00-22:00 (Friday)",
+        "status": "open: which is in force for Sat-Wed? site says 12"
+      }
     },
     "3": {
       "color": "#FF8C00",
@@ -979,7 +1016,134 @@
         "پایانه مسافری↔باب الجواد (یکی در میان از پایانه مسافری و بسیج)",
         "شهدا↔باب الجواد"
       ],
-      "note": "only terminals and headways known from official site; Basij is a Line 1 interchange"
+      "note": "only terminals and headways known from official site; Basij is a Line 1 interchange",
+      "official_site": {
+        "source": "metro.mashhad.ir schedule, last_updated 1405/07/21",
+        "routes": [
+          {
+            "route_id": "line3_terminal_to_bab_al_javad",
+            "title": "پایانه مسافری تا باب الجواد (ع) حرم مطهر",
+            "terminals": [
+              "ایستگاه پایانه مسافری",
+              "ایستگاه باب الجواد (ع)"
+            ],
+            "schedules": {
+              "weekdays": {
+                "days_fa": "شنبه تا پنج شنبه",
+                "slots": [
+                  {
+                    "from": "06:00",
+                    "to": "07:00",
+                    "headway_min": 30
+                  },
+                  {
+                    "from": "07:00",
+                    "to": "09:00",
+                    "headway_min": 15
+                  },
+                  {
+                    "from": "09:00",
+                    "to": "16:00",
+                    "headway_min": 15
+                  },
+                  {
+                    "from": "16:00",
+                    "to": "19:00",
+                    "headway_min": 15
+                  },
+                  {
+                    "from": "19:00",
+                    "to": "20:00",
+                    "headway_min": 30
+                  },
+                  {
+                    "from": "20:00",
+                    "to": "22:00",
+                    "headway_min": 45
+                  }
+                ]
+              },
+              "fridays_and_holidays": {
+                "days_fa": "جمعه و روزهای تعطیل",
+                "slots": [
+                  {
+                    "from": "07:00",
+                    "to": "08:00",
+                    "headway_min": 30
+                  },
+                  {
+                    "from": "08:00",
+                    "to": "10:00",
+                    "headway_min": 15
+                  },
+                  {
+                    "from": "10:00",
+                    "to": "16:00",
+                    "headway_min": 15
+                  },
+                  {
+                    "from": "16:00",
+                    "to": "19:00",
+                    "headway_min": 15
+                  },
+                  {
+                    "from": "19:00",
+                    "to": "20:00",
+                    "headway_min": 30
+                  },
+                  {
+                    "from": "20:00",
+                    "to": "22:00",
+                    "headway_min": 45
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "route_id": "line3_shohada_to_bab_al_javad",
+            "title": "شهدا تا باب الجواد (ع) حرم مطهر و بالعکس",
+            "terminals": [
+              "ایستگاه شهدا",
+              "ایستگاه باب الجواد (ع)"
+            ],
+            "schedules": {
+              "weekdays": {
+                "days_fa": "شنبه تا پنج شنبه",
+                "slots": [
+                  {
+                    "from": "06:00",
+                    "to": "22:00",
+                    "headway_min": 15
+                  }
+                ]
+              },
+              "fridays_and_holidays": {
+                "days_fa": "جمعه و روزهای تعطیل",
+                "slots": [
+                  {
+                    "from": "07:00",
+                    "to": "22:00",
+                    "headway_min": 15
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "quality": "official_average_headway"
+      },
+      "known_anchor_stations": {
+        "شهدا": "Line 2 station (interchange with line 2; listed as route start on site)",
+        "بسیج": "Line 1 station (interchange; per earlier note)",
+        "باب الجواد (ع)": "route end on site (حرم مطهر)",
+        "پایانه مسافری": "route start on site (terminal)"
+      },
+      "open_questions": [
+        "Station list and order between پایانه مسافری/شهدا and باب الجواد: not in site JSON, not in data",
+        "Run times, dwell and layovers: none measured",
+        "Route ambiguity: the site lists both پایانه مسافری↔باب الجواد (alternating with Basij) and شهدا↔باب الجواد"
+      ]
     }
   },
   "derived": {
@@ -1088,6 +1252,16 @@
       "id": "normal-day-headway",
       "q": "Normal-day airport route: site JSON (30 min) vs sheet (24 min after midday). Engine uses site for now.",
       "status": "parked_by_user_2026-10-21"
+    },
+    {
+      "id": "line2-headway",
+      "q": "Line 2 weekday headway: legacy 10 min vs site 12 min (Sat-Wed). Which applies?",
+      "status": "open"
+    },
+    {
+      "id": "line3-stations",
+      "q": "Line 3 station list and order (only terminals and interchanges known).",
+      "status": "open"
     }
   ]
 }
