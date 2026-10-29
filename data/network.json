@@ -1013,6 +1013,36 @@
           "by": "owner (HoMo)",
           "note": "Owner confirmed 10 minutes. The official site still prints 12 minutes (kept unchanged in official_site). Thu/Fri legacy value stays 12 min until confirmed."
         }
+      },
+      "official_map": {
+        "source": "Line02new.jpg (official map image sent by owner 2026-10-29)",
+        "length_km": 14.5,
+        "station_count": 13,
+        "interchanges": {
+          "شریعتی": [
+            1
+          ],
+          "شهدا": [
+            3,
+            4
+          ]
+        },
+        "planned_unbuilt_labels": [
+          "N2",
+          "O2",
+          "P2",
+          "Q2",
+          "R2",
+          "S2"
+        ],
+        "planned_note": "Grey stations beyond Fakouri, captioned \"under study for construction\". Not operational; never offered as stations.",
+        "name_typo": {
+          "printed": "شهید فتح",
+          "correct": "مفتح",
+          "confirmed_by": "owner (HoMo) 2026-10-29",
+          "note": "The map misprints this station. The data keeps «مفتح»."
+        },
+        "order_matches_data": true
       }
     },
     "3": {

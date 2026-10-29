@@ -96,3 +96,16 @@ test('airport sheet row pairing is consistent with the printed columns', () => {
   }
   assert.match(sheet.rows_note, /NOT confirmed/);
 });
+
+test('line 2 official map: 13 stations, planned stations excluded, misprinted name kept as owner confirmed', () => {
+  const map = net.lines['2'].official_map;
+  const order = net.lines['2'].order_tabarsi_to_fakouri;
+  assert.equal(order.length, map.station_count);
+  assert.ok(order.map(key).includes(key('مفتح')), 'the station is «مفتح», the map misprints «شهید فتح»');
+  assert.ok(!order.map(key).includes(key('شهید فتح')));
+  assert.equal(map.name_typo.correct, 'مفتح');
+  assert.deepEqual(map.interchanges, { 'شریعتی': [1], 'شهدا': [3, 4] });
+  for (const name of Object.keys(map.interchanges)) assert.ok(order.includes(name), `${name} must be on line 2`);
+  assert.equal(map.planned_unbuilt_labels.length, 6);
+  assert.ok(!net.stations.some(s => /^[N-S]2$/.test(s.name)), 'planned stations must not be in stations[]');
+});
