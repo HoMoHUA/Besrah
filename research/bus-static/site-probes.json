@@ -1,0 +1,59 @@
+[
+  {
+    "url": "https://map.mashhad.ir/",
+    "transport": "direct",
+    "at": "2026-10-29T22:15:54.742303+00:00",
+    "error": "ConnectionError",
+    "details": "HTTPSConnectionPool(host='map.mashhad.ir', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='map.mashhad.ir', port=443): Failed to r",
+    "seconds": 15.75
+  },
+  {
+    "url": "https://map.mashhad.ir/",
+    "transport": "proxy",
+    "at": "2026-10-29T22:15:54.743037+00:00",
+    "error": "ReadTimeout",
+    "details": "HTTPSConnectionPool(host='map.mashhad.ir', port=443): Read timed out. (read timeout=22)",
+    "seconds": 22.04
+  },
+  {
+    "url": "https://bus.mashhad.ir/",
+    "transport": "direct",
+    "at": "2026-10-29T22:15:54.746064+00:00",
+    "error": "ConnectionError",
+    "details": "HTTPSConnectionPool(host='bus.mashhad.ir', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='bus.mashhad.ir', port=443): Failed to r",
+    "seconds": 15.63
+  },
+  {
+    "url": "https://bus.mashhad.ir/",
+    "transport": "proxy",
+    "at": "2026-10-29T22:15:54.746625+00:00",
+    "error": "ReadTimeout",
+    "details": "HTTPSConnectionPool(host='bus.mashhad.ir', port=443): Read timed out. (read timeout=22)",
+    "seconds": 22.04
+  },
+  {
+    "url": "https://mashhad.ir/",
+    "transport": "direct",
+    "at": "2026-10-29T22:16:10.378623+00:00",
+    "error": "ConnectionError",
+    "details": "HTTPSConnectionPool(host='mashhad.ir', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mashhad.ir', port=443): Failed to resolve '",
+    "seconds": 14.83
+  },
+  {
+    "url": "https://mashhad.ir/",
+    "transport": "proxy",
+    "at": "2026-10-29T22:16:10.493589+00:00",
+    "error": "ReadTimeout",
+    "details": "HTTPSConnectionPool(host='mashhad.ir', port=443): Read timed out. (read timeout=22)",
+    "seconds": 22.03
+  },
+  {
+    "url": "https://nominatim.openstreetmap.org/search?q=Mashhad%2C+Iran&format=json&limit=3",
+    "transport": "direct",
+    "at": "2026-10-29T22:16:16.778759+00:00",
+    "status": 200,
+    "bytes": 535,
+    "seconds": 0.49,
+    "final_url": "https://nominatim.openstreetmap.org/search?q=Mashhad%2C+Iran&format=json&limit=3"
+  }
+]

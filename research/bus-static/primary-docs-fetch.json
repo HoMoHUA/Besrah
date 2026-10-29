@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://www.openstreetmap.org/copyright",
+    "retrieved_at": "2026-10-29T22:38:05.085711+00:00",
+    "status": 200,
+    "bytes": 21314,
+    "final_url": "https://www.openstreetmap.org/copyright",
+    "title": "Copyright and License | OpenStreetMap",
+    "text_path": "research/bus-static/primary-docs/www.openstreetmap.org-copyright.txt",
+    "evidence_excerpts": [
+      "donation . OpenStreetMap licensing OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF). In summary: You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or bu",
+      "p licensing OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF). In summary: You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you "
+    ]
+  },
+  {
+    "url": "https://wiki.openstreetmap.org/wiki/Relation:route",
+    "retrieved_at": "2026-10-29T22:38:05.086502+00:00",
+    "status": 200,
+    "bytes": 249307,
+    "final_url": "https://wiki.openstreetmap.org/wiki/Relation:route",
+    "title": "Relation:route - OpenStreetMap Wiki",
+    "text_path": "research/bus-static/primary-docs/wiki.openstreetmap.org-Relation-route.txt",
+    "evidence_excerpts": [
+      "r train stopping position, attached to the route road , belonging to the route ( public_transport = stop_position ). The order of the members in the relation should be identical to the order in the timetable. Currently the stop role should be used instead of the stop: <number> , forward:stop: <number> , backward:stop: ",
+      "=* to =* See also type = route_master Status: de facto route relation Relations: Members: Prevalent roles: More details at tag info More details at tag info Tools for this tag taginfo · AD · AT · BE · BR · BY · CH · CH² · CN · CZ · DE · DACH · DK · FI · FR · GB · GR · HU · IE (N+S) · IR · IT · LI · LU · JP · KP · KR · "
+    ]
+  },
+  {
+    "url": "https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_position",
+    "retrieved_at": "2026-10-29T22:38:05.088540+00:00",
+    "status": 200,
+    "bytes": 107215,
+    "final_url": "https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_position",
+    "title": "Tag:public_transport=stop_position - OpenStreetMap Wiki",
+    "text_path": "research/bus-static/primary-docs/wiki.openstreetmap.org-Tag-public_transport-stop_position.txt",
+    "evidence_excerpts": [
+      " Tag:public_transport=stop_position - OpenStreetMap Wiki Tag:public_transport=stop_position From OpenStreetMap Wiki Jump to navigation Jump to search Help Tag:public transport=stop position In other languages Afrikaans asturianu azərbaycanca "
+    ]
+  },
+  {
+    "url": "https://gtfs.org/documentation/realtime/reference/",
+    "retrieved_at": "2026-10-29T22:38:05.090568+00:00",
+    "status": 200,
+    "bytes": 241122,
+    "final_url": "https://gtfs.org/documentation/realtime/reference/",
+    "title": "Reference - General Transit Feed Specification",
+    "text_path": "research/bus-static/primary-docs/gtfs.org-reference.txt",
+    "evidence_excerpts": [
+      "d and feed message. entity FeedEntity Conditionally required Many Contents of the feed. If there is real-time information available for the transit system, this field must be provided. If this field is empty, consumers should assume there is no real-time information available for the system. message FeedHeader ¶ Metada"
+    ]
+  }
+]

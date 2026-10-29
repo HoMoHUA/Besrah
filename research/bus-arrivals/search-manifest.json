@@ -1,0 +1,826 @@
+[
+  {
+    "query": "\"شهر من\" \"اتوبوس\" مشهد اپلیکیشن",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-apps.json",
+    "results": [
+      {
+        "url": "https://www.tinn.ir/%D8%A8%D8%AE%D8%B4-%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86-%D8%B1%D8%B6%D9%88%DB%8C-103/307949-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%A8%D9%84%DB%8C%D8%AA-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D8%A8%D8%A7-%D8%A7%D9%BE%D9%84%DB%8C%DA%A9%DB%8C%D8%B4%D9%86-%D8%B4%D9%87%D8%B1-%D9%85%D9%86-%D8%AF%D8%B1-%D9%85%D8%B4%D9%87%D8%AF-%D9%81%D8%B9%D8%A7%D9%84-%D8%B4%D8%AF",
+        "title": "پرداخت بلیت اتوبوس با اپلیکیشن «شهر من» در مشهد فعال شد",
+        "position": 1
+      },
+      {
+        "url": "https://khabarfarsi.com/u/231381262",
+        "title": "◄ پرداخت بلیت اتوبوس با اپلیکیشن شهر من در مشهد فعال شد",
+        "position": 2
+      },
+      {
+        "url": "https://cafebazaar.ir/app/ir.shahrman",
+        "title": "دانلود برنامه شهر من اندروید | بازار",
+        "position": 3
+      },
+      {
+        "url": "https://respina24.ir/mag/transportation-in-mashhad/",
+        "title": "حمل و نقل عمومی در مشهد - مسیریابی خطوط مترو و اتوبوس",
+        "position": 4
+      },
+      {
+        "url": "https://way2pay.ir/%D8%B4%D8%A7%D8%B1%DA%98-%D9%85%D9%88%D8%A8%D8%A7%DB%8C%D9%84%DB%8C-%D9%85%D9%86-%DA%A9%D8%A7%D8%B1%D8%AA/",
+        "title": "شارژ موبایلی من کارت مشهد بدون نیاز به مراجعه حضوری",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "\"مشهد همراه\" \"اتوبوس\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-apps.json",
+    "results": [
+      {
+        "url": "https://safar724.com/post/mashhad",
+        "title": "شهر مشهد | سفر ۷۲۴",
+        "position": 1
+      },
+      {
+        "url": "https://payasafar.com/terminal/mashhad",
+        "title": "بلیط اتوبوس ترمینال (پایانه) مشهد | پایاسفر",
+        "position": 2
+      },
+      {
+        "url": "https://www.pateh.com/bus/thr-mhd/",
+        "title": "بلیط اتوبوس تهران مشهد - خرید اینترنتی بلیط اتوبوس تهران مشهد - پته",
+        "position": 3
+      },
+      {
+        "url": "https://persiatus.ir/bus/tehran-mashhad",
+        "title": "بلیط اتوبوس تهران به مشهد - لیست قیمت به همراه ساعت حرکت",
+        "position": 4
+      },
+      {
+        "url": "http://forum.rasekhoon.net/post/show/1286722/2990688/",
+        "title": "حمل و نقل عمومی در مشهد",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "\"bus.mashhad.ir\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-apps.json",
+    "results": [
+      {
+        "url": "https://orienttrips.com/bus/bushehr/mashhad",
+        "title": "Bus from Bushehr To Mashhad | OrientTrips",
+        "position": 1
+      },
+      {
+        "url": "https://eservice.mashhad.ir/fa/web_directory/103722-%D9%86%D9%88%D8%A8%D8%AA-%D8%AF%D9%87%D9%8A-%D9%85%D8%B9%D8%A7%D9%8A%D9%86%D9%87-%D9%81%D9%86%D9%8A-%D8%AE%D9%88%D8%AF%D8%B1%D9%88.html",
+        "title": "https://eservice.mashhad.ir/fa/web_directory/10372...",
+        "position": 2
+      },
+      {
+        "url": "https://eservice.mashhad.ir/fa/page/103722-%D9%86%D9%88%D8%A8%D8%AA-%D8%AF%D9%87%DB%8C-%D9%85%D8%B9%D8%A7%DB%8C%D9%86%D9%87-%D9%81%D9%86%DB%8C-%D8%AE%D9%88%D8%AF%D8%B1%D9%88.html",
+        "title": "https://eservice.mashhad.ir/fa/page/103722-نوبت-ده...",
+        "position": 3
+      },
+      {
+        "url": "https://eservice.mashhad.ir/index.php?module=web_directory&wd_id=340806",
+        "title": "https://eservice.mashhad.ir/index.php?module=web_d...",
+        "position": 4
+      },
+      {
+        "url": "https://eservice.mashhad.ir/fa/page/104440-%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%BA%DB%8C%D8%B1%D8%AD%D8%B6%D9%88%D8%B1%DB%8C-%D8%B9%D9%88%D8%A7%D8%B1%D8%B6.html",
+        "title": "https://eservice.mashhad.ir/fa/page/104440-سامانه-...",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "\"فینوتک\" \"اتوبوس\" \"مستندات\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-apps.json",
+    "results": [
+      {
+        "url": "https://github.com/KasraK2K/Made-In-Iran-APIs",
+        "title": "GitHub - KasraK2K/Made-In-Iran-APIs",
+        "position": 1
+      },
+      {
+        "url": "https://github.com/Hameds/APIs-made-in-Iran/blob/master/README.md",
+        "title": "APIs-made-in-Iran/README.md at master · Hameds/APIs-made-in-Iran",
+        "position": 2
+      },
+      {
+        "url": "https://context.reverso.net/%E7%BF%BB%E8%AF%91/%E4%B8%AD%E6%96%87-%E8%8B%B1%E8%AF%AD/%E7%9A%AE%E8%82%A4%E6%9D%BE%E5%BC%9B",
+        "title": "皮肤松弛-翻译为英语-例句中文| Reverso Context",
+        "position": 3
+      },
+      {
+        "url": "https://ponisha.ir/search/projects/web-programming",
+        "title": "لیست پروژه‌های برنامه نویسی تحت وب",
+        "position": 4
+      },
+      {
+        "url": "https://youtube.com/watch?v=HtLU5LzX5oU",
+        "title": "HALO REMAKE CONCERNS - NEW CONTENT, EARLY RELEASE, POLISH, AND MORE!",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "\"نشان\" \"مشهد\" \"اتوبوس\" site:neshan.org/blog",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-apps.json",
+    "results": [
+      {
+        "url": "https://neshan.org",
+        "title": "نقشه نشان - مرجع جست‌وجو و مسیریابی",
+        "position": 1
+      },
+      {
+        "url": "https://neshan.org/maps/travel/bandar-bushehr-to-khoramshahr",
+        "title": "...",
+        "position": 2
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/static-map",
+        "title": "Static Image Generator API | ابزار تولید نقشه استاتیک",
+        "position": 3
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/map-type",
+        "title": "Neshan Map Types Example (OpenLayers)",
+        "position": 4
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/maplibre-examples/maplibre-styles",
+        "title": "@neshan/maplibre-sdk — style gallery example",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "نشان زمان رسیدن اتوبوس مشهد ایستگاه",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-discovery.json",
+    "results": [
+      {
+        "url": "https://www.mojnews.com/%D8%A8%D8%AE%D8%B4-%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1-170/657876-%D9%85%D8%B3%DB%8C%D8%B1-%D8%AE%D8%B7-%D9%87%D8%A7%DB%8C-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D9%85%D8%B4%D9%87%D8%AF-pdf-%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C-%D8%AE%D8%B7%D9%88%D8%B7",
+        "title": "مسیر خط های اتوبوس مشهد - PDF راهنمای خطوط",
+        "position": 1
+      },
+      {
+        "url": "https://www.imna.ir/news/688936/%D8%A7%D9%85%DA%A9%D8%A7%D9%86-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%86%D8%B4%D8%A7%D9%86-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%85%D8%B3%DB%8C%D8%B1%DB%8C%D8%A7%D8%A8%DB%8C-%D9%88-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9-%D8%A7%D8%B2-%D8%B2%D9%85%D8%A7%D9%86-%D8%B1%D8%B3%DB%8C%D8%AF%D9%86-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3",
+        "title": "نشان» برای مسیریابی و اطلاع از زمان رسیدن اتوبوس مهیا شد",
+        "position": 2
+      },
+      {
+        "url": "https://borna.news/fa/news/2128923/%DA%86%DA%AF%D9%88%D9%86%D9%87-%D8%AF%D8%B1-%D8%AA%D8%A8%D8%B1%DB%8C%D8%B2-%D8%A7%D8%B2-%D8%B2%D9%85%D8%A7%D9%86-%D8%B1%D8%B3%DB%8C%D8%AF%D9%86-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D8%A8%D9%87-%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87-%D9%85%D8%B7%D9%84%D8%B9-%D8%B4%D9%88%DB%8C%D9%85",
+        "title": "چگونه در تبریز از زمان رسیدن اتوبوس به ایستگاه مطلع شویم؟",
+        "position": 3
+      },
+      {
+        "url": "https://payaneh.ir/bus/Tehran/Mashhad",
+        "title": "بلیط اتوبوس تهران به مشهد | پایانه",
+        "position": 4
+      },
+      {
+        "url": "https://hihotel.ir/blog/mashhad-bus-lines",
+        "title": "خطوط اتوبوسرانی مشهد: راهنمای جامع مسیریابی هوشمند خطوط+ pdf",
+        "position": 5
+      },
+      {
+        "url": "https://www.pateh.com/blog/distance-from-tehran-to-mashhad",
+        "title": "فاصله تهران تا مشهد | مقایسه مسیر با ماشین، اتوبوس، قطار و هواپیما | مجله پته",
+        "position": 6
+      }
+    ]
+  },
+  {
+    "query": "مشهد همراه شهر من اتوبوس زمان رسیدن",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-discovery.json",
+    "results": [
+      {
+        "url": "https://play.google.com/store/apps/details?id=com.genesismobo.time4bus&hl=fa",
+        "title": "Time4BUS - autobusy i tramwaje - برنامه‌ها در Google Play",
+        "position": 1
+      },
+      {
+        "url": "https://apieco.ir/api/mashad-bus/",
+        "title": "وب‌سرویس زمان رسیدن اتوبوس به ایستگاه در مشهد - Mashad Bus API - بازار اَپی اِکو",
+        "position": 2
+      },
+      {
+        "url": "https://www.alefbatour.com/blog/87559/%D8%A7%D9%BE%D9%84%DB%8C%DA%A9%DB%8C%D8%B4%D9%86-%D9%85%D9%88%D9%88%DB%8C%D8%AA-moovit-%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C-%D8%AD%D9%85%D9%84-%D9%88-%D9%86%D9%82%D9%84-%D8%B9%D9%85%D9%88%D9%85%DB%8C",
+        "title": "اپلیکیشن موویت (Moovit) راهنمای حمل و نقل عمومی",
+        "position": 3
+      },
+      {
+        "url": "https://youtube.com/watch?v=HtLU5LzX5oU",
+        "title": "HALO REMAKE CONCERNS - NEW CONTENT, EARLY RELEASE, POLISH, AND MORE!",
+        "position": 4
+      },
+      {
+        "url": "https://cafebazaar.ir/app/com.metrobus",
+        "title": "دانلود برنامه متروباس اندروید | بازار",
+        "position": 5
+      },
+      {
+        "url": "https://neshan.org/maps/places/mashhad/bus-stations",
+        "title": "...",
+        "position": 6
+      }
+    ]
+  },
+  {
+    "query": "site:platform.neshan.org اتوبوس API",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-discovery.json",
+    "results": [
+      {
+        "url": "https://platform.neshan.org",
+        "title": "ارائه‌دهنده سرویس‌های نقشه‌محور | پلتفرم نقشه نشان",
+        "position": 1
+      },
+      {
+        "url": "https://platform.neshan.org/docs/api/routing-category/routing/",
+        "title": "وب‌سرویس \"مسیریابی با ترافیک زنده\" پلتفرم نشان",
+        "position": 2
+      },
+      {
+        "url": "https://platform.neshan.org/docs/api/search-category/nearby/",
+        "title": "وب‌سرویس \"جستجوی مکان‌های نزدیک\" پلتفرم نشان",
+        "position": 3
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/static-map",
+        "title": "Static Image Generator API | ابزار تولید نقشه استاتیک",
+        "position": 4
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/map-type",
+        "title": "Neshan Map Types Example (OpenLayers)",
+        "position": 5
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/maplibre-examples/maplibre-styles",
+        "title": "@neshan/maplibre-sdk — style gallery example",
+        "position": 6
+      }
+    ]
+  },
+  {
+    "query": "Mashhad GTFS realtime",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-discovery.json",
+    "results": [
+      {
+        "url": "https://addtransit.com/gtfs-feeds-gtfs-realtime-feeds.php",
+        "title": "GTFS & GTFS-Realtime Feed Directory — Search Transit Feeds | AddTransit",
+        "position": 1
+      },
+      {
+        "url": "https://trains.fyi/mashhad/",
+        "title": "Mashhad Train Tracker | trains.fyi",
+        "position": 2
+      },
+      {
+        "url": "https://mobilitydatabase.org/",
+        "title": "MobilityDatabase | The Global Catalog of GTFS, GTFS-Realtime & GBFS Feeds",
+        "position": 3
+      },
+      {
+        "url": "https://developers.google.com/transit/gtfs-realtime",
+        "title": "GTFS Realtime Overview - Transit",
+        "position": 4
+      },
+      {
+        "url": "https://gtfs.org/documentation/realtime/reference/",
+        "title": "GTFS Realtime Reference",
+        "position": 5
+      },
+      {
+        "url": "https://support.google.com/transitpartners/answer/6368391?hl=en",
+        "title": "Create a GTFS Realtime feed - Transit Partners Help",
+        "position": 6
+      }
+    ]
+  },
+  {
+    "query": "site:blog.podium.ir \"مشهد\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-final.json",
+    "results": []
+  },
+  {
+    "query": "site:podium.ir \"زمان\" \"اتوبوس\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-final.json",
+    "results": []
+  },
+  {
+    "query": "site:docs.finnotech.ir \"bus\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-final.json",
+    "results": [
+      {
+        "url": "https://finnotech.ir/allServices",
+        "title": "تمامی APIهای فینوتک | بانکداری باز، احراز هویت، اعتبارسنجی",
+        "position": 1
+      }
+    ]
+  },
+  {
+    "query": "site:neshan.org \"مشهد\" \"زمان رسیدن\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-final.json",
+    "results": [
+      {
+        "url": "https://neshan.org/features/",
+        "title": "قابلیت ها - نقشه نشان",
+        "position": 1
+      },
+      {
+        "url": "https://platform.neshan.org/docs/api/routing-category/routing-historical/",
+        "title": "سرویس مسیریابی پیش‌بینی | Predictive Routing API | پلتفرم نقشه نشان",
+        "position": 2
+      },
+      {
+        "url": "https://neshan.org/maps/places/68026623c2ab311d1e7ddf886c57d93d",
+        "title": "ایستگاه اتوبوس چهارراه شهید فرامرز عباسی روی نقشه",
+        "position": 3
+      },
+      {
+        "url": "https://neshan.org/maps/places/9c77cf1056e246c4fb7a185b1cd8d9b3",
+        "title": "ایستگاه اتوبوس  پایانه شهید مفتح روی نقشه ؛ گلشور, مشهد",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "\"نقشه همراه مشهد\" \"org.rajman\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-final.json",
+    "results": [
+      {
+        "url": "https://cafebazaar.ir/app/org.rajman.neshan.traffic.qom",
+        "title": "دانلود برنامه نقشه همراه قم اندروید | بازار",
+        "position": 1
+      },
+      {
+        "url": "https://karboom.io/companies/%D9%86%D9%82%D8%B4%D9%87-%D9%88-%D9%85%D8%B3%DB%8C%D8%B1%DB%8C%D8%A7%D8%A8-%D9%86%D8%B4%D8%A7%D9%86/overview",
+        "title": "معرفی شرکت نقشه و مسیریاب نشان  | کاربوم",
+        "position": 2
+      },
+      {
+        "url": "https://www.fanap.ir/companies/Alphaco/6012228",
+        "title": "فناپ - شرکت‌ها - fanap.ir",
+        "position": 3
+      },
+      {
+        "url": "https://www.karnaval.ir/blog/mashhad-metro",
+        "title": "نقشه مترو مشهد 1405 | دانلود نقشه مترو مشهد با کیفیت ☀️ کارناوال",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "site:podium.ir \"اتوبوس\" \"مشهد\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-partnership.json",
+    "results": [
+      {
+        "url": "https://www.podium.ir/",
+        "title": "پادیوم، بازارچه API و راهکارهای دیجیتال",
+        "position": 1
+      },
+      {
+        "url": "https://podium.ir/pod",
+        "title": "درباره پاد",
+        "position": 2
+      }
+    ]
+  },
+  {
+    "query": "site:podium.ir \"شهرداری مشهد\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-partnership.json",
+    "results": []
+  },
+  {
+    "query": "site:myket.ir/app \"نقشه\" \"مشهد\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-partnership.json",
+    "results": [
+      {
+        "url": "https://myket.ir/app/com.EBrainSol.livestreetview.livemap",
+        "title": "دانلود برنامه Live Map and street View - Satellite Navigation برای اندروید | مایکت",
+        "position": 1
+      },
+      {
+        "url": "https://myket.ir/app/com.gai.GPS.map.navigation",
+        "title": "دانلود برنامه Maps Directions & GPS Navigation برای اندروید | مایکت",
+        "position": 2
+      },
+      {
+        "url": "https://myket.ir/app/com.livestreets.findroute.navigation.streets.maps.panoramic.view",
+        "title": "دانلود برنامه Voice Navigation:GPS Navigation & GPS Route finder برای اندروید | مایکت",
+        "position": 3
+      },
+      {
+        "url": "https://myket.ir/app/org.mozilla.mozstumbler",
+        "title": "دانلود برنامه Mozilla Stumbler برای اندروید | مایکت",
+        "position": 4
+      },
+      {
+        "url": "https://myket.ir/app/ir.sssg.mysoftware_30",
+        "title": "دانلود برنامه هزینه درآمد برای اندروید | مایکت",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "\"shahreman.mashhad.app\" \"http\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-partnership.json",
+    "results": [
+      {
+        "url": "https://cafebazaar.ir/app/shahreman.mashhad.app",
+        "title": "دانلود برنامه اپلیکیشن شهروندی شهرمن اندروید | بازار",
+        "position": 1
+      },
+      {
+        "url": "https://myket.ir/app/shahreman.mashhad.app",
+        "title": "دانلود برنامه ‏اپلیکیشن شهروندی شهرمن برای اندروید | مایکت",
+        "position": 2
+      },
+      {
+        "url": "https://eitaa.com/madari8/102",
+        "title": "ایتا - سپاس مادر",
+        "position": 3
+      },
+      {
+        "url": "https://eitaa.com/BahamZoj/3103",
+        "title": "ایتا - باشگاه اجتماعی باهم",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "شهر من مشهد my.mashhad.ir دانلود",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-services.json",
+    "results": [
+      {
+        "url": "https://myket.ir/app/shahreman.mashhad.app",
+        "title": "دانلود برنامه ‏اپلیکیشن شهروندی شهرمن برای اندروید | مایکت",
+        "position": 1
+      },
+      {
+        "url": "https://shahr.app/",
+        "title": "شهر من",
+        "position": 2
+      },
+      {
+        "url": "https://p30download.ir/fa/entry/47469/my-mashhad",
+        "title": "دانلود برنامه موبایل همراه شهروند الکترونیک",
+        "position": 3
+      },
+      {
+        "url": "https://iapps.ir/app/%D8%A7%D9%BE%D9%84%DB%8C%DA%A9%DB%8C%D8%B4%D9%86-%D8%B4%D9%87%D8%B1%D9%88%D9%86%D8%AF%DB%8C-%D8%B4%D9%87%D8%B1%D9%85%D9%86-shahreman/567388938",
+        "title": "اپلیکیشن شهروندی شهرمن | shahreman",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "نقشه همراه مشهد cafebazaar",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-services.json",
+    "results": [
+      {
+        "url": "https://cafebazaar.ir/app/org.rajman.neshan.traffic.tehran.navigator",
+        "title": "دانلود برنامه نشان؛ نصب نقشه و مسیریاب Neshan | بازار",
+        "position": 1
+      },
+      {
+        "url": "https://cafebazaar.ir/app/com.taxsee.taxsee",
+        "title": "دانلود برنامه ماکسیم|maxim درخواست سفر/ارسال کالا اندروید | بازار",
+        "position": 2
+      },
+      {
+        "url": "https://cafebazaar.ir/app/net.hamneshin.app.twa",
+        "title": "دانلود برنامه همنشین - دورهمی دوست‌یابی اندروید | بازار",
+        "position": 3
+      },
+      {
+        "url": "https://cafebazaar.ir/app/ir.shahbaz.SHZToolBox",
+        "title": "دانلود برنامه جعبه ابزار اندروید | بازار",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "Mashhad bus arrival Finnotech busArrivalTime",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-services.json",
+    "results": [
+      {
+        "url": "https://www.gotobus.com/track-bus-status/",
+        "title": "Track Bus Status - GotoBus",
+        "position": 1
+      },
+      {
+        "url": "https://moovitapp.com/index/en/public_transit-%D7%A6%D7%95%D7%9E%D7%AA_%D7%9E%D7%A9%D7%94%D7%93-Israel-stop_22539-1",
+        "title": "Mashhad Junction stop - Routes, Schedules, and Fares",
+        "position": 2
+      },
+      {
+        "url": "https://hamintour.com/ultimate-guide-to-mashhad-bus-terminals-your-gateway-to-irans-spiritual-heart",
+        "title": "Mashhad Travel: Complete Bus Terminal Guide",
+        "position": 3
+      },
+      {
+        "url": "https://www.fairfaxcounty.gov/bustime/home.jsp",
+        "title": "Fairfax Connector | BusTracker",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "site:neshan.org \"اتوبوس\" \"رسیدن\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-services.json",
+    "results": [
+      {
+        "url": "https://neshan.org",
+        "title": "نقشه نشان - مرجع جست‌وجو و مسیریابی",
+        "position": 1
+      },
+      {
+        "url": "https://neshan.org/maps/travel/bandar-bushehr-to-khoramshahr",
+        "title": "...",
+        "position": 2
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/static-map",
+        "title": "Static Image Generator API | ابزار تولید نقشه استاتیک",
+        "position": 3
+      },
+      {
+        "url": "https://platform.neshan.org/docs-samples/maplibre-examples/maplibre-styles",
+        "title": "@neshan/maplibre-sdk — style gallery example",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "site:mashhad.ir نقشه اتوبوس api",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-services.json",
+    "results": [
+      {
+        "url": "https://sobhe-emrooz.ir/?p=28374&print=print",
+        "title": "ایجاد امکان نمایش آنلاین موقعیت مکانی اتوبوس بر روی نقشه همراه مشهد",
+        "position": 1
+      },
+      {
+        "url": "https://sitezilla.org/site/mashhad.ir/",
+        "title": "mashhad.ir » پورتال شهر مشهد ::",
+        "position": 2
+      },
+      {
+        "url": "https://tabnak.ir/fa/news/1093288/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%B4%D9%87%D8%B1%DB%8C-%D9%88-api-%D9%87%D8%A7%DB%8C-%D8%B4%D9%87%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C-%D9%85%D8%B4%D9%87%D8%AF",
+        "title": "خدمات شهری و API های شهرداری مشهد | تابناک | TABNAK",
+        "position": 3
+      },
+      {
+        "url": "https://virgool.io/PODIUM/api%D9%87%D8%A7%DB%8C-%D8%B4%D9%87%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C-%D9%85%D8%B4%D9%87%D8%AF-%D8%AF%D8%B1-%D9%BE%D8%A7%D8%AF%DB%8C%D9%88%D9%85-aojo3h8wa3pt",
+        "title": "APIهای شهرداری مشهد در پادیوم",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "query": "site:neshan.org اتوبوس مشهد زمان",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-targeted.json",
+    "results": [
+      {
+        "url": "https://neshan.org/maps/places/bd46026078b702c25540f49be8a434ea",
+        "title": "ایستگاه اتوبوس انتهای سید رضی روی نقشه ؛ شهید رضوی, مشهد",
+        "position": 1
+      },
+      {
+        "url": "https://neshan.org/maps/places/mashhad/ferdowsi",
+        "title": "محله فردوسی مشهد - نقشه نشان",
+        "position": 2
+      },
+      {
+        "url": "https://neshan.org/maps/places/mashhad/malek-abad",
+        "title": "محله ملک آباد مشهد - نقشه نشان",
+        "position": 3
+      },
+      {
+        "url": "https://neshan.org/maps/places/mashhad/niroo-havaee",
+        "title": "محله نیروی هوایی مشهد - نقشه نشان",
+        "position": 4
+      },
+      {
+        "url": "https://neshan.org/maps/places/d1a790a253af8019dddb770de0378148",
+        "title": "ایستگاه اتوبوس هفت تیر روی نقشه ؛ هنرستان, مشهد - نشان",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "site:mashhad.ir \"همراه\" \"اتوبوس\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-targeted.json",
+    "results": [
+      {
+        "url": "https://taxi.mashhad.ir",
+        "title": "سازمان تاکسیرانی شهرداری مشهد ::",
+        "position": 1
+      },
+      {
+        "url": "https://fmdv.mashhad.ir/news/935204-LAUNCH-THE-GOLD-III-REPORT-ACCESS-PUBLIC-SERVICES-AND-WORLD-URBANIZATION.html",
+        "title": "LAUNCH OF THE GOLD III REPORT ON ACCESS TO PUBLIC SERVICES AND WORLD URBANIZATION",
+        "position": 2
+      },
+      {
+        "url": "https://fava.mashhad.ir",
+        "title": "سازمان فناوری اطلاعات و ارتباطات شهرداری مشهد ::",
+        "position": 3
+      },
+      {
+        "url": "https://epmc.mashhad.ir",
+        "title": "مرکز پایش آلاینده های زیست محیطی مشهد مقدّس ::",
+        "position": 4
+      },
+      {
+        "url": "https://planning.mashhad.ir",
+        "title": "معاونت برنامه‌ریزی و توسعه سرمایه انسانی شهرداری مشهد ::",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "site:mashhad.ir \"شهر من\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-targeted.json",
+    "results": [
+      {
+        "url": "http://mashhad.ir",
+        "title": "پورتال شهر مشهد ::",
+        "position": 1
+      },
+      {
+        "url": "https://fava.mashhad.ir",
+        "title": "سازمان فناوری اطلاعات و ارتباطات شهرداری مشهد ::",
+        "position": 2
+      },
+      {
+        "url": "https://epmc.mashhad.ir",
+        "title": "مرکز پایش آلاینده های زیست محیطی مشهد مقدّس ::",
+        "position": 3
+      },
+      {
+        "url": "https://planning.mashhad.ir",
+        "title": "معاونت برنامه‌ریزی و توسعه سرمایه انسانی شهرداری مشهد ::",
+        "position": 4
+      },
+      {
+        "url": "https://fmdv.mashhad.ir/news/935204-LAUNCH-THE-GOLD-III-REPORT-ACCESS-PUBLIC-SERVICES-AND-WORLD-URBANIZATION.html",
+        "title": "LAUNCH OF THE GOLD III REPORT ON ACCESS TO PUBLIC SERVICES AND WORLD URBANIZATION",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "site:finnotech.ir \"اتوبوس\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "exa",
+    "source_file": "search-targeted.json",
+    "results": [
+      {
+        "url": "https://docs.finnotech.ir/",
+        "title": "مستندات API فینوتک | بانکداری باز و سرویس‌های استعلام",
+        "position": 1
+      },
+      {
+        "url": "https://finnotech.ir/allServices",
+        "title": "تمامی APIهای فینوتک | بانکداری باز، احراز هویت، اعتبارسنجی",
+        "position": 2
+      },
+      {
+        "url": "https://docs.finnotech.ir/services/vehicle/",
+        "title": "استعلام خودرو | سرویس‌های فینوتک",
+        "position": 3
+      },
+      {
+        "url": "https://finnotech.ir/",
+        "title": "فینوتک | ارائه دهنده خدمات بانکداری باز",
+        "position": 4
+      },
+      {
+        "url": "https://docs.finnotech.ir/services/kyc/",
+        "title": "احراز هویت و شناخت مشتری | سرویس‌های فینوتک",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "site:neshan.org/maps/places \"ایستگاه اتوبوس\" \"مشهد\"",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "parallel",
+    "source_file": "search-targeted.json",
+    "results": [
+      {
+        "url": "https://neshan.org/maps/places/mashhad/ferdowsi",
+        "title": "محله فردوسی مشهد - نقشه نشان",
+        "position": 1
+      },
+      {
+        "url": "https://neshan.org/maps/places/d1a790a253af8019dddb770de0378148",
+        "title": "ایستگاه اتوبوس هفت تیر روی نقشه ؛ هنرستان, مشهد - نشان",
+        "position": 2
+      },
+      {
+        "url": "https://neshan.org/maps/places/bd46026078b702c25540f49be8a434ea",
+        "title": "ایستگاه اتوبوس انتهای سید رضی روی نقشه ؛ شهید رضوی, مشهد",
+        "position": 3
+      },
+      {
+        "url": "https://neshan.org/maps/places/d3c9a3a0a495c744f21a9f3b34450b4b",
+        "title": "ایستگاه اتوبوس شهید دستغیب 19 روی نقشه ؛ آبکوه, مشهد",
+        "position": 4
+      },
+      {
+        "url": "https://neshan.org/maps/places/mashhad/farhang",
+        "title": "محله فرهنگ مشهد - نقشه نشان",
+        "position": 5
+      }
+    ]
+  },
+  {
+    "query": "\"مشهد همراه\" نقشه map.mashhad.ir",
+    "retrieved_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
+    "served_by": "keenable",
+    "source_file": "search-targeted.json",
+    "results": [
+      {
+        "url": "https://www.yjc.ir/fa/amp/news/8544625",
+        "title": "ایستگاه‌های استقبال از زائران پیاده و سواره شهرداری مشهد تجهیز شد",
+        "position": 1
+      },
+      {
+        "url": "https://www.mizanonline.ir/fa/news/645341/%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF-%D8%AC%D8%AF%DB%8C%D8%AF%D8%AA%D8%B1%DB%8C%D9%86-%D9%88-%DA%A9%D8%A7%D9%85%D9%84%E2%80%8C%D8%AA%D8%B1%DB%8C%D9%86-%D9%86%D9%82%D8%B4%D9%87-%D9%85%D8%B4%D9%87%D8%AF-%D9%87%D9%85%D8%B1%D8%A7%D9%87-%D8%A8%D8%A7-%D8%AC%D8%B2%D8%A6%DB%8C%D8%A7%D8%AA-%D8%AF%D9%82%DB%8C%D9%82-pdf",
+        "title": "دانلود جدیدترین و کامل‌ترین نقشه مشهد همراه با جزئیات دقیق + PDF",
+        "position": 2
+      },
+      {
+        "url": "https://easycounter.com/report/map.mashhad.ir",
+        "title": "Map.mashhad.ir: نقشه همراه مشهد",
+        "position": 3
+      },
+      {
+        "url": "https://www.mashhad-city.ir/17-mantaghe/",
+        "title": "تقسیم بندی مناطق شهرداری مشهد (اجرایی نشده) · 🏢 اطمینان شرق",
+        "position": 4
+      },
+      {
+        "url": "https://wiki.openstreetmap.org/wiki/Mashhad",
+        "title": "Mashhad - OpenStreetMap Wiki",
+        "position": 5
+      }
+    ]
+  }
+]

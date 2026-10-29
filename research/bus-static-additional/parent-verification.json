@@ -1,0 +1,21 @@
+{
+  "manifest_entries_verified": 26,
+  "supplementary_rows": 205,
+  "rows_by_source": {
+    "mrchetor": 71,
+    "blogfa_historical": 134
+  },
+  "pdf_reference_tokens": 144,
+  "pdf_reference_tokens_distinct": 144,
+  "byte_identical_pdfs_verified": {
+    "guide_historical.pdf": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7",
+    "guide_historical_proxy.pdf": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7",
+    "mrchetor-guide.pdf": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7",
+    "hamyartrip-guide.pdf": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7"
+  },
+  "classification": "research_only_not_current_network_census",
+  "pdf_metadata_verified": {
+    "pages": 32,
+    "creation_date": "Mon Jun 24 08:16:14 2019 UTC"
+  }
+}

@@ -1,0 +1,2 @@
+# Preserve the hashed research CSV exactly; source CRLF is not a code-style error.
+research/bus-static-additional/supplementary-route-tables.csv -text whitespace=cr-at-eol

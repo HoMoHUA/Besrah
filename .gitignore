@@ -4,6 +4,8 @@ dist/
 coverage/
 .vitest/
 *.tsbuildinfo
+__pycache__/
+*.py[cod]
 
 # Secrets and local configuration
 .env
@@ -23,3 +25,11 @@ session/
 .DS_Store
 .idea/
 .vscode/
+
+# Full third-party research captures stay local; commit facts and evidence hashes.
+research/bus-static/primary-docs/
+research/bus-static/direct-*.html
+research/bus-static/proxy-*.html
+research/bus-static-additional/*.html
+research/bus-static-additional/*.txt
+research/bus-static-additional/*.pdf

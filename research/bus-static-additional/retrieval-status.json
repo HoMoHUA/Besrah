@@ -1,0 +1,138 @@
+[
+  {
+    "id": "hamyartrip",
+    "url": "https://hamyartrip.ir/mashhad-bus-route-guide/",
+    "retrieved_at": "2026-10-29T22:23:17.059755+00:00",
+    "status": 200,
+    "final_url": "https://hamyartrip.ir/mashhad-bus-route-guide/",
+    "bytes": 132906,
+    "headers": {
+      "Date": "Thu, 29 Oct 2026 22:23:19 GMT",
+      "Content-Type": "text/html; charset=UTF-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "keep-alive",
+      "Server": "cloudflare",
+      "x-pingback": "https://hamyartrip.ir/xmlrpc.php",
+      "link": "<https://hamyartrip.ir/wp-json/>; rel=\"https://api.w.org/\", <https://hamyartrip.ir/wp-json/wp/v2/posts/24425>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://hamyartrip.ir/?p=24425>; rel=shortlink",
+      "vary": "Accept-Encoding,User-Agent",
+      "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2FBSEobfKFmS3sFSV8lLuXQNhcUhntjyiuE7hzxpJiTqObkyqdfknvser10f7EevwHlEc9nvVqt%2FVUin6bOlb2TF7iWnNzyGxrWO87zBHg8KTy1J108WoYrDlmNo34EOv\"}]}",
+      "cf-cache-status": "DYNAMIC",
+      "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "Content-Encoding": "zstd",
+      "CF-RAY": "a5259575af86000a-ORD",
+      "alt-svc": "h3=\":443\"; ma=86400"
+    }
+  },
+  {
+    "id": "mrchetor",
+    "url": "https://mrchetor.ir/mshhad-bus-routs/",
+    "retrieved_at": "2026-10-29T22:23:17.061229+00:00",
+    "status": 200,
+    "final_url": "https://mrchetor.ir/mshhad-bus-routs/",
+    "bytes": 543859,
+    "headers": {
+      "Server": "nginx",
+      "Date": "Thu, 29 Oct 2026 22:23:20 GMT",
+      "Content-Type": "text/html; charset=UTF-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "keep-alive",
+      "X-Pingback": "https://mrchetor.ir/xmlrpc.php",
+      "Link": "<https://mrchetor.ir/wp-json/>; rel=\"https://api.w.org/\", <https://mrchetor.ir/wp-json/wp/v2/posts/305>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://mrchetor.ir/?p=305>; rel=shortlink",
+      "Server-Timing": "wp-before-template;dur=1482.75",
+      "Vary": "Accept-Encoding,User-Agent",
+      "Content-Encoding": "gzip"
+    }
+  },
+  {
+    "id": "hihotel",
+    "url": "https://hihotel.ir/blog/mashhad-bus-lines",
+    "retrieved_at": "2026-10-29T22:23:17.063500+00:00",
+    "status": 503,
+    "final_url": "https://hihotel.ir/blog/mashhad-bus-lines",
+    "bytes": 206,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 29 Oct 2026 22:23:18 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "206",
+      "Connection": "keep-alive"
+    }
+  },
+  {
+    "id": "blogfa_historical",
+    "url": "https://darman1.blogfa.com/post/46",
+    "retrieved_at": "2026-10-29T22:23:17.064262+00:00",
+    "status": 200,
+    "final_url": "https://darman1.blogfa.com/post/46",
+    "bytes": 68005,
+    "headers": {
+      "Date": "Thu, 29 Oct 2026 22:23:17 GMT",
+      "Content-Type": "text/html; charset=utf-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "keep-alive",
+      "Cache-Control": "private",
+      "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=dnQ9Nkssa2UXOYGbXexUbI72Ftwz3W0hsFcCb%2B7niq29WTSTPXBFPB%2FjZAaP6pcw57uOw1Hy7twcG%2FdZl0Ag6jXqeTfgn4LeASdYA9mmrJgx7FNyojI2EZNztDgNslOMlOzu6jI%3D\"}]}",
+      "Vary": "Accept-Encoding",
+      "Server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "Content-Encoding": "zstd",
+      "CF-RAY": "a525957498ace258-ORD",
+      "alt-svc": "h3=\":443\"; ma=86400"
+    }
+  },
+  {
+    "id": "bus_official",
+    "url": "https://bus.mashhad.ir/",
+    "retrieved_at": "2026-10-29T22:23:17.064999+00:00",
+    "error": "HTTPSConnectionPool(host='bus.mashhad.ir', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='bus.mashhad.ir', port=443): Failed to resolve 'bus.mashhad.ir' ([Errno -3] Temporary failure in name resolution)\"))"
+  },
+  {
+    "id": "map_official",
+    "url": "https://map.mashhad.ir/",
+    "retrieved_at": "2026-10-29T22:23:17.065723+00:00",
+    "error": "HTTPSConnectionPool(host='map.mashhad.ir', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='map.mashhad.ir', port=443): Failed to resolve 'map.mashhad.ir' ([Errno -3] Temporary failure in name resolution)\"))"
+  },
+  {
+    "id": "guide_historical",
+    "url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "retrieved_at": "2026-10-29T22:23:17.066953+00:00",
+    "status": 200,
+    "final_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C-%D8%AE%D8%B7%D9%88%D8%B7-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3%D8%B1%D8%A7%D9%86%DB%8C-%D9%85%D8%B4%D9%87%D8%AF-98.pdf",
+    "bytes": 2485244,
+    "headers": {
+      "Server": "nginx",
+      "Date": "Thu, 29 Oct 2026 22:23:18 GMT",
+      "Content-Type": "application/pdf",
+      "Content-Length": "2485244",
+      "Last-Modified": "Sat, 02 Nov 2019 18:30:39 GMT",
+      "Connection": "keep-alive",
+      "ETag": "\"5dbdcb4f-25ebfc\"",
+      "Accept-Ranges": "bytes"
+    }
+  },
+  {
+    "id": "guide_historical_proxy",
+    "url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "retrieved_at": "2026-10-29T22:23:32.896783+00:00",
+    "status": 200,
+    "final_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C-%D8%AE%D8%B7%D9%88%D8%B7-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3%D8%B1%D8%A7%D9%86%DB%8C-%D9%85%D8%B4%D9%87%D8%AF-98.pdf",
+    "bytes": 2485244,
+    "headers": {
+      "Server": "nginx",
+      "Date": "Thu, 29 Oct 2026 22:23:33 GMT",
+      "Content-Type": "application/pdf",
+      "Content-Length": "2485244",
+      "Last-Modified": "Sat, 02 Nov 2019 18:30:39 GMT",
+      "Connection": "keep-alive",
+      "ETag": "\"5dbdcb4f-25ebfc\"",
+      "Accept-Ranges": "bytes"
+    }
+  },
+  {
+    "id": "bus_official_proxy",
+    "url": "https://bus.mashhad.ir/",
+    "retrieved_at": "2026-10-29T22:23:32.898459+00:00",
+    "error": "HTTPSConnectionPool(host='bus.mashhad.ir', port=443): Read timed out. (read timeout=8)"
+  }
+]

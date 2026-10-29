@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://overpass-api.de/api/interpreter",
+      "title": "",
+      "accessed": "2026-10-29"
+    },
+    {
+      "id": 2,
+      "url": "https://www.openstreetmap.org/copyright",
+      "title": "",
+      "accessed": "2026-10-29"
+    },
+    {
+      "id": 3,
+      "url": "https://wiki.openstreetmap.org/wiki/Relation:route",
+      "title": "",
+      "accessed": "2026-10-29"
+    },
+    {
+      "id": 4,
+      "url": "https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_position",
+      "title": "",
+      "accessed": "2026-10-29"
+    },
+    {
+      "id": 5,
+      "url": "https://gtfs.org/documentation/realtime/reference",
+      "title": "",
+      "accessed": "2026-10-29"
+    },
+    {
+      "id": 6,
+      "url": "https://nominatim.openstreetmap.org/search?q=Mashhad%2C+Iran&format=json&limit=3",
+      "title": "",
+      "accessed": "2026-10-29"
+    }
+  ]
+}

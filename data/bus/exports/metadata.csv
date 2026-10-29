@@ -1,0 +1,6 @@
+﻿"key","value_json"
+"official_completeness","""not_verified"""
+"osm_base","""2026-10-29T22:19:55Z"""
+"real_time","""unavailable"""
+"schema_version","1"
+"source","{""attribution"":""© OpenStreetMap contributors"",""bbox_s_w_n_e"":[36.05,59.2,36.6,59.95],""bytes"":12115531,""http_status"":200,""license"":""ODbL-1.0"",""method"":""POST"",""official_status"":""community data, not verified by Mashhad Municipality"",""osm3s"":{""copyright"":""The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."",""timestamp_osm_base"":""2026-10-29T22:19:55Z""},""quarantined_reference_inputs"":[{""path"":""research/bus-static-additional/supplementary-route-tables.json"",""rows"":205,""sha256"":""0f27fef9e3bcd2d2df8a2d80c1876891e6910763b3848d01fed88fb3e72a94c2""},{""path"":""research/bus-static-additional/historical-pdf-route-refs.json"",""rows"":144,""sha256"":""ccbd930a4582268a43aed4ad842700553dba80f35214afedf2a86832fdda9f31""}],""query_path"":""research/bus-static/mashhad-bus-expanded.overpassql"",""retrieved_at"":""2026-10-29T22:21:39.675041+00:00"",""sha256"":""073fa2799315256eb9a7c163564860acc9226045ce2d5a9430099acbbf335181"",""url"":""https://overpass-api.de/api/interpreter""}"

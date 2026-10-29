@@ -1,0 +1,79 @@
+{
+  "verified_at": "2026-10-29T23:13:01.747805+00:00",
+  "raw_sha256_verified": true,
+  "raw_bus_route_relations": 181,
+  "included_variants": 180,
+  "explicit_other_operator_exclusions": 1,
+  "checks": {
+    "all_eligible_source_relations_retained": true,
+    "all_exclusions_explicitly_accounted_for": true,
+    "all_route_member_order_exact": true,
+    "all_stop_sequences_exact_no_global_deduplication": true,
+    "all_geometry_segments_exact_no_fabricated_connectors": true,
+    "raw_line_refs_exact": true,
+    "no_fabricated_headways_or_live_arrivals": true,
+    "no_invented_provider_stop_mappings": true,
+    "integrity_check": true,
+    "foreign_keys": true,
+    "export_counts_match_sqlite": true,
+    "all_raw_tokens_preserved_including_whitespace": true,
+    "lookup_fields_explicitly_separate": true,
+    "all_supplementary_rows_preserved_and_quarantined": true,
+    "source_and_export_graph_integrity_rechecked_by_node_test": true,
+    "geojson_structural_and_finite_range_checks": true
+  },
+  "counts": {
+    "arrival_observations": 0,
+    "excluded_routes": 1,
+    "external_stop_mappings": 0,
+    "facilities": 39,
+    "issues": 45,
+    "lines": 92,
+    "metadata": 5,
+    "observed_route_refs": 4043,
+    "platforms": 1210,
+    "reference_pdf_mentions": 144,
+    "reference_route_records": 205,
+    "reference_sources": 3,
+    "route_geometry": 11644,
+    "route_master_members": 37,
+    "route_masters": 11,
+    "route_members": 20165,
+    "route_platforms": 3243,
+    "route_stops": 5275,
+    "routes": 180,
+    "stop_refs": 2114,
+    "stops": 2196
+  },
+  "official_completeness_verified": false,
+  "route_ref_hints_without_route_relation": 74,
+  "database_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "test_counts": {
+    "core": 56,
+    "node": 125,
+    "python": 17
+  },
+  "typecheck_passed": true,
+  "live_arrivals_connected": false,
+  "geojson_validation": {
+    "routes": {
+      "features": 180,
+      "null_geometries": 0
+    },
+    "stops": {
+      "features": 2196,
+      "null_geometries": 1
+    },
+    "facilities": {
+      "features": 39,
+      "null_geometries": 0
+    }
+  },
+  "review_resolution": {
+    "raw_ref_whitespace": "Fixed with separate literal ref_raw and trimmed ref_lookup; synthetic and every-source-token tests pass.",
+    "missing_members": "All relation-member types audited before role handling; unresolved master members also flagged.",
+    "malformed_geometry": "Broken way geometry rejected without invented bridges and explicitly flagged; nonfinite/out-of-range coordinates rejected.",
+    "empty_overwrite": "No-eligible-route responses rejected before creating/replacing a database.",
+    "snapshot_vs_official_census": "All retrieved eligible relations accounted for; current municipal completeness remains unverified."
+  }
+}

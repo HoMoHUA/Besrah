@@ -1,0 +1,1874 @@
+[
+  {
+    "route_ref_raw": "800",
+    "page": 3,
+    "bbox": {
+      "xMin": "394.409600",
+      "yMin": "62.455600",
+      "xMax": "407.249600",
+      "yMax": "79.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "800/1",
+    "page": 3,
+    "bbox": {
+      "xMin": "391.086900",
+      "yMin": "115.747000",
+      "xMax": "410.576700",
+      "yMax": "133.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "800/2",
+    "page": 3,
+    "bbox": {
+      "xMin": "390.378800",
+      "yMin": "164.040300",
+      "xMax": "411.288600",
+      "yMax": "181.390300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "830",
+    "page": 3,
+    "bbox": {
+      "xMin": "393.389100",
+      "yMin": "212.333600",
+      "xMax": "408.279100",
+      "yMax": "229.683600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "831",
+    "page": 3,
+    "bbox": {
+      "xMin": "393.459900",
+      "yMin": "270.973300",
+      "xMax": "408.209900",
+      "yMax": "288.323300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "2",
+    "page": 4,
+    "bbox": {
+      "xMin": "398.403700",
+      "yMin": "56.455600",
+      "xMax": "403.263700",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "3",
+    "page": 4,
+    "bbox": {
+      "xMin": "398.020400",
+      "yMin": "103.402500",
+      "xMax": "403.650400",
+      "yMax": "120.752500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "4",
+    "page": 4,
+    "bbox": {
+      "xMin": "398.311000",
+      "yMin": "157.365100",
+      "xMax": "403.351000",
+      "yMax": "174.715100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "8",
+    "page": 4,
+    "bbox": {
+      "xMin": "397.993600",
+      "yMin": "217.672200",
+      "xMax": "403.673600",
+      "yMax": "235.022200"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "9",
+    "page": 4,
+    "bbox": {
+      "xMin": "398.403700",
+      "yMin": "270.963500",
+      "xMax": "403.263700",
+      "yMax": "288.313500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "7",
+    "page": 5,
+    "bbox": {
+      "xMin": "404.263800",
+      "yMin": "56.455600",
+      "xMax": "409.773800",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "10",
+    "page": 5,
+    "bbox": {
+      "xMin": "403.504500",
+      "yMin": "109.497000",
+      "xMax": "410.524500",
+      "yMax": "126.847000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "13",
+    "page": 5,
+    "bbox": {
+      "xMin": "402.484000",
+      "yMin": "269.121000",
+      "xMax": "411.554000",
+      "yMax": "286.471000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "14",
+    "page": 6,
+    "bbox": {
+      "xMin": "402.065900",
+      "yMin": "109.747000",
+      "xMax": "410.545900",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "14/1",
+    "page": 6,
+    "bbox": {
+      "xMin": "398.743100",
+      "yMin": "163.038300",
+      "xMax": "413.872600",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "15",
+    "page": 6,
+    "bbox": {
+      "xMin": "401.899900",
+      "yMin": "216.329600",
+      "xMax": "410.719900",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "16/1",
+    "page": 6,
+    "bbox": {
+      "xMin": "398.804200",
+      "yMin": "269.621000",
+      "xMax": "413.811600",
+      "yMax": "286.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "17",
+    "page": 7,
+    "bbox": {
+      "xMin": "403.767000",
+      "yMin": "57.872900",
+      "xMax": "412.717000",
+      "yMax": "75.222900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "18",
+    "page": 7,
+    "bbox": {
+      "xMin": "403.681600",
+      "yMin": "164.455600",
+      "xMax": "412.801600",
+      "yMax": "181.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "19",
+    "page": 7,
+    "bbox": {
+      "xMin": "404.091700",
+      "yMin": "271.038300",
+      "xMax": "412.391700",
+      "yMax": "288.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "20",
+    "page": 8,
+    "bbox": {
+      "xMin": "402.149900",
+      "yMin": "56.614100",
+      "xMax": "410.589900",
+      "yMax": "73.964100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "21",
+    "page": 8,
+    "bbox": {
+      "xMin": "402.220700",
+      "yMin": "109.905400",
+      "xMax": "410.520700",
+      "yMax": "127.255400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "22",
+    "page": 8,
+    "bbox": {
+      "xMin": "401.512700",
+      "yMin": "163.196800",
+      "xMax": "411.232700",
+      "yMax": "180.546800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "22/2",
+    "page": 8,
+    "bbox": {
+      "xMin": "397.481900",
+      "yMin": "216.488100",
+      "xMax": "415.261800",
+      "yMax": "233.838100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "23",
+    "page": 8,
+    "bbox": {
+      "xMin": "401.129400",
+      "yMin": "269.779400",
+      "xMax": "411.619400",
+      "yMax": "287.129400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "24",
+    "page": 9,
+    "bbox": {
+      "xMin": "396.976500",
+      "yMin": "51.599300",
+      "xMax": "406.876500",
+      "yMax": "68.949300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "26",
+    "page": 9,
+    "bbox": {
+      "xMin": "397.037500",
+      "yMin": "98.546200",
+      "xMax": "406.817500",
+      "yMax": "115.896200"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "27",
+    "page": 9,
+    "bbox": {
+      "xMin": "396.744600",
+      "yMin": "150.349300",
+      "xMax": "407.114600",
+      "yMax": "167.699300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "28",
+    "page": 9,
+    "bbox": {
+      "xMin": "396.659100",
+      "yMin": "209.097400",
+      "xMax": "407.199100",
+      "yMax": "226.447400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "28/1",
+    "page": 9,
+    "bbox": {
+      "xMin": "393.336400",
+      "yMin": "267.845400",
+      "xMax": "410.516600",
+      "yMax": "285.195400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "31",
+    "page": 10,
+    "bbox": {
+      "xMin": "401.598200",
+      "yMin": "157.010700",
+      "xMax": "410.668200",
+      "yMax": "174.360700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "32",
+    "page": 10,
+    "bbox": {
+      "xMin": "400.890200",
+      "yMin": "216.963500",
+      "xMax": "411.380200",
+      "yMax": "234.313500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "33",
+    "page": 10,
+    "bbox": {
+      "xMin": "400.506900",
+      "yMin": "270.254800",
+      "xMax": "411.766900",
+      "yMax": "287.604800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "29",
+    "page": 10,
+    "bbox": {
+      "xMin": "401.273500",
+      "yMin": "56.455600",
+      "xMax": "410.993500",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "30",
+    "page": 10,
+    "bbox": {
+      "xMin": "401.527400",
+      "yMin": "103.402500",
+      "xMax": "410.737400",
+      "yMax": "120.752500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "34",
+    "page": 11,
+    "bbox": {
+      "xMin": "394.242300",
+      "yMin": "48.552100",
+      "xMax": "404.912300",
+      "yMax": "65.902100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "35",
+    "page": 11,
+    "bbox": {
+      "xMin": "394.076300",
+      "yMin": "84.727300",
+      "xMax": "405.086300",
+      "yMax": "102.077300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "36",
+    "page": 11,
+    "bbox": {
+      "xMin": "394.303300",
+      "yMin": "123.703600",
+      "xMax": "404.853300",
+      "yMax": "141.053600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "37",
+    "page": 11,
+    "bbox": {
+      "xMin": "394.010400",
+      "yMin": "174.372900",
+      "xMax": "405.150400",
+      "yMax": "191.722900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "37/1",
+    "page": 11,
+    "bbox": {
+      "xMin": "390.687600",
+      "yMin": "226.493000",
+      "xMax": "408.463600",
+      "yMax": "243.843000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "38",
+    "page": 11,
+    "bbox": {
+      "xMin": "393.924900",
+      "yMin": "272.986300",
+      "xMax": "405.234900",
+      "yMax": "290.336300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "38/1",
+    "page": 12,
+    "bbox": {
+      "xMin": "390.602200",
+      "yMin": "55.747000",
+      "xMax": "408.549000",
+      "yMax": "73.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "39",
+    "page": 12,
+    "bbox": {
+      "xMin": "394.335100",
+      "yMin": "109.038300",
+      "xMax": "404.825100",
+      "yMax": "126.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "40",
+    "page": 12,
+    "bbox": {
+      "xMin": "395.262800",
+      "yMin": "162.329600",
+      "xMax": "403.882800",
+      "yMax": "179.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "41",
+    "page": 12,
+    "bbox": {
+      "xMin": "395.333600",
+      "yMin": "212.323700",
+      "xMax": "403.813600",
+      "yMax": "229.673700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "42",
+    "page": 12,
+    "bbox": {
+      "xMin": "394.625600",
+      "yMin": "266.319800",
+      "xMax": "404.525600",
+      "yMax": "283.669800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "43",
+    "page": 13,
+    "bbox": {
+      "xMin": "394.242300",
+      "yMin": "56.484000",
+      "xMax": "404.912300",
+      "yMax": "73.834000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "45",
+    "page": 13,
+    "bbox": {
+      "xMin": "394.366800",
+      "yMin": "102.367800",
+      "xMax": "404.786800",
+      "yMax": "119.717800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "46",
+    "page": 13,
+    "bbox": {
+      "xMin": "394.593900",
+      "yMin": "143.824500",
+      "xMax": "404.553900",
+      "yMax": "161.174500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "47",
+    "page": 13,
+    "bbox": {
+      "xMin": "394.300900",
+      "yMin": "184.269700",
+      "xMax": "404.850900",
+      "yMax": "201.619700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "48",
+    "page": 13,
+    "bbox": {
+      "xMin": "394.215500",
+      "yMin": "223.704700",
+      "xMax": "404.935500",
+      "yMax": "241.054700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "49",
+    "page": 13,
+    "bbox": {
+      "xMin": "394.625600",
+      "yMin": "268.904400",
+      "xMax": "404.525600",
+      "yMax": "286.254400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "50",
+    "page": 14,
+    "bbox": {
+      "xMin": "395.557400",
+      "yMin": "47.701700",
+      "xMax": "404.517400",
+      "yMax": "65.051700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "51",
+    "page": 14,
+    "bbox": {
+      "xMin": "395.628200",
+      "yMin": "94.648500",
+      "xMax": "404.448200",
+      "yMax": "111.998500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "53",
+    "page": 14,
+    "bbox": {
+      "xMin": "394.536900",
+      "yMin": "143.546200",
+      "xMax": "405.546900",
+      "yMax": "160.896200"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "55",
+    "page": 14,
+    "bbox": {
+      "xMin": "394.661400",
+      "yMin": "181.989100",
+      "xMax": "405.421400",
+      "yMax": "199.339100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "56",
+    "page": 14,
+    "bbox": {
+      "xMin": "394.888400",
+      "yMin": "219.902500",
+      "xMax": "405.188400",
+      "yMax": "237.252500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "57",
+    "page": 14,
+    "bbox": {
+      "xMin": "394.595500",
+      "yMin": "269.154400",
+      "xMax": "405.485500",
+      "yMax": "286.504400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "58",
+    "page": 15,
+    "bbox": {
+      "xMin": "393.482500",
+      "yMin": "52.308000",
+      "xMax": "404.542500",
+      "yMax": "69.658000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "59",
+    "page": 15,
+    "bbox": {
+      "xMin": "393.892700",
+      "yMin": "91.813900",
+      "xMax": "404.132700",
+      "yMax": "109.163900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "60",
+    "page": 15,
+    "bbox": {
+      "xMin": "394.756900",
+      "yMin": "128.205600",
+      "xMax": "403.256900",
+      "yMax": "145.555600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "60/1",
+    "page": 15,
+    "bbox": {
+      "xMin": "391.434200",
+      "yMin": "163.908100",
+      "xMax": "406.583200",
+      "yMax": "181.258100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "61",
+    "page": 15,
+    "bbox": {
+      "xMin": "394.827700",
+      "yMin": "208.640000",
+      "xMax": "403.187700",
+      "yMax": "225.990000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "62",
+    "page": 15,
+    "bbox": {
+      "xMin": "394.119700",
+      "yMin": "266.835200",
+      "xMax": "403.899700",
+      "yMax": "284.185200"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "63",
+    "page": 16,
+    "bbox": {
+      "xMin": "394.275800",
+      "yMin": "57.872900",
+      "xMax": "404.825800",
+      "yMax": "75.222900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "67",
+    "page": 16,
+    "bbox": {
+      "xMin": "394.334400",
+      "yMin": "111.164300",
+      "xMax": "404.764400",
+      "yMax": "128.514300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "68",
+    "page": 16,
+    "bbox": {
+      "xMin": "394.248900",
+      "yMin": "164.455600",
+      "xMax": "404.848900",
+      "yMax": "181.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "70",
+    "page": 16,
+    "bbox": {
+      "xMin": "395.003300",
+      "yMin": "217.746900",
+      "xMax": "404.093300",
+      "yMax": "235.096900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "71",
+    "page": 16,
+    "bbox": {
+      "xMin": "395.074100",
+      "yMin": "271.038300",
+      "xMax": "404.024100",
+      "yMax": "288.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "71/1",
+    "page": 17,
+    "bbox": {
+      "xMin": "392.278900",
+      "yMin": "56.644600",
+      "xMax": "407.872300",
+      "yMax": "73.994600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "72",
+    "page": 17,
+    "bbox": {
+      "xMin": "394.893700",
+      "yMin": "109.935900",
+      "xMax": "405.263700",
+      "yMax": "127.285900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "74",
+    "page": 17,
+    "bbox": {
+      "xMin": "394.800900",
+      "yMin": "163.227300",
+      "xMax": "405.350900",
+      "yMax": "180.577300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "75",
+    "page": 17,
+    "bbox": {
+      "xMin": "394.634900",
+      "yMin": "216.518600",
+      "xMax": "405.524900",
+      "yMax": "233.868600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "76",
+    "page": 17,
+    "bbox": {
+      "xMin": "394.861900",
+      "yMin": "269.809900",
+      "xMax": "405.291900",
+      "yMax": "287.159900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "76/1",
+    "page": 18,
+    "bbox": {
+      "xMin": "390.606100",
+      "yMin": "56.455600",
+      "xMax": "407.678900",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "77",
+    "page": 18,
+    "bbox": {
+      "xMin": "393.635900",
+      "yMin": "109.747000",
+      "xMax": "404.655900",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "78",
+    "page": 18,
+    "bbox": {
+      "xMin": "393.550400",
+      "yMin": "163.038300",
+      "xMax": "404.740400",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "79",
+    "page": 18,
+    "bbox": {
+      "xMin": "393.960600",
+      "yMin": "216.329600",
+      "xMax": "404.330600",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "80",
+    "page": 18,
+    "bbox": {
+      "xMin": "394.512400",
+      "yMin": "269.621000",
+      "xMax": "403.772400",
+      "yMax": "286.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "81",
+    "page": 19,
+    "bbox": {
+      "xMin": "395.016200",
+      "yMin": "58.156400",
+      "xMax": "404.136200",
+      "yMax": "75.506400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "82",
+    "page": 19,
+    "bbox": {
+      "xMin": "394.308200",
+      "yMin": "111.447700",
+      "xMax": "404.848200",
+      "yMax": "128.797700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "83",
+    "page": 19,
+    "bbox": {
+      "xMin": "393.924900",
+      "yMin": "164.739100",
+      "xMax": "405.234900",
+      "yMax": "182.089100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "84",
+    "page": 19,
+    "bbox": {
+      "xMin": "394.215400",
+      "yMin": "218.030400",
+      "xMax": "404.935400",
+      "yMax": "235.380400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "85",
+    "page": 19,
+    "bbox": {
+      "xMin": "394.049400",
+      "yMin": "271.321800",
+      "xMax": "405.109400",
+      "yMax": "288.671800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "86",
+    "page": 20,
+    "bbox": {
+      "xMin": "393.284400",
+      "yMin": "56.455600",
+      "xMax": "403.884400",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "88",
+    "page": 20,
+    "bbox": {
+      "xMin": "392.905900",
+      "yMin": "109.747000",
+      "xMax": "404.265900",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "89",
+    "page": 20,
+    "bbox": {
+      "xMin": "393.316100",
+      "yMin": "163.038300",
+      "xMax": "403.856100",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "90",
+    "page": 20,
+    "bbox": {
+      "xMin": "394.363500",
+      "yMin": "216.329600",
+      "xMax": "402.803500",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "91",
+    "page": 20,
+    "bbox": {
+      "xMin": "394.434300",
+      "yMin": "269.621000",
+      "xMax": "402.734300",
+      "yMax": "286.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "92",
+    "page": 21,
+    "bbox": {
+      "xMin": "394.718400",
+      "yMin": "56.739100",
+      "xMax": "404.438400",
+      "yMax": "74.089100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "93",
+    "page": 21,
+    "bbox": {
+      "xMin": "394.335100",
+      "yMin": "110.030400",
+      "xMax": "404.825100",
+      "yMax": "127.380400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "94",
+    "page": 21,
+    "bbox": {
+      "xMin": "394.625600",
+      "yMin": "163.321800",
+      "xMax": "404.525600",
+      "yMax": "180.671800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "94/1",
+    "page": 21,
+    "bbox": {
+      "xMin": "391.302900",
+      "yMin": "216.613100",
+      "xMax": "407.848300",
+      "yMax": "233.963100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "95",
+    "page": 21,
+    "bbox": {
+      "xMin": "394.459600",
+      "yMin": "269.904400",
+      "xMax": "404.699600",
+      "yMax": "287.254400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "97",
+    "page": 22,
+    "bbox": {
+      "xMin": "394.393700",
+      "yMin": "103.577700",
+      "xMax": "404.763700",
+      "yMax": "120.927700"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "98",
+    "page": 22,
+    "bbox": {
+      "xMin": "394.308200",
+      "yMin": "153.184000",
+      "xMax": "404.848200",
+      "yMax": "170.534000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "96",
+    "page": 22,
+    "bbox": {
+      "xMin": "394.686600",
+      "yMin": "53.371000",
+      "xMax": "404.466600",
+      "yMax": "70.721000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "98/1",
+    "page": 22,
+    "bbox": {
+      "xMin": "390.985400",
+      "yMin": "192.443800",
+      "xMax": "408.165700",
+      "yMax": "209.793800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "99",
+    "page": 22,
+    "bbox": {
+      "xMin": "394.718400",
+      "yMin": "229.752900",
+      "xMax": "404.438400",
+      "yMax": "247.102900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "100",
+    "page": 22,
+    "bbox": {
+      "xMin": "394.271600",
+      "yMin": "272.802100",
+      "xMax": "404.871600",
+      "yMax": "290.152100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "201",
+    "page": 23,
+    "bbox": {
+      "xMin": "397.815500",
+      "yMin": "56.455600",
+      "xMax": "409.695500",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "202",
+    "page": 23,
+    "bbox": {
+      "xMin": "397.107500",
+      "yMin": "109.747000",
+      "xMax": "410.407500",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "203",
+    "page": 23,
+    "bbox": {
+      "xMin": "396.724200",
+      "yMin": "163.038300",
+      "xMax": "410.794200",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "204",
+    "page": 23,
+    "bbox": {
+      "xMin": "397.014700",
+      "yMin": "216.329600",
+      "xMax": "410.494700",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "205",
+    "page": 23,
+    "bbox": {
+      "xMin": "396.848700",
+      "yMin": "269.621000",
+      "xMax": "410.668700",
+      "yMax": "286.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "210",
+    "page": 24,
+    "bbox": {
+      "xMin": "394.626500",
+      "yMin": "56.455600",
+      "xMax": "406.506500",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "701",
+    "page": 24,
+    "bbox": {
+      "xMin": "394.301800",
+      "yMin": "109.747000",
+      "xMax": "406.831800",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "701/1",
+    "page": 24,
+    "bbox": {
+      "xMin": "390.979100",
+      "yMin": "163.038300",
+      "xMax": "410.156400",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "702",
+    "page": 24,
+    "bbox": {
+      "xMin": "393.593800",
+      "yMin": "216.329600",
+      "xMax": "407.543800",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "705",
+    "page": 24,
+    "bbox": {
+      "xMin": "393.335000",
+      "yMin": "269.621000",
+      "xMax": "407.805000",
+      "yMax": "286.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "206",
+    "page": 25,
+    "bbox": {
+      "xMin": "392.894700",
+      "yMin": "55.520600",
+      "xMax": "406.254700",
+      "yMax": "72.870600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "207",
+    "page": 25,
+    "bbox": {
+      "xMin": "392.601700",
+      "yMin": "112.837500",
+      "xMax": "406.551700",
+      "yMax": "130.187500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "207/1",
+    "page": 25,
+    "bbox": {
+      "xMin": "389.278900",
+      "yMin": "168.585500",
+      "xMax": "409.872300",
+      "yMax": "185.935500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "302",
+    "page": 25,
+    "bbox": {
+      "xMin": "392.543100",
+      "yMin": "222.207600",
+      "xMax": "406.613100",
+      "yMax": "239.557600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "303",
+    "page": 25,
+    "bbox": {
+      "xMin": "392.159800",
+      "yMin": "273.656400",
+      "xMax": "406.999800",
+      "yMax": "291.006400"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "304",
+    "page": 26,
+    "bbox": {
+      "xMin": "392.450300",
+      "yMin": "55.733200",
+      "xMax": "406.700300",
+      "yMax": "73.083200"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "305",
+    "page": 26,
+    "bbox": {
+      "xMin": "392.284300",
+      "yMin": "108.585500",
+      "xMax": "406.874300",
+      "yMax": "125.935500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "306",
+    "page": 26,
+    "bbox": {
+      "xMin": "392.511300",
+      "yMin": "163.624900",
+      "xMax": "406.641300",
+      "yMax": "180.974900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "307",
+    "page": 26,
+    "bbox": {
+      "xMin": "392.218400",
+      "yMin": "218.900500",
+      "xMax": "406.938400",
+      "yMax": "236.250500"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "401",
+    "page": 26,
+    "bbox": {
+      "xMin": "393.541600",
+      "yMin": "271.800100",
+      "xMax": "405.601600",
+      "yMax": "289.150100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "402",
+    "page": 27,
+    "bbox": {
+      "xMin": "392.833600",
+      "yMin": "56.414000",
+      "xMax": "406.313600",
+      "yMax": "73.764000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "501",
+    "page": 27,
+    "bbox": {
+      "xMin": "393.375600",
+      "yMin": "106.695800",
+      "xMax": "405.775600",
+      "yMax": "124.045800"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "502",
+    "page": 27,
+    "bbox": {
+      "xMin": "392.667600",
+      "yMin": "160.081600",
+      "xMax": "406.487600",
+      "yMax": "177.431600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "503",
+    "page": 27,
+    "bbox": {
+      "xMin": "392.284300",
+      "yMin": "220.081600",
+      "xMax": "406.874300",
+      "yMax": "237.431600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "504",
+    "page": 27,
+    "bbox": {
+      "xMin": "392.574800",
+      "yMin": "275.504100",
+      "xMax": "406.574800",
+      "yMax": "292.854100"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "505",
+    "page": 28,
+    "bbox": {
+      "xMin": "391.408800",
+      "yMin": "56.455600",
+      "xMax": "405.748800",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "506",
+    "page": 28,
+    "bbox": {
+      "xMin": "391.635900",
+      "yMin": "109.747000",
+      "xMax": "405.515900",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "703",
+    "page": 28,
+    "bbox": {
+      "xMin": "391.218400",
+      "yMin": "163.038300",
+      "xMax": "405.938400",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "704",
+    "page": 28,
+    "bbox": {
+      "xMin": "391.508900",
+      "yMin": "216.329600",
+      "xMax": "405.638900",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1031",
+    "page": 29,
+    "bbox": {
+      "xMin": "392.876300",
+      "yMin": "57.872900",
+      "xMax": "408.966300",
+      "yMax": "75.222900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1051",
+    "page": 29,
+    "bbox": {
+      "xMin": "393.000900",
+      "yMin": "217.746900",
+      "xMax": "408.840900",
+      "yMax": "235.096900"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1057",
+    "page": 29,
+    "bbox": {
+      "xMin": "391.968200",
+      "yMin": "270.680000",
+      "xMax": "409.878200",
+      "yMax": "288.030000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1034",
+    "page": 29,
+    "bbox": {
+      "xMin": "392.075600",
+      "yMin": "111.164300",
+      "xMax": "409.765600",
+      "yMax": "128.514300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1043",
+    "page": 29,
+    "bbox": {
+      "xMin": "392.075600",
+      "yMin": "164.455600",
+      "xMax": "409.765600",
+      "yMax": "181.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1060",
+    "page": 30,
+    "bbox": {
+      "xMin": "392.094100",
+      "yMin": "55.747000",
+      "xMax": "407.614100",
+      "yMax": "73.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1067",
+    "page": 30,
+    "bbox": {
+      "xMin": "391.132200",
+      "yMin": "109.038300",
+      "xMax": "408.582200",
+      "yMax": "126.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1069",
+    "page": 30,
+    "bbox": {
+      "xMin": "391.456900",
+      "yMin": "162.329600",
+      "xMax": "408.256900",
+      "yMax": "179.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1093",
+    "page": 30,
+    "bbox": {
+      "xMin": "391.105300",
+      "yMin": "215.621000",
+      "xMax": "408.615300",
+      "yMax": "232.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1094",
+    "page": 30,
+    "bbox": {
+      "xMin": "391.395900",
+      "yMin": "268.912300",
+      "xMax": "408.315900",
+      "yMax": "286.262300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1096",
+    "page": 31,
+    "bbox": {
+      "xMin": "391.173500",
+      "yMin": "56.455600",
+      "xMax": "407.973500",
+      "yMax": "73.805600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1097",
+    "page": 31,
+    "bbox": {
+      "xMin": "390.880500",
+      "yMin": "109.747000",
+      "xMax": "408.270500",
+      "yMax": "127.097000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1098",
+    "page": 31,
+    "bbox": {
+      "xMin": "390.795000",
+      "yMin": "163.038300",
+      "xMax": "408.355000",
+      "yMax": "180.388300"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1205",
+    "page": 31,
+    "bbox": {
+      "xMin": "390.946400",
+      "yMin": "216.329600",
+      "xMax": "408.206400",
+      "yMax": "233.679600"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  },
+  {
+    "route_ref_raw": "1506",
+    "page": 31,
+    "bbox": {
+      "xMin": "390.914700",
+      "yMin": "269.621000",
+      "xMax": "408.234700",
+      "yMax": "286.971000"
+    },
+    "source_id": "guide_historical",
+    "source_url": "https://www.mashhad-tourist.ir/wp-content/uploads/2019/11/راهنمای-خطوط-اتوبوسرانی-مشهد-98.pdf",
+    "classification": "historical_1398_pdf_third_party_mirror_not_current_verified"
+  }
+]

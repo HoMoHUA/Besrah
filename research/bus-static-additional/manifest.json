@@ -1,0 +1,106 @@
+{
+  "blogfa_historical-tables-raw.json": {
+    "bytes": 19593,
+    "sha256": "fb72b0df6a1b14566d304b3a079361c605a3723b258969f9741a77f88fb08d10"
+  },
+  "mrchetor.txt": {
+    "bytes": 223130,
+    "sha256": "19182a002d46814fcefd389f3d8380a7435a04cbcbff4eb28ea213e3beaa3b7a"
+  },
+  "hamyartrip.html": {
+    "bytes": 132906,
+    "sha256": "4efcc6afa56b5139066de85b73969415b091c5dcf0d8c187c650d65caa480e27"
+  },
+  "extract.py": {
+    "bytes": 4259,
+    "sha256": "8370c3f4ca80cf2896750cc3dc14b4be5275a423fd9b7bb8a13685004a8c5f08"
+  },
+  "guide_historical.pdf": {
+    "bytes": 2485244,
+    "sha256": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7"
+  },
+  "mrchetor.html": {
+    "bytes": 543859,
+    "sha256": "3ae0847f06d0e703bf105317ddb929fc1b511bdb06c6e8c764c57bbdc50be85b"
+  },
+  "supplementary-route-tables.json": {
+    "bytes": 130578,
+    "sha256": "0f27fef9e3bcd2d2df8a2d80c1876891e6910763b3848d01fed88fb3e72a94c2"
+  },
+  "README.md": {
+    "bytes": 3762,
+    "sha256": "3af10b0d1eacc87cd485d90b272046010c0e5ffbb28eedae79f1784a49cac962"
+  },
+  "osm-reference-comparison.json": {
+    "bytes": 3000,
+    "sha256": "fa0984f70055c996f92a607f7b6e177a33edfee877affdc2a7b0297160f01fa8"
+  },
+  "guide_historical.bbox.html": {
+    "bytes": 814255,
+    "sha256": "c0279449a6e2eb9f8450088ad7c5d939efb912a9d08b9ba58f272eff5668ae1c"
+  },
+  "citations.json": {
+    "bytes": 841,
+    "sha256": "34c8be7ac04f4e8a13c11f5344f8b2fb957c218dd0a7e01d245187ef3ada3508"
+  },
+  "search-current-catalogue.json": {
+    "bytes": 40199,
+    "sha256": "97c15467c59b7023a4a3d392943e5e3084c767a512c0bd6e37b938bb0dfddd6b"
+  },
+  "hihotel.html": {
+    "bytes": 206,
+    "sha256": "b2fee87d3242e522e235c35a0ee89829d043fdf65fda92f7f07d70daed1e2adc"
+  },
+  "retrieve.py": {
+    "bytes": 1525,
+    "sha256": "d8c020ef456e76d5ce238a2758e253c40962ca057d67f86396f85a5c898e4da2"
+  },
+  "additional-pdf-status.json": {
+    "bytes": 1783,
+    "sha256": "914a2acb032aee2bf0dbb9bf9f560a8eac0d141673912ea2fedf68ad2b7a5f66"
+  },
+  "mrchetor-tables-raw.json": {
+    "bytes": 18118,
+    "sha256": "fbfb4de5cfa4a8ca3592b3b89b81ec54dab04b5b847f55de25bfb856b4933112"
+  },
+  "guide_historical_proxy.pdf": {
+    "bytes": 2485244,
+    "sha256": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7"
+  },
+  "blogfa_historical.html": {
+    "bytes": 68005,
+    "sha256": "484425ad26c73a978163289b21d985ac5bb0427dd56bf95206d28cb8ab8c2126"
+  },
+  "blogfa_historical.txt": {
+    "bytes": 22040,
+    "sha256": "40a2a6735882129f3a775d274f22faf28242659bd9142b60f545700d857d4da8"
+  },
+  "mrchetor-guide.pdf": {
+    "bytes": 2485244,
+    "sha256": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7"
+  },
+  "supplementary-route-tables.csv": {
+    "bytes": 43468,
+    "sha256": "732b2118b4bac3c533ef7de8ecb66be13441a15de7744f9ca8ba4eda0d8eaec3"
+  },
+  "guide_historical.txt": {
+    "bytes": 90602,
+    "sha256": "a28600115d940d81e38ff0ad2af51e99c01bbff79a2f6bd988639036e2d3fc66"
+  },
+  "retrieval-status.json": {
+    "bytes": 6419,
+    "sha256": "1a0da3a1001278323dedb1dfa9d947846adb07e229ab50c017d47011a0e1cc80"
+  },
+  "hamyartrip-guide.pdf": {
+    "bytes": 2485244,
+    "sha256": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7"
+  },
+  "historical-pdf-route-refs.json": {
+    "bytes": 64081,
+    "sha256": "ccbd930a4582268a43aed4ad842700553dba80f35214afedf2a86832fdda9f31"
+  },
+  "hamyartrip.txt": {
+    "bytes": 60915,
+    "sha256": "8862217729526f560fc05a90b225ea483c94fca3bfef8a531e2be4036aa847e6"
+  }
+}

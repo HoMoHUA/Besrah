@@ -1,0 +1,44 @@
+[
+  {
+    "id": "hamyartrip-guide",
+    "url": "https://hamyartrip.ir/wp-content/uploads/2024/09/mashhad-public-bus.pdf",
+    "retrieved_at": "2026-10-29T22:26:06.766920+00:00",
+    "status": 200,
+    "bytes": 2485244,
+    "sha256": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7",
+    "headers": {
+      "Date": "Thu, 29 Oct 2026 22:26:08 GMT",
+      "Content-Type": "application/pdf",
+      "Content-Length": "2485244",
+      "Connection": "keep-alive",
+      "Server": "cloudflare",
+      "last-modified": "Thu, 12 Sep 2024 18:43:08 GMT",
+      "etag": "\"66e3363c-25ebfc\"",
+      "Accept-Ranges": "bytes",
+      "Cache-Control": "max-age=14400",
+      "cf-cache-status": "MISS",
+      "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=iwDbLNk2lQNAq5ksrRB8rfCLAo%2BLb0RQAVxIb9kx5xN4o8McX8neR4EhTyGhi6g69ETzc%2BlDn%2FxHWNjCQhhUiJTgNvCfpWoRlsGboPm4kbpoLn00SshNnCgoflH%2BFrFH\"}]}",
+      "CF-RAY": "a5259999ecc4eaf5-ORD",
+      "alt-svc": "h3=\":443\"; ma=86400"
+    }
+  },
+  {
+    "id": "mrchetor-guide",
+    "url": "https://mrchetor.ir/wp-content/uploads/2023/06/mashhad-public-bus.pdf",
+    "retrieved_at": "2026-10-29T22:26:06.768858+00:00",
+    "status": 200,
+    "bytes": 2485244,
+    "sha256": "33afb098f497d361bcae88ea24303ae5b2087933e77bce9494a6cbefb1cb34c7",
+    "headers": {
+      "Server": "nginx",
+      "Date": "Thu, 29 Oct 2026 22:26:07 GMT",
+      "Content-Type": "application/pdf",
+      "Content-Length": "2485244",
+      "Last-Modified": "Thu, 15 Jun 2023 17:23:25 GMT",
+      "Connection": "keep-alive",
+      "ETag": "\"648b490d-25ebfc\"",
+      "Accept-Ranges": "bytes"
+    }
+  }
+]

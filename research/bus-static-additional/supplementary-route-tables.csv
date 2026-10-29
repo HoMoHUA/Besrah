@@ -1,0 +1,206 @@
+source_id,source_url,table_index,row_index,route_ref_raw,route_ref,origin,corridor_raw,destination,classification
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,0,1,2,2,پایانه خواجه ربيع,م امام حسين، چ گاز، ب آیت اهلل عبادي، چ راه آهن، چ آیت اهلل عبادي، م شهداء، خ سعدي، چ مدرس، چ لشكر، م امام خميني، ب امام خمینی,پایانه انقلاب اسلامي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,0,2,3,3,پایانه الهیه,ب محمدیه، م بوستان، ب مجیدیه، م مطهری، چ نادرشهر، چ ورزش، ب شاهد، پلیس راه م قائم، م شهیدفهمیده، م امام حسین، م فجر، چ گاز,پايانه شهید مفتح,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,0,3,4,4,پایانه الهیه,ب هاشمی رفسنجانی، ب اماميه، دانشگاه آزاد، چ مخابرات، چ ورزش،چ نادرشهر، شریعتی71، نهضت، نمایشگاه، ب برونسی، ب فکوری، م لادن، ب پيروزي م هاشميه،م حر، م شهید مهدوی، چ خاقاني، م شهید کاوه م جهاد، م انقالب اسلامی,پایانه امام رضا,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,0,4,8,8,پايانه انقلاب,م انقلاب اسلامی، بزرگراه شهیدکالنتری، م جهاد،م جمهوری اسالمی، م آزادی،ت قائم،م شهید فهمیده، م خیام، م امام حسین، م فجر، بزرگراه شهید بابانظر، م شهید عباسپور، بزرگراه بسیج، م غدیر، م حافظ، م انقلاب اسلامی,پايانه انقلاب اسلامی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,0,5,9,9,پايانه انقلاب اسلامی,پايانه انقلاب اسلامی م انقالب اسلامی، م حافظ، م غدیر، بزگراه بسیج، م شهید عباسپور، بزرگراه شهید بابانظر، م فجر، م امام حسین ، م خیام، م شهید فهمیده، قائم، م آزادی، م جمهوری اسلامی، م جهاد، بزرگراه شهید کالنتری، م انقلاب اسلامی,پايانه انقلاب اسلامی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,1,5,5,پايانه طبرسي,م.فجر-چ.مقدم-حرم مطهر-خ.امام رضا,پايانه مسافربري,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,2,7,7,پایانه الهیه,ب اقدسيه، م وليعصر، سجاديه، م بوستان، مركزدرماني امام رضا، فالحي، م مادر، چ اماميه، چ حجاب، چ انديشه، ب امامت، چ ميالد، م استقلال، چ فرامرز، ب فردوسي، م جانباز,پایانه فردوسی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,3,10,10,پایانه وکیل آباد,اقبال لاهوري-سه راه زندان-آب و برق-سه راه كوكا-زير گذر پارک-م.فلسطين-بيمارستان قائم-چ.لشگر-ميدان بسيج,پایانه غدیر,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,4,11,11,پایانه وكيل آباد,اقبال لاهوري-سه راه زندان-آب و برق-سه راه كوكا-م.آزادي-استقلال,پایانه فردوسی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,5,12,12,حرم مطهر,م.شهدا-م.فردوسي-م.استقلال-ب.معلم-ب.دانشجو-ب.وكيل آباد,پايانه وکیل آباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,6,17,17,پایانه آزادی,چ.ميلاد-بانك تجارت-انتهاي امامت-پل انديشه-انديشه-تقاطع انديشه حسابي و انديشه-موجهاي آبي-انتهاي انديشه,شهرك رازي،پايانه الهيه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,7,20,20,پایانه آزادي,سه راه كوكا-دانش آموز-چ.ورزش-شهرك راه آهن-تقاطع حسابي و انديشه-موجهاي آبي-انتهاي انديشه,پایانه الهیه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,8,21,21,میدان شهداء,"چ خواجه ربيع,چ‎عامل،ب‎كريمي-هدايت،انتهای ابوطالب-صدمتری،م بارسپاد",پايانه گردشگری,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,9,22.2,22.2,پایانه شریعتی,پاستور-سه راه راهنمايي-ميدان راهنمايي-آپارتمان هاي مرتفع-ميدان فردوسي-خيام شمالي-م.سپاد,پايانه گردشگري,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,10,23,23,پايانه شهداء,هاشمي نژاد-چ.عشرت آباد-پارك كودك-چ.جوشكاري-ولي عصر 27-شهيد ساجدي,پایانه معراج,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,11,25,25,پايانه مصلي,"ب مصلي,م عدالت،حرم مطهر, م شهدا, م فردوسي،م استقلال-م.آزادي",پايانه آزادي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,12,28,28,میدان شهداء,"چ خواجه ربيع،چ عامل,ب ابوطالب,م بوعلي، ب عبدالمطلب،ب موسوی، هدایت غربی",پايانه گردشگری,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,13,29,29,پایانه راه ‏آهن,ب.كشوري-م.عبدالمطلب-چ.ابوطالب-ب.كلاهدوز-ب.سازمان آب-م.راهنمايي-خ.فلسطين,پایانه فلسطين,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,14,31,31,پایانه آزادی,بين استقلال 7 و 9-سيد رضي 47-م.مادر-تقاطع اديب و حجاب-تقاطع اديب و انديشه-موج هاي آبي-انتهاي انديشه,پایانه الهیه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,15,33,33,میدان شهداء,"چ خواجه ربيع, سمزقند،خيابان گاز،خ رسالت-دروي-يوسف زاده-خواجه ربيع",گاز،رسالت،خواجه ربیع,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,16,34,34,پايانه طبرسي,چ.مقدم-چ.سيلو-خ.ابوذر-خ.مسلم-صدمتري-م.امام حسين,پایانه خواجه ربيع,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,17,35,35,پايانه مصلي,م بار رضوي، صدمتري،م فجر، م امام حسين(ع)-آرامگاه خواجه ربيع,پایانه خواجه ربيع,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,18,37,37,پايانه مفتح,خ.گاز-راه آهن-چ.هاشمي نژاد-چ.خواجه ربيع-م.شهدا-خ.امام خميني-م.15خرداد-ب.جمهوري,پايانه غدير,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,19,37.1,37.1,پايانه مفتح,خ.گاز-ب.هدايت-ب.ابوطالب-ب.شفا-م.بوعلي-م.فردوسي-ب.سازمان آب-م.راهنمايي,پایانه فلسطين,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,20,38,38,پایانه خواجه ربيع,م.امام حسين-سمزقند-م.شهدا-م.سعدي-م شریعتی,كوهسنگي،پایانه زکریا,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,21,38.1,38.1,پایانه شهدا,م.شريعتي-خ.احمدآباد-م.فلسطين,پايانه آزادي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,22,39,39,میدان شهداء,چ خواجه ربيع-سمرقند-م.امام حسين-ت.جاده كلات-ب.بهمن,شهرك قدس،گردشگری,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,23,40,40,حرم مطهر,چ مقدم طبرسي، چ برق، ميدان فجر,بلوار طبرسي شمالي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,24,50,50,حرم مطهر,خ شيرازي-چهارراه شهدا,پايانه شهداء,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,25,60,60,پایانه شهداء,میدان فردوسی،میدان بوعلی، بلوارتوس، میدان شهید فهمیده، بلوار توس، میدان معراج,پایانه معراج,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,26,62,62,میدان بیت المقدس,خسروي-خيابان جم-خيابان سناباد-ب.سجاد,پايانه‏ آزادي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,27,73,73,ميدان بيت المقدس,م.بسيج- م 15خرداد,پایانه فلسطین,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,28,77,77,ميدان بيت المقدس,م بسيج- م15خرداد-ب.جمهوري,فرودگاه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,29,79,79,پایانه راه‏آهن,م.بيت المقدس-م بسيج-15خرداد,فرودگاه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,30,80,80,پایانه زکریا,خ.كوهسنگي-ملاصدرا-خ.احمدآباد-كلاهدوز-ب.ابوطالب-هدايت ب.خيام شمالي-م.سپاد,پایانه گردشگری,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,31,82,82,خيابان خسروي,چهارطبقه-چ.لشگر-شريعتي,دكتر بهشتي،پایانه زکریا,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,32,83,83,پایانه را‏ه‏ آهن,چ.شهدا-چ.خسروي-خ.خاكي-چ.لشگر-م.عدل خميني-م.115خرداد-پ.مسافربري,پايانه مسافربري,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,33,84,84,پايانه مسافربري,م.بسيج-حرم مطهر-خ.طبرسي-چ.برق-م.فجر-ب.طبرسي-بلوار سوم,پايانه طبرسي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,34,84.1,84.1,پايانه مسافربري,م.15 خرداد-خ.كوشش-خ.17 شهريور-ب.وحدت-چ.مقدم-چ.برق-م.فجر-ب.طبرسي,پايانه طبرسي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,35,85,85,پایانه مسافربری,م.تلوزیون-م.آزادی-امام هادی,پایانه معراج,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,36,86,86,میدان بیت المقدس,"چ خسروي, چهارطبقه،خ امام خميني،چ لشكر، م شریعتی",کوهسنگی،پایانه زکریا,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,37,88,88,پایانه خواجه ربيع,م.امام حسین(ع)-صدمتری-م.سپاد-خیام-تقاطع خیام و توس-خیام جنوبی-تقاطع سجاد-تقاطع خيام ملك آباد,پایانه آزادی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,38,91,91,پایانه فلسطین,اول رضا شهر-چ.خاقاني-م.حر-م.هاشميه-چ.پيروزي-م.هشتصد-م.خيام آب و برق-تجريش-برونسي,پایانه وکیل آباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,39,99,99,پايانه وكيل آباد,ب.‏وكيل‏آباد-‏خ.‏نمايشگاه-‏م‏.امام‏ حسن-ب.شاهد-پليس راه-م.قائم-صدمتري-م.امام حسين,پايانه خواجه ربيع,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,40,100,100,پايانه مصلي,ج ‎سرخس،م بار رضوي،پل لغدير،ج آسيائي،م گاراژدارها،م‎ جهاد،م‎ صداوسيما،م آزادي,پايانه آزادي,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,41,210,210,ميدان بيت المقدس,خ.خسروي-چ.شهدا-چ.ميدان بار-م.فردوسي-چ.خيام-ب.خيام شمالی,پايانه گردشگري,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,1,42,702,702,چهارراه دانش شرقی,چ نخریسی،م بسيج،م 15خرداد،چ مقدم،پليس راه،ابتداي طرق،خواجه اباصلت,بهشت رضا(ع),third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,2,1,800,800,پایانه امام رضا,م 15 خرداد، م بسيج، حرم مطهر، خ طبرسی، م طبرسی،ت شهيد گمنام، چ شهید مفتح، چ گازشرقی، م فجر، ب طبرسي شمالی، انتهاي ب طبرسي شمالي,پایانه طبرسی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,2,2,1/800,1/800,میدان پایانه امام رضا,م 15 خرداد، م بسيج، چ دانش، م بيت المقدس,حرم امام رضا,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,2,3,2/800,2/800,پایانه طبرسی,م فجر، چ برق، چ مقدم طبرسي,حرم مطهر,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,2,4,830,830,انتهای شهرک شهید باهنر,ش شهید باهنر، ش شهید رجایی، م عدالت، حرم مطهر، چ شهدا، م توحید، چ ابوطالب، م فردوسی، م استقالل، ب معلم، چ معلم، ب سید رضی، م امام علی ، چ مخابرات چ امامیه، م امامیه، چ رستگاری,انتهای امامیه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,2,5,831,831,پایانه الهیه,ب آیت اهلل هاشمی رفسنجانی، ب اندیشه، ب شاهد، چ ورزش چ مخابرات، م امام علی، ب سید رضی، ب وکیل آباد س کوثر، م آزادی، م استقالل، ب فردوسی، حرم مطهر م عدالت، ب مصلی,پایانه مصلی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,1,206,206,پایانه فردوسی,ب توس، م شهيد فهميده، م معراج، كال زركش، س فردوسي، شمس آباد، حاجي آباد، چهاربرج، گوارشك، گندم خواب، حصار نصرآباد، نقاب، انداد,حصار,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,2,207,207,پایانه فردوسی,ب توس، م شهيد فهميده، م معراج، كال زركش، س فردوسي، شمس آباد، حاجي آباد، چهاربرج، گوارشک، جغنه، كلوخي، ارداك نقاب، انداد، دوله,ارداك,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,3,1/207,1/207,پایانه فردوسی,ب توس، م شهيد فهميده، م معراج، كال زركش، س فردوسي، شمس آباد، حاجي آباد، چهاربرج، جغنه، گجوان گندم خواب، نصرآباد، گوارشک,گجوان,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,4,302,302,پایانه شهید گمنام,ت مجلسي، ب ابوريحان، ت مفتح، ت برق، خ شيخ صدوق، م بار نوغان، همت آباد، س كارخانه پرميت,مقصودآباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,5,303,303,پایانه خواجه ربیع,ب 22بهمن، جاده کلات، گرجي، کاظم آباد، خلق آباد، کالکوب، اندرخ فرخد، ش صنعتي، فاز، گذرگاه، معين آباد، رضوان,اندرخ,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,6,304,304,پایانه خواجه ربيع,ب 22بهمن، (ج كالت)، گرجي، كاظم آباد، خلق آباد، كالكوب، فرخد، ش صنعتي، فاز، گذرگاه,معين آباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,7,305,305,پایانه خواجه ربيع,ب 22بهمن، (ج كالت)، گرجی ، كاظم آباد، خلق آباد، كالكوب,فرخد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,8,306,306,پایانه خواجه ربيع,ب 22بهمن، ج كالت، گرجی ، کاظم آباد، خلق آباد، کالکوب فرخد، ش صنعتي، فاز، گذرگاه، معين آباد، گوارشك,خوش هوا,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,9,307,307,پایانه خواجه ربيع,ب 22بهمن، گرجی ، کاظم آباد، خلق آباد ، کالکوب، فرخد، ش صنعتي، فاز، گذرگاه، معين آباد، گوارشك,چايدره,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,10,401,401,پایانه طبرسی,انتهای ب طبرسی ، امرغان ، کنارگوشه ، هلالی,برزش آباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,11,402,402,پایانه طبرسی,انتهای ب طبرسی، س زین الدین، شیرحصار,شهید شوشتری,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,12,501,501,پایانه مصلی,ب مصلی، م شهید عباسپور ،ب حر، چ سرخس، ش شهید باهنر، ش رضوی، خادم آباد، احمدآباد، قازقان، ميامي چنارک، اردلوک، امامزاده یحیی,میامی,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,13,502,502,پایانه غدیر,ب رستمی، چ رستمی، ب سرخس، م شهید عباسپور، ب حر، ش شهید رجائی، ش شهید باهنر,شهر رضويه,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,14,503,503,پایانه مصلی,ب مصلی، م شهید عباسپور، ب حر، ش شهید رجائی، ش شهید باهنر، سالار آباد,دستگردان,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,15,504,504,پایانه مصلی,ب مصلی، م شهید عباسپور، ب حر، ش شهید رجائی، خ اروند، ، مهدی آباد، قیاس آباد، کج درخت، س فیض آباد,كنه بيست، خيرآباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,16,505,505,پایانه مصلی,ب مصلی، م شهید عباسپور، ب حر، ش شهید رجائی، خ اروند، مهدی آباد، قیاس آباد، کج درخت، س فیض آباد,كنه بيست، شرشر,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,17,506,506,پایانه مصلی,ب مصلی، م شهید عباسپور،ب حر، ش شهیدرجائی، خ اروند، چ مهدی آباد,شهرآباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,18,703,703,پایانه امام رضا,خ شهید موسوی، چ کوشش (گاراژدار ها) ، چ پروین اعتصامی، پلیس راه طرق، خواجه اباصلت، خواجه مراد، تپه سالم، س جیم آباد,جیم آباد,third_party_undated_not_current_verified
+mrchetor,https://mrchetor.ir/mshhad-bus-routs/,3,19,704,704,پايانه امام رضا,خ شهید موسوی، چ كوشش، چ پروین اعتصامی، م غدیر، م سالم، ب ثامن، م ثامن، م صبا ،ب صبا ، ش ابوذر، س رباط طرق، س ده غیبی، س بساروج,ده غيبي,third_party_undated_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,1,2 ,2,خیابان دانشگاه,,پایانه انقلاب اسلامي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,2,702 ,702,چهارراه دانش شرقی,,بهشت رضا(ع),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,3,701.1 ,701.1,چهارراه دانش شرقی,,ایوان طرق,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,4,701 ,701,چهارراه دانش شرقی,,شهرك طرق,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,5,201 ,201,پايانه شهداء,,شهيد قرباني,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,6,100 ,100,پايانه مصلي,,پايانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,7,98.1 ,98.1,پايانه آزادي,,ميدان سرافرازان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,8,98 ,98,پایانه فلسطین,,شهرك آزادگان،لویزان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,9,97 ,97,پایانه فلسطین,,چهارچشمه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,10,96.1 ,96.1,پایانه فلسطین,,کوثرجنوبی،هاشمیه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,11,96 ,96,پايانه شهداء,,شهرك نيروي هوايي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,12,95 ,95,پایانه غدیر,,كوي‎ امام‎رضا(ع),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,13,94.2 ,94.2,سه راه آب وبرق,,كوي‏ آب وبرق,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,14,94.1 ,94.1,پايانه آزادي,,انتهاي پيروزي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,15,94 ,94,پایانه غدیر,,كوي‏ آب وبرق,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,16,93 ,93,پایانه فلسطین,,شهرك طالقاني,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,17,92 ,92,پایانه شریعتی,,شهرك نوفل‏لوشاتو,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,18,91 ,91,پایانه فلسطین,,ش.وليعصر،پایانه وکیل آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,19,88 ,88,پایانه خواجه ربيع,,پایانه آزادی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,20,86 ,86,میدان بیت المقدس,,کوهسنگی،پایانه زکریا,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,21,84.1 ,84.1,بلوارطبرسی,,پایانه مسافربری,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,22,84 ,84,پايانه مسافربري,,بلوار طبرسي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,23,83 ,83,پایانه را‏ه‏آهن,,پايانه مسافربري,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,24,82 ,82,میدان بیت المقدس,,دكتر بهشتي،پایانه زکریا,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,25,80 ,80,پایانه زکریا,,پایانه گردشگری,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,26,79 ,79,پایانه راه‏آهن,,فرودگاه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,27,78 ,78,چهارراه ‏دانش‏ شرقی,,شهرك عسگريه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,28,77 ,77,چهارراه دانش شرقی,,فرودگاه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,29,76.1 ,76.1,میدان بیت المقدس,,قائم، کوی حجت,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,1,30,76 ,76,میدان بیت المقدس,,"قائم,بوتان",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,0,75 ,75,چهارراه ‏دانش‏ شرقی,,شهرك ابوذر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,1,74 ,74,میدان بیت المقدس,,شهرك ابوذر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,2,73 ,73,حرم مطهر,,پایانه مسافربری,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,3,72 ,72,"م بسيج،چ نخريسي, كوچه‏چمن",,كوي كارگران,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,4,77.1 ,77.1,میدان بیت المقدس,,شهرك ابوذر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,5,71 ,71,میدان بیت المقدس,,شهرك انقلاب,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,6,70 ,70,پایانه عدالت,,اسماعیل آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,7,69 ,69,پایانه عدالت,,اميرآباد(كوي‎امام‎حسن),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,8,68 ,68,پایانه غدیر,,ميدان شهيد مفتح,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,9,67 ,67,پایانه عدالت,,د‏ه‏متري‏ساختمان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,10,66 ,66,پايانه مصلي,,پايانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,11,65 ,65,پایانه عدالت,,شهرك ‏شهيد‏رجائي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,12,64 ,64,پایانه عدالت,,شهرك شهيد‏باهنر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,13,63 ,63,میدان بیت المقدس,,كوي‏هاشمي‏نژاد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,14,62 ,62,میدان بیت المقدس,,پايانه‏ آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,15,61 ,61,میدان شهداء,,"كوي كارمندان,ش شیرین",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,16,60 ,60,پایانه شهداء,,پایانه معراج,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,17,58 ,58,پایانه عدالت,,مهر‏آباد(مسجدالرضا),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,18,57.1 ,57.1,پایانه شهید گمنام,,گلشهر،ميدان درمانگاه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,19,57 ,57,پایانه شهید گمنام,,گلشهر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,20,56.2 ,56.2,پایانه شهید گمنام,,شهرک پاوا,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,21,56.1 ,56.1,پایانه شهید گمنام,,شهرك صادقيه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,22,56 ,56,پایانه شهید گمنام,,"تلگرد,نيزه",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,23,55.1 ,55.1,پایانه عدالت,,کریم آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,24,55 ,55,پایانه عدالت,,پورسينا(بازه شيخ),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,25,54 ,54,خيابان طبرسي,,ده‏متري‏سلمان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,26,53 ,53,خيابان طبرسي,,مهر‏آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,27,47 ,47,خيابان طبرسي,,عباس آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,28,46.1 ,46.1,میدان شهداء,,پایانه شهید گمنام,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,2,29,43 ,43,خيابان طبرسي,,خيابان وحيد(دريا),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,0,42 ,42,میدان شهداء,,"طلاب،گلشور,مفتح شرقی",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,1,39 ,39,پايانه گردشگري,,ميدان شهداء,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,2,38 ,38,پایانه خواجه ربيع,,كوهسنگي،پایانه زکریا,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,3,37.1 ,37.1,ميدان شهيد مفتح,,پایانه فلسطين,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,4,37 ,37,ميدان شهيد مفتح,,بلوار جمهوري اسلامي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,5,36 ,36,میدان شهداء,,شهرك چمران,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,6,35 ,35,پايانه مصلي,,پایانه خواجه ربيع,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,7,34 ,34,خيابان طبرسي,,پایانه خواجه ربیع,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,8,33 ,33,پايانه خواجه ربيع,,ميدان شهداء,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,9,29 ,29,پایانه راه‏آهن,,پایانه فلسطين,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,10,28.1 ,28.1,پايانه مصلي,,پایانه فلسطين,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,11,28 ,28,پايانه گردشگري،كوي قائم,,ميدان شهداء,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,12,46 ,46,پایانه شهید گمنام,,التيمور,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,13,44 ,44,خيابان طبرسي,,"ميثم,مفتح شرقی",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,14,40 ,40,حرم مطهر,,بلوار طبرسي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,15,27 ,27,پايانه شهداء,,كارخانه قند,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,16,26 ,26,پایانه شریعتی,,فرامرز عباسي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,17,25 ,25,پايانه مصلي,,پايانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,18,24 ,24,پايانه شهداء,,مطهري‏ شمالي،ايثارگران,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,19,23 ,23,پايانه شهداء,,كوي امير، بوعلي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,20,22.2 ,22.2,پایانه شریعتی,,پايانه گردشگري,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,21,22 ,22,پايانه شهداء,,فرامرز عباسي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,22,21 ,21,پايانه گردشگري،نان رضوي,,ميدان شهداء,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,23,27.1 ,27.1,پایانه شهداء,,انتهای تلاش,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,24,19 ,19,پایانه شریعتی,,قاسم‏آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,25,18 ,18,پایانه الهيه,,پایانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,26,17.1 ,17.1,پايانه الهيه,,پایانه آزادی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,27,17 ,17,پایانه شریعتی,,شهرك رازي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,28,16.1 ,16.1,پايانه الهيه،حجاب,,پايانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,3,29,16 ,16,پایانه الهیه،قاسم آباد,,پایانه فردوسی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,0,15.1 ,15.1,پایانه شریعتی,,"فرهنگيان,پایانه الهیه",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,1,15 ,15,پایانه شریعتی,,"فرهنگيان,پایانه الهیه",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,2,14.1 ,14.1,پايانه‏ الهيه,,پايانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,3,14 ,14,پايانه الهيه,,پايانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,4,12.1 ,12.1,حرم مطهر,,انتهای فارغ التحصیلان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,5,12 ,12,حرم مطهر,,پايانه وکیل آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,6,11 ,11,پایانه وكيل آباد,,پایانه فردوسی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,7,10.1 ,10.1,پایانه شهداء,,پایانه آزادی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,8,10 ,10,پایانه شهدا,,پايانه وكيل‏ آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,9,4 ,4,پایانه الهیه,,پایانه انقلاب اسلامی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,10,2 ,2,خیابان دانشگاه,,پایانه انقلاب اسلامي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,11,18.1 ,18.1,پایانه الهيه,,پایانه آزادي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,12,13 ,13,پایانه غدیر,,آزاد شهر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,4,13,3 ,3,میدان شهید مفتح,,پایانه الهیه,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,5,0,65.1 ,65.1,حرم مطهر,,پایانه آزادی,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,5,1,12.1 ,12.1,حرم مطهر,,وکیل آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,1,507 ,507,پايانه مسافربري,,ده غيبي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,2,506 ,506,پایانه عدالت,,شهر‏آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,3,505 ,505,پایانه عدالت,,كنه‏بيست،شرشر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,4,504 ,504,پایانه عدالت,,كنه‏بيست،خيرآباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,5,503 ,503,پایانه عدالت,,دستگردان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,6,502 ,502,پایانه عدالت,,شهرك رضوي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,7,501 ,501,پایانه عدالت,,ميامي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,8,402 ,402,پایانه شهید گمنام,,شترك,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,9,401 ,401,پایانه شهید گمنام,,برزش آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,10,307 ,307,پایانه خواجه ربيع,,چايدره,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,11,306 ,306,پایانه خواجه ربيع,,خوش هوا,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,12,305 ,305,پایانه شهید گمنام,,فرخد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,13,304 ,304,پایانه شهید گمنام,,معين‏آباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,14,303 ,303,پایانه شهید گمنام,,اندرخ,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,15,302 ,302,پایانه شهید گمنام,,مقصودآباد,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,16,301 ,301,پایانه شهید گمنام,,كارخانه‏ سيمان,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,17,207 ,207,پایانه فردوسی,,حصار,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,18,206 ,206,پایانه فردوسی,,ارداك,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,19,205 ,205,پایانه فردوسی,,سه راه فردوسي,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,20,202 ,202,پایانه فردوسی,,فردوسي‎(جاده جديد),third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,21,124 ,124,پایانه وكيل آباد,,زشك,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,22,123 ,123,پایانه وكيل آباد,,ابرده عليا,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,23,121 ,121,پایانه وكيل آباد,,شانديز,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,24,115.1 ,115.1,پایانه وكيل آباد,,نقندر،كنگ,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,25,115 ,115,پایانه وكيل آباد,,نقندر,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,26,114 ,114,پایانه وكيل آباد,,جاغرق,third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,27,113 ,113,پایانه وكيل آباد,,"حصار, گلستان",third_party_historical_not_current_verified
+blogfa_historical,https://darman1.blogfa.com/post/46,6,28,111 ,111,پايانه وكيل آباد,,طرقبه، طرقدر,third_party_historical_not_current_verified
