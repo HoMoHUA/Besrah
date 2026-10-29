@@ -7,7 +7,9 @@ import { createState } from './state.js';
 import { createStore } from './store.js';
 import { createTelegram } from './tg.js';
 import { createSheetHost } from './ui/sheet.js';
-import { createSearchBox } from './ui/searchbox.js';
+import { createServiceSearch } from './ui/service-search.js';
+import { createServiceStore } from './service-store.js';
+import { NAV_VIEWS, ROUTES, activeNav, createNavigation } from './navigation.js';
 import { createStationSheet } from './ui/station.js';
 import { $, h, icon, reducedMotion } from './ui/dom.js';
 import { bridgeHaptics, init, lensTabs, morph, setToastHost, toast } from './ui/hm7.js';
@@ -15,17 +17,22 @@ import { createAboutView } from './views/about.js';
 import { createFavouritesView } from './views/favourites.js';
 import { createHomeView } from './views/home.js';
 import { createServicesView, roadmapList } from './views/services.js';
-import { createStationsView } from './views/stations.js';
+import { createMetroView } from './views/metro.js';
+import { createSettingsView } from './views/settings.js';
+import { createSavedView } from './views/saved.js';
+import { isLive } from './services.js';
 import { isSupported, lineLabel } from './format.js';
 
-const VIEWS = ['home', 'stations', 'services', 'favourites', 'about'];
-const TITLES = { home: 'خانه', stations: 'ایستگاه ها', services: 'سرویس ها', favourites: 'علاقه مندی ها', about: 'درباره' };
+const TITLES = { home: 'خانه', metro: 'ریل', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', about: 'درباره' };
+const navigation = createNavigation();
+try { history.replaceState({ besrahRoute: 'home', besrahIndex: 0 }, ''); } catch { /* embedded browser */ }
 
 const tg = createTelegram(window);
 tg.start();
 
 const safeStorage = (() => { try { return window.localStorage; } catch { return undefined; } })();
 const store = createStore(safeStorage);
+const serviceStore = createServiceStore(safeStorage);
 const api = createApi();
 const state = createState({
   status: 'loading', stations: [], order: [], order2: [], maxKm: 10, view: 'home',
@@ -48,7 +55,7 @@ function syncTelegramColors() {
 function applyTheme(pref = store.themePref()) {
   themeApi?.apply(pref);
   syncTelegramColors();
-  views.about?.syncTheme(pref);
+  views.settings?.syncTheme(pref);
   paintMenu();
 }
 function setTheme(pref) { store.setThemePref(pref); applyTheme(pref); }
@@ -81,6 +88,7 @@ function openStation(name) {
   const station = state.get().stations.find(s => s.name === name);
   if (!station) return;
   if (!isSupported(station)) return unsupported(station);
+  if (state.get().view !== 'metro' && state.get().view !== 'favourites') go('metro');
   stationSheet.show(name);
 }
 function openRoadmap() {
@@ -94,40 +102,53 @@ function openRoadmap() {
   init(content);
 }
 
-/* ── routing between the five tabs ── */
+/* ── Navigation: global tabs and nested products keep separate identities. ── */
 const views = {};
-function transition(update, forward) {
-  if (!document.startViewTransition || reducedMotion()) { update(); return; }
-  document.documentElement.dataset.vt = forward ? 'forward' : 'back';
-  const t = document.startViewTransition(update);
-  t.finished.finally(() => { delete document.documentElement.dataset.vt; });
-}
 let lens = null;
-function go(view, options = {}) {
-  if (!VIEWS.includes(view)) return;
+const routeOpeners = new Map();
+function showRoute(view, options = {}, scroll = 0) {
   const prev = state.get().view;
-  const show = () => {
-    panel.replaceChildren(views[view].el);
-    panel.setAttribute('aria-label', TITLES[view]);
-    state.set({ view });
-    views[view].onShow?.(options);
-    window.scrollTo(0, 0);
-    document.title = `${TITLES[view]} · Besrah`;
-    updateBack();
-  };
-  lens?.select(VIEWS.indexOf(view), true);
-  if (view === prev) { views[view].onShow?.(options); window.scrollTo(0, 0); return; }
-  transition(show, VIEWS.indexOf(view) > VIEWS.indexOf(prev));
+  views[prev]?.onHide?.();
+  search?.close();
+  panel.replaceChildren(views[view].el);
+  panel.setAttribute('aria-label', TITLES[view]);
+  state.set({ view });
+  views[view].onShow?.(options);
+  lens?.select(NAV_VIEWS.indexOf(activeNav(view)), true);
+  nav.dataset.active = activeNav(view);
+  nav.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-current', button.dataset.view === activeNav(view) ? 'page' : 'false'));
+  window.scrollTo(0, scroll);
+  document.title = `${TITLES[view]} · Besrah`;
+  if (view === 'metro' && state.get().status === 'ready') loadRecent();
+  updateBack();
 }
-
-function updateBack() {
-  const needed = sheet.isOpen || state.get().view !== 'home';
-  tg.setBack(needed ? onBack : null);
+function go(view, options = {}) {
+  if (!ROUTES.includes(view)) return;
+  const prev = navigation.current();
+  if (view === prev) { views[view].onShow?.(options); return; }
+  const opener = document.activeElement;
+  navigation.go(view, window.scrollY);
+  routeOpeners.set(navigation.index(), opener);
+  try { history.pushState({ besrahRoute: view, besrahIndex: navigation.index() }, ''); } catch { /* route stack still works */ }
+  showRoute(view, options);
 }
+function updateBack() { tg.setBack(sheet.isOpen || state.get().view !== 'home' ? onBack : null); }
 function onBack() {
-  if (sheet.isOpen) sheet.close();
-  else if (state.get().view !== 'home') go('home');
+  if (sheet.isOpen) { sheet.close(); return; }
+  if (navigation.index() === 0) return;
+  if (history.state?.besrahIndex === navigation.index()) history.back();
+  else { const entry = navigation.back(); if (entry) showRoute(entry.view, {}, entry.scroll); }
 }
+window.addEventListener('popstate', event => {
+  // Sheet entries belong to the sheet host. Closing one returns to the unchanged route index.
+  if (event.state?.besrahSheet || event.state?.besrahIndex === navigation.index()) return;
+  const from = navigation.index();
+  const entry = navigation.restore(event.state?.besrahIndex);
+  if (!entry) return;
+  showRoute(entry.view, {}, entry.scroll);
+  const opener = routeOpeners.get(from);
+  if (opener?.isConnected) opener.focus({ preventScroll: true });
+});
 
 /* ── nearest station: coordinates stay in this function and are never sent or stored ── */
 let locating = false;
@@ -139,8 +160,8 @@ async function locate() {
     return toast({ title: 'فهرست ایستگاه ها در حال دریافت است', text: 'چند لحظه بعد دوباره امتحان کنید.', icon: 'info_circle_fill' });
   }
   locating = true;
-  if (state.get().view !== 'home') go('home');
-  views.home.focusHero();
+  if (state.get().view !== 'metro') go('metro');
+  views.metro.focusHero();
   boardSeq.cancel();
   state.set({ nearest: { phase: 'loading' } });
   let code = null;
@@ -194,39 +215,40 @@ async function loadStations() {
   const data = result.value;
   store.prune(data.stations.map(s => s.name));
   state.set({ status: 'ready', stations: data.stations, order: data.line1Order, order2: data.line2Order ?? [], maxKm: data.maxNearestKm ?? 10 });
-  search.refresh();
-  loadRecent();
+  if (state.get().view === 'metro') loadRecent();
 }
 const reload = () => loadStations();
 // Search ranks stations by route position on either line (line 1 first).
 const combinedOrder = () => { const { order, order2 } = state.get(); return [...order, ...order2.filter(n => !order.includes(n))]; };
 
 const actions = {
-  go, openStation, locate, openRoadmap, reload, unsupported, setTheme,
+  go, back: onBack, openStation, locate, openRoadmap, reload, unsupported, setTheme,
   heroAction(action) {
     if (action.id === 'locate') locate();
     else if (action.id === 'open') openStation(action.station);
     else if (action.id === 'about') go('about');
   },
   serviceAction(service) {
+    if (!isLive(service)) return toast({ title: service.title, text: 'این سرویس هنوز در دسترس نیست. زمان عرضه ای اعلام نشده است.', icon: 'info_circle_fill' });
     const a = service.action;
     if (a.type === 'view') go(a.view, { mode: a.mode });
     else if (a.type === 'locate') locate();
   },
 };
 
-const ctx = { state, store, actions };
+const ctx = { state, store, serviceStore, actions };
 views.home = createHomeView(ctx);
-views.stations = createStationsView(ctx);
+views.metro = createMetroView(ctx);
+views.settings = createSettingsView(ctx);
+views.saved = createSavedView(ctx);
 views.services = createServicesView(ctx);
 views.favourites = createFavouritesView(ctx);
 views.about = createAboutView(ctx);
 
 /* ── header: search + menu ── */
-const search = createSearchBox({
+const search = createServiceSearch({
   host: $('#search-host'), input: $('#q'), clearButton: $('#q-clear'), popup: $('#suggest'), listbox: $('#suggest-list'), live: $('#suggest-live'),
-  getStations: () => state.get().stations, getOrder: () => combinedOrder(), getStatus: () => state.get().status, onRetry: reload,
-  store, onPick: openStation, onUnsupported: unsupported,
+  onPick: actions.serviceAction,
 });
 
 let menuApi = null;
@@ -240,6 +262,7 @@ function paintMenu() {
     item('روشن', () => setTheme('light'), { role: 'menuitemradio', checked: String(pref === 'light'), icon: 'sun_max' }),
     item('تیره', () => setTheme('dark'), { role: 'menuitemradio', checked: String(pref === 'dark'), icon: 'moon' }),
     h('hr', { class: 'cm-divider', role: 'separator' }),
+    item('تنظیمات', () => go('settings'), { icon: 'gearshape' }),
     item('درباره و حریم خصوصی', () => go('about'), { icon: 'info_circle' }));
   content.querySelectorAll('[aria-checked="true"]').forEach(b => b.setAttribute('aria-selected', 'true'));
 }
@@ -251,7 +274,7 @@ paintMenu();
 init(document);
 Object.values(views).forEach(v => v.mount?.());
 menuApi = $('#menu')._hm7morph ?? morph($('#menu-btn'), $('#menu'));
-lens = lensTabs(nav, index => { const view = VIEWS[index]; if (view && view !== state.get().view) go(view); });
+lens = lensTabs(nav, index => { const view = NAV_VIEWS[index]; if (view && view !== state.get().view) go(view); });
 bridgeHaptics(tg);
 tg.setBack(null);
 window.addEventListener('pageshow', () => syncTelegramColors());

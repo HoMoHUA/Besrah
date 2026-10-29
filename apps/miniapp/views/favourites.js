@@ -7,7 +7,7 @@ import { positionLabel } from '../route.js';
 export function createFavouritesView(ctx) {
   const { state, store, actions } = ctx;
   const root = h('div', { class: 'view view--favourites' });
-  const head = h('header', { class: 'view__head' }, h('h1', { class: 'view__title', text: 'علاقه مندی ها' }),
+  const head = h('header', { class: 'view__head' }, h('button', { class: 'back-link', type: 'button', onClick: () => actions.back() }, icon('arrow_right'), 'بازگشت به ریل'), h('h1', { class: 'view__title', text: 'ایستگاه های من' }),
     h('p', { class: 'view__sub', text: 'نام ایستگاه های ذخیره شده فقط روی همین دستگاه می ماند.' }));
   const body = h('div', { class: 'fav-body' });
   root.append(head, body);
@@ -30,7 +30,7 @@ export function createFavouritesView(ctx) {
         h('div', { class: 'cm-empty__art' }, icon('heart')),
         h('h3', { text: 'هنوز ایستگاهی ذخیره نکرده اید' }),
         h('p', { text: 'در برگهٔ هر ایستگاه قلب را لمس کنید تا اینجا بماند.' }),
-        h('button', { class: 'cm-btn cm-btn--sm el', type: 'button', onClick: () => actions.go('stations', { mode: 'line1' }) }, 'دیدن ایستگاه ها')));
+        h('button', { class: 'cm-btn cm-btn--sm el', type: 'button', onClick: () => actions.go('metro', { mode: 'line1' }) }, 'دیدن ایستگاه ها')));
       init(body); return;
     }
     body.replaceChildren(h('ul', { class: 'fav-list', role: 'list' }, names.map(name => {

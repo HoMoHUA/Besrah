@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-labelledby="rahyab-title rahyab-desc">
+  <title id="rahyab-title">Besrah Rahyab</title>
+  <desc id="rahyab-desc">A blue folded city map with an ivory winding route connecting teal and blue location pins.</desc>
+  <defs>
+    <linearGradient id="rahyab-map" x1="25" y1="35" x2="88" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#89C6F4"/>
+      <stop offset="0.6" stop-color="#438DDA"/>
+      <stop offset="1" stop-color="#2C6CB6"/>
+    </linearGradient>
+    <linearGradient id="rahyab-pin" x1="74" y1="15" x2="88" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B9293"/>
+      <stop offset="1" stop-color="#0A5556"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="57" r="45" fill="#E9F2FC"/>
+  <ellipse cx="60" cy="105" rx="37" ry="5" fill="#275E94" opacity="0.12"/>
+  <path d="m22 42 25-9 28 10 24-8v54c0 4-2 7-6 8l-18 7-28-10-23 8c-3 1-5-1-5-4V48c0-3 1-5 3-6Z" fill="#2864A5"/>
+  <path d="m20 36 26-9 28 10 23-8v55c0 3-1 5-4 6l-19 7-28-10-22 8c-3 1-5-1-5-4V40c0-2 0-3 1-4Z" fill="url(#rahyab-map)"/>
+  <path d="m46 27 28 10v60L46 87Z" fill="#2A71BE"/>
+  <path d="m74 37 23-8v55c0 3-1 5-4 6l-19 7Z" fill="#65ADF0"/>
+  <path d="M46 31v51m28-39v49" stroke="#B6DBF8" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="m23 51 19-6m-18 34 18-6m10-25 17 6m10 20 13-5" stroke="#C3E2FB" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round"/>
+  <path d="M34 68v7c0 7 10 3 15 5l10 4c5 2 7-1 7-6V65c0-5 5-8 9-10l7-3" fill="none" stroke="#205797" stroke-opacity="0.25" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M34 65v7c0 7 10 3 15 5l10 4c5 2 7-1 7-6V62c0-5 5-8 9-10l7-3" fill="none" stroke="#F3F5EF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="82" cy="53" rx="10" ry="3" fill="#205797" opacity="0.2"/>
+  <path d="M97 29c0 12-15 24-15 24S67 41 67 29a15 15 0 0 1 30 0Z" fill="url(#rahyab-pin)"/>
+  <path d="M72 27c1-5 4-8 9-8" fill="none" stroke="#A5D9CF" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="82" cy="29" r="6" fill="#D7FF63"/>
+  <path d="M46 50c0 9-12 19-12 19S22 59 22 50a12 12 0 0 1 24 0Z" fill="#225B9C"/>
+  <circle cx="34" cy="50" r="4.5" fill="#F3F5EF"/>
+</svg>

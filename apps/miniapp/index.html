@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#061C1D">
 <meta name="color-scheme" content="dark light">
-<title>Besrah · قطار بعدی مترو مشهد</title>
+<title>Besrah · بِسراه</title>
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preload" href="vendor/hm7/fonts/AzarMehr-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,11 +29,11 @@
         <label class="cm-search cm-inset app-search__field" for="q">
           <i class="hms hms-magnifyingglass" aria-hidden="true"></i>
           <input id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"
-            role="combobox" aria-expanded="false" aria-controls="suggest-list" aria-autocomplete="list" aria-label="جست وجوی ایستگاه" placeholder="جست وجوی ایستگاه ها">
+            role="combobox" aria-expanded="false" aria-controls="suggest-list" aria-autocomplete="list" aria-label="جست وجو در سرویس های بِسراه" placeholder="دنبال کدام سرویس هستید؟">
           <button class="cm-qty__b search-clear" id="q-clear" type="button" hidden aria-label="پاک کردن جست وجو"><i class="hms hms-xmark_circle_fill" aria-hidden="true"></i></button>
         </label>
         <div class="cm-menu app-suggest" id="suggest" hidden>
-          <div id="suggest-list" role="listbox" aria-label="پیشنهادهای ایستگاه"></div>
+          <div id="suggest-list" role="listbox" aria-label="سرویس های بِسراه"></div>
         </div>
         <p class="cm-sr" id="suggest-live" role="status" aria-live="polite"></p>
       </div>
@@ -45,15 +45,15 @@
   <div class="edge edge--bottom" aria-hidden="true"></div>
   <nav class="hm7-glass cm-frost hm7-tabs cm-bottom app-nav" id="nav" aria-label="منوی اصلی">
     <button class="hm7-tabs__item is-active" type="button" data-view="home" aria-controls="panel"><i class="hms hms-house" aria-hidden="true"></i>خانه</button>
-    <button class="hm7-tabs__item" type="button" data-view="stations" aria-controls="panel"><i class="hms hms-subway" aria-hidden="true"></i>ایستگاه ها</button>
+    <button class="hm7-tabs__item" type="button" data-view="saved" aria-controls="panel"><i class="hms hms-heart" aria-hidden="true"></i>ذخیره ها</button>
     <button class="hm7-tabs__item hm7-tabs__item--hub" type="button" data-view="services" aria-controls="panel"><i class="hms hms-square_grid_2x2" aria-hidden="true"></i>سرویس ها</button>
-    <button class="hm7-tabs__item" type="button" data-view="favourites" aria-controls="panel"><i class="hms hms-heart" aria-hidden="true"></i>علاقه مندی ها</button>
+    <button class="hm7-tabs__item" type="button" data-view="settings" aria-controls="panel"><i class="hms hms-gearshape" aria-hidden="true"></i>تنظیمات</button>
     <button class="hm7-tabs__item" type="button" data-view="about" aria-controls="panel"><i class="hms hms-info_circle" aria-hidden="true"></i>درباره</button>
   </nav>
 </div>
 <div class="cm-toasts app-toasts" id="toasts" aria-label="اعلان ها"></div>
 <div id="sheet-root"></div>
 <p class="cm-sr" id="announce" role="status" aria-live="polite"></p>
-<noscript><p class="app-noscript">برای نمایش زمان قطارها جاوااسکریپت لازم است.</p></noscript>
+<noscript><p class="app-noscript">برای استفاده از بِسراه، جاوااسکریپت را فعال کنید.</p></noscript>
 </body>
 </html>

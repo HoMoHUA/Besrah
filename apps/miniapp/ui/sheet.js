@@ -6,23 +6,36 @@ import { springEasing } from './hm7.js';
 export function createSheetHost({ root, appEl, onChange = () => {} }) {
   let layer = null, dialog = null, scrim = null, release = null, opener = null, exiting = null, pushed = false, closedCb = null;
 
+  const snapshots = new Map();
+  let sequence = 0, currentEntry = null, restoring = null, focusResolver = null;
+
   const flag = open => {
     document.documentElement.classList.toggle('has-sheet', open);
     if (open) appEl.setAttribute('inert', ''); else appEl.removeAttribute('inert');
     onChange(open);
   };
 
-  function open(content, { labelledBy, onClosed } = {}) {
-    if (layer) { swap(content, labelledBy); closedCb = onClosed ?? closedCb; return api; }
+  function open(content, { labelledBy, onClosed, onRestore, returnFocus, initialFocus = document.activeElement } = {}) {
+    if (layer) {
+      swap(content, labelledBy); closedCb = onClosed ?? closedCb;
+      snapshots.set(currentEntry, { content: onRestore ? null : content, labelledBy, onClosed: closedCb, onRestore });
+      return api;
+    }
     exiting?.();                       // a sheet still sliding out must not delay the next one
-    opener = document.activeElement;
+    opener = initialFocus;
+    focusResolver = returnFocus ?? null;
     scrim = h('div', { class: 'cm-scrim sheet-scrim', 'data-close': '' });
     dialog = h('section', { class: 'cm-sheet app-sheet', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': labelledBy, tabindex: '-1' }, content);
     layer = h('div', { class: 'sheet-layer' }, scrim, dialog);
     closedCb = onClosed ?? null;
     root.append(layer);
     flag(true);
-    try { history.pushState({ besrahSheet: true }, ''); pushed = true; } catch { pushed = false; }
+    currentEntry = restoring ?? ++sequence;
+    snapshots.set(currentEntry, { content: onRestore ? null : content, labelledBy, onClosed, onRestore });
+    if (restoring !== null) pushed = true;
+    else {
+      try { history.pushState({ ...history.state, besrahSheet: currentEntry }, ''); pushed = true; } catch { pushed = false; }
+    }
     release = trapFocus(dialog);
     layer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.stopPropagation(); close(); } });
     scrim.addEventListener('click', () => close());
@@ -59,8 +72,8 @@ export function createSheetHost({ root, appEl, onChange = () => {} }) {
 
   function finish() {
     if (!layer) return;
-    const gone = layer, back = opener, cb = closedCb;
-    layer = null; pushed = false; closedCb = null;
+    const gone = layer, back = opener, cb = closedCb, resolveBack = focusResolver;
+    layer = null; pushed = false; closedCb = null; focusResolver = null; currentEntry = null;
     release?.(); release = null;
     let finished = false;
     const done = () => {
@@ -68,7 +81,8 @@ export function createSheetHost({ root, appEl, onChange = () => {} }) {
       finished = true; exiting = null;
       gone.remove();
       flag(false);
-      if (back && back.isConnected) back.focus({ preventScroll: true });
+      const target = resolveBack?.() ?? back;
+      if (target?.isConnected) target.focus({ preventScroll: true });
       cb?.();
     };
     const sheetEl = gone.querySelector('.app-sheet');
@@ -79,7 +93,21 @@ export function createSheetHost({ root, appEl, onChange = () => {} }) {
   }
 
   // Any history move while a sheet is open (Back, Android back, Telegram BackButton) leaves its entry.
-  window.addEventListener('popstate', () => { if (layer) finish(); });
+  window.addEventListener('popstate', event => {
+    const entry = event.state?.besrahSheet;
+    if (entry) {
+      if (layer && currentEntry === entry) return;
+      const snapshot = snapshots.get(entry);
+      if (!snapshot) return;
+      if (layer) finish();
+      exiting?.();
+      restoring = entry;
+      try {
+        if (snapshot.onRestore) snapshot.onRestore();
+        else open(snapshot.content, snapshot);
+      } finally { restoring = null; }
+    } else if (layer) finish();
+  });
 
   const api = { open, close, get isOpen() { return Boolean(layer); }, get element() { return dialog; } };
   return api;

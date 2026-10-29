@@ -1,0 +1,143 @@
+{
+  "recorded_utc": "2026-10-29T21:50:04.707982+00:00",
+  "url": "https://besrah.arklyn.ir/",
+  "scope": "Multi-service UI; timing engine and network data unchanged",
+  "core_tests": 56,
+  "node_tests": 124,
+  "responsive_matrix": {
+    "cases": 48,
+    "viewports": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "themes": [
+      "dark",
+      "light"
+    ],
+    "failures": 0
+  },
+  "browser_flow": {
+    "ok": true,
+    "checks": [
+      {
+        "name": "home isolates metro behind its service card",
+        "pass": true
+      },
+      {
+        "name": "ArrowUp selects the last service on first key",
+        "pass": true
+      },
+      {
+        "name": "global search never shows station suggestions",
+        "pass": true
+      },
+      {
+        "name": "category lookup finds the branded service",
+        "pass": true
+      },
+      {
+        "name": "unbuilt service does not navigate",
+        "pass": true
+      },
+      {
+        "name": "product can be saved",
+        "pass": true
+      },
+      {
+        "name": "global saves contain products, not station rows",
+        "pass": true
+      },
+      {
+        "name": "embedded station view never renders boolean placeholders",
+        "pass": true
+      },
+      {
+        "name": "line 2 still contains 13 real stations",
+        "pass": true
+      },
+      {
+        "name": "station search stays inside Rail",
+        "pass": true
+      },
+      {
+        "name": "station board consumes the real API",
+        "pass": true
+      },
+      {
+        "name": "line 2 timing limitations are disclosed",
+        "pass": true
+      },
+      {
+        "name": "closing a board stays inside Rail",
+        "pass": true
+      },
+      {
+        "name": "station favourites remain nested",
+        "pass": true
+      },
+      {
+        "name": "nested Back restores the invoking control",
+        "pass": true
+      },
+      {
+        "name": "Rail Back returns to its real origin",
+        "pass": true
+      },
+      {
+        "name": "Rail Back restores origin focus",
+        "pass": true
+      },
+      {
+        "name": "dark setting works",
+        "pass": true
+      },
+      {
+        "name": "light setting works",
+        "pass": true
+      }
+    ],
+    "qa": {
+      "errors": [],
+      "csp": []
+    }
+  },
+  "review_regressions": {
+    "ok": true,
+    "checks": [
+      {
+        "name": "native Forward reopens the station sheet",
+        "pass": true
+      },
+      {
+        "name": "route and browser history remain aligned after sheet Forward",
+        "pass": true
+      },
+      {
+        "name": "catalogue heart follows removal in Saved",
+        "pass": true
+      },
+      {
+        "name": "recent-station board returns focus to the current equivalent opener",
+        "pass": true
+      }
+    ]
+  },
+  "public_assets_verified": 58,
+  "telegram_round_trips": 10,
+  "visual_checks": {
+    "delivery_images": [
+      "superapp-home-light.png",
+      "superapp-home-dark.png"
+    ],
+    "other_evidence": "/root/.hermes/cache/scratch/besrah-superapp-qa",
+    "method": "Captured real production pages, inspected mobile and centered desktop views; automated geometry is not a substitute for visual checks"
+  },
+  "limitations": [
+    "Physical Telegram-client acceptance still requires owner confirmation.",
+    "Browser geolocation verified with synthetic Tabarsi coordinates; no real device GPS proof.",
+    "Text over gradients was visually checked; DOM contrast scan skipped gradient text."
+  ],
+  "rollback_backup": "/var/backups/besrah/superapp-20261029T213940Z"
+}

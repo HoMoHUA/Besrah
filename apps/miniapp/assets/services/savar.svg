@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-labelledby="savar-title savar-desc">
+  <title id="savar-title">Besrah Savar</title>
+  <desc id="savar-desc">A friendly amber taxi seen from the front, with a roof beacon, dark glass and rounded cream lamps.</desc>
+  <defs>
+    <linearGradient id="savar-body" x1="30" y1="45" x2="88" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD873"/>
+      <stop offset="0.55" stop-color="#E8AA35"/>
+      <stop offset="1" stop-color="#C57C1D"/>
+    </linearGradient>
+    <linearGradient id="savar-glass" x1="42" y1="37" x2="76" y2="63" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#43666A"/>
+      <stop offset="1" stop-color="#102E33"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="57" r="45" fill="#FFF4D8"/>
+  <ellipse cx="60" cy="105" rx="37" ry="5" fill="#906125" opacity="0.12"/>
+  <rect x="28" y="83" width="13" height="18" rx="5" fill="#263A3B"/>
+  <rect x="79" y="83" width="13" height="18" rx="5" fill="#263A3B"/>
+  <rect x="49" y="20" width="23" height="13" rx="5" fill="#C58122"/>
+  <rect x="47" y="18" width="23" height="12" rx="5" fill="#FFE4A0"/>
+  <path d="M53 24h11" stroke="#B77924" stroke-width="3" stroke-linecap="round"/>
+  <path d="M39 39c2-7 7-11 15-11h15c8 0 13 4 15 11l8 25c5 3 8 9 8 15v10c0 6-4 10-10 10H39c-7 0-11-4-11-10V79c0-6 3-12 8-15Z" fill="#B77B22"/>
+  <path d="M34 38c2-7 7-11 15-11h15c8 0 13 4 15 11l8 25c5 3 8 9 8 15v10c0 6-4 10-10 10H34c-7 0-11-4-11-10V78c0-6 3-12 8-15Z" fill="url(#savar-body)"/>
+  <path d="M32 56h-7c-3 0-5 2-5 5v2h12m54-7h7c3 0 5 2 5 5v2H86" fill="#D19029"/>
+  <path d="M41 39c1-4 4-6 9-6h13c5 0 8 2 9 6l6 20H35Z" fill="url(#savar-glass)" stroke="#D79B36" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M44 37h14L43 56h-4Z" fill="#D5ECE4" opacity="0.23"/>
+  <path d="m42 55 12-3m17 3-10-3" stroke="#9BB4A9" stroke-width="2" stroke-linecap="round"/>
+  <path d="M34 66c13-5 36-5 49 0" fill="none" stroke="#FFE4A0" stroke-width="2" stroke-linecap="round"/>
+  <rect x="29" y="72" width="16" height="9" rx="4.5" fill="#FFF6CF"/>
+  <rect x="73" y="72" width="16" height="9" rx="4.5" fill="#FFF6CF"/>
+  <path d="M52 76h14" stroke="#B47B2A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M33 89h51" stroke="#9F6F29" stroke-width="5" stroke-linecap="round"/>
+  <rect x="50" y="85" width="18" height="9" rx="3" fill="#F3F5EF"/>
+</svg>

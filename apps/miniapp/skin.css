@@ -147,3 +147,8 @@
           accent/surface 8.58 · on-accent/accent 8.58 · accent/accent-soft 7.13 · sale/surface-2 5.40 · success/surface-2 5.21 · warning/surface-2 5.62
    stage (both themes): white on cobalt 11.6 · on cobalt-hi 7.5 · on cobalt-lo 15.3 (before the ribbon and light effects)
    `subtle` is below 4.5:1 in both themes: placeholder text only (design-system rule). */
+
+/* Static product-neutral hero and availability labels. */
+:root[data-theme] { --brand-banner: #08403F; --brand-ink: #FFFFFF; --brand-muted: #C4E4DC; --brand-accent: #D7FF63; }
+:root[data-theme="dark"] { --availability-bg: #294B48; --availability-ink: #D8E9DE; }
+:root[data-theme="light"] { --availability-bg: #D8E6DB; --availability-ink: #234B43; }

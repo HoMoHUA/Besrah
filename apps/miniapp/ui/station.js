@@ -144,11 +144,22 @@ export function createStationSheet({ sheet, api, store, getStations, getOrders, 
   }
 
   function show(name) {
+    const sourceFocus = document.activeElement;
     seq.cancel(); stopTimer();
     current = name;
     store.addRecent(name); store.setLast(name); onRecent(name);
     const { root, titleId } = build(name);
-    sheet.open(root, { labelledBy: titleId, onClosed: () => { seq.cancel(); stopTimer(); view = null; current = null; } });
+    const openedView = view;
+    sheet.open(root, {
+      labelledBy: titleId, initialFocus: sourceFocus,
+      returnFocus: () => {
+        if (sourceFocus?.isConnected) return sourceFocus;
+        const key = sourceFocus?.dataset?.focusKey;
+        return key ? document.querySelector(`[data-focus-key="${CSS.escape(key)}"]`) : null;
+      },
+      onRestore: () => show(name),
+      onClosed: () => { if (view !== openedView) return; seq.cancel(); stopTimer(); view = null; current = null; },
+    });
     load({});
   }
 

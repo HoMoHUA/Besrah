@@ -5,7 +5,7 @@ import { routeRows } from '../route.js';
 import { h, icon } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 
-export function createStationsView(ctx) {
+export function createStationsView(ctx, { embedded = false } = {}) {
   const { state, actions } = ctx;
   let mode = 'line1', query = '';
   const root = h('div', { class: 'view view--stations' });
@@ -22,9 +22,10 @@ export function createStationsView(ctx) {
     h('button', { class: ['tb-it', i === 0 && 'on'], type: 'button', role: 'tab', 'aria-selected': String(i === 0), 'aria-label': full ?? null, dataset: { mode: id }, onClick: () => setMode(id) }, h('span', { text: label })));
   const tabs = h('div', { class: 'cm-tabs tb-wrap stations__tabs', role: 'tablist', 'aria-label': 'نمایش ایستگاه ها' }, h('div', { class: 'tb-ind' }), tabItems);
 
-  root.append(
-    h('header', { class: 'view__head' }, h('h1', { class: 'view__title', text: 'ایستگاه ها' }), h('p', { class: 'view__sub', text: 'برای دیدن قطار بعدی، یک ایستگاه را لمس کنید.' })),
-    tabs, filter, count, list, empty);
+  if (!embedded) root.append(h('header', { class: 'view__head' }, h('h1', { class: 'view__title', text: 'ایستگاه ها' }), h('p', { class: 'view__sub', text: 'برای دیدن قطار بعدی، یک ایستگاه را لمس کنید.' })));
+  root.append(tabs);
+  if (!embedded) root.append(filter);
+  root.append(count, list, empty);
 
   function setMode(next, { silent = false } = {}) {
     mode = next;

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-labelledby="caravan-title caravan-desc">
+  <title id="caravan-title">Besrah Caravan</title>
+  <desc id="caravan-desc">A warm orange intercity coach with rounded mirrors, a wide glass cabin and cream headlights.</desc>
+  <defs>
+    <linearGradient id="caravan-body" x1="32" y1="20" x2="84" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC184"/>
+      <stop offset="0.5" stop-color="#E87936"/>
+      <stop offset="1" stop-color="#C94F23"/>
+    </linearGradient>
+    <linearGradient id="caravan-glass" x1="39" y1="35" x2="77" y2="65" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42646B"/>
+      <stop offset="1" stop-color="#132F37"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="57" r="45" fill="#FFF0E0"/>
+  <ellipse cx="60" cy="105" rx="35" ry="5" fill="#8E472B" opacity="0.12"/>
+  <rect x="34" y="86" width="11" height="16" rx="5" fill="#253B3F"/>
+  <rect x="75" y="86" width="11" height="16" rx="5" fill="#253B3F"/>
+  <path d="M33 44h-9v14m63-14h9v14" fill="none" stroke="#B9572C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="19" y="48" width="8" height="17" rx="4" fill="#E87936"/>
+  <rect x="93" y="48" width="8" height="17" rx="4" fill="#E87936"/>
+  <path d="M36 35c0-11 8-18 21-18h13c14 0 20 8 20 21v43c0 11-5 17-16 17H53c-11 0-17-6-17-17Z" fill="#AF4929"/>
+  <rect x="29" y="17" width="57" height="79" rx="18" fill="url(#caravan-body)"/>
+  <path d="M35 34c0-8 6-12 14-12h13" fill="none" stroke="#FFE0B9" stroke-width="2" stroke-linecap="round"/>
+  <rect x="45" y="23" width="25" height="5" rx="2.5" fill="#A64A28"/>
+  <rect x="35" y="33" width="45" height="34" rx="9" fill="url(#caravan-glass)" stroke="#D47342" stroke-width="1.5"/>
+  <path d="M42 37h18L44 62h-5V45c0-4 1-6 3-8Z" fill="#D7EDF0" opacity="0.25"/>
+  <path d="m42 61 12-5m20 5-11-5" stroke="#9CB6B3" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 72h43" stroke="#FFC38B" stroke-width="2" stroke-linecap="round"/>
+  <rect x="35" y="77" width="13" height="7" rx="3.5" fill="#FFF3CD"/>
+  <rect x="67" y="77" width="13" height="7" rx="3.5" fill="#FFF3CD"/>
+  <path d="M53 78h9m-9 5h9" stroke="#9E452D" stroke-width="2" stroke-linecap="round"/>
+  <path d="M42 90h32" stroke="#A94529" stroke-width="4" stroke-linecap="round"/>
+</svg>

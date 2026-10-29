@@ -1,26 +1,20 @@
-// One list drives the home tiles, the services tab and the roadmap sheet.
-// `status: 'live'` = built and working; `'soon'` = not built (no action, no screen, no date).
+// Product registry shared by global discovery, service cards and device-local saves.
+import { normalize } from './logic.js';
 export const SERVICES = [
-  { id: 'metro1', status: 'live', title: 'مترو خط ۱', icon: 'subway', tint: '215,255,99',
-    blurb: 'برآورد زمان رسیدن قطار بعدی در ایستگاه های خط ۱ بر پایهٔ برنامهٔ حرکت.', action: { type: 'view', view: 'stations', mode: 'line1' } },
-  { id: 'metro2', status: 'live', title: 'مترو خط ۲', icon: 'subway_fill', tint: '255,190,74',
-    blurb: 'برآورد زمان رسیدن قطار بعدی در ایستگاه های خط ۲. فاصلهٔ قطارها مشخص است ولی فاز حرکت اندازه گیری نشده؛ دقیقهٔ رسیدن تقریبی است.', action: { type: 'view', view: 'stations', mode: 'line2' } },
-  { id: 'nearest', status: 'live', title: 'نزدیک ترین ایستگاه', icon: 'location_north_up_right_circle_fill', tint: '130,232,255',
-    blurb: 'با اجازهٔ شما، نزدیک ترین ایستگاه روی همین دستگاه پیدا می شود؛ مختصات ارسال یا ذخیره نمی شود.', action: { type: 'locate' } },
-  { id: 'stations', status: 'live', title: 'ایستگاه ها', icon: 'list_bullet', tint: '111,240,210',
-    blurb: 'جست وجو و فهرست همهٔ ایستگاه ها، با ترتیب خط ۱ و خط ۲.', action: { type: 'view', view: 'stations', mode: 'all' } },
-  { id: 'bus', status: 'soon', title: 'اتوبوس', icon: 'bus_fill', tint: '255,150,214', blurb: 'اطلاعات اتوبوس هنوز ساخته نشده است.' },
-  { id: 'route', status: 'soon', title: 'مسیریابی ترکیبی', icon: 'route_plan', tint: '170,180,255', blurb: 'مسیر ترکیبی مترو، پیاده روی و تاکسی هنوز ساخته نشده است.' },
-  { id: 'taxi', status: 'soon', title: 'پیوند به تاکسی اینترنتی', icon: 'car_fill', tint: '255,170,120', blurb: 'اتصال به برنامه های تاکسی اینترنتی هنوز ساخته نشده است.' },
-  { id: 'messengers', status: 'soon', title: 'پیام رسان های دیگر', icon: 'paperplane', tint: '246,238,255', blurb: 'نسخهٔ پیام رسان های دیگر هنوز ساخته نشده است.' },
+  { id: 'metro', title: 'ریل', subtitle: 'مترو مشهد', status: 'live', logo: 'assets/services/rail.svg',
+    blurb: 'خط ۱ و خط ۲، ایستگاه نزدیک و برآورد زمان رسیدن؛ همه در یک جا.', action: { type: 'view', view: 'metro' } },
+  { id: 'bus', title: 'کاروان', subtitle: 'اتوبوس شهری', status: 'soon', logo: 'assets/services/caravan.svg',
+    blurb: 'راهنمای خطوط و ایستگاه های اتوبوس؛ این سرویس هنوز در دسترس نیست.' },
+  { id: 'route', title: 'راهیاب', subtitle: 'مسیریابی ترکیبی', status: 'soon', logo: 'assets/services/rahyab.svg',
+    blurb: 'پیدا کردن مسیر با چند روش جابه جایی؛ این سرویس هنوز در دسترس نیست.' },
+  { id: 'taxi', title: 'سوار', subtitle: 'تاکسی اینترنتی', status: 'soon', logo: 'assets/services/savar.svg',
+    blurb: 'پیوند به برنامه های تاکسی اینترنتی؛ این سرویس هنوز در دسترس نیست.' },
 ];
-
-export const isLive = service => service.status === 'live';
-
+export const isLive = service => service?.status === 'live';
 export function homeLayout(services = SERVICES) {
-  const live = services.filter(isLive), soon = services.filter(s => !isLive(s));
-  // Three large tiles for the first live services; any further live service leads the small row, then the planned ones.
-  const rest = [...live.slice(3), ...soon];
-  const secondary = rest.slice(0, 3), more = rest.slice(3);
-  return { primary: live.slice(0, 3), secondary, more, moreCount: more.length };
+  return { primary: services.slice(0, 3), secondary: services.slice(3, 6), more: services.slice(6), moreCount: Math.max(0, services.length - 6) };
+}
+export function filterServices(query, services = SERVICES) {
+  const key = normalize(query ?? '');
+  return services.filter(s => !key || normalize(s.title + ' ' + s.subtitle).includes(key));
 }
