@@ -41,13 +41,21 @@ export function distanceLabel(km) {
 
 export const headingFor = toward => (toward.startsWith('ورودی') ? toward : `به سمت ${toward}`);
 
+// Lines the backend can time. A station on none of them stays visible but opens nothing.
+export const SUPPORTED_LINES = [1, 2];
+export const isSupported = station => (station?.lines ?? []).some(line => SUPPORTED_LINES.includes(line));
+
 export function lineLabel(lines = []) {
   return lines.length ? `خط ${fa(lines.join(' و '))}` : '';
 }
 
 // Earliest train per direction, two directions at most — the hero and the favourites use this.
+// When an interchange board mixes two lines, each heading names its line.
 export function summarizeBoard(board, maxDirections = 2) {
-  return groupPasses(board?.passes ?? []).slice(0, maxDirections).map(([toward, passes]) => ({
-    heading: headingFor(toward), eta: passes[0].eta_min, text: etaText(passes[0].eta_min),
+  const all = board?.passes ?? [];
+  const mixed = new Set(all.map(p => p.line).filter(Boolean)).size > 1;
+  return groupPasses(all).slice(0, maxDirections).map(([toward, passes]) => ({
+    heading: headingFor(toward) + (mixed && passes[0].line ? ` · خط ${fa(passes[0].line)}` : ''),
+    eta: passes[0].eta_min, text: etaText(passes[0].eta_min),
   }));
 }

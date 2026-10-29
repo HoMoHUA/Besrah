@@ -34,7 +34,7 @@ test('ranking: exact, then name prefix, then word prefix, then substring', () =>
   assert.deepEqual(names(filterStations(list, 'پارک')), ['پارک ملت', 'پارکینگ', 'کوهستان پارک']);
 });
 
-test('line 1 stations rank before line 2 stations on equal relevance, in route order', () => {
+test('stations in the route order rank before unlisted ones on equal relevance', () => {
   const list = [{ name: 'پلان', lines: [2] }, S('پلیس'), S('پله')];
   assert.deepEqual(names(filterStations(list, 'پل', { order: ['پله', 'پلیس'] })), ['پله', 'پلیس', 'پلان']);
 });

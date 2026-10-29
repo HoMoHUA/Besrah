@@ -191,9 +191,13 @@ h1, h2, h3, p { margin: 0; }
 /* ── generic list pieces ── */
 .line-badge { flex: none; display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--accent); color: var(--on-accent); font-size: 17px; font-weight: 900; line-height: 1; }
 .line-badge--sm { width: 32px; height: 32px; font-size: 15px; }
+.line-badges { flex: none; display: inline-flex; gap: 4px; }
+/* line 2 is a blue badge (white text 5.8:1) so the two lines read apart without relying on the digit alone */
+.line-badge--l2 { background: #2f5bd8; color: #fff; }
 
 /* stations tab */
 .stations__tabs .tb-it, .about__theme .tb-it { flex: 1; min-height: 44px; justify-content: center; border: 0; background: none; font: 700 14px var(--font-sans); }
+.stations__tabs .tb-it span { white-space: nowrap; }
 .stations__search { min-height: 48px; }
 .stations__count { color: var(--muted); font-size: 13px; margin-top: -10px; }
 .route-list { display: grid; margin: 0; padding: 0; list-style: none; }
@@ -287,6 +291,7 @@ h1, h2, h3, p { margin: 0; }
 .board-group__title .hms { color: var(--accent); font-size: 19px; }
 .board-group__name { flex: 1; min-width: 0; }
 .board-group__badge { flex: none; }
+.board-group__line { flex: none; }
 .board-group__skel-title { width: 38%; height: 16px; margin-bottom: 10px; }
 .train-list { display: grid; margin: 0; padding: 0; list-style: none; }
 .train { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 68px; padding: 8px 0; border-top: 1px solid var(--line); }

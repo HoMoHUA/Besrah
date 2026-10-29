@@ -16,7 +16,7 @@ import { createFavouritesView } from './views/favourites.js';
 import { createHomeView } from './views/home.js';
 import { createServicesView, roadmapList } from './views/services.js';
 import { createStationsView } from './views/stations.js';
-import { lineLabel } from './format.js';
+import { isSupported, lineLabel } from './format.js';
 
 const VIEWS = ['home', 'stations', 'services', 'favourites', 'about'];
 const TITLES = { home: 'خانه', stations: 'ایستگاه ها', services: 'سرویس ها', favourites: 'علاقه مندی ها', about: 'درباره' };
@@ -28,7 +28,7 @@ const safeStorage = (() => { try { return window.localStorage; } catch { return 
 const store = createStore(safeStorage);
 const api = createApi();
 const state = createState({
-  status: 'loading', stations: [], order: [], maxKm: 10, view: 'home',
+  status: 'loading', stations: [], order: [], order2: [], maxKm: 10, view: 'home',
   nearest: { phase: 'idle' }, recent: null, asOf: null,
 });
 const boardSeq = createSequencer();   // nearest-station board
@@ -61,7 +61,7 @@ const sheet = createSheetHost({ root: $('#sheet-root'), appEl, onChange: () => u
 const stationSheet = createStationSheet({
   sheet, api, store,
   getStations: () => state.get().stations,
-  getOrder: () => state.get().order,
+  getOrders: () => ({ 1: state.get().order, 2: state.get().order2 }),
   onBoard(name, data) {
     const patch = { asOf: data.as_of };
     const { recent } = state.get();
@@ -75,12 +75,12 @@ const stationSheet = createStationSheet({
 });
 
 function unsupported(station) {
-  toast({ title: `${station.name}، ${lineLabel(station.lines)}`, text: 'زمان رسیدن خط ۲ هنوز ساخته نشده است.', icon: 'info_circle_fill', life: 4200 });
+  toast({ title: `${station.name}، ${lineLabel(station.lines)}`, text: 'زمان رسیدن برای خط این ایستگاه هنوز ساخته نشده است.', icon: 'info_circle_fill', life: 4200 });
 }
 function openStation(name) {
   const station = state.get().stations.find(s => s.name === name);
   if (!station) return;
-  if (!station.lines.includes(1)) return unsupported(station);
+  if (!isSupported(station)) return unsupported(station);
   stationSheet.show(name);
 }
 function openRoadmap() {
@@ -150,9 +150,9 @@ async function locate() {
     const hit = nearestStation(s.stations, latitude, longitude, s.maxKm);
     if (!hit) { state.set({ nearest: { phase: 'error', reason: 'too_far' } }); announce('ایستگاهی در نزدیکی شما پیدا نشد'); return; }
     const station = { name: hit.station.name, lines: hit.station.lines };
-    state.set({ nearest: { phase: 'ok', station, km: hit.km, boardPhase: station.lines.includes(1) ? 'loading' : undefined } });
+    state.set({ nearest: { phase: 'ok', station, km: hit.km, boardPhase: isSupported(station) ? 'loading' : undefined } });
     announce(`نزدیک ترین ایستگاه ${station.name}`);
-    if (station.lines.includes(1)) {
+    if (isSupported(station)) {
       const result = await boardSeq.run(signal => api.next(station.name, { signal, limit: 10 }));
       if (result.stale) return;
       const nearest = state.get().nearest;
@@ -167,7 +167,7 @@ async function locate() {
 
 /* ── hero summary for the last viewed (or first favourite) station ── */
 function pickRecent() {
-  const known = new Set(state.get().stations.filter(s => s.lines.includes(1)).map(s => s.name));
+  const known = new Set(state.get().stations.filter(isSupported).map(s => s.name));
   const last = store.last();
   if (last && known.has(last)) return { station: last, source: 'last' };
   const fav = store.favourites().find(n => known.has(n));
@@ -193,11 +193,13 @@ async function loadStations() {
   if (!result.ok) { state.set({ status: 'error' }); return; }
   const data = result.value;
   store.prune(data.stations.map(s => s.name));
-  state.set({ status: 'ready', stations: data.stations, order: data.line1Order, maxKm: data.maxNearestKm ?? 10 });
+  state.set({ status: 'ready', stations: data.stations, order: data.line1Order, order2: data.line2Order ?? [], maxKm: data.maxNearestKm ?? 10 });
   search.refresh();
   loadRecent();
 }
 const reload = () => loadStations();
+// Search ranks stations by route position on either line (line 1 first).
+const combinedOrder = () => { const { order, order2 } = state.get(); return [...order, ...order2.filter(n => !order.includes(n))]; };
 
 const actions = {
   go, openStation, locate, openRoadmap, reload, unsupported, setTheme,
@@ -223,7 +225,7 @@ views.about = createAboutView(ctx);
 /* ── header: search + menu ── */
 const search = createSearchBox({
   host: $('#search-host'), input: $('#q'), clearButton: $('#q-clear'), popup: $('#suggest'), listbox: $('#suggest-list'), live: $('#suggest-live'),
-  getStations: () => state.get().stations, getOrder: () => state.get().order, getStatus: () => state.get().status, onRetry: reload,
+  getStations: () => state.get().stations, getOrder: () => combinedOrder(), getStatus: () => state.get().status, onRetry: reload,
   store, onPick: openStation, onUnsupported: unsupported,
 });
 

@@ -1,6 +1,6 @@
 // Station bottom sheet: arrival board, server time, refresh, favourite, API notes and a compact line-1 spine.
 import { createSequencer } from '../async.js';
-import { asOfLabel, dayTypeLabel, fa, lineLabel } from '../format.js';
+import { SUPPORTED_LINES, asOfLabel, dayTypeLabel, fa, lineLabel } from '../format.js';
 import { positionLabel, spine } from '../route.js';
 import { createBoard } from './board.js';
 import { h, icon } from './dom.js';
@@ -12,10 +12,16 @@ const ERROR_COPY = {
   network: ['اتصال برقرار نشد', 'زمان قطارها دریافت نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.'],
   timeout: ['پاسخی نرسید', 'سرور دیر پاسخ داد. چند لحظه بعد دوباره تلاش کنید.'],
   server: ['سرویس پاسخ نمی دهد', 'چند لحظه بعد دوباره تلاش کنید.'],
-  unknown_station: ['ایستگاه پیدا نشد', 'این ایستگاه در فهرست خط ۱ نیست.'],
+  unknown_station: ['ایستگاه پیدا نشد', 'این ایستگاه در فهرست خط ۱ یا خط ۲ نیست.'],
 };
 
-export function createStationSheet({ sheet, api, store, getStations, getOrder, onBoard = () => {}, onRecent = () => {} }) {
+const SPINE_NOTE = {
+  1: 'ترتیب ایستگاه ها از وکیل آباد به فرودگاه؛ نمودار است، نه نقشه جغرافیایی.',
+  2: 'ترتیب ایستگاه ها از طبرسی به شهید فکوری؛ نمودار است، نه نقشه جغرافیایی.',
+};
+
+// `getOrders` returns { 1: line-1 order, 2: line-2 order }.
+export function createStationSheet({ sheet, api, store, getStations, getOrders, onBoard = () => {}, onRecent = () => {} }) {
   const seq = createSequencer();
   let timer = 0, current = null, lastOk = 0, view = null;
 
@@ -75,7 +81,8 @@ export function createStationSheet({ sheet, api, store, getStations, getOrder, o
 
   function build(name) {
     const station = getStations().find(s => s.name === name);
-    const order = getOrder();
+    const orders = getOrders();
+    const lines = (station?.lines ?? []).filter(l => SUPPORTED_LINES.includes(l));
     const board = createBoard();
     const titleId = 'station-title';
     const pressed = store.isFavourite(name);
@@ -104,29 +111,34 @@ export function createStationSheet({ sheet, api, store, getStations, getOrder, o
     const status = h('p', { class: 'station__status', role: 'status' });
     const notes = h('ul', { class: 'station__notes', hidden: true });
 
-    const where = spine(order, name);
-    const spineEl = where && h('section', { class: 'station__spine', 'aria-labelledby': 'spine-title' },
-      h('h3', { id: 'spine-title', text: 'جایگاه در خط ۱' }),
-      h('p', { class: 'station__spine-note', text: 'ترتیب ایستگاه ها از وکیل آباد به فرودگاه؛ نمودار است، نه نقشه جغرافیایی.' }),
-      h('ol', { class: 'mini-spine' },
-        where.hasBefore && h('li', { class: 'mini-spine__more', 'aria-hidden': 'true' }, h('span', { class: 'mini-spine__dot' })),
-        where.items.map(item => h('li', { class: ['mini-spine__item', item.offset === 0 && 'is-current'] },
-          h('span', { class: 'mini-spine__dot', 'aria-hidden': 'true' }),
-          item.offset === 0
-            ? h('span', { class: 'mini-spine__name', 'aria-current': 'location' }, item.name, h('span', { class: 'cm-sr', text: ' (ایستگاه انتخاب شده)' }))
-            : h('button', { class: 'mini-spine__name mini-spine__btn el', type: 'button', onClick: () => show(item.name) }, item.name),
-          item.terminal && h('span', { class: 'mini-spine__tag', text: item.terminal === 'first' ? 'ابتدای خط' : 'انتهای خط' }))),
-        where.hasAfter && h('li', { class: 'mini-spine__more', 'aria-hidden': 'true' }, h('span', { class: 'mini-spine__dot' }))));
+    const spineFor = line => {
+      const where = spine(orders[line] ?? [], name);
+      if (!where) return null;
+      const titleFor = `spine-title-${line}`;
+      return h('section', { class: 'station__spine', 'aria-labelledby': titleFor },
+        h('h3', { id: titleFor, text: `جایگاه در خط ${fa(line)}` }),
+        h('p', { class: 'station__spine-note', text: SPINE_NOTE[line] }),
+        h('ol', { class: 'mini-spine' },
+          where.hasBefore && h('li', { class: 'mini-spine__more', 'aria-hidden': 'true' }, h('span', { class: 'mini-spine__dot' })),
+          where.items.map(item => h('li', { class: ['mini-spine__item', item.offset === 0 && 'is-current'] },
+            h('span', { class: 'mini-spine__dot', 'aria-hidden': 'true' }),
+            item.offset === 0
+              ? h('span', { class: 'mini-spine__name', 'aria-current': 'location' }, item.name, h('span', { class: 'cm-sr', text: ' (ایستگاه انتخاب شده)' }))
+              : h('button', { class: 'mini-spine__name mini-spine__btn el', type: 'button', onClick: () => show(item.name) }, item.name),
+            item.terminal && h('span', { class: 'mini-spine__tag', text: item.terminal === 'first' ? 'ابتدای خط' : 'انتهای خط' }))),
+          where.hasAfter && h('li', { class: 'mini-spine__more', 'aria-hidden': 'true' }, h('span', { class: 'mini-spine__dot' }))));
+    };
+    const spineEls = lines.map(spineFor).filter(Boolean);
 
     const close = h('button', { class: 'cm-icon-btn cm-frost station__close el', type: 'button', 'aria-label': 'بستن', onClick: () => sheet.close() }, icon('xmark'));
     const root = h('div', { class: 'station' },
       h('div', { class: 'station__head' },
-        h('span', { class: 'line-badge' }, h('span', { class: 'cm-sr', text: 'خط ' }), fa(1)),
+        h('span', { class: 'line-badges' }, lines.map(l => h('span', { class: ['line-badge', `line-badge--l${l}`] }, h('span', { class: 'cm-sr', text: 'خط ' }), fa(l)))),
         h('div', { class: 'station__titles' },
           h('h2', { class: 'station__name', id: titleId, tabindex: '-1', 'data-autofocus': '', text: name }),
-          h('p', { class: 'station__sub' }, positionLabel(order, name), (station?.lines ?? []).some(l => l !== 1) && h('span', { class: 'cm-badge cm-badge--new', text: `تقاطع با ${lineLabel(station.lines.filter(l => l !== 1))}` }))),
+          h('p', { class: 'station__sub' }, lines.length === 1 && positionLabel(orders[lines[0]] ?? [], name), lines.length > 1 && h('span', { class: 'cm-badge cm-badge--new', text: `تقاطع ${lineLabel(lines)}` }))),
         heart, close),
-      h('div', { class: 'station__scroll' }, asOfRow, day, board.el, status, notes, spineEl));
+      h('div', { class: 'station__scroll' }, asOfRow, day, board.el, status, notes, ...spineEls));
     view = { board, refresh, asOf, day, status, notes, hasBoard: false };
     return { root, titleId };
   }

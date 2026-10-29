@@ -16,8 +16,7 @@ for (const fixture of expected) {
   if (/[<>*]/.test(item.text)) fail(fixture.test_case + ': unescaped HTML or Markdown');
   if (item.reply_markup?.keyboard?.[0]?.[0]?.request_location !== true) fail(fixture.test_case + ': missing private request-location keyboard');
   if (fixture.test_case === 'location' && (!item.text.includes('نزدیک‌ترین') || !item.text.includes('مستقیم'))) fail('location: missing nearest-station context');
-  if (item.kind === 'prediction' && !item.text.includes('وکیل‌آباد')) fail(fixture.test_case + ': canonical station missing');
-  if (item.kind === 'unsupported_line' && !item.text.includes('خط ۲')) fail(fixture.test_case + ': line 2 warning missing');
-  checks.push({ case: fixture.test_case, kind: item.kind, chat_id_preserved: true, keyboard: true, html_safe: true });
+  if (item.kind === 'prediction' && !item.text.includes(fixture.expected_station)) fail(fixture.test_case + ': canonical station missing');
+    checks.push({ case: fixture.test_case, kind: item.kind, chat_id_preserved: true, keyboard: true, html_safe: true });
 }
 return [{ json: { ok: true, synthetic_test: true, total: checks.length, core_queries: checks.filter(check => check.kind === 'prediction').length, telegram_calls: 0, cases: checks } }];

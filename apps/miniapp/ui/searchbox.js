@@ -2,7 +2,7 @@
 // the matched part marked, near-miss suggestion and full keyboard support.
 import { debounce } from '../async.js';
 import { didYouMean, filterStations, highlightParts, stripStationPrefix } from '../search.js';
-import { fa, lineLabel } from '../format.js';
+import { fa, lineLabel, isSupported } from '../format.js';
 import { h, icon } from './dom.js';
 
 const MAX_SUGGESTIONS = 6;
@@ -17,7 +17,7 @@ export function createSearchBox({ host, input, clearButton, popup, listbox, live
     input.setAttribute('aria-expanded', String(value));
     if (!value) { active = -1; input.removeAttribute('aria-activedescendant'); }
   };
-  const supported = station => station.lines?.includes(1);
+  const supported = isSupported;
 
   function markActive(index) {
     options.forEach((option, i) => option.setAttribute('aria-selected', String(i === index)));

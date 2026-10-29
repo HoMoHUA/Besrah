@@ -26,8 +26,9 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       if (!Array.isArray(data?.stations) || !Array.isArray(data?.line1Order)) throw new ApiError('server');
       return data;
     },
-    async next(station, { signal, limit = 10 } = {}) {
-      const data = await get('api/next?station=' + encodeURIComponent(station) + '&limit=' + limit, signal);
+    async next(station, { signal, limit = 10, line } = {}) {
+      const query = 'api/next?station=' + encodeURIComponent(station) + '&limit=' + limit + (line === 1 || line === 2 ? '&line=' + line : '');
+      const data = await get(query, signal);
       if (!Array.isArray(data?.passes) || typeof data?.as_of !== 'string') throw new ApiError('server');
       return data;
     },

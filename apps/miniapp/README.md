@@ -12,8 +12,8 @@ countdowns exist anywhere in the app.
 
 | Real (works today) | Not built (visibly inert, labelled «به زودی», never opens a screen) |
 | --- | --- |
-| Metro **line 1** arrival estimates per station, from the schedule model of the core (services A/B). **Not live GPS.** | Line 2 timing (line-2 stations are listed but disabled) |
-| Station list and line-1 order from `GET api/stations` | Bus, taxi / ride-hailing links, combined routing |
+| Metro **line 1** (services A/B) and **line 2** arrival estimates per station, from the schedule model of the core. Line 2 uses a headway grid with an unmeasured phase, and says so. **Not live GPS.** | Line 3, bus, live positions |
+| Station list and the line-1 / line-2 orders from `GET api/stations` | Bus, taxi / ride-hailing links, combined routing |
 | Search (Persian-aware), recent searches, favourites (names only) | Payments, prices, discounts, accounts, deep links |
 | Nearest station: computed **on the device**, only after an explicit tap | Other messengers |
 | Server time (`as_of`, Tehran) on every board + manual refresh | Telegram login (the Telegram identity is not read or trusted) |
@@ -27,7 +27,7 @@ tree including `vendor/`** next to `data` and `packages/core/dist`; files resolv
 never the working directory.
 
 * `/app` redirects to `/app/`; `/app/` and every other static file are served from a fixed allowlist (see CSP section).
-* `/app/api/stations` — station metadata, real line-1 order, `supportedLines: [1]`, `maxNearestKm: 10`.
+* `/app/api/stations` — station metadata, real `line1Order` and `line2Order`, `supportedLines: [1, 2]`, `maxNearestKm: 10`.
 * `/app/api/next` — the exact handler of `/v1/next` (timing logic untouched).
 * All client URLs are relative, so the public host root `https://besrah.arklyn.ir/` → `/app/` works unchanged (the legacy `/besrah/` mount on the n8n host now redirects).
 * `assets/telegram-web-app.js` is the unmodified Telegram SDK; brand assets `logo.svg`, `icon-192.png`, `icon-512.png` come from the brand owner.

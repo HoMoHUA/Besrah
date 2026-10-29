@@ -1,6 +1,6 @@
 // The arrival board: destination-grouped, two trains per direction, ETA digits that roll on refresh.
 import { groupPasses } from '../logic.js';
-import { clockLabel, confidenceLabel, etaParts, headingFor } from '../format.js';
+import { clockLabel, confidenceLabel, etaParts, fa, headingFor } from '../format.js';
 import { h, icon, reducedMotion } from './dom.js';
 import { roll } from './hm7.js';
 
@@ -30,11 +30,11 @@ function trainRow(pass, index, showConfidence) {
     h('span', { class: 'train__meta' },
       h('span', { class: 'train__when' }, index === 0 ? 'قطار بعدی' : 'پس از آن', ' · رسیدن ', h('bdi', { class: 'cm-num', text: clockLabel(pass.arrive) })),
       h('span', { class: 'train__tags' },
-        h('span', { class: 'train__svc', text: `سرویس ${pass.service}` }),
+        pass.service && h('span', { class: 'train__svc', text: `سرویس ${pass.service}` }),
         confidence && h('span', { class: ['cm-badge', `cm-badge--${confidence.tone}`], text: confidence.text }))));
 }
 
-function signature(groups) { return groups.map(([toward, passes]) => `${toward}:${passes.length}`).join('|'); }
+function signature(groups) { return groups.map(([toward, passes]) => `${passes[0]?.line ?? ''}${toward}:${passes.length}`).join('|'); }
 
 // Returns an object that owns `.el`; call render(data) for each fresh board.
 export function createBoard() {
@@ -43,6 +43,7 @@ export function createBoard() {
   el.append(boardSkeleton());
 
   function build(groups) {
+    const mixed = new Set(groups.flatMap(([, list]) => list.map(p => p.line)).filter(Boolean)).size > 1;
     const box = h('div', { class: 'board is-loaded' });
     if (!groups.length) {
       box.append(h('div', { class: 'cm-inset board-empty' }, icon('clock'), h('p', { text: 'در این ساعت قطاری ثبت نشده است؛ ممکن است خارج از ساعت سرویس باشد.' })));
@@ -53,6 +54,7 @@ export function createBoard() {
       const groupLabel = kinds.size === 1 ? confidenceLabel([...kinds][0]) : null;
       box.append(h('section', { class: 'board-group cm-inset', dataset: { toward } },
         h('h3', { class: 'board-group__title' }, icon(toward.startsWith('ورودی') ? 'arrow_down_circle' : 'flag'), h('span', { class: 'board-group__name', text: headingFor(toward) }),
+          mixed && passes[0].line && h('span', { class: ['cm-badge', 'board-group__line'], text: `خط ${fa(passes[0].line)}` }),
           groupLabel && h('span', { class: ['cm-badge', `cm-badge--${groupLabel.tone}`, 'board-group__badge'], text: groupLabel.text })),
         h('ol', { class: 'train-list' }, passes.map((pass, i) => trainRow(pass, i, kinds.size > 1)))));
     }

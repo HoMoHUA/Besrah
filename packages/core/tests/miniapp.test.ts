@@ -27,7 +27,10 @@ describe('miniapp metadata', () => {
     const app = buildServer();
     const r = await app.inject('/app/api/stations');
     expect(r.statusCode).toBe(200);
-    expect(r.json().supportedLines).toEqual([1]);
+    expect(r.json().supportedLines).toEqual([1, 2]);
+    expect(r.json().line2Order).toHaveLength(13);
+    expect(r.json().line2Order[0]).toBe('طبرسی');
+    expect(r.json().line2Order[12]).toBe('شهید فکوری');
     expect(r.json().maxNearestKm).toBe(10);
     expect(r.json().stations.find((s: { name: string }) => s.name === 'طبرسی').lines).toEqual([2]);
     expect(r.json().line1Order[0]).toBe('وکیل‌آباد');

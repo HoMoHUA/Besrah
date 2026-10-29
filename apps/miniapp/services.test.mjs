@@ -10,13 +10,22 @@ test('only built services have an action; unbuilt ones can never open a screen',
   assert.equal(new Set(SERVICES.map(s => s.id)).size, SERVICES.length);
 });
 
-test('the three real services are the large tiles; the planned ones fill the small row', () => {
+test('both metro lines and the locator are the large tiles; the rest fills the small row', () => {
   const { primary, secondary, moreCount, more } = homeLayout(SERVICES);
-  assert.deepEqual(primary.map(s => s.id), ['metro1', 'nearest', 'stations']);
-  assert.deepEqual(secondary.map(s => s.id), ['line2', 'bus', 'route']);
-  assert.equal(moreCount, SERVICES.filter(s => s.status === 'soon').length - 3);
+  assert.deepEqual(primary.map(s => s.id), ['metro1', 'metro2', 'nearest']);
+  assert.deepEqual(secondary.map(s => s.id), ['stations', 'bus', 'route']);
+  assert.equal(moreCount, SERVICES.length - 6);
   assert.equal(more.length, moreCount);
   assert.ok(moreCount > 0);
+  assert.equal([...primary, ...secondary, ...more].length, SERVICES.length, 'every service is reachable from the home layout');
+});
+
+test('line 2 is a live service that opens the line 2 route list', () => {
+  const line2 = SERVICES.find(s => s.id === 'metro2');
+  assert.equal(line2.status, 'live');
+  assert.deepEqual(line2.action, { type: 'view', view: 'stations', mode: 'line2' });
+  assert.equal(SERVICES.some(s => s.id === 'line2'), false, 'the old «soon» tile is gone');
+  assert.match(line2.blurb, /فاز/, 'the blurb says plainly that the phase is not measured');
 });
 
 test('every planned item states plainly that it is not built and gives no date', () => {

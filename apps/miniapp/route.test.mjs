@@ -41,3 +41,10 @@ test('route rows carry order, terminals and interchange flags from real station 
   assert.equal(rows[6].terminal, 'last');
   assert.deepEqual(routeRows(['الف', 'نامعلوم'], stations).map(r => r.name), ['الف']);
 });
+
+test('route rows on line 2 flag interchanges against line 2, not line 1', () => {
+  const stations = [{ name: 'الف', lines: [2] }, { name: 'ب', lines: [1, 2] }, { name: 'ج', lines: [2, 3] }];
+  const rows = routeRows(['الف', 'ب', 'ج'], stations, 2);
+  assert.deepEqual(rows.map(r => r.interchange), [false, true, true]);
+  assert.equal(routeRows(['الف', 'ب'], stations).find(r => r.name === 'الف').interchange, true, 'default line is 1');
+});

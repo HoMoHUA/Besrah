@@ -115,6 +115,12 @@ export function registerMiniapp(app: FastifyInstance) {
   const raw = JSON.parse(readFileSync(NETWORK_PATH, 'utf8'));
   app.get('/app/api/stations', async (_req, reply) => {
     reply.header('Cache-Control', 'no-store').header('X-Content-Type-Options', 'nosniff');
-    return { stations: raw.stations, line1Order: raw.lines['1'].order_vakilabad_to_airport, supportedLines: [1], maxNearestKm: 10 };
+    return {
+      stations: raw.stations,
+      line1Order: raw.lines['1'].order_vakilabad_to_airport,
+      line2Order: raw.lines['2'].order_tabarsi_to_fakouri,
+      supportedLines: [1, 2],
+      maxNearestKm: 10,
+    };
   });
 }

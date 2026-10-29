@@ -5,7 +5,7 @@ import vm from 'node:vm';
 
 const root = new URL('../../', import.meta.url);
 const network = JSON.parse(readFileSync(new URL('data/network.json', root), 'utf8'));
-const metro = { stations: network.stations, line1: network.lines['1'].order_vakilabad_to_airport, maxNearestKm: 10 };
+const metro = { stations: network.stations, line1: network.lines['1'].order_vakilabad_to_airport, line2: network.lines['2'].order_tabarsi_to_fakouri, maxNearestKm: 10 };
 function normalize(message, extra = {}) {
   const file = new URL('integrations/n8n/normalize.js', root);
   assert.ok(existsSync(file), 'normalize Code node source must exist');
@@ -45,8 +45,8 @@ test('commands and unknown input become safe local replies without a core reques
     assert.ok(result.reply_text.length > 0);
     assert.equal('station' in result, false);
     if (kind === 'stations') {
-      for (const name of metro.line1) assert.ok(result.reply_text.includes(name));
-      assert.equal(result.reply_text.includes('طبرسی'), false);
+      for (const name of [...metro.line1, ...metro.line2]) assert.ok(result.reply_text.includes(name), name);
+      assert.ok(result.reply_text.includes('خط ۱') && result.reply_text.includes('خط ۲'));
     }
   }
 });
@@ -69,7 +69,9 @@ test('about and privacy commands describe real limits and temporary execution re
   const about = normalize(message('/about'));
   assert.equal(about.kind, 'about');
   assert.ok(about.reply_text.includes('Besrah'));
-  assert.ok(about.reply_text.includes('خط ۱'));
+  assert.ok(about.reply_text.includes('خط ۱') && about.reply_text.includes('خط ۲'));
+  assert.equal(about.reply_text.includes('خط ۲ و مسیریابی ترکیبی هنوز فعال نیستند'), false);
+  assert.ok(about.reply_text.includes('مسیریابی ترکیبی هنوز فعال نیست'));
   const privacy = normalize(message('/privacy'));
   assert.equal(privacy.kind, 'privacy');
   assert.ok(privacy.reply_text.includes('پاک سازی'));
@@ -80,19 +82,35 @@ test('about and privacy commands describe real limits and temporary execution re
   assert.equal(privacy.reply_text.includes('موقعیت را ذخیره'), false);
 });
 
-test('known line 2 station is unsupported rather than silently mapped to line 1', () => {
-  const result = normalize(message('راه آهن'));
+test('line 2 stations are normal timing queries; Shariati (both lines) is one query', () => {
+  for (const [text, station] of [['راه آهن', 'راه‌آهن'], ['طبرسی', 'طبرسی'], ['مفتح', 'مفتح'], ['شریعتی', 'شریعتی'], ['ایستگاه سعدی', 'سعدی']]) {
+    const result = normalize(message(text));
+    assert.equal(result.route, 'query', text);
+    assert.equal(result.station, station, text);
+    assert.equal(result.kind, 'station');
+  }
+});
+
+test('a line 2 station can be typed without the «شهید» prefix, but only when that is unambiguous', () => {
+  assert.equal(normalize(message('فکوری')).station, 'شهید فکوری');
+  assert.equal(normalize(message('کاوه')).station, 'شهید کاوه');
+  assert.equal(normalize(message('شهید فکوری')).station, 'شهید فکوری');
+  assert.equal(normalize(message('شهید')).kind, 'unknown');
+  assert.equal(normalize(message('شهدا')).station, 'شهدا');
+});
+
+test('a station on no supported line is still refused instead of silently mapped', () => {
+  const limited = { ...metro, line2: [] };
+  const result = normalize(message('طبرسی'), { metro: limited });
   assert.equal(result.route, 'reply');
   assert.equal(result.kind, 'unsupported_line');
-  assert.match(result.reply_text, /خط ۲/);
   assert.match(result.reply_text, /پشتیبانی/);
-  assert.equal(normalize(message('شریعتی')).route, 'query');
 });
 
 test('location finds nearest across all stations and reports straight-line distance without retaining GPS', () => {
   for (const station of metro.stations) {
     const result = normalize(message(undefined, { location: { latitude: station.lat, longitude: station.lon } }));
-    if (metro.line1.includes(station.name)) {
+    if (metro.line1.includes(station.name) || metro.line2.includes(station.name)) {
       assert.equal(result.route, 'query');
       assert.equal(result.station, station.name);
       assert.equal(result.kind, 'location');

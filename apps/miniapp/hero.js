@@ -1,5 +1,5 @@
 // Hero carousel content, built only from real state. No data -> a call to action or an honest message.
-import { asOfLabel, distanceLabel, fa, summarizeBoard } from './format.js';
+import { asOfLabel, distanceLabel, fa, isSupported, summarizeBoard } from './format.js';
 
 const ERRORS = {
   denied: ['اجازهٔ موقعیت داده نشد.', 'اگر خواستید، از تنظیمات دستگاه اجازه را فعال کنید یا ایستگاه را جست وجو کنید.'],
@@ -23,9 +23,9 @@ function locateSlide({ phase = 'idle', station, km, reason, board, boardPhase, m
   }
   if (phase === 'ok' && station) {
     const distance = `فاصلهٔ مستقیم حدود ${distanceLabel(km)}`;
-    if (!station.lines?.includes(1)) {
+    if (!isSupported(station)) {
       return { ...base, state: 'unsupported', title: station.name, meta: distance,
-        lines: ['این ایستگاه روی خط ۲ است و زمان رسیدن خط ۲ هنوز ساخته نشده است.', 'نزدیک ترین ایستگاه خط ۱ را از فهرست انتخاب کنید.'] };
+        lines: ['زمان رسیدن برای خط این ایستگاه هنوز ساخته نشده است.', 'یکی از ایستگاه های خط ۱ یا خط ۲ را از فهرست انتخاب کنید.'] };
     }
     const kicker = 'قطار بعدی نزدیک شما';
     if (boardPhase === 'loading' || (boardPhase !== 'error' && !board)) {

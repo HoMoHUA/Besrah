@@ -1,6 +1,6 @@
-// Home: hero carousel (real data only) -> lamp tiles (services) -> honest info card -> line-1 station rail.
+// Home: hero carousel (real data only) -> lamp tiles (services) -> honest info card -> line 1 and line 2 station rails.
 import { buildSlides } from '../hero.js';
-import { fa } from '../format.js';
+import { fa, lineLabel } from '../format.js';
 import { homeLayout, isLive } from '../services.js';
 import { createCarousel } from '../ui/carousel.js';
 import { h, icon, reducedMotion } from '../ui/dom.js';
@@ -87,45 +87,53 @@ export function createHomeView(ctx) {
       h('p', { text: 'کنار هر تابلو ساعت سرور به وقت تهران نوشته شده است.' }),
       h('button', { class: 'cm-btn cm-btn--ghost cm-btn--sm el', type: 'button', onClick: () => actions.go('about') }, 'توضیح کامل')));
 
-  /* ── line-1 rail ── */
-  const rail = h('ul', { class: 'rail__row', role: 'list' });
-  const railWrap = h('section', { class: 'rail', 'aria-labelledby': 'rail-title' },
-    h('div', { class: 'section-head' }, h('span', { class: 'section-head__mark', 'aria-hidden': 'true' }), h('h2', { id: 'rail-title', text: 'ایستگاه های خط ۱' }),
-      h('button', { class: 'section-head__more', type: 'button', onClick: () => actions.go('stations', { mode: 'line1' }) }, 'همهٔ ایستگاه ها', icon('chevron_left'))),
-    h('div', { class: 'rail__scroller' }, rail));
+  /* ── one rail per line ── */
+  function createRail({ line, orderKey }) {
+    const titleId = `rail-title-${line}`;
+    const rail = h('ul', { class: 'rail__row', role: 'list' });
+    const wrap = h('section', { class: ['rail', `rail--l${line}`], 'aria-labelledby': titleId },
+      h('div', { class: 'section-head' }, h('span', { class: 'section-head__mark', 'aria-hidden': 'true' }), h('h2', { id: titleId, text: `ایستگاه های خط ${fa(line)}` }),
+        h('button', { class: 'section-head__more', type: 'button', onClick: () => actions.go('stations', { mode: `line${line}` }) }, 'همهٔ ایستگاه ها', icon('chevron_left'))),
+      h('div', { class: 'rail__scroller' }, rail));
 
-  function paintRail() {
-    const s = state.get();
-    if (s.status === 'loading') {
-      rail.replaceChildren(...Array.from({ length: 7 }, () => h('li', { class: 'station-chip station-chip--skeleton', 'aria-hidden': 'true' },
-        h('span', { class: 'cm-skel station-chip__disc' }), h('span', { class: 'cm-skel cm-skel--line station-chip__skel-line' }))));
-      return;
+    function paint() {
+      const s = state.get();
+      if (s.status === 'loading') {
+        rail.replaceChildren(...Array.from({ length: 7 }, () => h('li', { class: 'station-chip station-chip--skeleton', 'aria-hidden': 'true' },
+          h('span', { class: 'cm-skel station-chip__disc' }), h('span', { class: 'cm-skel cm-skel--line station-chip__skel-line' }))));
+        return;
+      }
+      if (s.status === 'error') {
+        rail.replaceChildren(h('li', { class: 'rail__error' }, h('div', { class: 'cm-card cm-empty' },
+          h('div', { class: 'cm-empty__art' }, icon('wifi')), h('h3', { text: 'فهرست ایستگاه ها دریافت نشد' }),
+          h('p', { text: 'اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.' }),
+          h('button', { class: 'cm-btn cm-btn--sm el', type: 'button', onClick: () => actions.reload() }, icon('arrow_clockwise'), 'تلاش دوباره'))));
+        return;
+      }
+      const byName = new Map(s.stations.map(st => [st.name, st]));
+      const order = (s[orderKey] ?? []).filter(n => byName.has(n));
+      wrap.hidden = order.length === 0;
+      rail.replaceChildren(...order.map((name, i) => {
+        const station = byName.get(name);
+        const others = station.lines.filter(l => l !== line);
+        const inter = others.length > 0;
+        const btn = h('button', { class: ['station-chip', inter && 'is-interchange'], type: 'button', dataset: { name }, onClick: () => actions.openStation(name) },
+          h('span', { class: 'station-chip__disc', 'aria-hidden': 'true' }, h('span', { class: 'station-chip__num cm-num', text: fa(i + 1) })),
+          h('span', { class: 'station-chip__name' }, name, inter && h('span', { class: 'cm-sr', text: `، تقاطع با ${lineLabel(others)}` })));
+        btn.style.setProperty('--tint', tintAt(order.length > 1 ? i / (order.length - 1) : 0));
+        return h('li', {}, btn);
+      }));
+      init(rail);
     }
-    if (s.status === 'error') {
-      rail.replaceChildren(h('li', { class: 'rail__error' }, h('div', { class: 'cm-card cm-empty' },
-        h('div', { class: 'cm-empty__art' }, icon('wifi')), h('h3', { text: 'فهرست ایستگاه ها دریافت نشد' }),
-        h('p', { text: 'اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.' }),
-        h('button', { class: 'cm-btn cm-btn--sm el', type: 'button', onClick: () => actions.reload() }, icon('arrow_clockwise'), 'تلاش دوباره'))));
-      return;
-    }
-    const byName = new Map(s.stations.map(st => [st.name, st]));
-    const order = s.order.filter(n => byName.has(n));
-    rail.replaceChildren(...order.map((name, i) => {
-      const station = byName.get(name);
-      const inter = station.lines.some(l => l !== 1);
-      const btn = h('button', { class: ['station-chip', inter && 'is-interchange'], type: 'button', dataset: { name }, onClick: () => actions.openStation(name) },
-        h('span', { class: 'station-chip__disc', 'aria-hidden': 'true' }, h('span', { class: 'station-chip__num cm-num', text: fa(i + 1) })),
-        h('span', { class: 'station-chip__name' }, name, inter && h('span', { class: 'cm-sr', text: '، تقاطع با خط ۲' })));
-      btn.style.setProperty('--tint', tintAt(order.length > 1 ? i / (order.length - 1) : 0));
-      return h('li', {}, btn);
-    }));
-    init(rail);
+    return { el: wrap, paint };
   }
+  const rails = [createRail({ line: 1, orderKey: 'order' }), createRail({ line: 2, orderKey: 'order2' })];
+  const paintRail = () => rails.forEach(r => r.paint());
 
-  root.append(hero, lamps, info, railWrap);
+  root.append(hero, lamps, info, ...rails.map(r => r.el));
   paintHero(); paintRail();
   state.subscribe(['nearest', 'recent', 'asOf', 'maxKm'], paintHero);
-  state.subscribe(['status', 'stations', 'order'], paintRail);
+  state.subscribe(['status', 'stations', 'order', 'order2'], paintRail);
 
   return {
     el: root,

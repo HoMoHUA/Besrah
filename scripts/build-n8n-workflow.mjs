@@ -7,7 +7,7 @@ const outputDir = new URL('integrations/n8n/', root);
 const source = name => readFileSync(new URL(name, outputDir), 'utf8');
 const network = JSON.parse(readFileSync(new URL('data/network.json', root), 'utf8'));
 const appUrl = 'https://besrah.arklyn.ir/';
-const metro = { stations: network.stations.map(({ id, name, lat, lon, lines }) => ({ id, name, lat, lon, lines })), line1: network.lines['1'].order_vakilabad_to_airport, maxNearestKm: 10, appUrl };
+const metro = { stations: network.stations.map(({ id, name, lat, lon, lines }) => ({ id, name, lat, lon, lines })), line1: network.lines['1'].order_vakilabad_to_airport, line2: network.lines['2'].order_tabarsi_to_fakouri, maxNearestKm: 10, appUrl };
 const stableId = name => {
   const hash = createHash('sha256').update('besrah-n8n:' + name).digest('hex');
   return `${hash.slice(0, 8)}-${hash.slice(8, 12)}-4${hash.slice(13, 16)}-a${hash.slice(17, 20)}-${hash.slice(20, 32)}`;
@@ -44,7 +44,7 @@ const production = {
       replyMarkup: 'replyKeyboard', replyKeyboard: { rows: [{ row: { buttons: [{ text: '📍 ارسال موقعیت من', additionalFields: { request_location: true } }] } }, { row: { buttons: [{ text: 'باز کردن بِسراه', additionalFields: { web_app: { url: appUrl } } }] } }] },
       replyKeyboardOptions: { resize_keyboard: true, one_time_keyboard: true }, additionalFields: { parse_mode: 'HTML', appendAttribution: false, disable_web_page_preview: true },
     }, [1700, 160]),
-    node('Setup Required', 'stickyNote', 1, { content: '## Setup required — inactive export\nCreate a dedicated Telegram API credential and select it on Telegram Trigger and Telegram Send. No credential references or secrets are included. Confirm HTTPS WEBHOOK_URL, localhost core connectivity and smoke assertions, then activate explicitly. Trigger v1.3 authenticates webhook requests with a generated secret token and drops pending updates on activation. Private human chats only. Execution payload saving disabled (including manual/error); do not pin or log real GPS. Radius is 10 km straight-line to nearest known station; edit maxNearestKm in Metro Data or generator then regenerate. Line 2 predictions are unsupported. Coordinates are not walking routes. Activation remains outstanding in this export.', width: 610, height: 340 }, [480, -300]),
+    node('Setup Required', 'stickyNote', 1, { content: '## Setup required — inactive export\nCreate a dedicated Telegram API credential and select it on Telegram Trigger and Telegram Send. No credential references or secrets are included. Confirm HTTPS WEBHOOK_URL, localhost core connectivity and smoke assertions, then activate explicitly. Trigger v1.3 authenticates webhook requests with a generated secret token and drops pending updates on activation. Private human chats only. Execution payload saving disabled (including manual/error); do not pin or log real GPS. Radius is 10 km straight-line to nearest known station; edit maxNearestKm in Metro Data or generator then regenerate. Lines 1 and 2 are supported (line 2: headway-based, phase unmeasured). Coordinates are not walking routes. Activation remains outstanding in this export.', width: 610, height: 340 }, [480, -300]),
   ],
   connections: { 'Telegram Trigger': { main: [[edge('Metro Data')]] }, ...connections, Render: { main: [[edge('Telegram Send')]] } },
   settings, pinData: {}, tags: [],

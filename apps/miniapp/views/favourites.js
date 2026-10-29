@@ -1,5 +1,5 @@
 // Favourites tab: saved station NAMES (device only). Tap = the board; heart = remove, with undo.
-import { fa, lineLabel } from '../format.js';
+import { SUPPORTED_LINES, fa, lineLabel } from '../format.js';
 import { h, icon } from '../ui/dom.js';
 import { init, toast } from '../ui/hm7.js';
 import { positionLabel } from '../route.js';
@@ -35,10 +35,13 @@ export function createFavouritesView(ctx) {
     }
     body.replaceChildren(h('ul', { class: 'fav-list', role: 'list' }, names.map(name => {
       const station = byName.get(name);
+      const lines = (station.lines ?? []).filter(l => SUPPORTED_LINES.includes(l));
+      const first = lines[0] ?? 1;
+      const orders = { 1: s.order, 2: s.order2 };
       return h('li', { class: 'cm-card cm-wash fav-row' },
         h('button', { class: 'fav-row__main el', type: 'button', onClick: () => actions.openStation(name), dataset: { name } },
-          h('span', { class: 'line-badge line-badge--sm' }, h('span', { class: 'cm-sr', text: 'خط ' }), fa(1)),
-          h('span', { class: 'fav-row__text' }, h('b', { text: name }), h('span', { text: [lineLabel(station.lines.filter(l => l === 1)), positionLabel(s.order, name)].filter(Boolean).join(' · ') })),
+          h('span', { class: 'line-badges' }, (lines.length ? lines : [first]).map(l => h('span', { class: ['line-badge', 'line-badge--sm', `line-badge--l${l}`] }, h('span', { class: 'cm-sr', text: 'خط ' }), fa(l)))),
+          h('span', { class: 'fav-row__text' }, h('b', { text: name }), h('span', { text: [lineLabel(lines), lines.length === 1 && positionLabel(orders[first] ?? [], name)].filter(Boolean).join(' · ') })),
           h('span', { class: 'fav-row__go' }, 'قطار بعدی', icon('chevron_left'))),
         h('button', { class: 'fav-row__remove cm-icon-btn el', type: 'button', 'aria-label': `حذف ${name} از علاقه مندی ها`, onClick: () => remove(name) }, icon('heart_fill')));
     })));
@@ -46,7 +49,7 @@ export function createFavouritesView(ctx) {
   }
 
   store.subscribe(key => { if (key === 'favs') paint(); });
-  state.subscribe(['status', 'stations', 'order'], paint);
+  state.subscribe(['status', 'stations', 'order', 'order2'], paint);
   paint();
   return { el: root, mount() { init(root); }, onShow() { paint(); } };
 }

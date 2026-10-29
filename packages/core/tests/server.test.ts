@@ -12,10 +12,11 @@ describe('HTTP API /v1/next', () => {
   });
 
   it('returns structured passes and a Persian text for a Friday station', async () => {
-    const r = await app.inject({ method: 'GET', url: '/v1/next?station=' + encodeURIComponent('شریعتی') + '&limit=3' });
+    const r = await app.inject({ method: 'GET', url: '/v1/next?station=' + encodeURIComponent('شریعتی') + '&limit=3&line=1' });
     expect(r.statusCode).toBe(200);
     const body = r.json();
     expect(body.station).toBe('شریعتی');
+    expect(body.line).toBe(1);
     expect(body.day_type).toBe('friday');
     expect(body.passes.length).toBe(3);
     expect(body.passes.every((p: any) => p.eta_min >= 0)).toBe(true);
@@ -69,5 +70,31 @@ describe('HTTP API /v1/next', () => {
     const r = await lateApp.inject({ method: 'GET', url: '/v1/next?station=' + encodeURIComponent('غدیر') });
     expect(r.json().passes.length).toBe(0);
     expect(r.json().text).toContain('قطاری');
+  });
+
+  it('line 2: a line-2-only station answers instead of unknown_station', async () => {
+    const r = await app.inject({ method: 'GET', url: '/v1/next?station=' + encodeURIComponent('شهید فکوری') + '&limit=4' });
+    expect(r.statusCode).toBe(200);
+    const body = r.json();
+    expect(body.line).toBe(2);
+    expect(body.lines).toEqual([2]);
+    expect(body.passes.length).toBeGreaterThan(0);
+    expect(body.passes.every((p: any) => p.line === 2 && p.service === null)).toBe(true);
+    expect(body.text).toContain('🚉 *شهید فکوری* (خط ۲)');
+  });
+
+  it('interchange: Shariati without `line` returns both lines, with `line` only that one', async () => {
+    const q = (extra = '') => app.inject({ method: 'GET', url: '/v1/next?station=' + encodeURIComponent('شریعتی') + '&limit=3' + extra });
+    const both = (await q()).json();
+    expect(both.lines).toEqual([1, 2]);
+    expect(new Set(both.passes.map((p: any) => p.line))).toEqual(new Set([1, 2]));
+    expect((await q('&line=2')).json().passes.every((p: any) => p.line === 2)).toBe(true);
+  });
+
+  it('rejects a bad or mismatching line', async () => {
+    const get = (qs: string) => app.inject({ method: 'GET', url: '/v1/next?' + qs });
+    expect((await get('station=' + encodeURIComponent('غدیر') + '&line=3')).statusCode).toBe(400);
+    expect((await get('station=' + encodeURIComponent('غدیر') + '&line=x')).statusCode).toBe(400);
+    expect((await get('station=' + encodeURIComponent('غدیر') + '&line=2')).statusCode).toBe(404);
   });
 });

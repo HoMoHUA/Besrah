@@ -1,5 +1,6 @@
 // Station search: Persian-aware folding, ranking, highlight ranges and a near-miss suggestion.
 import { foldWithMap, normalize } from './logic.js';
+import { isSupported } from './format.js';
 
 const PREFIX = normalize('ایستگاه');
 
@@ -31,7 +32,7 @@ export function filterStations(stations, query, { limit = Infinity, order = [] }
     const i = order.indexOf(station.name);
     return i >= 0 ? i : order.length + 1;
   };
-  const supported = station => (station.lines?.includes(1) ? 0 : 1);
+  const supported = station => (isSupported(station) ? 0 : 1);
   const hits = [];
   for (const station of stations) {
     if (!needle) { hits.push({ station, score: 0, ranges: [] }); continue; }

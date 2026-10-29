@@ -1,4 +1,4 @@
-// Line-1 route helpers. `order` is the API's line1Order (Vakilabad -> airport); it is a diagram, not a map.
+// Route helpers. `order` is one line's station order from the API (line1Order: Vakilabad -> airport, line2Order: Tabarsi -> Fakouri); it is a diagram, not a map.
 import { fa } from './format.js';
 
 const terminalOf = (i, total) => (i === 0 ? 'first' : i === total - 1 ? 'last' : null);
@@ -23,10 +23,10 @@ export function positionLabel(order, name) {
   return index < 0 ? '' : `ایستگاه ${fa(index + 1)} از ${fa(order.length)}`;
 }
 
-export function routeRows(order, stations) {
+export function routeRows(order, stations, line = 1) {
   const byName = new Map(stations.map(s => [s.name, s]));
   return order.filter(name => byName.has(name)).map((name, i, all) => ({
     name, position: order.indexOf(name) + 1, terminal: terminalOf(order.indexOf(name), order.length),
-    interchange: (byName.get(name).lines ?? []).some(l => l !== 1),
+    interchange: (byName.get(name).lines ?? []).some(l => l !== line),
   }));
 }

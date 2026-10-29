@@ -5,8 +5,10 @@ if (!message || message.chat?.type !== 'private' || message.from?.is_bot !== fal
 const key = value => String(value).normalize('NFKC').replace(/[يى]/g, 'ی').replace(/ك/g, 'ک')
   .replace(/[\u064b-\u065f\u0670\u0640]/g, '').replace(/[\s\u200c\u200d\u200e\u200f\ufeff]+/g, '');
 const reply = (kind, text) => ({ json: { chat_id: message.chat.id, route: 'reply', kind, reply_text: text } });
-const help = 'به بِسراه خوش آمدید. نام ایستگاه خط ۱ را بنویسید یا با دکمه زیر موقعیت خود را بفرستید.\n\n/app — باز کردن مینی اپ\n/stations — فهرست ایستگاه ها\n/about — درباره بِسراه و دقت زمان ها\n/privacy — حریم خصوصی\n/help — راهنما\n/start — شروع دوباره\n\nزمان ها تقریبی اند؛ داده زنده حرکت قطار نیستند.';
-const unsupported = station => reply('unsupported_line', `ایستگاه ${station.name} در خط ۲ است. پیش‌بینی زمان خط ۲ هنوز پشتیبانی نمی‌شود؛ فعلاً فقط خط ۱ پشتیبانی می‌شود.`);
+const help = 'به بِسراه خوش آمدید. نام ایستگاه خط ۱ یا خط ۲ را بنویسید یا با دکمه زیر موقعیت خود را بفرستید.\n\n/app — باز کردن مینی اپ\n/stations — فهرست ایستگاه ها\n/about — درباره بِسراه و دقت زمان ها\n/privacy — حریم خصوصی\n/help — راهنما\n/start — شروع دوباره\n\nزمان ها تقریبی اند؛ داده زنده حرکت قطار نیستند.';
+const line2 = Array.isArray(metro.line2) ? metro.line2 : [];
+const supported = name => metro.line1.includes(name) || line2.includes(name);
+const unsupported = station => reply('unsupported_line', `پیش‌بینی زمان برای ایستگاه ${station.name} هنوز پشتیبانی نمی‌شود؛ فعلاً فقط خط ۱ و خط ۲ پشتیبانی می‌شوند.`);
 if (Object.prototype.hasOwnProperty.call(message, 'location')) {
   const { latitude, longitude } = message.location || {};
   if (typeof latitude !== 'number' || typeof longitude !== 'number'
@@ -24,18 +26,22 @@ if (Object.prototype.hasOwnProperty.call(message, 'location')) {
   // Radius is straight-line distance to the nearest known station, not a walking route.
   const maxNearestKm = Number.isFinite(metro.maxNearestKm) && metro.maxNearestKm > 0 ? metro.maxNearestKm : 10;
   if (!nearest || nearest.km > maxNearestKm) return reply('outside_service_area', 'این موقعیت خارج از محدودهٔ پشتیبانی‌شدهٔ متروی مشهد است. نام یک ایستگاه را از /stations انتخاب کنید.');
-  if (!metro.line1.includes(nearest.station.name)) return unsupported(nearest.station);
+  if (!supported(nearest.station.name)) return unsupported(nearest.station);
   return { json: { chat_id: message.chat.id, route: 'query', kind: 'location', station: nearest.station.name, distance_km: nearest.km } };
 }
 const text = typeof message.text === 'string' ? message.text.trim() : '';
 const command = text.split(/\s/)[0].replace(/@[A-Za-z0-9_]+$/, '').toLowerCase();
 if (!text || command === '/start' || command === '/help') return reply('help', help);
 if (command === '/app') return reply('app', 'مینی اپ بِسراه را از دکمه «باز کردن بِسراه» یا لینک زیر باز کنید:\n' + metro.appUrl);
-if (command === '/about') return reply('about', 'Besrah | بِسراه\nدستیار متروی مشهد برای پیدا کردن ایستگاه و برآورد زمان قطارهای خط ۱.\nبرآوردها از جدول زمانی و داده های ثبت شده به دست می آیند؛ موقعیت زنده قطار نیستند. فاصله نمایش داده شده مستقیم است، نه مسیر پیاده روی. خط ۲ و مسیریابی ترکیبی هنوز فعال نیستند.\n/app — باز کردن مینی اپ\n/privacy — حریم خصوصی');
+if (command === '/about') return reply('about', 'Besrah | بِسراه\nدستیار متروی مشهد برای پیدا کردن ایستگاه و برآورد زمان قطارهای خط ۱ و خط ۲.\nبرآوردها از جدول زمانی و داده های ثبت شده به دست می آیند؛ موقعیت زنده قطار نیستند. فاصله نمایش داده شده مستقیم است، نه مسیر پیاده روی. در خط ۲ فاصلهٔ قطارها مشخص است اما فاز حرکت اندازه گیری نشده و دقیقهٔ رسیدن تقریبی است. مسیریابی ترکیبی هنوز فعال نیست.\n/app — باز کردن مینی اپ\n/privacy — حریم خصوصی');
 if (command === '/privacy') return reply('privacy', 'حریم خصوصی بِسراه\nدر مینی اپ، موقعیت با اجازه شما در دستگاه پردازش می شود و فقط نام ایستگاه برای دریافت زمان به سرور می رود.\nعلاقه مندی ها، جستجوهای اخیر و تنظیمات ظاهر فقط نام ایستگاه ها و گزینه ها را روی دستگاه شما نگه می دارند و از بخش درباره در مینی اپ قابل پاک شدن با پاک کردن داده سایت هستند.\nاگر موقعیت را در چت بات بفرستید، تلگرام و گردش کار سرور آن را دریافت می کنند. ذخیره تاریخچه اجرای گردش کار غیرفعال است، اما ورودی اولیه ممکن است تا پاک سازی خودکار n8n در پایگاه داده باقی بماند. نسخه های پشتیبان و سوابق تلگرام جدا هستند.\nبرای استفاده بدون ارسال موقعیت، فقط نام ایستگاه را بنویسید.');
-if (command === '/stations') return reply('stations', 'ایستگاه‌های پشتیبانی‌شدهٔ خط ۱:\n' + metro.line1.join('\n'));
+if (command === '/stations') return reply('stations', 'ایستگاه‌های پشتیبانی‌شدهٔ خط ۱:\n' + metro.line1.join('\n') + (line2.length ? '\n\nایستگاه‌های پشتیبانی‌شدهٔ خط ۲:\n' + line2.join('\n') : ''));
 const input = key(text).replace(/^ایستگاه/, '');
-const station = metro.stations.find(s => key(s.name) === input);
+const exact = metro.stations.find(s => key(s.name) === input);
+// «فکوری» for «شهید فکوری»: the prefix may be dropped, but only when exactly one station matches.
+const withoutPrefix = name => key(name).replace(/^شهید/, '');
+const loose = input && !input.startsWith('شهید') ? metro.stations.filter(s => key(s.name).startsWith('شهید') && withoutPrefix(s.name) === input) : [];
+const station = exact || (loose.length === 1 ? loose[0] : undefined);
 if (!station) return reply('unknown', 'نام ایستگاه شناخته نشد. نام یکی از ایستگاه‌های /stations را بفرستید یا موقعیت خود را ارسال کنید.');
-if (!metro.line1.includes(station.name)) return unsupported(station);
+if (!supported(station.name)) return unsupported(station);
 return { json: { chat_id: message.chat.id, route: 'query', kind: 'station', station: station.name } };

@@ -17,10 +17,12 @@ Run: `npm install && npm test`
 
 Start: `PORT=3080 npm start` (binds 127.0.0.1 by default; set `HOST` only behind a proxy).
 
-`GET /v1/next?station=<نام ایستگاه>&limit=4[&at=<ISO time>]`
+`GET /v1/next?station=<نام ایستگاه>&limit=4[&line=1|2][&at=<ISO time>]`
 
-- Response: `station`, `as_of`, `day_type`, `passes[]` (toward, service, eta_min, arrive, confidence), `text` (Persian Telegram message, Markdown), `notes[]`.
-- `404 {"error":"unknown_station"}` for anything not on line 1 (line 2 is not in the engine yet).
+- Response: `station`, `line`, `lines[]`, `as_of`, `day_type`, `passes[]` (line, toward, service, eta_min, arrive, confidence), `text` (Persian Telegram message, Markdown), `notes[]`.
+- Line 2 (`src/line2.ts`): one through-service Tabarsi <-> Shahid Fakouri, headway 10 min Sat-Wed (owner decision) and 12 min Thu/Fri (official site), 06:00/07:00-22:00. Both terminals depart on the same grid, so every pass is `site_headway_assumed_phase`; `service` is `null`. Run times: measured Shariati..Fakouri, legacy estimates Tabarsi..Shariati.
+- Shariati is on both lines: without `line` it returns both (`lines: [1, 2]`, each pass carries its `line`); `line=1` or `line=2` selects one.
+- `404 {"error":"unknown_station"}` for a station not on the requested line (or on no supported line); `400 bad_line` if `line` is not 1 or 2.
 - `400` if `station` is missing.
 - `text` is ready to send; n8n only has to send it.
 

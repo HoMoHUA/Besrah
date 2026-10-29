@@ -16,6 +16,22 @@ test('next() uses a relative, encoded URL and sends no credentials or caching', 
   assert.equal(init.cache, 'no-store');
 });
 
+test('next() sends the optional line and rejects nothing else new', async () => {
+  const seen = [];
+  const api = createApi({ fetch: async url => { seen.push(url); return json(board); } });
+  await api.next('شریعتی', { limit: 4, line: 2 });
+  assert.equal(seen[0], 'api/next?station=' + encodeURIComponent('شریعتی') + '&limit=4&line=2');
+  await api.next('شریعتی');
+  assert.equal(seen[1].includes('line='), false);
+});
+
+test('stations() keeps line2Order and tolerates an older server without it', async () => {
+  const body = { stations: [], line1Order: ['الف'], line2Order: ['ب'], supportedLines: [1, 2], maxNearestKm: 10 };
+  assert.deepEqual((await createApi({ fetch: async () => json(body) }).stations()).line2Order, ['ب']);
+  const { line2Order, ...old } = body;
+  assert.equal((await createApi({ fetch: async () => json(old) }).stations()).line2Order, undefined);
+});
+
 test('unknown station and server errors are classified', async () => {
   const unknown = createApi({ fetch: async () => json({ error: 'unknown_station' }, 404) });
   await assert.rejects(unknown.next('x'), e => e instanceof ApiError && e.kind === 'unknown_station');

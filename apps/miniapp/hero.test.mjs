@@ -26,10 +26,21 @@ test('after a successful lookup it shows the real board summary, distance and se
   assert.deepEqual(s.action, { id: 'open', label: 'تابلوی کامل', station: 'شریعتی' });
 });
 
-test('a nearest station on line 2 is reported honestly with no fake times', () => {
-  const s = byId(buildSlides({ locate: { phase: 'ok', station: { name: 'طبرسی', lines: [2] }, km: 1.2 }, recent: null, asOf: null }), 'locate');
+test('a nearest station on line 2 shows its real board like any other supported station', () => {
+  const board = { as_of: '10:00:00', passes: [
+    { line: 2, toward: 'شهید فکوری', eta_min: 4, service: null, confidence: 'site_headway_assumed_phase' },
+    { line: 2, toward: 'ورودی از شهید فکوری', eta_min: 7, service: null, confidence: 'site_headway_assumed_phase' }] };
+  const loading = byId(buildSlides({ locate: { phase: 'ok', station: { name: 'طبرسی', lines: [2] }, km: 1.2 }, recent: null, asOf: null }), 'locate');
+  assert.equal(loading.state, 'loading');
+  const s = byId(buildSlides({ locate: { phase: 'ok', station: { name: 'طبرسی', lines: [2] }, km: 1.2, boardPhase: 'ok', board }, recent: null, asOf: null }), 'locate');
+  assert.equal(s.state, 'result');
+  assert.deepEqual(s.action, { id: 'open', label: 'تابلوی کامل', station: 'طبرسی' });
+  assert.match(s.lines.join(' '), /به سمت شهید فکوری: ۴ دقیقه/);
+});
+
+test('a nearest station on no supported line is reported honestly with no fake times', () => {
+  const s = byId(buildSlides({ locate: { phase: 'ok', station: { name: 'نمونه', lines: [3] }, km: 1.2 }, recent: null, asOf: null }), 'locate');
   assert.equal(s.state, 'unsupported');
-  assert.match(s.lines.join(' '), /خط ۲/);
   assert.match(s.lines.join(' '), /هنوز/);
   assert.equal(s.action, null);
 });

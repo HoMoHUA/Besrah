@@ -47,7 +47,7 @@ test('smoke export shares production node code, makes only real localhost reques
   const result = run(nodes['Smoke Assertions'].parameters.jsCode, context);
   assert.equal(result[0].json.ok, true);
   assert.equal(result[0].json.total, fixtures.length);
-  assert.equal(result[0].json.core_queries, 2);
+  assert.equal(result[0].json.core_queries, 5);
   assert.throws(() => run(nodes['Smoke Assertions'].parameters.jsCode, { ...context, $input: { all: () => [] } }), /SMOKE/);
   const bad = structuredClone(rendered); bad[0].json.kind = 'core_error';
   assert.throws(() => run(nodes['Smoke Assertions'].parameters.jsCode, { ...context, $input: { all: () => bad } }), /SMOKE/);

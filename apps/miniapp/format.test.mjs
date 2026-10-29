@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { fa, etaParts, etaText, clockLabel, asOfLabel, dayTypeLabel, confidenceLabel, distanceLabel, headingFor, summarizeBoard, lineLabel } from './format.js';
+import { isSupported, SUPPORTED_LINES, fa, etaParts, etaText, clockLabel, asOfLabel, dayTypeLabel, confidenceLabel, distanceLabel, headingFor, summarizeBoard, lineLabel } from './format.js';
 
 test('Persian digits and Arabic/ASCII mix', () => {
   assert.equal(fa(1405), '۱۴۰۵');
@@ -57,4 +57,25 @@ test('board summary takes the earliest train per direction, two directions at mo
     { heading: 'به سمت غدیر', eta: 3, text: '۳ دقیقه' },
   ]);
   assert.deepEqual(summarizeBoard({ passes: [] }), []);
+});
+
+test('a station is supported when it is on line 1 or line 2 only', () => {
+  assert.deepEqual(SUPPORTED_LINES, [1, 2]);
+  assert.equal(isSupported({ lines: [1] }), true);
+  assert.equal(isSupported({ lines: [2] }), true);
+  assert.equal(isSupported({ lines: [1, 2] }), true);
+  assert.equal(isSupported({ lines: [3] }), false);
+  assert.equal(isSupported({ lines: [] }), false);
+  assert.equal(isSupported({}), false);
+  assert.equal(isSupported(undefined), false);
+});
+
+test('summaries name the line only when an interchange board mixes two lines', async () => {
+  const { summarizeBoard } = await import('./format.js');
+  const mixed = { passes: [
+    { line: 1, toward: 'غدیر', eta_min: 2, service: 'A' },
+    { line: 2, toward: 'طبرسی', eta_min: 5, service: null }] };
+  assert.deepEqual(summarizeBoard(mixed).map(r => r.heading), ['به سمت غدیر · خط ۱', 'به سمت طبرسی · خط ۲']);
+  const single = { passes: [{ line: 2, toward: 'طبرسی', eta_min: 5, service: null }] };
+  assert.deepEqual(summarizeBoard(single).map(r => r.heading), ['به سمت طبرسی']);
 });
