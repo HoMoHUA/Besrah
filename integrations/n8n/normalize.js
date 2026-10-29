@@ -5,7 +5,7 @@ if (!message || message.chat?.type !== 'private' || message.from?.is_bot !== fal
 const key = value => String(value).normalize('NFKC').replace(/[يى]/g, 'ی').replace(/ك/g, 'ک')
   .replace(/[\u064b-\u065f\u0670\u0640]/g, '').replace(/[\s\u200c\u200d\u200e\u200f\ufeff]+/g, '');
 const reply = (kind, text) => ({ json: { chat_id: message.chat.id, route: 'reply', kind, reply_text: text } });
-const help = 'به بِسراه خوش آمدید. نام ایستگاه خط ۱ را بنویسید یا با دکمه زیر موقعیت خود را بفرستید.\n/stations — فهرست ایستگاه ها\nزمان ها تقریبی اند؛ داده زنده حرکت قطار نیستند.';
+const help = 'به بِسراه خوش آمدید. نام ایستگاه خط ۱ را بنویسید یا با دکمه زیر موقعیت خود را بفرستید.\n\n/app — باز کردن مینی اپ\n/stations — فهرست ایستگاه ها\n/about — درباره بِسراه و دقت زمان ها\n/privacy — حریم خصوصی\n/help — راهنما\n/start — شروع دوباره\n\nزمان ها تقریبی اند؛ داده زنده حرکت قطار نیستند.';
 const unsupported = station => reply('unsupported_line', `ایستگاه ${station.name} در خط ۲ است. پیش‌بینی زمان خط ۲ هنوز پشتیبانی نمی‌شود؛ فعلاً فقط خط ۱ پشتیبانی می‌شود.`);
 if (Object.prototype.hasOwnProperty.call(message, 'location')) {
   const { latitude, longitude } = message.location || {};
@@ -30,6 +30,9 @@ if (Object.prototype.hasOwnProperty.call(message, 'location')) {
 const text = typeof message.text === 'string' ? message.text.trim() : '';
 const command = text.split(/\s/)[0].replace(/@[A-Za-z0-9_]+$/, '').toLowerCase();
 if (!text || command === '/start' || command === '/help') return reply('help', help);
+if (command === '/app') return reply('app', 'مینی اپ بِسراه را از دکمه «باز کردن بِسراه» یا لینک زیر باز کنید:\n' + metro.appUrl);
+if (command === '/about') return reply('about', 'Besrah | بِسراه\nدستیار متروی مشهد برای پیدا کردن ایستگاه و برآورد زمان قطارهای خط ۱.\nبرآوردها از جدول زمانی و داده های ثبت شده به دست می آیند؛ موقعیت زنده قطار نیستند. فاصله نمایش داده شده مستقیم است، نه مسیر پیاده روی. خط ۲ و مسیریابی ترکیبی هنوز فعال نیستند.\n/app — باز کردن مینی اپ\n/privacy — حریم خصوصی');
+if (command === '/privacy') return reply('privacy', 'حریم خصوصی بِسراه\nدر مینی اپ، موقعیت با اجازه شما در دستگاه پردازش می شود و فقط نام ایستگاه برای دریافت زمان به سرور می رود.\nاگر موقعیت را در چت بات بفرستید، تلگرام و گردش کار سرور آن را دریافت می کنند. ذخیره تاریخچه اجرای گردش کار غیرفعال است، اما ورودی اولیه ممکن است تا پاک سازی خودکار n8n در پایگاه داده باقی بماند. نسخه های پشتیبان و سوابق تلگرام جدا هستند.\nبرای استفاده بدون ارسال موقعیت، فقط نام ایستگاه را بنویسید.');
 if (command === '/stations') return reply('stations', 'ایستگاه‌های پشتیبانی‌شدهٔ خط ۱:\n' + metro.line1.join('\n'));
 const input = key(text).replace(/^ایستگاه/, '');
 const station = metro.stations.find(s => key(s.name) === input);

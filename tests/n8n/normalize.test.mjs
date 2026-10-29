@@ -51,6 +51,32 @@ test('commands and unknown input become safe local replies without a core reques
   }
 });
 
+test('app command returns the configured trusted Mini App URL without a timing request', () => {
+  const result = normalize(message('/app'), { metro: { ...metro, appUrl: 'https://n8n.gastora.ir/besrah/' } });
+  assert.equal(result.kind, 'app');
+  assert.equal(result.route, 'reply');
+  assert.ok(result.reply_text.includes('https://n8n.gastora.ir/besrah/'));
+});
+
+test('help lists every supported user-facing command', () => {
+  const result = normalize(message('/help'));
+  for (const command of ['/start', '/help', '/stations', '/app', '/about', '/privacy']) {
+    assert.ok(result.reply_text.includes(command), command + ' must be discoverable');
+  }
+});
+
+test('about and privacy commands describe real limits and temporary execution retention', () => {
+  const about = normalize(message('/about'));
+  assert.equal(about.kind, 'about');
+  assert.ok(about.reply_text.includes('Besrah'));
+  assert.ok(about.reply_text.includes('خط ۱'));
+  const privacy = normalize(message('/privacy'));
+  assert.equal(privacy.kind, 'privacy');
+  assert.ok(privacy.reply_text.includes('پاک سازی'));
+  assert.ok(privacy.reply_text.includes('دستگاه'));
+  assert.equal(privacy.reply_text.includes('ذخیره نمی شود'), false);
+});
+
 test('known line 2 station is unsupported rather than silently mapped to line 1', () => {
   const result = normalize(message('راه آهن'));
   assert.equal(result.route, 'reply');

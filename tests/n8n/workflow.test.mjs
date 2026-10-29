@@ -53,6 +53,21 @@ test('smoke export shares production node code, makes only real localhost reques
   assert.throws(() => run(nodes['Smoke Assertions'].parameters.jsCode, { ...context, $input: { all: () => bad } }), /SMOKE/);
 });
 
+test('production bot exposes the trusted HTTPS Mini App without accepting user URLs', () => {
+  const flow = build();
+  const byName = Object.fromEntries(flow.nodes.map(node => [node.name, node]));
+  const rows = byName['Telegram Send'].parameters.replyKeyboard.rows;
+  const appButton = rows.flatMap(row => row.row.buttons).find(button => button.additionalFields?.web_app);
+  assert.ok(appButton, 'a real WebApp keyboard button must exist');
+  assert.equal(appButton.additionalFields.web_app.url, 'https://n8n.gastora.ir/besrah/');
+  const input = { message: { text: '/app', chat: { id: 123456789, type: 'private' }, from: { is_bot: false } }, appUrl: 'https://attacker.invalid/' };
+  const withMetadata = vm.runInNewContext(`(function(){${byName['Metro Data'].parameters.jsCode}})()`, { $json: input });
+  assert.equal(withMetadata.json.metro.appUrl, 'https://n8n.gastora.ir/besrah/');
+  const normalized = vm.runInNewContext(`(function(){${byName.Normalize.parameters.jsCode}})()`, { $json: withMetadata.json });
+  assert.equal(normalized.json.kind, 'app');
+  assert.equal(normalized.json.reply_text.includes('attacker.invalid'), false);
+});
+
 test('production export is private, inactive, credential-free and wired through the bounded localhost core', () => {
   const flow = build();
   assert.equal(flow.id, 'BesrahMetro01');

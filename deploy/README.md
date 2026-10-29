@@ -55,6 +55,15 @@ Manual smoke tests must stop before Telegram delivery and use clearly labeled sy
 
 The bot token is stored outside Git in `/etc/besrah/telegram.env` (directory 0700, file 0600) and as an encrypted n8n credential. It was provided through a group conversation; rotate it in BotFather and update both protected locations. Never include a replacement token in source, workflow exports, a shell command line, or group chat.
 
+## Mini App and bot menu
+
+- Public URL: `https://n8n.gastora.ir/besrah/` (no dedicated Besrah DNS record exists yet; move it by changing `appUrl` in `scripts/build-n8n-workflow.mjs`, the nginx snippet and the Telegram menu button together).
+- Runtime: static files under `/srv/besrah/apps/miniapp`, served by the loopback-only core at `/app/`; nginx maps `/besrah/` to it. Source of truth is `apps/miniapp` in this repository.
+- Nginx: `deploy/nginx-besrah-rate-limit.conf` → `/etc/nginx/conf.d/besrah-rate-limit.conf` (5 req/s per IP, burst 20); `deploy/nginx-besrah-miniapp.conf` → `/etc/nginx/snippets/besrah-miniapp.conf`, included once in the `n8n.gastora.ir` TLS server. The public API rejects any `at=` query (arbitrary-date timing queries stay available only on the private core).
+- Bot commands: `/start`, `/app`, `/stations`, `/help`, `/about`, `/privacy`. The default menu button opens the Mini App. The reply keyboard carries a request-location button and a WebApp button.
+- Telegram `setChatMenuButton` must be sent form-encoded with `menu_button` as a JSON string; the JSON-body form returned success but did not persist. Always read back `getChatMenuButton` without `chat_id`.
+- Rollback copies are in `/var/backups/besrah/` (private, mode 0700): runtime `dist`, nginx site file, previous workflow, and Telegram profile/menu snapshots.
+
 ## Activation boundary
 
 A healthy core and passing local/n8n tests do not prove Telegram delivery. Activation additionally requires:
