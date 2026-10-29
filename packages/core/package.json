@@ -9,6 +9,7 @@
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
     "start": "tsx src/index.ts",
     "osm:bus": "tsx src/bus/cli.ts ../../data/bus/osm/bus_mashhad.json ../../data/bus/lines.json"
   },

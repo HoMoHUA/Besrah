@@ -1,0 +1,356 @@
+{
+  "id": "BesrahMetroSmoke01",
+  "name": "Besrah - Metro Smoke (Synthetic Tests)",
+  "active": false,
+  "nodes": [
+    {
+      "id": "30ac47f7-5925-42f3-aa9f-9f85fa6c22ab",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "parameters": {},
+      "position": [
+        -220,
+        160
+      ]
+    },
+    {
+      "id": "d627cb1e-06b3-42b2-a855-57800f0f0563",
+      "name": "Smoke Fixtures",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// SYNTHETIC TEST INPUTS ONLY. Never production observations or real Telegram messages.\nconst privateMessage = fields => ({ chat: { id: 900000001, type: 'private' }, from: { is_bot: false }, ...fields });\nconst cases = [\n  ['station', 'station', { text: 'وكيل آباد' }],\n  ['location', 'location', { location: { latitude: 36.3461444, longitude: 59.4422694 } }],\n  ['start', 'help', { text: '/start' }],\n  ['unknown', 'unknown', { text: '<نام ناشناخته &>' }],\n  ['line2_name', 'unsupported_line', { text: 'طبرسی' }],\n  ['line2_location', 'unsupported_line', { location: { latitude: 36.32504, longitude: 59.675348 } }],\n  ['outside_service', 'outside_service_area', { location: { latitude: 35.6892, longitude: 51.389 } }],\n  ['malformed_coords', 'invalid_location', { location: { latitude: 200, longitude: 59 } }],\n  ['stations', 'stations', { text: '/stations' }],\n];\nreturn cases.map(([test_case, expected_normalized_kind, fields], index) => ({ json: {\n  synthetic_test: true, test_case, expected_normalized_kind,\n  expected_render_kind: ['station', 'location'].includes(expected_normalized_kind) ? 'prediction' : expected_normalized_kind,\n  message: { ...privateMessage(fields), chat: { id: 900000001 + index, type: 'private' } },\n} }));\n"
+      },
+      "position": [
+        20,
+        160
+      ]
+    },
+    {
+      "id": "a12e2035-3c8f-4102-a35e-0138f9ca5a84",
+      "name": "Metro Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Generated snapshot of station metadata; raw data/network.json remains untouched.\nreturn { json: { ...$json, metro: {\"stations\":[{\"id\":\"METRO-101\",\"name\":\"وکیل‌آباد\",\"lat\":36.3461444,\"lon\":59.4422694,\"lines\":[1]},{\"id\":\"METRO-102\",\"name\":\"کوهستان پارک\",\"lat\":36.3428861,\"lon\":59.4520889,\"lines\":[1]},{\"id\":\"METRO-103\",\"name\":\"نمایشگاه\",\"lat\":36.3392306,\"lon\":59.4635889,\"lines\":[1]},{\"id\":\"METRO-104\",\"name\":\"اقبال لاهوری\",\"lat\":36.3313889,\"lon\":59.4708333,\"lines\":[1]},{\"id\":\"METRO-105\",\"name\":\"صیاد شیرازی\",\"lat\":36.3324861,\"lon\":59.485139,\"lines\":[1]},{\"id\":\"METRO-106\",\"name\":\"صدف\",\"lat\":36.33008,\"lon\":59.4929,\"lines\":[1]},{\"id\":\"METRO-107\",\"name\":\"هفت‌تیر\",\"lat\":36.32747,\"lon\":59.500774,\"lines\":[1]},{\"id\":\"METRO-108\",\"name\":\"دانش‌آموز\",\"lat\":36.3263889,\"lon\":59.5069444,\"lines\":[1]},{\"id\":\"METRO-109\",\"name\":\"سیدرضی\",\"lat\":36.322546,\"lon\":59.517058,\"lines\":[1]},{\"id\":\"METRO-110\",\"name\":\"کوثر\",\"lat\":36.319843,\"lon\":59.525665,\"lines\":[1]},{\"id\":\"METRO-111\",\"name\":\"پارک ملت\",\"lat\":36.3172972,\"lon\":59.5338472,\"lines\":[1]},{\"id\":\"METRO-112\",\"name\":\"آزادی\",\"lat\":36.3125806,\"lon\":59.5443972,\"lines\":[1]},{\"id\":\"METRO-113\",\"name\":\"خیام\",\"lat\":36.306972,\"lon\":59.5529083,\"lines\":[1]},{\"id\":\"METRO-114\",\"name\":\"فلسطین\",\"lat\":36.3001694,\"lon\":59.5633222,\"lines\":[1]},{\"id\":\"METRO-115\",\"name\":\"طالقانی\",\"lat\":36.2970111,\"lon\":59.5731806,\"lines\":[1]},{\"id\":\"METRO-116\",\"name\":\"قائم\",\"lat\":36.294446,\"lon\":59.578717,\"lines\":[1]},{\"id\":\"METRO-117\",\"name\":\"شریعتی\",\"lat\":36.291206,\"lon\":59.585623,\"lines\":[1,2]},{\"id\":\"METRO-118\",\"name\":\"امام خمینی\",\"lat\":36.281387,\"lon\":59.595793,\"lines\":[1]},{\"id\":\"METRO-119\",\"name\":\"بسیج\",\"lat\":36.2735639,\"lon\":59.60345,\"lines\":[1]},{\"id\":\"METRO-120\",\"name\":\"هفده شهریور\",\"lat\":36.2676,\"lon\":59.609172,\"lines\":[1]},{\"id\":\"METRO-121\",\"name\":\"پروین اعتصامی\",\"lat\":36.26261,\"lon\":59.614413,\"lines\":[1]},{\"id\":\"METRO-122\",\"name\":\"غدیر\",\"lat\":36.25683,\"lon\":59.6202,\"lines\":[1]},{\"id\":\"METRO-123\",\"name\":\"بوستان ریحانه\",\"lat\":36.243078,\"lon\":59.62319,\"lines\":[1]},{\"id\":\"METRO-124\",\"name\":\"فرودگاه شهید هاشمی‌نژاد\",\"lat\":36.235,\"lon\":59.64083,\"lines\":[1]},{\"id\":\"METRO-201\",\"name\":\"طبرسی\",\"lat\":36.32504,\"lon\":59.675348,\"lines\":[2]},{\"id\":\"METRO-202\",\"name\":\"ولایت\",\"lat\":36.316996,\"lon\":59.662369,\"lines\":[2]},{\"id\":\"METRO-203\",\"name\":\"فجر\",\"lat\":36.312544,\"lon\":59.655095,\"lines\":[2]},{\"id\":\"METRO-204\",\"name\":\"نبوت\",\"lat\":36.3056889,\"lon\":59.6441222,\"lines\":[2]},{\"id\":\"METRO-205\",\"name\":\"مفتح\",\"lat\":36.301514,\"lon\":59.637822,\"lines\":[2]},{\"id\":\"METRO-206\",\"name\":\"راه‌آهن\",\"lat\":36.3033306,\"lon\":59.622361,\"lines\":[2]},{\"id\":\"METRO-207\",\"name\":\"شهدا\",\"lat\":36.2978611,\"lon\":59.6059472,\"lines\":[2]},{\"id\":\"METRO-208\",\"name\":\"سعدی\",\"lat\":36.29552,\"lon\":59.598431,\"lines\":[2]},{\"id\":\"METRO-210\",\"name\":\"الندشت\",\"lat\":36.2877,\"lon\":59.5761,\"lines\":[2]},{\"id\":\"METRO-211\",\"name\":\"کوهسنگی\",\"lat\":36.283632,\"lon\":59.563622,\"lines\":[2]},{\"id\":\"METRO-212\",\"name\":\"شهید کاوه\",\"lat\":36.2845184,\"lon\":59.549228,\"lines\":[2]},{\"id\":\"METRO-213\",\"name\":\"شهید فکوری\",\"lat\":36.283618,\"lon\":59.54273,\"lines\":[2]}],\"line1\":[\"وکیل‌آباد\",\"کوهستان پارک\",\"نمایشگاه\",\"اقبال لاهوری\",\"صیاد شیرازی\",\"صدف\",\"هفت‌تیر\",\"دانش‌آموز\",\"سیدرضی\",\"کوثر\",\"پارک ملت\",\"آزادی\",\"خیام\",\"فلسطین\",\"طالقانی\",\"قائم\",\"شریعتی\",\"امام خمینی\",\"بسیج\",\"هفده شهریور\",\"پروین اعتصامی\",\"غدیر\",\"بوستان ریحانه\",\"فرودگاه شهید هاشمی‌نژاد\"],\"maxNearestKm\":10} } };\n"
+      },
+      "position": [
+        260,
+        160
+      ]
+    },
+    {
+      "id": "743a2e33-c338-4c0d-ae99-97b583884357",
+      "name": "Normalize",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// n8n Code node: Run Once for Each Item. No I/O or credentials.\nconst { message, metro } = $json;\nif (!message || message.chat?.type !== 'private' || message.from?.is_bot !== false\n  || !Number.isSafeInteger(message.chat.id) || message.chat.id <= 0) return null;\nconst key = value => String(value).normalize('NFKC').replace(/[يى]/g, 'ی').replace(/ك/g, 'ک')\n  .replace(/[\\u064b-\\u065f\\u0670\\u0640]/g, '').replace(/[\\s\\u200c\\u200d\\u200e\\u200f\\ufeff]+/g, '');\nconst reply = (kind, text) => ({ json: { chat_id: message.chat.id, route: 'reply', kind, reply_text: text } });\nconst help = 'به بِسراه خوش آمدید. نام ایستگاه خط ۱ را بنویسید یا با دکمه زیر موقعیت خود را بفرستید.\\n/stations — فهرست ایستگاه ها\\nزمان ها تقریبی اند؛ داده زنده حرکت قطار نیستند.';\nconst unsupported = station => reply('unsupported_line', `ایستگاه ${station.name} در خط ۲ است. پیش‌بینی زمان خط ۲ هنوز پشتیبانی نمی‌شود؛ فعلاً فقط خط ۱ پشتیبانی می‌شود.`);\nif (Object.prototype.hasOwnProperty.call(message, 'location')) {\n  const { latitude, longitude } = message.location || {};\n  if (typeof latitude !== 'number' || typeof longitude !== 'number'\n    || !Number.isFinite(latitude) || !Number.isFinite(longitude)\n    || Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {\n    return reply('invalid_location', 'مختصات موقعیت معتبر نیست. لطفاً موقعیت را دوباره با دکمهٔ زیر ارسال کنید.');\n  }\n  const rad = degrees => degrees * Math.PI / 180;\n  const distance = station => {\n    const a = Math.sin(rad(station.lat - latitude) / 2) ** 2\n      + Math.cos(rad(latitude)) * Math.cos(rad(station.lat)) * Math.sin(rad(station.lon - longitude) / 2) ** 2;\n    return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(Math.max(0, 1 - a)));\n  };\n  const nearest = metro.stations.map(station => ({ station, km: distance(station) })).sort((a, b) => a.km - b.km)[0];\n  // Radius is straight-line distance to the nearest known station, not a walking route.\n  const maxNearestKm = Number.isFinite(metro.maxNearestKm) && metro.maxNearestKm > 0 ? metro.maxNearestKm : 10;\n  if (!nearest || nearest.km > maxNearestKm) return reply('outside_service_area', 'این موقعیت خارج از محدودهٔ پشتیبانی‌شدهٔ متروی مشهد است. نام یک ایستگاه را از /stations انتخاب کنید.');\n  if (!metro.line1.includes(nearest.station.name)) return unsupported(nearest.station);\n  return { json: { chat_id: message.chat.id, route: 'query', kind: 'location', station: nearest.station.name, distance_km: nearest.km } };\n}\nconst text = typeof message.text === 'string' ? message.text.trim() : '';\nconst command = text.split(/\\s/)[0].replace(/@[A-Za-z0-9_]+$/, '').toLowerCase();\nif (!text || command === '/start' || command === '/help') return reply('help', help);\nif (command === '/stations') return reply('stations', 'ایستگاه‌های پشتیبانی‌شدهٔ خط ۱:\\n' + metro.line1.join('\\n'));\nconst input = key(text).replace(/^ایستگاه/, '');\nconst station = metro.stations.find(s => key(s.name) === input);\nif (!station) return reply('unknown', 'نام ایستگاه شناخته نشد. نام یکی از ایستگاه‌های /stations را بفرستید یا موقعیت خود را ارسال کنید.');\nif (!metro.line1.includes(station.name)) return unsupported(station);\nreturn { json: { chat_id: message.chat.id, route: 'query', kind: 'station', station: station.name } };\n"
+      },
+      "position": [
+        500,
+        160
+      ]
+    },
+    {
+      "id": "7f145d52-f58e-41a5-a951-3ca41ef2aeca",
+      "name": "Valid Query?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "63a6126d-9eea-4439-a1bd-77e1c7c9774a",
+              "leftValue": "={{ $json.route }}",
+              "rightValue": "query",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "position": [
+        740,
+        160
+      ]
+    },
+    {
+      "id": "0f6ba2cd-99b9-4a88-a78f-8cfb629b3663",
+      "name": "Core Next",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "parameters": {
+        "method": "GET",
+        "url": "http://127.0.0.1:3080/v1/next",
+        "authentication": "none",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "station",
+              "value": "={{ $json.station }}"
+            },
+            {
+              "name": "limit",
+              "value": "4"
+            },
+            {
+              "name": "at",
+              "value": "2026-10-16T14:00:00+03:30"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 5000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "position": [
+        980,
+        60
+      ],
+      "onError": "continueRegularOutput",
+      "retryOnFail": false
+    },
+    {
+      "id": "2e216c9f-37f5-4d97-a6fa-04063bdf79e2",
+      "name": "Attach Core Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Paired item lookup preserves the original chat even with batched smoke fixtures.\nreturn { json: { ...$('Normalize').item.json, core: $json } };\n"
+      },
+      "position": [
+        1220,
+        60
+      ]
+    },
+    {
+      "id": "cffe180c-0cfe-4966-a689-fcc2521f9523",
+      "name": "Render",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// n8n Code node: Run Once for Each Item. Only a Telegram-ready envelope leaves this node.\nconst plain = value => String(value).replace(/\\*/g, '');\nconst escape = value => plain(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')\n  .replace(/\"/g, '&quot;').replace(/'/g, '&#39;');\nlet kind = $json.kind;\nlet text;\nif ($json.route === 'reply') {\n  text = $json.reply_text;\n} else {\n  const core = $json.core;\n  const body = core?.body;\n  if (core?.error || !(core?.statusCode >= 200 && core.statusCode < 300)\n    || typeof body?.text !== 'string' || !body.text.trim() || !Array.isArray(body?.passes)) {\n    kind = 'core_error';\n    text = 'دریافت زمان قطارها فعلاً ممکن نیست. لطفاً کمی بعد دوباره تلاش کنید.';\n  } else {\n    text = plain(body.text);\n    for (const note of Array.isArray(body.notes) ? body.notes : []) {\n      if (typeof note === 'string' && !text.includes(plain(note))) text += '\\nℹ️ ' + plain(note);\n    }\n    if ($json.kind === 'location' && Number.isFinite($json.distance_km)) {\n      text = `📍 نزدیک‌ترین ایستگاه: ${$json.station}\\nفاصلهٔ مستقیم تقریبی: ${Math.round($json.distance_km * 1000)} متر (مسیر پیاده‌روی نیست)\\n\\n` + text;\n    }\n    kind = 'prediction';\n  }\n}\nreturn { json: {\n  chat_id: $json.chat_id, kind, text: escape(text), parse_mode: 'HTML',\n  reply_markup: { keyboard: [[{ text: '📍 ارسال موقعیت من', request_location: true }]], resize_keyboard: true, one_time_keyboard: true },\n} };\n"
+      },
+      "position": [
+        1460,
+        160
+      ]
+    },
+    {
+      "id": "1962b229-bdb7-42a0-ad63-8852d6fb61ca",
+      "name": "Render Local",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// n8n Code node: Run Once for Each Item. Only a Telegram-ready envelope leaves this node.\nconst plain = value => String(value).replace(/\\*/g, '');\nconst escape = value => plain(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')\n  .replace(/\"/g, '&quot;').replace(/'/g, '&#39;');\nlet kind = $json.kind;\nlet text;\nif ($json.route === 'reply') {\n  text = $json.reply_text;\n} else {\n  const core = $json.core;\n  const body = core?.body;\n  if (core?.error || !(core?.statusCode >= 200 && core.statusCode < 300)\n    || typeof body?.text !== 'string' || !body.text.trim() || !Array.isArray(body?.passes)) {\n    kind = 'core_error';\n    text = 'دریافت زمان قطارها فعلاً ممکن نیست. لطفاً کمی بعد دوباره تلاش کنید.';\n  } else {\n    text = plain(body.text);\n    for (const note of Array.isArray(body.notes) ? body.notes : []) {\n      if (typeof note === 'string' && !text.includes(plain(note))) text += '\\nℹ️ ' + plain(note);\n    }\n    if ($json.kind === 'location' && Number.isFinite($json.distance_km)) {\n      text = `📍 نزدیک‌ترین ایستگاه: ${$json.station}\\nفاصلهٔ مستقیم تقریبی: ${Math.round($json.distance_km * 1000)} متر (مسیر پیاده‌روی نیست)\\n\\n` + text;\n    }\n    kind = 'prediction';\n  }\n}\nreturn { json: {\n  chat_id: $json.chat_id, kind, text: escape(text), parse_mode: 'HTML',\n  reply_markup: { keyboard: [[{ text: '📍 ارسال موقعیت من', request_location: true }]], resize_keyboard: true, one_time_keyboard: true },\n} };\n"
+      },
+      "position": [
+        1220,
+        360
+      ]
+    },
+    {
+      "id": "682e2d4b-8fb9-42f9-a744-1bee6ebfe715",
+      "name": "Gather Smoke Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "parameters": {
+        "mode": "append",
+        "numberInputs": 2
+      },
+      "position": [
+        1700,
+        160
+      ]
+    },
+    {
+      "id": "f2b8393c-e269-4e4e-ae06-cdad49bedc95",
+      "name": "Smoke Assertions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Run Once for All Items after Merge append. Throwing fails the n8n smoke execution.\nconst expected = $('Smoke Fixtures').all().map(item => item.json);\nconst actual = $input.all().map(item => item.json);\nconst fail = detail => { throw new Error('BESRAH_SMOKE_FAILED: ' + detail); };\nif (actual.length !== expected.length) fail(`expected ${expected.length} rendered items, got ${actual.length}`);\nconst seen = new Set();\nconst checks = [];\nfor (const fixture of expected) {\n  const id = fixture.message.chat.id;\n  const matches = actual.filter(item => item.chat_id === id);\n  if (matches.length !== 1 || seen.has(id)) fail(fixture.test_case + ': missing or duplicate chat result');\n  seen.add(id);\n  const item = matches[0];\n  if (item.kind !== fixture.expected_render_kind) fail(fixture.test_case + ': expected ' + fixture.expected_render_kind + ', got ' + item.kind);\n  if (item.parse_mode !== 'HTML' || typeof item.text !== 'string' || !item.text.trim()) fail(fixture.test_case + ': invalid HTML envelope');\n  if (/[<>*]/.test(item.text)) fail(fixture.test_case + ': unescaped HTML or Markdown');\n  if (item.reply_markup?.keyboard?.[0]?.[0]?.request_location !== true) fail(fixture.test_case + ': missing private request-location keyboard');\n  if (fixture.test_case === 'location' && (!item.text.includes('نزدیک‌ترین') || !item.text.includes('مستقیم'))) fail('location: missing nearest-station context');\n  if (item.kind === 'prediction' && !item.text.includes('وکیل‌آباد')) fail(fixture.test_case + ': canonical station missing');\n  if (item.kind === 'unsupported_line' && !item.text.includes('خط ۲')) fail(fixture.test_case + ': line 2 warning missing');\n  checks.push({ case: fixture.test_case, kind: item.kind, chat_id_preserved: true, keyboard: true, html_safe: true });\n}\nreturn [{ json: { ok: true, synthetic_test: true, total: checks.length, core_queries: checks.filter(check => check.kind === 'prediction').length, telegram_calls: 0, cases: checks } }];\n"
+      },
+      "position": [
+        1940,
+        160
+      ]
+    },
+    {
+      "id": "1f90c6b0-29c3-48c6-ae10-187c501e2f21",
+      "name": "Synthetic Test Notice",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "parameters": {
+        "content": "## SYNTHETIC TEST INPUTS ONLY\nNine synthetic private-chat cases exercise the exact production normalizer/renderer. Only the two valid line-1 cases call the REAL localhost core with fixed at=2026-10-16T14:00:00+03:30. No synthetic core responses are generated and no Telegram nodes exist. Smoke Assertions throws on any missing/wrong output; expected ok=true, total=9, core_queries=2, telegram_calls=0. Never activate this manual-only test workflow as the bot.",
+        "width": 580,
+        "height": 250
+      },
+      "position": [
+        260,
+        -200
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Smoke Fixtures",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Smoke Fixtures": {
+      "main": [
+        [
+          {
+            "node": "Metro Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metro Data": {
+      "main": [
+        [
+          {
+            "node": "Normalize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize": {
+      "main": [
+        [
+          {
+            "node": "Valid Query?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valid Query?": {
+      "main": [
+        [
+          {
+            "node": "Core Next",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Render Local",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Core Next": {
+      "main": [
+        [
+          {
+            "node": "Attach Core Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Attach Core Response": {
+      "main": [
+        [
+          {
+            "node": "Render",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render": {
+      "main": [
+        [
+          {
+            "node": "Gather Smoke Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render Local": {
+      "main": [
+        [
+          {
+            "node": "Gather Smoke Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Gather Smoke Results": {
+      "main": [
+        [
+          {
+            "node": "Smoke Assertions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Tehran",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false
+  },
+  "pinData": {},
+  "tags": []
+}

@@ -1,4 +1,4 @@
-# Besrah
+# بِسراه (Besrah)
 
 Mashhad multimodal transit assistant, imported from the Mashhad-Waze handoff dated 2026-10-29.
 
@@ -15,6 +15,17 @@ npm start
 The API listens on `127.0.0.1:3080` by default. See `packages/core/README.md` for API usage and `HANDOFF.md` for data quality, known limitations, and the project handoff. Original package identifiers are preserved.
 
 Private conversation archives in `session/` are retained locally and excluded from Git, along with dependencies and secrets. Raw field data is preserved unchanged.
+
+## Telegram workflow
+
+The product's Persian name is **بِسراه**. The dedicated bot is `@Besrahbot`.
+
+```sh
+node --test tests/n8n/*.test.mjs
+node scripts/build-n8n-workflow.mjs
+```
+
+See `integrations/n8n/README.md` for behavior, service bounds and privacy limitations; see `deploy/README.md` for the verified runtime installation and activation/rotation procedures. Generated exports contain no credentials and remain inactive for safe re-import.
 
 ## Original project notes
 
