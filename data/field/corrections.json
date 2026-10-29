@@ -1,0 +1,35 @@
+{
+ "corrections": [
+  {
+   "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+   "t": 1792146830667,
+   "field": "station",
+   "from": "نمایشگاه",
+   "to": "کوهستان پارک",
+   "why": "depart pressed after station field was already advanced (confirmed by user)"
+  },
+  {
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151127895,
+   "field": "station",
+   "from": "کوهسنگی",
+   "to": "شهید کاوه",
+   "why": "station not advanced after Kouhsangi (Wikipedia order Kouhsangi->Kaveh->Fakouri)"
+  },
+  {
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151174423,
+   "field": "station",
+   "from": "کوهسنگی",
+   "to": "شهید کاوه",
+   "why": "same as above"
+  }
+ ],
+ "excluded_rows": [
+  {
+   "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+   "t": 1792149933818,
+   "why": "Imam Khomeini dwell 3 s on return, almost surely a mis-tap (reported to user)"
+  }
+ ]
+}

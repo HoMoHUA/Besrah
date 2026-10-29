@@ -1,0 +1,1093 @@
+{
+  "meta": {
+    "name": "Mashhad-Waze network",
+    "generated": "2026-10-16T12:12:12.208730Z",
+    "tz": "Asia/Tehran (UTC+03:30)",
+    "units": {
+      "run_s": "seconds depart-previous-station -> arrive",
+      "dwell": "seconds arrive -> depart",
+      "dist": "km straight line"
+    },
+    "quality_levels": [
+      "measured_2026-10-16",
+      "legacy_estimate",
+      "derived",
+      "hypothesis"
+    ],
+    "note": "Operator reaction error about +-5 s per timestamp (~+-7 s on dwell)."
+  },
+  "stations": [
+    {
+      "id": "METRO-101",
+      "name": "وکیل‌آباد",
+      "lat": 36.3461444,
+      "lon": 59.4422694,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-102",
+      "name": "کوهستان پارک",
+      "lat": 36.3428861,
+      "lon": 59.4520889,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-103",
+      "name": "نمایشگاه",
+      "lat": 36.3392306,
+      "lon": 59.4635889,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-104",
+      "name": "اقبال لاهوری",
+      "lat": 36.3313889,
+      "lon": 59.4708333,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-105",
+      "name": "صیاد شیرازی",
+      "lat": 36.3324861,
+      "lon": 59.485139,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-106",
+      "name": "صدف",
+      "lat": 36.33008,
+      "lon": 59.4929,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-107",
+      "name": "هفت‌تیر",
+      "lat": 36.32747,
+      "lon": 59.500774,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-108",
+      "name": "دانش‌آموز",
+      "lat": 36.3263889,
+      "lon": 59.5069444,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-109",
+      "name": "سیدرضی",
+      "lat": 36.322546,
+      "lon": 59.517058,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-110",
+      "name": "کوثر",
+      "lat": 36.319843,
+      "lon": 59.525665,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-111",
+      "name": "پارک ملت",
+      "lat": 36.3172972,
+      "lon": 59.5338472,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-112",
+      "name": "آزادی",
+      "lat": 36.3125806,
+      "lon": 59.5443972,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-113",
+      "name": "خیام",
+      "lat": 36.306972,
+      "lon": 59.5529083,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-114",
+      "name": "فلسطین",
+      "lat": 36.3001694,
+      "lon": 59.5633222,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-115",
+      "name": "طالقانی",
+      "lat": 36.2970111,
+      "lon": 59.5731806,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-116",
+      "name": "قائم",
+      "lat": 36.294446,
+      "lon": 59.578717,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-117",
+      "name": "شریعتی",
+      "lat": 36.291206,
+      "lon": 59.585623,
+      "lines": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "METRO-118",
+      "name": "امام خمینی",
+      "lat": 36.281387,
+      "lon": 59.595793,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-119",
+      "name": "بسیج",
+      "lat": 36.2735639,
+      "lon": 59.60345,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-120",
+      "name": "هفده شهریور",
+      "lat": 36.2676,
+      "lon": 59.609172,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-121",
+      "name": "پروین اعتصامی",
+      "lat": 36.26261,
+      "lon": 59.614413,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-122",
+      "name": "غدیر",
+      "lat": 36.25683,
+      "lon": 59.6202,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-123",
+      "name": "بوستان ریحانه",
+      "lat": 36.243078,
+      "lon": 59.62319,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-124",
+      "name": "فرودگاه شهید هاشمی‌نژاد",
+      "lat": 36.235,
+      "lon": 59.64083,
+      "lines": [
+        1
+      ]
+    },
+    {
+      "id": "METRO-201",
+      "name": "طبرسی",
+      "lat": 36.32504,
+      "lon": 59.675348,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-202",
+      "name": "ولایت",
+      "lat": 36.316996,
+      "lon": 59.662369,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-203",
+      "name": "فجر",
+      "lat": 36.312544,
+      "lon": 59.655095,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-204",
+      "name": "نبوت",
+      "lat": 36.3056889,
+      "lon": 59.6441222,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-205",
+      "name": "مفتح",
+      "lat": 36.301514,
+      "lon": 59.637822,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-206",
+      "name": "راه‌آهن",
+      "lat": 36.3033306,
+      "lon": 59.622361,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-207",
+      "name": "شهدا",
+      "lat": 36.2978611,
+      "lon": 59.6059472,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-208",
+      "name": "سعدی",
+      "lat": 36.29552,
+      "lon": 59.598431,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-210",
+      "name": "الندشت",
+      "lat": 36.2877,
+      "lon": 59.5761,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-211",
+      "name": "کوهسنگی",
+      "lat": 36.283632,
+      "lon": 59.563622,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-212",
+      "name": "شهید کاوه",
+      "lat": 36.2845184,
+      "lon": 59.549228,
+      "lines": [
+        2
+      ]
+    },
+    {
+      "id": "METRO-213",
+      "name": "شهید فکوری",
+      "lat": 36.283618,
+      "lon": 59.54273,
+      "lines": [
+        2
+      ]
+    }
+  ],
+  "lines": {
+    "1": {
+      "color": "#006400",
+      "order_vakilabad_to_airport": [
+        "وکیل‌آباد",
+        "کوهستان پارک",
+        "نمایشگاه",
+        "اقبال لاهوری",
+        "صیاد شیرازی",
+        "صدف",
+        "هفت‌تیر",
+        "دانش‌آموز",
+        "سیدرضی",
+        "کوثر",
+        "پارک ملت",
+        "آزادی",
+        "خیام",
+        "فلسطین",
+        "طالقانی",
+        "قائم",
+        "شریعتی",
+        "امام خمینی",
+        "بسیج",
+        "هفده شهریور",
+        "پروین اعتصامی",
+        "غدیر",
+        "بوستان ریحانه",
+        "فرودگاه شهید هاشمی‌نژاد"
+      ],
+      "segments": [
+        {
+          "from": "وکیل‌آباد",
+          "to": "کوهستان پارک",
+          "run_s_forward": 218,
+          "run_s_backward": null,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 0.95,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "کوهستان پارک",
+          "to": "نمایشگاه",
+          "run_s_forward": 77,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.11,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "نمایشگاه",
+          "to": "اقبال لاهوری",
+          "run_s_forward": 87,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.09,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "اقبال لاهوری",
+          "to": "صیاد شیرازی",
+          "run_s_forward": 83,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.29,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "صیاد شیرازی",
+          "to": "صدف",
+          "run_s_forward": 69,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.74,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "صدف",
+          "to": "هفت‌تیر",
+          "run_s_forward": 63,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.76,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "هفت‌تیر",
+          "to": "دانش‌آموز",
+          "run_s_forward": 75,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.57,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "دانش‌آموز",
+          "to": "سیدرضی",
+          "run_s_forward": 68,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.0,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "سیدرضی",
+          "to": "کوثر",
+          "run_s_forward": 81,
+          "run_s_backward": null,
+          "legacy_estimate_s": 90,
+          "dist_km_straight": 0.83,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "کوثر",
+          "to": "پارک ملت",
+          "run_s_forward": 72,
+          "run_s_backward": null,
+          "legacy_estimate_s": 95,
+          "dist_km_straight": 0.79,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "پارک ملت",
+          "to": "آزادی",
+          "run_s_forward": 100,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.08,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "آزادی",
+          "to": "خیام",
+          "run_s_forward": 86,
+          "run_s_backward": null,
+          "legacy_estimate_s": 107,
+          "dist_km_straight": 0.99,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "خیام",
+          "to": "فلسطین",
+          "run_s_forward": 99,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.2,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "فلسطین",
+          "to": "طالقانی",
+          "run_s_forward": 91,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.95,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "طالقانی",
+          "to": "قائم",
+          "run_s_forward": 75,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.57,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "قائم",
+          "to": "شریعتی",
+          "run_s_forward": 82,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.72,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "شریعتی",
+          "to": "امام خمینی",
+          "run_s_forward": 106,
+          "run_s_backward": null,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 1.42,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "امام خمینی",
+          "to": "بسیج",
+          "run_s_forward": 91,
+          "run_s_backward": null,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 1.11,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "بسیج",
+          "to": "هفده شهریور",
+          "run_s_forward": 77,
+          "run_s_backward": 71,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.84,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "هفده شهریور",
+          "to": "پروین اعتصامی",
+          "run_s_forward": 72,
+          "run_s_backward": 76,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.73,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "پروین اعتصامی",
+          "to": "غدیر",
+          "run_s_forward": 178,
+          "run_s_backward": 136,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 0.83,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "غدیر",
+          "to": "بوستان ریحانه",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 1.55,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "بوستان ریحانه",
+          "to": "فرودگاه شهید هاشمی‌نژاد",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 300,
+          "dist_km_straight": 1.82,
+          "quality": "legacy_estimate"
+        }
+      ],
+      "dwell": {
+        "کوهستان پارک": {
+          "median_s": 20.8,
+          "obs_s": [
+            20.8
+          ]
+        },
+        "نمایشگاه": {
+          "median_s": 51.5,
+          "obs_s": [
+            51.5
+          ]
+        },
+        "اقبال لاهوری": {
+          "median_s": 19.4,
+          "obs_s": [
+            19.4
+          ]
+        },
+        "صیاد شیرازی": {
+          "median_s": 22.2,
+          "obs_s": [
+            22.2
+          ]
+        },
+        "صدف": {
+          "median_s": 18.9,
+          "obs_s": [
+            18.9
+          ]
+        },
+        "هفت‌تیر": {
+          "median_s": 23.4,
+          "obs_s": [
+            23.4
+          ]
+        },
+        "دانش‌آموز": {
+          "median_s": 17.4,
+          "obs_s": [
+            17.4
+          ]
+        },
+        "سیدرضی": {
+          "median_s": 28.3,
+          "obs_s": [
+            28.3
+          ]
+        },
+        "کوثر": {
+          "median_s": 18.9,
+          "obs_s": [
+            18.9
+          ]
+        },
+        "پارک ملت": {
+          "median_s": 42.0,
+          "obs_s": [
+            42.0
+          ]
+        },
+        "آزادی": {
+          "median_s": 14.4,
+          "obs_s": [
+            14.4
+          ]
+        },
+        "خیام": {
+          "median_s": 16.5,
+          "obs_s": [
+            16.5
+          ]
+        },
+        "فلسطین": {
+          "median_s": 22.4,
+          "obs_s": [
+            22.4
+          ]
+        },
+        "طالقانی": {
+          "median_s": 32.0,
+          "obs_s": [
+            32.0
+          ]
+        },
+        "قائم": {
+          "median_s": 18.8,
+          "obs_s": [
+            18.8
+          ]
+        },
+        "شریعتی": {
+          "median_s": 36.8,
+          "obs_s": [
+            44.3,
+            29.4
+          ]
+        },
+        "امام خمینی": {
+          "median_s": 20.8,
+          "obs_s": [
+            20.8
+          ]
+        },
+        "بسیج": {
+          "median_s": 33.1,
+          "obs_s": [
+            23.6,
+            42.6
+          ]
+        },
+        "هفده شهریور": {
+          "median_s": 12.7,
+          "obs_s": [
+            13.4,
+            12.0
+          ]
+        },
+        "پروین اعتصامی": {
+          "median_s": 17.5,
+          "obs_s": [
+            23.9,
+            11.1
+          ]
+        },
+        "غدیر": {
+          "median_s": 284.5,
+          "obs_s": [
+            284.5
+          ]
+        }
+      },
+      "terminals": {
+        "وکیل‌آباد": {
+          "layover_s_derived": 431,
+          "exit_first_segment_s": 218,
+          "note": "arrival time derived, not observed"
+        },
+        "غدیر": {
+          "turnaround_move_s": 158,
+          "platform_wait_s": 284,
+          "total_layover_s": 442,
+          "entry_last_segment_s": 178,
+          "exit_first_segment_s": 136,
+          "note": "trains do not cross over by switch; they loop on track, hence slow terminal segments (user)"
+        },
+        "فرودگاه شهید هاشمی‌نژاد": {
+          "layover_s_derived_friday": 687,
+          "note": "hypothesis-based, see derived.extension"
+        }
+      },
+      "measured_trip_vakilabad_to_ghadir_s": 2443,
+      "services": {
+        "A_shuttle": {
+          "route": "وکیل‌آباد↔غدیر",
+          "status": "observed"
+        },
+        "B_airport_through": {
+          "route": "وکیل‌آباد↔فرودگاه (از غدیر و بوستان ریحانه)",
+          "status": "hypothesis_supported_by_data",
+          "evidence": [
+            "Vakilabad board 13:57: 14:00 Ghadir,14:12 airport,14:24 Ghadir,14:36 airport",
+            "Vakilabad 14:12/14:36 + 40:43 = 14:52:43/15:16:43 matches sheet Ghadir 14:53/15:17",
+            "Official headways: main route = combined A+B (Fri 12 = 1/24+1/24; weekday 10 = 1/15+1/30)"
+          ]
+        }
+      },
+      "thursday_2026-10-22": {
+        "source": "field/2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv (operator log, single train)",
+        "quality": "measured_single_train",
+        "run_forward_s": {
+          "0": 232,
+          "1": 90,
+          "2": 88,
+          "3": 89,
+          "4": 80,
+          "5": 69,
+          "6": 77,
+          "7": 69
+        },
+        "run_backward_s": {
+          "8": 81,
+          "7": 75,
+          "6": 72,
+          "5": 71,
+          "4": 74,
+          "3": 85,
+          "2": 87,
+          "1": 87,
+          "0": 417
+        },
+        "dwell_s": {
+          "کوثر": 20,
+          "سیدرضی": 22,
+          "دانش‌آموز": 18,
+          "هفت‌تیر": 23,
+          "صدف": 10,
+          "صیاد شیرازی": 15,
+          "اقبال لاهوری": 14,
+          "نمایشگاه": 18,
+          "کوهستان پارک": 16
+        },
+        "vakilabad_turnaround_s_observed": 119,
+        "b_phase_sources": [
+          "sheet thursday from_ghadir 14:16/14:46 minus 40:43 trip -> 14:05:17 mod 30 min",
+          "board 14:35 airport"
+        ],
+        "crossing_notes": [
+          "crossing approx at Kowsar 14:03 (operator note)",
+          "crossing approx at Haft-Tir 14:37 (operator note)"
+        ],
+        "not_covered": "train ends at Seyed Razi; Ghadir/Airport not observed on Thursday",
+        "vakilabad_board": "14:25 غدیر، 14:35 فرودگاه، 14:45 غدیر، 14:55 غدیر (sign shows headway 10)",
+        "date_persian": "1405/07/30 (پنجشنبه)"
+      }
+    },
+    "2": {
+      "color": "#0000CD",
+      "order_tabarsi_to_fakouri": [
+        "طبرسی",
+        "ولایت",
+        "فجر",
+        "نبوت",
+        "مفتح",
+        "راه‌آهن",
+        "شهدا",
+        "سعدی",
+        "شریعتی",
+        "الندشت",
+        "کوهسنگی",
+        "شهید کاوه",
+        "شهید فکوری"
+      ],
+      "segments": [
+        {
+          "from": "طبرسی",
+          "to": "ولایت",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 1.47,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "ولایت",
+          "to": "فجر",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.82,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "فجر",
+          "to": "نبوت",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.24,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "نبوت",
+          "to": "مفتح",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.73,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "مفتح",
+          "to": "راه‌آهن",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.4,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "راه‌آهن",
+          "to": "شهدا",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.59,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "شهدا",
+          "to": "سعدی",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 100,
+          "dist_km_straight": 0.72,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "سعدی",
+          "to": "شریعتی",
+          "run_s_forward": null,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.24,
+          "quality": "legacy_estimate"
+        },
+        {
+          "from": "شریعتی",
+          "to": "الندشت",
+          "run_s_forward": 96,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 0.94,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "الندشت",
+          "to": "کوهسنگی",
+          "run_s_forward": 126,
+          "run_s_backward": null,
+          "legacy_estimate_s": 120,
+          "dist_km_straight": 1.21,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "کوهسنگی",
+          "to": "شهید کاوه",
+          "run_s_forward": 143,
+          "run_s_backward": null,
+          "legacy_estimate_s": 210,
+          "dist_km_straight": 1.29,
+          "quality": "measured_2026-10-16"
+        },
+        {
+          "from": "شهید کاوه",
+          "to": "شهید فکوری",
+          "run_s_forward": 157,
+          "run_s_backward": 171,
+          "legacy_estimate_s": 180,
+          "dist_km_straight": 0.59,
+          "quality": "measured_2026-10-16"
+        }
+      ],
+      "dwell": {
+        "شریعتی": {
+          "median_s": 34.8,
+          "obs_s": [
+            34.8
+          ]
+        },
+        "الندشت": {
+          "median_s": 26.4,
+          "obs_s": [
+            26.4
+          ]
+        },
+        "کوهسنگی": {
+          "median_s": 15.3,
+          "obs_s": [
+            15.3
+          ]
+        },
+        "شهید کاوه": {
+          "median_s": 33.8,
+          "obs_s": [
+            46.5,
+            21.1
+          ]
+        },
+        "شهید فکوری": {
+          "median_s": 43.0,
+          "obs_s": [
+            20.2,
+            65.8
+          ]
+        }
+      },
+      "terminals": {
+        "شهید فکوری": {
+          "turnaround_move_s": 292,
+          "platform_wait_s": 66,
+          "total_layover_s": 358,
+          "note": "Fakouri now has two platforms (user); old single-platform assumptions obsolete"
+        },
+        "طبرسی": {
+          "status": "unmeasured"
+        }
+      },
+      "data_note": "Segments Tabarsi..Shariati are legacy estimates (user says unchanged); Shariati..Fakouri measured and differ from legacy by -24..-68 s"
+    },
+    "3": {
+      "color": "#FF8C00",
+      "status": "schedule_only",
+      "stations_known": false,
+      "routes": [
+        "پایانه مسافری↔باب الجواد (یکی در میان از پایانه مسافری و بسیج)",
+        "شهدا↔باب الجواد"
+      ],
+      "note": "only terminals and headways known from official site; Basij is a Line 1 interchange"
+    }
+  },
+  "derived": {
+    "fleet_estimates": {
+      "friday": {
+        "A_shuttle": {
+          "headway_min": 24,
+          "cycle_min": 95.98,
+          "trainsets": 4.0
+        },
+        "B_airport": {
+          "headway_min": 24,
+          "cycle_min": 120,
+          "trainsets": 5
+        },
+        "line1_total": 9,
+        "method": "cycle=2*trip+terminal layovers; B solved so that T+L_airport=21 min (sheet 14:05->14:26)"
+      },
+      "weekday_offpeak": {
+        "A_headway_min": 15,
+        "B_headway_min": 30,
+        "trainsets_approx": {
+          "A": 6.4,
+          "B": 4
+        },
+        "line1_total_approx": 11,
+        "note": "A headway inferred from 1/10=1/A+1/30; confirm with weekday field run"
+      },
+      "weekday_peak_1530_1920": {
+        "combined_headway_min": 8,
+        "A_headway_min_approx": 10.9,
+        "trainsets_approx": {
+          "A": 8.8,
+          "B": 4
+        },
+        "line1_total_approx": 13
+      },
+      "confidence": "medium on Friday; low on weekdays"
+    },
+    "extension_ghadir_airport": {
+      "one_way_T_s": 573,
+      "one_way_T_min": 9.6,
+      "airport_layover_s": 687,
+      "sensitivity_by_trainset_count": {
+        "4": {
+          "T_s": -867,
+          "L_air_s": 2127
+        },
+        "5": {
+          "T_s": 573,
+          "L_air_s": 687
+        },
+        "6": {
+          "T_s": 2013,
+          "L_air_s": -753
+        }
+      },
+      "split_estimate": {
+        "ghadir_to_bustan_s": 206,
+        "bustan_to_airport_s": 342,
+        "dwell_bustan_assumed_s": 25,
+        "note": "split uses legacy ratio 180:300"
+      },
+      "assumptions": [
+        "5 trainsets on airport service on Friday (4 and 6 give impossible T)",
+        "Vakilabad layover 431 s",
+        "Ghadir pass-through dwell 25 s each way",
+        "symmetric trip times both directions"
+      ],
+      "confidence": "medium-low",
+      "legacy_estimate_s": 480
+    },
+    "legacy_vs_measured": {
+      "line1_legacy_total_vakilabad_to_ghadir_s_including_delays": 2757,
+      "measured_trip_s": 2443,
+      "measured_run_only_s": 1950,
+      "median_mid_segment_run_s": 81
+    },
+    "day_assumptions": {
+      "decided": "2026-10-21",
+      "normal_days_source": "official site JSON (metro.mashhad.ir, 1405/07/21)",
+      "normal_days_values": {
+        "A_06_15.5": "15 min (derived: 1/10 = 1/A + 1/30, B=30)",
+        "A_15.5_19.33": "10.9 min (derived: 1/8 = 1/A + 1/30)",
+        "B": "30 min, 06:30-19:30 (site airport route)",
+        "A_after_19.5": "10 min (site main route, B stopped)"
+      },
+      "normal_days_phase": "NOT measured; grid starts 06:00 (A) and 06:30 (B). Expect up to +-15 min phase error.",
+      "alternative_not_used": "airport_route_sheet normal_days (irregular, then 24 min after midday) kept in data/official as the alternative; revisit with a weekday field run.",
+      "thursday": {
+        "decided": "2026-10-22",
+        "B_phase": "14:05:17 mod 30 min (from sheet thursday from_ghadir and board); first train 06:00:17 is only in the sheet",
+        "A_phase": "14:25:06 observed once; headway 15 min from site (1/10 = 1/A + 1/30), low confidence",
+        "runs_dwell": "single-train measurements for Vakilabad-Seyed Razi (forward) and Kowsar-Vakilabad (back); other segments Friday x1.073 (measured ratio over 8 segments)",
+        "layover": "Vakilabad turnaround observed 119 s on Thursday; the 431 s Friday value is cycle-derived and day-specific"
+      }
+    }
+  },
+  "open_questions": [
+    "Official sheet \"normal days\" airport column is irregular/24-min after 11:57, while official JSON says weekdays 30 min. Which is in force?",
+    "Is Line 1 service B (airport through-service) really calling at every station? (assumed yes)",
+    "Weekday and Thursday run/dwell times (all measurements are Friday afternoon)",
+    "Tabarsi..Shariati Line 2 times (legacy only), Line 3 station list/times",
+    "Return-direction times between Shariati and Kohestan Park (not yet measured)",
+    {
+      "id": "normal-day-headway",
+      "q": "Normal-day airport route: site JSON (30 min) vs sheet (24 min after midday). Engine uses site for now.",
+      "status": "parked_by_user_2026-10-21"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+.vitest/
+*.tsbuildinfo
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.session
+*.session-*
+.npmrc
+
+# Private conversation archives: local only
+session/
+
+# Local logs, scratch files and editors
+*.log
+.DS_Store
+.idea/
+.vscode/

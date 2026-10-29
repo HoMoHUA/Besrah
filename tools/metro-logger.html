@@ -1,0 +1,294 @@
+<title>ثبت میدانی مترو</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+/* Layout: one-thumb field logger. Sticky live clock, context chips, two huge stamp buttons, newest-first log. */
+:root{
+  --bg:#f3f4f2; --surface:#ffffff; --fg:#14201d; --muted:#5d6b66; --line:#d5dad7;
+  --arrive:#0b7a63; --arrive-fg:#ffffff; --depart:#c2610a; --depart-fg:#ffffff;
+  --plat:#2f5d9e; --warn:#a4331f; --chip:#e6ebe8;
+  --font:'Vazirmatn',Tahoma,'Segoe UI',system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1513; --surface:#17211e; --fg:#e8efec; --muted:#93a39c; --line:#2a3834;
+  --arrive:#2fb38f; --arrive-fg:#04201a; --depart:#f0933b; --depart-fg:#2a1300;
+  --plat:#7aa7e6; --warn:#ff8a73; --chip:#22302c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1513; --surface:#17211e; --fg:#e8efec; --muted:#93a39c; --line:#2a3834;
+  --arrive:#2fb38f; --arrive-fg:#04201a; --depart:#f0933b; --depart-fg:#2a1300;
+  --plat:#7aa7e6; --warn:#ff8a73; --chip:#22302c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);direction:rtl;font-size:15px;line-height:1.6;
+  padding-block:0 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px 8px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}
+.clock{font-family:var(--mono);font-size:2.4rem;font-weight:700;letter-spacing:.02em;direction:ltr;line-height:1;font-variant-numeric:tabular-nums}
+.day{font-size:.85rem;color:var(--muted);text-align:left;direction:rtl}
+.sync{font-size:.8rem;display:flex;align-items:center;gap:6px;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--arrive)}
+.dot.pend{background:var(--depart)}
+.dot.off{background:var(--warn)}
+section{display:flex;flex-direction:column;gap:10px}
+h2{font-size:.78rem;letter-spacing:.04em;color:var(--muted);font-weight:600;margin:0}
+.lines{display:flex;gap:8px}
+.lines button{flex:1;min-height:46px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;font:inherit;font-weight:600;font-size:1rem}
+.lines button[aria-pressed="true"]{border-color:var(--fg);background:var(--fg);color:var(--bg)}
+label{font-size:.85rem;color:var(--muted)}
+input[type=text]{width:100%;box-sizing:border-box;min-height:46px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:8px 12px;font:inherit;font-size:1rem}
+.field{display:flex;flex-direction:column;gap:6px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{border:0;background:var(--chip);color:var(--fg);border-radius:999px;padding:5px 12px;font:inherit;font-size:.85rem;min-height:34px}
+.stamps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.big{min-height:128px;border:0;border-radius:16px;font:inherit;font-weight:800;font-size:1.35rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;touch-action:manipulation}
+.big small{font-weight:400;font-size:.8rem;opacity:.85}
+.big:active{transform:scale(.98)}
+.arrive{background:var(--arrive);color:var(--arrive-fg)}
+.depart{background:var(--depart);color:var(--depart-fg)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ghost{min-height:48px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:12px;font:inherit;font-weight:600;font-size:.95rem}
+.ghost.plat{border-color:var(--plat);color:var(--plat)}
+.ghost[aria-pressed="true"]{background:var(--depart);border-color:var(--depart);color:var(--depart-fg)}
+.flash{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:.9rem;z-index:20;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.log{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);min-width:0}
+.item:last-child{border-bottom:0}
+.t{font-family:var(--mono);direction:ltr;font-variant-numeric:tabular-nums;font-weight:600}
+.what{min-width:0}
+.what b{font-weight:600}
+.what .sub{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}
+.ev{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:6px}
+.ev.arrive{background:var(--arrive)}.ev.depart{background:var(--depart)}.ev.platform{background:var(--plat)}.ev.note{background:var(--muted)}
+.del{border:0;background:transparent;color:var(--muted);font:inherit;min-width:44px;min-height:44px}
+.del.sure{color:var(--warn);font-weight:600}
+.empty{padding:22px 16px;color:var(--muted);text-align:center}
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.tools button{flex:1;min-width:140px}
+textarea{width:100%;box-sizing:border-box;height:90px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:8px;font-family:var(--mono);font-size:.75rem;direction:ltr}
+input:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--plat);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.big:active{transform:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="clock" id="clock">--:--:--</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end">
+      <div class="day" id="day"></div>
+      <div class="sync"><span class="dot" id="dot"></span><span id="syncTxt">آماده</span></div>
+    </div>
+  </header>
+
+  <section aria-label="خط">
+    <h2>خط</h2>
+    <div class="lines" id="lines">
+      <button type="button" data-l="1" aria-pressed="true">خط ۱</button>
+      <button type="button" data-l="2" aria-pressed="false">خط ۲</button>
+      <button type="button" data-l="3" aria-pressed="false">خط ۳</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="field">
+      <label for="station">ایستگاهی که الان در آن هستی</label>
+      <input type="text" id="station" autocomplete="off" placeholder="مثلاً پایانه وکیل‌آباد">
+      <div class="chips" id="stChips"></div>
+    </div>
+    <div class="field">
+      <label for="dir">مقصد قطار (به سمت کدام ایستگاه می‌رود)</label>
+      <input type="text" id="dir" autocomplete="off" placeholder="مثلاً فرودگاه یا غدیر">
+      <div class="chips" id="dirChips"></div>
+    </div>
+  </section>
+
+  <section>
+    <button type="button" class="ghost" id="bCrowd" aria-pressed="false">ایستگاه شلوغ است</button>
+    <div class="stamps">
+      <button type="button" class="big arrive" id="bArrive">قطار رسید<small>درهای قطار باز شد</small></button>
+      <button type="button" class="big depart" id="bDepart">قطار حرکت کرد<small>قطار از سکو جدا شد</small></button>
+    </div>
+    <div class="row2">
+      <button type="button" class="ghost plat" id="bPlat">من رسیدم به سکو</button>
+      <button type="button" class="ghost" id="bNote">ثبت با یادداشت</button>
+    </div>
+    <input type="text" id="note" autocomplete="off" placeholder="یادداشت دلخواه (شلوغی، تأخیر، اعلام اپراتور...)">
+  </section>
+
+  <section>
+    <h2>ثبت‌های امروز <span id="count"></span></h2>
+    <div class="log" id="log"></div>
+    <div class="tools">
+      <button type="button" class="ghost" id="bCopy">کپی داده‌ها (CSV)</button>
+      <button type="button" class="ghost" id="bSync">همگام‌سازی دستی</button>
+    </div>
+    <textarea id="csv" hidden readonly></textarea>
+  </section>
+</div>
+<div class="flash" id="flash" hidden></div>
+
+<script>
+(function(){
+  var LS_E='mw_entries_v1', LS_C='mw_ctx_v1';
+  var EV={arrive:'قطار رسید',depart:'قطار حرکت کرد',platform:'رسیدن من به سکو',note:'یادداشت'};
+  var entries=[], ctx={line:'1',station:'',dir:'',st:[],dr:[]}, db=null, syncing=false;
+  var $=function(i){return document.getElementById(i)};
+
+  function lsGet(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+  var fT=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tehran',hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  var fD=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tehran',year:'numeric',month:'2-digit',day:'2-digit'});
+  var fW=new Intl.DateTimeFormat('fa-IR',{timeZone:'Asia/Tehran',weekday:'long'});
+  var fJ=new Intl.DateTimeFormat('fa-IR',{timeZone:'Asia/Tehran',month:'long',day:'numeric'});
+  function tStr(ms){return fT.format(new Date(ms))}
+
+  function tick(){var n=Date.now();$('clock').textContent=tStr(n);$('day').textContent=fW.format(new Date(n))+' '+fJ.format(new Date(n))}
+  setInterval(tick,500);tick();
+
+  var flashT;
+  function flash(msg){var f=$('flash');f.textContent=msg;f.hidden=false;clearTimeout(flashT);flashT=setTimeout(function(){f.hidden=true},1600)}
+
+  function saveCtx(){lsSet(LS_C,ctx)}
+  function pushRecent(arr,v){v=(v||'').trim();if(!v)return;var i=arr.indexOf(v);if(i>-1)arr.splice(i,1);arr.unshift(v);if(arr.length>8)arr.length=8}
+
+  function renderChips(box,arr,input,key){
+    box.textContent='';
+    arr.forEach(function(v){var b=document.createElement('button');b.type='button';b.textContent=v;
+      b.addEventListener('click',function(){input.value=v;ctx[key]=v;saveCtx()});box.appendChild(b)});
+  }
+  function renderCtx(){
+    Array.prototype.forEach.call($('lines').children,function(b){b.setAttribute('aria-pressed',b.dataset.l===ctx.line?'true':'false')});
+    $('station').value=ctx.station;$('dir').value=ctx.dir;
+    renderChips($('stChips'),ctx.st,$('station'),'station');
+    renderChips($('dirChips'),ctx.dr,$('dir'),'dir');
+  }
+
+  $('lines').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ctx.line=b.dataset.l;saveCtx();renderCtx()});
+  $('station').addEventListener('input',function(){ctx.station=this.value;saveCtx()});
+  $('dir').addEventListener('input',function(){ctx.dir=this.value;saveCtx()});
+
+  var wl=null;
+  function wake(){try{if(navigator.wakeLock&&!wl){navigator.wakeLock.request('screen').then(function(l){wl=l;l.addEventListener('release',function(){wl=null})}).catch(function(){})}}catch(e){}}
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'){wl=null;wake()}});
+
+  function uid(){return 'e'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+
+  function add(ev,withNote){
+    var st=$('station').value.trim(), dr=$('dir').value.trim();
+    if(!st){flash('اول نام ایستگاه را بنویس');$('station').focus();return}
+    var now=Date.now(), note=$('note').value.trim();
+    if(ev==='depart'){var la=entries.length?entries[entries.length-1]:null;
+      if(la&&la.ev==='arrive'&&now-la.t<900000&&la.station!==st){st=la.station;$('station').value=st}}
+    if(withNote&&!note){flash('یادداشت خالی است');$('note').focus();return}
+    var e={id:uid(),t:now,date:fD.format(new Date(now)),time:tStr(now),dow:fW.format(new Date(now)),
+      line:ctx.line,station:st,dir:dr,ev:ev,note:note,crowd:crowd?1:0,synced:false};
+    if(ev==='arrive'){
+      var prev=lastOf(function(x){return x.ev==='arrive'&&x.line===e.line&&x.station===st&&x.dir===dr});
+      if(prev&&now-prev.t<3600000)e.headway_s=Math.round((now-prev.t)/1000);
+    }
+    if(ev==='depart'){
+      var a=lastOf(function(x){return x.ev==='arrive'&&x.line===e.line&&x.station===st});
+      if(a&&now-a.t<900000)e.dwell_s=Math.round((now-a.t)/1000);
+    }
+    entries.push(e);lsSet(LS_E,entries);
+    if(ev==='depart'){crowd=false;setCrowd()}
+    pushRecent(ctx.st,st);pushRecent(ctx.dr,dr);ctx.station=st;ctx.dir=dr;saveCtx();
+    if(withNote||ev==='note')$('note').value='';
+    renderCtx();render();wake();
+    if(navigator.vibrate)try{navigator.vibrate(30)}catch(x){}
+    flash(EV[ev]+' · '+e.time);
+    syncNow();
+  }
+  function lastOf(fn){for(var i=entries.length-1;i>=0;i--){if(fn(entries[i]))return entries[i]}return null}
+
+  var crowd=false;function setCrowd(){$('bCrowd').setAttribute('aria-pressed',crowd?'true':'false')}
+  $('bCrowd').addEventListener('click',function(){crowd=!crowd;setCrowd()});
+  $('bArrive').addEventListener('click',function(){add('arrive',false)});
+  $('bDepart').addEventListener('click',function(){add('depart',false)});
+  $('bPlat').addEventListener('click',function(){add('platform',false)});
+  $('bNote').addEventListener('click',function(){add('note',true)});
+
+  var armed=null;
+  function render(){
+    var today=fD.format(new Date()), box=$('log');box.textContent='';
+    var list=entries.filter(function(e){return e.date===today}).slice().reverse();
+    $('count').textContent=list.length?'('+list.length+')':'';
+    if(!list.length){var d=document.createElement('div');d.className='empty';d.textContent='هنوز چیزی ثبت نشده. وقتی قطار رسید، دکمه سبز را بزن.';box.appendChild(d)}
+    list.forEach(function(e){
+      var r=document.createElement('div');r.className='item';
+      var t=document.createElement('div');t.className='t';t.textContent=e.time;
+      var w=document.createElement('div');w.className='what';
+      var b=document.createElement('b');var sw=document.createElement('span');sw.className='ev '+e.ev;b.appendChild(sw);
+      b.appendChild(document.createTextNode(EV[e.ev]+' · خط '+e.line+' · '+e.station));w.appendChild(b);
+      var sub=[];
+      if(e.dir)sub.push('به سمت '+e.dir);
+      if(e.headway_s!=null)sub.push('سرفاصله '+fmtS(e.headway_s));
+      if(e.dwell_s!=null)sub.push('توقف '+fmtS(e.dwell_s));
+      if(e.crowd)sub.push('شلوغ');
+      if(e.note)sub.push(e.note);
+      if(!e.synced)sub.push('فقط روی گوشی');
+      if(sub.length){var s=document.createElement('div');s.className='sub';s.textContent=sub.join(' · ');w.appendChild(s)}
+      var x=document.createElement('button');x.type='button';x.className='del';x.textContent=armed===e.id?'مطمئنی؟':'حذف';
+      if(armed===e.id)x.classList.add('sure');
+      x.addEventListener('click',function(){
+        if(armed!==e.id){armed=e.id;render();setTimeout(function(){if(armed===e.id){armed=null;render()}},3000);return}
+        armed=null;remove(e);
+      });
+      r.appendChild(t);r.appendChild(w);r.appendChild(x);box.appendChild(r);
+    });
+    updSync();
+  }
+  function fmtS(s){return s>=60?Math.floor(s/60)+':'+('0'+(s%60)).slice(-2)+' دقیقه':s+' ثانیه'}
+
+  function remove(e){
+    entries=entries.filter(function(x){return x.id!==e.id});lsSet(LS_E,entries);render();
+    if(db&&e.synced){withTimeout(db.collection('obs').doc(e.id).delete()).catch(function(){})}
+  }
+
+  function pending(){return entries.filter(function(e){return !e.synced}).length}
+  function updSync(){
+    var n=pending(), dot=$('dot'), tx=$('syncTxt');
+    dot.className='dot';
+    if(!db){dot.classList.add('off');tx.textContent=n?n+' ثبت فقط روی گوشی':'ذخیره فقط روی گوشی'}
+    else if(n){dot.classList.add('pend');tx.textContent=n+' منتظر اینترنت'}
+    else tx.textContent='همه ذخیره شد';
+  }
+  function withTimeout(p,ms){return Promise.race([p,new Promise(function(_,rej){setTimeout(function(){rej(new Error('timeout'))},ms||8000)})])}
+
+  function syncNow(){
+    if(!db||syncing)return;
+    var q=entries.filter(function(e){return !e.synced});
+    if(!q.length){updSync();return}
+    syncing=true;
+    (function next(i){
+      if(i>=q.length){syncing=false;lsSet(LS_E,entries);render();return}
+      var e=q[i], body=Object.assign({},e);delete body.synced;
+      withTimeout(db.collection('obs').doc(e.id).set(body)).then(function(){e.synced=true;lsSet(LS_E,entries);next(i+1)})
+        .catch(function(){syncing=false;render()});
+    })(0);
+  }
+  window.addEventListener('online',syncNow);
+  setInterval(syncNow,20000);
+  $('bSync').addEventListener('click',function(){if(!db){flash('ذخیره‌سازی ابری در دسترس نیست')}else{flash('در حال همگام‌سازی');syncNow()}});
+
+  function csvCell(v){v=v==null?'':String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+  $('bCopy').addEventListener('click',function(){
+    var cols=['date','time','dow','line','station','dir','ev','headway_s','dwell_s','crowd','note','t'];
+    var lines=[cols.join(',')].concat(entries.map(function(e){return cols.map(function(c){return csvCell(e[c])}).join(',')}));
+    var txt=lines.join('\n'), ta=$('csv');ta.value=txt;
+    var done=function(){flash('کپی شد · '+entries.length+' ردیف')};
+    var fallback=function(){ta.hidden=false;ta.focus();ta.select();flash('متن را انتخاب و کپی کن')};
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  });
+
+  entries=lsGet(LS_E,[]);
+  var c=lsGet(LS_C,null);if(c){ctx.line=c.line||'1';ctx.station=c.station||'';ctx.dir=c.dir||'';ctx.st=c.st||[];ctx.dr=c.dr||[]}
+  renderCtx();render();
+
+  if(window.claude&&claude.use){
+    claude.use('db').then(function(d){db=d;updSync();syncNow()}).catch(function(){});
+  }
+})();
+</script>

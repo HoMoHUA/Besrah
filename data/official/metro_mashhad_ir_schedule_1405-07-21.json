@@ -1,0 +1,353 @@
+{
+  "system": "Mashhad Urban Railway (قطار شهری مشهد)",
+  "source_url": "https://metro.mashhad.ir/fa/general_content/11359740-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%AD%D8%B1%DA%A9%D8%AA-%D9%82%D8%B7%D8%A7%D8%B1.html",
+  "last_updated": "1405/07/21",
+  "general_info": {
+    "operating_hours": {
+      "start": "06:00",
+      "end": "23:00",
+      "description": "سرویس دهی مترو از ساعت ۶ الی ۲۳ می باشد (اعزام های خطوط بر اساس جداول زمان بندی تا ساعت ۲۲:۰۰ انجام می پذیرد)"
+    },
+    "headway_notice": "سرفاصله زمانی اعلامی به صورت میانگین می باشد.",
+    "special_notice_board": "https://metro.mashhad.ir/data/91/general_content/161695/Image/photo29156150558.jpg"
+  },
+  "lines": [
+    {
+      "line_id": 1,
+      "line_name": "خط یک",
+      "color_hex": "#006400",
+      "routes": [
+        {
+          "route_id": "line1_main",
+          "route_type": "main",
+          "title": "مسیر اصلی (غدیر تا وکیل آباد و بالعکس)",
+          "terminals": [
+            "ایستگاه غدیر",
+            "ایستگاه وکیل آباد"
+          ],
+          "map_image_url": "https://metro.mashhad.ir/data/91/general_content/161695/Image/Map/Line01new.jpg",
+          "schedules": {
+            "weekdays": {
+              "days_fa": "شنبه تا پنج شنبه",
+              "time_slots": [
+                {
+                  "start_time": "06:00",
+                  "end_time": "15:30",
+                  "headway_minutes": 10,
+                  "headway_fa": "۱۰ دقیقه"
+                },
+                {
+                  "start_time": "15:30",
+                  "end_time": "19:20",
+                  "headway_minutes": 8,
+                  "headway_fa": "۸ دقیقه"
+                },
+                {
+                  "start_time": "19:20",
+                  "end_time": "22:00",
+                  "headway_minutes": 10,
+                  "headway_fa": "۱۰ دقیقه"
+                }
+              ]
+            },
+            "fridays_and_holidays": {
+              "days_fa": "جمعه و روزهای تعطیل",
+              "time_slots": [
+                {
+                  "start_time": "07:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 12,
+                  "headway_fa": "۱۲ دقیقه"
+                }
+              ]
+            }
+          },
+          "passenger_wait_times": [
+            {
+              "headway_minutes": 10,
+              "max_wait_minutes": 10,
+              "avg_wait_minutes": 5.0,
+              "applicable_days": "شنبه تا پنج شنبه (۰۶:۰۰ تا ۱۵:۳۰ و ۱۹:۲۰ تا ۲۲:۰۰)"
+            },
+            {
+              "headway_minutes": 8,
+              "max_wait_minutes": 8,
+              "avg_wait_minutes": 4.0,
+              "applicable_days": "شنبه تا پنج شنبه (۱۵:۳۰ تا ۱۹:۲۰)"
+            },
+            {
+              "headway_minutes": 12,
+              "max_wait_minutes": 12,
+              "avg_wait_minutes": 6.0,
+              "applicable_days": "جمعه (۰۷:۰۰ تا ۲۲:۰۰)"
+            }
+          ]
+        },
+        {
+          "route_id": "line1_airport_extension",
+          "route_type": "extension",
+          "title": "مسیر توسعه فرودگاه (غدیر تا فرودگاه و بالعکس)",
+          "terminals": [
+            "ایستگاه غدیر",
+            "ایستگاه فرودگاه شهید هاشمی نژاد"
+          ],
+          "map_image_url": "https://metro.mashhad.ir/data/91/general_content/161695/Image/Map/Line01new.jpg",
+          "schedules": {
+            "weekdays": {
+              "days_fa": "شنبه تا پنج شنبه",
+              "time_slots": [
+                {
+                  "start_time": "06:30",
+                  "end_time": "19:30",
+                  "headway_minutes": 30,
+                  "headway_fa": "۳۰ دقیقه"
+                }
+              ]
+            },
+            "fridays_and_holidays": {
+              "days_fa": "جمعه و روزهای تعطیل",
+              "time_slots": [
+                {
+                  "start_time": "07:38",
+                  "end_time": "20:26",
+                  "headway_minutes": 24,
+                  "headway_fa": "۲۴ دقیقه"
+                }
+              ]
+            }
+          },
+          "passenger_wait_times": [
+            {
+              "headway_minutes": 30,
+              "max_wait_minutes": 30,
+              "avg_wait_minutes": 15.0,
+              "applicable_days": "شنبه تا پنج شنبه (۰۶:۳۰ تا ۱۹:۳۰)"
+            },
+            {
+              "headway_minutes": 24,
+              "max_wait_minutes": 24,
+              "avg_wait_minutes": 12.0,
+              "applicable_days": "جمعه (۰۷:۳۸ تا ۲۰:۲۶)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": 2,
+      "line_name": "خط دو",
+      "color_hex": "#0000CD",
+      "routes": [
+        {
+          "route_id": "line2_main",
+          "route_type": "main",
+          "title": "طبرسی تا شهید فکوری و بالعکس",
+          "terminals": [
+            "ایستگاه طبرسی",
+            "ایستگاه شهید فکوری"
+          ],
+          "map_image_url": "https://metro.mashhad.ir/data/91/general_content/161695/Image/Map/Line02new.jpg",
+          "schedules": {
+            "weekdays": {
+              "days_fa": "شنبه تا پنج شنبه",
+              "time_slots": [
+                {
+                  "start_time": "06:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 12,
+                  "headway_fa": "۱۲ دقیقه"
+                }
+              ]
+            },
+            "fridays_and_holidays": {
+              "days_fa": "جمعه و روزهای تعطیل",
+              "time_slots": [
+                {
+                  "start_time": "07:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 12,
+                  "headway_fa": "۱۲ دقیقه"
+                }
+              ]
+            }
+          },
+          "passenger_wait_times": [
+            {
+              "headway_minutes": 12,
+              "max_wait_minutes": 12,
+              "avg_wait_minutes": 6.0,
+              "applicable_days": "تمام ایام (شنبه تا پنج شنبه ۰۶:۰۰ تا ۲۲:۰۰ و جمعه ۰۷:۰۰ تا ۲۲:۰۰)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": 3,
+      "line_name": "خط سه",
+      "color_hex": "#FF8C00",
+      "routes": [
+        {
+          "route_id": "line3_terminal_to_bab_al_javad",
+          "route_type": "branch",
+          "title": "پایانه مسافری تا باب الجواد (ع) حرم مطهر",
+          "terminals": [
+            "ایستگاه پایانه مسافری",
+            "ایستگاه باب الجواد (ع)"
+          ],
+          "map_image_url": "https://metro.mashhad.ir/data/91/general_content/161695/Image/Map/Line3new.jpg",
+          "special_conditions": "محدودیت ۲۵ کیلومتر - یکی در میان از پایانه مسافری و ایستگاه بسیج اعزام می شود.",
+          "schedules": {
+            "weekdays": {
+              "days_fa": "شنبه تا پنج شنبه",
+              "time_slots": [
+                {
+                  "start_time": "06:00",
+                  "end_time": "07:00",
+                  "headway_minutes": 30,
+                  "headway_fa": "۳۰ دقیقه"
+                },
+                {
+                  "start_time": "07:00",
+                  "end_time": "09:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                },
+                {
+                  "start_time": "09:00",
+                  "end_time": "16:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                },
+                {
+                  "start_time": "16:00",
+                  "end_time": "19:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                },
+                {
+                  "start_time": "19:00",
+                  "end_time": "20:00",
+                  "headway_minutes": 30,
+                  "headway_fa": "۳۰ دقیقه"
+                },
+                {
+                  "start_time": "20:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 45,
+                  "headway_fa": "۴۵ دقیقه"
+                }
+              ]
+            },
+            "fridays_and_holidays": {
+              "days_fa": "جمعه و روزهای تعطیل",
+              "time_slots": [
+                {
+                  "start_time": "07:00",
+                  "end_time": "08:00",
+                  "headway_minutes": 30,
+                  "headway_fa": "۳۰ دقیقه"
+                },
+                {
+                  "start_time": "08:00",
+                  "end_time": "10:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                },
+                {
+                  "start_time": "10:00",
+                  "end_time": "16:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                },
+                {
+                  "start_time": "16:00",
+                  "end_time": "19:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                },
+                {
+                  "start_time": "19:00",
+                  "end_time": "20:00",
+                  "headway_minutes": 30,
+                  "headway_fa": "۳۰ دقیقه"
+                },
+                {
+                  "start_time": "20:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 45,
+                  "headway_fa": "۴۵ دقیقه"
+                }
+              ]
+            }
+          },
+          "passenger_wait_times": [
+            {
+              "headway_minutes": 15,
+              "max_wait_minutes": 15,
+              "avg_wait_minutes": 7.5
+            },
+            {
+              "headway_minutes": 30,
+              "max_wait_minutes": 30,
+              "avg_wait_minutes": 15.0
+            },
+            {
+              "headway_minutes": 45,
+              "max_wait_minutes": 45,
+              "avg_wait_minutes": 22.5
+            }
+          ]
+        },
+        {
+          "route_id": "line3_shohada_to_bab_al_javad",
+          "route_type": "branch",
+          "title": "شهدا تا باب الجواد (ع) حرم مطهر و بالعکس",
+          "terminals": [
+            "ایستگاه شهدا",
+            "ایستگاه باب الجواد (ع)"
+          ],
+          "map_image_url": "https://metro.mashhad.ir/data/91/general_content/161695/Image/Map/Line3new.jpg",
+          "special_conditions": "محدودیت ۲۵ کیلومتر - شهدا تا باب الجواد ع و بالعکس",
+          "schedules": {
+            "weekdays": {
+              "days_fa": "شنبه تا پنج شنبه",
+              "time_slots": [
+                {
+                  "start_time": "06:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                }
+              ]
+            },
+            "fridays_and_holidays": {
+              "days_fa": "جمعه و روزهای تعطیل",
+              "time_slots": [
+                {
+                  "start_time": "07:00",
+                  "end_time": "22:00",
+                  "headway_minutes": 15,
+                  "headway_fa": "۱۵ دقیقه"
+                }
+              ]
+            }
+          },
+          "passenger_wait_times": [
+            {
+              "headway_minutes": 15,
+              "max_wait_minutes": 15,
+              "avg_wait_minutes": 7.5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quick_reference_links": {
+    "routing": "https://metro.mashhad.ir/s/mfaVMLD",
+    "ticketing": "https://metro.mashhad.ir/s/mfaQmVQ",
+    "lines_introduction": "https://metro.mashhad.ir/s/mfaQe0e",
+    "entertainment_station": "https://metro.mashhad.ir/s/mfaVE8S"
+  }
+}

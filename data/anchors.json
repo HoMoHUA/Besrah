@@ -1,0 +1,21 @@
+{
+ "friday_2026-10-16": {
+  "A_shuttle": {
+   "ghadir_depart_anchor": "2026-10-16T14:47:57+03:30",
+   "vakilabad_depart_anchor": "2026-10-16T13:59:51+03:30",
+   "period_min": 24,
+   "derived_pattern": "Ghadir departures 13:11:57,13:35:57,13:59:57,14:23:57,14:47:57; Vakilabad arrive 13:52:40,14:16:40,... +7:20 layover"
+  },
+  "B_airport_through": {
+   "vakilabad_board_1357": [
+    "14:00 Ghadir",
+    "14:12 airport",
+    "14:24 Ghadir",
+    "14:36 airport"
+   ],
+   "ghadir_pass_times_from_sheet": "friday.from_ghadir",
+   "period_min": 24
+  }
+ },
+ "note": "single-day single-sample anchors; weekday/Thursday phases unknown"
+}
