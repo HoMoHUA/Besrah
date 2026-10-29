@@ -113,32 +113,23 @@
     radial-gradient(70% 60% at 100% 105%, var(--hm7-cobalt-lo), transparent 72%),
     linear-gradient(158deg, var(--hm7-cobalt-hi) 0%, var(--hm7-cobalt) 48%, var(--hm7-cobalt-lo) 100%);
 }
-/* the light ribbon crosses the text now and then: keep it soft enough for white text to stay >= 4.5:1 */
-:root .hm7-stage::before {
-  background: linear-gradient(118deg, transparent 38%, rgba(var(--besrah-ribbon), .06) 45%, rgba(var(--besrah-ribbon), .13) 50.5%, rgba(var(--besrah-ribbon), .06) 55%, transparent 62%);
-}
-:root .hm7-stage::after {
-  background:
-    radial-gradient(28% 60% at 46% 62%, rgba(var(--besrah-ribbon), .12), transparent 70%),
-    linear-gradient(124deg, transparent 47.6%, rgba(255, 255, 255, .22) 49.6%, rgba(255, 255, 255, .06) 51.5%, transparent 53.5%);
-}
+/* No sliding ribbon and no diagonal light line: the stage is a still gradient (the ribbon was an infinite animation
+   on two large layers, and the owner asked for the light line to go). */
+:root .hm7-stage::before { display: none; animation: none; }
+:root .hm7-stage::after { background: radial-gradient(28% 60% at 46% 62%, rgba(var(--besrah-ribbon), .10), transparent 70%); animation: none; }
 :root .hm7-btn--primary {
   color: var(--besrah-on-citron);
   background: radial-gradient(120% 140% at 50% 0%, var(--besrah-citron-hi), var(--besrah-citron) 70%);
   box-shadow: inset 0 0 0 1.25px rgba(255, 255, 255, .6), inset 0 2px 10px rgba(255, 255, 255, .45), 0 10px 24px -8px rgba(5, 46, 47, .8);
 }
 :root .hm7-stage .hm7-glass {
-  box-shadow: inset 0 0 0 1.25px rgba(255, 255, 255, .48), inset 0 1px 14px rgba(255, 255, 255, .28), inset 0 -10px 22px rgba(120, 235, 205, .12), 0 14px 34px -10px rgba(2, 26, 27, .6);
+  /* flat translucent fill instead of a backdrop blur: the stage behind is a smooth gradient, so the blur only cost GPU time */
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  background: rgba(255, 255, 255, .14);
+  box-shadow: inset 0 0 0 1.25px rgba(255, 255, 255, .42), inset 0 -10px 22px rgba(120, 235, 205, .10), 0 14px 34px -10px rgba(2, 26, 27, .6);
 }
-
-/* 4. The finger light and the lamp bloom are additive (mix-blend: screen) white; at full strength they bleach the
-   stage under white text (measured 1.9:1). Keep the effect, cap its strength so text stays >= 4.5:1. */
-:root .hm7-touchlight {
-  background: radial-gradient(circle, rgba(var(--lc), .20) 0%, rgba(var(--lc), .09) 22%, rgba(var(--lc), .03) 45%, transparent 70%);
-}
-:root .hm7-lampglow {
-  background: radial-gradient(circle, rgba(var(--lc), .24) 0%, rgba(var(--lc), .13) 18%, rgba(var(--lc), .05) 42%, rgba(var(--lc), 0) 68%);
-}
+/* Hover/finger light is not used (HM7.light, GlassReveal and autoReveal are not called); hide any leftover layer. */
+:root .hm7-touchlight, :root .hm7-lampglow { display: none; }
 
 /* 5. The lens of the bottom bar brightens what it magnifies (backdrop brightness 1.2 + a white inner glow); with a
    citron label on dark that measured 3.6:1. Keep the lens, drop the brightening so the label stays >= 4.5:1. */

@@ -52,10 +52,10 @@ test('commands and unknown input become safe local replies without a core reques
 });
 
 test('app command returns the configured trusted Mini App URL without a timing request', () => {
-  const result = normalize(message('/app'), { metro: { ...metro, appUrl: 'https://n8n.gastora.ir/besrah/' } });
+  const result = normalize(message('/app'), { metro: { ...metro, appUrl: 'https://besrah.arklyn.ir/' } });
   assert.equal(result.kind, 'app');
   assert.equal(result.route, 'reply');
-  assert.ok(result.reply_text.includes('https://n8n.gastora.ir/besrah/'));
+  assert.ok(result.reply_text.includes('https://besrah.arklyn.ir/'));
 });
 
 test('help lists every supported user-facing command', () => {

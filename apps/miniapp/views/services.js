@@ -17,7 +17,7 @@ export function createServicesView(ctx) {
   root.append(
     h('header', { class: 'view__head' }, h('h1', { class: 'view__title', text: 'سرویس ها' }), h('p', { class: 'view__sub', text: 'آنچه امروز کار می کند و آنچه هنوز ساخته نشده است.' })),
     h('section', { 'aria-labelledby': 'svc-live' }, h('h2', { class: 'section-title', id: 'svc-live', text: 'در دسترس' }),
-      h('div', { class: 'svc-grid' }, live.map(s => h('article', { class: 'cm-card cm-wash svc-card rv' },
+      h('div', { class: 'svc-grid' }, live.map(s => h('article', { class: 'cm-card cm-wash svc-card' },
         h('span', { class: 'svc-card__ico', 'aria-hidden': 'true' }, icon(s.icon)),
         h('div', { class: 'svc-card__body' }, h('h3', { text: s.title }), h('p', { text: s.blurb })),
         h('button', { class: 'cm-btn cm-btn--ghost cm-btn--sm el', type: 'button', onClick: () => actions.serviceAction(s) }, 'باز کردن'))))),

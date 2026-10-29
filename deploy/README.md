@@ -57,12 +57,18 @@ The bot token is stored outside Git in `/etc/besrah/telegram.env` (directory 070
 
 ## Mini App and bot menu
 
-- Public URL: `https://n8n.gastora.ir/besrah/` (no dedicated Besrah DNS record exists yet; move it by changing `appUrl` in `scripts/build-n8n-workflow.mjs`, the nginx snippet and the Telegram menu button together).
-- Runtime: static files under `/srv/besrah/apps/miniapp`, served by the loopback-only core at `/app/`; nginx maps `/besrah/` to it. Source of truth is `apps/miniapp` in this repository.
-- Nginx: `deploy/nginx-besrah-rate-limit.conf` → `/etc/nginx/conf.d/besrah-rate-limit.conf` (5 req/s per IP, burst 20); `deploy/nginx-besrah-miniapp.conf` → `/etc/nginx/snippets/besrah-miniapp.conf`, included once in the `n8n.gastora.ir` TLS server. The public API rejects any `at=` query (arbitrary-date timing queries stay available only on the private core).
+- Public URL: `https://besrah.arklyn.ir/` (own host, Let's Encrypt certificate managed by certbot, DNS A record to this server). The old `https://n8n.gastora.ir/besrah/...` mount only issues permanent redirects, so WebApp buttons in earlier bot messages keep working.
+- Runtime: static files under `/srv/besrah/apps/miniapp`, served by the loopback-only core at `/app/`; nginx maps the host root to it.
+- Nginx files (installed copies live outside the repo):
+  - `deploy/nginx-besrah-rate-limit.conf` → `/etc/nginx/conf.d/besrah-rate-limit.conf` (zone `besrah_api`, 5 req/s per IP, burst 20);
+  - `deploy/nginx-besrah-arklyn-site.conf` → `/etc/nginx/sites-available/besrah.arklyn.ir.conf` (symlinked into `sites-enabled`; certbot adds the TLS blocks), with gzip for css/js/json/svg (the stock config only compresses HTML);
+  - `deploy/nginx-besrah-miniapp.conf` → `/etc/nginx/snippets/besrah-miniapp-root.conf` (`noindex`, `robots.txt`, `/api/` with the `at=` rejection and rate limit, everything else GET/HEAD only);
+  - `deploy/nginx-besrah-legacy-redirect.conf` → `/etc/nginx/snippets/besrah-miniapp.conf`, included once in the `n8n.gastora.ir` TLS server.
+- The public edge rejects any `at=` query; arbitrary-date timing queries stay available only on the private core.
 - Bot commands: `/start`, `/app`, `/stations`, `/help`, `/about`, `/privacy`. The default menu button opens the Mini App. The reply keyboard carries a request-location button and a WebApp button.
 - Telegram `setChatMenuButton` must be sent form-encoded with `menu_button` as a JSON string; the JSON-body form returned success but did not persist. Always read back `getChatMenuButton` without `chat_id`.
-- Rollback copies are in `/var/backups/besrah/` (private, mode 0700): runtime `dist`, nginx site file, previous workflow, and Telegram profile/menu snapshots.
+- Moving the public URL again means changing `appUrl` in `scripts/build-n8n-workflow.mjs`, the menu button, and the nginx site together; then regenerate and re-import the workflow.
+- Rollback copies are in `/var/backups/besrah/` (private, mode 0700): runtime `dist`, previous Mini App tree, nginx site files, previous workflow, and Telegram profile/menu snapshots.
 
 ## Activation boundary
 

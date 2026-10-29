@@ -6,7 +6,7 @@ const root = new URL('../', import.meta.url);
 const outputDir = new URL('integrations/n8n/', root);
 const source = name => readFileSync(new URL(name, outputDir), 'utf8');
 const network = JSON.parse(readFileSync(new URL('data/network.json', root), 'utf8'));
-const appUrl = 'https://n8n.gastora.ir/besrah/';
+const appUrl = 'https://besrah.arklyn.ir/';
 const metro = { stations: network.stations.map(({ id, name, lat, lon, lines }) => ({ id, name, lat, lon, lines })), line1: network.lines['1'].order_vakilabad_to_airport, maxNearestKm: 10, appUrl };
 const stableId = name => {
   const hash = createHash('sha256').update('besrah-n8n:' + name).digest('hex');

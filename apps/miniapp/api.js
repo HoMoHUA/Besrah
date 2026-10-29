@@ -1,4 +1,4 @@
-// Same-origin API client. URLs stay relative because the public mount is /besrah/ -> /app/.
+// Same-origin API client. URLs stay relative so the app works at any mount (public host root -> /app/).
 import { linkedTimeout } from './async.js';
 
 export class ApiError extends Error {

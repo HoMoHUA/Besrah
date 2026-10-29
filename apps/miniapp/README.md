@@ -29,7 +29,7 @@ never the working directory.
 * `/app` redirects to `/app/`; `/app/` and every other static file are served from a fixed allowlist (see CSP section).
 * `/app/api/stations` — station metadata, real line-1 order, `supportedLines: [1]`, `maxNearestKm: 10`.
 * `/app/api/next` — the exact handler of `/v1/next` (timing logic untouched).
-* All client URLs are relative, so the public mount `/besrah/` → `/app/` works unchanged.
+* All client URLs are relative, so the public host root `https://besrah.arklyn.ir/` → `/app/` works unchanged (the legacy `/besrah/` mount on the n8n host now redirects).
 * `assets/telegram-web-app.js` is the unmodified Telegram SDK; brand assets `logo.svg`, `icon-192.png`, `icon-512.png` come from the brand owner.
 
 ## Design rationale → HM7 components
@@ -166,7 +166,7 @@ PORT=3191 node packages/core/dist/index.js    # then open http://127.0.0.1:3191/
 Browser QA done for this version: widths 360/390/768/1440, dark and light; no console errors, no CSP violations,
 no horizontal overflow, all controls ≥ 44 px, text contrast measured on rendered pixels (≥ 4.5:1, large ≥ 3:1).
 Still needed from the integrating owner: a real Telegram client (iOS/Android/Desktop), the public proxy
-(`/besrah/` → `/app/`, `at=` rejection) and deployment of the whole `apps/miniapp` tree **including `vendor/`**.
+(host root → `/app/`, `at=` rejection) and deployment of the whole `apps/miniapp` tree **including `vendor/`**.
 
 ## Known gaps
 

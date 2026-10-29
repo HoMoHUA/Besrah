@@ -4,7 +4,7 @@ import { fa } from '../format.js';
 import { homeLayout, isLive } from '../services.js';
 import { createCarousel } from '../ui/carousel.js';
 import { h, icon, reducedMotion } from '../ui/dom.js';
-import { init, light, toast } from '../ui/hm7.js';
+import { init, toast } from '../ui/hm7.js';
 
 const RAMP_FROM = [63, 170, 164], RAMP_TO = [215, 255, 99];
 const tintAt = t => RAMP_FROM.map((v, i) => Math.round(v + (RAMP_TO[i] - v) * t)).join(', ');
@@ -79,7 +79,7 @@ export function createHomeView(ctx) {
       h('div', { class: 'lamp lamp--small' }, moreTile, h('span', { class: 'lamp__label', 'aria-hidden': 'true', onClick: () => moreTile.click(), text: 'بیشتر' }))));
 
   /* ── how estimates work (honest card, no promotion) ── */
-  const info = h('section', { class: 'cm-card cm-wash info-card rv', 'aria-labelledby': 'info-title' },
+  const info = h('section', { class: 'cm-card cm-wash info-card', 'aria-labelledby': 'info-title' },
     h('div', { class: 'info-card__art', 'aria-hidden': 'true' }, icon('calendar_badge_clock')),
     h('div', { class: 'info-card__body' },
       h('h2', { id: 'info-title', class: 'info-card__title', text: 'زمان ها چگونه برآورد می شوند؟' }),
@@ -131,7 +131,6 @@ export function createHomeView(ctx) {
     el: root,
     mount() {
       init(root);
-      light(hero, 200); light(lamps, 230);
     },
     focusHero() { carousel.goTo(0); hero.scrollIntoView({ block: 'nearest', behavior: reducedMotion() ? 'auto' : 'smooth' }); },
     onShow() { carousel.arm(); },
