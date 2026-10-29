@@ -1,0 +1,28 @@
+<!-- @dsCard group="Navigation" height=150 subtitle="بزنید یا عدسی را بکشید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>BottomNav — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div style="position:relative;margin:12px;height:120px;border-radius:var(--radius-22);overflow:hidden;background:linear-gradient(160deg,var(--accent-soft),var(--bg) 60%)">
+  <nav class="hm7-glass cm-frost hm7-tabs cm-bottom" id="tb" aria-label="منوی اصلی" style="position:absolute;left:12px;right:12px;bottom:12px">
+    <button class="hm7-tabs__item is-active"><i class="hms hms-house_fill" aria-hidden="true"></i>خانه</button>
+    <button class="hm7-tabs__item"><i class="hms hms-square_grid_2x2" aria-hidden="true"></i>دسته‌ها</button>
+    <button class="hm7-tabs__item" style="position:relative"><i class="hms hms-bag" aria-hidden="true"></i>سبد<span class="cm-count" data-n="3">۳</span></button>
+    <button class="hm7-tabs__item"><i class="hms hms-heart" aria-hidden="true"></i>علاقه‌مندی</button>
+    <button class="hm7-tabs__item"><i class="hms hms-person" aria-hidden="true"></i>حساب</button>
+  </nav>
+</div>
+<script>
+HM7.lensTabs(document.getElementById("tb"));
+</script>
+</body>
+</html>

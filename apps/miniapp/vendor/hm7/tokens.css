@@ -1,0 +1,116 @@
+/* HM7 Commerce — generated from tokens.json */
+@font-face { font-family: "AzarMehr"; src: url("fonts/AzarMehr-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "AzarMehr"; src: url("fonts/AzarMehr-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "AzarMehr"; src: url("fonts/AzarMehr-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "AzarMehr"; src: url("fonts/AzarMehr-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "AzarMehr"; src: url("fonts/AzarMehr-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "AzarMehr"; src: url("fonts/AzarMehr-Black.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "HMSymbol"; src: url("fonts/HMSymbol.woff2") format("woff2"); font-weight: 40 900; font-style: normal; font-display: block; }
+:root, [data-theme="light"] {
+  --font-sans: "AzarMehr", "Vazirmatn", "Dana", Tahoma, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --font-icon: "HMSymbol";
+  --bg: #eceefa;
+  --surface: #ffffff;
+  --surface-2: #f4f5fd;
+  --chip: #e1e4fb;
+  --line: #d4d7ef;
+  --ink: #14163a;
+  --muted: #5b5f8a;
+  --subtle: #8a8db3;
+  --accent: #2f33e6;
+  --accent-hi: #4a4ff7;
+  --accent-deep: #171aa6;
+  --accent-soft: #e4e5fd;
+  --on-accent: #ffffff;
+  --sale: #d0102a;
+  --sale-soft: #fff0f2;
+  --success: #067a66;
+  --success-soft: #ddf5ef;
+  --warning: #b45309;
+  --warning-soft: #fff1dc;
+  --rating: #d08300;
+  --night: #07071a;
+  --reveal-core: #707aff;
+  --reveal-mid: #7882fc;
+  --reveal-deep: #2f33e6;
+  --glass-fill: rgba(255,255,255,.62);
+  --scrim: rgba(20,22,58,.38);
+  --hm7-cobalt: #2f33e6;
+  --hm7-cobalt-hi: #4a4ff7;
+  --hm7-cobalt-lo: #171aa6;
+  --hm7-ribbon: #f3eeff;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-56: 56px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-22: 22px;
+  --radius-26: 26px;
+  --radius-32: 32px;
+  --radius-pill: 9999px;
+  --shadow-card: 0 1px 2px rgba(20,22,58,.06), 0 8px 24px -12px rgba(20,22,58,.18);
+  --shadow-raised: 0 2px 4px rgba(20,22,58,.06), 0 22px 44px -18px rgba(47,51,230,.32);
+  --shadow-frost: inset 0 0 0 1px rgba(255,255,255,.75), 0 0 0 1px rgba(20,22,58,.06), 0 12px 32px -14px rgba(20,22,58,.30);
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --container: 1240px;
+  --control-sm: 36px;
+  --control-md: 48px;
+  --control-lg: 56px;
+  --header-h: 64px;
+  --bottom-nav-h: 68px;
+  --z-sticky: 30;
+  --z-header: 40;
+  --z-sheet: 60;
+  --z-toast: 80;
+  --z-fly: 9999;
+}
+[data-theme="dark"] {
+  --bg: #090a1b;
+  --surface: #11132d;
+  --surface-2: #171a3a;
+  --chip: #1b1e45;
+  --line: #23264c;
+  --ink: #e8e9ff;
+  --muted: #9a9ecd;
+  --subtle: #6b6f9e;
+  --accent: #9a9eff;
+  --accent-hi: #b4b7ff;
+  --accent-deep: #5a5ee8;
+  --accent-soft: #1d2054;
+  --on-accent: #090a1b;
+  --sale: #ff6f7d;
+  --sale-soft: #3a1220;
+  --success: #6ff0d2;
+  --success-soft: #0d2e2a;
+  --warning: #ffbe4a;
+  --warning-soft: #33240c;
+  --rating: #ffc861;
+  --night: #04040f;
+  --reveal-core: #ffffff;
+  --reveal-mid: #aab4ff;
+  --reveal-deep: #787eff;
+  --glass-fill: rgba(17,19,45,.58);
+  --scrim: rgba(0,0,0,.6);
+  --shadow-card: inset 0 0 0 1px rgba(154,158,255,.10), 0 10px 26px -14px rgba(0,0,0,.7);
+  --shadow-raised: inset 0 0 0 1px rgba(154,158,255,.16), 0 24px 48px -18px rgba(0,0,0,.8);
+  --shadow-frost: inset 0 0 0 1px rgba(255,255,255,.10), 0 0 0 1px rgba(0,0,0,.3), 0 14px 34px -14px rgba(0,0,0,.75);
+}

@@ -1,0 +1,37 @@
+<!-- @dsCard group="Liquid glass" height=360 subtitle="حالت‌ها را عوض کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>GlassModes — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv">
+  <div class="cm-chips" id="md"></div>
+  <div style="position:relative;height:140px;border-radius:var(--radius-22);overflow:hidden;background:var(--surface)">
+    <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:10px"><i style="border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-hi))"></i><i style="border-radius:14px;background:var(--sale)"></i><i style="border-radius:14px;background:var(--success)"></i><i style="border-radius:14px;background:var(--warning)"></i><i style="border-radius:14px;background:var(--accent-deep)"></i><i style="border-radius:14px;background:var(--rating)"></i></div>
+    <header class="cm-frost cm-header" style="position:absolute;top:10px;left:10px;right:10px"><b class="cm-header__brand">نور</b><span style="flex:1;font-size:12px;color:var(--muted)">جستجو در فروشگاه نور</span><span class="cm-cartbtn" aria-hidden="true"><i class="hms hms-bag" aria-hidden="true"></i></span></header>
+    <div class="cm-frost" style="position:absolute;bottom:10px;left:10px;right:10px;border-radius:var(--radius-20);padding:10px 14px;font-size:13px;display:flex;justify-content:space-between"><b>به سبد افزوده شد</b><span style="color:var(--muted)">هدفون بی‌سیم</span></div>
+  </div>
+  <div class="hm7-stage" style="border-radius:var(--radius-22);padding:14px;display:flex;gap:10px;justify-content:center">
+    <button class="hm7-glass hm7-chip hm7-press" style="position:relative;z-index:2" aria-pressed="true">فقط موجود</button>
+    <button class="hm7-glass hm7-chip hm7-press" style="position:relative;z-index:2">ارسال فوری</button>
+  </div>
+</div>
+<script>
+var R = document.documentElement;
+[['transparency','reduce','شفافیت کمتر'],['contrast','more','کنتراست بیشتر']].forEach(function (m) {
+  var b = document.createElement('button'); b.className = 'cm-chip el'; b.setAttribute('aria-pressed', 'false'); b.textContent = m[2];
+  b.addEventListener('click', function () { var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); if (on) R.setAttribute('data-hm7-' + m[0], m[1]); else R.removeAttribute('data-hm7-' + m[0]); });
+  document.getElementById('md').appendChild(b);
+});
+HM7.init(document.body);
+</script>
+</body>
+</html>

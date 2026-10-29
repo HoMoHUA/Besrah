@@ -1,7 +1,57 @@
 <!doctype html>
-<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#092D2E"><title>Besrah · قطار بعدی</title><link rel="icon" href="assets/logo.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><script defer src="assets/telegram-web-app.js"></script><script type="module" src="app.js"></script></head>
-<body><div class="shell"><header class="masthead"><a class="brand" href="./" aria-label="Besrah، صفحه اصلی" dir="ltr"><img src="assets/logo.svg" width="44" height="44" alt=""><span>Besrah<span class="brand-sub">MASHHAD / METRO</span></span></a><span class="edition">مشهد<br>راهنمای قطار بعدی</span></header>
-<main><section class="intro"><p class="eyebrow">کمتر منتظر بمان.</p><h1>قطار بعدی،<br><span>همین ایستگاه.</span></h1><p class="lede">زمان تقریبی رسیدن قطارهای خط ۱ متروی مشهد</p></section>
-<div class="workspace"><section class="picker" aria-labelledby="picker-title"><div class="section-top"><h2 id="picker-title">ایستگاه شما</h2><span class="step" aria-hidden="true">01 /</span></div><button id="locate" class="location" disabled>◎ نزدیک ترین ایستگاه به من</button><p id="location-status" class="small" role="status">موقعیت فقط با اجازه شما، روی همین دستگاه بررسی می شود.</p><label for="search">نام ایستگاه را جستجو کنید</label><input id="search" type="search" placeholder="مثلاً شریعتی" autocomplete="off" disabled><label for="station">انتخاب ایستگاه</label><select id="station" disabled><option>در حال دریافت ایستگاه ها…</option></select><p id="match-count" class="small" role="status"></p><details class="route-details"><summary>مسیر خط ۱ <span>وکیل آباد ← فرودگاه</span></summary><p class="small">نمودار ترتیب ایستگاه هاست، نه نقشه جغرافیایی.</p><ol id="route" class="route"></ol></details></section>
-<section class="board" aria-labelledby="board-title"><div class="section-top"><span class="line-badge">۱</span><h2 id="board-title">تابلوی رسیدن</h2><button id="refresh" class="refresh" disabled aria-label="دریافت دوباره زمان قطارها">↻ تازه سازی</button></div><h3 id="selected-name">ایستگاه را انتخاب کنید</h3><p id="status" role="status" aria-live="polite">در حال دریافت اطلاعات…</p><p id="as-of" class="timestamp"></p><div id="arrivals" aria-busy="true"></div><ul id="notes" class="notes"></ul><div class="board-foot"><span class="signal" aria-hidden="true"></span>برآورد برنامه حرکت · نه موقعیت زنده قطار</div></section></div>
-<details class="about"><summary>درباره زمان ها و حریم خصوصی</summary><p>بِسراه یک راهنمای مستقل است. زمان ها از برنامه و سفرهای ثبت شده برآورد می شوند؛ تأخیر، تغییر سرویس یا اختلال ممکن است در آن ها منعکس نشده باشد. برای خط ۲ زمان رسیدن ارائه نمی شود.</p><p>موقعیت شما فقط برای یافتن نزدیک ترین ایستگاه در مرورگر استفاده می شود؛ مختصات به سرور ارسال یا ذخیره نمی شود. برنامه هویت تلگرام شما را احراز نمی کند. درخواست زمان فقط شامل نام ایستگاه است. اطلاعات تازه را با دکمه تازه سازی دریافت کنید؛ زمان نمایش داده شده شمارش معکوس زنده نیست.</p></details></main><footer><span dir="ltr">BESRAH — FIND YOUR NEXT.</span><span>خط ۱ · مشهد</span></footer></div></body></html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061C1D">
+<meta name="color-scheme" content="dark light">
+<title>Besrah · قطار بعدی مترو مشهد</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="vendor/hm7/fonts/AzarMehr-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="vendor/hm7/tokens.css">
+<link rel="stylesheet" href="skin.css">
+<link rel="stylesheet" href="vendor/hm7/components/bundle.css">
+<link rel="stylesheet" href="app.css">
+<script src="assets/telegram-web-app.js"></script>
+<script src="theme-boot.js"></script>
+<script defer src="vendor/hm7/components/bundle.js"></script>
+<script type="module" src="app.js"></script>
+</head>
+<body class="cm-page">
+<a class="skip-link" href="#main">رفتن به محتوا</a>
+<div class="app" id="app">
+  <div class="app-top" id="app-top">
+    <header class="cm-frost cm-header app-header" id="header">
+      <a class="app-brand" href="./" aria-label="Besrah، خانه"><img src="assets/logo.svg" width="40" height="40" alt=""></a>
+      <div class="app-search" id="search-host">
+        <label class="cm-search cm-inset app-search__field" for="q">
+          <i class="hms hms-magnifyingglass" aria-hidden="true"></i>
+          <input id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+            role="combobox" aria-expanded="false" aria-controls="suggest-list" aria-autocomplete="list" aria-label="جست وجوی ایستگاه" placeholder="جست وجوی ایستگاه ها">
+          <button class="cm-qty__b search-clear" id="q-clear" type="button" hidden aria-label="پاک کردن جست وجو"><i class="hms hms-xmark_circle_fill" aria-hidden="true"></i></button>
+        </label>
+        <div class="cm-menu app-suggest" id="suggest" hidden>
+          <div id="suggest-list" role="listbox" aria-label="پیشنهادهای ایستگاه"></div>
+        </div>
+        <p class="cm-sr" id="suggest-live" role="status" aria-live="polite"></p>
+      </div>
+      <button class="cm-cartbtn el app-menu-btn" id="menu-btn" type="button" aria-label="منو" aria-haspopup="menu" data-hm7-morph="menu"><i class="hms hms-line_3_horizontal" aria-hidden="true"></i></button>
+      <div class="cm-menu hm7-morph app-menu" id="menu" role="menu" aria-label="منو"><div class="hm7-morph__content" id="menu-content"></div></div>
+    </header>
+  </div>
+  <main class="app-main" id="main" tabindex="-1"><div class="app-panel" id="panel" role="tabpanel"></div></main>
+  <nav class="hm7-glass cm-frost hm7-tabs cm-bottom app-nav" id="nav" aria-label="منوی اصلی">
+    <button class="hm7-tabs__item is-active" type="button" data-view="home" aria-controls="panel"><i class="hms hms-house" aria-hidden="true"></i>خانه</button>
+    <button class="hm7-tabs__item" type="button" data-view="stations" aria-controls="panel"><i class="hms hms-subway" aria-hidden="true"></i>ایستگاه ها</button>
+    <button class="hm7-tabs__item hm7-tabs__item--hub" type="button" data-view="services" aria-controls="panel"><i class="hms hms-square_grid_2x2" aria-hidden="true"></i>سرویس ها</button>
+    <button class="hm7-tabs__item" type="button" data-view="favourites" aria-controls="panel"><i class="hms hms-heart" aria-hidden="true"></i>علاقه مندی ها</button>
+    <button class="hm7-tabs__item" type="button" data-view="about" aria-controls="panel"><i class="hms hms-info_circle" aria-hidden="true"></i>درباره</button>
+  </nav>
+</div>
+<div class="cm-toasts app-toasts" id="toasts" aria-label="اعلان ها"></div>
+<div id="sheet-root"></div>
+<p class="cm-sr" id="announce" role="status" aria-live="polite"></p>
+<noscript><p class="app-noscript">برای نمایش زمان قطارها جاوااسکریپت لازم است.</p></noscript>
+</body>
+</html>

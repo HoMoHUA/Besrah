@@ -1,0 +1,31 @@
+<!-- @dsCard group="Commerce" height=250 subtitle="کارت را بکشید و رها کنید؛ «کپی»" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>PromoWidget — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="hm7-stage" style="margin:10px;border-radius:var(--radius-26);padding:30px 16px;display:grid;place-items:center">
+  <div class="hm7-glass hm7-bcard" id="w" style="width:min(340px,100%);padding:16px 18px;display:flex;gap:16px;align-items:center;position:relative;z-index:2">
+    <div style="font-size:38px;font-weight:900;line-height:1">۲۰٪</div>
+    <div style="flex:1;min-width:0;display:grid;gap:4px"><b style="font-size:14px">کد تخفیف پاییز</b><span style="font-size:11px;color:rgba(255,255,255,.85)">برای خرید بالای ۲ میلیون تومان</span><span class="cm-mono" id="code" style="font-size:15px;font-weight:700">NOOR20</span></div>
+    <button class="hm7-glass hm7-chip hm7-press" id="cp" aria-label="کپی کد"><span class="im" style="width:16px;height:16px;font-size:15px"><i class="hms hms-doc_filled_on_doc on" aria-hidden="true"></i><i class="hms hms-checkmark off" aria-hidden="true"></i></span></button>
+  </div>
+</div>
+<script>
+HM7.bounceCard(document.getElementById('w'));
+document.getElementById('cp').addEventListener('click', function () {
+  try { navigator.clipboard.writeText('NOOR20').catch(function () {}); } catch (e) {}
+  var im = this.querySelector('.im'); HM7.ui.morph(im, false); this.setAttribute('aria-label', 'کپی شد');
+  var b = this; setTimeout(function () { HM7.ui.morph(im, true); b.setAttribute('aria-label', 'کپی کد'); }, 1600);
+});
+</script>
+</body>
+</html>

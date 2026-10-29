@@ -1,0 +1,29 @@
+<!-- @dsCard group="Foundations" height=250 subtitle="فشار دهید؛ «پرداخت» را بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Buttons — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv">
+  <div class="row"><button class="cm-btn el rv" id="pay">پرداخت</button><button class="cm-btn cm-btn--ghost el rv">ادامهٔ خرید</button><button class="cm-btn cm-btn--line el">جزئیات</button><button class="cm-btn cm-btn--sale el rv"><i class="hms hms-flame_fill" aria-hidden="true"></i>خرید در حراج</button></div>
+  <div class="row"><button class="cm-btn cm-btn--sm el">کوچک</button><button class="cm-btn cm-btn--lg el rv"><i class="hms hms-bag" aria-hidden="true"></i>افزودن به سبد</button><button class="cm-btn cm-btn--ghost cm-btn--icon el" aria-label="اشتراک"><i class="hms hms-share" aria-hidden="true"></i></button><button class="cm-btn" disabled>ناموجود</button></div>
+  <button class="cm-btn cm-btn--block el rv" style="max-width:420px">ثبت سفارش</button>
+</div>
+<script>
+var pay = document.getElementById('pay');
+pay.addEventListener('click', function () {
+  pay.setAttribute('aria-busy', 'true');
+  setTimeout(function () { pay.removeAttribute('aria-busy'); pay.innerHTML = '<i class="hms hms-checkmark" aria-hidden="true"></i>پرداخت شد'; }, 1400);
+});
+HM7.init(document.body);
+</script>
+</body>
+</html>

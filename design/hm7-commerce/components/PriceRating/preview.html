@@ -1,0 +1,25 @@
+<!-- @dsCard group="Commerce" height=230 subtitle="روی قیمت بزرگ بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>PriceRating — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));align-items:start">
+  <div class="cm-card" style="padding:14px;display:grid;gap:8px"><span class="cap">عادی</span><div class="cm-price"><span class="cm-price__now"><b>۳٬۲۹۰٬۰۰۰</b><small>تومان</small></span></div><div class="cm-rating"><span class="cm-stars" style="--r:4.3" aria-hidden="true"><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><span class="cm-stars__fill"><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i></span></span><span>۴٫۳</span><span>(۵۴۰ نظر)</span></div></div>
+  <div class="cm-card" style="padding:14px;display:grid;gap:8px"><span class="cap">تخفیف‌دار</span><div class="cm-price cm-price--sale"><span class="cm-price__was"><s>۵٬۸۹۰٬۰۰۰</s><span class="cm-badge cm-badge--sale">۱۶٪</span></span><span class="cm-price__now"><b>۴٬۸۹۰٬۰۰۰</b><small>تومان</small></span></div></div>
+  <div class="cm-card" style="padding:14px;display:grid;gap:8px"><span class="cap">صفحهٔ محصول</span><button id="big" style="all:unset;cursor:pointer"><div class="cm-price cm-price--lg"><span class="cm-price__now"><b id="bv">۴٬۸۹۰٬۰۰۰</b><small>تومان</small></span></div></button><span class="cap">با هر لمس یک عدد بیشتر</span></div>
+</div>
+<script>
+var q = 1, bv = document.getElementById('bv');
+document.getElementById('big').addEventListener('click', function () { q = q % 4 + 1; HM7.shop.roll(bv, HM7.shop.money(4890000 * q, { unit: false })); });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- @dsCard group="Foundations" height=320 subtitle="نشانگر را روی صحنه حرکت دهید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Stage — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="hm7-stage" id="st" style="margin:12px;border-radius:var(--radius-32);padding:30px 24px;display:grid;gap:16px;min-height:270px;align-content:center">
+  <div style="position:relative;z-index:2;display:grid;gap:6px;max-width:420px">
+    <span class="cap" style="color:rgba(255,255,255,.8)">فقط تا پایان هفته</span>
+    <div style="font-size:34px;font-weight:900;line-height:1.25">حراج پاییزه</div>
+    <div style="font-size:14px;color:rgba(255,255,255,.86)">تا ۴۰٪ تخفیف روی هدفون، ساعت و کفش ورزشی</div>
+  </div>
+  <div class="row" style="position:relative;z-index:2">
+    <button class="hm7-btn hm7-btn--primary hm7-press">مشاهدهٔ حراج</button>
+    <button class="hm7-glass hm7-btn hm7-press">بعداً</button>
+  </div>
+  <div class="row" style="position:relative;z-index:2">
+    <button class="hm7-glass hm7-chip hm7-press" data-hm7-toggle aria-pressed="false">هدفون</button>
+    <button class="hm7-glass hm7-chip hm7-press" data-hm7-toggle aria-pressed="true">ساعت هوشمند</button>
+    <button class="hm7-glass hm7-chip hm7-press" data-hm7-toggle aria-pressed="false">کفش</button>
+  </div>
+</div>
+<script>
+HM7.light(document.getElementById("st"), { radius: 220 });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!-- @dsCard group="Navigation" height=460 subtitle="روی یک محصول بزنید، بعد «بازگشت»" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>PageTransition — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div style="display:grid;place-items:center;padding:14px">
+<div style="position:relative;width:340px;max-width:100%;height:430px;border-radius:30px;overflow:hidden;background:var(--bg);box-shadow:var(--shadow-raised)">
+  <div class="page p-idle" id="pm" style="background:var(--bg)">
+    <div style="padding:14px 14px 6px;font-size:20px;font-weight:800">هدفون و صوتی</div>
+    <div id="list" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 12px"></div>
+  </div>
+  <div class="page p-off-r" id="pc" style="background:var(--bg)">
+    <div style="display:flex;align-items:center;padding:10px 12px"><button class="cm-btn cm-btn--ghost cm-btn--sm el" id="back"><i class="hms hms-chevron_right" aria-hidden="true"></i>بازگشت</button></div>
+    <div class="st cm-product__media" id="hero" style="margin:0 12px;border-radius:22px"><i class="hms hms-headphones_fill cm-product__art" id="ha" aria-hidden="true" style="font-size:96px"></i></div>
+    <div class="st" style="padding:12px 14px 0;font-size:18px;font-weight:800" id="ht">هدفون</div>
+    <div class="st" style="padding:4px 14px"><div class="cm-rating"><span class="cm-stars" style="--r:4.6"><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><span class="cm-stars__fill"><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i><i class="hms hms-star_fill"></i></span></span>۴٫۶</div></div>
+    <div class="st" style="padding:8px 14px;display:flex;justify-content:space-between;align-items:center"><div class="cm-price"><span class="cm-price__now"><b id="hp">۴٬۸۹۰٬۰۰۰</b><small>تومان</small></span></div><button class="cm-btn cm-btn--sm el">افزودن به سبد</button></div>
+  </div>
+</div></div>
+<script>
+var D = [['هدفون بی‌سیم','headphones_fill','47,51,230',4890000],['اسپیکر هوشمند','smart_speaker_fill','6,122,102',2390000],['هدفون گیمینگ','gamecontroller','208,16,42',3150000],['ایرفون اسپرت','music','180,83,9',1290000]];
+var list = document.getElementById('list'), pg = HM7.ui.pages(), pm = document.getElementById('pm'), pc = document.getElementById('pc');
+D.forEach(function (d) {
+  var c = document.createElement('button'); c.className = 'cm-product el'; c.style.cssText = 'border:0;text-align:start;font:inherit;cursor:pointer;padding:8px';
+  c.innerHTML = '<div class="cm-product__media" style="--tint:' + d[2] + '"><i class="hms hms-' + d[1] + ' cm-product__art" aria-hidden="true" style="font-size:44px"></i></div><div class="cm-product__title">' + d[0] + '</div><div class="cm-price"><span class="cm-price__now"><b style="font-size:14px">' + HM7.shop.money(d[3], { unit: false }) + '</b><small>تومان</small></span></div>';
+  c.addEventListener('click', function () {
+    document.getElementById('ht').textContent = d[0]; document.getElementById('hp').textContent = HM7.shop.money(d[3], { unit: false });
+    document.getElementById('hero').style.setProperty('--tint', d[2]); document.getElementById('ha').className = 'hms hms-' + d[1] + ' cm-product__art';
+    pg.open(pm, pc, { stagger: '.st' });
+  });
+  list.appendChild(c);
+});
+document.getElementById('back').addEventListener('click', function () { pg.back(pm, pc); });
+HM7.init(document.body);
+</script>
+</body>
+</html>

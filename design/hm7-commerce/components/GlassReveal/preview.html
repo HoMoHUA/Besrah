@@ -1,0 +1,39 @@
+<!-- @dsCard group="v1.6 interactions" height=290 subtitle="نشانگر را بین کارت‌ها ببرید؛ کارت تازه هم خودکار وصل می‌شود" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>GlassReveal — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 12px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.tile { padding: 16px; display: grid; gap: 8px; justify-items: center; }
+.tile b { font-size: 13px; }
+.cap { font-size: 11px; color: var(--muted); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+button { font-family: inherit; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv">
+  <div class="grid" id="g">
+    <div class="cm-card rv tile"><i class="hms hms-headphones_fill" aria-hidden="true" style="font-size:30px;color:var(--accent)"></i><b>صوتی</b></div>
+    <div class="cm-card rv tile" data-reveal="full"><i class="hms hms-watch" aria-hidden="true" style="font-size:30px;color:var(--accent)"></i><b>ساعت (full)</b></div>
+    <div class="cm-card rv is-fail tile"><i class="hms hms-exclamationmark_triangle_fill" aria-hidden="true" style="font-size:30px;color:var(--sale)"></i><b>وضعیت خطا</b></div>
+  </div>
+  <div class="row">
+    <button class="cm-btn rv el" id="add">افزودن کارت</button>
+    <button class="cm-btn cm-btn--ghost rv el">دکمهٔ ثانویه</button>
+    <span class="cap">کارت‌های تازه با <code>HM7.ui.autoReveal</code> خودکار نور می‌گیرند</span>
+  </div>
+</div>
+<script>
+HM7.init(document.body);
+HM7.ui.autoReveal(document.body);
+var n = 0, g = document.getElementById('g');
+document.getElementById('add').addEventListener('click', function () {
+  n++;
+  g.insertAdjacentHTML('beforeend', '<div class="cm-card rv tile"><i class="hms hms-gift_fill" aria-hidden="true" style="font-size:30px;color:var(--accent)"></i><b>تازه ' + HM7.shop.fa(n) + '</b></div>');
+});
+</script>
+</body>
+</html>

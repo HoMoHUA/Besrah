@@ -1,0 +1,35 @@
+<!-- @dsCard group="Commerce" height=320 subtitle="محصول را روی کیف بکشید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>DropToCart — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="hm7-stage" id="st" style="border-radius:var(--radius-26);margin:10px;padding:30px 16px 46px;display:grid;place-items:center">
+  <div style="display:grid;grid-template-columns:auto auto;gap:24px 40px;align-items:center;position:relative;z-index:2">
+    <div style="display:grid;justify-items:center;gap:8px"><div class="hm7-glass hm7-folder" style="--ms:38px" aria-label="سبد سریع">
+      <div class="hm7-folder__slot"></div><div class="hm7-folder__slot"></div><div class="hm7-folder__slot"></div><div class="hm7-folder__slot"></div><div class="hm7-folder__slot"></div><div class="hm7-folder__slot"></div>
+    </div><span style="font-size:12px">سبد سریع · <b id="n">۰</b> کالا</span></div>
+    <div style="display:grid;grid-template-columns:repeat(2,58px);gap:16px">
+      <div class="hm7-icon" data-drag style="--s:58px;--glow:170,180,255;border-radius:18px;background:linear-gradient(135deg,#4a4ff7,#171aa6)" aria-label="هدفون"><i class="hms hms-headphones_fill" aria-hidden="true"></i></div>
+      <div class="hm7-icon" data-drag style="--s:58px;--glow:111,240,210;border-radius:18px;background:linear-gradient(135deg,#0aa58a,#065b4c)" aria-label="ساعت"><i class="hms hms-watch" aria-hidden="true"></i></div>
+      <div class="hm7-icon" data-drag style="--s:58px;--glow:255,111,125;border-radius:18px;background:linear-gradient(135deg,#ff4d61,#a30d22)" aria-label="کفش"><i class="hms hms-shoe" aria-hidden="true"></i></div>
+      <div class="hm7-icon" data-drag style="--s:58px;--glow:255,190,74;border-radius:18px;background:linear-gradient(135deg,#ff9f1a,#b45309)" aria-label="هدیه"><i class="hms hms-gift_fill" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <button id="rs" class="hm7-glass hm7-press hm7-chip" style="position:absolute;bottom:12px;left:12px;z-index:3">از نو</button>
+</div>
+<script>
+var n = 0, out = document.getElementById('n');
+var h = HM7.iconDrag(document.getElementById('st'), { onDrop: function () { n++; HM7.shop.roll(out, HM7.shop.fa(n)); } });
+document.getElementById('rs').addEventListener('click', function () { h.reset(); n = 0; HM7.shop.roll(out, '۰'); });
+</script>
+</body>
+</html>

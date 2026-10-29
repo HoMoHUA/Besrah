@@ -1,0 +1,40 @@
+<!-- @dsCard group="Commerce" height=430 subtitle="تعداد را عوض کنید و «افزودن به سبد»" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>BuyBox — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:start;position:relative">
+  <div class="cm-product__media" id="art" style="--tint:47,51,230;border-radius:var(--radius-22)"><i class="hms hms-headphones_fill cm-product__art" aria-hidden="true" style="font-size:110px"></i></div>
+  <div class="cm-card" style="padding:16px;display:grid;gap:12px">
+    <div class="row" style="justify-content:space-between"><div class="row" style="gap:6px"><span class="cm-badge cm-badge--sale">۱۷٪ تخفیف</span><span class="cm-badge cm-badge--ok">ارسال رایگان</span></div><button class="cm-cartbtn el" data-cm-cart id="cart" aria-label="سبد خرید"><i class="hms hms-bag" aria-hidden="true"></i><span class="cm-count" data-n="1">۱</span></button></div>
+    <b style="font-size:16px">هدفون بی‌سیم نویزکنسلینگ</b>
+    <div class="cm-price cm-price--lg cm-price--sale"><span class="cm-price__was"><s>۵٬۸۹۰٬۰۰۰</s></span><span class="cm-price__now"><b id="tot">۴٬۸۹۰٬۰۰۰</b><small>تومان</small></span></div>
+    <div class="row" style="justify-content:space-between"><span style="font-size:13px;font-weight:600">تعداد</span><div id="q" aria-label="تعداد"></div></div>
+    <div class="cm-qty__note" id="note" aria-live="polite"></div>
+    <button class="cm-btn cm-btn--lg cm-btn--block el rv" id="add"><i class="hms hms-bag" aria-hidden="true"></i>افزودن به سبد</button>
+    <div style="display:grid;gap:6px;font-size:12px;color:var(--muted)"><span><i class="hms hms-truck_box_fill" aria-hidden="true" style="color:var(--accent)"></i> ارسال از فردا</span><span><i class="hms hms-checkmark_shield_fill" aria-hidden="true" style="color:var(--success)"></i> گارانتی ۱۸ ماههٔ اصلی</span></div>
+  </div>
+  <div class="cm-toasts" id="th" style="position:absolute;top:8px;left:16px;right:16px;z-index:5"></div>
+</div>
+<script>
+var S = HM7.shop, cart = document.getElementById('cart'), cnt = cart.querySelector('.cm-count'), note = document.getElementById('note'), n = 1;
+var q = S.qty(document.getElementById('q'), { min: 1, max: 3, onChange: function (v) { note.textContent = ''; S.roll(document.getElementById('tot'), S.money(4890000 * v, { unit: false })); }, onMax: function () { note.textContent = 'در حراج حداکثر ۳ عدد برای هر مشتری'; } });
+document.getElementById('add').addEventListener('click', function () {
+  S.fly(document.getElementById('art'), cart, { onArrive: function () {
+    n += q.value; cnt.setAttribute('data-n', n); S.roll(cnt, S.fa(n));
+    S.toast(document.getElementById('th'), { title: 'به سبد افزوده شد', text: S.fa(q.value) + ' × هدفون بی‌سیم نویزکنسلینگ', icon: 'checkmark_circle_fill', tint: '6,122,102', action: 'مشاهدهٔ سبد', colors: '47,51,230|170,180,255' });
+  } });
+});
+HM7.init(document.body);
+</script>
+</body>
+</html>

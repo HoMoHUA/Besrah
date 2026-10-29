@@ -1,0 +1,30 @@
+<!-- @dsCard group="Navigation" height=240 subtitle="محتوای زیر هدر را اسکرول کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Header — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div style="position:relative;height:210px;margin:12px;border-radius:var(--radius-22);overflow:hidden;background:var(--bg)">
+  <div id="sc" class="hm7-scroll-edge" style="--hm7-edge-top:86px;position:absolute;inset:0;overflow:auto;padding:76px 12px 12px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:110px;gap:10px;align-content:start"></div>
+  <header class="cm-frost cm-header" style="position:absolute;top:10px;left:10px;right:10px;z-index:2">
+    <button class="cm-cartbtn el" aria-label="منو" style="background:none"><i class="hms hms-line_3_horizontal" aria-hidden="true"></i></button>
+    <span class="cm-header__brand">نور</span>
+    <label class="cm-search cm-inset" style="flex:1;min-height:40px;border-radius:var(--radius-pill)"><i class="hms hms-magnifyingglass" aria-hidden="true"></i><input placeholder="جستجو در فروشگاه نور" aria-label="جستجو"></label>
+    <button class="cm-cartbtn el" data-cm-cart aria-label="سبد خرید"><i class="hms hms-bag" aria-hidden="true"></i><span class="cm-count" data-n="2">۲</span></button>
+  </header>
+</div>
+<script>
+var sc = document.getElementById('sc'), G = [['headphones_fill','47,51,230'],['watch','6,122,102'],['shoe','208,16,42'],['gift_fill','180,83,9'],['cup_fill','23,26,166'],['gamecontroller','91,95,138']];
+for (var i = 0; i < 12; i++) { var g = G[i % G.length]; sc.insertAdjacentHTML('beforeend', '<div class="cm-product__media" style="--tint:' + g[1] + ';border-radius:16px;aspect-ratio:auto;height:110px"><i class="hms hms-' + g[0] + ' cm-product__art" aria-hidden="true" style="font-size:40px"></i></div>'); }
+HM7.init(document.body);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- @dsCard group="v1.6 interactions" height=280 subtitle="تنظیمات سفارش" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Switch — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:460px"><div id="sw" style="display:flex;flex-direction:column;gap:8px"></div></div>
+<script>
+[['بسته‌بندی هدیه','با کارت تبریک دست‌نویس — ۴۵٬۰۰۰ تومان','gift_fill','var(--sale)',0],['موجود شد، خبرم کن','پیامک و اعلان در لحظهٔ موجود شدن','bell_fill','var(--warning)',1],['ارسال سبز','بدون پلاستیک، بسته‌بندی کاغذی','leaf_fill','var(--success)',0]].forEach(function (d) {
+  var e = document.createElement('div'); e.className = 'sw-wrap' + (d[4] ? ' on' : '');
+  e.innerHTML = '<div class="sw-track"><div class="sw-knob"><div class="sw-ico"><i class="hms hms-checkmark_circle_fill off-s" style="font-size:13px"></i><i class="hms hms-checkmark_circle_fill on-s" style="font-size:13px"></i></div></div></div><div style="flex:1"><div class="sw-label">' + d[0] + '</div><div style="font-size:11px;color:var(--muted);margin-top:1px">' + d[1] + '</div></div><i class="hms hms-' + d[2] + '" aria-hidden="true" style="font-size:18px;color:' + d[3] + '"></i>';
+  document.getElementById('sw').appendChild(e);
+});
+HM7.init(document.body);
+</script>
+</body>
+</html>

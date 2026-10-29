@@ -1,112 +1,259 @@
-import { normalize, nearestStation, groupPasses, requestPosition } from './logic.js';
-const $ = id => document.getElementById(id);
-const number = value => new Intl.NumberFormat('fa-IR').format(value);
-let metadata, selected, controller, sequence = 0;
-const tg = window.Telegram?.WebApp;
-try { tg?.ready(); tg?.expand(); tg?.setHeaderColor?.('#092D2E'); tg?.setBackgroundColor?.('#F3F5EF'); } catch { /* Older Telegram clients can use the normal web shell. */ }
-function node(tag, text, className) {
-  const element = document.createElement(tag);
-  if (text !== undefined) element.textContent = text;
-  if (className) element.className = className;
-  return element;
-}
-async function request(path, signal) {
-  const response = await fetch(path, {signal, cache:'no-store', credentials:'omit'});
-  if (!response.ok) throw new Error('request_failed');
-  return response.json();
-}
-function options(query = '') {
-  const matches = metadata.stations.filter(s => normalize(s.name).includes(normalize(query)));
-  $('station').replaceChildren();
-  const prompt = node('option', matches.length ? 'یک ایستگاه انتخاب کنید' : 'ایستگاهی پیدا نشد');
-  prompt.value = ''; $('station').append(prompt);
-  for (const station of matches) {
-    const option = node('option', station.name + (station.lines.includes(1) ? '' : ' · خط ۲، بدون زمان رسیدن'));
-    option.value = station.id; $('station').append(option);
-  }
-  if (selected && matches.some(s=>s.id===selected.id)) $('station').value = selected.id;
-  $('match-count').textContent = number(matches.length) + ' ایستگاه';
-}
-function schematic() {
-  $('route').replaceChildren();
-  for (const name of metadata.line1Order) {
-    const li=node('li'); const button=node('button',name);
-    if (selected?.name === name) { button.setAttribute('aria-current','true'); li.className='current'; }
-    button.addEventListener('click',()=> {
-      $('search').value=''; options(); choose(metadata.stations.find(s=>s.name===name));
-    });
-    li.append(button); $('route').append(li);
-  }
-}
-function choose(station) {
-  if (!station) return;
-  selected=station; $('station').value=station.id; schematic(); load();
-}
-async function load() {
-  controller?.abort(); const current=++sequence;
-  $('arrivals').replaceChildren(); $('notes').replaceChildren(); $('as-of').textContent='';
-  $('selected-name').textContent=selected.name;
-  document.querySelector('.line-badge').textContent=selected.lines.includes(1)?'۱':'۲';
-  $('refresh').disabled=false;
-  if (!selected.lines.includes(1)) {
-    $('status').textContent='این ایستگاه روی خط ۲ است. زمان رسیدن خط ۲ هنوز در دسترس نیست.';
-    $('arrivals').setAttribute('aria-busy','false'); return;
-  }
-  $('status').textContent='در حال دریافت زمان های تازه…'; $('arrivals').setAttribute('aria-busy','true');
-  controller=new AbortController(); const active=controller;
-  const timeout=setTimeout(()=>active.abort(),15000);
-  try {
-    const data=await request('api/next?station='+encodeURIComponent(selected.name)+'&limit=10',active.signal);
-    if(current!==sequence) return;
-    $('status').textContent=data.passes.length ? 'زمان ها تقریبی هستند؛ پیش از حرکت دوباره بررسی کنید.' : 'قطاری در این ساعت ثبت نشده؛ ممکن است خارج از ساعت سرویس باشد.';
-    $('as-of').textContent='آخرین دریافت: '+data.as_of+' · به وقت تهران';
-    for(const [toward,passes] of groupPasses(data.passes)) {
-      const group=node('section',undefined,'arrival-group');
-      group.append(node('h4',toward.startsWith('ورودی')?toward:'به سمت '+toward));
-      const list=node('ol',undefined,'passes');
-      for(const [index,pass] of passes.entries()) {
-        const row=node('li',undefined,index===0?'next-pass':'later-pass');
-        const eta=node('div',undefined,'eta');
-        eta.append(node('strong',pass.eta_min===0?'اکنون':number(pass.eta_min)));
-        if(pass.eta_min!==0) eta.append(node('span','دقیقه'));
-        const timing=node('div',undefined,'timing'); timing.append(node('span',index===0?'قطار بعدی':'پس از آن'),node('bdi',pass.arrive));
-        row.append(eta,timing); list.append(row);
-      }
-      group.append(list); $('arrivals').append(group);
-    }
-    for(const note of data.notes) $('notes').append(node('li',note));
-  } catch(error) {
-    if(current!==sequence) return;
-    $('status').textContent='زمان تازه دریافت نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.';
-  } finally {
-    clearTimeout(timeout);
-    if(current===sequence) $('arrivals').setAttribute('aria-busy','false');
-  }
-}
-$('refresh').addEventListener('click',()=>selected?load():initialize());
-$('station').addEventListener('change',()=>choose(metadata.stations.find(s=>s.id===$('station').value)));
-$('search').addEventListener('input',()=>options($('search').value));
-$('locate').addEventListener('click', async () => {
-  $('locate').disabled=true; $('location-status').textContent='در انتظار اجازه موقعیت مکانی…';
-  try {
-    const coordinates=await requestPosition(tg, navigator.geolocation);
-    const nearest=nearestStation(metadata.stations,coordinates.latitude,coordinates.longitude,metadata.maxNearestKm);
-    if(!nearest) { $('location-status').textContent='در فاصله ۱۰ کیلومتری شما ایستگاهی در داده ها پیدا نشد. ایستگاه را دستی انتخاب کنید.'; return; }
-    $('location-status').textContent='نزدیک ترین ایستگاه: '+nearest.station.name+' · حدود '+number(Math.round(nearest.km*1000))+' متر، فاصله مستقیم؛ نه مسیر پیاده روی.';
-    $('search').value=''; options(); choose(nearest.station);
-  } catch {
-    $('location-status').textContent='دسترسی به موقعیت ممکن نشد. ایستگاه را دستی انتخاب کنید.';
-  } finally { $('locate').disabled=false; }
+// Besrah Mini App entry. Vanilla ES modules, no build step. The page is a super-app style home built from the
+// HM7 Commerce design system; all data comes from api/stations and api/next (schedule-based estimates).
+import { createApi } from './api.js';
+import { createSequencer } from './async.js';
+import { nearestStation, requestPosition } from './logic.js';
+import { createState } from './state.js';
+import { createStore } from './store.js';
+import { createTelegram } from './tg.js';
+import { createSheetHost } from './ui/sheet.js';
+import { createSearchBox } from './ui/searchbox.js';
+import { createStationSheet } from './ui/station.js';
+import { $, h, icon, reducedMotion } from './ui/dom.js';
+import { autoReveal, bridgeHaptics, init, lensTabs, morph, progressiveBlur, setToastHost, toast } from './ui/hm7.js';
+import { createAboutView } from './views/about.js';
+import { createFavouritesView } from './views/favourites.js';
+import { createHomeView } from './views/home.js';
+import { createServicesView, roadmapList } from './views/services.js';
+import { createStationsView } from './views/stations.js';
+import { lineLabel } from './format.js';
+
+const VIEWS = ['home', 'stations', 'services', 'favourites', 'about'];
+const TITLES = { home: 'خانه', stations: 'ایستگاه ها', services: 'سرویس ها', favourites: 'علاقه مندی ها', about: 'درباره' };
+
+const tg = createTelegram(window);
+tg.start();
+
+const safeStorage = (() => { try { return window.localStorage; } catch { return undefined; } })();
+const store = createStore(safeStorage);
+const api = createApi();
+const state = createState({
+  status: 'loading', stations: [], order: [], maxKm: 10, view: 'home',
+  nearest: { phase: 'idle' }, recent: null, asOf: null,
 });
-async function initialize() {
-  $('status').textContent='در حال دریافت ایستگاه ها…';
-  try {
-    metadata=await request('api/stations',AbortSignal.timeout(15000));
-    options(); $('station').disabled=false; $('search').disabled=false; $('locate').disabled=false;
-    choose(metadata.stations.find(s=>s.name===metadata.line1Order[0]));
-  } catch {
-    $('status').textContent='دریافت ایستگاه ها ممکن نشد. اتصال را بررسی کنید و تازه سازی را بزنید.';
-    $('arrivals').setAttribute('aria-busy','false'); $('refresh').disabled=false;
-  }
+const boardSeq = createSequencer();   // nearest-station board
+const heroSeq = createSequencer();    // last-viewed / favourite summary
+const stationsSeq = createSequencer();
+
+const appEl = $('#app'), panel = $('#panel'), nav = $('#nav');
+setToastHost($('#toasts'));
+const announce = text => { const el = $('#announce'); el.textContent = ''; setTimeout(() => { el.textContent = text; }, 30); };
+
+/* ── theme ── */
+const themeApi = window.BesrahTheme;
+function syncTelegramColors() {
+  const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+  tg.applyColors({ header: bg, background: bg, bottom: bg });
 }
-initialize();
+function applyTheme(pref = store.themePref()) {
+  themeApi?.apply(pref);
+  syncTelegramColors();
+  views.about?.syncTheme(pref);
+  paintMenu();
+}
+function setTheme(pref) { store.setThemePref(pref); applyTheme(pref); }
+tg.onThemeChanged(() => { if (store.themePref() === 'auto') applyTheme('auto'); });
+matchMedia('(prefers-color-scheme: light)').addEventListener?.('change', () => { if (store.themePref() === 'auto') applyTheme('auto'); });
+syncTelegramColors();
+
+/* ── sheets ── */
+const sheet = createSheetHost({ root: $('#sheet-root'), appEl, onChange: () => updateBack() });
+const stationSheet = createStationSheet({
+  sheet, api, store,
+  getStations: () => state.get().stations,
+  getOrder: () => state.get().order,
+  onBoard(name, data) {
+    const patch = { asOf: data.as_of };
+    const { recent } = state.get();
+    if (recent?.station === name) patch.recent = { ...recent, phase: 'ok', board: data };
+    state.set(patch);
+  },
+  onRecent(name) {
+    const { recent } = state.get();
+    state.set({ recent: { station: name, source: 'last', phase: recent?.station === name ? recent.phase : 'loading', board: recent?.station === name ? recent.board : undefined } });
+  },
+});
+
+function unsupported(station) {
+  toast({ title: `${station.name}، ${lineLabel(station.lines)}`, text: 'زمان رسیدن خط ۲ هنوز ساخته نشده است.', icon: 'info_circle_fill', life: 4200 });
+}
+function openStation(name) {
+  const station = state.get().stations.find(s => s.name === name);
+  if (!station) return;
+  if (!station.lines.includes(1)) return unsupported(station);
+  stationSheet.show(name);
+}
+function openRoadmap() {
+  const content = h('div', { class: 'station roadmap' },
+    h('div', { class: 'station__head' },
+      h('div', { class: 'station__titles' }, h('h2', { class: 'station__name', id: 'road-title', tabindex: '-1', 'data-autofocus': '', text: 'سرویس های بعدی' }),
+        h('p', { class: 'station__sub', text: 'هنوز ساخته نشده اند و تاریخی برایشان اعلام نشده است.' })),
+      h('button', { class: 'cm-icon-btn cm-frost station__close el', type: 'button', 'aria-label': 'بستن', onClick: () => sheet.close() }, icon('xmark'))),
+    h('div', { class: 'station__scroll' }, roadmapList()));
+  sheet.open(content, { labelledBy: 'road-title' });
+  init(content);
+}
+
+/* ── routing between the five tabs ── */
+const views = {};
+function transition(update, forward) {
+  if (!document.startViewTransition || reducedMotion()) { update(); return; }
+  document.documentElement.dataset.vt = forward ? 'forward' : 'back';
+  const t = document.startViewTransition(update);
+  t.finished.finally(() => { delete document.documentElement.dataset.vt; });
+}
+let lens = null;
+function go(view, options = {}) {
+  if (!VIEWS.includes(view)) return;
+  const prev = state.get().view;
+  const show = () => {
+    panel.replaceChildren(views[view].el);
+    panel.setAttribute('aria-label', TITLES[view]);
+    state.set({ view });
+    views[view].onShow?.(options);
+    window.scrollTo(0, 0);
+    document.title = `${TITLES[view]} · Besrah`;
+    updateBack();
+  };
+  lens?.select(VIEWS.indexOf(view), true);
+  if (view === prev) { views[view].onShow?.(options); window.scrollTo(0, 0); return; }
+  transition(show, VIEWS.indexOf(view) > VIEWS.indexOf(prev));
+}
+
+function updateBack() {
+  const needed = sheet.isOpen || state.get().view !== 'home';
+  tg.setBack(needed ? onBack : null);
+}
+function onBack() {
+  if (sheet.isOpen) sheet.close();
+  else if (state.get().view !== 'home') go('home');
+}
+
+/* ── nearest station: coordinates stay in this function and are never sent or stored ── */
+let locating = false;
+async function locate() {
+  const s = state.get();
+  if (locating) return;
+  if (s.status !== 'ready') {
+    if (s.status === 'error') return reload();
+    return toast({ title: 'فهرست ایستگاه ها در حال دریافت است', text: 'چند لحظه بعد دوباره امتحان کنید.', icon: 'info_circle_fill' });
+  }
+  locating = true;
+  if (state.get().view !== 'home') go('home');
+  views.home.focusHero();
+  boardSeq.cancel();
+  state.set({ nearest: { phase: 'loading' } });
+  let code = null;
+  const geo = navigator.geolocation && { getCurrentPosition: (ok, fail, opts) => navigator.geolocation.getCurrentPosition(ok, error => { code = error?.code ?? null; fail(error); }, opts) };
+  try {
+    const { latitude, longitude } = await requestPosition(tg.inTelegram ? tg.app : undefined, geo);
+    const hit = nearestStation(s.stations, latitude, longitude, s.maxKm);
+    if (!hit) { state.set({ nearest: { phase: 'error', reason: 'too_far' } }); announce('ایستگاهی در نزدیکی شما پیدا نشد'); return; }
+    const station = { name: hit.station.name, lines: hit.station.lines };
+    state.set({ nearest: { phase: 'ok', station, km: hit.km, boardPhase: station.lines.includes(1) ? 'loading' : undefined } });
+    announce(`نزدیک ترین ایستگاه ${station.name}`);
+    if (station.lines.includes(1)) {
+      const result = await boardSeq.run(signal => api.next(station.name, { signal, limit: 10 }));
+      if (result.stale) return;
+      const nearest = state.get().nearest;
+      if (result.ok) state.set({ nearest: { ...nearest, boardPhase: 'ok', board: result.value }, asOf: result.value.as_of });
+      else state.set({ nearest: { ...nearest, boardPhase: 'error' } });
+    }
+  } catch {
+    const denied = code === 1 || (tg.inTelegram && tg.app?.LocationManager?.isInited && tg.app.LocationManager.isAccessGranted === false);
+    state.set({ nearest: { phase: 'error', reason: denied ? 'denied' : 'unavailable' } });
+  } finally { locating = false; }
+}
+
+/* ── hero summary for the last viewed (or first favourite) station ── */
+function pickRecent() {
+  const known = new Set(state.get().stations.filter(s => s.lines.includes(1)).map(s => s.name));
+  const last = store.last();
+  if (last && known.has(last)) return { station: last, source: 'last' };
+  const fav = store.favourites().find(n => known.has(n));
+  return fav ? { station: fav, source: 'favourite' } : null;
+}
+async function loadRecent() {
+  const pick = pickRecent();
+  if (!pick) { state.set({ recent: null }); return; }
+  state.set({ recent: { ...pick, phase: 'loading' } });
+  const result = await heroSeq.run(signal => api.next(pick.station, { signal, limit: 10 }));
+  if (result.stale) return;
+  const current = state.get().recent;
+  if (current?.station !== pick.station) return;
+  if (result.ok) state.set({ recent: { ...current, phase: 'ok', board: result.value }, asOf: result.value.as_of });
+  else state.set({ recent: { ...current, phase: 'error' } });
+}
+
+/* ── stations ── */
+async function loadStations() {
+  state.set({ status: 'loading' });
+  const result = await stationsSeq.run(signal => api.stations(signal));
+  if (result.stale) return;
+  if (!result.ok) { state.set({ status: 'error' }); return; }
+  const data = result.value;
+  store.prune(data.stations.map(s => s.name));
+  state.set({ status: 'ready', stations: data.stations, order: data.line1Order, maxKm: data.maxNearestKm ?? 10 });
+  search.refresh();
+  loadRecent();
+}
+const reload = () => loadStations();
+
+const actions = {
+  go, openStation, locate, openRoadmap, reload, unsupported, setTheme,
+  heroAction(action) {
+    if (action.id === 'locate') locate();
+    else if (action.id === 'open') openStation(action.station);
+    else if (action.id === 'about') go('about');
+  },
+  serviceAction(service) {
+    const a = service.action;
+    if (a.type === 'view') go(a.view, { mode: a.mode });
+    else if (a.type === 'locate') locate();
+  },
+};
+
+const ctx = { state, store, actions };
+views.home = createHomeView(ctx);
+views.stations = createStationsView(ctx);
+views.services = createServicesView(ctx);
+views.favourites = createFavouritesView(ctx);
+views.about = createAboutView(ctx);
+
+/* ── header: search + menu ── */
+const search = createSearchBox({
+  host: $('#search-host'), input: $('#q'), clearButton: $('#q-clear'), popup: $('#suggest'), listbox: $('#suggest-list'), live: $('#suggest-live'),
+  getStations: () => state.get().stations, getOrder: () => state.get().order, getStatus: () => state.get().status, onRetry: reload,
+  store, onPick: openStation, onUnsupported: unsupported,
+});
+
+let menuApi = null;
+function paintMenu() {
+  const content = $('#menu-content');
+  const pref = store.themePref();
+  const item = (label, onClick, extra = {}) => h('button', { type: 'button', role: extra.role ?? 'menuitem', 'aria-checked': extra.checked, onClick: () => { onClick(); menuApi?.close(); } }, extra.icon && icon(extra.icon), h('span', { class: 'app-menu__label', text: label }), extra.checked === 'true' && icon('checkmark', 'app-menu__check'));
+  content.replaceChildren(
+    h('div', { class: 'cm-menu__label', role: 'presentation', text: 'پوسته' }),
+    item('خودکار', () => setTheme('auto'), { role: 'menuitemradio', checked: String(pref === 'auto'), icon: 'circle_lefthalf_inset_filled' }),
+    item('روشن', () => setTheme('light'), { role: 'menuitemradio', checked: String(pref === 'light'), icon: 'sun_max' }),
+    item('تیره', () => setTheme('dark'), { role: 'menuitemradio', checked: String(pref === 'dark'), icon: 'moon' }),
+    h('hr', { class: 'cm-divider', role: 'separator' }),
+    item('درباره و حریم خصوصی', () => go('about'), { icon: 'info_circle' }));
+  content.querySelectorAll('[aria-checked="true"]').forEach(b => b.setAttribute('aria-selected', 'true'));
+}
+
+/* ── start ── */
+panel.append(views.home.el);
+panel.setAttribute('aria-label', TITLES.home);
+paintMenu();
+init(document);
+Object.values(views).forEach(v => v.mount?.());
+menuApi = $('#menu')._hm7morph ?? morph($('#menu-btn'), $('#menu'));
+lens = lensTabs(nav, index => { const view = VIEWS[index]; if (view && view !== state.get().view) go(view); });
+progressiveBlur($('#app-top'), 'top');
+progressiveBlur(document.body, 'bottom');
+autoReveal(document.body);
+bridgeHaptics(tg);
+tg.setBack(null);
+window.addEventListener('pageshow', () => syncTelegramColors());
+loadStations();

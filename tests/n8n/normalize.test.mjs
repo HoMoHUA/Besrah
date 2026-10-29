@@ -75,6 +75,9 @@ test('about and privacy commands describe real limits and temporary execution re
   assert.ok(privacy.reply_text.includes('پاک سازی'));
   assert.ok(privacy.reply_text.includes('دستگاه'));
   assert.equal(privacy.reply_text.includes('ذخیره نمی شود'), false);
+  assert.ok(privacy.reply_text.includes('علاقه مندی'), 'must disclose on-device favourites');
+  assert.ok(privacy.reply_text.includes('نام ایستگاه'), 'must say only station names are kept');
+  assert.equal(privacy.reply_text.includes('موقعیت را ذخیره'), false);
 });
 
 test('known line 2 station is unsupported rather than silently mapped to line 1', () => {

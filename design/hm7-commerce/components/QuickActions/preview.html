@@ -1,0 +1,35 @@
+<!-- @dsCard group="Liquid glass" height=460 subtitle="دکمهٔ … را روی تصویر بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>QuickActions — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:420px">
+  <div class="cm-product__media" style="--tint:47,51,230;border-radius:var(--radius-26);position:relative">
+    <span class="cm-badge cm-badge--solid" style="position:absolute;top:14px;right:14px"><i class="hms hms-flame_fill" aria-hidden="true"></i>حراج</span>
+    <i class="hms hms-headphones_fill cm-product__art" aria-hidden="true" style="font-size:132px"></i>
+    <div class="hm7-cluster cm-cluster" id="qa" data-spacing="12" style="position:absolute;bottom:14px;right:14px;--hm7-cluster-gap:14px">
+      <button class="hm7-glass cm-frost cm-icon-btn hm7-cluster__toggle" aria-label="کارهای بیشتر"><span class="im"><i class="hms hms-more on" aria-hidden="true"></i><i class="hms hms-xmark off" aria-hidden="true"></i></span></button>
+      <button class="hm7-glass cm-frost cm-icon-btn hm7-cluster__item" aria-label="اشتراک"><i class="hms hms-share" aria-hidden="true"></i></button>
+      <button class="hm7-glass cm-frost cm-icon-btn hm7-cluster__item" aria-label="مقایسه"><i class="hms hms-arrow_left_arrow_right" aria-hidden="true"></i></button>
+      <button class="hm7-glass cm-frost cm-icon-btn hm7-cluster__item" aria-label="افزودن به فهرست"><i class="hms hms-heart_badge_plus" aria-hidden="true" style="color:var(--sale)"></i></button>
+      <button class="hm7-glass cm-frost cm-icon-btn hm7-cluster__item" aria-label="هشدار کاهش قیمت"><i class="hms hms-bell_badge_clock" aria-hidden="true" style="color:var(--accent)"></i></button>
+    </div>
+  </div>
+  <div class="cap" id="msg" aria-live="polite">&nbsp;</div>
+</div>
+<script>
+HM7.cluster(document.getElementById('qa'), { spacing: 12 });
+document.querySelectorAll('#qa .hm7-cluster__item').forEach(function (b) { b.addEventListener('click', function () { document.getElementById('msg').textContent = b.getAttribute('aria-label') + ' انتخاب شد'; }); });
+HM7.init(document.body);
+</script>
+</body>
+</html>

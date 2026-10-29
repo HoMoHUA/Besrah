@@ -1,28 +1,116 @@
-import type { FastifyInstance } from 'fastify';
-import { readFileSync } from 'node:fs';
+import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { createHash } from 'node:crypto';
+import { readFileSync, statSync } from 'node:fs';
 import { NETWORK_PATH } from './network.js';
+
+const APP_ROOT = new URL('../../../apps/miniapp/', import.meta.url);
+
+const MIME: Record<string, string> = {
+  html: 'text/html; charset=utf-8',
+  css: 'text/css; charset=utf-8',
+  js: 'text/javascript; charset=utf-8',
+  svg: 'image/svg+xml',
+  png: 'image/png',
+  woff2: 'font/woff2',
+  webmanifest: 'application/manifest+json',
+};
+
+/** Explicit allowlist: [public route under /app/, file relative to apps/miniapp]. Nothing else is ever served. */
+export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string]> = [
+  ['/app/', 'index.html'],
+  ['/app/manifest.webmanifest', 'manifest.webmanifest'],
+  ['/app/theme-boot.js', 'theme-boot.js'],
+  ['/app/skin.css', 'skin.css'],
+  ['/app/app.css', 'app.css'],
+  ['/app/app.js', 'app.js'],
+  ['/app/state.js', 'state.js'],
+  ['/app/tg.js', 'tg.js'],
+  ['/app/logic.js', 'logic.js'],
+  ['/app/search.js', 'search.js'],
+  ['/app/store.js', 'store.js'],
+  ['/app/async.js', 'async.js'],
+  ['/app/api.js', 'api.js'],
+  ['/app/format.js', 'format.js'],
+  ['/app/route.js', 'route.js'],
+  ['/app/hero.js', 'hero.js'],
+  ['/app/services.js', 'services.js'],
+  ['/app/ui/dom.js', 'ui/dom.js'],
+  ['/app/ui/hm7.js', 'ui/hm7.js'],
+  ['/app/ui/searchbox.js', 'ui/searchbox.js'],
+  ['/app/ui/sheet.js', 'ui/sheet.js'],
+  ['/app/ui/board.js', 'ui/board.js'],
+  ['/app/ui/station.js', 'ui/station.js'],
+  ['/app/ui/carousel.js', 'ui/carousel.js'],
+  ['/app/views/home.js', 'views/home.js'],
+  ['/app/views/stations.js', 'views/stations.js'],
+  ['/app/views/services.js', 'views/services.js'],
+  ['/app/views/favourites.js', 'views/favourites.js'],
+  ['/app/views/about.js', 'views/about.js'],
+  ['/app/assets/logo.svg', 'assets/logo.svg'],
+  ['/app/assets/hero-metro.svg', 'assets/hero-metro.svg'],
+  ['/app/assets/icon-192.png', 'assets/icon-192.png'],
+  ['/app/assets/icon-512.png', 'assets/icon-512.png'],
+  ['/app/assets/telegram-web-app.js', 'assets/telegram-web-app.js'],
+  ['/app/vendor/hm7/tokens.css', 'vendor/hm7/tokens.css'],
+  ['/app/vendor/hm7/components/bundle.css', 'vendor/hm7/components/bundle.css'],
+  ['/app/vendor/hm7/components/bundle.js', 'vendor/hm7/components/bundle.js'],
+  ['/app/vendor/hm7/fonts/AzarMehr-Regular.woff2', 'vendor/hm7/fonts/AzarMehr-Regular.woff2'],
+  ['/app/vendor/hm7/fonts/AzarMehr-Medium.woff2', 'vendor/hm7/fonts/AzarMehr-Medium.woff2'],
+  ['/app/vendor/hm7/fonts/AzarMehr-SemiBold.woff2', 'vendor/hm7/fonts/AzarMehr-SemiBold.woff2'],
+  ['/app/vendor/hm7/fonts/AzarMehr-Bold.woff2', 'vendor/hm7/fonts/AzarMehr-Bold.woff2'],
+  ['/app/vendor/hm7/fonts/AzarMehr-ExtraBold.woff2', 'vendor/hm7/fonts/AzarMehr-ExtraBold.woff2'],
+  ['/app/vendor/hm7/fonts/AzarMehr-Black.woff2', 'vendor/hm7/fonts/AzarMehr-Black.woff2'],
+  ['/app/vendor/hm7/fonts/HMSymbol.woff2', 'vendor/hm7/fonts/HMSymbol.woff2'],
+  ['/app/vendor/hm7/fonts/JetBrainsMono-Regular.woff2', 'vendor/hm7/fonts/JetBrainsMono-Regular.woff2'],
+  ['/app/vendor/hm7/fonts/JetBrainsMono-Bold.woff2', 'vendor/hm7/fonts/JetBrainsMono-Bold.woff2'],
+];
+
+// img-src allows data: for one measured reason: the vendored HM7 runtime builds its dissolve / sweep masks at run
+// time (canvas.toDataURL -> CSS mask-image: url(data:...)), e.g. when a toast dissolves. Nothing else is relaxed:
+// scripts and styles stay 'self' only (no 'unsafe-inline', no 'unsafe-eval').
+export const MINIAPP_CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
+
+interface Loaded { body: Buffer; etag: string; mtimeMs: number; size: number }
+const cache = new Map<string, Loaded>();
+
+// Files are re-read when their mtime/size changes, so a deploy never needs a restart; the hash is the ETag.
+function load(file: string): Loaded {
+  const url = new URL(file, APP_ROOT);
+  const stat = statSync(url);
+  const hit = cache.get(file);
+  if (hit && hit.mtimeMs === stat.mtimeMs && hit.size === stat.size) return hit;
+  const body = readFileSync(url);
+  const etag = `"${createHash('sha256').update(body).digest('base64url').slice(0, 27)}"`;
+  const loaded = { body, etag, mtimeMs: stat.mtimeMs, size: stat.size };
+  cache.set(file, loaded);
+  return loaded;
+}
+
+function matches(header: string | undefined, etag: string): boolean {
+  if (!header) return false;
+  if (header.trim() === '*') return true;
+  return header.split(',').some(tag => tag.trim().replace(/^W\//, '') === etag);
+}
+
+function serve(file: string, mime: string) {
+  return async (req: FastifyRequest, reply: FastifyReply) => {
+    let loaded: Loaded;
+    try { loaded = load(file); } catch { return reply.code(404).send({ error: 'asset_not_found' }); }
+    reply.header('X-Content-Type-Options', 'nosniff').header('Cache-Control', 'no-cache').header('ETag', loaded.etag);
+    if (file === 'index.html') {
+      reply.header('Content-Security-Policy', MINIAPP_CSP).header('Referrer-Policy', 'no-referrer').header('Permissions-Policy', 'geolocation=(self)');
+    }
+    if (matches(req.headers['if-none-match'], loaded.etag)) return reply.code(304).send();
+    return reply.type(mime).send(loaded.body);
+  };
+}
 
 export function registerMiniapp(app: FastifyInstance) {
   app.get('/app', async (_req, reply) => reply.redirect('/app/'));
-  const files: Record<string, [string, string]> = {
-    '/app/': ['index.html', 'text/html; charset=utf-8'],
-    '/app/styles.css': ['styles.css', 'text/css; charset=utf-8'],
-    '/app/app.js': ['app.js', 'text/javascript; charset=utf-8'],
-    '/app/logic.js': ['logic.js', 'text/javascript; charset=utf-8'],
-    '/app/manifest.webmanifest': ['manifest.webmanifest', 'application/manifest+json'],
-    '/app/assets/logo.svg': ['assets/logo.svg', 'image/svg+xml'],
-    '/app/assets/icon-192.png': ['assets/icon-192.png', 'image/png'],
-    '/app/assets/icon-512.png': ['assets/icon-512.png', 'image/png'],
-    '/app/assets/Vazirmatn-Regular.ttf': ['assets/Vazirmatn-Regular.ttf', 'font/ttf'],
-    '/app/assets/telegram-web-app.js': ['assets/telegram-web-app.js', 'text/javascript; charset=utf-8'],
-  };
-  for (const [route, [file, mime]] of Object.entries(files)) {
-    app.get(route, async (_req, reply) => {
-      reply.header('X-Content-Type-Options', 'nosniff').header('Cache-Control', 'no-cache');
-      if (file === 'index.html') reply.header('Content-Security-Policy', "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org").header('Referrer-Policy', 'no-referrer').header('Permissions-Policy', 'geolocation=(self)');
-      try { return reply.type(mime).send(readFileSync(new URL('../../../apps/miniapp/' + file, import.meta.url))); }
-      catch { return reply.code(404).send({ error: 'asset_not_found' }); }
-    });
+  for (const [route, file] of MINIAPP_ASSETS) {
+    const mime = MIME[file.split('.').pop() as string];
+    if (!mime) throw new Error(`no MIME type for ${file}`);
+    app.get(route, serve(file, mime));
   }
   const raw = JSON.parse(readFileSync(NETWORK_PATH, 'utf8'));
   app.get('/app/api/stations', async (_req, reply) => {

@@ -1,0 +1,41 @@
+<!-- @dsCard group="Foundations" height=230 subtitle="انتخاب کنید؛ ✕ فیلتر فعال را بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Chips — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" id="st" style="position:relative">
+  <div class="cm-chips" role="group" aria-label="فیلترها">
+    <button class="cm-chip" data-cm-toggle aria-pressed="true">فقط موجود <span class="cm-chip__count">۱۲۸</span></button>
+    <button class="cm-chip" data-cm-toggle>ارسال فوری</button>
+    <button class="cm-chip" data-cm-toggle>تخفیف‌دار <span class="cm-chip__count">۳۴</span></button>
+    <button class="cm-chip" data-cm-toggle>گارانتی اصلی</button>
+  </div>
+  <div class="cap">فیلترهای فعال</div>
+  <div class="cm-chips" id="act"></div>
+  <button class="cm-btn cm-btn--line cm-btn--sm el" id="rs" style="justify-self:start">برگرداندن</button>
+</div>
+<script>
+var act = document.getElementById('act'), st = document.getElementById('st');
+function fill() {
+  act.innerHTML = '';
+  ['برند: نور','قیمت تا ۵ میلیون','رنگ: مشکی'].forEach(function (t) {
+    var c = document.createElement('span'); c.className = 'cm-chip'; c.style.background = 'var(--accent-soft)'; c.style.color = 'var(--accent)'; c.setAttribute('data-hm7-colors', '47,51,230|170,180,255');
+    c.innerHTML = t + '<button class="cm-qty__b" style="width:22px;height:22px;color:inherit" aria-label="حذف فیلتر ' + t + '"><i class="hms hms-xmark" aria-hidden="true" style="font-size:12px"></i></button>';
+    c.querySelector('button').addEventListener('click', function () { HM7.dissolve(c, { stage: st, collapse: false, onDone: function () { c.remove(); } }); });
+    act.appendChild(c);
+  });
+}
+fill(); document.getElementById('rs').addEventListener('click', fill);
+HM7.init(document.body);
+</script>
+</body>
+</html>

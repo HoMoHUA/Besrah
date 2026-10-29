@@ -1,0 +1,39 @@
+<!-- @dsCard group="Foundations" height=340 subtitle="مرتب‌سازی را باز کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Menus — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start;min-height:300px">
+  <div style="position:relative;min-height:290px">
+    <button class="cm-btn cm-btn--ghost cm-btn--sm el" id="sb" aria-haspopup="listbox"><i class="hms hms-slider_horizontal_2" aria-hidden="true"></i><span id="sl">پربازدیدترین</span></button>
+    <div class="cm-menu hm7-morph" id="sm" role="listbox" aria-label="مرتب‌سازی" style="top:44px;right:0">
+      <div class="hm7-morph__content"><button role="option" aria-selected="true">پربازدیدترین</button><button role="option">جدیدترین</button><button role="option">ارزان‌ترین</button><button role="option">گران‌ترین</button><button role="option">بیشترین تخفیف</button></div>
+    </div>
+  </div>
+  <div class="hm7-stage" style="border-radius:var(--radius-26);padding:18px;display:grid;gap:12px;justify-items:center">
+    <div class="hm7-glass hm7-selmenu" role="toolbar" aria-label="کد تخفیف" style="position:relative;z-index:2"><button>کپی کد</button><button>اشتراک</button><button>جزئیات</button></div>
+    <div class="hm7-glass hm7-menu" role="menu" style="position:relative;z-index:2;width:200px">
+      <button role="menuitem"><i class="hms hms-person" aria-hidden="true"></i>حساب من</button>
+      <button role="menuitem"><i class="hms hms-archivebox_fill" aria-hidden="true"></i>سفارش‌ها</button>
+      <button role="menuitem"><i class="hms hms-heart" aria-hidden="true"></i>علاقه‌مندی‌ها</button>
+    </div>
+  </div>
+</div>
+<script>
+var sm = document.getElementById('sm'), sl = document.getElementById('sl');
+var m = HM7.morph(document.getElementById('sb'), sm);
+sm.addEventListener('click', function (e) { var b = e.target.closest('[role=option]'); if (!b) return; sm.querySelectorAll('[role=option]').forEach(function (x) { x.setAttribute('aria-selected', x === b); }); sl.textContent = b.textContent; m.close(); });
+setTimeout(function () { m.open(); }, 300);
+HM7.init(document.body);
+</script>
+</body>
+</html>

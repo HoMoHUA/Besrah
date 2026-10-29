@@ -1,0 +1,40 @@
+<!-- @dsCard group="Commerce" height=400 subtitle="«رزرو» را بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>FlashDeal — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div style="padding:24px 18px">
+<div class="cm-flash hm7-device" id="fr" data-level="medium">
+  <div class="hm7-stage" style="padding:18px;display:grid;gap:14px">
+    <div class="cm-flash__head" style="position:relative;z-index:2">
+      <h3 class="cm-flash__title"><i class="hms hms-flame_fill" aria-hidden="true"></i>حراج لحظه‌ای</h3>
+      <div class="cm-timer" data-cm="countdown" data-end="2829"><div class="cm-timer__u"><span class="cm-timer__d" data-u="h"></span><span class="cm-timer__l">ساعت</span></div><span class="cm-timer__sep">:</span><div class="cm-timer__u"><span class="cm-timer__d" data-u="m"></span><span class="cm-timer__l">دقیقه</span></div><span class="cm-timer__sep">:</span><div class="cm-timer__u"><span class="cm-timer__d" data-u="s"></span><span class="cm-timer__l">ثانیه</span></div></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;position:relative;z-index:2">
+      <div class="hm7-glass" style="width:84px;height:84px;border-radius:22px;display:grid;place-items:center;flex:none"><i class="hms hms-headphones_fill" aria-hidden="true" style="font-size:44px"></i></div>
+      <div style="flex:1;min-width:0;display:grid;gap:6px"><b style="font-size:15px">هدفون بی‌سیم نویزکنسلینگ</b><div class="cm-price"><span class="cm-price__was"><s>۵٬۸۹۰٬۰۰۰</s><span class="cm-badge cm-badge--solid">۳۲٪</span></span><span class="cm-price__now"><b>۳٬۹۹۰٬۰۰۰</b><small>تومان</small></span></div></div>
+    </div>
+    <div style="position:relative;z-index:2"><div class="cm-meter__row"><span>۶۸٪ فروش رفته</span><span>۱۶ عدد مانده</span></div><div class="cm-meter" id="mt" style="--p:.68"><i></i></div></div>
+    <div style="position:relative;z-index:2" id="act"><button class="cm-btn cm-btn--sale cm-btn--block el" id="rv"><i class="hms hms-timer" aria-hidden="true"></i>رزرو ۱۰ دقیقه‌ای</button></div>
+  </div>
+</div></div>
+<script>
+var fr = document.getElementById('fr'), act = document.getElementById('act');
+document.getElementById('rv').addEventListener('click', function () {
+  HM7.edgeGlow(fr, 'strong'); HM7.shop.meter(document.getElementById('mt'), .72);
+  act.innerHTML = '<div class="hm7-glass" style="border-radius:999px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center"><span><i class="hms hms-checkmark_circle_fill" aria-hidden="true"></i> برای شما رزرو شد</span><span class="cm-timer" data-end="600"><span class="cm-timer__d" data-u="m" style="min-width:34px;height:32px;font-size:16px"></span><span class="cm-timer__sep" style="margin:0">:</span><span class="cm-timer__d" data-u="s" style="min-width:34px;height:32px;font-size:16px"></span></span></div>';
+  HM7.shop.countdown(act.querySelector('.cm-timer'));
+});
+HM7.init(document.body);
+</script>
+</body>
+</html>

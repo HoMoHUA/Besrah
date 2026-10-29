@@ -1,0 +1,23 @@
+<!-- @dsCard group="v1.6 interactions" height=300 subtitle="فیلدها را لمس کنید و تایپ کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>FieldMotion — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 18px; display: grid; gap: 14px; max-width: 440px; }
+.cap { font-size: 11px; color: var(--muted); }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv">
+  <div class="cm-field"><label for="n">نام</label><input class="cm-input" id="n" placeholder="مثلاً سارا محمدی" autocomplete="off"></div>
+  <div class="cm-field"><label for="k">کلید دسترسی</label><input class="cm-input cm-input--ltr" id="k" type="password" autocomplete="off"></div>
+  <div class="cm-field"><label for="m">پیام</label><textarea class="cm-input" id="m" rows="2" placeholder="هر کلید یک فشردگی فنری و درخشش در محل caret"></textarea></div>
+  <span class="cap">با «کاهش حرکت» در سیستم، هر دو افکت خاموش می‌شوند.</span>
+</div>
+<script>
+HM7.fieldMotion(document);
+HM7.init(document.body);
+</script>
+</body>
+</html>

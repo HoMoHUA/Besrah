@@ -1,0 +1,27 @@
+<!-- @dsCard group="Navigation" height=170 subtitle="«بعدی» و «قبلی»" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>CheckoutSteps — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:520px">
+  <ol class="cm-steps" id="s" aria-label="مراحل خرید">
+    <li><span class="cm-steps__dot"></span>سبد خرید</li><li><span class="cm-steps__dot"></span>نشانی</li><li><span class="cm-steps__dot"></span>روش ارسال</li><li><span class="cm-steps__dot"></span>پرداخت</li>
+  </ol>
+  <div class="row" style="justify-content:space-between"><button class="cm-btn cm-btn--ghost cm-btn--sm el" id="p">قبلی</button><button class="cm-btn cm-btn--sm el" id="n">بعدی</button></div>
+</div>
+<script>
+var s = HM7.shop.steps(document.getElementById('s'), { current: 1 });
+document.getElementById('n').addEventListener('click', s.next); document.getElementById('p').addEventListener('click', s.prev);
+HM7.init(document.body);
+</script>
+</body>
+</html>

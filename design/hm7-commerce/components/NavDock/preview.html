@@ -1,0 +1,42 @@
+<!-- @dsCard group="Liquid glass" height=400 subtitle="محصولات را اسکرول کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>NavDock — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div style="position:relative;height:370px;margin:12px;border-radius:var(--radius-26);overflow:hidden;background:var(--bg)">
+  <div id="sc" class="hm7-scroll-edge" style="position:absolute;inset:0;overflow:auto;padding:12px 12px 170px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:140px;gap:10px;align-content:start"></div>
+  <div class="hm7-dock cm-dock" id="dk">
+    <div class="hm7-dock__acc cm-frost">
+      <div class="hm7-dock__full" style="height:100%">
+        <span class="cm-cartbtn" aria-hidden="true" style="width:36px;height:36px;background:var(--accent-soft);color:var(--accent)"><i class="hms hms-bag_fill" aria-hidden="true" style="font-size:18px"></i></span>
+        <span style="font-size:13px;white-space:nowrap">۳ کالا · <b>۱۳٬۶۲۰٬۰۰۰</b> <small style="color:var(--muted)">تومان</small></span>
+        <button class="cm-btn cm-btn--sm el" data-hm7-keep>پرداخت</button>
+      </div>
+      <div class="hm7-dock__mini"><button class="cm-cartbtn" data-hm7-keep aria-label="سبد خرید، ۳ کالا" style="width:44px;height:44px;background:var(--accent);color:var(--on-accent)"><i class="hms hms-bag_fill" aria-hidden="true"></i><span class="cm-count" data-n="3">۳</span></button></div>
+    </div>
+    <nav class="hm7-dock__bar hm7-glass cm-frost hm7-tabs cm-bottom" id="tb" aria-label="منوی اصلی">
+      <button class="hm7-tabs__item is-active"><i class="hms hms-house_fill" aria-hidden="true"></i><span class="hm7-tabs__label">خانه</span></button>
+      <button class="hm7-tabs__item"><i class="hms hms-square_grid_2x2" aria-hidden="true"></i><span class="hm7-tabs__label">دسته‌ها</span></button>
+      <button class="hm7-tabs__item"><i class="hms hms-heart" aria-hidden="true"></i><span class="hm7-tabs__label">علاقه‌مندی</span></button>
+      <button class="hm7-tabs__item"><i class="hms hms-person" aria-hidden="true"></i><span class="hm7-tabs__label">حساب</span></button>
+    </nav>
+  </div>
+</div>
+<script>
+var sc = document.getElementById('sc'), G = [['headphones_fill','47,51,230'],['watch','6,122,102'],['shoe','208,16,42'],['gift_fill','180,83,9'],['cup_fill','23,26,166'],['gamecontroller','91,95,138']];
+for (var i = 0; i < 18; i++) { var g = G[i % G.length]; sc.insertAdjacentHTML('beforeend', '<div class="cm-product__media" style="--tint:' + g[1] + ';aspect-ratio:auto;height:140px"><i class="hms hms-' + g[0] + ' cm-product__art" aria-hidden="true" style="font-size:44px"></i></div>'); }
+HM7.lensTabs(document.getElementById('tb'));
+HM7.dock(document.getElementById('dk'), { scroller: sc });
+HM7.init(document.body);
+</script>
+</body>
+</html>

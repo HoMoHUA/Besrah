@@ -1,0 +1,24 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-10T13:15:55Z"
+  },
+  "title": "HM7 Commerce",
+  "namespace": "HM7",
+  "libraries": [],
+  "sections": {},
+  "groups": [],
+  "assetGroups": {},
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Hojjat",
+    "at": "2026-10-11T17:20:00Z",
+    "via": "Claude Code",
+    "note": "1.3: ProgressiveBlur (header/footer, HM7.progressiveBlur), firmer dock rim and reveal ring"
+  }
+}

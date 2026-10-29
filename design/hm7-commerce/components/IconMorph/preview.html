@@ -1,0 +1,25 @@
+<!-- @dsCard group="v1.6 interactions" height=130 subtitle="روی هر دکمه بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>IconMorph — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv"><div class="row">
+  <button class="cm-btn cm-btn--ghost el" data-morph aria-pressed="false"><span class="im" style="width:20px;height:20px;font-size:19px"><i class="hms hms-heart on" aria-hidden="true"></i><i class="hms hms-heart_fill off" aria-hidden="true" style="color:var(--sale)"></i></span>علاقه‌مندی</button>
+  <button class="cm-btn el" data-morph><span class="im" style="width:20px;height:20px;font-size:19px"><i class="hms hms-bag on" aria-hidden="true"></i><i class="hms hms-checkmark off" aria-hidden="true"></i></span>سبد</button>
+  <button class="cm-btn cm-btn--ghost el" data-morph aria-pressed="false" aria-label="نمایش رمز"><span class="im" style="width:20px;height:20px;font-size:19px"><i class="hms hms-eye on" aria-hidden="true"></i><i class="hms hms-eye_slash off" aria-hidden="true"></i></span></button>
+  <button class="cm-btn cm-btn--ghost el" data-morph aria-pressed="false" aria-label="تم"><span class="im" style="width:20px;height:20px;font-size:19px"><i class="hms hms-sun_max_fill on" aria-hidden="true" style="color:var(--warning)"></i><i class="hms hms-moon_fill off" aria-hidden="true" style="color:var(--accent)"></i></span></button>
+</div></div>
+<script>
+HM7.init(document.body);
+</script>
+</body>
+</html>

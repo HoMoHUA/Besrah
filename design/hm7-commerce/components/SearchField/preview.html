@@ -1,0 +1,50 @@
+<!-- @dsCard group="Foundations" height=330 subtitle="بنویسید: «هد» یا «ساعت»" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>SearchField — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:460px">
+  <div style="position:relative">
+    <label class="cm-search cm-frost" style="border-radius:var(--radius-pill)"><i class="hms hms-magnifyingglass" aria-hidden="true"></i><input id="q" role="combobox" aria-expanded="false" aria-controls="sg" aria-autocomplete="list" placeholder="جستجو در فروشگاه نور" value="هد"><button id="clr" class="cm-qty__b" aria-label="پاک کردن" style="width:28px;height:28px"><i class="hms hms-xmark_circle_fill" aria-hidden="true"></i></button></label>
+    <div class="cm-menu" id="sg" role="listbox" style="margin-top:8px"></div>
+  </div>
+  <div class="row"><span class="cap">جستجوهای اخیر:</span><button class="cm-chip" data-q="کفش رانینگ">کفش رانینگ</button><button class="cm-chip" data-q="ساعت">ساعت</button></div>
+</div>
+<script>
+var D = [['هدفون بی‌سیم نویزکنسلینگ','headphones_fill'],['هدفون گیمینگ','gamecontroller'],['هدیهٔ تولد','gift_fill'],['ساعت هوشمند ورزشی','watch'],['ساعت دیواری','clock'],['کفش رانینگ سبک','shoe']];
+var q = document.getElementById('q'), sg = document.getElementById('sg'), sel = -1;
+function render() {
+  var v = q.value.trim(), hits = v ? D.filter(function (d) { return d[0].indexOf(v) > -1; }).slice(0, 6) : [];
+  sg.innerHTML = '';
+  if (!hits.length) { sg.classList.remove('is-open'); sg.hidden = true; q.setAttribute('aria-expanded', 'false'); return; }
+  sg.hidden = false; sg.classList.remove('is-open'); void sg.offsetWidth; sg.classList.add('is-open'); q.setAttribute('aria-expanded', 'true');
+  sg.insertAdjacentHTML('beforeend', '<div class="cm-menu__label">پیشنهادها</div>');
+  hits.forEach(function (d, i) {
+    var b = document.createElement('button'); b.setAttribute('role', 'option'); b.id = 'o' + i;
+    var k = d[0].indexOf(v); b.innerHTML = '<i class="hms hms-' + d[1] + '" aria-hidden="true"></i><span>' + d[0].slice(0, k) + '<mark>' + d[0].slice(k, k + v.length) + '</mark>' + d[0].slice(k + v.length) + '</span>';
+    b.addEventListener('click', function () { q.value = d[0]; render(); });
+    sg.appendChild(b);
+  });
+  sel = -1;
+}
+q.addEventListener('input', render);
+q.addEventListener('keydown', function (e) {
+  var o = sg.querySelectorAll('[role=option]'); if (!o.length) return;
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + o.length) % o.length; o.forEach(function (x, i) { x.setAttribute('aria-selected', i === sel); }); q.setAttribute('aria-activedescendant', o[sel].id); }
+  if (e.key === 'Enter' && sel > -1) o[sel].click();
+});
+document.getElementById('clr').addEventListener('click', function (e) { e.preventDefault(); q.value = ''; render(); q.focus(); });
+document.querySelectorAll('[data-q]').forEach(function (c) { c.addEventListener('click', function () { q.value = c.getAttribute('data-q'); render(); }); });
+render();
+</script>
+</body>
+</html>

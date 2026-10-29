@@ -1,0 +1,158 @@
+/* Besrah skin for HM7 Commerce — tokens only (README «پوسته برای هر پروژه»).
+   Load order: tokens.css -> skin.css -> components/bundle.css.
+   Brand: midnight teal #092D2E, electric citron #D7FF63, chalk #F3F5EF, ink #132D2E.
+
+   Specificity: bundle.css (loaded later) re-declares --accent-rgb, --hm7-rv-*, --hm7-sand-* and --hm7-solid on
+   `:root` / `[data-theme]`; the selectors below are `:root[data-theme=…]` (0,2,0) so these tokens still win.
+   Contrast was re-measured for every pair in the table at the end of this file (WCAG 2.1, body >= 4.5, UI >= 3). */
+
+/* ── stage family: deep teal instead of cobalt, identical in both themes (the immersive moment keeps one colour) ── */
+:root[data-theme] {
+  --hm7-cobalt: #08403F;
+  --hm7-cobalt-hi: #0D5F5D;
+  --hm7-cobalt-lo: #042A2B;
+  --hm7-ribbon: #E2FACD;
+  --hm7-pink: 215, 255, 99;            /* the stage's corner halo: citron instead of pink */
+  --hm7-solid: #08403F;                /* stage glass when transparency is reduced */
+  --hm7-solid-ink: #ffffff;
+  --besrah-ribbon: 226, 250, 205;
+  --besrah-citron: #D7FF63;
+  --besrah-citron-hi: #E7FF9E;
+  --besrah-on-citron: #092D2E;
+}
+
+/* ── dark: the default, Telegram-friendly theme (accent = citron, on-accent = midnight teal) ── */
+:root[data-theme="dark"] {
+  --bg: #061C1D;
+  --surface: #0C2A2B;
+  --surface-2: #103536;
+  --chip: #164341;
+  --line: #24504E;
+  --ink: #EEF4EA;
+  --muted: #A9C2BB;
+  --subtle: #7B9993;                   /* placeholder only (4.3:1) */
+  --accent: #D7FF63;
+  --accent-hi: #E7FF9E;
+  --accent-deep: #A6D12B;
+  --accent-soft: #1E3A25;
+  --on-accent: #092D2E;
+  --night: #031213;
+  --reveal-core: #ffffff;
+  --reveal-mid: #E7FF9E;
+  --reveal-deep: #D7FF63;
+  --glass-fill: rgba(12, 42, 43, .58);
+  --scrim: rgba(0, 0, 0, .6);
+  --shadow-card: inset 0 0 0 1px rgba(215, 255, 99, .08), 0 10px 26px -14px rgba(0, 0, 0, .7);
+  --shadow-raised: inset 0 0 0 1px rgba(215, 255, 99, .14), 0 24px 48px -18px rgba(0, 0, 0, .8);
+  --shadow-frost: inset 0 0 0 1px rgba(255, 255, 255, .10), 0 0 0 1px rgba(0, 0, 0, .3), 0 14px 34px -14px rgba(0, 0, 0, .75);
+  --accent-rgb: 215, 255, 99;
+  --ink-rgb: 238, 244, 234;
+  --night-rgb: 3, 18, 19;
+  --hm7-rv-core: 255, 255, 255;
+  --hm7-rv-mid: 231, 255, 158;
+  --hm7-rv-deep: 215, 255, 99;
+  --hm7-sand: glow;
+  --hm7-sand-colors: "238,244,234|215,255,99|231,255,158|255,255,255";
+}
+
+/* ── light: chalk surfaces, deep-teal accent with white on-accent; citron is never text on light ── */
+:root[data-theme="light"] {
+  --bg: #F3F5EF;
+  --surface: #FFFFFF;
+  --surface-2: #EBF0E8;
+  --chip: #DEE8DD;
+  --line: #C9D6CB;
+  --ink: #132D2E;
+  --muted: #476260;
+  --subtle: #7E9592;                   /* placeholder only */
+  --accent: #0A5556;
+  --accent-hi: #137476;
+  --accent-deep: #063A3B;
+  --accent-soft: #DDEEE6;
+  --on-accent: #FFFFFF;
+  --sale: #C0122A;
+  --sale-soft: #FFEDEF;
+  --success: #06705E;
+  --success-soft: #DDF5EC;
+  --warning: #9A4508;
+  --warning-soft: #FFF1DC;
+  --night: #031213;
+  --reveal-core: #3FAAA4;
+  --reveal-mid: #288C88;
+  --reveal-deep: #0A5556;
+  --glass-fill: rgba(255, 255, 255, .62);
+  --scrim: rgba(9, 45, 46, .38);
+  --shadow-card: 0 1px 2px rgba(19, 45, 46, .06), 0 8px 24px -12px rgba(19, 45, 46, .18);
+  --shadow-raised: 0 2px 4px rgba(19, 45, 46, .06), 0 22px 44px -18px rgba(10, 85, 86, .32);
+  --shadow-frost: inset 0 0 0 1px rgba(255, 255, 255, .75), 0 0 0 1px rgba(19, 45, 46, .06), 0 12px 32px -14px rgba(19, 45, 46, .30);
+  --accent-rgb: 10, 85, 86;
+  --ink-rgb: 19, 45, 46;
+  --sale-rgb: 192, 18, 42;
+  --night-rgb: 3, 18, 19;
+  --hm7-rv-core: 63, 170, 164;
+  --hm7-rv-mid: 40, 140, 136;
+  --hm7-rv-deep: 10, 85, 86;
+  --hm7-sand: ink;
+  --hm7-sand-colors: "19,45,46|10,85,86|71,98,96|192,18,42";
+}
+
+/* ── high-contrast preference: the stock values are indigo; keep the same intent in Besrah's hues ── */
+@media (prefers-contrast: more) {
+  :root[data-theme="light"] { --muted: #2F4745; --subtle: #476260; --line: #7E9592; }
+  :root[data-theme="dark"] { --muted: #D3E4DE; --subtle: #A9C2BB; --line: #6C9892; }
+}
+
+/* ── hard-coded cobalt in bundle.css that tokens cannot reach (documented in README) ──
+   1. the stage background still ends in #2225cf and its halo/ribbon are lilac;
+   2. `.hm7-btn--primary` is a fixed blue gradient;
+   3. stage glass casts a blue-violet shadow.
+   The stage always keeps the same colours, so these use stage-local tokens, not the page accent. */
+:root .hm7-stage {
+  background:
+    radial-gradient(55% 45% at 10% -5%, rgba(var(--hm7-pink), .30), transparent 62%),
+    radial-gradient(70% 60% at 100% 105%, var(--hm7-cobalt-lo), transparent 72%),
+    linear-gradient(158deg, var(--hm7-cobalt-hi) 0%, var(--hm7-cobalt) 48%, var(--hm7-cobalt-lo) 100%);
+}
+/* the light ribbon crosses the text now and then: keep it soft enough for white text to stay >= 4.5:1 */
+:root .hm7-stage::before {
+  background: linear-gradient(118deg, transparent 38%, rgba(var(--besrah-ribbon), .06) 45%, rgba(var(--besrah-ribbon), .13) 50.5%, rgba(var(--besrah-ribbon), .06) 55%, transparent 62%);
+}
+:root .hm7-stage::after {
+  background:
+    radial-gradient(28% 60% at 46% 62%, rgba(var(--besrah-ribbon), .12), transparent 70%),
+    linear-gradient(124deg, transparent 47.6%, rgba(255, 255, 255, .22) 49.6%, rgba(255, 255, 255, .06) 51.5%, transparent 53.5%);
+}
+:root .hm7-btn--primary {
+  color: var(--besrah-on-citron);
+  background: radial-gradient(120% 140% at 50% 0%, var(--besrah-citron-hi), var(--besrah-citron) 70%);
+  box-shadow: inset 0 0 0 1.25px rgba(255, 255, 255, .6), inset 0 2px 10px rgba(255, 255, 255, .45), 0 10px 24px -8px rgba(5, 46, 47, .8);
+}
+:root .hm7-stage .hm7-glass {
+  box-shadow: inset 0 0 0 1.25px rgba(255, 255, 255, .48), inset 0 1px 14px rgba(255, 255, 255, .28), inset 0 -10px 22px rgba(120, 235, 205, .12), 0 14px 34px -10px rgba(2, 26, 27, .6);
+}
+
+/* 4. The finger light and the lamp bloom are additive (mix-blend: screen) white; at full strength they bleach the
+   stage under white text (measured 1.9:1). Keep the effect, cap its strength so text stays >= 4.5:1. */
+:root .hm7-touchlight {
+  background: radial-gradient(circle, rgba(var(--lc), .20) 0%, rgba(var(--lc), .09) 22%, rgba(var(--lc), .03) 45%, transparent 70%);
+}
+:root .hm7-lampglow {
+  background: radial-gradient(circle, rgba(var(--lc), .24) 0%, rgba(var(--lc), .13) 18%, rgba(var(--lc), .05) 42%, rgba(var(--lc), 0) 68%);
+}
+
+/* 5. The lens of the bottom bar brightens what it magnifies (backdrop brightness 1.2 + a white inner glow); with a
+   citron label on dark that measured 3.6:1. Keep the lens, drop the brightening so the label stays >= 4.5:1. */
+:root[data-theme="dark"] .cm-bottom .hm7-lens {
+  -webkit-backdrop-filter: blur(10px) saturate(1.5); backdrop-filter: blur(10px) saturate(1.5);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .14), rgba(var(--accent-rgb), .06));
+  box-shadow: inset 0 0 0 1.25px rgba(var(--accent-rgb), .38), inset 0 2px 8px rgba(255, 255, 255, .06), 0 6px 14px -6px rgba(0, 0, 0, .65);
+}
+:root[data-theme="dark"] .cm-bottom .hm7-lens__inner .hm7-tabs__item { color: var(--accent-hi); }
+
+/* Contrast (WCAG 2.1 relative luminance; token pairs below, then re-measured on rendered pixels in a browser)
+   dark : ink/bg 15.75 · ink/surface 13.58 · ink/surface-2 11.84 · ink/chip 9.81 · muted/surface 8.05 · muted/surface-2 7.02 · muted/chip 5.81
+          accent/surface 13.30 · on-accent/accent 12.88 · accent/accent-soft 10.89 · sale/surface 5.66 · sale/surface-2 4.94
+   light: ink/bg 13.25 · ink/surface 14.56 · ink/chip 11.57 · muted/bg 6.00 · muted/surface-2 5.70 · muted/chip 5.24
+          accent/surface 8.58 · on-accent/accent 8.58 · accent/accent-soft 7.13 · sale/surface-2 5.40 · success/surface-2 5.21 · warning/surface-2 5.62
+   stage (both themes): white on cobalt 11.6 · on cobalt-hi 7.5 · on cobalt-lo 15.3 (before the ribbon and light effects)
+   `subtle` is below 4.5:1 in both themes: placeholder text only (design-system rule). */

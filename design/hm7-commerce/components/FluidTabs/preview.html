@@ -1,0 +1,31 @@
+<!-- @dsCard group="Navigation" height=230 subtitle="بین بخش‌ها جابه‌جا شوید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>FluidTabs — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:480px">
+  <div class="cm-tabs tb-wrap" id="tb" role="tablist">
+    <div class="tb-ind"></div>
+    <div class="tb-it on" role="tab"><span>معرفی</span></div>
+    <div class="tb-it" role="tab"><span>مشخصات</span></div>
+    <div class="tb-it" role="tab"><span>نظرات <small class="cap">(۱٬۲۴۸)</small></span></div>
+  </div>
+  <div class="cm-card" style="padding:16px;min-height:110px;font-size:13px;line-height:1.9" id="pn"></div>
+</div>
+<script>
+var T = ['حذف نویز فعال تا ۴۲ دسی‌بل، ۳۸ ساعت پخش و شارژ سریع ده‌دقیقه‌ای برای پنج ساعت.', 'وزن ۲۵۰ گرم · بلوتوث ۵٫۳ · درگاه USB-C · گارانتی ۱۸ ماهه', '«صدای بیس عالی و سبک روی سر.» — مریم، خریدار تأییدشده'];
+var pn = document.getElementById('pn');
+function show(i) { pn.classList.remove('is-loaded'); void pn.offsetWidth; pn.textContent = T[i]; pn.classList.add('is-loaded'); }
+show(0); HM7.ui.tabs(document.getElementById('tb'), { onChange: show });
+</script>
+</body>
+</html>

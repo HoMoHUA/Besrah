@@ -1,0 +1,33 @@
+<!-- @dsCard group="Commerce" height=330 subtitle="اسلایدر را بکشید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>PriceFilter — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="hm7-stage" id="st" style="margin:10px;border-radius:var(--radius-26);padding:20px 18px;display:grid;gap:16px">
+  <div style="display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2"><b style="font-size:17px">فیلتر</b><span style="font-size:13px">حداکثر قیمت: <b id="pv"></b></span></div>
+  <div id="ps" style="--h:62px;position:relative;z-index:2"></div>
+  <div class="row" style="position:relative;z-index:2">
+    <button class="hm7-glass hm7-chip hm7-press" data-hm7-toggle aria-pressed="true">فقط موجود</button>
+    <button class="hm7-glass hm7-chip hm7-press" data-hm7-toggle aria-pressed="false">ارسال فوری</button>
+    <button class="hm7-glass hm7-chip hm7-press" data-hm7-toggle aria-pressed="false">تخفیف‌دار</button>
+  </div>
+  <button class="hm7-btn hm7-btn--primary hm7-press" style="position:relative;z-index:2">نمایش <span id="rc"></span> کالا</button>
+</div>
+<script>
+var S = HM7.shop, pv = document.getElementById('pv'), rc = document.getElementById('rc');
+function upd(v, first) { var p = Math.round((0.5 + v * 19.5) * 10) / 10 * 1000000, c = Math.round(18 + v * 190); if (first) { pv.textContent = S.money(p); rc.textContent = S.fa(c); } else { S.roll(pv, S.money(p)); S.roll(rc, S.fa(c)); } }
+HM7.light(document.getElementById('st'), { radius: 200 });
+HM7.particleSlider(document.getElementById('ps'), { value: .45, count: 90, label: 'حداکثر قیمت', icon: '<i class="hms hms-creditcard_fill" aria-hidden="true"></i>', onInput: function (v) { upd(v); } });
+upd(.45, true);
+</script>
+</body>
+</html>

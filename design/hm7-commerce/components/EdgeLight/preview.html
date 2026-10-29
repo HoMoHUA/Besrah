@@ -1,0 +1,38 @@
+<!-- @dsCard group="Liquid glass" height=380 subtitle="محتوا را اسکرول کنید و نشانگر را به لبهٔ سایدبار نزدیک کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>EdgeLight — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; overflow: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+.side { position: fixed; inset-block: 0; inset-inline-start: 0; inline-size: 150px; padding: 16px 12px; display: grid; align-content: start; gap: 6px;
+  background: color-mix(in srgb, var(--surface) 72%, var(--bg)); }
+.side b { font-size: 14px; margin-block-end: 8px; }
+.side a { padding: 8px 10px; border-radius: 12px; color: var(--muted); text-decoration: none; font-size: 13px; }
+.side a[aria-current] { background: linear-gradient(160deg, var(--accent-hi), var(--accent)); color: #fff; }
+.main { position: fixed; inset-block: 0; inset-inline: 150px 0; overflow: auto; padding: 18px 18px 110px; display: grid; gap: 12px; align-content: start; }
+.card { padding: 16px; display: grid; gap: 4px; }
+.card b { font-size: 14px; } .card span { font-size: 12px; color: var(--muted); }
+.hero { border-radius: var(--radius-26); padding: 22px; color: #fff; background: linear-gradient(158deg, var(--accent-hi), var(--accent) 60%, var(--accent-deep)); min-block-size: 120px; }
+.dock { position: fixed; inset-block-end: 12px; inset-inline: 166px 16px; border-radius: 999px; padding: 10px 18px; display: flex; justify-content: space-around; font-size: 12px; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<nav class="side" aria-label="نمونه سایدبار"><b>اتاق فرمان</b><a href="#" aria-current="page">نمای کلی</a><a href="#">سرویس‌ها</a><a href="#">فایل‌ها</a><a href="#">شبکه</a></nav>
+<div class="hm7-edge" id="edge" style="--edge-at:150px" aria-hidden="true"></div>
+<main class="main">
+  <div class="hero"><b>هیروی کبالتی</b><br><span style="opacity:.8;font-size:12px">لبهٔ سایدبار کنار این بخش کمی آبی می‌شود</span></div>
+  <div class="cm-card cm-wash cm-wash--sale card"><b>نیازمند رسیدگی</b><span>شستشوی قرمز در سمت سایدبار</span></div>
+  <div class="cm-card cm-wash cm-wash--ok card"><b>سرویس‌ها سالم</b><span>شستشوی سبز</span></div>
+  <div class="cm-card cm-wash cm-wash--warn card"><b>حافظه ۸۵٪</b><span>شستشوی کهربایی</span></div>
+  <div class="cm-card cm-wash card"><b>کارت عادی</b><span>شستشوی کبالتی</span></div>
+  <div class="cm-card cm-wash cm-wash--sale card"><b>سایت قطع</b><span>…</span></div>
+  <div class="cm-card cm-wash cm-wash--ok card"><b>بکاپ موفق</b><span>…</span></div>
+</main>
+<div class="cm-frost rv dock" id="dock"><span>خانه</span><span>سرویس‌ها</span><span>فایل‌ها</span><span>تنظیمات</span></div>
+<script>
+HM7.edgeLight(document.getElementById('edge'));
+HM7.rim(document.getElementById('dock'));
+HM7.init(document.body);
+</script>
+</body>
+</html>

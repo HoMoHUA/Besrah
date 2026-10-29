@@ -1,0 +1,31 @@
+<!-- @dsCard group="Foundations" height=290 subtitle="card · raised · wash · frost · inset" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Surfaces — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+  <div class="cm-card" style="padding:16px;display:grid;gap:6px"><b style="font-size:14px">.cm-card</b><span class="cap">surface + shadow-card</span></div>
+  <div class="cm-card cm-card--raised" style="padding:16px;display:grid;gap:6px"><b style="font-size:14px">.cm-card--raised</b><span class="cap">hover، منو، برگه</span></div>
+  <div class="cm-card cm-wash cm-wash--ok" style="padding:16px;display:grid;gap:6px"><b style="font-size:14px">.cm-wash--ok</b><span class="cap">هالهٔ رو به سایدبار</span></div>
+  <div class="cm-card" style="padding:12px;display:grid;gap:8px"><b style="font-size:14px">.cm-inset</b><div class="cm-inset" style="padding:12px;font-size:12px;color:var(--muted)">کد تخفیف: <span class="cm-mono" style="color:var(--ink);font-weight:700">NOOR20</span></div></div>
+</div>
+<div style="position:relative;margin:0 16px 16px;height:120px;border-radius:var(--radius-22);overflow:hidden;background:var(--surface)">
+  <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:10px">
+    <i style="border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-hi))"></i><i style="border-radius:14px;background:var(--sale)"></i><i style="border-radius:14px;background:var(--success)"></i><i style="border-radius:14px;background:var(--warning)"></i><i style="border-radius:14px;background:var(--accent-deep)"></i><i style="border-radius:14px;background:var(--rating)"></i>
+  </div>
+  <div class="cm-frost" style="position:absolute;inset:auto 14px 14px;border-radius:var(--radius-20);padding:12px 16px;display:flex;justify-content:space-between;align-items:center"><b style="font-size:14px">.cm-frost</b><span class="cap" style="color:var(--ink)">شناور روی محتوا</span></div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

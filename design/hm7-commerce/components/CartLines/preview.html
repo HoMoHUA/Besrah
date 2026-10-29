@@ -1,0 +1,70 @@
+<!-- @dsCard group="Commerce" height=480 subtitle="ردیف را به چپ بکشید؛ تعداد را عوض کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>CartLines — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start">
+  <div style="display:grid;gap:10px">
+    <div class="cm-list" id="list"></div>
+    <div id="empty" hidden></div>
+    <div class="row"><button class="cm-btn cm-btn--line cm-btn--sm el" id="clr"><i class="hms hms-trash" aria-hidden="true"></i>خالی کردن سبد</button><button class="cm-btn cm-btn--ghost cm-btn--sm el" id="rs">برگرداندن</button></div>
+  </div>
+  <div class="cm-card cm-summary">
+    <b style="font-size:16px">خلاصهٔ سفارش</b>
+    <div class="cm-summary__row"><span>جمع کالاها</span><span><b id="s1"></b> تومان</span></div>
+    <div class="cm-summary__row cm-summary__row--save"><span>سود شما</span><span><b id="s2"></b> تومان</span></div>
+    <div class="cm-summary__row"><span>ارسال</span><span><b id="s3"></b></span></div>
+    <hr class="cm-divider">
+    <div class="cm-summary__row cm-summary__row--total"><span>قابل پرداخت</span><span><b id="s4"></b> تومان</span></div>
+    <button class="cm-btn cm-btn--block el rv">ادامهٔ خرید</button>
+  </div>
+</div>
+<script>
+var S = HM7.shop, list = document.getElementById('list'), empty = document.getElementById('empty'), items = [], L;
+var BASE = [{ t: 'هدفون بی‌سیم نویزکنسلینگ', v: 'مشکی · گارانتی ۱۸ ماهه', p: 4890000, w: 5890000, q: 1, g: 'headphones_fill', c: '47,51,230' },
+            { t: 'ساعت هوشمند ورزشی GPS', v: 'نقره‌ای', p: 3290000, q: 2, g: 'watch', c: '6,122,102' },
+            { t: 'کفش رانینگ سبک', v: 'سایز ۴۲', p: 2150000, w: 2690000, q: 1, g: 'shoe', c: '208,16,42' }];
+function totals(first) {
+  var sub = 0, was = 0; L.forEach(function (x) { if (x.gone) return; sub += x.p * x.q; was += (x.w || x.p) * x.q; });
+  var ship = sub === 0 ? 0 : sub >= 5000000 ? 0 : 290000, set = first ? function (e, t) { e.textContent = t; e.setAttribute('data-v', t); } : S.roll;
+  set(document.getElementById('s1'), S.money(was, { unit: false })); set(document.getElementById('s2'), S.money(was - sub, { unit: false }));
+  set(document.getElementById('s3'), ship ? S.money(ship) : 'رایگان'); set(document.getElementById('s4'), S.money(sub + ship, { unit: false }));
+  document.getElementById('s3').style.color = ship ? '' : 'var(--success)';
+}
+function showEmpty() {
+  empty.hidden = false;
+  empty.innerHTML = '<div class="cm-card cm-empty is-loaded"><div class="cm-empty__art"><i class="hms hms-bag" aria-hidden="true"></i></div><h3>سبد خرید خالی است</h3><p>محصولاتی که اضافه کنید اینجا می‌آیند.</p></div>';
+}
+function build() {
+  list.innerHTML = ''; empty.hidden = true; items = []; L = BASE.map(function (x) { return Object.assign({}, x); });
+  L.forEach(function (x) {
+    var row = document.createElement('div'); row.className = 'hm7-notif-row';
+    row.innerHTML = '<div class="hm7-notif cm-line" tabindex="0" data-hm7-colors="' + x.c + '|20,22,58"><div class="hm7-notif__body"><div class="cm-line__thumb" style="--tint:' + x.c + '"><i class="hms hms-' + x.g + '" aria-hidden="true"></i></div><div class="cm-line__main"><div><div class="cm-line__title">' + x.t + '</div><div class="cm-line__var">' + x.v + '</div></div><div class="cm-line__foot"><div class="q"></div><div class="cm-price' + (x.w ? ' cm-price--sale' : '') + '"><span class="cm-price__now"><b class="lp">' + S.money(x.p * x.q, { unit: false }) + '</b><small>تومان</small></span></div></div></div></div></div>'
+      + '<button class="hm7-glass hm7-notif__act" data-act="later" aria-label="ذخیره برای بعد"><i class="hms hms-heart" aria-hidden="true"></i></button><button class="hm7-glass hm7-notif__act" data-act="trash" aria-label="حذف از سبد"><i class="hms hms-trash" aria-hidden="true"></i></button>';
+    list.appendChild(row);
+    var api = HM7.swipeDismiss(row.querySelector('.hm7-notif'), { stage: list,
+      onDismiss: function () { x.gone = true; row.remove(); totals(); if (L.every(function (y) { return y.gone; })) showEmpty(); },
+      onAction: function (a) { if (a === 'later') { x.gone = true; api.dissolve(); } } });
+    items.push(api);
+    S.qty(row.querySelector('.q'), { value: x.q, min: 1, max: 5, removable: true,
+      onChange: function (v) { x.q = v; S.roll(row.querySelector('.lp'), S.money(x.p * v, { unit: false })); totals(); },
+      onRemove: function () { api.dissolve(); } });
+  });
+  totals(true);
+}
+build();
+document.getElementById('clr').addEventListener('click', function () { HM7.clearAll(items.filter(function (i) { return !i.gone; }), { onDone: function () { L.forEach(function (x) { x.gone = true; }); totals(); list.innerHTML = ''; showEmpty(); } }); });
+document.getElementById('rs').addEventListener('click', build);
+HM7.init(document.body);
+</script>
+</body>
+</html>

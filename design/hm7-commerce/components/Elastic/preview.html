@@ -1,0 +1,28 @@
+<!-- @dsCard group="v1.6 interactions" height=170 subtitle="لبه و مرکز دکمه‌ها را فشار دهید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Elastic — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv">
+  <div class="row"><button class="cm-btn el">ساده: افزودن به سبد</button><button class="cm-btn cm-btn--ghost el">ادامهٔ خرید</button></div>
+  <div class="row">
+    <button class="el-d cm-cartbtn" aria-label="علاقه‌مندی"><span class="si"><i class="hms hms-heart" aria-hidden="true"></i></span></button>
+    <button class="el-d cm-cartbtn" aria-label="اشتراک"><span class="si"><i class="hms hms-share" aria-hidden="true"></i></span></button>
+    <button class="el-d cm-cartbtn" aria-label="سبد" style="background:var(--accent);color:var(--on-accent)"><span class="si"><i class="hms hms-bag_fill" aria-hidden="true"></i></span></button>
+    <span class="cap">دوتایی: ظرف و آیکون جدا می‌جهند</span>
+  </div>
+</div>
+<script>
+HM7.init(document.body);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- @dsCard group="Liquid glass" height=330 subtitle="صدا را روشن کنید و دکمه‌ها را بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>SoundCues — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:480px">
+  <div id="sw" style="display:flex;flex-direction:column;gap:8px"></div>
+  <div class="cm-chips" id="cues"></div>
+  <div class="cap">همهٔ صداها با کد ساخته می‌شوند؛ هیچ فایل صوتی‌ای نیست.</div>
+</div>
+<script>
+[['صداهای فروشگاه','افزودن به سبد، شمارنده، حذف و پرداخت','speaker_wave_2_fill','var(--accent)',1,function (on) { HM7.sound.enable(on); }],['لرزش','روی گوشی‌های اندروید','waveform','var(--muted)',0,function (on) { HM7.haptics.enable(on); }]].forEach(function (d) {
+  var e = document.createElement('div'); e.className = 'sw-wrap' + (d[4] ? ' on' : '');
+  e.innerHTML = '<div class="sw-track"><div class="sw-knob"><div class="sw-ico"><i class="hms hms-checkmark_circle_fill off-s" style="font-size:13px"></i><i class="hms hms-checkmark_circle_fill on-s" style="font-size:13px"></i></div></div></div><div style="flex:1"><div class="sw-label">' + d[0] + '</div><div style="font-size:11px;color:var(--muted);margin-top:1px">' + d[1] + '</div></div><i class="hms hms-' + d[2] + '" aria-hidden="true" style="font-size:18px;color:' + d[3] + '"></i>';
+  e.addEventListener('change', function (ev) { d[5](ev.detail.on); });
+  document.getElementById('sw').appendChild(e);
+});
+HM7.sound.enabled = true;
+[['add','افزودن به سبد'],['count','شمارنده'],['limit','سقف خرید'],['success','موفق'],['error','خطا'],['dissolve','حذف ردیف'],['sweep','خالی کردن سبد'],['toast','اعلان'],['timer','ثانیه‌های آخر'],['tileOn','کاشی لامپی']].forEach(function (c) {
+  var b = document.createElement('button'); b.className = 'cm-chip el'; b.textContent = c[1];
+  b.addEventListener('click', function () { HM7.cue(c[0], null, b); });
+  document.getElementById('cues').appendChild(b);
+});
+HM7.init(document.body);
+</script>
+</body>
+</html>

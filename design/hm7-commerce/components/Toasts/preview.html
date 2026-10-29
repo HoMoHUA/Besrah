@@ -1,0 +1,34 @@
+<!-- @dsCard group="Commerce" height=330 subtitle="دکمه‌ها را بزنید؛ toast را بکشید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Toasts — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:460px">
+  <div class="row"><button class="cm-btn cm-btn--sm el" data-t="0">افزوده شد</button><button class="cm-btn cm-btn--ghost cm-btn--sm el" data-t="1">کد تخفیف</button><button class="cm-btn cm-btn--ghost cm-btn--sm el" data-t="2">موجود شد</button><button class="cm-btn cm-btn--ghost cm-btn--sm el" data-t="3">ارسال شد</button></div>
+  <div class="cm-toasts" id="th" style="min-height:220px"></div>
+</div>
+<script>
+var T = [{ title: 'به سبد افزوده شد', text: 'هدفون بی‌سیم نویزکنسلینگ', icon: 'checkmark_circle_fill', tint: '6,122,102', action: 'مشاهدهٔ سبد' },
+         { title: 'کد NOOR20 اعمال شد', text: '۹۷۸٬۰۰۰ تومان سود شما', icon: 'percent_coupon', tint: '208,16,42' },
+         { title: 'کفش رانینگ سبک موجود شد', text: 'جای شما در صف تا ۱۵ دقیقه محفوظ است', icon: 'bell_fill', tint: '180,83,9', action: 'خرید' },
+         { title: 'سفارش ۴۸۲۱۰ ارسال شد', text: 'کد رهگیری پست: ۷۳۵۱۰۰۲۴۹۸', icon: 'truck_box_fill', tint: '47,51,230' }];
+var th = document.getElementById('th');
+document.querySelectorAll('[data-t]').forEach(function (b) { b.addEventListener('click', function () {
+  var live = th.querySelectorAll('.cm-toast:not([data-gone])');
+  if (live.length >= 3) { var old = live[live.length - 1]; old.setAttribute('data-gone', ''); HM7.dissolve(old, { stage: th, onDone: function () { old.remove(); } }); }
+  HM7.shop.toast(th, T[+b.getAttribute('data-t')]);
+}); });
+HM7.shop.toast(th, T[0]);
+HM7.init(document.body);
+</script>
+</body>
+</html>

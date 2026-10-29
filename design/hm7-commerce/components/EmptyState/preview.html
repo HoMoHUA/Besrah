@@ -1,0 +1,23 @@
+<!-- @dsCard group="Commerce" height=340 subtitle="سبد خالی و جستجوی بی‌نتیجه" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>EmptyState — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+  <div class="cm-card cm-empty"><div class="cm-empty__art"><i class="hms hms-bag" aria-hidden="true"></i></div><h3>سبد خرید خالی است</h3><p>هرچه به سبد اضافه کنید اینجا می‌ماند، حتی اگر صفحه را ببندید.</p><button class="cm-btn cm-btn--sm el">شروع خرید</button></div>
+  <div class="cm-card cm-empty"><div class="cm-empty__art"><i class="hms hms-magnifyingglass" aria-hidden="true"></i></div><h3>نتیجه‌ای برای «هدفن» پیدا نشد</h3><p>منظورتان <a href="#" style="color:var(--accent);font-weight:700">هدفون</a> بود؟</p><div class="cm-chips" style="justify-content:center"><button class="cm-chip">صوتی</button><button class="cm-chip">ساعت</button></div></div>
+</div>
+<script>
+HM7.init(document.body);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- @dsCard group="Commerce" height=330 subtitle="چند دسته را روشن کنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>CategoryLamps — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="hm7-stage" id="st" style="margin:10px;border-radius:var(--radius-26);padding:22px 14px;display:grid;place-items:center">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px 10px;justify-items:center;font-size:11px;position:relative;z-index:2;width:min(360px,100%)" id="g"></div>
+</div>
+<script>
+[['headphones_fill','صوتی','130,232,255',1],['watch','ساعت','111,240,210',0],['shoe','کفش','255,150,214',0],['gift_fill','هدیه','255,190,74',1],['cup_fill','آشپزخانه','255,170,120',0],['gamecontroller','بازی','170,180,255',0],['book_open_fill','کتاب','246,238,255',0],['bicycle','ورزش','111,240,210',0]].forEach(function (d) {
+  document.getElementById('g').insertAdjacentHTML('beforeend', '<div style="display:grid;justify-items:center;gap:6px"><button class="hm7-glass hm7-press hm7-cc-btn' + (d[3] ? ' is-on' : '') + '" data-hm7-toggle data-hm7-tint="' + d[2] + '" aria-pressed="' + !!d[3] + '" aria-label="' + d[1] + '"><i class="hms hms-' + d[0] + '" aria-hidden="true"></i></button>' + d[1] + '</div>');
+});
+HM7.light(document.getElementById('st'), { radius: 220 });
+</script>
+</body>
+</html>

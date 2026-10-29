@@ -1,0 +1,30 @@
+<!-- @dsCard group="Foundations" height=330 subtitle="شماره را بنویسید و «ادامه» را بزنید؛ کد NOOR20" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>TextField — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv" style="max-width:440px">
+  <div class="cm-field" id="f1"><label for="ph">شمارهٔ موبایل</label><input class="cm-input cm-input--ltr" id="ph" inputmode="tel" placeholder="09xx xxx xxxx" autocomplete="tel"><div class="cm-field__help">کد تأیید به این شماره فرستاده می‌شود</div></div>
+  <div class="cm-field" id="f2"><label for="cp">کد تخفیف</label><div style="display:flex;gap:8px"><input class="cm-input cm-input--ltr" id="cp" placeholder="مثلاً NOOR20"><button class="cm-btn cm-btn--ghost el" id="ap">اعمال</button></div><div class="cm-field__help">&nbsp;</div></div>
+  <button class="cm-btn el" id="go" style="justify-self:start">ادامه</button>
+</div>
+<script>
+var S = HM7.shop, f1 = document.getElementById('f1'), f2 = document.getElementById('f2');
+function check() { var v = S.latin(document.getElementById('ph').value).replace(/\s/g, ''); if (/^09\d{9}$/.test(v)) S.valid(f1, 'شماره درست است'); else S.invalid(f1, 'شماره باید ۱۱ رقم باشد و با ۰۹ شروع شود'); }
+document.getElementById('go').addEventListener('click', check);
+document.getElementById('ph').addEventListener('blur', function (e) { if (e.target.value) check(); });
+document.getElementById('ap').addEventListener('click', function () { var v = document.getElementById('cp').value.trim().toUpperCase(); if (v === 'NOOR20') S.valid(f2, '۲۰٪ تخفیف اعمال شد'); else S.invalid(f2, 'این کد معتبر نیست یا منقضی شده'); });
+HM7.fieldMotion(document);
+HM7.init(document.body);
+</script>
+</body>
+</html>

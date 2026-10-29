@@ -1,0 +1,25 @@
+<!-- @dsCard group="Foundations" height=160 subtitle="روی سبد بزنید" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>Badges — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.pv { padding: 16px; display: grid; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cap { font-size: 11px; color: var(--muted); }
+button { font-family: inherit; }
+h3, h4, p { margin: 0; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<div class="pv">
+  <div class="row"><span class="cm-badge cm-badge--sale">۱۷٪ تخفیف</span><span class="cm-badge cm-badge--new">جدید</span><span class="cm-badge cm-badge--ok"><i class="hms hms-checkmark" aria-hidden="true"></i>موجود</span><span class="cm-badge cm-badge--warn">فقط ۲ عدد</span><span class="cm-badge cm-badge--solid"><i class="hms hms-flame_fill" aria-hidden="true"></i>حراج</span></div>
+  <div class="row"><button class="cm-cartbtn el" id="cb" aria-label="سبد خرید"><i class="hms hms-bag" aria-hidden="true"></i><span class="cm-count" data-n="3">۳</span></button><span class="cap">هر بار یک کالا اضافه می‌شود</span></div>
+</div>
+<script>
+var cb = document.getElementById('cb'), c = cb.querySelector('.cm-count'), n = 3;
+cb.addEventListener('click', function () { n++; c.setAttribute('data-n', n); HM7.shop.roll(c, HM7.shop.fa(n)); HM7.shop.bump(cb); });
+HM7.init(document.body);
+</script>
+</body>
+</html>

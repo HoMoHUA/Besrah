@@ -1,0 +1,26 @@
+<!-- @dsCard group="Liquid glass" height=380 subtitle="محتوا را اسکرول کنید: زیر هدر و پایین صفحه آرام محو می‌شود" -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><title>ProgressiveBlur — preview</title>
+<style>
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+*, *::before, *::after { box-sizing: border-box; }
+.hd { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; font-weight: 800; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 8px 14px 150px; }
+.grid i { display: block; height: 96px; border-radius: 16px; }
+.dock { position: fixed; inset-inline: 14px; bottom: 12px; z-index: 40; border-radius: 999px; padding: 12px 18px; display: flex; justify-content: space-around; font-size: 12px; }
+</style><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><script src="../bundle.js"></script></head>
+<body>
+<header class="hd" id="hd"><span>هدر با تاری پیش‌رونده</span><i class="hms hms-magnifyingglass" aria-hidden="true"></i></header>
+<div class="grid" id="g"></div>
+<div class="hm7-dock"><nav class="hm7-dock__bar cm-frost dock" aria-label="نمونه"><span>خانه</span><span>دسته‌ها</span><span>سبد</span><span>حساب</span></nav></div>
+<script>
+var C = ['var(--accent)', 'var(--sale)', 'var(--success)', 'var(--warning)', 'var(--accent-deep)', 'var(--rating)'], g = document.getElementById('g');
+for (var i = 0; i < 24; i++) g.insertAdjacentHTML('beforeend', '<i style="background:' + C[i % 6] + '"></i>');
+HM7.progressiveBlur(document.getElementById('hd'), 'top');
+HM7.progressiveBlur(document.body, 'bottom');
+HM7.rim(document.querySelector('.dock'));
+HM7.init(document.body);
+</script>
+</body>
+</html>

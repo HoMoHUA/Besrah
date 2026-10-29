@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none"><title>Metro train, front view</title><desc>Original pseudo-3D illustration for the Besrah hero: a metro train approaching along two rails.</desc>
+<defs>
+<linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6FBF4"/><stop offset=".62" stop-color="#D5E8DF"/><stop offset="1" stop-color="#9CC4B8"/></linearGradient>
+<linearGradient id="side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0B3F40"/><stop offset="1" stop-color="#2C8A82"/></linearGradient>
+<linearGradient id="sideR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#062C2D"/><stop offset="1" stop-color="#1D6C67"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C3A3C"/><stop offset="1" stop-color="#041E20"/></linearGradient>
+<radialGradient id="lamp" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFFBD0" stop-opacity=".95"/><stop offset=".45" stop-color="#D7FF63" stop-opacity=".45"/><stop offset="1" stop-color="#D7FF63" stop-opacity="0"/></radialGradient>
+<radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#D7FF63" stop-opacity=".30"/><stop offset="1" stop-color="#D7FF63" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="120" cy="160" rx="118" ry="34" fill="url(#floor)"/>
+<g stroke="#BFEFE0" stroke-linecap="round" opacity=".6"><path d="M101 152 28 198M139 152 212 198" stroke-width="3"/><path d="M92 163H148M80 175H160M64 189H176" stroke-width="2" opacity=".55"/></g>
+<ellipse cx="120" cy="156" rx="78" ry="9" fill="#021516" opacity=".45"/>
+<path d="M54 56 70 42V146L54 134Z" fill="url(#side)"/>
+<path d="M186 56 170 42V146L186 134Z" fill="url(#sideR)"/>
+<path d="M54 56 70 42M186 56 170 42" stroke="#D7FF63" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+<rect x="64" y="32" width="112" height="118" rx="28" fill="url(#body)"/>
+<path d="M64 62C64 44 76 32 94 32H146C164 32 176 44 176 62" stroke="#fff" stroke-width="2" opacity=".7"/>
+<path d="M80 50H160A12 12 0 0 1 172 62V94A12 12 0 0 1 160 106H80A12 12 0 0 1 68 94V62A12 12 0 0 1 80 50Z" fill="url(#glass)"/>
+<path d="M78 52 102 52 80 106H70Z" fill="#fff" opacity=".12"/>
+<rect x="99" y="38" width="42" height="7" rx="3.5" fill="#D7FF63"/>
+<rect x="64" y="114" width="112" height="9" fill="#D7FF63"/>
+<path d="M64 123H176V138C176 146 170 150 162 150H78C70 150 64 146 64 138Z" fill="#0B4445"/>
+<circle cx="86" cy="136" r="26" fill="url(#lamp)"/><circle cx="154" cy="136" r="26" fill="url(#lamp)"/>
+<circle cx="86" cy="136" r="7" fill="#FFFDE6"/><circle cx="154" cy="136" r="7" fill="#FFFDE6"/>
+<rect x="104" y="131" width="32" height="10" rx="5" fill="#062B2C"/><path d="M110 136H130" stroke="#D7FF63" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,6 +1,28 @@
-export function normalize(value) {
-  return value.replace(/[\u200c\u200d\s]/g, '').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/ۀ/g,'ه');
+const FOLD = {
+  'ي': 'ی', 'ى': 'ی', 'ك': 'ک', 'ۀ': 'ه', 'ة': 'ه', 'أ': 'ا', 'إ': 'ا', 'ٱ': 'ا', 'آ': 'ا', 'ؤ': 'و',
+};
+const DIGITS = '۰۱۲۳۴۵۶۷۸۹';
+const ARABIC_DIGITS = '٠١٢٣٤٥٦٧٨٩';
+// Characters that carry no meaning for matching: ZWNJ/ZWJ, bidi marks, spaces, tatweel, harakat.
+const IGNORED = /[\u200c\u200d\u200e\u200f\s\u00a0\u0640\u064b-\u065f\u0670]/;
+
+// Folds text for matching and keeps, for every folded character, its index in the original string
+// (so a match can be highlighted in the text the user actually sees) and whether it starts a word.
+export function foldWithMap(value) {
+  const text = [], map = [], wordStart = [];
+  let startsWord = true;
+  const source = String(value ?? '');
+  for (let i = 0; i < source.length; i++) {
+    const ch = source[i];
+    if (IGNORED.test(ch)) { startsWord = true; continue; }
+    let out = FOLD[ch] ?? ch;
+    const fa = DIGITS.indexOf(out), ar = ARABIC_DIGITS.indexOf(out);
+    if (fa >= 0) out = String(fa); else if (ar >= 0) out = String(ar);
+    text.push(out.toLowerCase()); map.push(i); wordStart.push(startsWord); startsWord = false;
+  }
+  return { text: text.join(''), map, wordStart };
 }
+export function normalize(value) { return foldWithMap(value).text; }
 export function nearestStation(stations, lat, lon, maxKm = 10) {
   if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat)>90 || Math.abs(lon)>180) return null;
   const rad = value => value * Math.PI / 180;
