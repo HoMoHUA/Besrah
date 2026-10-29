@@ -1005,7 +1005,14 @@
       "headway_conflict": {
         "legacy_n8n": "Sat-Wed 10 min 05:50-22:02; Thu/Fri 12 min (Time-Cal config)",
         "site_1405_07_21": "12 min all days 06:00-22:00 (weekdays) and 07:00-22:00 (Friday)",
-        "status": "open: which is in force for Sat-Wed? site says 12"
+        "status": "resolved_by_owner: 10 min for Sat-Wed (site prints 12; owner decision 2026-10-29)",
+        "owner_decision": {
+          "date": "2026-10-29",
+          "headway_min": 10,
+          "applies": "Sat-Wed (weekday model)",
+          "by": "owner (HoMo)",
+          "note": "Owner confirmed 10 minutes. The official site still prints 12 minutes (kept unchanged in official_site). Thu/Fri legacy value stays 12 min until confirmed."
+        }
       }
     },
     "3": {
@@ -1256,7 +1263,8 @@
     {
       "id": "line2-headway",
       "q": "Line 2 weekday headway: legacy 10 min vs site 12 min (Sat-Wed). Which applies?",
-      "status": "open"
+      "status": "resolved",
+      "resolution": "Owner decision 2026-10-29: 10 minutes (Sat-Wed). Site still says 12."
     },
     {
       "id": "line3-stations",

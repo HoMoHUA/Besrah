@@ -48,11 +48,14 @@ test('line 2 and 3 official headways are identical to the official site transcri
   }
 });
 
-test('open questions stay visible: line 2 headway conflict and line 3 stations', () => {
+test('line 2 headway decision recorded; line 3 questions stay open', () => {
   const ids = net.open_questions.map(q => (typeof q === 'object' ? q.id : null)).filter(Boolean);
   assert.ok(ids.includes('line2-headway'));
   assert.ok(ids.includes('line3-stations'));
-  assert.ok(net.lines['2'].headway_conflict?.status?.startsWith('open'));
+  assert.equal(net.lines['2'].headway_conflict.owner_decision.headway_min, 10, 'owner decision: line 2 is 10 minutes Sat-Wed');
+  assert.ok(net.lines['2'].headway_conflict.status.startsWith('resolved_by_owner'));
+  assert.equal(net.open_questions.find(q => q.id === 'line2-headway').status, 'resolved');
+  assert.equal(net.lines['2'].official_site.schedules.weekdays.slots[0].headway_min, 12, 'official site value stays untouched');
   assert.ok(net.lines['3'].open_questions.length >= 3);
 });
 
