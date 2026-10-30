@@ -254,7 +254,7 @@ const search = createServiceSearch({
   onPick: actions.serviceAction,
 });
 
-rotatePlaceholder({ input: $('#q'), phrases: ['دنبال کدام سرویس هستید؟', 'مترو مشهد را جست وجو کنید', 'اتوبوس و خط ها را جست وجو کنید', 'بسراه، رفت و آمد شهری', 'بسفود، به زودی', 'بسپی، به زودی'] });
+rotatePlaceholder({ input: $('#q'), phrases: ['جست وجو', 'مترو مشهد', 'خط های اتوبوس', 'رفت و آمد شهری', 'بسفود، به زودی', 'بسپی، به زودی'] });
 
 let menuApi = null;
 function paintMenu() {

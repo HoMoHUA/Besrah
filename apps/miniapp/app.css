@@ -472,7 +472,7 @@ html[dir="rtl"] .trk-row, .trk-row:dir(rtl) { padding: 0 116px 0 12px; }
 /* ── Header search: rotating phrases (overlay; the native placeholder stays for assistive tech) ── */
 .app-search__field { position: relative; }
 #q::placeholder { color: transparent; }
-.search-ph { position: absolute; inset-block: 0; inset-inline-end: 44px; display: flex; align-items: center; overflow: hidden; pointer-events: none; color: var(--muted); font: 16px var(--font-sans); }
+.search-ph { position: absolute; inset-block: 0; inset-inline-end: 6px; display: flex; align-items: center; overflow: hidden; pointer-events: none; color: var(--muted); font: 16px var(--font-sans); }
 .search-ph > span { position: absolute; inset-inline-start: 0; white-space: nowrap; }
 
 /* ── Hero banner: the sun breathes, the route flows, a runner follows it, the pin bobs, stars twinkle ── */
@@ -517,3 +517,5 @@ html[dir="rtl"] .trk-row, .trk-row:dir(rtl) { padding: 0 116px 0 12px; }
   .bus-stops li:nth-child(14)::before { animation-delay: 0.39s; } .mini-spine__item:nth-child(14) .mini-spine__dot { animation-delay: 0.39s; }
   .mini-spine__item.is-current .mini-spine__dot { animation: bs-dot-mini .5s var(--cm-out, ease-out) both, bs-pulse 2s ease-out .6s infinite; }
 }
+.search-ph__probe { position: absolute; visibility: hidden; white-space: nowrap; }
+.search-ph > span:not(.search-ph__probe) { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }

@@ -16,9 +16,19 @@ export function rotatePlaceholder({ input, phrases, interval = 3400 }) {
   if ('ResizeObserver' in window) new ResizeObserver(place).observe(field);
   const sync = () => { layer.hidden = Boolean(input.value); };
   input.addEventListener('input', sync); sync();
+  // A phrase wider than the visible area is skipped rather than shown cut off (narrow phones, large system fonts).
+  const fits = text => {
+    const probe = h('span', { text, class: 'search-ph__probe' });
+    layer.append(probe);
+    const ok = probe.offsetWidth <= layer.clientWidth;
+    probe.remove();
+    return ok;
+  };
   function swap() {
     if (document.hidden || layer.hidden || document.activeElement === input || phrases.length < 2) return;
-    index = (index + 1) % phrases.length;
+    let tries = phrases.length;
+    do { index = (index + 1) % phrases.length; } while (!fits(phrases[index]) && --tries > 0);
+    if (tries <= 0 || phrases[index] === current.textContent) return;
     const next = h('span', { text: phrases[index] }), old = current;
     layer.append(next); current = next;
     const move = reducedMotion() ? 0 : 9;
