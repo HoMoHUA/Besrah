@@ -1,0 +1,14 @@
+{
+  "rejected": true,
+  "reason": "Browser target was lost; this was not counted as a stop observation",
+  "capture": {
+    "observed_at": "2026-10-30T06:39:27.033Z",
+    "url": "about:blank",
+    "title": "",
+    "visibility": "hidden",
+    "source": "normally rendered public transport tab; no payload decoder",
+    "bus_section": null,
+    "requests": [],
+    "page_auto_refresh_captured": true
+  }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "url": "https://neshan.org/maps/3919-253fbbf0f70cbc200006.js",
+    "at_utc": "2026-10-30T06:30:07.569189+00:00",
+    "status": 200,
+    "bytes": 50164,
+    "sha256": "59f94611ca8c1ad9acd1bc4395a0918c91438722f85037962cfb7fa539bbc2bb",
+    "local_research_capture": "/root/.hermes/cache/scratch/besrah-public-3919-253fbbf0f70cbc200006.js"
+  },
+  {
+    "url": "https://neshan.org/maps/6699-3b995729281facb4f1f2.js",
+    "at_utc": "2026-10-30T06:30:07.569971+00:00",
+    "status": 200,
+    "bytes": 257,
+    "sha256": "52e93527de6e083ada530a4427bb60ee4887241d7e85b62415c766ca2ce0ead6",
+    "local_research_capture": "/root/.hermes/cache/scratch/besrah-public-6699-3b995729281facb4f1f2.js"
+  },
+  {
+    "url": "https://neshan.org/terms-of-service",
+    "at_utc": "2026-10-30T06:30:07.572700+00:00",
+    "status": 200,
+    "bytes": 115686,
+    "sha256": "5fc0f336d934930a8b9e85a9ff3c2c6879c0ab82c560467714beab1b3ba03d63",
+    "local_research_capture": "/root/.hermes/cache/scratch/besrah-public-terms-of-service",
+    "title": "شرایط استفاده از اپلیکیشن نشان - نقشه نشان",
+    "review_keywords_present": {
+      "وب‌سرویس": false,
+      "وب سرویس": false,
+      "استخراج": true,
+      "خزش": false,
+      "کپی": true,
+      "خودکار": true,
+      "تجاری": true
+    }
+  }
+]

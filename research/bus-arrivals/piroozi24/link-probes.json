@@ -1,0 +1,57 @@
+{
+  "user_supplied_name": "ایستگاه پیروزی 24",
+  "user_supplied_url": "https://nshn.ir/96rb1Jej0JxdYy",
+  "tehran_now": "2026-10-30T09:55:04.189478+03:30",
+  "probes": [
+    {
+      "supplied_url": "https://nshn.ir/96rb1Jej0JxdYy",
+      "mode": "direct",
+      "fetched_utc": "2026-10-30T06:25:01.877829+00:00",
+      "status": 200,
+      "final_url": "https://neshan.org/maps/share/96rb1Jej0JxdYy",
+      "bytes": 4215,
+      "sha256": "ad7d2304e19f9a1acf8898180d2629065c890ff26a06b70861fad2eabfa0ed44",
+      "redirects": [
+        {
+          "url": "https://nshn.ir/96rb1Jej0JxdYy",
+          "status": 301,
+          "location": "https://neshan.org/maps/share/96rb1Jej0JxdYy"
+        }
+      ],
+      "headers": {
+        "Date": "Fri, 30 Oct 2026 06:25:04 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "etag": "W/\"1077-zMwA9fs/PGzrQ9bhx7sKu7Cscjc\"",
+        "Cache-Control": "public, max-age=3600"
+      },
+      "seconds": 2.31,
+      "classification": "unclassified",
+      "title": " پیروزی 24"
+    },
+    {
+      "supplied_url": "https://nshn.ir/96rb1Jej0JxdYy",
+      "mode": "proxy",
+      "fetched_utc": "2026-10-30T06:25:01.878318+00:00",
+      "status": 200,
+      "final_url": "https://neshan.org/maps/share/96rb1Jej0JxdYy",
+      "bytes": 4215,
+      "sha256": "ad7d2304e19f9a1acf8898180d2629065c890ff26a06b70861fad2eabfa0ed44",
+      "redirects": [
+        {
+          "url": "https://nshn.ir/96rb1Jej0JxdYy",
+          "status": 301,
+          "location": "https://neshan.org/maps/share/96rb1Jej0JxdYy"
+        }
+      ],
+      "headers": {
+        "Date": "Fri, 30 Oct 2026 06:25:03 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "etag": "W/\"1077-zMwA9fs/PGzrQ9bhx7sKu7Cscjc\"",
+        "Cache-Control": "public, max-age=3600"
+      },
+      "seconds": 2.12,
+      "classification": "unclassified",
+      "title": " پیروزی 24"
+    }
+  ]
+}

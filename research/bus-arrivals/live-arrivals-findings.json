@@ -2,6 +2,17 @@
   "investigation_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
   "scope": "Public read-only Mashhad urban bus arrivals; no UI/timing changes, deployment, restarts, credentials, APK downloads, CAPTCHA bypass, or proxy configuration changes.",
   "conclusion": "Neshan officially advertises Mashhad bus arrivals. A discovered indexed Neshan terminal page contains minute-valued route entries, but live origin requests returned browser-check HTML, so no live ETA response or reusable anonymous arrival API was verified. Published developer APIs reviewed are not bus arrival APIs. Municipal map portal was unreachable from both tested paths. Partnership/access enquiries are the credible integration route.",
+  "follow_up": {
+    "case": "piroozi24",
+    "investigation_date_utc": "2026-10-30",
+    "owner_link": "https://nshn.ir/96rb1Jej0JxdYy",
+    "public_place_id": "9692be87527100142598f9a6c7d1e140",
+    "report": "piroozi24/findings.json",
+    "public_page_and_request_identified": true,
+    "fresh_numeric_eta_established": false,
+    "production_adapter_connected": false,
+    "approved_product_reuse_verified": false
+  },
   "official_products": [
     {"name_fa": "نشان | نقشه و مسیریاب", "site": "https://neshan.org/features/", "evidence": "First-party feature page fetched HTTP 200 direct and proxy, explicitly advertises bus arrival times in Mashhad and Tehran.", "android_package": "org.rajman.neshan.traffic.tehran.navigator", "package_source": "https://cafebazaar.ir/app/org.rajman.neshan.traffic.tehran.navigator", "package_source_access": "search/indexed developer listing; package name must not be confused with city coverage"},
     {"name_fa": "نقشه همراه مشهد", "site": "https://map.mashhad.ir", "municipal_bus_portal": "https://bus.mashhad.ir", "evidence": "Published municipal map address and historical operator statement; portals did not serve application HTML in this run.", "access": "Direct DNS resolution timeout; existing HTTP proxy CONNECT followed by TLS timeout. No HTTP response status obtained. No GeoIP conclusion.", "app_package": null},

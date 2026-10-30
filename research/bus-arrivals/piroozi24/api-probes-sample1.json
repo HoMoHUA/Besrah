@@ -1,0 +1,74 @@
+[
+  {
+    "name": "passing-lines",
+    "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "mode": "direct",
+    "requested_utc": "2026-10-30T06:27:00.499971+00:00",
+    "authentication_supplied": false,
+    "cookies_supplied": false,
+    "status": 200,
+    "seconds": 1.07,
+    "bytes": 1808,
+    "sha256": "95921f5b238f7278a9f7d0c25efa76a72fe98e8f9d6a94f4df80ba5d4bcaa84a",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 06:27:01 GMT",
+      "Content-Type": "application/json"
+    },
+    "response_received_utc": "2026-10-30T06:27:01.568088+00:00",
+    "non_json_excerpt": "EMRmQX9fqhQwc1vNAJDOfecEmNE3din2YUg2LHYttinIiwic2x1ZyI6bnVsbH0seyJidXNOdW1iZXIiOiI5OCIsInRpdGxlIjoi2b7Yp9uM2KfZhtmHINi02YfbjNivINis2YjYp9mGIC0g2LPYsdin2YHYsdin2LLYp9mGIiwiZXRhVGV4dCI6Ii0iLCJldGFWYWx1ZSI6bnVsbCwib3JpZ2luTmFtZSI6Itm+2KfbjNin2YbZhyDYtNm"
+  },
+  {
+    "name": "passing-lines",
+    "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "mode": "proxy",
+    "requested_utc": "2026-10-30T06:27:00.500690+00:00",
+    "authentication_supplied": false,
+    "cookies_supplied": false,
+    "status": 200,
+    "seconds": 1.06,
+    "bytes": 1808,
+    "sha256": "85b7b97c3bffe05bbb85ed12dce8765676e9d6dc73b020078939fbce90ec3877",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 06:27:01 GMT",
+      "Content-Type": "application/json"
+    },
+    "response_received_utc": "2026-10-30T06:27:01.557548+00:00",
+    "non_json_excerpt": "2vhkc7KGk6xB2VAGZR7Nw5PU8Auj82NC9idXNfc3RhdGlvbi5wbmciLCJkZXN0aW5hdGlvbk5hbWUiOiLYs9ix2KfZgdix2KfYstin2YYiLCJzbHVnIjpudWxsfSx7ImJ1c051bWJlciI6IjEwOTMiLCJ0aXRsZSI6Itm+2KfbjNin2YbZhyDYotiy2KfYr9uMIC0g2LHZiNiz2KrYp9uMINqG2LTZhdmHINm+2YjZhtmHKNmF24zZhtuM"
+  },
+  {
+    "name": "poi-info",
+    "url": "https://neshan.org/maps/pwa-api/info/v2/9692be87527100142598f9a6c7d1e140?zoom=15&userLat=null&userLng=null",
+    "mode": "direct",
+    "requested_utc": "2026-10-30T06:27:00.503749+00:00",
+    "authentication_supplied": false,
+    "cookies_supplied": false,
+    "status": 200,
+    "seconds": 1.07,
+    "bytes": 11149,
+    "sha256": "81a0ddd19cd64d329db8bc67b23f079bb32814a5c3f57ef607d834e9a230666f",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 06:27:01 GMT",
+      "Content-Type": "application/json"
+    },
+    "response_received_utc": "2026-10-30T06:27:01.570946+00:00",
+    "non_json_excerpt": "VepgZVzNShgofGzI98uFZIZXUA0VwIGF1dG87IGxldHRlci1zcGFjaW5nOiAwLjNweDsgZm9udC1mYW1pbHk6IHBleWRhLCBBcmlhbCwgc2Fucy1zZXJpZjsgZGlyZWN0aW9uOiBydGw7IGRpc3BsYXk6IC13ZWJraXQtZmxleDsgZGlzcGxheTogZmxleDsgLXdlYmtpdC1hbGlnbi1pdGVtczogY2VudGVyOyBhbGlnbi1pdGVtczogY"
+  },
+  {
+    "name": "poi-info",
+    "url": "https://neshan.org/maps/pwa-api/info/v2/9692be87527100142598f9a6c7d1e140?zoom=15&userLat=null&userLng=null",
+    "mode": "proxy",
+    "requested_utc": "2026-10-30T06:27:00.507210+00:00",
+    "authentication_supplied": false,
+    "cookies_supplied": false,
+    "status": 200,
+    "seconds": 1.08,
+    "bytes": 11150,
+    "sha256": "b2a46bf73f735308024b8e105231c63aa93769ff9ca1d09691fa5142043be9af",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 06:27:01 GMT",
+      "Content-Type": "application/json"
+    },
+    "response_received_utc": "2026-10-30T06:27:01.583814+00:00",
+    "non_json_excerpt": "vDw2ecKSNPyC6VwDGOyygZzYnL9wZDb250ZW50Ijp7Imljb24iOiJodHRwczovL3N0YXRpYy5uZXNoYW5tYXAuaXIvcG9pLzY0L2J1c19zdGF0aW9uLnBuZyIsInRpdGxlIjoiINm+24zYsdmI2LLbjCAyNCIsInN1YnRpdGxlIjoi2KfbjNiz2Krar9in2Ycg2KfYqtmI2KjZiNizIC0gIiwiYWRkcmVzcyI6ItmF2LTZh9iv2Iwg2KjZ"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "user_supplied_name": "ایستگاه پیروزی 24",
+  "user_supplied_url": "https://nshn.ir/96rb1Jej0JxdYy",
+  "public_place_url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140",
+  "neshan_web_place_id": "9692be87527100142598f9a6c7d1e140",
+  "neshan_public_page_location": {
+    "lat": 36.30085377669664,
+    "lon": 59.520619525371764,
+    "source": "Public page initial state, normal browser observation; static location, not vehicle GPS"
+  },
+  "osm": {
+    "id": "osm:node:264158011",
+    "name_raw": "ایستگاه پیروزی ۲۴",
+    "lat": 36.3008565,
+    "lon": 59.5206003,
+    "ref_raw": "1091"
+  },
+  "distance_m": 1.749,
+  "matching_ref_count_in_osm": 1,
+  "quality": "name_and_coordinate_corroboration_not_official_provider_stop_id_verification",
+  "osm_route_memberships": [
+    {
+      "osm_route_id": "osm:relation:13125522",
+      "ref_raw": "1093",
+      "from_raw": "نماز ۳۰",
+      "to_raw": "پایانه آزادی"
+    },
+    {
+      "osm_route_id": "osm:relation:13086941",
+      "ref_raw": "91",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه وکیل آباد"
+    },
+    {
+      "osm_route_id": "osm:relation:12933678",
+      "ref_raw": "98",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه سرافرازان"
+    }
+  ]
+}

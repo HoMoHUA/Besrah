@@ -1,0 +1,107 @@
+{
+  "case": "Owner-provided Piroozi 24 link",
+  "supplied_url": "https://nshn.ir/96rb1Jej0JxdYy",
+  "neshan_public_place_id": "9692be87527100142598f9a6c7d1e140",
+  "public_transport_endpoint_observed": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+  "endpoint_source": "Actual network resources of normally opened public transport tab, not a guessed endpoint",
+  "direct_and_existing_proxy_http_200_without_supplied_auth": true,
+  "standalone_json_payload_decoded": false,
+  "wire_response_note": "Content-Type application/json, but body did not parse as plain JSON; no reverse-engineered decoder or internal-API production adapter built.",
+  "observations": [
+    {
+      "observed_utc": "2026-10-30T06:41:27.779Z",
+      "observed_tehran": "2026-10-30T10:11:27.779000+03:30",
+      "page_url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "rows": [
+        {
+          "line_label_raw": "خط 91",
+          "displayed_line_ref": "91",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه فلسطین - پیروزی،پایانه وکیل آباد",
+          "numeric_eta_minutes": null
+        },
+        {
+          "line_label_raw": "خط 98",
+          "displayed_line_ref": "98",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه شهید جوان - سرافرازان",
+          "numeric_eta_minutes": null
+        },
+        {
+          "line_label_raw": "خط 4",
+          "displayed_line_ref": "4",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه الهیه - پایانه امام رضا",
+          "numeric_eta_minutes": null
+        },
+        {
+          "line_label_raw": "خط 1093",
+          "displayed_line_ref": "1093",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)",
+          "numeric_eta_minutes": null
+        }
+      ],
+      "completed_transport_requests": 3
+    },
+    {
+      "observed_utc": "2026-10-30T06:42:37.787Z",
+      "observed_tehran": "2026-10-30T10:12:37.787000+03:30",
+      "page_url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "rows": [
+        {
+          "line_label_raw": "خط 91",
+          "displayed_line_ref": "91",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه فلسطین - پیروزی،پایانه وکیل آباد",
+          "numeric_eta_minutes": null
+        },
+        {
+          "line_label_raw": "خط 98",
+          "displayed_line_ref": "98",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه شهید جوان - سرافرازان",
+          "numeric_eta_minutes": null
+        },
+        {
+          "line_label_raw": "خط 4",
+          "displayed_line_ref": "4",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه الهیه - پایانه امام رضا",
+          "numeric_eta_minutes": null
+        },
+        {
+          "line_label_raw": "خط 1093",
+          "displayed_line_ref": "1093",
+          "eta_text_raw": "نامشخص",
+          "destination_text_raw": "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)",
+          "numeric_eta_minutes": null
+        }
+      ],
+      "completed_transport_requests": 4
+    }
+  ],
+  "observation_interval_seconds": 70.008,
+  "automatic_refresh_observed": true,
+  "provider_measurement_timestamp": null,
+  "fresh_numeric_eta_established": false,
+  "unknown_is_not_zero_or_service_disabled": true,
+  "terms": {
+    "url": "https://neshan.org/terms-of-service",
+    "retrieved_utc": "2026-10-30T06:30:07.572700+00:00",
+    "published_restriction_summary": "Published terms restrict automated access, extraction, bulk reuse and reverse engineering. Technical access is not verified permission for product integration.",
+    "bounded_exact_quotes": [
+      "شما مجاز نخواهید بود",
+      "از داده یا محتوای نشان، به صورت انبوه واکشی و در سرویس یا سامانهٔ دیگری استفاده کنید."
+    ],
+    "permission_for_product_integration_verified": false
+  },
+  "integration_state": "Not connected to Besrah; official/approved feed contract and reliable fresh numeric ETA remain open",
+  "no_ui_or_runtime_changes": true,
+  "no_browser_login_credentials_reused": true,
+  "observation_limitations": [
+    "Transient initial/server-rendered minute labels were not accepted as fresh numeric ETA.",
+    "A captured about:blank target was rejected rather than counted as a stop observation.",
+    "Static stop-name/coordinate correspondence is not official municipal stop-ID verification."
+  ]
+}
