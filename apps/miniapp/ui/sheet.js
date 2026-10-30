@@ -56,7 +56,8 @@ export function createSheetHost({ root, appEl, onChange = () => {} }) {
   }
 
   function animateIn() {
-    if (reducedMotion() || !dialog.animate) return;
+    if (!dialog.animate) return;
+    if (reducedMotion()) { dialog.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180 }); scrim.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180 }); return; }
     const spring = springEasing(260, 26);
     dialog.animate([{ transform: 'translateY(100%)' }, { transform: 'none' }], { duration: spring?.duration ?? 420, easing: spring?.easing ?? 'cubic-bezier(.22,1,.36,1)' });
     scrim.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
@@ -86,8 +87,9 @@ export function createSheetHost({ root, appEl, onChange = () => {} }) {
       cb?.();
     };
     const sheetEl = gone.querySelector('.app-sheet');
-    if (reducedMotion() || !sheetEl.animate) return done();
+    if (!sheetEl.animate) return done();
     exiting = done;
+    if (reducedMotion()) { sheetEl.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 140, fill: 'forwards' }).onfinish = done; gone.querySelector('.sheet-scrim').animate([{ opacity: 1 }, { opacity: 0 }], { duration: 140, fill: 'forwards' }); return; }
     sheetEl.animate([{ transform: 'none' }, { transform: 'translateY(100%)' }], { duration: 220, easing: 'cubic-bezier(.4,0,1,1)', fill: 'forwards' }).onfinish = done;
     gone.querySelector('.sheet-scrim').animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, fill: 'forwards' });
   }

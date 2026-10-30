@@ -29,13 +29,14 @@ export function createBusView(ctx) {
 
   function paint() {
     clear.hidden = !query;
-    if (status === 'loading' || status === 'idle') return results.replaceChildren(h('p', { class: 'bus-note', text: 'در حال دریافت فهرست خط ها…' }));
+    if (status === 'loading' || status === 'idle') return results.replaceChildren(h('div', { class: 'bs-progress', role: 'progressbar', 'aria-label': 'در حال دریافت فهرست خط ها' }, h('i')),
+      h('div', { class: 'bus-skeleton', 'aria-hidden': 'true' }, Array.from({ length: 7 }, () => h('div', { class: 'cm-skel bus-skel' }))));
     if (status === 'error') return results.replaceChildren(h('p', { class: 'bus-note', text: 'دریافت فهرست خط ها انجام نشد.' }), h('button', { type: 'button', class: 'cm-btn cm-btn--sm', onClick: load, text: 'تلاش دوباره' }));
     const lines = searchLines(index, query), stops = searchStops(index, query);
     const children = [];
     if (stops.length) children.push(h('h2', { class: 'bus-section-title', text: 'ایستگاه ها' }), ...stops.map(stopButton));
     children.push(h('h2', { class: 'bus-section-title', text: query ? 'خط ها' : `همه خط ها (${lines.length})` }), ...lines.map(lineButton));
-    if (!lines.length && !stops.length) children.splice(0, children.length, h('p', { class: 'bus-note', text: 'خط یا ایستگاهی با این نام پیدا نشد.' }));
+    if (!lines.length && !stops.length) children.splice(0, children.length, h('div', { class: 'cm-card cm-empty' }, h('div', { class: 'cm-empty__art' }, icon('magnifyingglass')), h('h3', { text: 'نتیجه ای پیدا نشد' }), h('p', { class: 'bus-note', text: 'شماره خط، مبدا یا نام ایستگاه را دقیق تر بنویسید.' })));
     results.replaceChildren(...children);
   }
 
@@ -61,11 +62,11 @@ export function createBusView(ctx) {
 
   function showLine(line, startId) {
     let active = line.variants.find(v => v.id === startId) ?? line.variants[0];
-    const variants = h('div', { class: 'bus-variants', role: 'group', 'aria-label': 'مسیرهای ثبت شده' });
+    const variants = h('div', { class: 'cm-chips bus-variants', role: 'group', 'aria-label': 'مسیرهای ثبت شده' });
     const list = h('ol', { class: 'bus-stops' });
     const notes = h('div', { class: 'bus-notes' });
     const paintLine = () => {
-      variants.replaceChildren(...(line.variants.length > 1 ? line.variants.map(v => h('button', { type: 'button', class: 'bus-variant', 'aria-pressed': String(v === active),
+      variants.replaceChildren(...(line.variants.length > 1 ? line.variants.map(v => h('button', { type: 'button', class: 'cm-chip bus-variant', 'aria-pressed': String(v === active),
         onClick: () => { active = v; paintLine(); } }, `از ${v.from} به ${v.to}`)) : []));
       list.replaceChildren(...active.stops.map(name => h('li', { text: name })));
       // Native replaceChildren renders `false` as text, so conditional notes are filtered explicitly.

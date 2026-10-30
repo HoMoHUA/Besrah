@@ -12,7 +12,7 @@ import { createServiceStore } from './service-store.js';
 import { NAV_VIEWS, ROUTES, activeNav, createNavigation } from './navigation.js';
 import { createStationSheet } from './ui/station.js';
 import { $, h, icon, reducedMotion } from './ui/dom.js';
-import { bridgeHaptics, init, morph, setToastHost, toast } from './ui/hm7.js';
+import { bridgeHaptics, init, lensTabs, morph, setToastHost, toast } from './ui/hm7.js';
 import { createAboutView } from './views/about.js';
 import { createFavouritesView } from './views/favourites.js';
 import { createHomeView } from './views/home.js';
@@ -276,12 +276,7 @@ paintMenu();
 init(document);
 Object.values(views).forEach(v => v.mount?.());
 menuApi = $('#menu')._hm7morph ?? morph($('#menu-btn'), $('#menu'));
-// The vendored lens clones the whole bar at a fixed pixel width, so a viewport change (Telegram expanding the
-// WebView, font load) left a second, misaligned copy of every icon and label. Plain buttons cannot double.
-const navButtons = [...nav.querySelectorAll('[data-view]')];
-lens = { select(index) { navButtons.forEach((b, i) => { b.classList.toggle('is-active', i === index); b.setAttribute('aria-selected', String(i === index)); }); } };
-navButtons.forEach((button, i) => button.addEventListener('click', () => { const view = NAV_VIEWS[i]; if (view && view !== state.get().view) go(view); }));
-lens.select(NAV_VIEWS.indexOf(activeNav(state.get().view)));
+lens = lensTabs(nav, index => { const view = NAV_VIEWS[index]; if (view && view !== state.get().view) go(view); });
 bridgeHaptics(tg);
 tg.setBack(null);
 window.addEventListener('pageshow', () => syncTelegramColors());

@@ -359,11 +359,85 @@ a, button { text-decoration: none !important; }
 .bus-notes { display: grid; gap: 6px; }
 .bus-note { color: var(--muted); font-size: 13px; line-height: 1.9; }
 
-/* Bottom bar: one real set of tabs (no cloned lens layer); the active tab is a soft pill. */
-.app-nav .hm7-tabs__item { border-radius: 22px; }
-.app-nav .hm7-tabs__item.is-active:not(.hm7-tabs__item--hub) { background: var(--accent-soft); color: var(--ink); font-weight: 800; box-shadow: inset 0 0 0 1px var(--line); }
-.app-nav .hm7-tabs__item--hub.is-active .hms { box-shadow: 0 0 0 3px var(--accent-soft); }
 /* Service art is one family: full-bleed rounded squares. */
 .product-tile__art .service-logo { width: 100%; height: 100%; aspect-ratio: auto; border-radius: inherit; }
 .product-shortcut .product-tile__art { background: #0A5556; border-color: #0A5556; }
 .product-shortcut .product-tile__art > .hms { color: #FFFFFF; }
+
+/* The lens is glass: without an opaque base the real tab shows through it and every icon/label looks doubled. */
+.app-nav .hm7-lens { background-color: var(--surface) !important; }
+
+/* ── Motion ── transform/opacity only; under reduced motion travel is dropped but short fades stay. */
+.ride-tabs { position: relative; }
+.ride-tabs::before { content: ""; position: absolute; inset-block: 4px; inset-inline-start: 4px; width: calc(50% - 4px); border-radius: 12px; background: var(--ink); }
+.ride-tabs[data-active="bus"]::before { inset-inline-start: 50%; }
+.ride-tab { position: relative; z-index: 1; }
+.ride-tab.is-active { background: transparent; color: var(--bg); }
+.bus-variants .cm-chip { height: auto; min-height: 44px; padding: 8px 14px; white-space: normal; text-align: start; line-height: 1.6; }
+.bus-skel { height: 56px; border-radius: 14px; } .bus-skeleton { display: grid; gap: 8px; }
+.bs-progress { position: relative; height: 6px; border-radius: 3px; background: var(--chip); overflow: hidden; }
+.bs-progress > i { position: absolute; inset-block: 0; inset-inline-start: 0; width: 35%; border-radius: inherit; background: linear-gradient(90deg, var(--accent-hi), var(--accent)); }
+.bus-stops, .mini-spine { position: relative; }
+.bus-stops li { position: relative; }
+.bus-stops li::before { display: grid; place-items: center; justify-self: center; position: relative; z-index: 1; width: 26px; height: 26px; border-radius: 50%; background: var(--surface); box-shadow: inset 0 0 0 2px var(--accent); color: var(--ink); font-weight: 700; }
+.bus-stops li::after { content: ""; position: absolute; inset-block: 0; inset-inline-start: 16.5px; width: 3px; border-radius: 2px; background: var(--accent); opacity: .4; transform-origin: top; }
+.bus-stops li:first-child::after { inset-block-start: 50%; } .bus-stops li:last-child::after { inset-block-end: 50%; }
+.bus-stops::after, .mini-spine::after { content: ""; position: absolute; inset-block: 0; width: 9px; pointer-events: none; z-index: 0; border-radius: 5px; background: linear-gradient(var(--accent-hi), var(--accent)) no-repeat; background-size: 100% 30px; }
+.bus-stops::after { inset-inline-start: 13.5px; } .mini-spine::after { inset-inline-start: 7.5px; }
+.metro-discovery__card.is-busy { position: relative; overflow: hidden; }
+.metro-discovery__card.is-busy::after { content: ""; position: absolute; inset-inline: 0; inset-block-start: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+@keyframes bs-fade { from { opacity: 0; } }
+@keyframes bs-rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes bs-pop { from { opacity: 0; transform: translateY(-6px) scale(.96); } }
+@keyframes bs-draw { from { transform: scaleY(0); } }
+@keyframes bs-pulse { 0% { box-shadow: inset 0 0 0 3px var(--accent), 0 0 0 0 rgba(var(--accent-rgb), .55); } 70%, 100% { box-shadow: inset 0 0 0 3px var(--accent), 0 0 0 9px rgba(var(--accent-rgb), 0); } }
+@keyframes bs-indet { from { transform: translateX(120%); } to { transform: translateX(-300%); } }
+@keyframes bs-sweep { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+@keyframes bs-travel { from { background-position: 0 0; } to { background-position: 0 100%; } }
+@keyframes bs-float { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+@keyframes bs-pill-from-right { from { transform: translateX(105%); } }
+@keyframes bs-pill-from-left { from { transform: translateX(-105%); } }
+@media (prefers-reduced-motion: no-preference) {
+  .view { animation: bs-fade .25s both; }
+  .view > *, .station__scroll > *, .brand-banner__art { animation: bs-rise .5s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both; }
+  .brand-banner__art { animation: bs-rise .6s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both, bs-float 5s ease-in-out .6s infinite alternate; }
+  .bus-results > *, .service-catalog > *, .product-row > *, .train-list > .train, .bus-stops li, .mini-spine__item { animation: bs-rise .4s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both; }
+  .bus-stops li::after, .mini-spine__item::before { animation: bs-draw .5s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both; }
+  .bus-stops::after, .mini-spine::after { animation: bs-travel 6s ease-in-out .8s infinite alternate; }
+  .mini-spine__item.is-current .mini-spine__dot { animation: bs-pulse 2s ease-out infinite; }
+  .bs-progress > i { animation: bs-indet 1.15s ease-in-out infinite; }
+  .metro-discovery__card.is-busy::after { animation: bs-sweep 1.2s linear infinite; }
+  .station__asof .cm-btn[aria-busy="true"] .hms { animation: cm-spin 1s linear infinite; }
+  .app-suggest:not([hidden]) { animation: bs-pop .24s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both; transform-origin: top center; }
+  .ride-tabs[data-active="bus"]::before { animation: bs-pill-from-right .45s var(--cm-spring, cubic-bezier(.22, 1, .36, 1)) both; }
+  .ride-tabs[data-active="metro"]::before { animation: bs-pill-from-left .45s var(--cm-spring, cubic-bezier(.22, 1, .36, 1)) both; }
+  .bus-line, .bus-variant, .ride-tab, .metro-favourites { transition: transform .18s var(--cm-out, ease-out); }
+  .bus-line:active, .bus-variant:active, .ride-tab:active, .metro-favourites:active { transform: scale(.97); }
+  .app-suggest:not([hidden]) .search-option { animation: bs-rise .3s var(--cm-out, ease-out) both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .view > *, .station__scroll > *, .bus-results > *, .app-suggest:not([hidden]) { animation: bs-fade .2s both; }
+  .bs-progress > i { width: 100%; opacity: .55; }
+}
+@media (prefers-reduced-motion: no-preference) {
+.view > :nth-child(2), .station__scroll > :nth-child(2) { animation-delay: 0.04s; }
+.view > :nth-child(3), .station__scroll > :nth-child(3) { animation-delay: 0.08s; }
+.view > :nth-child(4), .station__scroll > :nth-child(4) { animation-delay: 0.12s; }
+.view > :nth-child(5), .station__scroll > :nth-child(5) { animation-delay: 0.16s; }
+.view > :nth-child(6), .station__scroll > :nth-child(6) { animation-delay: 0.20s; }
+.view > :nth-child(7), .station__scroll > :nth-child(7) { animation-delay: 0.24s; }
+.view > :nth-child(8), .station__scroll > :nth-child(8) { animation-delay: 0.28s; }
+.bus-results > :nth-child(2), .service-catalog > :nth-child(2), .product-row > :nth-child(2), .train-list > :nth-child(2), .bus-stops li:nth-child(2), .mini-spine__item:nth-child(2), .mini-spine__item:nth-child(2)::before, .bus-stops li:nth-child(2)::after { animation-delay: 0.03s; }
+.bus-results > :nth-child(3), .service-catalog > :nth-child(3), .product-row > :nth-child(3), .train-list > :nth-child(3), .bus-stops li:nth-child(3), .mini-spine__item:nth-child(3), .mini-spine__item:nth-child(3)::before, .bus-stops li:nth-child(3)::after { animation-delay: 0.06s; }
+.bus-results > :nth-child(4), .service-catalog > :nth-child(4), .product-row > :nth-child(4), .train-list > :nth-child(4), .bus-stops li:nth-child(4), .mini-spine__item:nth-child(4), .mini-spine__item:nth-child(4)::before, .bus-stops li:nth-child(4)::after { animation-delay: 0.09s; }
+.bus-results > :nth-child(5), .service-catalog > :nth-child(5), .product-row > :nth-child(5), .train-list > :nth-child(5), .bus-stops li:nth-child(5), .mini-spine__item:nth-child(5), .mini-spine__item:nth-child(5)::before, .bus-stops li:nth-child(5)::after { animation-delay: 0.12s; }
+.bus-results > :nth-child(6), .service-catalog > :nth-child(6), .product-row > :nth-child(6), .train-list > :nth-child(6), .bus-stops li:nth-child(6), .mini-spine__item:nth-child(6), .mini-spine__item:nth-child(6)::before, .bus-stops li:nth-child(6)::after { animation-delay: 0.15s; }
+.bus-results > :nth-child(7), .service-catalog > :nth-child(7), .product-row > :nth-child(7), .train-list > :nth-child(7), .bus-stops li:nth-child(7), .mini-spine__item:nth-child(7), .mini-spine__item:nth-child(7)::before, .bus-stops li:nth-child(7)::after { animation-delay: 0.18s; }
+.bus-results > :nth-child(8), .service-catalog > :nth-child(8), .product-row > :nth-child(8), .train-list > :nth-child(8), .bus-stops li:nth-child(8), .mini-spine__item:nth-child(8), .mini-spine__item:nth-child(8)::before, .bus-stops li:nth-child(8)::after { animation-delay: 0.21s; }
+.bus-results > :nth-child(9), .service-catalog > :nth-child(9), .product-row > :nth-child(9), .train-list > :nth-child(9), .bus-stops li:nth-child(9), .mini-spine__item:nth-child(9), .mini-spine__item:nth-child(9)::before, .bus-stops li:nth-child(9)::after { animation-delay: 0.24s; }
+.bus-results > :nth-child(10), .service-catalog > :nth-child(10), .product-row > :nth-child(10), .train-list > :nth-child(10), .bus-stops li:nth-child(10), .mini-spine__item:nth-child(10), .mini-spine__item:nth-child(10)::before, .bus-stops li:nth-child(10)::after { animation-delay: 0.27s; }
+.bus-results > :nth-child(11), .service-catalog > :nth-child(11), .product-row > :nth-child(11), .train-list > :nth-child(11), .bus-stops li:nth-child(11), .mini-spine__item:nth-child(11), .mini-spine__item:nth-child(11)::before, .bus-stops li:nth-child(11)::after { animation-delay: 0.30s; }
+.bus-results > :nth-child(12), .service-catalog > :nth-child(12), .product-row > :nth-child(12), .train-list > :nth-child(12), .bus-stops li:nth-child(12), .mini-spine__item:nth-child(12), .mini-spine__item:nth-child(12)::before, .bus-stops li:nth-child(12)::after { animation-delay: 0.33s; }
+.bus-results > :nth-child(13), .service-catalog > :nth-child(13), .product-row > :nth-child(13), .train-list > :nth-child(13), .bus-stops li:nth-child(13), .mini-spine__item:nth-child(13), .mini-spine__item:nth-child(13)::before, .bus-stops li:nth-child(13)::after { animation-delay: 0.36s; }
+.bus-results > :nth-child(14), .service-catalog > :nth-child(14), .product-row > :nth-child(14), .train-list > :nth-child(14), .bus-stops li:nth-child(14), .mini-spine__item:nth-child(14), .mini-spine__item:nth-child(14)::before, .bus-stops li:nth-child(14)::after { animation-delay: 0.39s; }
+}
