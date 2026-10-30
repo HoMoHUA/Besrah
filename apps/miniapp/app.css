@@ -382,8 +382,6 @@ a, button { text-decoration: none !important; }
 .bus-stops li::before { display: grid; place-items: center; justify-self: center; position: relative; z-index: 1; width: 26px; height: 26px; border-radius: 50%; background: var(--surface); box-shadow: inset 0 0 0 2px var(--accent); color: var(--ink); font-weight: 700; }
 .bus-stops li::after { content: ""; position: absolute; inset-block: 0; inset-inline-start: 16.5px; width: 3px; border-radius: 2px; background: var(--accent); opacity: .4; transform-origin: top; }
 .bus-stops li:first-child::after { inset-block-start: 50%; } .bus-stops li:last-child::after { inset-block-end: 50%; }
-.bus-stops::after, .mini-spine::after { content: ""; position: absolute; inset-block: 0; width: 9px; pointer-events: none; z-index: 0; border-radius: 5px; background: linear-gradient(var(--accent-hi), var(--accent)) no-repeat; background-size: 100% 30px; }
-.bus-stops::after { inset-inline-start: 13.5px; } .mini-spine::after { inset-inline-start: 7.5px; }
 .metro-discovery__card.is-busy { position: relative; overflow: hidden; }
 .metro-discovery__card.is-busy::after { content: ""; position: absolute; inset-inline: 0; inset-block-start: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
 @keyframes bs-fade { from { opacity: 0; } }
@@ -393,7 +391,6 @@ a, button { text-decoration: none !important; }
 @keyframes bs-pulse { 0% { box-shadow: inset 0 0 0 3px var(--accent), 0 0 0 0 rgba(var(--accent-rgb), .55); } 70%, 100% { box-shadow: inset 0 0 0 3px var(--accent), 0 0 0 9px rgba(var(--accent-rgb), 0); } }
 @keyframes bs-indet { from { transform: translateX(120%); } to { transform: translateX(-300%); } }
 @keyframes bs-sweep { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-@keyframes bs-travel { from { background-position: 0 0; } to { background-position: 0 100%; } }
 @keyframes bs-float { from { transform: translateY(0); } to { transform: translateY(-5px); } }
 @keyframes bs-pill-from-right { from { transform: translateX(105%); } }
 @keyframes bs-pill-from-left { from { transform: translateX(-105%); } }
@@ -403,7 +400,6 @@ a, button { text-decoration: none !important; }
   .brand-banner__art { animation: bs-rise .6s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both, bs-float 5s ease-in-out .6s infinite alternate; }
   .bus-results > *, .service-catalog > *, .product-row > *, .train-list > .train, .bus-stops li, .mini-spine__item { animation: bs-rise .4s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both; }
   .bus-stops li::after, .mini-spine__item::before { animation: bs-draw .5s var(--cm-out, cubic-bezier(.22, 1, .36, 1)) both; }
-  .bus-stops::after, .mini-spine::after { animation: bs-travel 6s ease-in-out .8s infinite alternate; }
   .mini-spine__item.is-current .mini-spine__dot { animation: bs-pulse 2s ease-out infinite; }
   .bs-progress > i { animation: bs-indet 1.15s ease-in-out infinite; }
   .metro-discovery__card.is-busy::after { animation: bs-sweep 1.2s linear infinite; }
@@ -498,4 +494,26 @@ html[dir="rtl"] .trk-row, .trk-row:dir(rtl) { padding: 0 116px 0 12px; }
   #hb-pin { animation: hb-bob 2.4s ease-in-out infinite; }
   #hb-node { animation: hb-ping 2.2s ease-out infinite; }
   #hb-star1 { animation: hb-twinkle 2.6s ease-in-out infinite; } #hb-star2 { animation: hb-twinkle 3.1s ease-in-out .7s infinite; } #hb-star3 { animation: hb-twinkle 2.9s ease-in-out 1.3s infinite; }
+}
+
+/* Route dots light up one after another once when a list opens (replaces the old sliding bar). */
+@keyframes bs-dot { 0% { transform: scale(.55); box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 0 rgba(var(--accent-rgb), .6); } 60% { transform: scale(1.12); } 100% { transform: scale(1); box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 8px rgba(var(--accent-rgb), 0); } }
+@keyframes bs-dot-mini { 0% { transform: scale(.55); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: no-preference) {
+  .bus-stops li::before { animation: bs-dot .7s var(--cm-out, ease-out) both; }
+  .mini-spine__dot { animation: bs-dot-mini .5s var(--cm-out, ease-out) both; }
+  .bus-stops li:nth-child(2)::before { animation-delay: 0.03s; } .mini-spine__item:nth-child(2) .mini-spine__dot { animation-delay: 0.03s; }
+  .bus-stops li:nth-child(3)::before { animation-delay: 0.06s; } .mini-spine__item:nth-child(3) .mini-spine__dot { animation-delay: 0.06s; }
+  .bus-stops li:nth-child(4)::before { animation-delay: 0.09s; } .mini-spine__item:nth-child(4) .mini-spine__dot { animation-delay: 0.09s; }
+  .bus-stops li:nth-child(5)::before { animation-delay: 0.12s; } .mini-spine__item:nth-child(5) .mini-spine__dot { animation-delay: 0.12s; }
+  .bus-stops li:nth-child(6)::before { animation-delay: 0.15s; } .mini-spine__item:nth-child(6) .mini-spine__dot { animation-delay: 0.15s; }
+  .bus-stops li:nth-child(7)::before { animation-delay: 0.18s; } .mini-spine__item:nth-child(7) .mini-spine__dot { animation-delay: 0.18s; }
+  .bus-stops li:nth-child(8)::before { animation-delay: 0.21s; } .mini-spine__item:nth-child(8) .mini-spine__dot { animation-delay: 0.21s; }
+  .bus-stops li:nth-child(9)::before { animation-delay: 0.24s; } .mini-spine__item:nth-child(9) .mini-spine__dot { animation-delay: 0.24s; }
+  .bus-stops li:nth-child(10)::before { animation-delay: 0.27s; } .mini-spine__item:nth-child(10) .mini-spine__dot { animation-delay: 0.27s; }
+  .bus-stops li:nth-child(11)::before { animation-delay: 0.30s; } .mini-spine__item:nth-child(11) .mini-spine__dot { animation-delay: 0.30s; }
+  .bus-stops li:nth-child(12)::before { animation-delay: 0.33s; } .mini-spine__item:nth-child(12) .mini-spine__dot { animation-delay: 0.33s; }
+  .bus-stops li:nth-child(13)::before { animation-delay: 0.36s; } .mini-spine__item:nth-child(13) .mini-spine__dot { animation-delay: 0.36s; }
+  .bus-stops li:nth-child(14)::before { animation-delay: 0.39s; } .mini-spine__item:nth-child(14) .mini-spine__dot { animation-delay: 0.39s; }
+  .mini-spine__item.is-current .mini-spine__dot { animation: bs-dot-mini .5s var(--cm-out, ease-out) both, bs-pulse 2s ease-out .6s infinite; }
 }
