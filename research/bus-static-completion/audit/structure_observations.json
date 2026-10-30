@@ -1,0 +1,79 @@
+{
+  "members_not_represented_in_stop_platform_or_road_tables": [
+    {
+      "route_id": "osm:relation:13016691",
+      "ref_raw": "99",
+      "member_index": 172,
+      "element_id": "osm:relation:21376788",
+      "role": ""
+    },
+    {
+      "route_id": "osm:relation:13022576",
+      "ref_raw": "13.1",
+      "member_index": 173,
+      "element_id": "osm:relation:21376788",
+      "role": ""
+    },
+    {
+      "route_id": "osm:relation:13117573",
+      "ref_raw": "1098",
+      "member_index": 147,
+      "element_id": "osm:node:13251483912",
+      "role": ""
+    }
+  ],
+  "special_cases": {
+    "same_stop_sequence_line_33": {
+      "route_ids": [
+        "osm:relation:17448363",
+        "osm:relation:17448364"
+      ],
+      "same_ordered_stop_element_ids": true,
+      "identical_all_member_lists": false,
+      "action": "preserve_both_variants_no_deduplication"
+    },
+    "piroozi24_osm_memberships": {
+      "stop_id": "osm:node:264158011",
+      "name_raw": "ایستگاه پیروزی ۲۴",
+      "memberships": [
+        {
+          "route_id": "osm:relation:12933678",
+          "ref_raw": "98",
+          "sequence": 7,
+          "member_index": 13
+        },
+        {
+          "route_id": "osm:relation:13086941",
+          "ref_raw": "91",
+          "sequence": 7,
+          "member_index": 13
+        },
+        {
+          "route_id": "osm:relation:13125522",
+          "ref_raw": "1093",
+          "sequence": 20,
+          "member_index": 28
+        }
+      ],
+      "consumer_display_or_provider_id_authority": "not_used_or_verified_no_memberships_added"
+    },
+    "ref_4_vs_EXP_4": {
+      "exact_ref_4_in_lines": false,
+      "exact_ref_EXP_4_in_lines": true,
+      "unmatched_ref_4_platform_hint_occurrences": 51,
+      "action": "distinct_identifiers_no_alias_inferred"
+    },
+    "ref_38_dot_1_vs_38_slash_1": {
+      "line_ids": [
+        "osm:ref:38.1",
+        "osm:ref:38/1"
+      ],
+      "action": "kept_as_distinct_exact_line_refs"
+    }
+  },
+  "quarantined_reference_counts": {
+    "reference_route_records": 205,
+    "reference_pdf_mentions": 144
+  },
+  "quarantined_reference_policy": "No supplementary row or PDF mention promoted into lines/routes/endpoints/stops/geometry; not an operating-line census."
+}

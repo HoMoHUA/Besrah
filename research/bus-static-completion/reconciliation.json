@@ -1,0 +1,39 @@
+{
+  "status": "known_snapshot_materialized_citywide_completion_not_established",
+  "source_database_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "official_current_line_count": null,
+  "official_completeness_verified": false,
+  "no_coverage_percentage_calculated": true,
+  "reported_route_graph_leads": [
+    {
+      "ref_raw": "۸۳۲",
+      "origin_candidate_raw": "روگذر شیرازی حرم",
+      "destination_candidate_raw": "پایانه الهیه",
+      "source_url": "https://shahraranews.ir/fa/news/443868/",
+      "published_at": "2026-09-09T08:20:01+03:30",
+      "quality": "news_reported_direction_agnostic_candidate_not_operator_confirmed",
+      "candidate_qualification": "833 origin resolved from immediately preceding narrative location, not an explicit complete operator row. Endpoints are direction-agnostic candidates; no stop sequences or geometry.",
+      "imported_as_route": false
+    },
+    {
+      "ref_raw": "۸۳۳",
+      "origin_candidate_raw": "پایانه شهید بسکابادی",
+      "destination_candidate_raw": "پایانه فردوسی",
+      "source_url": "https://shahraranews.ir/fa/news/443868/",
+      "published_at": "2026-09-09T08:20:01+03:30",
+      "quality": "news_reported_direction_agnostic_candidate_not_operator_confirmed",
+      "candidate_qualification": "833 origin resolved from immediately preceding narrative location, not an explicit complete operator row. Endpoints are direction-agnostic candidates; no stop sequences or geometry.",
+      "imported_as_route": false
+    }
+  ],
+  "other_queues": {
+    "unmatched_platform_refs": "audit/unmapped_ref_hints.json",
+    "geometry_review": "audit/geometry_diagnostics.json",
+    "direction_review": "audit/direction_audit.json",
+    "unlinked_name_or_coordinate_gaps": "audit/stop_platform_gaps.json",
+    "terminal_candidates": "audit/terminal_candidates.json",
+    "document_references": "book2024-reference-mentions.json"
+  },
+  "blocker": "No accessible current official route-reference census and no verified stop/geometry source for the reported missing route graphs. Do not invent them.",
+  "eta_work": "deferred_by_owner"
+}

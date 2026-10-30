@@ -1,0 +1,27 @@
+{
+  "verified_at_utc": "2026-10-30T08:51:20.809120+00:00",
+  "checks_passed": [
+    "all_source_metadata_JSON_parses",
+    "primary_IRNA_browser_capture_hash",
+    "all_download_and_search_capture_hashes_checked_where_available",
+    "bounded_quotes_and_source_text_matches",
+    "no_current_denominator_or_percentage_claim",
+    "exact_SQLite_readonly_831_match_832_833_absence",
+    "no_tracked_file_diff",
+    "citation_ledger_strict_verification_exit_0_after_paragraph_fix"
+  ],
+  "citation_verification_output": "30 prose sentences; 10 distinct cited sources; 5 with evidence quotes; citations OK",
+  "artifact_names": [
+    "README-catalogue-discovery-20261030.md",
+    "catalogue-citations-20261030.json",
+    "catalogue-facts-20261030.json",
+    "catalogue-probes-20261030.json",
+    "catalogue-search-log-20261030.json",
+    "catalogue-verification-20261030.json"
+  ],
+  "tracked_diff_at_verification": [],
+  "network_observation_count": 22,
+  "concurrent_untracked_paths_not_created_by_this_task": ["docs/superpowers/"],
+  "own_repository_write_scope": "research/bus-static-completion/sources/",
+  "limitation": "Search snapshots are local scratch and may be pruned; publication facts and hashes remain. No official route/stop dataset or current operator census retrieved. IRNA July 30 aggregate is 175, not a certified October coverage denominator."
+}

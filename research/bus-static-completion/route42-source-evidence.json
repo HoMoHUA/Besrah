@@ -1,0 +1,75 @@
+{
+  "route_id": "osm:relation:5815754",
+  "quality": "evidence_applied_to_derived_display_only",
+  "explicit_alternate_language_route_title": "Line 42 (Elahiyeh bus station → Shahid Javan bus station)",
+  "variants": [
+    {
+      "id": "osm:relation:12994022",
+      "name": "خط ۴۲ (پایانه شهید جوان ← پایانه الهیه)",
+      "from_name": "پایانه شهید جوان",
+      "to_name": "پایانه الهیه",
+      "tags_json": "{\"from\":\"پایانه شهید جوان\",\"name\":\"خط ۴۲ (پایانه شهید جوان ← پایانه الهیه)\",\"name:en\":\"Line 42 (Shahid Javan bus station → Elahiyeh bus station)\",\"operator\":\"سازمان اتوبوسرانی مشهد\",\"public_transport:version\":\"2\",\"ref\":\"42\",\"route\":\"bus\",\"to\":\"پایانه الهیه\",\"type\":\"route\"}"
+    },
+    {
+      "id": "osm:relation:5815754",
+      "name": "خط ۴۲",
+      "from_name": null,
+      "to_name": null,
+      "tags_json": "{\"name\":\"خط ۴۲\",\"name:en\":\"Line 42 (Elahiyeh bus station → Shahid Javan bus station)\",\"operator\":\"سازمان اتوبوسرانی مشهد\",\"public_transport:version\":\"2\",\"ref\":\"42\",\"ref:fa\":\"۴۲\",\"route\":\"bus\",\"type\":\"route\"}"
+    }
+  ],
+  "first_stops": [
+    {
+      "sequence": 0,
+      "member_index": 0,
+      "id": "osm:node:8935372322",
+      "name": "ایستگاه پایانه الهیه",
+      "lat": 36.3663492,
+      "lon": 59.4907213,
+      "tags_json": "{\"bus\":\"yes\",\"highway\":\"bus_stop\",\"name\":\"ایستگاه پایانه الهیه\",\"name:en\":\"Elahiyeh station bus stop\",\"public_transport\":\"stop_position\"}"
+    },
+    {
+      "sequence": 1,
+      "member_index": 1,
+      "id": "osm:node:8935372320",
+      "name": "ایستگاه اقدسیه ۷",
+      "lat": 36.3707884,
+      "lon": 59.4915104,
+      "tags_json": "{\"bus\":\"yes\",\"highway\":\"bus_stop\",\"name\":\"ایستگاه اقدسیه ۷\",\"name:en\":\"Aghdasiyeh 7 bus stop\",\"public_transport\":\"stop_position\"}"
+    }
+  ],
+  "last_stops": [
+    {
+      "sequence": 46,
+      "member_index": 70,
+      "id": "osm:node:8739345133",
+      "name": "ایستگاه میدان شهید کاوه",
+      "lat": 36.2834875,
+      "lon": 59.5500111,
+      "tags_json": "{\"bus\":\"yes\",\"highway\":\"bus_stop\",\"name\":\"ایستگاه میدان شهید کاوه\",\"name:en\":\"Shahid Kaveh Square bus stop\",\"public_transport\":\"stop_position\",\"ref\":\"1144\"}"
+    },
+    {
+      "sequence": 47,
+      "member_index": 72,
+      "id": "osm:node:8935372323",
+      "name": "ایستگاه پایانه شهید جوان",
+      "lat": 36.282753,
+      "lon": 59.5454827,
+      "tags_json": "{\"bus\":\"yes\",\"highway\":\"bus_stop\",\"name\":\"ایستگاه پایانه شهید جوان\",\"name:en\":\"Shahid Javan station bus stop\",\"public_transport\":\"stop_position\",\"ref\":\"5449\"}"
+    }
+  ],
+  "method_note": "Inspect explicit same-relation alternate-language endpoint text alongside raw first/last stop names; no nearby-stop guessing and no automatic reverse-direction inference.",
+  "original_source_tags": {
+    "name": "خط ۴۲",
+    "name:en": "Line 42 (Elahiyeh bus station → Shahid Javan bus station)",
+    "operator": "سازمان اتوبوسرانی مشهد",
+    "public_transport:version": "2",
+    "ref": "42",
+    "ref:fa": "۴۲",
+    "route": "bus",
+    "type": "route"
+  },
+  "applied_to": "data/bus/guide/endpoint-derivations.json",
+  "raw_source_database_modified": false,
+  "review_record_updated_utc": "2026-10-30T09:19:29.836293+00:00"
+}

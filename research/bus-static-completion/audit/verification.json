@@ -1,0 +1,235 @@
+{
+  "verified_at_utc": "2026-10-30T08:48:01.154626+00:00",
+  "database_sha256_before": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "database_sha256_after": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "database_unchanged": true,
+  "sqlite_integrity_check": [
+    "ok"
+  ],
+  "foreign_key_violations": [],
+  "passed_checks": 35,
+  "total_checks": 35,
+  "checks": [
+    {
+      "name": "route_metrics_exact_all_source_route_ids",
+      "passed": true
+    },
+    {
+      "name": "line_metrics_exact_all_source_line_ids",
+      "passed": true
+    },
+    {
+      "name": "route_geometry_metrics.json_exact_all_source_route_ids",
+      "passed": true
+    },
+    {
+      "name": "geometry_diagnostics.json_exact_all_source_route_ids",
+      "passed": true
+    },
+    {
+      "name": "direction_audit.json_exact_all_source_route_ids",
+      "passed": true
+    },
+    {
+      "name": "stop_road_vertex_incidence.json_exact_all_source_route_ids",
+      "passed": true
+    },
+    {
+      "name": "raw_route_labels_byte_exact_as_python_strings",
+      "passed": true
+    },
+    {
+      "name": "line_refs_exact",
+      "passed": true
+    },
+    {
+      "name": "every_line_contains_exact_original_variants",
+      "passed": true
+    },
+    {
+      "name": "all_table_counts_match_existing_export",
+      "passed": true
+    },
+    {
+      "name": "per_route_stop_occurrence_counts_exact",
+      "passed": true
+    },
+    {
+      "name": "per_route_platform_occurrence_counts_exact",
+      "passed": true
+    },
+    {
+      "name": "per_route_geometry_occurrence_counts_exact",
+      "passed": true
+    },
+    {
+      "name": "line_occurrence_sums_equal_db",
+      "passed": true
+    },
+    {
+      "name": "no_stored_sequence_integrity_errors",
+      "passed": true
+    },
+    {
+      "name": "unique_linked_stop_name_and_coordinate_nulls_SQL",
+      "passed": true
+    },
+    {
+      "name": "unique_linked_platform_name_and_geometry_nulls_SQL",
+      "passed": true
+    },
+    {
+      "name": "all_linked_platforms_literal_points_SQL",
+      "passed": true
+    },
+    {
+      "name": "full_DB_null_counts_match_baseline",
+      "passed": true
+    },
+    {
+      "name": "unmapped_hint_tokens_exact_SQL_view",
+      "passed": true
+    },
+    {
+      "name": "all_unmapped_ref_evidence_preserved",
+      "passed": true
+    },
+    {
+      "name": "all_360_raw_endpoint_occurrences_exact",
+      "passed": true
+    },
+    {
+      "name": "exact_facility_name_evidence_matches_SQL_view",
+      "passed": true
+    },
+    {
+      "name": "all_39_facility_ids_once",
+      "passed": true
+    },
+    {
+      "name": "all_direction_reverse_partners_match_independent_SQL",
+      "passed": true
+    },
+    {
+      "name": "geometry_components_independent_coordinate_edge_BFS",
+      "passed": true
+    },
+    {
+      "name": "all_adjacency_pair_statuses_recomputed_independently",
+      "passed": true
+    },
+    {
+      "name": "adjacency_totals_equal_segment_occurrences_minus_routes",
+      "passed": true
+    },
+    {
+      "name": "stop_reference_tokens_preserved_no_normalization",
+      "passed": true
+    },
+    {
+      "name": "arrival_and_mapping_tables_still_empty",
+      "passed": true
+    },
+    {
+      "name": "all_headways_still_null_and_timing_unknown",
+      "passed": true
+    },
+    {
+      "name": "sqlite_integrity_check",
+      "passed": true
+    },
+    {
+      "name": "sqlite_foreign_key_check",
+      "passed": true
+    },
+    {
+      "name": "database_SHA256_unchanged_before_after",
+      "passed": true,
+      "detail": {
+        "before": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+        "after": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+        "existing_export": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f"
+      }
+    },
+    {
+      "name": "all_created_artifacts_in_authorized_audit_directory",
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "research/bus-static-completion/audit/AUDIT.md",
+      "bytes": 7397,
+      "sha256": "f3c71b1d304600457b207e3a0bd70848aba9dc236d55dc6ccf51fe59591b538f"
+    },
+    {
+      "path": "research/bus-static-completion/audit/baseline.json",
+      "bytes": 6739,
+      "sha256": "40cb17aff576e74927ec23efdcec5db77d5ef3a81c1d4cd1a9c8592419de82cd"
+    },
+    {
+      "path": "research/bus-static-completion/audit/direction_audit.json",
+      "bytes": 98182,
+      "sha256": "7bda7dfcedf82f6e0eab24f801f1ec45cebb37e367a8fe8a557c6f30d67372bd"
+    },
+    {
+      "path": "research/bus-static-completion/audit/geometry_diagnostics.json",
+      "bytes": 306757,
+      "sha256": "7b9599282a4a4f34ce6fea390ba69f84cc0c1f9e33fdb3bdc020a349558c9df8"
+    },
+    {
+      "path": "research/bus-static-completion/audit/line_metrics.json",
+      "bytes": 210315,
+      "sha256": "7b2ddf9c1505362ad5c2dcc9d27b9800e848d2e9753a614e6e35b38fca5a674b"
+    },
+    {
+      "path": "research/bus-static-completion/audit/route_geometry_metrics.json",
+      "bytes": 224699,
+      "sha256": "d6bee0a4330e37ea82ee9bf0cf976e8a463c8049042c6bf8c8aaf233cd477699"
+    },
+    {
+      "path": "research/bus-static-completion/audit/route_metrics.json",
+      "bytes": 553346,
+      "sha256": "2f8d01b0945e37797116f8d70efdd32464407c30373ec130ca0d6e802c7c3770"
+    },
+    {
+      "path": "research/bus-static-completion/audit/stop_platform_gaps.json",
+      "bytes": 8901,
+      "sha256": "5dc3465353ec040f1352793830c06f3ac659c9df92768c951cd89e283c66ce49"
+    },
+    {
+      "path": "research/bus-static-completion/audit/stop_road_vertex_incidence.json",
+      "bytes": 44519,
+      "sha256": "81b62e20dce55a9aa21b0e0bce53c22c81a3b390cfb95205cd6b0227750847ab"
+    },
+    {
+      "path": "research/bus-static-completion/audit/structure_observations.json",
+      "bytes": 2254,
+      "sha256": "d86b22d5737971fe3e1055b0193827cf00bfd5cd88d855427e9cf485e756201f"
+    },
+    {
+      "path": "research/bus-static-completion/audit/summary.json",
+      "bytes": 5379,
+      "sha256": "11e6c82aa8b6ad824acb04ae618597cd04a9c9402ffb62fc8bf86d438dc80277"
+    },
+    {
+      "path": "research/bus-static-completion/audit/terminal_candidates.json",
+      "bytes": 319704,
+      "sha256": "3bc7981f6d78bc552f9bfd95b649a1422b4d5ae33665e0f7d94426f3e16771ce"
+    },
+    {
+      "path": "research/bus-static-completion/audit/unmapped_ref_hints.json",
+      "bytes": 488231,
+      "sha256": "546a6c9cb67998aed27aab8789b9a19ee2309c25532da02537ae2cbea053e251"
+    },
+    {
+      "path": "research/bus-static-completion/audit/variant_structure_audit.json",
+      "bytes": 1684,
+      "sha256": "17f58a09b67c3272978a8c826d20bda43bd41bd52b12090a99d6d90afc5dcb34"
+    }
+  ],
+  "manifest_semantics": "Hashes cover every other audit artifact; verification.json is excluded to avoid a self-referential hash.",
+  "external_network_used": false,
+  "production_ui_api_touched": false,
+  "source_data_repaired": false
+}

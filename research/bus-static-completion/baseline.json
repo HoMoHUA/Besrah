@@ -1,0 +1,20 @@
+{
+  "database_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "lines": 92,
+  "route_variants": 180,
+  "stops": 2196,
+  "raw_endpoint_gap_rows": [
+    {
+      "id": "osm:relation:5815754",
+      "ref_raw": "42",
+      "name": "خط ۴۲",
+      "from_name": null,
+      "to_name": null,
+      "tags_json": "{\"name\":\"خط ۴۲\",\"name:en\":\"Line 42 (Elahiyeh bus station → Shahid Javan bus station)\",\"operator\":\"سازمان اتوبوسرانی مشهد\",\"public_transport:version\":\"2\",\"ref\":\"42\",\"ref:fa\":\"۴۲\",\"route\":\"bus\",\"type\":\"route\"}"
+    }
+  ],
+  "arrival_observations": 0,
+  "non_null_headways": 0,
+  "official_completeness_verified": false,
+  "no_runtime_changes": true
+}

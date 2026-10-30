@@ -1,0 +1,220 @@
+{
+  "review_version": 1,
+  "reviewed_at_utc": "2026-10-30T09:16:40Z",
+  "scope": "Independent local review of the materialized static guide, its integrity test, read-only SQLite, preserved raw snapshot and existing audit/source metadata. No network, implementation, deployment, commits or source repairs.",
+  "verdict": {
+    "status": "changes_requested",
+    "overall_severity": "medium",
+    "finding_count": 2,
+    "counts_by_severity": {"critical": 0, "high": 0, "medium": 2, "low": 0},
+    "summary": "All 92 literal line refs, 180 route variants, linked stop/platform occurrences, points and road geometries are preserved exactly. Display-only line 42 endpoint derivations have exact unique source evidence and retain raw nulls. However, the package omits one non-transit raw relation member, so full-source/all-member preservation is not established, and the test accepts incorrect line safety flags, duplicate line variants, fabricated summary endpoints and false geometry-verification metadata. No currently invented ETA, provider mappings, operating status or official completeness was found.",
+    "acceptance_boundary": "Usable as an explicitly unverified static-display projection with the documented caveats; not an official current line census, trip-navigation graph, timetable, provider-ID mapping or arrival service. Correct the all-member claim/preservation gap and strengthen the safety-critical test before calling the materialization fully verified."
+  },
+  "findings": [
+    {
+      "id": "GUIDE-001",
+      "severity": "medium",
+      "category": "source_membership_preservation",
+      "title": "One raw member is absent from the entire guide; the test's full-source/exact-membership claim overlooks it",
+      "locations": [
+        {"path": "data/bus/guide/routes.json", "json_pointer": "/routes[id=osm:relation:13117573]"},
+        {"path": "tests/data/bus-guide-integrity.test.mjs", "lines": "8,54-61,125"},
+        {"path": "research/bus-static-completion/audit/structure_observations.json", "lines": "17-23"}
+      ],
+      "evidence": {
+        "sqlite_query": "SELECT route_id, member_index, element_id, role FROM route_members WHERE route_id='osm:relation:13117573' AND member_index=147;",
+        "sqlite_row": {"route_id": "osm:relation:13117573", "member_index": 147, "element_id": "osm:node:13251483912", "role": ""},
+        "line_ref_raw": "1098",
+        "raw_member_count": 20165,
+        "typed_stop_platform_road_member_count": 20162,
+        "additional_members_retained_in_direct_relation_diagnostics": 2,
+        "total_reconstructible_from_guide_including_diagnostics": 20164,
+        "unrepresented_member_count": 1,
+        "affected_route_source_member_count": 148,
+        "affected_route_represented_member_count": 147,
+        "missing_id_present_in_any_guide_json": false,
+        "not_false_positive_for_relation_members": "The other two non-typed members, osm:relation:21376788 at indices 172 and 173 of routes osm:relation:13016691 and osm:relation:13022576, ARE retained in quality.source_audit.direct_relation_members; they are not reported as lost.",
+        "source_anomaly": "The raw snapshot identifies the omitted node as leisure=adult_gaming_centre, not a bus stop. Its membership is anomalous source evidence, not a legitimate station to add.",
+        "existing_test_result": "PASS, despite this actual omission. The test compares route_stops, route_platforms and route_geometry, never the complete route_members sequence."
+      },
+      "impact": "The projection cannot round-trip every raw member or fully expose this existing source anomaly. The current omission does not remove a legitimate stop or road segment; the defect is silent evidence loss and overstatement of the integrity guarantee.",
+      "recommendation": "Retain the exact unclassified member in an explicit raw_members or other_members collection, preserving route ID, index, literal element ID and role. Flag it as unclassified/non-transit evidence and never insert it into stops, platforms, operating service or navigation. Assert the complete ordered route_members list against SQLite, accounting for every member exactly once. If intentionally excluded from this projection, explicitly document that exclusion and narrow the full-source/all-member claims instead.",
+      "verification": {"verdict": "verified", "method": "Independent full-route member-list reconstruction from stops, platforms, road segments and diagnostic direct_relation_members, compared against every read-only route_members row; literal ID search of all six guide JSON files; raw snapshot node inspection.", "command_exit_code": 0}
+    },
+    {
+      "id": "GUIDE-002",
+      "severity": "medium",
+      "category": "integrity_test_blind_spots",
+      "title": "Safety-critical line and audit-summary fields can become false while the integrity test remains green",
+      "locations": [
+        {"path": "tests/data/bus-guide-integrity.test.mjs", "lines": "48-53,88-97"},
+        {"path": "data/bus/guide/lines.json", "json_pointer": "/lines/*/current_operator_service_verified and /lines/*/variants/*"},
+        {"path": "data/bus/guide/routes.json", "json_pointer": "/routes/*/quality/source_audit and /routes/*/quality/geometry_audit"}
+      ],
+      "evidence": {
+        "current_artifact_values": "Independent review confirmed the present line flags are all false; raw summary names/endpoints, direction status and component counts match SQL/audit; embedded source_audit and geometry_audit blobs match the audited source files. This is a demonstrated test-coverage defect, not a claim these present fields are wrong.",
+        "mutation_method": "Extracted and executed the exact Python String.raw body of bus-guide-integrity.test.mjs. For each case, copied guide JSON into memory, changed one field, recomputed the corresponding manifest bytes/hash in memory, and patched Path.read_text/read_bytes for guide paths only. SQLite and every real guide/test file stayed untouched. Rehashing represents a self-consistent regenerated artifact, rather than bypassing an accidental-corruption check on disk.",
+        "executed_mutations": [
+          {"change": "Set the first line current_operator_service_verified to true", "test_outcome": "accepted"},
+          {"change": "Append a duplicate of the first variant to its line", "test_outcome": "accepted"},
+          {"change": "Replace a line variant from_raw and to_raw with UNSUPPORTED ENDPOINT", "test_outcome": "accepted"},
+          {"change": "Set a route geometry_audit.independent_traversal_orientation_verified to true", "test_outcome": "accepted"},
+          {"change": "Replace a line variant exact_vertex_component_count with 999", "test_outcome": "accepted"}
+        ],
+        "why": "Line membership uses set equality, discarding duplicate multiplicity. The line loop does not assert current_operator_service_verified, name_raw/from_raw/to_raw, direction_status or exact_vertex_component_count. The route loop validates two top-level quality booleans but does not validate the embedded source/geometry audit blobs or their independent-verification flags. File hashes confirm byte consistency, not correctness of unasserted semantics."
+      },
+      "impact": "A future manual reprojection can falsely certify current operation or traversal orientation in a field a list/map consumer reads, display unsupported summary endpoints or hide connectivity problems, or duplicate a variant, with a passing integrity test. Global false flags do not resolve contradictory per-line/per-variant fields.",
+      "recommendation": "Assert false current-service flags at the line level; require exact variant cardinality and unique IDs in addition to set membership; compare every variant raw label/endpoint to its exact SQL route; validate source/geometry audit identity and values against pinned audit evidence or independent recomputation; explicitly require unverified orientation and source stop-order semantics. Add negative tests for the demonstrated mutations. Keep manifest hash checks as complementary byte-integrity checks.",
+      "verification": {"verdict": "verified", "method": "Five isolated in-memory mutations each accepted by the exact existing test body, with internally consistent memory-only manifest hashes.", "mutations_executed": 5, "mutations_accepted": 5, "command_exit_code": 0, "disk_mutations": false}
+    }
+  ],
+  "verification": {
+    "test": {
+      "command": "node --test tests/data/bus-guide-integrity.test.mjs",
+      "exit_code": 0,
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "note": "A passing test is not proof of the currently unasserted full raw-member guarantee."
+    },
+    "database": {
+      "access_mode": "file:/root/projects/besrah/data/bus/mashhad-bus.sqlite?mode=ro",
+      "expected_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+      "sha256_before": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+      "sha256_after": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+      "unchanged": true,
+      "integrity_check": "ok",
+      "foreign_key_violations": 0
+    },
+    "manifest_and_provenance": {
+      "source_database_hash_matches_expected_and_manifest": true,
+      "all_five_file_hashes_and_byte_counts_match": true,
+      "file_inventory_exact_excluding_manifest": true,
+      "all_file_meta_equal_manifest_meta": true,
+      "source_snapshot_exactly_equals_sqlite_source_metadata": true,
+      "raw_decompressed_hash_and_size_match_snapshot_metadata": true,
+      "raw_decompressed_sha256": "073fa2799315256eb9a7c163564860acc9226045ce2d5a9430099acbbf335181",
+      "quarantined_reference_input_hashes_match": true,
+      "osm_source_base": "2026-10-29T22:19:55Z",
+      "retrieved_at": "2026-10-29T22:21:39.675041+00:00",
+      "license": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors",
+      "materialization_warning_present": true
+    },
+    "full_collection_checks": {
+      "exact_line_refs": 92,
+      "route_variants": 180,
+      "line_and_route_ids_and_refs_exact_without_aliasing": true,
+      "line_membership_and_variant_cardinality_exact_in_current_artifact": true,
+      "route_raw_fields_and_tags_exact": true,
+      "current_line_summary_raw_fields_exact": true,
+      "stop_occurrences_exact": 5275,
+      "platform_occurrences_exact": 3243,
+      "road_segment_occurrences_exact": 11644,
+      "route_member_rows_in_sqlite": 20165,
+      "raw_members_reconstructible_in_guide_including_diagnostics": 20164,
+      "all_raw_members_preserved": false,
+      "all_typed_stop_platform_road_members_preserved": true,
+      "every_linked_stop_name_lat_lon_ref_role_sequence_and_member_index_exact": true,
+      "every_linked_platform_name_geometry_role_and_member_index_exact": true,
+      "every_road_segment_way_id_role_member_index_and_coordinate_sequence_exact": true,
+      "all_linked_points_and_road_vertices_finite_and_in_range": true,
+      "all_stop_rows_exact": 2196,
+      "all_facility_rows_exact": 39,
+      "stop_route_occurrences_exact": true,
+      "parent_master_route_memberships_exact": 22,
+      "embedded_source_audits_exactly_match_audit_files": true,
+      "embedded_geometry_audits_exactly_match_audit_files": true,
+      "line_direction_and_component_summaries_match_audit": true,
+      "all_route_vertex_components_independently_recomputed": true,
+      "all_adjacent_segment_statuses_independently_recomputed": true,
+      "all_exact_raw_reversed_endpoint_partner_lists_independently_recomputed": true,
+      "repeated_stop_visit_variants_preserved": ["osm:relation:12722458", "osm:relation:12724619", "osm:relation:13047968", "osm:relation:5827635"],
+      "platform_roles": {"platform": 3242, "platform_exit_only": 1},
+      "same_stop_sequence_line33_variants_retained_separately": ["osm:relation:17448363", "osm:relation:17448364"],
+      "distinct_refs_not_merged": ["38.1", "38/1"],
+      "ref_4_caution": "Source lines contain EXP-4, not exact 4 or EXP4. No additional alias was introduced."
+    },
+    "endpoint_derivations": {
+      "raw_null_endpoint_fields": 2,
+      "route_id": "osm:relation:5815754",
+      "raw_from_name": null,
+      "raw_to_name": null,
+      "raw_tags_contain_neither_from_nor_to": true,
+      "guide_raw_nulls_retained": true,
+      "line_summary_raw_nulls_retained": true,
+      "derived_display_labels": 2,
+      "original_same_relation_name_en": "Line 42 (Elahiyeh bus station → Shahid Javan bus station)",
+      "matching_policy": "Exact, case-sensitive full-string equality of the split English endpoint label and facility tags[name:en], searched across all 39 source facilities; no trimming, punctuation repair, translation guessing, proximity or reverse-route fallback.",
+      "exact_matches": [
+        {"endpoint": "from", "english_alias": "Elahiyeh bus station", "match_count": 1, "facility_id": "osm:way:106935970", "facility_name_raw": "پایانه اتوبوسرانی الهیه", "scope_quality": "municipal_operator_tag"},
+        {"endpoint": "to", "english_alias": "Shahid Javan bus station", "match_count": 1, "facility_id": "osm:way:867230831", "facility_name_raw": "پایانه شهید جوان", "scope_quality": "municipal_operator_tag"}
+      ],
+      "all_operator_verified_flags_false": true,
+      "derivation_ledger_exactly_matches_route_displays": true,
+      "assessment": "Supported as separately identified OSM display evidence, not a raw endpoint repair, operator assertion or verified terminal identity."
+    },
+    "non_invention": {
+      "all_route_headways_null": true,
+      "all_route_timing_quality_unknown": true,
+      "arrival_observations": 0,
+      "external_stop_mappings": 0,
+      "all_line_and_route_current_service_verification_flags_false": true,
+      "all_route_continuous_navigation_supported_flags_false": true,
+      "all_geometry_independent_traversal_orientation_verified_flags_false": true,
+      "all_facility_official_terminal_verified_flags_false": true,
+      "all_stop_physical_identity_verified_flags_false": true,
+      "all_360_endpoint_operator_verified_flags_false": true,
+      "official_completeness_verified": false,
+      "official_current_line_count": null,
+      "no_historical_or_news_candidates_promoted_to_guide_routes": true,
+      "no_new_provider_or_operating_route_identifiers_detected": true
+    }
+  },
+  "future_consumer_requirements": [
+    "Treat counts as this dated OSM snapshot only. No official current network denominator was obtained; do not advertise all operating city lines or derive an official coverage percentage.",
+    "Display endpoint_display with its method/evidence and unverified status; keep from_name/to_name and line from_raw/to_raw null where the source is null. Do not quietly overwrite raw fields with display labels.",
+    "Keep literal line identifiers distinct and variant IDs stable. Do not infer 4=EXP-4 or EXP4, normalize 38.1=38/1, deduplicate equal stop sequences, or manufacture missing reverse service.",
+    "Render each road geometry as its own original segment. There are 35 routes with disconnected exact-vertex graphs (32 with two components, three with three), 18 non-loop variants lacking an exact reversed raw endpoint pair, and no operator-verified traversal orientation. Do not stitch/reverse ways or use this projection as verified navigation.",
+    "Keep stop positions and platforms separate and retain repeated visits and the platform_exit_only role. The unequal counts on 178 variants are not a station-pairing instruction.",
+    "All 2196 stop elements are included, not all route-linked: 100 have no imported route occurrence; 15 have no name; osm:way:51881417 has null lat/lon and is an area facility. Never turn null coordinates into zero or an invented centroid.",
+    "The guide contains 3243 linked platform occurrences covering 1150 distinct elements, not an independent complete export of all 1210 platform table rows. Sixty unlinked platforms remain in SQLite. Use SQLite/raw catalogue when those records or full platform tags/ref hints are needed.",
+    "Facility candidates are not necessarily urban terminals: only 19 of 39 carry a municipal operator tag, and none is officially terminal-verified. A facility's geometry is not automatically a boarding point.",
+    "Stop ref_raw and OSM IDs are source identities, not municipal/Neshan/provider mappings. Leave ETA/headways/current-service status unknown until independently evidenced.",
+    "Verify the pinned source hash and artifact manifest before consumption. Raw-database rebuilds do not automatically regenerate this reviewed projection. Preserve ODbL and OSM attribution."
+  ],
+  "source_metadata_review": {
+    "local_only": true,
+    "consulted": [
+      "research/bus-static-completion/audit/summary.json",
+      "research/bus-static-completion/audit/verification.json",
+      "research/bus-static-completion/audit/structure_observations.json",
+      "research/bus-static-completion/audit/variant_structure_audit.json",
+      "research/bus-static-completion/audit/route_metrics.json",
+      "research/bus-static-completion/audit/route_geometry_metrics.json",
+      "research/bus-static-completion/route42-source-evidence.json",
+      "research/bus-static-completion/sources/README-catalogue-discovery-20261030.md",
+      "research/bus-static-completion/additional-pdf-check.json",
+      "data/bus/README.md"
+    ],
+    "limitations": "Existing source observations were read locally, not revalidated over the network. A dated news aggregate is not an official ref-level denominator. The newly inspected third-party PDF is different from the 2019 PDF and carries 2024-10-14 creation metadata, but that is not an operating validity date or a complete current catalogue. None of these research leads authorizes changing the preserved source or promoting additional guide routes."
+  },
+  "reviewed_artifact_hashes": {
+    "data/bus/guide/endpoint-derivations.json": "d6e0a54d613cbf4823640c592a9d2f6e6fabe289ca62ba455c1bfa38a3b9800e",
+    "data/bus/guide/facilities.json": "5c4bc711fd5a4ab303b00395f917c2ab0cbf09b3cf2095c78386e8fbbd9d500e",
+    "data/bus/guide/lines.json": "80396fd50f85dfbd94be5eef195e8c12916718363cf57d4c2ce49b8ba884eb99",
+    "data/bus/guide/manifest.json": "4f358624f3ea83b0fb2a295ba8986dbc14e8863f135d76f12c7e97fa0b312970",
+    "data/bus/guide/routes.json": "e232a29a263f08e32ddb8febe77e2ccd0de5d7e4d7fa259cd4d559af719308a3",
+    "data/bus/guide/stops.json": "469520850ab14d243f3bbf96628a76d0adbd20e69bddac43b24ab080c14ac0b3",
+    "tests/data/bus-guide-integrity.test.mjs": "0997903b7a7cf2517ae883f52c1a399eee38ed6e082e961b97323d3a15ccfad8"
+  },
+  "write_scope": {
+    "only_authored_file": "research/bus-static-completion/guide-review.json",
+    "source_database_modified": false,
+    "guide_modified": false,
+    "test_modified": false,
+    "production_actions": false,
+    "network_used": false,
+    "temporary_poc_files_created": false
+  }
+}

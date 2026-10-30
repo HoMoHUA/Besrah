@@ -1,0 +1,501 @@
+{
+  "created_at_utc": "2026-10-30T08:50:03.285916+00:00",
+  "session_started_at_utc": "2026-10-30T08:36:42Z",
+  "logs": [
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round1.json",
+      "raw_sha256": "647578b84754488f0a88033444fbc9e9bfe77613149b3bffb81fcc139b866de4",
+      "raw_bytes": 45332,
+      "raw_file_mtime_utc": "2026-10-30T08:37:17.996204+00:00",
+      "queries": [
+        {
+          "query": "site:mashhad.ir اتوبوسرانی آمار خطوط 1404 1405",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "site:mashhad.ir سالنامه آماری 1403 حمل نقل",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "مشهد شهرداری داده باز اتوبوس خطوط ایستگاه",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "site:bus.mashhad.ir راهنمای خطوط",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round10.json",
+      "raw_sha256": "b437d945559f5f35de3cfa558d5857060bfa6ab992f3d0c4af78803c2e96c8b1",
+      "raw_bytes": 28673,
+      "raw_file_mtime_utc": "2026-10-30T08:43:57.632612+00:00",
+      "queries": [
+        {
+          "query": "\"مشهد\" \"هفت میلیون سفر\" \"۱۷۵\" اتوبوس",
+          "retrieved_at_utc": "2026-10-30T08:43:50.366109+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"۱۷۵\" \"اتوبوس\" شریعتی",
+          "retrieved_at_utc": "2026-10-30T08:43:52.079330+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"آمارنامه\" \"دانلود\" site:mashhad.ir",
+          "retrieved_at_utc": "2026-10-30T08:43:52.858430+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"آمارنامه\" \"سبا\"",
+          "retrieved_at_utc": "2026-10-30T08:43:57.633638+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round11.json",
+      "raw_sha256": "d184f2ad3281205b0c9e017b0049e2817482282f1167854f6f349b5880b8fba1",
+      "raw_bytes": 43997,
+      "raw_file_mtime_utc": "2026-10-30T08:44:56.007513+00:00",
+      "queries": [
+        {
+          "query": "\"۸۵۰ دستگاه اتوبوس شهری مشهد فرسوده است\"",
+          "retrieved_at_utc": "2026-10-30T08:44:52.464032+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"850 دستگاه اتوبوس شهری مشهد فرسوده است\"",
+          "retrieved_at_utc": "2026-10-30T08:44:54.674120+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"۱۷۵ خط\" اتوبوسرانی",
+          "retrieved_at_utc": "2026-10-30T08:44:55.576207+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"۱۷۵\" \"اتوبوس\" site:shahraranews.ir",
+          "retrieved_at_utc": "2026-10-30T08:44:56.008239+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round2.json",
+      "raw_sha256": "8b706518f684c7ffac6da5be26614f9233bc7d4c1ea1ccce770f335e16490e16",
+      "raw_bytes": 39001,
+      "raw_file_mtime_utc": "2026-10-30T08:37:46.799652+00:00",
+      "queries": [
+        {
+          "query": "\"مشهد\" \"سالنامه آماری 1403\"",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"سالنامه آماری ۱۴۰۴\"",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"داده باز\" اتوبوس",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"اتوبوسرانی\" \"تعداد خطوط\" ۱۴۰۵",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"ایستگاه\" \"آمار\" site:bus.mashhad.ir",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"Mashhad\" \"bus\" \"data\" \"municipality\" routes",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round3.json",
+      "raw_sha256": "321675c5d6b1f29dbd559eefdc30b28496742b4862ba16cb5fd6d71a2b03eb05",
+      "raw_bytes": 75083,
+      "raw_file_mtime_utc": "2026-10-30T08:38:13.065149+00:00",
+      "queries": [
+        {
+          "query": "\"سالنامه آماری مشهد\" شهرداری دانلود",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"لیست خطوط اتوبوس شهری\" \"مشهد\"",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"Mashhad\" \"open data\" bus",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"داده نما\"",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"خطوط اتوبوسرانی\" site:news.mashhad.ir",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"اتوبوسرانی\" \"خط\" site:shahraranews.ir ۱۴۰۵ ۱۰۷",
+          "retrieved_at_utc": null,
+          "timestamp_note": "Not separately instrumented; request occurred after session start and before raw_file_mtime_utc.",
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round4.json",
+      "raw_sha256": "a82673e0f6c17270e2bfc70eb4e738ab70a3406c409d1fb2633dd96f6f386112",
+      "raw_bytes": 66141,
+      "raw_file_mtime_utc": "2026-10-30T08:39:10.142058+00:00",
+      "queries": [
+        {
+          "query": "سالنامه آماری شهر مشهد ۱۴۰۳ شهرداری",
+          "retrieved_at_utc": "2026-10-30T08:38:54.945208+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"آمار\" \"مشهد\" \"خطوط\" site:shahraranews.ir ۱۴۰۵",
+          "retrieved_at_utc": "2026-10-30T08:38:59.312560+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"سالنامه\" \"amar.mashhad.ir\"",
+          "retrieved_at_utc": "2026-10-30T08:39:02.113199+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"اتوبوسرانی\" \"۱۱۵\" ۱۴۰۵",
+          "retrieved_at_utc": "2026-10-30T08:39:04.007002+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"اتوبوسرانی\" \"ایستگاه\" \"۱۴۰۵\" تعداد",
+          "retrieved_at_utc": "2026-10-30T08:39:04.908457+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"داده باز\" site:mashhad.ir",
+          "retrieved_at_utc": "2026-10-30T08:39:10.141504+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round5.json",
+      "raw_sha256": "f07666ea314472dbea38983b1cd413d8c07291f7750be14a5621681de3f76db7",
+      "raw_bytes": 63176,
+      "raw_file_mtime_utc": "2026-10-30T08:40:47.290210+00:00",
+      "queries": [
+        {
+          "query": "\"اتوبوسرانی مشهد\" \"خطوط شهری\" \"۱۴۰۵\"",
+          "retrieved_at_utc": "2026-10-30T08:40:39.144846+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"اتوبوسرانی مشهد\" \"تعداد خطوط\"",
+          "retrieved_at_utc": "2026-10-30T08:40:40.840648+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"خطوط\" \"۸۳۳\" \"۸۳۲\" site:shahraranews.ir",
+          "retrieved_at_utc": "2026-10-30T08:40:41.682687+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"سالنامه آماری\" site:shahraranews.ir",
+          "retrieved_at_utc": "2026-10-30T08:40:44.643790+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"فهرست خطوط\" site:mashhad.ir",
+          "retrieved_at_utc": "2026-10-30T08:40:45.546093+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"ایستگاه\" \"۱۴۰۴\" \"۳۵۰۰\"",
+          "retrieved_at_utc": "2026-10-30T08:40:47.290130+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round6.json",
+      "raw_sha256": "de157f1fa289811786965ab3a705695e5444cf032ad66d6b83b495a582bd9114",
+      "raw_bytes": 62786,
+      "raw_file_mtime_utc": "2026-10-30T08:41:38.855233+00:00",
+      "queries": [
+        {
+          "query": "اتوبوسرانی مشهد آمار خطوط 1404",
+          "retrieved_at_utc": "2026-10-30T08:41:26.981781+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "اتوبوس مشهد 1405 107 خط",
+          "retrieved_at_utc": "2026-10-30T08:41:30.558021+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "مشهد 832 833 اتوبوس تغییر مسیر",
+          "retrieved_at_utc": "2026-10-30T08:41:35.231479+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "مشهد سالنامه آماری شهرداری دانلود 1402",
+          "retrieved_at_utc": "2026-10-30T08:41:37.138558+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "Mashhad bus routes GTFS official",
+          "retrieved_at_utc": "2026-10-30T08:41:38.057623+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "site:amar.mashhad.ir اتوبوس",
+          "retrieved_at_utc": "2026-10-30T08:41:38.854464+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round7.json",
+      "raw_sha256": "fe155ead54cf50785a707b403f2b0a14a1a069013c5ca4bf05003de6f23896d1",
+      "raw_bytes": 56360,
+      "raw_file_mtime_utc": "2026-10-30T08:42:12.804590+00:00",
+      "queries": [
+        {
+          "query": "\"اتوبوسرانی مشهد\" \"خطوط\" \"107\"",
+          "retrieved_at_utc": "2026-10-30T08:42:01.506665+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"اتوبوسرانی مشهد\" \"خطوط\" \"۱۱۰\"",
+          "retrieved_at_utc": "2026-10-30T08:42:03.430978+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"اتوبوسرانی مشهد\" \"ایستگاه\" \"۱۴۰۵\" site:shahraranews.ir",
+          "retrieved_at_utc": "2026-10-30T08:42:04.201641+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"آمارنامه ۱۴۰۳\" \"مشهد\" دانلود",
+          "retrieved_at_utc": "2026-10-30T08:42:07.728073+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"خط ۸۳۳\" \"مشهد\" site:shahraranews.ir",
+          "retrieved_at_utc": "2026-10-30T08:42:11.242780+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"خط ۸۳۲\" \"مشهد\" site:shahraranews.ir",
+          "retrieved_at_utc": "2026-10-30T08:42:12.804309+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round8.json",
+      "raw_sha256": "c470eac2ec5e65a41a61cdef618041b5427300285e937c3137b69d81b6b81756",
+      "raw_bytes": 70850,
+      "raw_file_mtime_utc": "2026-10-30T08:42:31.829231+00:00",
+      "queries": [
+        {
+          "query": "\"مشهد\" \"۱۷۵ خط\" \"۱۴۰۵\"",
+          "retrieved_at_utc": "2026-10-30T08:42:23.392223+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"175 خط\" اتوبوس",
+          "retrieved_at_utc": "2026-10-30T08:42:26.013678+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"۱۷۵\" \"ایرنا\" اتوبوس",
+          "retrieved_at_utc": "2026-10-30T08:42:28.861034+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"آمارنامه\" \"۱۴۰۴\" شهرداری",
+          "retrieved_at_utc": "2026-10-30T08:42:30.977755+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"اتوبوسرانی مشهد\" \"فهرست\" \"خطوط\" \"۱۴۰۵\"",
+          "retrieved_at_utc": "2026-10-30T08:42:31.829109+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    },
+    {
+      "raw_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/search-round9.json",
+      "raw_sha256": "b7543a6ea9c58b5097c791cb9ccc52ee5c9fa96d5460fb6e033db1acba47f0f9",
+      "raw_bytes": 38902,
+      "raw_file_mtime_utc": "2026-10-30T08:42:55.758779+00:00",
+      "queries": [
+        {
+          "query": "مشهد \"175 خط فعال\" site:irna.ir",
+          "retrieved_at_utc": "2026-10-30T08:42:47.226001+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "مشهد \"۱۷۵ خط فعال\" site:irna.ir",
+          "retrieved_at_utc": "2026-10-30T08:42:48.550253+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"آمارنامه و سالنامه شهرداری مشهد منتشر شد\"",
+          "retrieved_at_utc": "2026-10-30T08:42:49.818797+00:00",
+          "timestamp_note": null,
+          "backend": "exa",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"آمارنامه 1404\"",
+          "retrieved_at_utc": "2026-10-30T08:42:50.760762+00:00",
+          "timestamp_note": null,
+          "backend": "parallel",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        },
+        {
+          "query": "\"مشهد\" \"آمارنامه ۱۴۰۳\" انتشار",
+          "retrieved_at_utc": "2026-10-30T08:42:55.759524+00:00",
+          "timestamp_note": null,
+          "backend": "keenable",
+          "quality": "discovery_only; relevance manually screened; many fallback results were unrelated and rejected"
+        }
+      ]
+    }
+  ],
+  "limitation": "Search provider frequently returned off-topic fallback results, so absence of a feed in these searches is not proof no public feed exists. Only primary publisher content supports retained facts."
+}

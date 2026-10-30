@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://map.mashhad.ir/fa",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 2,
+      "url": "https://bus.mashhad.ir",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 3,
+      "url": "https://farhangi.mashhad.ir/fa/general_content/902102-لیست-خطوط-اتوبوس-شهری.html",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 4,
+      "url": "https://amar.mashhad.ir",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 5,
+      "url": "https://planning.mashhad.ir",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 6,
+      "url": "https://shahraranews.ir/fa/news/443868",
+      "title": "",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "همین خط ۸۳۳ از اینجا تا پایانه فردوسی مسافر جابه‌جا می‌کند.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "https://shahraranews.ir/fa/news/428287",
+      "title": "",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "۱۰۷ خط اتوبوسرانی از تمامی پایانه‌های درون‌شهری",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "url": "https://shahraranews.ir/fa/news/348677",
+      "title": "",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "برای تدوین دقیق و قابل اتکای آمارنامه سال ۱۴۰۳ است.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "https://shahraranews.ir/fa/news/450834",
+      "title": "",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "به وسیله هزار و ۷۴۰ دستگاه اتوبوس فعال در خطوط",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "https://irna.ir/news/86223472",
+      "title": "",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "از طریق ۱۷۵ خط فعال انجام می‌شود.",
+          "added": "2026-10-30"
+        }
+      ]
+    }
+  ]
+}

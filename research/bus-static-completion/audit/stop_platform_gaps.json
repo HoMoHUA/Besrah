@@ -1,0 +1,389 @@
+{
+  "semantics": "All DB element gaps, plus exact route occurrence/member indices. Nonpoint geometry is not missing geometry; no centroids or stop/platform pairing invented.",
+  "all_element_gaps": [
+    {
+      "kind": "stop",
+      "element_id": "osm:node:10943910636",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:1280611725",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:260400572",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:260574008",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:3932120752",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:3932121192",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:3932125575",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:4423569292",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:4558145492",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:726748101",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:9331081579",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:9331081583",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:9346492179",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:9360717657",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:node:9447673359",
+      "name_raw": null,
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": false
+    },
+    {
+      "kind": "stop",
+      "element_id": "osm:way:51881417",
+      "name_raw": "پایانه زکریا",
+      "gaps": [
+        "missing_or_invalid_point"
+      ],
+      "route_ids": [],
+      "has_facility_geometry": true
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:node:10943910636",
+      "name_raw": null,
+      "geometry_type": "Point",
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:node:9331081579",
+      "name_raw": null,
+      "geometry_type": "Point",
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:node:9331081583",
+      "name_raw": null,
+      "geometry_type": "Point",
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:node:9346492179",
+      "name_raw": null,
+      "geometry_type": "Point",
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:node:9360717657",
+      "name_raw": null,
+      "geometry_type": "Point",
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:node:9447673359",
+      "name_raw": null,
+      "geometry_type": "Point",
+      "gaps": [
+        "missing_name"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:249821782",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:249821783",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:249821784",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:249821786",
+      "name_raw": "پایانه معراج",
+      "geometry_type": "LineString",
+      "gaps": [
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:389504747",
+      "name_raw": "پایانه معراج",
+      "geometry_type": "LineString",
+      "gaps": [
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875149",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875150",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875151",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875152",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875153",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875154",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875155",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875156",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875157",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    },
+    {
+      "kind": "platform",
+      "element_id": "osm:way:958875158",
+      "name_raw": null,
+      "geometry_type": "LineString",
+      "gaps": [
+        "missing_name",
+        "no_literal_point_coordinate_geometry_preserved"
+      ],
+      "route_ids": []
+    }
+  ],
+  "route_occurrence_gaps": []
+}

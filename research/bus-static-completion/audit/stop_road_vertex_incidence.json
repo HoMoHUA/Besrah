@@ -1,0 +1,1445 @@
+{
+  "semantics": "Exact-coordinate presence test only. Off-road bus_stop or stop_position coordinate differences may be intentional; no nearest-road projection/snapping, geographic correction, boarding-position inference or traversal validation. Missing exact vertex match is a review observation, not proof a stop is disconnected.",
+  "routes": [
+    {
+      "route_id": "osm:relation:12722457",
+      "ref_raw": "63",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 27,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12722458",
+      "ref_raw": "EXP-9",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12722459",
+      "ref_raw": "61",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        },
+        {
+          "sequence": 19,
+          "member_index": 32,
+          "stop_id": "osm:node:8957046201"
+        },
+        {
+          "sequence": 21,
+          "member_index": 35,
+          "stop_id": "osm:node:2430551838"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:12724618",
+      "ref_raw": "85",
+      "stop_occurrences": 19,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12724619",
+      "ref_raw": "EXP-8",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12724620",
+      "ref_raw": "100",
+      "stop_occurrences": 22,
+      "stop_points_matching_any_literal_road_vertex": 22,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12732781",
+      "ref_raw": "80",
+      "stop_occurrences": 28,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12732782",
+      "ref_raw": "38",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 20,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 17,
+          "member_index": 32,
+          "stop_id": "osm:node:679718737"
+        },
+        {
+          "sequence": 18,
+          "member_index": 34,
+          "stop_id": "osm:node:9018908387"
+        },
+        {
+          "sequence": 19,
+          "member_index": 36,
+          "stop_id": "osm:node:9018908386"
+        },
+        {
+          "sequence": 20,
+          "member_index": 38,
+          "stop_id": "osm:node:8746501810"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:12739429",
+      "ref_raw": "7",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12739430",
+      "ref_raw": "7",
+      "stop_occurrences": 40,
+      "stop_points_matching_any_literal_road_vertex": 40,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12894288",
+      "ref_raw": "95",
+      "stop_occurrences": 35,
+      "stop_points_matching_any_literal_road_vertex": 35,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12894289",
+      "ref_raw": "95",
+      "stop_occurrences": 37,
+      "stop_points_matching_any_literal_road_vertex": 37,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12895555",
+      "ref_raw": "85",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12897591",
+      "ref_raw": "21",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 3,
+          "member_index": 4,
+          "stop_id": "osm:node:8805343370"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:12902440",
+      "ref_raw": "88",
+      "stop_occurrences": 23,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12909511",
+      "ref_raw": "17",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12909965",
+      "ref_raw": "17.1",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 24,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12909966",
+      "ref_raw": "17.1",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12914909",
+      "ref_raw": "37.1",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12916882",
+      "ref_raw": "38.1",
+      "stop_occurrences": 14,
+      "stop_points_matching_any_literal_road_vertex": 14,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12917149",
+      "ref_raw": "92",
+      "stop_occurrences": 12,
+      "stop_points_matching_any_literal_road_vertex": 12,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12917150",
+      "ref_raw": "92",
+      "stop_occurrences": 12,
+      "stop_points_matching_any_literal_road_vertex": 12,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12927514",
+      "ref_raw": "98.1",
+      "stop_occurrences": 16,
+      "stop_points_matching_any_literal_road_vertex": 16,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12928143",
+      "ref_raw": "10",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 27,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12928144",
+      "ref_raw": "10",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 27,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12933677",
+      "ref_raw": "98",
+      "stop_occurrences": 28,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12933678",
+      "ref_raw": "98",
+      "stop_occurrences": 28,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12934359",
+      "ref_raw": "97",
+      "stop_occurrences": 22,
+      "stop_points_matching_any_literal_road_vertex": 22,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12934360",
+      "ref_raw": "97",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12936970",
+      "ref_raw": "11",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12936971",
+      "ref_raw": "11",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12938016",
+      "ref_raw": "50",
+      "stop_occurrences": 3,
+      "stop_points_matching_any_literal_road_vertex": 3,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12939470",
+      "ref_raw": "81",
+      "stop_occurrences": 37,
+      "stop_points_matching_any_literal_road_vertex": 37,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12939471",
+      "ref_raw": "81",
+      "stop_occurrences": 40,
+      "stop_points_matching_any_literal_road_vertex": 40,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12943356",
+      "ref_raw": "12",
+      "stop_occurrences": 35,
+      "stop_points_matching_any_literal_road_vertex": 35,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12943944",
+      "ref_raw": "210",
+      "stop_occurrences": 18,
+      "stop_points_matching_any_literal_road_vertex": 18,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12943945",
+      "ref_raw": "210",
+      "stop_occurrences": 20,
+      "stop_points_matching_any_literal_road_vertex": 20,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12946471",
+      "ref_raw": "22.2",
+      "stop_occurrences": 29,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:12946472",
+      "ref_raw": "22.2",
+      "stop_occurrences": 31,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12954935",
+      "ref_raw": "EXP-2",
+      "stop_occurrences": 20,
+      "stop_points_matching_any_literal_road_vertex": 20,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12956232",
+      "ref_raw": "16.1",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12956233",
+      "ref_raw": "16.1",
+      "stop_occurrences": 31,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12979843",
+      "ref_raw": "45",
+      "stop_occurrences": 28,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12987789",
+      "ref_raw": "32",
+      "stop_occurrences": 34,
+      "stop_points_matching_any_literal_road_vertex": 34,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12989500",
+      "ref_raw": "68",
+      "stop_occurrences": 13,
+      "stop_points_matching_any_literal_road_vertex": 12,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 6,
+          "member_index": 10,
+          "stop_id": "osm:node:8930009214"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:12991432",
+      "ref_raw": "35",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12991433",
+      "ref_raw": "35",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12992314",
+      "ref_raw": "34",
+      "stop_occurrences": 19,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12994022",
+      "ref_raw": "42",
+      "stop_occurrences": 48,
+      "stop_points_matching_any_literal_road_vertex": 48,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:12994723",
+      "ref_raw": "EXP-3",
+      "stop_occurrences": 36,
+      "stop_points_matching_any_literal_road_vertex": 36,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13010658",
+      "ref_raw": "94",
+      "stop_occurrences": 13,
+      "stop_points_matching_any_literal_road_vertex": 13,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13010659",
+      "ref_raw": "94",
+      "stop_occurrences": 16,
+      "stop_points_matching_any_literal_road_vertex": 16,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13013732",
+      "ref_raw": "37",
+      "stop_occurrences": 31,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13015485",
+      "ref_raw": "15",
+      "stop_occurrences": 37,
+      "stop_points_matching_any_literal_road_vertex": 37,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13015486",
+      "ref_raw": "15",
+      "stop_occurrences": 45,
+      "stop_points_matching_any_literal_road_vertex": 45,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13016690",
+      "ref_raw": "99",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13016691",
+      "ref_raw": "99",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13019790",
+      "ref_raw": "13",
+      "stop_occurrences": 43,
+      "stop_points_matching_any_literal_road_vertex": 43,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13019791",
+      "ref_raw": "13",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13021173",
+      "ref_raw": "EXP-4",
+      "stop_occurrences": 34,
+      "stop_points_matching_any_literal_road_vertex": 34,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13022575",
+      "ref_raw": "13.1",
+      "stop_occurrences": 41,
+      "stop_points_matching_any_literal_road_vertex": 41,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13022576",
+      "ref_raw": "13.1",
+      "stop_occurrences": 46,
+      "stop_points_matching_any_literal_road_vertex": 44,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 17,
+          "member_index": 28,
+          "stop_id": "osm:node:8938698600"
+        },
+        {
+          "sequence": 18,
+          "member_index": 29,
+          "stop_id": "osm:node:8938698595"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13028109",
+      "ref_raw": "61",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 24,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 3,
+          "member_index": 5,
+          "stop_id": "osm:node:8739301703"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13028690",
+      "ref_raw": "28.1",
+      "stop_occurrences": 37,
+      "stop_points_matching_any_literal_road_vertex": 37,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13028691",
+      "ref_raw": "28.1",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13028881",
+      "ref_raw": "14",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 27,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13028882",
+      "ref_raw": "14",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13030541",
+      "ref_raw": "18.1",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13030542",
+      "ref_raw": "18.1",
+      "stop_occurrences": 42,
+      "stop_points_matching_any_literal_road_vertex": 42,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13035786",
+      "ref_raw": "18",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13035787",
+      "ref_raw": "18",
+      "stop_occurrences": 30,
+      "stop_points_matching_any_literal_road_vertex": 30,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13036762",
+      "ref_raw": "1094",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13036763",
+      "ref_raw": "1094",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13042735",
+      "ref_raw": "20",
+      "stop_occurrences": 43,
+      "stop_points_matching_any_literal_road_vertex": 43,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13042736",
+      "ref_raw": "20",
+      "stop_occurrences": 47,
+      "stop_points_matching_any_literal_road_vertex": 47,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13043693",
+      "ref_raw": "14.1",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13043694",
+      "ref_raw": "14.1",
+      "stop_occurrences": 42,
+      "stop_points_matching_any_literal_road_vertex": 42,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13047968",
+      "ref_raw": "84",
+      "stop_occurrences": 29,
+      "stop_points_matching_any_literal_road_vertex": 29,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13053798",
+      "ref_raw": "71.1",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13053799",
+      "ref_raw": "71.1",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13054497",
+      "ref_raw": "19",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13054498",
+      "ref_raw": "19",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13061161",
+      "ref_raw": "27",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 30,
+          "member_index": 48,
+          "stop_id": "osm:node:8805306856"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13061162",
+      "ref_raw": "27",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13061609",
+      "ref_raw": "75",
+      "stop_occurrences": 17,
+      "stop_points_matching_any_literal_road_vertex": 16,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13061610",
+      "ref_raw": "75",
+      "stop_occurrences": 18,
+      "stop_points_matching_any_literal_road_vertex": 18,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13065514",
+      "ref_raw": "31",
+      "stop_occurrences": 44,
+      "stop_points_matching_any_literal_road_vertex": 44,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13065515",
+      "ref_raw": "31",
+      "stop_occurrences": 44,
+      "stop_points_matching_any_literal_road_vertex": 44,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13065976",
+      "ref_raw": "63",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13067385",
+      "ref_raw": "26",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 24,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13067386",
+      "ref_raw": "26",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 24,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13068328",
+      "ref_raw": "29",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13068329",
+      "ref_raw": "29",
+      "stop_occurrences": 30,
+      "stop_points_matching_any_literal_road_vertex": 30,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13072631",
+      "ref_raw": "87",
+      "stop_occurrences": 40,
+      "stop_points_matching_any_literal_road_vertex": 40,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13072632",
+      "ref_raw": "87",
+      "stop_occurrences": 44,
+      "stop_points_matching_any_literal_road_vertex": 44,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13074219",
+      "ref_raw": "74",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13074220",
+      "ref_raw": "74",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13078659",
+      "ref_raw": "831",
+      "stop_occurrences": 57,
+      "stop_points_matching_any_literal_road_vertex": 57,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13078660",
+      "ref_raw": "831",
+      "stop_occurrences": 56,
+      "stop_points_matching_any_literal_road_vertex": 56,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13084549",
+      "ref_raw": "90",
+      "stop_occurrences": 35,
+      "stop_points_matching_any_literal_road_vertex": 35,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13084550",
+      "ref_raw": "90",
+      "stop_occurrences": 34,
+      "stop_points_matching_any_literal_road_vertex": 34,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13086515",
+      "ref_raw": "89",
+      "stop_occurrences": 41,
+      "stop_points_matching_any_literal_road_vertex": 41,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13086516",
+      "ref_raw": "89",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13086941",
+      "ref_raw": "91",
+      "stop_occurrences": 28,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13086942",
+      "ref_raw": "91",
+      "stop_occurrences": 36,
+      "stop_points_matching_any_literal_road_vertex": 36,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13090062",
+      "ref_raw": "800",
+      "stop_occurrences": 22,
+      "stop_points_matching_any_literal_road_vertex": 22,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13094530",
+      "ref_raw": "202",
+      "stop_occurrences": 35,
+      "stop_points_matching_any_literal_road_vertex": 35,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13096507",
+      "ref_raw": "62",
+      "stop_occurrences": 20,
+      "stop_points_matching_any_literal_road_vertex": 20,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13096508",
+      "ref_raw": "62",
+      "stop_occurrences": 23,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13097891",
+      "ref_raw": "60",
+      "stop_occurrences": 20,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 18,
+          "member_index": 27,
+          "stop_id": "osm:node:8805306856"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13097892",
+      "ref_raw": "60",
+      "stop_occurrences": 18,
+      "stop_points_matching_any_literal_road_vertex": 18,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13102703",
+      "ref_raw": "205",
+      "stop_occurrences": 35,
+      "stop_points_matching_any_literal_road_vertex": 35,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13102704",
+      "ref_raw": "205",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 32,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13102878",
+      "ref_raw": "203",
+      "stop_occurrences": 18,
+      "stop_points_matching_any_literal_road_vertex": 18,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13102879",
+      "ref_raw": "203",
+      "stop_occurrences": 17,
+      "stop_points_matching_any_literal_road_vertex": 17,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13103002",
+      "ref_raw": "94.1",
+      "stop_occurrences": 30,
+      "stop_points_matching_any_literal_road_vertex": 30,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13103003",
+      "ref_raw": "94.1",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 26,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13106147",
+      "ref_raw": "86",
+      "stop_occurrences": 16,
+      "stop_points_matching_any_literal_road_vertex": 12,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 9,
+          "member_index": 17,
+          "stop_id": "osm:node:679718737"
+        },
+        {
+          "sequence": 10,
+          "member_index": 19,
+          "stop_id": "osm:node:9018908387"
+        },
+        {
+          "sequence": 11,
+          "member_index": 21,
+          "stop_id": "osm:node:9018908386"
+        },
+        {
+          "sequence": 12,
+          "member_index": 23,
+          "stop_id": "osm:node:8746501810"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13106148",
+      "ref_raw": "86",
+      "stop_occurrences": 17,
+      "stop_points_matching_any_literal_road_vertex": 17,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13110585",
+      "ref_raw": "96",
+      "stop_occurrences": 18,
+      "stop_points_matching_any_literal_road_vertex": 18,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13110586",
+      "ref_raw": "96",
+      "stop_occurrences": 17,
+      "stop_points_matching_any_literal_road_vertex": 17,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13112050",
+      "ref_raw": "1097",
+      "stop_occurrences": 34,
+      "stop_points_matching_any_literal_road_vertex": 34,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13112051",
+      "ref_raw": "1097",
+      "stop_occurrences": 43,
+      "stop_points_matching_any_literal_road_vertex": 43,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13117572",
+      "ref_raw": "1098",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13117573",
+      "ref_raw": "1098",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13120973",
+      "ref_raw": "46",
+      "stop_occurrences": 23,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13120974",
+      "ref_raw": "46",
+      "stop_occurrences": 19,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13125522",
+      "ref_raw": "1093",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13125523",
+      "ref_raw": "1093",
+      "stop_occurrences": 31,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13128239",
+      "ref_raw": "78",
+      "stop_occurrences": 15,
+      "stop_points_matching_any_literal_road_vertex": 15,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13128240",
+      "ref_raw": "78",
+      "stop_occurrences": 14,
+      "stop_points_matching_any_literal_road_vertex": 13,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13133632",
+      "ref_raw": "1096",
+      "stop_occurrences": 56,
+      "stop_points_matching_any_literal_road_vertex": 56,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13133633",
+      "ref_raw": "1096",
+      "stop_occurrences": 55,
+      "stop_points_matching_any_literal_road_vertex": 55,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13138345",
+      "ref_raw": "36",
+      "stop_occurrences": 17,
+      "stop_points_matching_any_literal_road_vertex": 17,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13138346",
+      "ref_raw": "36",
+      "stop_occurrences": 17,
+      "stop_points_matching_any_literal_road_vertex": 17,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13138574",
+      "ref_raw": "1031",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13138575",
+      "ref_raw": "1031",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13140110",
+      "ref_raw": "702",
+      "stop_occurrences": 23,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13140111",
+      "ref_raw": "702",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 20,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13148189",
+      "ref_raw": "1034",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13148190",
+      "ref_raw": "1034",
+      "stop_occurrences": 19,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13182818",
+      "ref_raw": "79",
+      "stop_occurrences": 45,
+      "stop_points_matching_any_literal_road_vertex": 45,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13182819",
+      "ref_raw": "79",
+      "stop_occurrences": 41,
+      "stop_points_matching_any_literal_road_vertex": 41,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13189458",
+      "ref_raw": "71",
+      "stop_occurrences": 19,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13189459",
+      "ref_raw": "71",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13189708",
+      "ref_raw": "73",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13189709",
+      "ref_raw": "73",
+      "stop_occurrences": 30,
+      "stop_points_matching_any_literal_road_vertex": 30,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13190773",
+      "ref_raw": "33",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:13190774",
+      "ref_raw": "33",
+      "stop_occurrences": 39,
+      "stop_points_matching_any_literal_road_vertex": 39,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:16021138",
+      "ref_raw": "202.1",
+      "stop_occurrences": 33,
+      "stop_points_matching_any_literal_road_vertex": 33,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:16021139",
+      "ref_raw": "202.1",
+      "stop_occurrences": 31,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:16065224",
+      "ref_raw": "702.5",
+      "stop_occurrences": 25,
+      "stop_points_matching_any_literal_road_vertex": 25,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:16065225",
+      "ref_raw": "702.5",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 31,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 9,
+          "member_index": 12,
+          "stop_id": "osm:node:2549413023"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:17448363",
+      "ref_raw": "33",
+      "stop_occurrences": 40,
+      "stop_points_matching_any_literal_road_vertex": 40,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:17448364",
+      "ref_raw": "33",
+      "stop_occurrences": 40,
+      "stop_points_matching_any_literal_road_vertex": 40,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5623657",
+      "ref_raw": "50",
+      "stop_occurrences": 7,
+      "stop_points_matching_any_literal_road_vertex": 7,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5625147",
+      "ref_raw": "34",
+      "stop_occurrences": 21,
+      "stop_points_matching_any_literal_road_vertex": 21,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5658288",
+      "ref_raw": "800",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 24,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5688324",
+      "ref_raw": "38",
+      "stop_occurrences": 28,
+      "stop_points_matching_any_literal_road_vertex": 28,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5693243",
+      "ref_raw": "EXP-3",
+      "stop_occurrences": 41,
+      "stop_points_matching_any_literal_road_vertex": 41,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5697722",
+      "ref_raw": "32",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 32,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5697962",
+      "ref_raw": "68",
+      "stop_occurrences": 12,
+      "stop_points_matching_any_literal_road_vertex": 12,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5698799",
+      "ref_raw": "38/1",
+      "stop_occurrences": 14,
+      "stop_points_matching_any_literal_road_vertex": 14,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5699091",
+      "ref_raw": "45",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 32,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5700127",
+      "ref_raw": "EXP-2",
+      "stop_occurrences": 20,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8935840152"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:5707936",
+      "ref_raw": "100",
+      "stop_occurrences": 30,
+      "stop_points_matching_any_literal_road_vertex": 30,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5725741",
+      "ref_raw": "21",
+      "stop_occurrences": 22,
+      "stop_points_matching_any_literal_road_vertex": 20,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 0,
+          "member_index": 0,
+          "stop_id": "osm:node:8805331867"
+        },
+        {
+          "sequence": 20,
+          "member_index": 36,
+          "stop_id": "osm:node:8805306856"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:5727013",
+      "ref_raw": "37",
+      "stop_occurrences": 29,
+      "stop_points_matching_any_literal_road_vertex": 29,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5728824",
+      "ref_raw": "EXP-4",
+      "stop_occurrences": 38,
+      "stop_points_matching_any_literal_road_vertex": 38,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5734626",
+      "ref_raw": "37.1",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 32,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5748379",
+      "ref_raw": "17",
+      "stop_occurrences": 23,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5755231",
+      "ref_raw": "98.1",
+      "stop_occurrences": 19,
+      "stop_points_matching_any_literal_road_vertex": 19,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5762269",
+      "ref_raw": "12",
+      "stop_occurrences": 36,
+      "stop_points_matching_any_literal_road_vertex": 36,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5763432",
+      "ref_raw": "202",
+      "stop_occurrences": 36,
+      "stop_points_matching_any_literal_road_vertex": 36,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5768009",
+      "ref_raw": "80",
+      "stop_occurrences": 26,
+      "stop_points_matching_any_literal_road_vertex": 23,
+      "stop_points_without_exact_road_vertex_match": [
+        {
+          "sequence": 20,
+          "member_index": 32,
+          "stop_id": "osm:node:679718736"
+        },
+        {
+          "sequence": 21,
+          "member_index": 34,
+          "stop_id": "osm:node:679718735"
+        },
+        {
+          "sequence": 22,
+          "member_index": 36,
+          "stop_id": "osm:node:8746501810"
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:5807068",
+      "ref_raw": "88",
+      "stop_occurrences": 24,
+      "stop_points_matching_any_literal_road_vertex": 24,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5815754",
+      "ref_raw": "42",
+      "stop_occurrences": 48,
+      "stop_points_matching_any_literal_road_vertex": 48,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5826081",
+      "ref_raw": "22",
+      "stop_occurrences": 32,
+      "stop_points_matching_any_literal_road_vertex": 32,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5826082",
+      "ref_raw": "22",
+      "stop_occurrences": 37,
+      "stop_points_matching_any_literal_road_vertex": 37,
+      "stop_points_without_exact_road_vertex_match": []
+    },
+    {
+      "route_id": "osm:relation:5827635",
+      "ref_raw": "83",
+      "stop_occurrences": 27,
+      "stop_points_matching_any_literal_road_vertex": 27,
+      "stop_points_without_exact_road_vertex_match": []
+    }
+  ]
+}

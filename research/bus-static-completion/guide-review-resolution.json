@@ -1,0 +1,32 @@
+{
+  "resolved_at_utc": "2026-10-30T09:41:58.928339+00:00",
+  "original_review": "guide-review.json",
+  "source_database_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "raw_source_unchanged": true,
+  "findings": [
+    {
+      "id": "GUIDE-001",
+      "parent_grade": "important_for_full_evidence_preservation",
+      "resolution": "Added exact full raw members and explicit unclassified_members per variant; all 20165 source memberships retained; unrelated node remains unclassified, not a stop.",
+      "red_log": "/root/.hermes/cache/scratch/besrah-guide-review-members-red.log",
+      "red_verified": true,
+      "green_test": "tests/data/bus-guide-integrity.test.mjs",
+      "new_stops_added": false
+    },
+    {
+      "id": "GUIDE-002",
+      "parent_grade": "important_for_false_safety_claim_prevention",
+      "resolution": "Added exact line/variant cardinality, source endpoint/summary equality, false current-operation/orientation assertions, pinned full audit comparisons, independent geometry-component recomputation and six negative semantic mutation cases. Five original blind-spot regressions failed before assertions and all seven positive/negative checks passed afterwards.",
+      "red_log": "/root/.hermes/cache/scratch/besrah-guide-safety-red.log",
+      "red_verified": true,
+      "green_tests": 7
+    }
+  ],
+  "status": "findings_fixed_and_final_suites_passed",
+  "second_review_not_claimed": true,
+  "citywide_completeness_verified": false,
+  "runtime_changes": false,
+  "post_fix_total_tests": 205,
+  "post_fix_typecheck_passed": true,
+  "post_fix_verification": "regression-verification.json"
+}

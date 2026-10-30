@@ -1,0 +1,582 @@
+{
+  "created_at_utc": "2026-10-30T08:50:03.285916+00:00",
+  "quality": "research_only_not_current_operator_verified",
+  "conclusion": {
+    "accessible_current_official_denominator": null,
+    "accessible_official_route_stop_geometry_feed": null,
+    "coverage_percentage": null,
+    "reason": "Published municipal catalogue and statistics hosts did not return content; news articles are not a versioned operator census.",
+    "dated_primary_publisher_aggregate_candidate": {
+      "count": 175,
+      "published_at": "2026-07-30T07:00:37Z",
+      "source_id": 10,
+      "operator_signed_census": false,
+      "coverage_percentage_allowed": false
+    }
+  },
+  "sources": [
+    {
+      "source_id": 1,
+      "url": "https://map.mashhad.ir/fa/",
+      "retrieval_records": [
+        {
+          "url": "https://map.mashhad.ir/fa/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:38:34.094493+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "5.252.219.39",
+          "time_connect": 0.353071,
+          "time_appconnect": 0.0,
+          "effective_url": "https://map.mashhad.ir/fa/",
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        },
+        {
+          "url": "https://map.mashhad.ir/fa/",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:38:34.095198+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "127.0.0.1",
+          "time_connect": 0.000248,
+          "time_appconnect": 0.0,
+          "effective_url": "https://map.mashhad.ir/fa/",
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "municipal_authority_url_content_unavailable"
+    },
+    {
+      "source_id": 2,
+      "url": "https://bus.mashhad.ir/",
+      "retrieval_records": [
+        {
+          "url": "https://bus.mashhad.ir/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:38:34.095793+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "5.252.219.34",
+          "time_connect": 0.444589,
+          "time_appconnect": 0.0,
+          "effective_url": "https://bus.mashhad.ir/",
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        },
+        {
+          "url": "https://bus.mashhad.ir/",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:38:34.098519+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "127.0.0.1",
+          "time_connect": 0.000147,
+          "time_appconnect": 0.0,
+          "effective_url": "https://bus.mashhad.ir/",
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "municipal_authority_url_content_unavailable"
+    },
+    {
+      "source_id": 3,
+      "url": "https://farhangi.mashhad.ir/fa/general_content/902102-لیست-خطوط-اتوبوس-شهری.html",
+      "retrieval_records": [
+        {
+          "url": "https://farhangi.mashhad.ir/fa/general_content/902102-لیست-خطوط-اتوبوس-شهری.html",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:38:34.099682+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "5.252.219.34",
+          "time_connect": 0.399416,
+          "time_appconnect": 0.0,
+          "effective_url": "https://farhangi.mashhad.ir/fa/general_content/902102-لیست-خطوط-اتوبوس-شهری.html",
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        },
+        {
+          "url": "https://farhangi.mashhad.ir/fa/general_content/902102-لیست-خطوط-اتوبوس-شهری.html",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:38:34.101448+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "127.0.0.1",
+          "time_connect": 0.000129,
+          "time_appconnect": 0.0,
+          "effective_url": "https://farhangi.mashhad.ir/fa/general_content/902102-لیست-خطوط-اتوبوس-شهری.html",
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "municipal_authority_url_content_unavailable"
+    },
+    {
+      "source_id": 4,
+      "url": "https://amar.mashhad.ir/",
+      "retrieval_records": [
+        {
+          "url": "https://amar.mashhad.ir/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:39:40.903920+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "5.252.216.65",
+          "time_connect": 0.403685,
+          "time_appconnect": 0.0,
+          "effective_url": "https://amar.mashhad.ir/",
+          "content_type": null,
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        },
+        {
+          "url": "https://amar.mashhad.ir/",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:43:38.472749+00:00",
+          "completed_at_utc": "2026-10-30T08:43:44.490828+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "127.0.0.1",
+          "time_connect": 0.00024,
+          "time_appconnect": 0.0,
+          "effective_url": "https://amar.mashhad.ir/",
+          "content_type": null,
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "municipal_authority_url_content_unavailable"
+    },
+    {
+      "source_id": 5,
+      "url": "https://planning.mashhad.ir/",
+      "retrieval_records": [
+        {
+          "url": "https://planning.mashhad.ir/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:39:40.904727+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "5.252.219.34",
+          "time_connect": 0.443911,
+          "time_appconnect": 0.0,
+          "effective_url": "https://planning.mashhad.ir/",
+          "content_type": null,
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        },
+        {
+          "url": "https://planning.mashhad.ir/",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:43:38.473195+00:00",
+          "completed_at_utc": "2026-10-30T08:43:44.492801+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "127.0.0.1",
+          "time_connect": 0.000168,
+          "time_appconnect": 0.0,
+          "effective_url": "https://planning.mashhad.ir/",
+          "content_type": null,
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "municipal_authority_url_content_unavailable"
+    },
+    {
+      "source_id": 6,
+      "url": "https://shahraranews.ir/fa/news/443868/",
+      "retrieval_records": [
+        {
+          "url": "https://shahraranews.ir/fa/news/443868/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:43:38.469894+00:00",
+          "completed_at_utc": "2026-10-30T08:43:44.492222+00:00",
+          "curl_exit_code": 28,
+          "error": "curl: (28) SSL connection timeout\n",
+          "http_status": 0,
+          "remote_ip": "194.41.48.50",
+          "time_connect": 0.164701,
+          "time_appconnect": 0.0,
+          "effective_url": "https://shahraranews.ir/fa/news/443868/",
+          "content_type": null,
+          "bytes": 0,
+          "sha256": null,
+          "raw_body_local_only": null,
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "no_http_response"
+        },
+        {
+          "url": "https://shahraranews.ir/fa/news/443868/",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:44:20.815133+00:00",
+          "curl_exit_code": 0,
+          "error": "",
+          "http_status": 200,
+          "effective_url": "https://shahraranews.ir/fa/news/443868/%DA%AF%D9%84%D8%A7%DB%8C%D9%87-%D8%B4%D9%87%D8%B1%D9%88%D9%86%D8%AF%D8%A7%D9%86-%D9%85%D8%B4%D9%87%D8%AF%DB%8C-%D9%86%D8%B3%D8%A8%D8%AA-%D8%A8%D9%87-%D8%AD%D8%B0%D9%81-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D8%A8%DB%8C%E2%80%8C%D8%A2%D8%B1%D8%AA%DB%8C-%D8%AE%D8%B7-%DB%B8%DB%B3%DB%B0-%7C-%D8%B3%D9%87-%D8%AE%D8%B7-%DA%A9%D8%A7%D8%B1-%DB%8C%DA%A9-%D8%AE%D8%B7-%D8%B1%D8%A7-%D9%86%DA%A9%D8%B1%D8%AF",
+          "bytes": 541101,
+          "sha256": "9a1a00612216a5480fd1bb2475579cb705020bc3074d909cb0ccd5fe05518809",
+          "raw_body_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/e5c493a8f28da140.body",
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "original_publisher_article_html_received"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "original_news_publisher_not_operator_catalogue",
+      "published_at_source": "2026-09-09T08:20:01+03:30",
+      "modified_at_source": "2026-09-09T05:57:37+03:30",
+      "short_quote": "همین خط ۸۳۳ از اینجا تا پایانه فردوسی مسافر جابه‌جا می‌کند.",
+      "quote_words": 11,
+      "quote_in_fetched_text": true,
+      "content_sha256": "9a1a00612216a5480fd1bb2475579cb705020bc3074d909cb0ccd5fe05518809"
+    },
+    {
+      "source_id": 7,
+      "url": "https://shahraranews.ir/fa/news/428287/",
+      "retrieval_records": [
+        {
+          "url": "https://shahraranews.ir/fa/news/428287/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:43:38.470636+00:00",
+          "completed_at_utc": "2026-10-30T08:43:45.589528+00:00",
+          "curl_exit_code": 0,
+          "error": "",
+          "http_status": 200,
+          "remote_ip": "194.41.48.50",
+          "time_connect": 5.029089,
+          "time_appconnect": 5.854565,
+          "effective_url": "https://shahraranews.ir/fa/news/428287/%D8%AD%D9%85%D9%84%E2%80%8C%D9%88%D9%86%D9%82%D9%84-%D8%B9%D9%85%D9%88%D9%85%DB%8C-%D8%AF%D8%B1-%D9%85%D8%B4%D9%87%D8%AF-%D8%A7%D8%B2-%D8%A7%D9%85%D8%B1%D9%88%D8%B2-%DB%B1%DB%B6-%D8%AA%DB%8C%D8%B1%D9%85%D8%A7%D9%87-%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86-%D8%A7%D8%B3%D8%AA",
+          "content_type": "text/html; charset=utf-8",
+          "bytes": 484178,
+          "sha256": "eedfc61f6eddf9dca722f0830918fc737c4b111b20fd8ba454b598f724ff3ccf",
+          "raw_body_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/adcf9eb2c133824e.body",
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "original_publisher_article_html_received"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "original_news_publisher_not_operator_catalogue",
+      "published_at_source": "2026-07-07T07:00:02+03:30",
+      "modified_at_source": "2026-07-06T13:41:27+03:30",
+      "short_quote": "۱۰۷ خط اتوبوسرانی از تمامی پایانه‌های درون‌شهری",
+      "quote_words": 7,
+      "quote_in_fetched_text": true,
+      "content_sha256": "eedfc61f6eddf9dca722f0830918fc737c4b111b20fd8ba454b598f724ff3ccf"
+    },
+    {
+      "source_id": 8,
+      "url": "https://shahraranews.ir/fa/news/348677/",
+      "retrieval_records": [
+        {
+          "url": "https://shahraranews.ir/fa/news/348677/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:43:38.472281+00:00",
+          "completed_at_utc": "2026-10-30T08:43:40.307165+00:00",
+          "curl_exit_code": 0,
+          "error": "",
+          "http_status": 200,
+          "remote_ip": "194.41.48.50",
+          "time_connect": 0.038984,
+          "time_appconnect": 0.711798,
+          "effective_url": "https://shahraranews.ir/fa/news/348677/%D8%AA%D8%AF%D9%88%DB%8C%D9%86-%D8%A2%D9%85%D8%A7%D8%B1%D9%86%D8%A7%D9%85%D9%87-%DB%B1%DB%B4%DB%B0%DB%B3-%D9%85%D8%B4%D9%87%D8%AF-%D8%A8%D8%A7-%D8%AA%D8%A7%DA%A9%DB%8C%D8%AF-%D8%A8%D8%B1-%D8%AF%D8%A7%D8%AF%D9%87%E2%80%8C%D9%85%D8%AD%D9%88%D8%B1%DB%8C-%D9%88-%D9%87%D9%85%D8%A7%D9%87%D9%86%DA%AF%DB%8C-%D8%A8%DB%8C%D9%86%E2%80%8C%D8%AF%D8%B3%D8%AA%DA%AF%D8%A7%D9%87%DB%8C",
+          "content_type": "text/html; charset=utf-8",
+          "bytes": 478715,
+          "sha256": "730a7f7a7d6a0f674cf0f2eaebcb4f1e6774b71f8f671ae01beadb7e5f6810fb",
+          "raw_body_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/b09a4b70b5a0068b.body",
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "original_publisher_article_html_received"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "original_news_publisher_not_operator_catalogue",
+      "published_at_source": "2025-07-30T18:50:21+03:30",
+      "modified_at_source": "2025-07-30T18:56:48+03:30",
+      "short_quote": "برای تدوین دقیق و قابل اتکای آمارنامه سال ۱۴۰۳ است.",
+      "quote_words": 10,
+      "quote_in_fetched_text": true,
+      "content_sha256": "730a7f7a7d6a0f674cf0f2eaebcb4f1e6774b71f8f671ae01beadb7e5f6810fb"
+    },
+    {
+      "source_id": 9,
+      "url": "https://shahraranews.ir/fa/news/450834/",
+      "retrieval_records": [
+        {
+          "url": "https://shahraranews.ir/fa/news/450834/",
+          "transport": "direct",
+          "retrieved_at_utc": "2026-10-30T08:39:40.905159+00:00",
+          "curl_exit_code": 0,
+          "error": "",
+          "http_status": 200,
+          "remote_ip": "194.41.48.50",
+          "time_connect": 0.377286,
+          "time_appconnect": 1.158447,
+          "effective_url": "https://shahraranews.ir/fa/news/450834/%D8%A7%D9%86%D8%AC%D8%A7%D9%85-%D8%A8%DB%8C%D8%B4-%D8%A7%D8%B2-155-%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86-%D8%B3%D9%81%D8%B1-%D8%A8%D8%A7-%D9%86%D8%A7%D9%88%DA%AF%D8%A7%D9%86-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3%D8%B1%D8%A7%D9%86%DB%8C-%D9%85%D8%B4%D9%87%D8%AF-%D8%AF%D8%B1-%D9%86%DB%8C%D9%85%D9%87-%D9%86%D8%AE%D8%B3%D8%AA-1405",
+          "content_type": "text/html; charset=utf-8",
+          "bytes": 476284,
+          "sha256": "eba6fdca292037a87ff9839aa7aa487f4bda2c6920e354fbf6c790c0d3e612e3",
+          "raw_body_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/353abc93e317d79f.body",
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "original_publisher_article_html_received"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "original_news_publisher_not_operator_catalogue",
+      "published_at_source": "2026-10-07T19:30:58+03:30",
+      "modified_at_source": "2026-10-07T19:31:19+03:30",
+      "short_quote": "به وسیله هزار و ۷۴۰ دستگاه اتوبوس فعال در خطوط",
+      "quote_words": 10,
+      "quote_in_fetched_text": true,
+      "content_sha256": "eba6fdca292037a87ff9839aa7aa487f4bda2c6920e354fbf6c790c0d3e612e3"
+    },
+    {
+      "source_id": 10,
+      "url": "https://irna.ir/news/86223472/",
+      "retrieval_records": [
+        {
+          "url": "https://irna.ir/news/86223472/",
+          "transport": "existing_proxy",
+          "retrieved_at_utc": "2026-10-30T08:45:07.110595+00:00",
+          "curl_exit_code": 0,
+          "error": "",
+          "http_status": 200,
+          "effective_url": "https://www.irna.ir/news/86223472/",
+          "bytes": 6223,
+          "sha256": "02f63a95c10bbfbb6a1c7d72a88b2ee52c5941277fcd07aa66edb9a314e5eabc",
+          "raw_body_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/d11213fe90becec7.body",
+          "retrieved_at_semantics": "request_start_utc_not_source_publication",
+          "body_quality": "javascript_transfer_interstitial_not_article"
+        }
+      ],
+      "official_denominator_accepted": false,
+      "public_route_feed_retrieved": false,
+      "public_stop_feed_retrieved": false,
+      "geometry_feed_retrieved": false,
+      "licence_for_dataset_reuse": "not_established",
+      "current_as_of_20261030": "not_established",
+      "publisher_class": "original_news_publisher_not_operator_catalogue",
+      "published_at_source": "2026-07-30T07:00:37Z",
+      "modified_at_source": "2026-07-30T07:04:33Z",
+      "short_quote": "از طریق ۱۷۵ خط فعال انجام می‌شود.",
+      "quote_words": 7,
+      "quote_in_fetched_text": true,
+      "content_sha256": "ecf0b84cea63a42fc883a52872603132106576cce9185d8b7b1aef0893de6d30",
+      "content_hash_scope": "bounded selected DOM capture JSON bytes, not raw HTML",
+      "browser_retrieval_record": {
+        "url": "https://irna.ir/news/86223472/",
+        "effective_url": "https://www.irna.ir/news/86223472/%DB%B8%DB%B5%DB%B0-%D8%AF%D8%B3%D8%AA%DA%AF%D8%A7%D9%87-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D8%B4%D9%87%D8%B1%DB%8C-%D9%85%D8%B4%D9%87%D8%AF-%D9%81%D8%B1%D8%B3%D9%88%D8%AF%D9%87-%D8%A7%D8%B3%D8%AA",
+        "transport": "ordinary_browser_no_bypass_or_header_changes",
+        "retrieved_at_utc": "2026-10-30T08:48:13.657463+00:00",
+        "http_status": null,
+        "status_semantics": "DOM content observed; HTTP response status not captured",
+        "body_quality": "original_publisher_article_rendered",
+        "bytes": 14218,
+        "sha256": "ecf0b84cea63a42fc883a52872603132106576cce9185d8b7b1aef0893de6d30",
+        "hash_scope": "bounded selected DOM capture JSON bytes, not raw HTML",
+        "raw_body_local_only": "/root/.hermes/cache/scratch/besrah-static-sources-20261030/irna-browser-primary.json"
+      },
+      "reported_aggregate_line_count": 175,
+      "denominator_limitation": "Original IRNA article confirms a dated total, but does not publish a route-reference census, urban/suburban/minibus/branch counting definitions, or validity on 2026-10-30. Count appears in reporter context, not explicitly attributed to a signed operator inventory."
+    }
+  ],
+  "facts": [
+    {
+      "source_id": 6,
+      "kind": "reported_network_change",
+      "published_at": "2026-09-09T08:20:01+03:30",
+      "claim": "Original field reporting describes former line 830 as split/replaced by 831, 832 and 833; an unnamed line supervisor gives endpoint descriptions. This is not a signed operator route inventory.",
+      "endpoint_candidates": [
+        {
+          "ref_raw": "۸۳۱",
+          "origin": "پایانه مصلی",
+          "destination": "پایانه الهیه"
+        },
+        {
+          "ref_raw": "۸۳۲",
+          "origin": "روگذر شیرازی حرم",
+          "destination": "پایانه الهیه"
+        },
+        {
+          "ref_raw": "۸۳۳",
+          "origin": "پایانه شهید بسکابادی",
+          "destination": "پایانه فردوسی"
+        }
+      ],
+      "endpoint_qualification": "833 origin resolved from immediately preceding narrative location, not an explicit complete operator row. Endpoints are direction-agnostic candidates; no stop sequences or geometry.",
+      "acceptance": "manual_reconciliation_leads_only_not_imported"
+    },
+    {
+      "source_id": 7,
+      "kind": "rejected_denominator",
+      "value_raw": "۱۰۷",
+      "claim": "107 lines were specified for one special-event operation in July 2026, not a current complete city census.",
+      "route_mentions_raw": [
+        "۱۲",
+        "۱۳",
+        "۵۰",
+        "۸۰۱",
+        "۸۰۲",
+        "۸۳۲",
+        "۸۳۳"
+      ],
+      "acceptance": "not_a_citywide_denominator_or_permanent_timetable"
+    },
+    {
+      "source_id": 8,
+      "kind": "yearbook_discovery",
+      "claim": "Official statement reported preparation of the 1403 statistical yearbook on 2025-07-30. No downloadable yearbook or bus census is attached in the inspected article body.",
+      "acceptance": "publication_workflow_lead_only_not_yearbook_data"
+    },
+    {
+      "source_id": 9,
+      "kind": "rejected_denominator",
+      "value_raw": "هزار و ۷۴۰",
+      "claim": "1740 is an active-vehicle count in a half-year report, not a count of lines, stations or terminals.",
+      "acceptance": "excluded_from_static_coverage_denominator"
+    },
+    {
+      "source_id": 10,
+      "kind": "dated_primary_publisher_aggregate_not_current_census",
+      "value_raw": "۱۷۵",
+      "value": 175,
+      "claim": "IRNA original article dated 2026-07-30 reports 175 active bus lines in Mashhad in its contextual paragraph. It is primary-publisher verified, but not a published route inventory and not proven current on 2026-10-30.",
+      "acceptance": "dated_aggregate_comparison_candidate_only_no_coverage_percentage"
+    }
+  ],
+  "osm_readonly_reconciliation": {
+    "database": "data/bus/mashhad-bus.sqlite",
+    "method": "SQLite URI mode=ro; exact ref equality",
+    "observed_at_utc": "2026-10-30T08:50:03.285916+00:00",
+    "matching_routes": [
+      {
+        "id": "osm:relation:13078659",
+        "ref_raw": "831",
+        "from_name": "پایانه مصلی",
+        "to_name": "پایانه الهیه",
+        "scope_quality": "municipal_operator_tag"
+      },
+      {
+        "id": "osm:relation:13078660",
+        "ref_raw": "831",
+        "from_name": "پایانه الهیه",
+        "to_name": "پایانه مصلی",
+        "scope_quality": "municipal_operator_tag"
+      }
+    ],
+    "exact_reference_presence": {
+      "830": false,
+      "831": true,
+      "832": false,
+      "833": false
+    },
+    "interpretation": "831 endpoint pair is consistent with this article; 832 and 833 are news-supported reconciliation leads absent as exact route refs. No conclusion about complete routes, stop count, service today, or identifier equivalences."
+  },
+  "unaccepted_secondary_leads": [
+    {
+      "url": "https://respina24.ir/mag/wp-content/uploads/2025/10/mashhad-bus-routes.pdf",
+      "status": "search_discovered_not_downloaded_in_this_task",
+      "reason": "Third-party hosting and an advertising article claim publication in 1403, but official original/version/date not verified. Not promoted as current official data; not assumed identical to 2019 PDF either."
+    },
+    {
+      "url": "https://khabarfarsi.com/u/253475619",
+      "status": "discovery_only_then_primary_original_verified",
+      "candidate_denominator_raw": "175",
+      "primary_original_discovered": "https://irna.ir/news/86223472/",
+      "primary_url_discovery": "base64-decoded literal source URL from indexed Khabarpu link using Python",
+      "reason": "Secondary discovery was subsequently resolved to the original IRNA article through normal browser rendering. The original verifies the July aggregate of 175; its scope, route membership and October currency remain unresolved."
+    }
+  ],
+  "historical_guard": "Existing 2019 32-page PDF and identical 2023/2024 reuploads were read about in prior research and not re-fetched or promoted. No arrivals, APKs, credentials or private endpoints researched."
+}

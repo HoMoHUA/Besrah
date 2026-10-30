@@ -1,0 +1,3028 @@
+{
+  "comparison": "Within exact line_id only, exact from/to equality without normalization. No exact reverse match is a review flag, not proof of a missing current direction. Loop evidence can explain single variants; duplicates retained.",
+  "routes": [
+    {
+      "route_id": "osm:relation:12722457",
+      "line_id": "osm:ref:63",
+      "ref_raw": "63",
+      "from_raw": "انتهای شهرک شهید آقا مصطفی خمینی",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13065976"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12722458",
+      "line_id": "osm:ref:EXP-9",
+      "ref_raw": "EXP-9",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "loop_evidence_no_reverse_requirement_assumed",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": "yes",
+        "raw_endpoints_equal": true,
+        "first_and_last_stop_same_element": true
+      }
+    },
+    {
+      "route_id": "osm:relation:12722459",
+      "line_id": "osm:ref:61",
+      "ref_raw": "61",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "شهرک شیرین",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13028109"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12724618",
+      "line_id": "osm:ref:85",
+      "ref_raw": "85",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه معراج",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12895555"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12724619",
+      "line_id": "osm:ref:EXP-8",
+      "ref_raw": "EXP-8",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "loop_evidence_no_reverse_requirement_assumed",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": "yes",
+        "raw_endpoints_equal": true,
+        "first_and_last_stop_same_element": true
+      }
+    },
+    {
+      "route_id": "osm:relation:12724620",
+      "line_id": "osm:ref:100",
+      "ref_raw": "100",
+      "from_raw": "پایانه مصلی",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5707936"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12732781",
+      "line_id": "osm:ref:80",
+      "ref_raw": "80",
+      "from_raw": "پایانه زکریا",
+      "to_raw": "پایانه گردشگری",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5768009"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12732782",
+      "line_id": "osm:ref:38",
+      "ref_raw": "38",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه زکریا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5688324"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12739429",
+      "line_id": "osm:ref:7",
+      "ref_raw": "7",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12739430"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12739430",
+      "line_id": "osm:ref:7",
+      "ref_raw": "7",
+      "from_raw": "پایانه فردوسی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12739429"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12894288",
+      "line_id": "osm:ref:95",
+      "ref_raw": "95",
+      "from_raw": "پایانه سرافرازان",
+      "to_raw": "پایانه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12894289"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12894289",
+      "line_id": "osm:ref:95",
+      "ref_raw": "95",
+      "from_raw": "پایانه فردوسی",
+      "to_raw": "پایانه سرافرازان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12894288"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12895555",
+      "line_id": "osm:ref:85",
+      "ref_raw": "85",
+      "from_raw": "پایانه معراج",
+      "to_raw": "پایانه امام رضا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12724618"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12897591",
+      "line_id": "osm:ref:21",
+      "ref_raw": "21",
+      "from_raw": "پایانه شهدا",
+      "to_raw": "پایانه گردشگری",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5725741"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12902440",
+      "line_id": "osm:ref:88",
+      "ref_raw": "88",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5807068"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12909511",
+      "line_id": "osm:ref:17",
+      "ref_raw": "17",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5748379"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12909965",
+      "line_id": "osm:ref:17.1",
+      "ref_raw": "17.1",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12909966"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12909966",
+      "line_id": "osm:ref:17.1",
+      "ref_raw": "17.1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12909965"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12914909",
+      "line_id": "osm:ref:37.1",
+      "ref_raw": "37.1",
+      "from_raw": "پایانه شهید مفتح",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5734626"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12916882",
+      "line_id": "osm:ref:38.1",
+      "ref_raw": "38.1",
+      "from_raw": "پایانه راه آهن",
+      "to_raw": "پایانه آزادی",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12917149",
+      "line_id": "osm:ref:92",
+      "ref_raw": "92",
+      "from_raw": "ایستگاه نوفل لوشاتو ۲۶",
+      "to_raw": "ایستگاه ابتدای احمدآباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12917150"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12917150",
+      "line_id": "osm:ref:92",
+      "ref_raw": "92",
+      "from_raw": "ایستگاه ابتدای احمدآباد",
+      "to_raw": "ایستگاه نوفل لوشاتو ۲۶",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12917149"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12927514",
+      "line_id": "osm:ref:98.1",
+      "ref_raw": "98.1",
+      "from_raw": "پایانه سرافرازان",
+      "to_raw": "ایستگاه بیمارستان فارابی",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12928143",
+      "line_id": "osm:ref:10",
+      "ref_raw": "10",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه غدیر",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12928144"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12928144",
+      "line_id": "osm:ref:10",
+      "ref_raw": "10",
+      "from_raw": "پایانه غدیر",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12928143"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12933677",
+      "line_id": "osm:ref:98",
+      "ref_raw": "98",
+      "from_raw": "پایانه سرافرازان",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12933678"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12933678",
+      "line_id": "osm:ref:98",
+      "ref_raw": "98",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه سرافرازان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12933677"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12934359",
+      "line_id": "osm:ref:97",
+      "ref_raw": "97",
+      "from_raw": "پایانه سرافرازان",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12934360"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12934360",
+      "line_id": "osm:ref:97",
+      "ref_raw": "97",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه سرافرازان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12934359"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12936970",
+      "line_id": "osm:ref:11",
+      "ref_raw": "11",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12936971"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12936971",
+      "line_id": "osm:ref:11",
+      "ref_raw": "11",
+      "from_raw": "پایانه فردوسی",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12936970"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12938016",
+      "line_id": "osm:ref:50",
+      "ref_raw": "50",
+      "from_raw": "پایانه شهدا",
+      "to_raw": "جرم مطهر",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12939470",
+      "line_id": "osm:ref:81",
+      "ref_raw": "81",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه گردشگری",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12939471"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12939471",
+      "line_id": "osm:ref:81",
+      "ref_raw": "81",
+      "from_raw": "پایانه گردشگری",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12939470"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12943356",
+      "line_id": "osm:ref:12",
+      "ref_raw": "12",
+      "from_raw": "حرم مطهر (شیرازی)",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5762269"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12943944",
+      "line_id": "osm:ref:210",
+      "ref_raw": "210",
+      "from_raw": "پایانه گردشگری",
+      "to_raw": "حرم مطهر (باب الجواد)",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12943945"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12943945",
+      "line_id": "osm:ref:210",
+      "ref_raw": "210",
+      "from_raw": "حرم مطهر (باب الجواد)",
+      "to_raw": "پایانه گردشگری",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12943944"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12946471",
+      "line_id": "osm:ref:22.2",
+      "ref_raw": "22.2",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه گردشگری",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12946472"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12946472",
+      "line_id": "osm:ref:22.2",
+      "ref_raw": "22.2",
+      "from_raw": "پایانه گردشگری",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12946471"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12954935",
+      "line_id": "osm:ref:EXP-2",
+      "ref_raw": "EXP-2",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5700127"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12956232",
+      "line_id": "osm:ref:16.1",
+      "ref_raw": "16.1",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12956233"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12956233",
+      "line_id": "osm:ref:16.1",
+      "ref_raw": "16.1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12956232"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12979843",
+      "line_id": "osm:ref:45",
+      "ref_raw": "45",
+      "from_raw": "پایانه شهید مفتح شرقی",
+      "to_raw": "پایانه شهید هاشمی نژاد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5699091"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12987789",
+      "line_id": "osm:ref:32",
+      "ref_raw": "32",
+      "from_raw": "پایانه غدیر",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5697722"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12989500",
+      "line_id": "osm:ref:68",
+      "ref_raw": "68",
+      "from_raw": "پایانه شهید مفتح",
+      "to_raw": "پایانه غدیر",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5697962"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12991432",
+      "line_id": "osm:ref:35",
+      "ref_raw": "35",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه مصلی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12991433"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12991433",
+      "line_id": "osm:ref:35",
+      "ref_raw": "35",
+      "from_raw": "پایانه مصلی",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12991432"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12992314",
+      "line_id": "osm:ref:34",
+      "ref_raw": "34",
+      "from_raw": "پایانه شهید گمنام",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5625147"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12994022",
+      "line_id": "osm:ref:42",
+      "ref_raw": "42",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه الهیه",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:12994723",
+      "line_id": "osm:ref:EXP-3",
+      "ref_raw": "EXP-3",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه شهید مفتح",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5693243"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13010658",
+      "line_id": "osm:ref:94",
+      "ref_raw": "94",
+      "from_raw": "شهرک صابر",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13010659"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13010659",
+      "line_id": "osm:ref:94",
+      "ref_raw": "94",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "شهرک صابر",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13010658"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13013732",
+      "line_id": "osm:ref:37",
+      "ref_raw": "37",
+      "from_raw": "پایانه غدیر",
+      "to_raw": "پایانه شهید مفتح",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5727013"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13015485",
+      "line_id": "osm:ref:15",
+      "ref_raw": "15",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13015486"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13015486",
+      "line_id": "osm:ref:15",
+      "ref_raw": "15",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13015485"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13016690",
+      "line_id": "osm:ref:99",
+      "ref_raw": "99",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13016691"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13016691",
+      "line_id": "osm:ref:99",
+      "ref_raw": "99",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13016690"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13019790",
+      "line_id": "osm:ref:13",
+      "ref_raw": "13",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13019791"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13019791",
+      "line_id": "osm:ref:13",
+      "ref_raw": "13",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13019790"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13021173",
+      "line_id": "osm:ref:EXP-4",
+      "ref_raw": "EXP-4",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه الهیه",
+      "status": "loop_evidence_no_reverse_requirement_assumed",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": true,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13022575",
+      "line_id": "osm:ref:13.1",
+      "ref_raw": "13.1",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13022576"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13022576",
+      "line_id": "osm:ref:13.1",
+      "ref_raw": "13.1",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13022575"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13028109",
+      "line_id": "osm:ref:61",
+      "ref_raw": "61",
+      "from_raw": "شهرک شیرین",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12722459"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13028690",
+      "line_id": "osm:ref:28.1",
+      "ref_raw": "28.1",
+      "from_raw": "پایانه مصلی",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13028691"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13028691",
+      "line_id": "osm:ref:28.1",
+      "ref_raw": "28.1",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه مصلی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13028690"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13028881",
+      "line_id": "osm:ref:14",
+      "ref_raw": "14",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13028882"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13028882",
+      "line_id": "osm:ref:14",
+      "ref_raw": "14",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13028881"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13030541",
+      "line_id": "osm:ref:18.1",
+      "ref_raw": "18.1",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13030542"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13030542",
+      "line_id": "osm:ref:18.1",
+      "ref_raw": "18.1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13030541"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13035786",
+      "line_id": "osm:ref:18",
+      "ref_raw": "18",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13035787"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13035787",
+      "line_id": "osm:ref:18",
+      "ref_raw": "18",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13035786"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13036762",
+      "line_id": "osm:ref:1094",
+      "ref_raw": "1094",
+      "from_raw": "انتهای بولوار شاهد",
+      "to_raw": "انتهای خیابان لادن",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13036763"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13036763",
+      "line_id": "osm:ref:1094",
+      "ref_raw": "1094",
+      "from_raw": "انتهای خیابان لادن",
+      "to_raw": "انتهای بولوار شاهد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13036762"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13042735",
+      "line_id": "osm:ref:20",
+      "ref_raw": "20",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13042736"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13042736",
+      "line_id": "osm:ref:20",
+      "ref_raw": "20",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13042735"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13043693",
+      "line_id": "osm:ref:14.1",
+      "ref_raw": "14.1",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13043694"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13043694",
+      "line_id": "osm:ref:14.1",
+      "ref_raw": "14.1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13043693"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13047968",
+      "line_id": "osm:ref:84",
+      "ref_raw": "84",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه امام رضا",
+      "status": "loop_evidence_no_reverse_requirement_assumed",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": "yes",
+        "raw_endpoints_equal": true,
+        "first_and_last_stop_same_element": true
+      }
+    },
+    {
+      "route_id": "osm:relation:13053798",
+      "line_id": "osm:ref:71.1",
+      "ref_raw": "71.1",
+      "from_raw": "پایانه صبا",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13053799"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13053799",
+      "line_id": "osm:ref:71.1",
+      "ref_raw": "71.1",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه صبا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13053798"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13054497",
+      "line_id": "osm:ref:19",
+      "ref_raw": "19",
+      "from_raw": "انتهای بولوار شاهد",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13054498"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13054498",
+      "line_id": "osm:ref:19",
+      "ref_raw": "19",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "انتهای بولوار شاهد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13054497"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13061161",
+      "line_id": "osm:ref:27",
+      "ref_raw": "27",
+      "from_raw": "مجموعه ورزشی آستان قدس رضوی",
+      "to_raw": "پایانه شهدا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13061162"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13061162",
+      "line_id": "osm:ref:27",
+      "ref_raw": "27",
+      "from_raw": "پایانه شهدا",
+      "to_raw": "مجموعه ورزشی آستان قدس رضوی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13061161"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13061609",
+      "line_id": "osm:ref:75",
+      "ref_raw": "75",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه صبا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13061610"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13061610",
+      "line_id": "osm:ref:75",
+      "ref_raw": "75",
+      "from_raw": "پایانه صبا",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13061609"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13065514",
+      "line_id": "osm:ref:31",
+      "ref_raw": "31",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13065515"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13065515",
+      "line_id": "osm:ref:31",
+      "ref_raw": "31",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13065514"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13065976",
+      "line_id": "osm:ref:63",
+      "ref_raw": "63",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "انتهای شهرک شهید آقا مصطفی خمینی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12722457"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13067385",
+      "line_id": "osm:ref:26",
+      "ref_raw": "26",
+      "from_raw": "پایانه معراج",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13067386"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13067386",
+      "line_id": "osm:ref:26",
+      "ref_raw": "26",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه معراج",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13067385"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13068328",
+      "line_id": "osm:ref:29",
+      "ref_raw": "29",
+      "from_raw": "انتهای بهارستان",
+      "to_raw": "پایانه راه آهن",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13068329"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13068329",
+      "line_id": "osm:ref:29",
+      "ref_raw": "29",
+      "from_raw": "پایانه راه آهن",
+      "to_raw": "انتهای بهارستان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13068328"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13072631",
+      "line_id": "osm:ref:87",
+      "ref_raw": "87",
+      "from_raw": "پایانه بوستان خورشید",
+      "to_raw": "پایانه صبا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13072632"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13072632",
+      "line_id": "osm:ref:87",
+      "ref_raw": "87",
+      "from_raw": "پایانه صبا",
+      "to_raw": "پایانه بوستان خورشید",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13072631"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13074219",
+      "line_id": "osm:ref:74",
+      "ref_raw": "74",
+      "from_raw": "پایانه صبا",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13074220"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13074220",
+      "line_id": "osm:ref:74",
+      "ref_raw": "74",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه صبا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13074219"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13078659",
+      "line_id": "osm:ref:831",
+      "ref_raw": "831",
+      "from_raw": "پایانه مصلی",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13078660"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13078660",
+      "line_id": "osm:ref:831",
+      "ref_raw": "831",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه مصلی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13078659"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13084549",
+      "line_id": "osm:ref:90",
+      "ref_raw": "90",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه امام رضا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13084550"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13084550",
+      "line_id": "osm:ref:90",
+      "ref_raw": "90",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13084549"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13086515",
+      "line_id": "osm:ref:89",
+      "ref_raw": "89",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13086516"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13086516",
+      "line_id": "osm:ref:89",
+      "ref_raw": "89",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13086515"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13086941",
+      "line_id": "osm:ref:91",
+      "ref_raw": "91",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13086942"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13086942",
+      "line_id": "osm:ref:91",
+      "ref_raw": "91",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه شهید جوان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13086941"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13090062",
+      "line_id": "osm:ref:800",
+      "ref_raw": "800",
+      "from_raw": "پایانه طبرسی",
+      "to_raw": "پایانه امام رضا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5658288"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13094530",
+      "line_id": "osm:ref:202",
+      "ref_raw": "202",
+      "from_raw": "آرامگاه فردوسی",
+      "to_raw": "پایانه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5763432"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13096507",
+      "line_id": "osm:ref:62",
+      "ref_raw": "62",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "حرم مطهر (باب الجواد)",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13096508"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13096508",
+      "line_id": "osm:ref:62",
+      "ref_raw": "62",
+      "from_raw": "حرم مطهر (باب الجواد)",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13096507"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13097891",
+      "line_id": "osm:ref:60",
+      "ref_raw": "60",
+      "from_raw": "شهید درودی ۲۸",
+      "to_raw": "پایانه شهدا",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13097892",
+      "line_id": "osm:ref:60",
+      "ref_raw": "60",
+      "from_raw": "پایانه شهدا",
+      "to_raw": "شهید درودی ۱۹",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13102703",
+      "line_id": "osm:ref:205",
+      "ref_raw": "205",
+      "from_raw": "شاهنامه ۱",
+      "to_raw": "پایانه فردوسی",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13102704",
+      "line_id": "osm:ref:205",
+      "ref_raw": "205",
+      "from_raw": "پایانه فردوسی",
+      "to_raw": "شاهنامه ۲",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13102878",
+      "line_id": "osm:ref:203",
+      "ref_raw": "203",
+      "from_raw": "پایانه معراج",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13102879"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13102879",
+      "line_id": "osm:ref:203",
+      "ref_raw": "203",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه معراج",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13102878"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13103002",
+      "line_id": "osm:ref:94.1",
+      "ref_raw": "94.1",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13103003"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13103003",
+      "line_id": "osm:ref:94.1",
+      "ref_raw": "94.1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه وکیل آباد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13103002"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13106147",
+      "line_id": "osm:ref:86",
+      "ref_raw": "86",
+      "from_raw": "حرم مطهر (باب الجواد)",
+      "to_raw": "پایانه زکریا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13106148"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13106148",
+      "line_id": "osm:ref:86",
+      "ref_raw": "86",
+      "from_raw": "پایانه زکریا",
+      "to_raw": "حرم مطهر (باب الجواد)",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13106147"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13110585",
+      "line_id": "osm:ref:96",
+      "ref_raw": "96",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه بوستان خورشید",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13110586"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13110586",
+      "line_id": "osm:ref:96",
+      "ref_raw": "96",
+      "from_raw": "پایانه بوستان خورشید",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13110585"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13112050",
+      "line_id": "osm:ref:1097",
+      "ref_raw": "1097",
+      "from_raw": "امیریه ۶۶",
+      "to_raw": "پایانه بوستان خورشید",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13112051",
+      "line_id": "osm:ref:1097",
+      "ref_raw": "1097",
+      "from_raw": "پایانه بوستان خورشید",
+      "to_raw": "امیریه ۴۷",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13117572",
+      "line_id": "osm:ref:1098",
+      "ref_raw": "1098",
+      "from_raw": "انتهای بولوار حجاب",
+      "to_raw": "پایانه بوستان خورشید",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13117573"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13117573",
+      "line_id": "osm:ref:1098",
+      "ref_raw": "1098",
+      "from_raw": "پایانه بوستان خورشید",
+      "to_raw": "انتهای بولوار حجاب",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13117572"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13120973",
+      "line_id": "osm:ref:46",
+      "ref_raw": "46",
+      "from_raw": "پایانه طبرسی",
+      "to_raw": "پایانه شهید گمنام",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13120974"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13120974",
+      "line_id": "osm:ref:46",
+      "ref_raw": "46",
+      "from_raw": "پایانه شهید گمنام",
+      "to_raw": "پایانه طبرسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13120973"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13125522",
+      "line_id": "osm:ref:1093",
+      "ref_raw": "1093",
+      "from_raw": "نماز ۳۰",
+      "to_raw": "پایانه آزادی",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13125523",
+      "line_id": "osm:ref:1093",
+      "ref_raw": "1093",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "نماز ۲۹",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13128239",
+      "line_id": "osm:ref:78",
+      "ref_raw": "78",
+      "from_raw": "انتهای شهرک عسگریه",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13128240"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13128240",
+      "line_id": "osm:ref:78",
+      "ref_raw": "78",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "انتهای شهرک عسگریه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13128239"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13133632",
+      "line_id": "osm:ref:1096",
+      "ref_raw": "1096",
+      "from_raw": "شهید بصیر ۱۹",
+      "to_raw": "انتهای خیابان لادن",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13133633"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13133633",
+      "line_id": "osm:ref:1096",
+      "ref_raw": "1096",
+      "from_raw": "انتهای خیابان لادن",
+      "to_raw": "شهید بصیر ۱۹",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13133632"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13138345",
+      "line_id": "osm:ref:36",
+      "ref_raw": "36",
+      "from_raw": "انتهای شهرک شهید چمران",
+      "to_raw": "پایانه شهید هاشمی نژاد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13138346"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13138346",
+      "line_id": "osm:ref:36",
+      "ref_raw": "36",
+      "from_raw": "پایانه شهید هاشمی نژاد",
+      "to_raw": "انتهای شهرک شهید چمران",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13138345"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13138574",
+      "line_id": "osm:ref:1031",
+      "ref_raw": "1031",
+      "from_raw": "میدان آیت الله مشکینی",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13138575"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13138575",
+      "line_id": "osm:ref:1031",
+      "ref_raw": "1031",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "میدان آیت الله مشکینی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13138574"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13140110",
+      "line_id": "osm:ref:702",
+      "ref_raw": "702",
+      "from_raw": "پایانه یهشت رضا (ع)",
+      "to_raw": "پایانه انقلاب اسلامی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13140111"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13140111",
+      "line_id": "osm:ref:702",
+      "ref_raw": "702",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه یهشت رضا (ع)",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13140110"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13148189",
+      "line_id": "osm:ref:1034",
+      "ref_raw": "1034",
+      "from_raw": "میدان طبرسی",
+      "to_raw": "زیرکن",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13148190"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13148190",
+      "line_id": "osm:ref:1034",
+      "ref_raw": "1034",
+      "from_raw": "زیرکن",
+      "to_raw": "میدان طبرسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13148189"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13182818",
+      "line_id": "osm:ref:79",
+      "ref_raw": "79",
+      "from_raw": "انتهای شهرک مهرگان",
+      "to_raw": "پایانه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13182819"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13182819",
+      "line_id": "osm:ref:79",
+      "ref_raw": "79",
+      "from_raw": "پایانه فردوسی",
+      "to_raw": "انتهای شهرک مهرگان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13182818"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13189458",
+      "line_id": "osm:ref:71",
+      "ref_raw": "71",
+      "from_raw": "پایانه صبا",
+      "to_raw": "پایانه امام رضا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13189459"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13189459",
+      "line_id": "osm:ref:71",
+      "ref_raw": "71",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه صبا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13189458"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13189708",
+      "line_id": "osm:ref:73",
+      "ref_raw": "73",
+      "from_raw": "شهید انفرادی ۱۸",
+      "to_raw": "پایانه الهیه",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13189709",
+      "line_id": "osm:ref:73",
+      "ref_raw": "73",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "شهید انفرادی ۱۵",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13190773",
+      "line_id": "osm:ref:33",
+      "ref_raw": "33",
+      "from_raw": "انتهای شهرک مهرگان",
+      "to_raw": "پایانه شهید هاشمی نژاد",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13190774",
+        "osm:relation:17448363",
+        "osm:relation:17448364"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:13190774",
+      "line_id": "osm:ref:33",
+      "ref_raw": "33",
+      "from_raw": "پایانه شهید هاشمی نژاد",
+      "to_raw": "انتهای شهرک مهرگان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13190773"
+      ],
+      "same_raw_endpoint_other_route_ids": [
+        "osm:relation:17448363",
+        "osm:relation:17448364"
+      ],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:16021138",
+      "line_id": "osm:ref:202.1",
+      "ref_raw": "202.1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "آرامگاه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:16021139"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:16021139",
+      "line_id": "osm:ref:202.1",
+      "ref_raw": "202.1",
+      "from_raw": "آرامگاه فردوسی",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:16021138"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:16065224",
+      "line_id": "osm:ref:702.5",
+      "ref_raw": "702.5",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه یهشت رضا (ع)",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:16065225"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:16065225",
+      "line_id": "osm:ref:702.5",
+      "ref_raw": "702.5",
+      "from_raw": "پایانه یهشت رضا (ع)",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:16065224"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:17448363",
+      "line_id": "osm:ref:33",
+      "ref_raw": "33",
+      "from_raw": "پایانه شهید هاشمی نژاد",
+      "to_raw": "انتهای شهرک مهرگان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13190773"
+      ],
+      "same_raw_endpoint_other_route_ids": [
+        "osm:relation:13190774",
+        "osm:relation:17448364"
+      ],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:17448364",
+      "line_id": "osm:ref:33",
+      "ref_raw": "33",
+      "from_raw": "پایانه شهید هاشمی نژاد",
+      "to_raw": "انتهای شهرک مهرگان",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13190773"
+      ],
+      "same_raw_endpoint_other_route_ids": [
+        "osm:relation:13190774",
+        "osm:relation:17448363"
+      ],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5623657",
+      "line_id": "osm:ref:50",
+      "ref_raw": "50",
+      "from_raw": "حرم مطهر (شیرازی)",
+      "to_raw": "پایانه شهدا",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5625147",
+      "line_id": "osm:ref:34",
+      "ref_raw": "34",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه شهید گمنام",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12992314"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5658288",
+      "line_id": "osm:ref:800",
+      "ref_raw": "800",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه طبرسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13090062"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5688324",
+      "line_id": "osm:ref:38",
+      "ref_raw": "38",
+      "from_raw": "پایانه زکریا",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12732782"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5693243",
+      "line_id": "osm:ref:EXP-3",
+      "ref_raw": "EXP-3",
+      "from_raw": "پایانه شهید مفتح",
+      "to_raw": "پایانه الهیه",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12994723"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5697722",
+      "line_id": "osm:ref:32",
+      "ref_raw": "32",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه غدیر",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12987789"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5697962",
+      "line_id": "osm:ref:68",
+      "ref_raw": "68",
+      "from_raw": "پایانه غدیر",
+      "to_raw": "پایانه شهید مفتح",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12989500"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5698799",
+      "line_id": "osm:ref:38/1",
+      "ref_raw": "38/1",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه راه آهن",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5699091",
+      "line_id": "osm:ref:45",
+      "ref_raw": "45",
+      "from_raw": "پایانه شهید هاشمی نژاد",
+      "to_raw": "پایانه شهید مفتح شرقی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12979843"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5700127",
+      "line_id": "osm:ref:EXP-2",
+      "ref_raw": "EXP-2",
+      "from_raw": "پایانه انقلاب اسلامی",
+      "to_raw": "پایانه خواجه ربیع",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12954935"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5707936",
+      "line_id": "osm:ref:100",
+      "ref_raw": "100",
+      "from_raw": "پایانه آزادی",
+      "to_raw": "پایانه مصلی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12724620"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5725741",
+      "line_id": "osm:ref:21",
+      "ref_raw": "21",
+      "from_raw": "پایانه گردشگری",
+      "to_raw": "پایانه شهدا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12897591"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5727013",
+      "line_id": "osm:ref:37",
+      "ref_raw": "37",
+      "from_raw": "پایانه شهید مفتح",
+      "to_raw": "پایانه غدیر",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13013732"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5728824",
+      "line_id": "osm:ref:EXP-4",
+      "ref_raw": "EXP-4",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه الهیه",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5734626",
+      "line_id": "osm:ref:37.1",
+      "ref_raw": "37.1",
+      "from_raw": "پایانه شهید جوان",
+      "to_raw": "پایانه شهید مفتح",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12914909"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5748379",
+      "line_id": "osm:ref:17",
+      "ref_raw": "17",
+      "from_raw": "پایانه الهیه",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12909511"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5755231",
+      "line_id": "osm:ref:98.1",
+      "ref_raw": "98.1",
+      "from_raw": "ایستگاه پایانه آزادی",
+      "to_raw": "پایانه سرافرازان",
+      "status": "no_exact_raw_reverse_variant_observed_review_only",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5762269",
+      "line_id": "osm:ref:12",
+      "ref_raw": "12",
+      "from_raw": "پایانه وکیل آباد",
+      "to_raw": "حرم مطهر (شیرازی)",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12943356"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5763432",
+      "line_id": "osm:ref:202",
+      "ref_raw": "202",
+      "from_raw": "پایانه فردوسی",
+      "to_raw": "آرامگاه فردوسی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:13094530"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5768009",
+      "line_id": "osm:ref:80",
+      "ref_raw": "80",
+      "from_raw": "پایانه گردشگری",
+      "to_raw": "پایانه زکریا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12732781"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5807068",
+      "line_id": "osm:ref:88",
+      "ref_raw": "88",
+      "from_raw": "پایانه خواجه ربیع",
+      "to_raw": "پایانه آزادی",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:12902440"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5815754",
+      "line_id": "osm:ref:42",
+      "ref_raw": "42",
+      "from_raw": null,
+      "to_raw": null,
+      "status": "missing_raw_endpoint",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5826081",
+      "line_id": "osm:ref:22",
+      "ref_raw": "22",
+      "from_raw": "پایانه شهدا",
+      "to_raw": "پایانه معراج",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5826082"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5826082",
+      "line_id": "osm:ref:22",
+      "ref_raw": "22",
+      "from_raw": "پایانه معراج",
+      "to_raw": "پایانه شهدا",
+      "status": "exact_raw_reverse_variant_observed",
+      "exact_raw_reverse_route_ids": [
+        "osm:relation:5826081"
+      ],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": null,
+        "raw_endpoints_equal": false,
+        "first_and_last_stop_same_element": false
+      }
+    },
+    {
+      "route_id": "osm:relation:5827635",
+      "line_id": "osm:ref:83",
+      "ref_raw": "83",
+      "from_raw": "پایانه امام رضا",
+      "to_raw": "پایانه امام رضا",
+      "status": "loop_evidence_no_reverse_requirement_assumed",
+      "exact_raw_reverse_route_ids": [],
+      "same_raw_endpoint_other_route_ids": [],
+      "loop_evidence": {
+        "roundtrip_tag_raw": "yes",
+        "raw_endpoints_equal": true,
+        "first_and_last_stop_same_element": true
+      }
+    }
+  ]
+}

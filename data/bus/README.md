@@ -35,6 +35,10 @@ Source extraction and retrieval evidence are under `research/bus-static-addition
 - Raw stop-reference collisions, source graph anomalies and missing point coordinates are listed in `issues`.
 - The Neshan/municipal/partner access investigation is separate: `research/bus-arrivals/live-arrivals-findings.md`. An HTTP 200 browser challenge, search-index minute value, ordinary traffic ETA or static route data is **not** a live bus prediction. GTFS-Realtime is a separate feed specification; this catalogue is not an official Mashhad GTFS or GTFS-RT feed.[5]
 
+## Reviewed static guide projection
+
+`guide/` contains a reviewed materialized projection of the same raw snapshot for future line/route/station-guide consumption. All raw source values, identities, member order and segmented geometry remain intact. Its two display-only endpoint derivations have explicit source evidence; this is not operator confirmation or full city coverage. Read `guide/README.md` before use. Rebuilding the raw database does not automatically regenerate this projection; the source-hash integrity test prevents stale reuse.
+
 ## Files and useful tables
 
 - `mashhad-bus.sqlite`: SQLite catalogue, indexed stop-code lookup, route membership, road geometry, provenance and issues.

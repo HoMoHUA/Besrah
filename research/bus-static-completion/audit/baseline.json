@@ -1,0 +1,146 @@
+{
+  "started_at_utc": "2026-10-30T08:38:10.406898+00:00",
+  "database_sha256_before": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "existing_export_database_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+  "matches_existing_export": true,
+  "connection": "mode=ro; PRAGMA query_only=ON",
+  "counts": {
+    "arrival_observations": 0,
+    "excluded_routes": 1,
+    "external_stop_mappings": 0,
+    "facilities": 39,
+    "issues": 45,
+    "lines": 92,
+    "metadata": 5,
+    "observed_route_refs": 4043,
+    "platforms": 1210,
+    "reference_pdf_mentions": 144,
+    "reference_route_records": 205,
+    "reference_sources": 3,
+    "route_geometry": 11644,
+    "route_master_members": 37,
+    "route_masters": 11,
+    "route_members": 20165,
+    "route_platforms": 3243,
+    "route_stops": 5275,
+    "routes": 180,
+    "stop_refs": 2114,
+    "stops": 2196
+  },
+  "aggregates_sql": {
+    "routes": "SELECT count(*) AS records,sum(name IS NULL) AS name_null,sum(name IS NOT NULL AND trim(name)='') AS name_empty_or_ascii_whitespace,sum(from_name IS NULL) AS from_null,sum(from_name IS NOT NULL AND trim(from_name)='') AS from_empty_or_ascii_whitespace,sum(to_name IS NULL) AS to_null,sum(to_name IS NOT NULL AND trim(to_name)='') AS to_empty_or_ascii_whitespace,sum(ref_raw IS NULL) AS ref_null,sum(line_id IS NULL) AS line_id_null,sum(headway_min IS NOT NULL) AS headway_nonnull,sum(timing_quality<>'unknown') AS timing_quality_not_unknown FROM routes",
+    "stops_all": "SELECT count(*) AS records,sum(name IS NULL) AS name_null,sum(name IS NOT NULL AND trim(name)='') AS name_empty_or_ascii_whitespace,sum(lat IS NULL) AS lat_null,sum(lon IS NULL) AS lon_null,sum(lat IS NULL OR lon IS NULL) AS either_coordinate_null,sum(ref_raw IS NULL) AS ref_null FROM stops",
+    "stops_linked_unique": "SELECT count(*) AS records,sum(name IS NULL) AS name_null,sum(name IS NOT NULL AND trim(name)='') AS name_empty_or_ascii_whitespace,sum(lat IS NULL OR lon IS NULL) AS either_coordinate_null FROM stops WHERE id IN (SELECT stop_id FROM route_stops)",
+    "stop_occurrences": "SELECT count(*) AS records,sum(s.name IS NULL) AS name_null,sum(s.name IS NOT NULL AND trim(s.name)='') AS name_empty_or_ascii_whitespace,sum(s.lat IS NULL OR s.lon IS NULL) AS either_coordinate_null FROM route_stops q JOIN stops s ON s.id=q.stop_id",
+    "platforms_all": "SELECT count(*) AS records,sum(name IS NULL) AS name_null,sum(name IS NOT NULL AND trim(name)='') AS name_empty_or_ascii_whitespace,sum(geometry_json IS NULL OR geometry_json='null') AS geometry_null FROM platforms",
+    "platforms_linked_unique": "SELECT count(*) AS records,sum(name IS NULL) AS name_null,sum(name IS NOT NULL AND trim(name)='') AS name_empty_or_ascii_whitespace,sum(geometry_json IS NULL OR geometry_json='null') AS geometry_null FROM platforms WHERE id IN (SELECT platform_id FROM route_platforms)",
+    "platform_occurrences": "SELECT count(*) AS records,sum(p.name IS NULL) AS name_null,sum(p.name IS NOT NULL AND trim(p.name)='') AS name_empty_or_ascii_whitespace,sum(p.geometry_json IS NULL OR p.geometry_json='null') AS geometry_null FROM route_platforms q JOIN platforms p ON p.id=q.platform_id",
+    "facilities_all": "SELECT count(*) AS records,sum(name IS NULL) AS name_null,sum(name IS NOT NULL AND trim(name)='') AS name_empty_or_ascii_whitespace,sum(geometry_json IS NULL OR geometry_json='null') AS geometry_null FROM facilities",
+    "route_ref_collisions": "SELECT count(*) AS collision_lookup_tokens FROM (SELECT ref_lookup FROM stop_refs GROUP BY ref_lookup HAVING count(DISTINCT stop_id)>1)"
+  },
+  "aggregates": {
+    "routes": {
+      "records": 180,
+      "name_null": 0,
+      "name_empty_or_ascii_whitespace": 0,
+      "from_null": 1,
+      "from_empty_or_ascii_whitespace": 0,
+      "to_null": 1,
+      "to_empty_or_ascii_whitespace": 0,
+      "ref_null": 0,
+      "line_id_null": 0,
+      "headway_nonnull": 0,
+      "timing_quality_not_unknown": 0
+    },
+    "stops_all": {
+      "records": 2196,
+      "name_null": 15,
+      "name_empty_or_ascii_whitespace": 0,
+      "lat_null": 1,
+      "lon_null": 1,
+      "either_coordinate_null": 1,
+      "ref_null": 118
+    },
+    "stops_linked_unique": {
+      "records": 2096,
+      "name_null": 0,
+      "name_empty_or_ascii_whitespace": 0,
+      "either_coordinate_null": 0
+    },
+    "stop_occurrences": {
+      "records": 5275,
+      "name_null": 0,
+      "name_empty_or_ascii_whitespace": 0,
+      "either_coordinate_null": 0
+    },
+    "platforms_all": {
+      "records": 1210,
+      "name_null": 19,
+      "name_empty_or_ascii_whitespace": 0,
+      "geometry_null": 0
+    },
+    "platforms_linked_unique": {
+      "records": 1150,
+      "name_null": 0,
+      "name_empty_or_ascii_whitespace": 0,
+      "geometry_null": 0
+    },
+    "platform_occurrences": {
+      "records": 3243,
+      "name_null": 0,
+      "name_empty_or_ascii_whitespace": 0,
+      "geometry_null": 0
+    },
+    "facilities_all": {
+      "records": 39,
+      "name_null": 2,
+      "name_empty_or_ascii_whitespace": 0,
+      "geometry_null": 0
+    },
+    "route_ref_collisions": {
+      "collision_lookup_tokens": 40
+    }
+  },
+  "source_metadata": {
+    "source": {
+      "attribution": "© OpenStreetMap contributors",
+      "bbox_s_w_n_e": [
+        36.05,
+        59.2,
+        36.6,
+        59.95
+      ],
+      "bytes": 12115531,
+      "http_status": 200,
+      "license": "ODbL-1.0",
+      "method": "POST",
+      "official_status": "community data, not verified by Mashhad Municipality",
+      "osm3s": {
+        "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+        "timestamp_osm_base": "2026-10-29T22:19:55Z"
+      },
+      "quarantined_reference_inputs": [
+        {
+          "path": "research/bus-static-additional/supplementary-route-tables.json",
+          "rows": 205,
+          "sha256": "0f27fef9e3bcd2d2df8a2d80c1876891e6910763b3848d01fed88fb3e72a94c2"
+        },
+        {
+          "path": "research/bus-static-additional/historical-pdf-route-refs.json",
+          "rows": 144,
+          "sha256": "ccbd930a4582268a43aed4ad842700553dba80f35214afedf2a86832fdda9f31"
+        }
+      ],
+      "query_path": "research/bus-static/mashhad-bus-expanded.overpassql",
+      "retrieved_at": "2026-10-29T22:21:39.675041+00:00",
+      "sha256": "073fa2799315256eb9a7c163564860acc9226045ce2d5a9430099acbbf335181",
+      "url": "https://overpass-api.de/api/interpreter"
+    },
+    "osm_base": "2026-10-29T22:19:55Z",
+    "official_completeness": "not_verified",
+    "real_time": "unavailable",
+    "schema_version": 1
+  },
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL-1.0"
+}

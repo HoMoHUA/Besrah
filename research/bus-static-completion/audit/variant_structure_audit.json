@@ -1,0 +1,64 @@
+{
+  "identical_ref_and_all_member_order_groups": [],
+  "same_line_and_ordered_stop_id_groups": [
+    [
+      "osm:relation:17448363",
+      "osm:relation:17448364"
+    ]
+  ],
+  "route_master_conflict_issues": [
+    {
+      "id": 1,
+      "entity_id": "osm:relation:13054499",
+      "code": "master_child_ref_conflict",
+      "detail": {
+        "child_id": "osm:relation:13054498",
+        "child_ref_raw": "19",
+        "master_ref_raw": "20"
+      }
+    },
+    {
+      "id": 2,
+      "entity_id": "osm:relation:13054499",
+      "code": "master_child_ref_conflict",
+      "detail": {
+        "child_id": "osm:relation:13054497",
+        "child_ref_raw": "19",
+        "master_ref_raw": "20"
+      }
+    }
+  ],
+  "existing_issues_by_code": {
+    "master_child_ref_conflict": 2,
+    "missing_coordinates": 1,
+    "ambiguous_stop_ref_not_provider_id": 40,
+    "non_bus_relation_member": 2
+  },
+  "relation_members_in_routes": [
+    {
+      "route_id": "osm:relation:13016691",
+      "ref_raw": "99",
+      "members": [
+        {
+          "route_id": "osm:relation:13016691",
+          "member_index": 172,
+          "element_id": "osm:relation:21376788",
+          "role": ""
+        }
+      ]
+    },
+    {
+      "route_id": "osm:relation:13022576",
+      "ref_raw": "13.1",
+      "members": [
+        {
+          "route_id": "osm:relation:13022576",
+          "member_index": 173,
+          "element_id": "osm:relation:21376788",
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "stop_platform_pairing_status": "Not stored or independently verified; unequal counts are not by themselves a defect. Raw member indices and separate object tables remain the only ordering evidence."
+}

@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "source_database_sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f",
+    "source_snapshot": {
+      "attribution": "© OpenStreetMap contributors",
+      "bbox_s_w_n_e": [
+        36.05,
+        59.2,
+        36.6,
+        59.95
+      ],
+      "bytes": 12115531,
+      "http_status": 200,
+      "license": "ODbL-1.0",
+      "method": "POST",
+      "official_status": "community data, not verified by Mashhad Municipality",
+      "osm3s": {
+        "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+        "timestamp_osm_base": "2026-10-29T22:19:55Z"
+      },
+      "quarantined_reference_inputs": [
+        {
+          "path": "research/bus-static-additional/supplementary-route-tables.json",
+          "rows": 205,
+          "sha256": "0f27fef9e3bcd2d2df8a2d80c1876891e6910763b3848d01fed88fb3e72a94c2"
+        },
+        {
+          "path": "research/bus-static-additional/historical-pdf-route-refs.json",
+          "rows": 144,
+          "sha256": "ccbd930a4582268a43aed4ad842700553dba80f35214afedf2a86832fdda9f31"
+        }
+      ],
+      "query_path": "research/bus-static/mashhad-bus-expanded.overpassql",
+      "retrieved_at": "2026-10-29T22:21:39.675041+00:00",
+      "sha256": "073fa2799315256eb9a7c163564860acc9226045ce2d5a9430099acbbf335181",
+      "url": "https://overpass-api.de/api/interpreter"
+    },
+    "attribution": "© OpenStreetMap contributors",
+    "license": "ODbL-1.0",
+    "official_completeness_verified": false,
+    "official_current_line_count": null,
+    "current_operator_service_verified": false,
+    "real_time_arrivals_connected": false,
+    "geometry_semantics": "Source OSM way segments; not stitched, not proven trip traversal orientation.",
+    "stop_order_semantics": "Raw stop-member order per relation, including repeats; not operator verified.",
+    "materialization_note": "Reviewed offline projection; rebuilding the raw database does not automatically regenerate this guide package. Re-project and verify against the new source hash before use.",
+    "counts": {
+      "exact_line_refs": 92,
+      "route_variants": 180,
+      "stop_elements": 2196,
+      "stop_occurrences": 5275,
+      "platform_occurrences": 3243,
+      "road_segment_occurrences": 11644,
+      "facility_candidates": 39,
+      "derived_endpoint_display_labels": 2,
+      "raw_missing_endpoint_tags": 2,
+      "missing_display_endpoint_labels": 0,
+      "raw_member_occurrences": 20165,
+      "unclassified_member_occurrences": 3
+    },
+    "audit_evidence": [
+      {
+        "path": "research/bus-static-completion/audit/route_metrics.json",
+        "sha256": "2f8d01b0945e37797116f8d70efdd32464407c30373ec130ca0d6e802c7c3770"
+      },
+      {
+        "path": "research/bus-static-completion/audit/route_geometry_metrics.json",
+        "sha256": "d6bee0a4330e37ea82ee9bf0cf976e8a463c8049042c6bf8c8aaf233cd477699"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "lines.json",
+      "bytes": 137191,
+      "sha256": "d50c38d3f299e119204a546821f8c9ed809d88cf9ac4f2d40581ce90cdcec18b"
+    },
+    {
+      "path": "routes.json",
+      "bytes": 6814720,
+      "sha256": "a799cfc306c8dce6e47f4993fb7f1107349846023dfc73a3294b110ce6d74a4e"
+    },
+    {
+      "path": "stops.json",
+      "bytes": 1158190,
+      "sha256": "a56c48132164ce1f6501d8bf7af47c393c8db764028ed180e44f5c75df1d161f"
+    },
+    {
+      "path": "facilities.json",
+      "bytes": 25823,
+      "sha256": "22cb3b2815ba0787ea90eda602bec71c9b04fa6e749cac297c6975017ecbaf5a"
+    },
+    {
+      "path": "endpoint-derivations.json",
+      "bytes": 3719,
+      "sha256": "f1dfd1a911609d0ce34847b174ec748c66a534ac9398b3aa7dfc78c626cd8c2c"
+    }
+  ],
+  "manifest_semantics": "Hashes of all other guide JSON files; excludes this manifest to avoid self-reference."
+}

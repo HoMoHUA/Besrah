@@ -1,0 +1,85 @@
+{
+  "verified_at_utc": "2026-10-30T09:55:06.152014+00:00",
+  "suites": [
+    {
+      "suite": "core",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "exit_code": 0,
+      "summary": [
+        " Test Files  8 passed (8)",
+        "      Tests  56 passed (56)"
+      ],
+      "log": "/root/.hermes/cache/scratch/besrah-static-completion-core-serial-final.log",
+      "sha256": "ae8b7ff3fea87572dad38723129f11bcdfca374344d870b62c9f30329a48dac4",
+      "tests": 56
+    },
+    {
+      "suite": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "summary": [],
+      "log": "/root/.hermes/cache/scratch/besrah-static-completion-typecheck-serial-final.log",
+      "sha256": "963f881e13597f30a6a5cd7e58a799d503cca66b2fa8efc6df1ffb689ef6c749"
+    },
+    {
+      "suite": "node",
+      "command": [
+        "bash",
+        "-lc",
+        "node --test --test-concurrency=1 apps/miniapp/*.test.mjs tests/n8n/*.test.mjs tests/data/*.test.mjs"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "# tests 132",
+        "# pass 132",
+        "# fail 0"
+      ],
+      "log": "/root/.hermes/cache/scratch/besrah-static-completion-node-serial-final.log",
+      "sha256": "d8d772c4dfb275a7a3dba61afe5ebd78d6a06302662c605d38bac5518d55ae89",
+      "tests": 132
+    },
+    {
+      "suite": "python",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/data",
+        "-p",
+        "test_bus_catalog.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "Ran 17 tests in 2.992s",
+        "OK"
+      ],
+      "log": "/root/.hermes/cache/scratch/besrah-static-completion-python-serial-final.log",
+      "sha256": "e0d57af8756a361adc6797ea2018ca5dccd4a125791b491f4adf4d69f19aaa89",
+      "tests": 17
+    }
+  ],
+  "all_passed": true,
+  "total_tests": 205,
+  "execution": "serial bounded workers after observed host OOM; all named suites included",
+  "review_fixes_applied": true,
+  "runtime_deployed": false
+}
