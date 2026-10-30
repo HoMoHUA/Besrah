@@ -1,0 +1,57 @@
+[
+  {
+    "variant": "desktop",
+    "native_neshan_app_ua": false,
+    "tab_clicked": false,
+    "observation": {
+      "observed_utc": "2026-10-30T08:01:50.329Z",
+      "url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "title": "🐴 نسخه وب نقشه نشان",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+      "transport_section": null,
+      "requests": []
+    }
+  },
+  {
+    "variant": "android_web_not_native_app",
+    "native_neshan_app_ua": false,
+    "tab_clicked": true,
+    "observation": {
+      "observed_utc": "2026-10-30T08:01:59.878Z",
+      "url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "title": "ایستگاه اتوبوس پیروزی 24 روی نقشه ؛ دانشگاه, مشهد",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36",
+      "transport_section": [
+        "خط 1093",
+        "٧ دقیقه",
+        "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)",
+        "خط 91",
+        "نامشخص",
+        "پایانه فلسطین - پیروزی،پایانه وکیل آباد",
+        "خط 98",
+        "نامشخص",
+        "پایانه شهید جوان - سرافرازان",
+        "خط 4",
+        "نامشخص",
+        "پایانه الهیه - پایانه امام رضا"
+      ],
+      "requests": [
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 4622.0999999940395,
+          "response_end_ms": 4968.899999976158
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 5208.0999999940395,
+          "response_end_ms": 5569.699999988079
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 5575.399999976158,
+          "response_end_ms": 5933.699999988079
+        }
+      ]
+    }
+  }
+]

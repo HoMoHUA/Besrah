@@ -1,0 +1,29 @@
+{
+  "frames": {
+    "frameTree": {
+      "frame": {
+        "id": "D36D76507408BCE7FE693C8471E72908",
+        "loaderId": "D72934C91894FCB701010B6697CFB804",
+        "url": "about:blank",
+        "domainAndRegistry": "",
+        "securityOrigin": "://",
+        "securityOriginDetails": {
+          "isLocalhost": false
+        },
+        "mimeType": "text/html",
+        "adFrameStatus": {
+          "adFrameType": "none"
+        },
+        "secureContextType": "InsecureScheme",
+        "crossOriginIsolatedContextType": "NotIsolated",
+        "gatedAPIFeatures": []
+      }
+    }
+  },
+  "page": {
+    "url": "about:blank",
+    "title": "",
+    "text": ""
+  },
+  "note": "Follow-up after navigation helper timeout; about:blank is not a successful municipal page load"
+}

@@ -1,0 +1,111 @@
+[
+  {
+    "name": "neshan_desktop_chrome",
+    "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "mode": "direct",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "requested_utc": "2026-10-30T07:57:34.367160+00:00",
+    "supplied_authentication": false,
+    "supplied_cookies": false,
+    "status": 200,
+    "final_url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "bytes": 1785,
+    "sha256": "e098742369eee2876b7d8c8bdecb67a2c440678184f301f02d69f39e6a4ed968",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 07:57:35 GMT",
+      "Content-Type": "application/json",
+      "Vary": "Accept-Encoding"
+    },
+    "plain_json": false,
+    "tls_verified": true,
+    "seconds": 1.168
+  },
+  {
+    "name": "neshan_android_chrome",
+    "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "mode": "direct",
+    "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36",
+    "requested_utc": "2026-10-30T07:57:34.369537+00:00",
+    "supplied_authentication": false,
+    "supplied_cookies": false,
+    "status": 200,
+    "final_url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "bytes": 1785,
+    "sha256": "32d38f53ee5ce2dd81e3de8144148d452808e384341a8399860b0696d60423d9",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 07:57:35 GMT",
+      "Content-Type": "application/json",
+      "Vary": "Accept-Encoding"
+    },
+    "plain_json": false,
+    "tls_verified": true,
+    "seconds": 1.201
+  },
+  {
+    "name": "neshan_literal_neshan_diagnostic_not_verified_app_ua",
+    "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "mode": "direct",
+    "user_agent": "Neshan",
+    "requested_utc": "2026-10-30T07:57:34.371569+00:00",
+    "supplied_authentication": false,
+    "supplied_cookies": false,
+    "status": 200,
+    "final_url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+    "bytes": 1785,
+    "sha256": "8c739fe85e85c539faa14e662b924205259ae49d017f21df3c0986c9b94a55c9",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 07:57:35 GMT",
+      "Content-Type": "application/json",
+      "Vary": "Accept-Encoding"
+    },
+    "plain_json": false,
+    "tls_verified": true,
+    "seconds": 1.14
+  },
+  {
+    "name": "municipal_map",
+    "url": "https://map.mashhad.ir/fa",
+    "mode": "direct",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "requested_utc": "2026-10-30T07:57:34.372417+00:00",
+    "supplied_authentication": false,
+    "supplied_cookies": false,
+    "error_type": "ReadTimeout",
+    "error": "HTTPSConnectionPool(host='map.mashhad.ir', port=443): Read timed out. (read timeout=10)",
+    "seconds": 10.375
+  },
+  {
+    "name": "municipal_map",
+    "url": "https://map.mashhad.ir/fa",
+    "mode": "existing_proxy",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "requested_utc": "2026-10-30T07:57:34.373526+00:00",
+    "supplied_authentication": false,
+    "supplied_cookies": false,
+    "error_type": "ReadTimeout",
+    "error": "HTTPSConnectionPool(host='map.mashhad.ir', port=443): Read timed out. (read timeout=10)",
+    "seconds": 10.03
+  },
+  {
+    "name": "proxy_health",
+    "url": "https://example.com/",
+    "mode": "existing_proxy",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "requested_utc": "2026-10-30T07:57:34.374372+00:00",
+    "supplied_authentication": false,
+    "supplied_cookies": false,
+    "status": 200,
+    "final_url": "https://example.com/",
+    "bytes": 577,
+    "sha256": "25ddf2c883e0d1958ea971d279a7e4f0fd446724ee3db7db19dadabd4a62e484",
+    "headers": {
+      "Date": "Fri, 30 Oct 2026 07:57:35 GMT",
+      "Content-Type": "text/html; charset=utf-8",
+      "last-modified": "Sat, 24 Oct 2026 11:34:40 GMT",
+      "Age": "12047"
+    },
+    "plain_json": false,
+    "tls_verified": true,
+    "seconds": 0.979
+  }
+]

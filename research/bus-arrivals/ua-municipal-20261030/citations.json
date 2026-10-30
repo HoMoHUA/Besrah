@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 2,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization",
+      "title": "",
+      "accessed": "2026-10-30"
+    },
+    {
+      "id": 3,
+      "url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140",
+      "title": "",
+      "accessed": "2026-10-30"
+    }
+  ]
+}

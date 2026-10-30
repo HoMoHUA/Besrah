@@ -2,6 +2,10 @@
 
 Fetched 2026-10-29, 22:07–22:13 UTC. **No reusable anonymous live-arrival API was verified.** This is not evidence that live arrivals do not exist.
 
+## Latest follow-up: User-Agent and municipal map, 2026-10-30
+
+Normal ready desktop and Android web pages both displayed a numeric prediction for line 1093; Android still displayed it after a new normal refresh request. This supersedes any interpretation that the web always returns unknown. It does not establish feed measurement time, prediction accuracy, an official native-app User-Agent, a causal UA effect, or an approved production API. Direct UA variants still returned non-plain-JSON bodies. Municipal DNS now resolved and TCP connected, but direct/proxy TLS handshakes timed out before HTTP. See `ua-municipal-20261030/README.fa.md` and `findings.json`. Older Piroozi 24 results below remain timestamped historical observations, not permanent availability claims.
+
 ## Follow-up: owner-supplied Piroozi 24, 2026-10-30
 
 The exact short link supplied by the owner opened in the normal public web app. Its existing public-transport tab exposed an internal `passing-lines` request, but two accepted foreground observations over one refresh interval showed unknown ETAs for all four displayed lines. Direct/proxy HTTP 200 responses were not plain JSON, and no reverse-engineered decoder or production adapter was built. This does not establish a fresh numeric ETA or permission for product reuse. See `piroozi24/README.fa.md` and `piroozi24/findings.json` for timestamped evidence. Do not generalise the earlier curl browser-check results to normal browser rendering of this supplied link.

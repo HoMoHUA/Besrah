@@ -1,0 +1,136 @@
+{
+  "requested_municipal_url": "https://map.mashhad.ir/fa",
+  "user_agent_test_scope": "Known Neshan consumer-web passing-lines endpoint, not an identified native-app endpoint",
+  "native_app_user_agent_verified": false,
+  "literal_Neshan_UA_is_only_synthetic_diagnostic": true,
+  "direct_ua_variants_http_200_non_plain_json": true,
+  "accepted_browser_observations": [
+    {
+      "variant": "desktop_ready",
+      "phase": "first",
+      "observed_utc": "2026-10-30T08:05:15.304Z",
+      "observed_tehran": "2026-10-30T11:35:15.304000+03:30",
+      "completed_transport_requests": 3,
+      "rows": [
+        {
+          "line_label_raw": "خط 1093",
+          "displayed_line_ref": "1093",
+          "eta_text_raw": "۱۰۹ دقیقه",
+          "numeric_eta_minutes": 109,
+          "destination_text_raw": "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)"
+        },
+        {
+          "line_label_raw": "خط 91",
+          "displayed_line_ref": "91",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه فلسطین - پیروزی،پایانه وکیل آباد"
+        },
+        {
+          "line_label_raw": "خط 98",
+          "displayed_line_ref": "98",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه شهید جوان - سرافرازان"
+        },
+        {
+          "line_label_raw": "خط 4",
+          "displayed_line_ref": "4",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه الهیه - پایانه امام رضا"
+        }
+      ]
+    },
+    {
+      "variant": "android_ready",
+      "phase": "first",
+      "observed_utc": "2026-10-30T08:05:24.818Z",
+      "observed_tehran": "2026-10-30T11:35:24.818000+03:30",
+      "completed_transport_requests": 3,
+      "rows": [
+        {
+          "line_label_raw": "خط 1093",
+          "displayed_line_ref": "1093",
+          "eta_text_raw": "۱۰۹ دقیقه",
+          "numeric_eta_minutes": 109,
+          "destination_text_raw": "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)"
+        },
+        {
+          "line_label_raw": "خط 91",
+          "displayed_line_ref": "91",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه فلسطین - پیروزی،پایانه وکیل آباد"
+        },
+        {
+          "line_label_raw": "خط 98",
+          "displayed_line_ref": "98",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه شهید جوان - سرافرازان"
+        },
+        {
+          "line_label_raw": "خط 4",
+          "displayed_line_ref": "4",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه الهیه - پایانه امام رضا"
+        }
+      ]
+    },
+    {
+      "variant": "android_ready",
+      "phase": "after_refresh",
+      "observed_utc": "2026-10-30T08:06:34.825Z",
+      "observed_tehran": "2026-10-30T11:36:34.825000+03:30",
+      "completed_transport_requests": 4,
+      "rows": [
+        {
+          "line_label_raw": "خط 1093",
+          "displayed_line_ref": "1093",
+          "eta_text_raw": "۱۰۹ دقیقه",
+          "numeric_eta_minutes": 109,
+          "destination_text_raw": "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)"
+        },
+        {
+          "line_label_raw": "خط 91",
+          "displayed_line_ref": "91",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه فلسطین - پیروزی،پایانه وکیل آباد"
+        },
+        {
+          "line_label_raw": "خط 98",
+          "displayed_line_ref": "98",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه شهید جوان - سرافرازان"
+        },
+        {
+          "line_label_raw": "خط 4",
+          "displayed_line_ref": "4",
+          "eta_text_raw": "نامشخص",
+          "numeric_eta_minutes": null,
+          "destination_text_raw": "پایانه الهیه - پایانه امام رضا"
+        }
+      ]
+    }
+  ],
+  "normal_refresh_interval_seconds": 70.007,
+  "numeric_web_display_observed": true,
+  "numeric_after_normal_refresh_observed": true,
+  "user_agent_required_to_render_numeric_data_in_this_test": false,
+  "causal_effect_of_user_agent_on_etas_established": false,
+  "provider_measurement_timestamp_known": false,
+  "prediction_accuracy_verified": false,
+  "standalone_direct_api_response_decoded": false,
+  "approved_product_contract_verified": false,
+  "municipal_dns_ipv4": "5.252.219.39",
+  "municipal_https_tcp_then_tls_timeout_observed": true,
+  "municipal_http_content_received": false,
+  "municipal_geoblocking_cause_established": false,
+  "browser_municipal_navigation_inconclusive": "Navigation helper timeout, followed by about:blank; not counted as loaded municipal content",
+  "initial_desktop_not_ready_sample_rejected": true,
+  "no_production_changes": true
+}

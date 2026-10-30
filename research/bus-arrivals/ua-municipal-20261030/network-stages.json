@@ -1,0 +1,68 @@
+[
+  {
+    "name": "https_direct",
+    "url": "https://map.mashhad.ir/fa",
+    "requested_utc": "2026-10-30T07:59:46.797854+00:00",
+    "exit_code": 28,
+    "stderr": "curl: (28) SSL connection timeout\n",
+    "curl": {
+      "http_code": 0,
+      "http_connect": 0,
+      "remote_ip": "5.252.219.39",
+      "remote_port": 443,
+      "local_ip": "66.93.9.115",
+      "time_namelookup": 0.408748,
+      "time_connect": 0.408891,
+      "time_appconnect": 0.0,
+      "time_starttransfer": 0.0,
+      "time_total": 7.000576,
+      "ssl_verify_result": 1,
+      "errormsg": "SSL connection timeout",
+      "url_effective": "https://map.mashhad.ir/fa"
+    }
+  },
+  {
+    "name": "https_existing_proxy",
+    "url": "https://map.mashhad.ir/fa",
+    "requested_utc": "2026-10-30T07:59:46.798540+00:00",
+    "exit_code": 28,
+    "stderr": "curl: (28) SSL connection timeout\n",
+    "curl": {
+      "http_code": 0,
+      "http_connect": 200,
+      "remote_ip": "127.0.0.1",
+      "remote_port": 10809,
+      "local_ip": "127.0.0.1",
+      "time_namelookup": 7.3e-05,
+      "time_connect": 0.000209,
+      "time_appconnect": 0.0,
+      "time_starttransfer": 0.0,
+      "time_total": 7.002569,
+      "ssl_verify_result": 1,
+      "errormsg": "SSL connection timeout",
+      "url_effective": "https://map.mashhad.ir/fa"
+    }
+  },
+  {
+    "name": "http_alternative",
+    "url": "http://map.mashhad.ir/fa",
+    "requested_utc": "2026-10-30T07:59:46.798813+00:00",
+    "exit_code": 28,
+    "stderr": "curl: (28) Operation timed out after 14002 milliseconds with 0 bytes received\n",
+    "curl": {
+      "http_code": 0,
+      "http_connect": 0,
+      "remote_ip": "5.252.219.39",
+      "remote_port": 80,
+      "local_ip": "66.93.9.115",
+      "time_namelookup": 0.440089,
+      "time_connect": 0.440291,
+      "time_appconnect": 0.0,
+      "time_starttransfer": 0.0,
+      "time_total": 14.002678,
+      "ssl_verify_result": 0,
+      "errormsg": "Operation timed out after 14002 milliseconds with 0 bytes received",
+      "url_effective": "http://map.mashhad.ir/fa"
+    }
+  }
+]

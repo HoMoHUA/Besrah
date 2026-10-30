@@ -1,0 +1,131 @@
+[
+  {
+    "variant": "desktop_ready",
+    "native_app_ua": false,
+    "tab_found": true,
+    "first": {
+      "observed_utc": "2026-10-30T08:05:15.304Z",
+      "url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "title": "ایستگاه اتوبوس پیروزی 24 روی نقشه ؛ دانشگاه, مشهد",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+      "visibility": "visible",
+      "transport_section": [
+        "خط 1093",
+        "۱۰۹ دقیقه",
+        "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)",
+        "خط 91",
+        "نامشخص",
+        "پایانه فلسطین - پیروزی،پایانه وکیل آباد",
+        "خط 98",
+        "نامشخص",
+        "پایانه شهید جوان - سرافرازان",
+        "خط 4",
+        "نامشخص",
+        "پایانه الهیه - پایانه امام رضا"
+      ],
+      "requests": [
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 5025,
+          "response_end_ms": 5435.699999988079
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 6239.300000011921,
+          "response_end_ms": 6601.199999988079
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 6614.199999988079,
+          "response_end_ms": 6990.5
+        }
+      ]
+    }
+  },
+  {
+    "variant": "android_ready",
+    "native_app_ua": false,
+    "tab_found": true,
+    "first": {
+      "observed_utc": "2026-10-30T08:05:24.818Z",
+      "url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "title": "ایستگاه اتوبوس پیروزی 24 روی نقشه ؛ دانشگاه, مشهد",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36",
+      "visibility": "visible",
+      "transport_section": [
+        "خط 1093",
+        "۱۰۹ دقیقه",
+        "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)",
+        "خط 91",
+        "نامشخص",
+        "پایانه فلسطین - پیروزی،پایانه وکیل آباد",
+        "خط 98",
+        "نامشخص",
+        "پایانه شهید جوان - سرافرازان",
+        "خط 4",
+        "نامشخص",
+        "پایانه الهیه - پایانه امام رضا"
+      ],
+      "requests": [
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 3785.0999999940395,
+          "response_end_ms": 4127.199999988079
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 4143.5999999940395,
+          "response_end_ms": 4470.4000000059605
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 4473.699999988079,
+          "response_end_ms": 4797.5999999940395
+        }
+      ]
+    },
+    "after_refresh": {
+      "observed_utc": "2026-10-30T08:06:34.825Z",
+      "url": "https://neshan.org/maps/places/9692be87527100142598f9a6c7d1e140#c35.689-51.389-11z-0p",
+      "title": "ایستگاه اتوبوس پیروزی 24 روی نقشه ؛ دانشگاه, مشهد",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36",
+      "visibility": "visible",
+      "transport_section": [
+        "خط 1093",
+        "۱۰۹ دقیقه",
+        "پایانه آزادی - روستای چشمه پونه(مینی‌بوس)",
+        "خط 91",
+        "نامشخص",
+        "پایانه فلسطین - پیروزی،پایانه وکیل آباد",
+        "خط 98",
+        "نامشخص",
+        "پایانه شهید جوان - سرافرازان",
+        "خط 4",
+        "نامشخص",
+        "پایانه الهیه - پایانه امام رضا"
+      ],
+      "requests": [
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 3785.0999999940395,
+          "response_end_ms": 4127.199999988079
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 4143.5999999940395,
+          "response_end_ms": 4470.4000000059605
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 4473.699999988079,
+          "response_end_ms": 4797.5999999940395
+        },
+        {
+          "url": "https://neshan.org/maps/pwa-api/transportation/passing-lines/mashhad/9692be87527100142598f9a6c7d1e140",
+          "start_ms": 64155.69999998808,
+          "response_end_ms": 64490.59999999404
+        }
+      ]
+    }
+  }
+]

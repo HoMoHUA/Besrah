@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent",
+    "at_utc": "2026-10-30T08:06:35.957455+00:00",
+    "status": 200,
+    "sha256": "1463f4168aa4c1bd6edf19da3755c1f399de7a93552d4280fce31c3e39e5b519",
+    "bounded_quote": "The HTTP User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version"
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization",
+    "at_utc": "2026-10-30T08:06:35.924975+00:00",
+    "status": 200,
+    "sha256": "057718f31fbc676e3a010050bcbf120e5e0d6a7f3f6039d337d62253cc19813b",
+    "bounded_quote": "The HTTP Authorization request header can be used to provide credentials that authenticate a user agent with a server, allowing access to protected"
+  }
+]

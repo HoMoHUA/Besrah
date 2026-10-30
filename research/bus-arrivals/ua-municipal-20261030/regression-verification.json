@@ -1,0 +1,36 @@
+[
+  {
+    "suite": "core",
+    "exit_code": 0,
+    "summary": [
+      " Test Files  8 passed (8)",
+      "      Tests  56 passed (56)"
+    ],
+    "log": "/root/.hermes/cache/scratch/besrah-ua-municipal-core.log"
+  },
+  {
+    "suite": "typecheck",
+    "exit_code": 0,
+    "summary": [],
+    "log": "/root/.hermes/cache/scratch/besrah-ua-municipal-typecheck.log"
+  },
+  {
+    "suite": "node",
+    "exit_code": 0,
+    "summary": [
+      "# tests 125",
+      "# pass 125",
+      "# fail 0"
+    ],
+    "log": "/root/.hermes/cache/scratch/besrah-ua-municipal-node.log"
+  },
+  {
+    "suite": "python",
+    "exit_code": 0,
+    "summary": [
+      "Ran 17 tests in 4.488s",
+      "OK"
+    ],
+    "log": "/root/.hermes/cache/scratch/besrah-ua-municipal-python.log"
+  }
+]

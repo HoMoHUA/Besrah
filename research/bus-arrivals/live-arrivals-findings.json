@@ -2,6 +2,17 @@
   "investigation_utc": "2026-10-29T22:07:53Z/2026-10-29T22:13:28Z",
   "scope": "Public read-only Mashhad urban bus arrivals; no UI/timing changes, deployment, restarts, credentials, APK downloads, CAPTCHA bypass, or proxy configuration changes.",
   "conclusion": "Neshan officially advertises Mashhad bus arrivals. A discovered indexed Neshan terminal page contains minute-valued route entries, but live origin requests returned browser-check HTML, so no live ETA response or reusable anonymous arrival API was verified. Published developer APIs reviewed are not bus arrival APIs. Municipal map portal was unreachable from both tested paths. Partnership/access enquiries are the credible integration route.",
+  "latest_ua_municipal_follow_up": {
+    "date_utc": "2026-10-30",
+    "report": "ua-municipal-20261030/findings.json",
+    "numeric_web_renderer_observed_after_refresh": true,
+    "native_app_user_agent_verified": false,
+    "causal_ua_effect_established": false,
+    "provider_measurement_timestamp_known": false,
+    "approved_product_contract_verified": false,
+    "municipal_dns_resolved": true,
+    "municipal_tls_completed": false
+  },
   "follow_up": {
     "case": "piroozi24",
     "investigation_date_utc": "2026-10-30",
