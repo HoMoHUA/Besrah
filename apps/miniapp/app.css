@@ -519,3 +519,20 @@ html[dir="rtl"] .trk-row, .trk-row:dir(rtl) { padding: 0 116px 0 12px; }
 }
 .search-ph__probe { position: absolute; visibility: hidden; white-space: nowrap; }
 .search-ph > span:not(.search-ph__probe) { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Hero banner (mobile-first): the art is the whole banner, mirrored so the sun and skyline stay clear of the
+   Persian copy; a scrim keeps the text readable on any width. ── */
+.brand-banner { min-height: 208px; }
+.brand-banner__art { inset-block: 0; inset-inline: 0; width: 100%; height: 100%; margin: 0; object-fit: cover; object-position: 50% 100%; z-index: 0; }
+.brand-banner::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(to left, rgba(6, 28, 29, .94) 0%, rgba(6, 28, 29, .82) 42%, rgba(6, 28, 29, .25) 70%, rgba(6, 28, 29, 0) 88%); }
+.brand-banner__copy { z-index: 1; width: 64%; padding: 20px 18px 18px; align-self: start; }
+.brand-banner h2 { text-shadow: 0 2px 14px rgba(6, 28, 29, .55); }
+@media (max-width: 359px) { .brand-banner h2 { font-size: 20px; } .brand-banner__copy { width: 70%; padding-inline: 14px; } }
+@media (prefers-reduced-motion: no-preference) { .brand-banner__art { animation: bs-fade .6s both; } }
+
+/* Keep the lime route (bottom edge) bright: the scrim fades out before it. */
+.brand-banner::after { -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 52%, transparent 84%); mask-image: linear-gradient(to bottom, #000 0, #000 52%, transparent 84%); }
+
+/* Taller banner: the lime route and its pin sit below the call to action instead of crossing it. */
+.brand-banner { min-height: 236px; }
+.brand-banner__copy { width: 62%; }
