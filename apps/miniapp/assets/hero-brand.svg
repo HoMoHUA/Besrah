@@ -16,9 +16,9 @@
     </linearGradient>
   </defs>
   <rect width="480" height="220" rx="28" fill="url(#journey-sky)"/>
-  <circle cx="395" cy="57" r="65" fill="#77A89A" opacity="0.07"/>
-  <circle cx="395" cy="57" r="45" fill="#D7FF63" opacity="0.08"/>
-  <circle cx="395" cy="57" r="26" fill="#D7FF63"/>
+  <circle id="hb-halo" cx="395" cy="57" r="65" fill="#77A89A" opacity="0.07"/>
+  <circle id="hb-halo2" cx="395" cy="57" r="45" fill="#D7FF63" opacity="0.08"/>
+  <circle id="hb-sun" cx="395" cy="57" r="26" fill="#D7FF63"/>
   <path d="M27 75c26-28 57-28 83-11s58 22 86-1" fill="none" stroke="#78A69B" stroke-opacity="0.12" stroke-width="1.5"/>
   <path d="M-6 102c43-48 79-42 111-19s63 24 99-4" fill="none" stroke="#78A69B" stroke-opacity="0.12" stroke-width="1.5"/>
   <path d="M0 176c63-13 104-5 148 8s95 6 147-20 114-31 185-12v68H0Z" fill="#0B3B3C"/>
@@ -40,11 +40,12 @@
   <path d="M242 138c-12 10-16 21-10 26 5 4 15 4 20 0 6-5 2-16-10-26Zm177 0c-12 10-16 21-10 26 5 4 15 4 20 0 6-5 2-16-10-26Z" fill="#3E8B75"/>
   <path d="M-18 193h100c32 0 43-40 76-40h23c22 0 24 38 50 38h31" fill="none" stroke="#061C1D" stroke-opacity="0.35" stroke-width="13" stroke-linecap="round"/>
   <path d="M-18 189h100c32 0 43-40 76-40h23c22 0 24 38 50 38h31" fill="none" stroke="#D7FF63" stroke-width="7" stroke-linecap="round"/>
-  <circle cx="262" cy="187" r="8" fill="#D7FF63"/>
+  <path id="hb-flow" d="M-18 189h100c32 0 43-40 76-40h23c22 0 24 38 50 38h31" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 20"/>
+  <circle id="hb-runner" cx="0" cy="0" r="5.5" fill="#FFFFFF"/>
+  <circle id="hb-node" cx="262" cy="187" r="8" fill="#D7FF63"/>
   <circle cx="262" cy="187" r="3" fill="#0A5556"/>
-  <path d="M178 119c0 13-17 27-17 27s-17-14-17-27a17 17 0 0 1 34 0Z" fill="#D7FF63"/>
-  <circle cx="161" cy="119" r="6" fill="#0A5556"/>
-  <circle cx="95" cy="40" r="3" fill="#86B29B"/>
-  <path d="M221 42v8m-4-4h8" stroke="#D7FF63" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round"/>
-  <path d="m444 83 3 5-3 5-3-5Z" fill="#A1C6AA"/>
+  <g id="hb-pin"><path d="M178 119c0 13-17 27-17 27s-17-14-17-27a17 17 0 0 1 34 0Z" fill="#D7FF63"/><circle cx="161" cy="119" r="6" fill="#0A5556"/></g>
+  <circle id="hb-star1" cx="95" cy="40" r="3" fill="#86B29B"/>
+  <path id="hb-star2" d="M221 42v8m-4-4h8" stroke="#D7FF63" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round"/>
+  <path id="hb-star3" d="m444 83 3 5-3 5-3-5Z" fill="#A1C6AA"/>
 </svg>

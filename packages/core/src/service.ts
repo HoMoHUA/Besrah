@@ -27,6 +27,43 @@ export interface NextResult {
   notes: string[];
 }
 
+export interface TrainPosition {
+  id: string; line: LineNo; service: 'A' | 'B' | null; direction: 'out' | 'back'; toward: string;
+  /** Station-order coordinate: 0 is the first station, an integer means the train stands at that station. */
+  pos: number;
+  state: 'dwelling' | 'running';
+  from: number; to: number;
+  /** Next station index the train will reach; null while it waits out its final layover. */
+  next: number | null;
+  eta_s: number | null;            // seconds until it reaches `next`
+  rate: number;                    // station-index units per second while running, 0 while dwelling
+  until_s: number;                 // seconds until the next timetable event (arrival or departure)
+  confidence: Pass['confidence'];
+}
+export interface PositionsResult {
+  line: LineNo; as_of: string; day_type: DayType; order: string[]; trains: TrainPosition[]; notes: string[];
+}
+
+interface TimedStop { idx: number; arrive: number; depart: number }
+/** Where a timetabled trip is at `at`. Pure interpolation of the stop times; null outside the trip. */
+function locate(stops: TimedStop[], at: number) {
+  const first = stops[0], last = stops[stops.length - 1];
+  if (at < first.arrive || at >= last.depart) return null;
+  for (let k = 0; k < stops.length; k++) {
+    const s = stops[k], n = stops[k + 1];
+    if (at <= s.depart) {   // standing at stop k (the first stop has no dwell)
+      return { pos: s.idx, state: 'dwelling' as const, from: s.idx, to: s.idx, next: n ? n.idx : null,
+        eta_s: n ? Math.round(n.arrive - at) : null, rate: 0, until_s: Math.max(0, Math.round(s.depart - at)) };
+    }
+    if (n && at < n.arrive) {
+      const run = n.arrive - s.depart, frac = (at - s.depart) / run, d = n.idx - s.idx;
+      return { pos: Math.round((s.idx + frac * d) * 1000) / 1000, state: 'running' as const, from: s.idx, to: n.idx, next: n.idx,
+        eta_s: Math.round(n.arrive - at), rate: d / run, until_s: Math.round(n.arrive - at) };
+    }
+  }
+  return null;
+}
+
 const LABEL_OUT = { A: 'غدیر', B: 'فرودگاه' } as const;
 const LABEL_BACK = 'وکیل‌آباد';
 const L2_FAR = 'شهید فکوری', L2_NEAR = 'طبرسی';
@@ -129,7 +166,33 @@ export function createService(net: Network = loadNetwork(), net2: Line2Network =
     return { station: canonical, line: lines[0], lines, as_of: epochToTehranHms(at), day_type: type, passes, text, notes };
   }
 
-  return { next, trainsFor, net, net2 };
+  /** Estimated position of every timetabled train on one line: schedule interpolation, not GPS. */
+  function positions(line: LineNo, at: number): PositionsResult {
+    const type = dayTypeOf(at);
+    if (line === 1) {
+      const trains: TrainPosition[] = [];
+      for (const t of trainsFor(at).trains) {
+        const where = locate(t.stops, at);
+        if (!where) continue;
+        trains.push({ id: t.id, line: 1, service: t.service, direction: t.direction,
+          toward: t.direction === 'back' ? LABEL_BACK : LABEL_OUT[t.service], ...where, confidence: t.confidence });
+      }
+      const notes = ['موقعیت ها از روی برنامه حرکت برآورد می شوند، نه GPS قطار.'];
+      if (type !== 'friday') notes.push('فاز سرفاصله در این روز اندازه گیری نشده است؛ فاصله بین قطارها معنی دارد و دقیقه دقیق ندارد.');
+      if (trains.some(t => t.service === 'B')) notes.push('زمان مسیر غدیر تا فرودگاه تخمینی است.');
+      return { line: 1, as_of: epochToTehranHms(at), day_type: type, order: [...net.stationsOrder], trains, notes };
+    }
+    const trains: TrainPosition[] = [];
+    for (const t of trains2For(at)) {
+      const where = locate(t.stops, at);
+      if (!where) continue;
+      trains.push({ id: t.id, line: 2, service: null, direction: t.direction, toward: t.direction === 'out' ? L2_FAR : L2_NEAR, ...where, confidence: 'site_headway_assumed_phase' });
+    }
+    return { line: 2, as_of: epochToTehranHms(at), day_type: type, order: [...net2.order], trains,
+      notes: ['موقعیت ها از روی برنامه حرکت برآورد می شوند، نه GPS قطار.', 'فاز حرکت خط ۲ اندازه گیری نشده است؛ فقط فاصله بین قطارها معنی دارد.'] };
+  }
+
+  return { next, positions, trainsFor, net, net2 };
 }
 
 function label2(p: Line2Pass): string {

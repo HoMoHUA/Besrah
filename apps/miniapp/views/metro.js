@@ -3,11 +3,13 @@ import { buildSlides } from '../hero.js';
 import { createStationsView } from './stations.js';
 import { createSearchBox } from '../ui/searchbox.js';
 import { createRideTabs } from '../ui/ride-tabs.js';
+import { createTracker } from '../ui/tracker.js';
 import { h, icon } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 export function createMetroView(ctx) {
   const { actions, state, store } = ctx;
   const root = h('div', { class: 'view view--metro' });
+  const tracker = createTracker({ api: ctx.api, actions });
   const hero = h('section', { class: 'metro-discovery', 'aria-labelledby': 'metro-discovery-title' });
   const listView = createStationsView(ctx, { embedded: true });
   const input = h('input', { id: 'metro-q', type: 'text', inputmode: 'search', autocomplete: 'off', spellcheck: 'false', role: 'combobox', 'aria-expanded': 'false', 'aria-controls': 'metro-suggest-list', 'aria-autocomplete': 'list', 'aria-label': 'جست وجوی ایستگاه های مترو', placeholder: 'نام ایستگاه را بنویسید' });
@@ -38,7 +40,7 @@ export function createMetroView(ctx) {
     createRideTabs('metro', actions),
     searchHost,
     h('button', { type: 'button', class: 'metro-favourites', onClick: () => actions.go('favourites') }, icon('heart'), 'ایستگاه های من', icon('chevron_left')),
-    hero, listView.el,
+    hero, tracker.el, listView.el,
     h('section', { class: 'cm-card about-card', 'aria-labelledby': 'rail-method-title' },
       h('h2', { id: 'rail-method-title', class: 'about-card__title', text: 'درباره زمان های مترو' }),
       h('p', { text: 'زمان ها از برنامه حرکت و زمان سفر برآورد می شوند، نه موقعیت زنده قطار. ساعت دریافت پاسخ کنار هر تابلو به وقت تهران نوشته شده است.' }),
@@ -46,7 +48,7 @@ export function createMetroView(ctx) {
       h('p', { text: 'خط ۱ دو سرویس دارد: A بین وکیل آباد و غدیر و B بین وکیل آباد و فرودگاه. دقت داده و نکته های هر ایستگاه در تابلوی آن آمده است.' })));
   state.subscribe(['status', 'stations', 'nearest', 'recent', 'asOf'], paint); paint();
   return { el: root, mount() { listView.mount(); init(root); },
-    onShow(options) { listView.onShow(options); paint(); },
-    onHide() { search.close(); },
+    onShow(options) { listView.onShow(options); paint(); tracker.start(); },
+    onHide() { search.close(); tracker.stop(); },
     focusHero() { hero.scrollIntoView({ block: 'nearest', behavior: 'auto' }); } };
 }

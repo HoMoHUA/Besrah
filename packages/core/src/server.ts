@@ -31,6 +31,17 @@ export function buildServer(opts: { now?: () => number } = {}) {
     }
   }
 
+  type TrainsQuery = { Querystring: { line?: string; at?: string } };
+  async function trainsHandler(req: import('fastify').FastifyRequest<TrainsQuery>, reply: import('fastify').FastifyReply) {
+    reply.header('Cache-Control', 'no-store').header('X-Content-Type-Options', 'nosniff');
+    if (req.query.line !== '1' && req.query.line !== '2') return reply.code(400).send({ error: 'bad_line' });
+    const at = req.query.at ? Math.floor(Date.parse(req.query.at) / 1000) : Math.floor(now() / 1000);
+    if (!Number.isFinite(at)) return reply.code(400).send({ error: 'bad_at' });
+    return svc.positions(Number(req.query.line) as 1 | 2, at);
+  }
+  app.get<TrainsQuery>('/v1/trains', trainsHandler);
+  app.get<TrainsQuery>('/app/api/trains', trainsHandler);
+
   registerMiniapp(app);
   return app;
 }

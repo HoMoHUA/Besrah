@@ -32,6 +32,8 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
   ['/app/views/bus.js', 'views/bus.js'],
   ['/app/bus-data.js', 'bus-data.js'],
   ['/app/ui/ride-tabs.js', 'ui/ride-tabs.js'],
+  ['/app/ui/tracker.js', 'ui/tracker.js'],
+  ['/app/ui/rotating-placeholder.js', 'ui/rotating-placeholder.js'],
   ['/app/assets/bus-guide.json', 'assets/bus-guide.json'],
   ['/app/assets/services/besrah.svg', 'assets/services/besrah.svg'],
   ['/app/assets/services/food.svg', 'assets/services/food.svg'],

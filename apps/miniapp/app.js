@@ -8,6 +8,7 @@ import { createStore } from './store.js';
 import { createTelegram } from './tg.js';
 import { createSheetHost } from './ui/sheet.js';
 import { createServiceSearch } from './ui/service-search.js';
+import { rotatePlaceholder } from './ui/rotating-placeholder.js';
 import { createServiceStore } from './service-store.js';
 import { NAV_VIEWS, ROUTES, activeNav, createNavigation } from './navigation.js';
 import { createStationSheet } from './ui/station.js';
@@ -252,6 +253,8 @@ const search = createServiceSearch({
   host: $('#search-host'), input: $('#q'), clearButton: $('#q-clear'), popup: $('#suggest'), listbox: $('#suggest-list'), live: $('#suggest-live'),
   onPick: actions.serviceAction,
 });
+
+rotatePlaceholder({ input: $('#q'), phrases: ['دنبال کدام سرویس هستید؟', 'مترو مشهد را جست وجو کنید', 'اتوبوس و خط ها را جست وجو کنید', 'بسراه، رفت و آمد شهری', 'بسفود، به زودی', 'بسپی، به زودی'] });
 
 let menuApi = null;
 function paintMenu() {

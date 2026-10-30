@@ -12,7 +12,7 @@ const allowedTags = new Set([
 const allowedAttributes = new Set([
   'viewBox', 'width', 'height', 'role', 'aria-labelledby', 'id', 'fill',
   'fill-opacity', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin',
-  'stroke-opacity', 'opacity', 'd', 'x', 'y', 'x1', 'y1', 'x2', 'y2',
+  'stroke-opacity', 'stroke-dasharray', 'opacity', 'd', 'x', 'y', 'x1', 'y1', 'x2', 'y2',
   'cx', 'cy', 'r', 'rx', 'ry', 'points', 'transform', 'offset', 'stop-color',
   'stop-opacity', 'gradientUnits', 'gradientTransform', 'preserveAspectRatio',
 ]);

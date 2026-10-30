@@ -26,6 +26,11 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       if (!Array.isArray(data?.stations) || !Array.isArray(data?.line1Order)) throw new ApiError('server');
       return data;
     },
+    async trains(line, signal) {
+      const data = await get('api/trains?line=' + (line === 2 ? 2 : 1), signal);
+      if (!Array.isArray(data?.order) || !Array.isArray(data?.trains)) throw new ApiError('server');
+      return data;
+    },
     async busGuide(signal) {
       const data = await get('assets/bus-guide.json', signal);
       if (data?.v !== 1 || !Array.isArray(data?.n) || !Array.isArray(data?.l)) throw new ApiError('server');

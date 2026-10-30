@@ -29,5 +29,15 @@ export function createHomeView({ actions }) {
     h('button', { type: 'button', class: 'discovery-note', onClick: () => actions.go('about') },
       h('span', { class: 'discovery-note__icon' }, icon('star')),
       h('span', {}, h('strong', { text: 'بِسراه، قدم به قدم' }), h('span', { text: 'سرویس های تازه، وقتی آماده باشند.' })), icon('chevron_left')));
+  // Inline the (same-origin, test-validated) artwork so ids inside it can be animated; the <img> stays as the fallback.
+  const art = root.querySelector('.brand-banner__art');
+  fetch('assets/hero-brand.svg', { credentials: 'omit' }).then(r => r.ok ? r.text() : Promise.reject(new Error('art'))).then(text => {
+    const svg = new DOMParser().parseFromString(text, 'image/svg+xml').documentElement;
+    if (svg.nodeName !== 'svg' || svg.querySelector('parsererror')) return;
+    svg.querySelectorAll('title, desc').forEach(n => n.remove());
+    ['role', 'aria-labelledby'].forEach(a => svg.removeAttribute(a));
+    svg.setAttribute('class', 'brand-banner__art'); svg.setAttribute('aria-hidden', 'true');
+    art?.replaceWith(document.importNode(svg, true));
+  }).catch(() => { /* the static image remains */ });
   return { el: root };
 }
