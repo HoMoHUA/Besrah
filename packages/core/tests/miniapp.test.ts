@@ -9,7 +9,7 @@ const ROOT = new URL('../../../apps/miniapp/', import.meta.url);
 const CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
 const MIME: Record<string, string> = {
   html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8',
-  svg: 'image/svg+xml', png: 'image/png', woff2: 'font/woff2', webmanifest: 'application/manifest+json',
+  svg: 'image/svg+xml', png: 'image/png', woff2: 'font/woff2', json: 'application/json; charset=utf-8', webmanifest: 'application/manifest+json',
 };
 
 describe('miniapp metadata', () => {

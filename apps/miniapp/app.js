@@ -18,12 +18,13 @@ import { createFavouritesView } from './views/favourites.js';
 import { createHomeView } from './views/home.js';
 import { createServicesView, roadmapList } from './views/services.js';
 import { createMetroView } from './views/metro.js';
+import { createBusView } from './views/bus.js';
 import { createSettingsView } from './views/settings.js';
 import { createSavedView } from './views/saved.js';
 import { isLive } from './services.js';
 import { isSupported, lineLabel } from './format.js';
 
-const TITLES = { home: 'خانه', metro: 'ریل', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', about: 'درباره' };
+const TITLES = { home: 'خانه', metro: 'مترو', bus: 'اتوبوس', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', about: 'درباره' };
 const navigation = createNavigation();
 try { history.replaceState({ besrahRoute: 'home', besrahIndex: 0 }, ''); } catch { /* embedded browser */ }
 
@@ -236,9 +237,10 @@ const actions = {
   },
 };
 
-const ctx = { state, store, serviceStore, actions };
+const ctx = { state, store, serviceStore, actions, api, sheet };
 views.home = createHomeView(ctx);
 views.metro = createMetroView(ctx);
+views.bus = createBusView(ctx);
 views.settings = createSettingsView(ctx);
 views.saved = createSavedView(ctx);
 views.services = createServicesView(ctx);

@@ -335,3 +335,26 @@ a, button { text-decoration: none !important; }
 
 /* The raised hub is already the selected affordance; a second magnified copy collides with it. */
 .app-nav[data-active="services"] .hm7-lens { visibility: hidden; }
+
+/* ── Besrah ride switch and static bus guide ── */
+.ride-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.ride-tab { min-height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--muted); font: 800 15px var(--font-sans); cursor: pointer; }
+.ride-tab.is-active { background: var(--ink); color: var(--bg); }
+.view--bus { display: grid; gap: 14px; align-content: start; }
+.bus-results { display: grid; gap: 8px; }
+.bus-section-title { margin-top: 6px; color: var(--muted); font-size: 14px; font-weight: 800; }
+.bus-line { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 700 14px var(--font-sans); text-align: start; cursor: pointer; }
+.bus-line > :last-child { margin-inline-start: auto; flex: none; }
+.bus-line__ref { flex: none; min-width: 52px; padding: 6px 8px; border-radius: 12px; background: var(--ink); color: var(--bg); font: 900 16px var(--font-sans); text-align: center; unicode-bidi: isolate; }
+.bus-line__pin { flex: none; display: grid; place-items: center; width: 44px; color: var(--ink); font-size: 22px; }
+.bus-line__body { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.bus-line__body strong { overflow-wrap: anywhere; font-size: 14px; line-height: 1.6; }
+.bus-line__body small { color: var(--muted); font-weight: 500; font-size: 12px; }
+.bus-variants { display: grid; gap: 6px; }
+.bus-variant { min-height: 44px; padding: 8px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 700 13px var(--font-sans); text-align: start; cursor: pointer; }
+.bus-variant[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.bus-stops { margin: 0; padding: 0; list-style: none; counter-reset: bus-stop; }
+.bus-stops li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 8px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.bus-stops li::before { counter-increment: bus-stop; content: counter(bus-stop, persian); color: var(--muted); font-size: 12px; text-align: center; }
+.bus-notes { display: grid; gap: 6px; }
+.bus-note { color: var(--muted); font-size: 13px; line-height: 1.9; }

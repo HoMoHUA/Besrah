@@ -2,6 +2,7 @@
 import { buildSlides } from '../hero.js';
 import { createStationsView } from './stations.js';
 import { createSearchBox } from '../ui/searchbox.js';
+import { createRideTabs } from '../ui/ride-tabs.js';
 import { h, icon } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 export function createMetroView(ctx) {
@@ -31,14 +32,15 @@ export function createMetroView(ctx) {
   }
   root.append(
     h('header', { class: 'metro-head' },
-      h('button', { type: 'button', class: 'cm-icon-btn', 'aria-label': 'بازگشت از ریل', onClick: () => actions.back() }, icon('arrow_right')),
+      h('button', { type: 'button', class: 'cm-icon-btn', 'aria-label': 'بازگشت از مترو', onClick: () => actions.back() }, icon('arrow_right')),
       h('img', { src: 'assets/services/rail.svg', alt: '', width: 60, height: 60 }),
-      h('div', {}, h('h1', { text: 'ریل' }), h('p', { text: 'مترو مشهد · خط ۱ و خط ۲' }))),
+      h('div', {}, h('h1', { text: 'مترو' }), h('p', { text: 'مترو مشهد · خط ۱ و خط ۲' }))),
+    createRideTabs('metro', actions),
     searchHost,
     h('button', { type: 'button', class: 'metro-favourites', onClick: () => actions.go('favourites') }, icon('heart'), 'ایستگاه های من', icon('chevron_left')),
     hero, listView.el,
     h('section', { class: 'cm-card about-card', 'aria-labelledby': 'rail-method-title' },
-      h('h2', { id: 'rail-method-title', class: 'about-card__title', text: 'درباره زمان های ریل' }),
+      h('h2', { id: 'rail-method-title', class: 'about-card__title', text: 'درباره زمان های مترو' }),
       h('p', { text: 'زمان ها از برنامه حرکت و زمان سفر برآورد می شوند، نه موقعیت زنده قطار. ساعت دریافت پاسخ کنار هر تابلو به وقت تهران نوشته شده است.' }),
       h('p', { text: 'خط ۲: شنبه تا چهارشنبه سرفاصله ۱۰ دقیقه و پنجشنبه و جمعه ۱۲ دقیقه در نظر گرفته شده، اما فاز حرکت اندازه گیری نشده است. زمان بین طبرسی و شریعتی تخمین قدیمی و بین شریعتی و شهید فکوری اندازه گیری شده است.' }),
       h('p', { text: 'خط ۱ دو سرویس دارد: A بین وکیل آباد و غدیر و B بین وکیل آباد و فرودگاه. دقت داده و نکته های هر ایستگاه در تابلوی آن آمده است.' })));

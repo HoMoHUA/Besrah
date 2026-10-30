@@ -12,6 +12,7 @@ const MIME: Record<string, string> = {
   svg: 'image/svg+xml',
   png: 'image/png',
   woff2: 'font/woff2',
+  json: 'application/json; charset=utf-8',
   webmanifest: 'application/manifest+json',
 };
 
@@ -28,6 +29,13 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
   ['/app/ui/service-search.js', 'ui/service-search.js'],
   ['/app/ui/service-card.js', 'ui/service-card.js'],
   ['/app/views/metro.js', 'views/metro.js'],
+  ['/app/views/bus.js', 'views/bus.js'],
+  ['/app/bus-data.js', 'bus-data.js'],
+  ['/app/ui/ride-tabs.js', 'ui/ride-tabs.js'],
+  ['/app/assets/bus-guide.json', 'assets/bus-guide.json'],
+  ['/app/assets/services/besrah.svg', 'assets/services/besrah.svg'],
+  ['/app/assets/services/food.svg', 'assets/services/food.svg'],
+  ['/app/assets/services/pay.svg', 'assets/services/pay.svg'],
   ['/app/views/settings.js', 'views/settings.js'],
   ['/app/views/saved.js', 'views/saved.js'],
   ['/app/assets/services/rail.svg', 'assets/services/rail.svg'],

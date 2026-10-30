@@ -7,7 +7,7 @@ export function roadmapList() {
 }
 export function createServicesView(ctx) {
   const root = h('div', { class: 'view view--services' });
-  root.append(h('header', { class: 'view__head' }, h('p', { class: 'eyebrow', text: 'راه های جابه جایی' }), h('h1', { class: 'view__title', text: 'همه سرویس ها' }), h('p', { class: 'view__sub', text: 'یک انتخاب برای هر بخش از مسیر شما.' })),
+  root.append(h('header', { class: 'view__head' }, h('p', { class: 'eyebrow', text: 'سرویس های بِسراه' }), h('h1', { class: 'view__title', text: 'همه سرویس ها' }), h('p', { class: 'view__sub', text: 'حمل و نقل امروز و سرویس های بعدی.' })),
     h('div', { class: 'service-catalog' }, SERVICES.map(s => serviceCard(s, ctx))));
   ctx.serviceStore.subscribe(() => root.querySelectorAll('.service-card').forEach(card => card.syncSave()));
   return { el: root };

@@ -42,3 +42,7 @@ node --test tests/data/bus-catalog-integrity.test.mjs
 ```
 
 The guide integrity test compares every line/route identity, full raw member sequence, ordered stop/platform member, original geometry segment, raw field and facility against read-only SQLite. It checks exact variant multiplicity and all existing safety flags, verifies pinned audit evidence, independently recomputes exact-vertex geometry components, proves both display derivations and validates file hashes. Six memory-only negative cases reject false operation/orientation claims, duplicates, unsupported summary endpoints, wrong component counts and lost raw members. Unlinked platform inventory remains in the source SQLite; the projection embeds linked platform occurrences, not a separate complete platform catalogue. Research/limitations are documented in `research/bus-static-completion/`.
+
+## Mini App projection
+
+`scripts/build_bus_app_data.py` writes the compact names-only `apps/miniapp/assets/bus-guide.json` (no coordinates or geometry) after verifying every guide file against `manifest.json`; run it with `--check` to detect a stale file. `tests/data/bus-app-data.test.mjs` compares it with the full guide. The bus screens present it as unverified community data with no arrival times.

@@ -7,7 +7,7 @@ import { positionLabel } from '../route.js';
 export function createFavouritesView(ctx) {
   const { state, store, actions } = ctx;
   const root = h('div', { class: 'view view--favourites' });
-  const head = h('header', { class: 'view__head' }, h('button', { class: 'back-link', type: 'button', onClick: () => actions.back() }, icon('arrow_right'), 'بازگشت به ریل'), h('h1', { class: 'view__title', text: 'ایستگاه های من' }),
+  const head = h('header', { class: 'view__head' }, h('button', { class: 'back-link', type: 'button', onClick: () => actions.back() }, icon('arrow_right'), 'بازگشت به مترو'), h('h1', { class: 'view__title', text: 'ایستگاه های من' }),
     h('p', { class: 'view__sub', text: 'نام ایستگاه های ذخیره شده فقط روی همین دستگاه می ماند.' }));
   const body = h('div', { class: 'fav-body' });
   root.append(head, body);
