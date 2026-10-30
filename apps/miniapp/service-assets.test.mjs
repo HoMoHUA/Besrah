@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 
 const assets = new URL('./assets/', import.meta.url);
-const services = ['rail', 'caravan', 'rahyab', 'savar', 'food', 'pay'];
+const services = ['rail', 'caravan', 'rahyab', 'savar', 'food', 'pay', 'besrah'];
 const allowedTags = new Set([
   'svg', 'title', 'desc', 'defs', 'g', 'linearGradient', 'radialGradient',
   'stop', 'path', 'rect', 'circle', 'ellipse', 'polygon', 'polyline', 'line',
@@ -83,9 +83,9 @@ test('hero-brand: generic city journey banner is valid, safe and small', () => {
 
 test('service family has distinct illustrations and identifiable service colors', () => {
   const sources = services.map(service => readAsset(`services/${service}.svg`));
-  assert.equal(new Set(sources).size, 6);
+  assert.equal(new Set(sources).size, 7);
   for (const [index, colors] of [
-    ['#0A5556', '#D7FF63'], ['#E87936'], ['#438DDA'], ['#E8AA35'], ['#E85D3A'], ['#2DA67E'],
+    ['#0A5556', '#D7FF63'], ['#E87936'], ['#438DDA'], ['#E8AA35'], ['#E85D3A'], ['#2DA67E'], ['#0A5556', '#D7FF63'],
   ].entries()) {
     for (const color of colors) assert.ok(sources[index].includes(color), `${services[index]} requires ${color}`);
   }

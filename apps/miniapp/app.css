@@ -358,3 +358,12 @@ a, button { text-decoration: none !important; }
 .bus-stops li::before { counter-increment: bus-stop; content: counter(bus-stop, persian); color: var(--muted); font-size: 12px; text-align: center; }
 .bus-notes { display: grid; gap: 6px; }
 .bus-note { color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+/* Bottom bar: one real set of tabs (no cloned lens layer); the active tab is a soft pill. */
+.app-nav .hm7-tabs__item { border-radius: 22px; }
+.app-nav .hm7-tabs__item.is-active:not(.hm7-tabs__item--hub) { background: var(--accent-soft); color: var(--ink); font-weight: 800; box-shadow: inset 0 0 0 1px var(--line); }
+.app-nav .hm7-tabs__item--hub.is-active .hms { box-shadow: 0 0 0 3px var(--accent-soft); }
+/* Service art is one family: full-bleed rounded squares. */
+.product-tile__art .service-logo { width: 100%; height: 100%; aspect-ratio: auto; border-radius: inherit; }
+.product-shortcut .product-tile__art { background: #0A5556; border-color: #0A5556; }
+.product-shortcut .product-tile__art > .hms { color: #FFFFFF; }
