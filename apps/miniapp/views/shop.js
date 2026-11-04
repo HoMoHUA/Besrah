@@ -17,6 +17,14 @@ function openLink(url) {
   if (window.Telegram?.WebApp?.openLink) window.Telegram.WebApp.openLink(url); else window.open(url, '_blank', 'noopener,noreferrer');
 }
 
+// Where the compared prices come from. Several sellers on one marketplace page are not the whole market.
+export function scopeLabel(p) {
+  const m = Array.isArray(p.merchants) ? p.merchants.filter(Boolean) : [];
+  if (!m.length) return '';
+  if (p.comparisonScope === 'multi_marketplace') return `از ${m.join('، ')}؛ همهٔ فروشگاه های بازار بررسی نشده اند.`;
+  return `فقط فروشندگان صفحهٔ ${m[0]}؛ مقایسهٔ کل بازار نیست.`;
+}
+
 export function priceRange(p) {
   if (p.priceState === 'unresolved') return h('span', { class: 'sh-price sh-price--unknown', text: 'قیمت قابل اتکا ندارد' });
   return h('span', { class: 'sh-price' }, p.minToman === p.maxToman ? h('b', { text: toman(p.minToman) }) : [h('small', { text: 'از ' }), h('b', { text: toman(p.minToman) }), h('small', { text: ' تا ' }), h('b', { text: toman(p.maxToman) })]);
@@ -72,6 +80,7 @@ export function createShopView(ctx) {
       h('header', { class: 'fd-card__head' }, h('div', { class: 'fd-card__title' }, h('h3', { text: p.title }), h('p', { class: 'fd-card__sub', text: [p.brand, p.category].filter(Boolean).join(' · ') })),
         h('span', { class: 'cm-badge', text: p.priceState === 'compared' ? `${fa(p.resolvedOffers)} فروشنده` : p.priceState === 'single_offer' ? 'یک فروشنده' : 'قیمت نامعلوم' })),
       h('p', { class: 'fd-card__meta' }, priceRange(p), h('span', { text: `ثبت ${dayLabel(p.observedAt)}` })),
+      scopeLabel(p) ? h('p', { class: 'sh-scope', text: scopeLabel(p) }) : null,
       h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn', onClick: () => openProduct(p.id) }, 'مقایسهٔ فروشندگان')));
   }
 
@@ -94,6 +103,13 @@ export function createShopView(ctx) {
       h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => openLink(o.url) }, `مشاهده در ${o.merchant}`));
   }
 
+  // The product page the prices were read from: a real, https-only link, shown only when the catalog carries one.
+  function sourceLink(p) {
+    const url = p.source?.url, name = p.merchants?.length === 1 ? p.merchants[0] : 'فروشگاه';
+    if (typeof url !== 'string' || !/^https:\/\/[\w.-]+\//.test(url)) return null;
+    return h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'sh-source'], onClick: () => openLink(url) }, `صفحهٔ محصول در ${name}`);
+  }
+
   function detailView() {
     const d = S.detail, back = h('button', { type: 'button', class: 'btn-back', 'aria-label': 'بازگشت به نتایج', onClick: () => { S.detail = null; draw(); } }, '←');
     if (d.status === 'loading') return h('div', { class: 'fd-detail' }, back, h('div', { class: 'cm-skel fd-skeleton__card' }));
@@ -103,7 +119,9 @@ export function createShopView(ctx) {
       h('header', { class: 'fd-detail__head' }, h('h2', { text: p.title }), h('p', { class: 'fd-card__sub', text: [p.brand, p.category].filter(Boolean).join(' · ') })),
       h('p', { class: ['fd-snapshot', p.snapshot.stale && 'is-stale'], text: `قیمت ها در ${dayLabel(p.snapshot.observedAt)} از صفحهٔ محصول ثبت شده اند${p.snapshot.stale ? ' و قدیمی اند' : ''}؛ لحظه ای نیستند.` }),
       p.spread ? h('p', { class: 'fd-card__meta' }, h('span', { text: `کمترین ثبت شده ${toman(p.spread.minToman)}` }), h('span', { text: `بیشترین ${toman(p.spread.maxToman)}` }), p.spread.ratio >= 1.1 ? h('span', { text: `${faDigits(p.spread.ratio).replace('.', '٫')} برابر` }) : null) : null,
+      scopeLabel(p) ? h('p', { class: 'sh-scope', text: scopeLabel(p) }) : null,
       h('ul', { class: 'sh-offers' }, p.offers.map(offerRow)),
+      sourceLink(p),
       h('p', { class: 'fd-note', text: 'رنگ و گارانتی فروشندگان با هم مقایسه نشده؛ پیش از خرید در صفحهٔ فروشنده تأیید کنید.' }),
       h('ul', { class: 'fd-notes' }, p.notes.map(t => h('li', { text: t }))));
   }

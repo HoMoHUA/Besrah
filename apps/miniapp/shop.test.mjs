@@ -78,3 +78,29 @@ test('errors and an unavailable catalog show retry; empty results explain the sm
   mode = 'empty'; await button(view.el, 'تلاش دوباره').dispatch('click'); await flushView();
   assert.match(text(view), /چند کالای منتخب/);
 });
+
+test('cards and the comparison page say the sellers come from one marketplace page, and link to that product page', async t => {
+  const one = { merchants: ['تکنولایف'], comparisonScope: 'single_marketplace' };
+  const opened = [];
+  const { view } = setup(t, url => {
+    if (url.startsWith('api/shop/search')) return new Response(JSON.stringify(list([product('tl:1', 'هدفون سونی', one)])));
+    if (url.startsWith('api/shop/product')) return new Response(JSON.stringify({ ...product('tl:1', 'هدفون سونی', one), offers: [offer('الف', 'resolved', 1000000)], spread: null,
+      snapshot: { observedAt: OBS, ageHours: 60, stale: true }, variantBasis: 'x', notes: [] }));
+    return null;
+  });
+  globalThis.window = { open: url => opened.push(url) };
+  t.after(() => { delete globalThis.window; });
+  view.onShow(); await flushView();
+  assert.match(text(view), /فقط فروشندگان صفحهٔ تکنولایف؛ مقایسهٔ کل بازار نیست/);
+  await button(view.el, 'مقایسهٔ فروشندگان').dispatch('click'); await flushView();
+  assert.match(text(view), /مقایسهٔ کل بازار نیست/);
+  await button(view.el, 'صفحهٔ محصول در تکنولایف').dispatch('click');
+  assert.deepEqual(opened, ['https://www.technolife.com/product-1/']);
+});
+
+test('a product without a safe https source gets no source button', async t => {
+  const { view } = setup(t, url => (url.startsWith('api/shop/product') ? new Response(JSON.stringify({ ...product('tl:1', 'هدفون', { source: { kind: 'x', url: 'javascript:alert(1)' }, merchants: ['تکنولایف'] }), offers: [], spread: null, snapshot: { observedAt: OBS, ageHours: 1, stale: false }, variantBasis: 'x', notes: [] })) : null));
+  view.onShow(); await flushView();
+  await button(view.el, 'مقایسهٔ فروشندگان').dispatch('click'); await flushView();
+  assert.equal(findAll(view.el, n => n.tagName === 'button' && /صفحهٔ محصول/.test(n.textContent)).length, 0);
+});
