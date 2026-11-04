@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "r2bd1-c1-v1",
+  "scope": {
+    "version": "r2bd1-c1-v1",
+    "corridor": "C1",
+    "stationIds": [
+      "METRO-107",
+      "METRO-108"
+    ],
+    "bboxSouthWestNorthEast": [
+      36.3233889,
+      59.496774,
+      36.33047,
+      59.5109444
+    ],
+    "scopeNote": "Small envelope buffered around registry centers for acquisition only; centers never treated as entrances or snapped connectors. Full child way nodes may extend beyond bbox. No transit route relations or city-wide network requested.",
+    "crs": "EPSG:4326",
+    "stationRegistrySha256": "b77dfaa099f9cfaf69c248ceec35e3aa514029a088bcf93afbda0bcd3ae9a7ba"
+  },
+  "baseR2b": "9a1d300846aaa60be5e24acef6c35478197cbaf3",
+  "acquiredSources": 29,
+  "gate": "BLOCKED",
+  "sourceBodiesImmutable": true,
+  "sourceAttribution": {
+    "overpass-de-c1-01": "OpenStreetMap contributors, ODbL-1.0",
+    "osm-wiki": "OSM Wiki contributors, CC-BY-SA-2.0",
+    "externalOfficialAndResearch": "Per-source rights and dates in external-sources.json; full archival bytes in durable private checkpoint"
+  },
+  "privateArchive": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research",
+  "files": {
+    "README.md": {
+      "bytes": 4530,
+      "sha256": "9be3219bc54cd9101de348598eb7c19365799c67d271e6cef3090e3ed2889130"
+    },
+    "derived/c1-official-historical-markers.json": {
+      "bytes": 2106,
+      "sha256": "1d26a0dc85c4b6c0e2beaa0a8e3a4cf5452f14fd2bd8e96a4c480270c1b37ef8"
+    },
+    "derived/c1-source-geometry.geojson": {
+      "bytes": 206451,
+      "sha256": "cc7f7ea5e7b3c68d63ea0309535b20c11f82e5452599602b9d541a7db1484209"
+    },
+    "derived/c1-source-topology.json": {
+      "bytes": 18649,
+      "sha256": "5d6f372179925c49c87c18dd1a6c5c0747b0d27c2c8f584c5bd0b5a2e1ac6fc3"
+    },
+    "derived/gate-evaluation.json": {
+      "bytes": 90513,
+      "sha256": "2165ea85a5f2caf2fa1c9eec733cd0249b86506d01a8cd81f2701646b8d292a3"
+    },
+    "derived/r2a-c1-platform-only-replay.json": {
+      "bytes": 307165,
+      "sha256": "de90c86cfbddd2db0d266276da84f0b0b979493803c42331ee5c4c40327e9918"
+    },
+    "derived/walking-speed-evidence.json": {
+      "bytes": 1457,
+      "sha256": "54236264f34fb1de470a00b905280026e55cb08067ee21b6317945a780693013"
+    },
+    "external-sources.json": {
+      "bytes": 35222,
+      "sha256": "0d3a64a5e5623cc9c7ed52d579584ba57f8330cc86ba9802254ea27b838033c5"
+    },
+    "queries/c1-pedestrian.overpassql": {
+      "bytes": 458,
+      "sha256": "fac721c78bdb229ae6c2cdc9fe014f72e985beab4cdd5c1c3aa45d46d4d38c3f"
+    },
+    "raw/.gitattributes": {
+      "bytes": 104,
+      "sha256": "e5e115f2765ccfe6f4f39b0fc0e07a7557aa40004ab37cdecc916946b8a71f03"
+    },
+    "raw/osm-license.body": {
+      "bytes": 21314,
+      "sha256": "740676606bd071be13c8931dd22816667f9586fa282f1809d24c8e2175afe60f"
+    },
+    "raw/osm-license.headers": {
+      "bytes": 2722,
+      "sha256": "484386a77ba9e8f3dfb8b26c41ad87efd8da52e9346406f3428479fb85dd2c2d"
+    },
+    "raw/osm-license.request.json": {
+      "bytes": 3656,
+      "sha256": "aae0bc6049f6211b7a4651f5077aa7bcab7744eb123dbbdc28b0c2d4cf9a4be3"
+    },
+    "raw/osm-wiki-foot.body": {
+      "bytes": 66617,
+      "sha256": "1125fedcb6cfcd177d89bdb649b0fcc86d3265a8537d37f01f0a21bd3dc95eb0"
+    },
+    "raw/osm-wiki-foot.headers": {
+      "bytes": 473,
+      "sha256": "5f53726955571885878a79fd2a497fdc28ba618e1314b7656dd3bbdd8e95d0d5"
+    },
+    "raw/osm-wiki-foot.request.json": {
+      "bytes": 1430,
+      "sha256": "b1fb05ab1deb37ad395bcc419cd2ade2300b0f7e0c22286372508c1e05fe15ba"
+    },
+    "raw/osm-wiki-metro-mapping.body": {
+      "bytes": 57751,
+      "sha256": "850aaed789bd6903b178bbdfe2e4e8d12c3895140d8a720b0cbf7d69f9c3d6fd"
+    },
+    "raw/osm-wiki-metro-mapping.headers": {
+      "bytes": 473,
+      "sha256": "eca1698c9bcd6a48bc5048304320e58217e0c163ff8cf0a11a12c5e2190594cd"
+    },
+    "raw/osm-wiki-metro-mapping.request.json": {
+      "bytes": 1467,
+      "sha256": "c05c2f40a00ac04a49aabc7461ced2c7adcbff9356ed2296f6fd4114a157c34c"
+    },
+    "raw/osm-wiki-subway-entrance.body": {
+      "bytes": 88243,
+      "sha256": "eb66629735245d957f85e7d26958cac8931c600f88aba24654d6efcb3c6bb4b6"
+    },
+    "raw/osm-wiki-subway-entrance.headers": {
+      "bytes": 473,
+      "sha256": "bf3c865feebd11d868ccf22f5d363971e05398895142fb25832070b0a92b0e0a"
+    },
+    "raw/osm-wiki-subway-entrance.request.json": {
+      "bytes": 1505,
+      "sha256": "fbbef54f182d649ffb6dbeee70e2a47a7e167566906a77a2609a028c6f56f4b5"
+    },
+    "raw/overpass-de-c1-01.body": {
+      "bytes": 319323,
+      "sha256": "c47f70328055f52924f04be961494e34dbd5abd0f2e7d632095642046baf969b"
+    },
+    "raw/overpass-de-c1-01.headers": {
+      "bytes": 99,
+      "sha256": "139a2a1ed125c0182f7e77b4a25620c2939b2d2a2a1e347a3e0461514a41b31e"
+    },
+    "raw/overpass-de-c1-01.request.json": {
+      "bytes": 1154,
+      "sha256": "dffe4b807b859a2119063dfde5287f0d01d891ef5522bd8d6f136d71531e0d60"
+    },
+    "scope.json": {
+      "bytes": 569,
+      "sha256": "9143eea46a2d5029afb6915e22236e7349dc3f6108716820a41fa3d5fd6931aa"
+    },
+    "templates/field-observation.json": {
+      "bytes": 1192,
+      "sha256": "4a0867b071413a8d57f3309893120f073100241fcc8bd3802ea94983232a77be"
+    }
+  }
+}

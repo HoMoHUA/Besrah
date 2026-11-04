@@ -20,12 +20,15 @@ import { createHomeView } from './views/home.js';
 import { createServicesView, roadmapList } from './views/services.js';
 import { createMetroView } from './views/metro.js';
 import { createBusView } from './views/bus.js';
+import { createFoodView } from './views/food.js';
+import { createTripView } from './views/trip.js';
+import { createShopView } from './views/shop.js';
 import { createSettingsView } from './views/settings.js';
 import { createSavedView } from './views/saved.js';
 import { isLive } from './services.js';
 import { isSupported, lineLabel } from './format.js';
 
-const TITLES = { home: 'خانه', metro: 'مترو', bus: 'اتوبوس', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', about: 'درباره' };
+const TITLES = { home: 'خانه', metro: 'مترو', bus: 'اتوبوس', food: 'بسفود', trip: 'رهیاب', shop: 'بسخرید', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', about: 'درباره' };
 const navigation = createNavigation();
 try { history.replaceState({ besrahRoute: 'home', besrahIndex: 0 }, ''); } catch { /* embedded browser */ }
 
@@ -69,6 +72,11 @@ syncTelegramColors();
 const sheet = createSheetHost({ root: $('#sheet-root'), appEl, onChange: () => updateBack() });
 const stationSheet = createStationSheet({
   sheet, api, store,
+  canPlanFrom: () => views.metro?.isUnified() === true,
+  onPlanFrom(name) {
+    if (state.get().view !== 'metro') go('metro');
+    views.metro.planFrom(name);
+  },
   getStations: () => state.get().stations,
   getOrders: () => ({ 1: state.get().order, 2: state.get().order2 }),
   onBoard(name, data) {
@@ -121,7 +129,7 @@ function showRoute(view, options = {}, scroll = 0) {
   nav.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-current', button.dataset.view === activeNav(view) ? 'page' : 'false'));
   window.scrollTo(0, scroll);
   document.title = `${TITLES[view]} · Besrah`;
-  if (view === 'metro' && state.get().status === 'ready') loadRecent();
+  if (view === 'metro' && state.get().status === 'ready' && !views.metro.isUnified()) loadRecent();
   updateBack();
 }
 function go(view, options = {}) {
@@ -170,12 +178,13 @@ async function locate() {
   const geo = navigator.geolocation && { getCurrentPosition: (ok, fail, opts) => navigator.geolocation.getCurrentPosition(ok, error => { code = error?.code ?? null; fail(error); }, opts) };
   try {
     const { latitude, longitude } = await requestPosition(tg.inTelegram ? tg.app : undefined, geo);
+    state.set({ userCoords: { latitude, longitude } });
     const hit = nearestStation(s.stations, latitude, longitude, s.maxKm);
     if (!hit) { state.set({ nearest: { phase: 'error', reason: 'too_far' } }); announce('ایستگاهی در نزدیکی شما پیدا نشد'); return; }
     const station = { name: hit.station.name, lines: hit.station.lines };
     state.set({ nearest: { phase: 'ok', station, km: hit.km, boardPhase: isSupported(station) ? 'loading' : undefined } });
     announce(`نزدیک ترین ایستگاه ${station.name}`);
-    if (isSupported(station)) {
+    if (isSupported(station) && !views.metro.isUnified()) {
       const result = await boardSeq.run(signal => api.next(station.name, { signal, limit: 10 }));
       if (result.stale) return;
       const nearest = state.get().nearest;
@@ -198,6 +207,11 @@ function pickRecent() {
 }
 async function loadRecent() {
   const pick = pickRecent();
+  if (views.metro?.isUnified()) {
+    heroSeq.cancel();
+    state.set({ recent: pick ? { ...pick, phase: 'idle' } : null });
+    return;
+  }
   if (!pick) { state.set({ recent: null }); return; }
   state.set({ recent: { ...pick, phase: 'loading' } });
   const result = await heroSeq.run(signal => api.next(pick.station, { signal, limit: 10 }));
@@ -225,6 +239,20 @@ const combinedOrder = () => { const { order, order2 } = state.get(); return [...
 
 const actions = {
   go, back: onBack, openStation, locate, openRoadmap, reload, unsupported, setTheme,
+  locateStation: locate,
+  async metroModeChanged(active) {
+    // Unified quick actions need station identity, not two extra summary boards.
+    boardSeq.cancel(); heroSeq.cancel();
+    if (active || state.get().view !== 'metro') return;
+    loadRecent();
+    const nearest = state.get().nearest, name = nearest?.station?.name;
+    if (!name || nearest.board || !isSupported(nearest.station)) return;
+    state.set({ nearest: { ...nearest, boardPhase: 'loading' } });
+    const result = await boardSeq.run(signal => api.next(name, { signal, limit: 10 }));
+    if (result.stale || state.get().nearest?.station?.name !== name) return;
+    const current = state.get().nearest;
+    state.set({ nearest: { ...current, boardPhase: result.ok ? 'ok' : 'error', ...(result.ok ? { board: result.value } : {}) } });
+  },
   heroAction(action) {
     if (action.id === 'locate') locate();
     else if (action.id === 'open') openStation(action.station);
@@ -242,6 +270,9 @@ const ctx = { state, store, serviceStore, actions, api, sheet };
 views.home = createHomeView(ctx);
 views.metro = createMetroView(ctx);
 views.bus = createBusView(ctx);
+views.food = createFoodView(ctx);
+views.trip = createTripView(ctx);
+views.shop = createShopView(ctx);
 views.settings = createSettingsView(ctx);
 views.saved = createSavedView(ctx);
 views.services = createServicesView(ctx);
@@ -254,7 +285,7 @@ const search = createServiceSearch({
   onPick: actions.serviceAction,
 });
 
-rotatePlaceholder({ input: $('#q'), phrases: ['جست وجو', 'مترو مشهد', 'خط های اتوبوس', 'رفت و آمد شهری', 'بسفود، به زودی', 'بسپی، به زودی'] });
+rotatePlaceholder({ input: $('#q'), phrases: ['جست وجو', 'مترو مشهد', 'خط های اتوبوس', 'سفارش غذا بسفود', 'بسپی، به زودی'] });
 
 let menuApi = null;
 function paintMenu() {

@@ -1,0 +1,2123 @@
+{
+  "schemaVersion": 1,
+  "phase": "R2b-D1",
+  "packageVersion": "r2bd1-c1-v1",
+  "baseR2b": "9a1d300846aaa60be5e24acef6c35478197cbaf3",
+  "corridor": "C1",
+  "C2Examined": false,
+  "C2NotUsedReason": "C1 yielded fresh entrances, explicit stop-area memberships and pedestrian topology; fallback condition was not met.",
+  "C3Excluded": true,
+  "gate": "BLOCKED",
+  "eligibleDirectionCount": 0,
+  "directions": [
+    {
+      "originStationId": "METRO-107",
+      "destinationStationId": "METRO-108",
+      "proposedOriginPointId": "d1:point:A",
+      "proposedDestinationPointId": "d1:point:B",
+      "gate": "BLOCKED",
+      "legs": [
+        {
+          "role": "origin_public_point",
+          "pointId": "d1:point:A",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "idAndSourceGeometry": "pass",
+            "standingSpace": "undetermined",
+            "positionalAccuracy": "undetermined",
+            "fieldVerification": "undetermined"
+          },
+          "status": "undetermined"
+        },
+        {
+          "role": "origin_outdoor",
+          "edgeId": "d1:outdoor:METRO-107",
+          "sourceWayId": "osm:way:531913241",
+          "pointId": "d1:point:A",
+          "entranceId": "osm:node:1030590026",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "timingSeconds": null,
+          "status": "undetermined",
+          "checks": {
+            "identity": "pass",
+            "geometry": "pass",
+            "connectivity": "pass",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined",
+            "provenance": "undetermined",
+            "orderedNodesExactlyMatchSourceWay": "pass"
+          },
+          "issues": [
+            "direction: undetermined",
+            "footAccess: undetermined",
+            "barrier: undetermined",
+            "surfaceLevel: undetermined",
+            "timing: undetermined",
+            "provenance: undetermined"
+          ],
+          "meaning": "Exact source-way node order confirmed, but missing passage/direction/surface/level/timing evidence is not filled."
+        },
+        {
+          "role": "origin_internal",
+          "stationId": "METRO-107",
+          "entranceId": "osm:node:1030590026",
+          "platformCandidateIds": [],
+          "platformId": null,
+          "edgeId": null,
+          "timingSeconds": null,
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "mappedEntranceAndStopAreaMembership": "pass",
+            "directionalPlatformAssociation": "undetermined",
+            "sourcePlatformHighwayNodeConnection": "undetermined",
+            "physicalPlatformAccess": "undetermined",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined"
+          },
+          "status": "undetermined",
+          "meaning": "Fail denotes missing mapped connection in this snapshot, NOT proof the physical path is blocked. No invented internal edge."
+        },
+        {
+          "role": "metro",
+          "status": "pass",
+          "checks": {
+            "historicalModeledTripReplay": "pass"
+          },
+          "sourceIds": [
+            "besrah:approved-r2a"
+          ],
+          "resultFile": "data/geospatial/r2bd1-c1-v1/derived/r2a-c1-platform-only-replay.json",
+          "calendar": {
+            "mode": "strict"
+          },
+          "serviceDate": "2026-10-16",
+          "modeledJourneyCount": 10,
+          "sourceVersion": "sha256:51ce05b4c0b67e221bde84573497ea16c56fb6802410886ef7ef2bbf0a50a009",
+          "physicalPlatformAssociationProved": false,
+          "meaning": "Historical Friday platform-ready replay only. Not live, not a real A-start, not future service-calendar proof."
+        },
+        {
+          "role": "destination_internal",
+          "stationId": "METRO-108",
+          "entranceId": "osm:node:1030590123",
+          "platformCandidateIds": [
+            "osm:way:618773155",
+            "osm:way:618773156"
+          ],
+          "platformId": null,
+          "edgeId": null,
+          "timingSeconds": null,
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "mappedEntranceAndStopAreaMembership": "pass",
+            "directionalPlatformAssociation": "undetermined",
+            "sourcePlatformHighwayNodeConnection": "fail",
+            "physicalPlatformAccess": "undetermined",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined"
+          },
+          "status": "fail",
+          "meaning": "Fail denotes missing mapped connection in this snapshot, NOT proof the physical path is blocked. No invented internal edge."
+        },
+        {
+          "role": "destination_outdoor",
+          "edgeId": "d1:outdoor:METRO-108",
+          "sourceWayId": "osm:way:531913236",
+          "pointId": "d1:point:B",
+          "entranceId": "osm:node:1030590123",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "timingSeconds": null,
+          "status": "undetermined",
+          "checks": {
+            "identity": "pass",
+            "geometry": "pass",
+            "connectivity": "pass",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined",
+            "provenance": "undetermined",
+            "orderedNodesExactlyMatchSourceWay": "pass"
+          },
+          "issues": [
+            "direction: undetermined",
+            "footAccess: undetermined",
+            "barrier: undetermined",
+            "surfaceLevel: undetermined",
+            "timing: undetermined",
+            "provenance: undetermined"
+          ],
+          "meaning": "Exact source-way node order confirmed, but missing passage/direction/surface/level/timing evidence is not filled."
+        },
+        {
+          "role": "destination_public_point",
+          "pointId": "d1:point:B",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "idAndSourceGeometry": "pass",
+            "standingSpace": "undetermined",
+            "positionalAccuracy": "undetermined",
+            "fieldVerification": "undetermined"
+          },
+          "status": "undetermined"
+        }
+      ]
+    },
+    {
+      "originStationId": "METRO-108",
+      "destinationStationId": "METRO-107",
+      "proposedOriginPointId": "d1:point:B",
+      "proposedDestinationPointId": "d1:point:A",
+      "gate": "BLOCKED",
+      "legs": [
+        {
+          "role": "origin_public_point",
+          "pointId": "d1:point:B",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "idAndSourceGeometry": "pass",
+            "standingSpace": "undetermined",
+            "positionalAccuracy": "undetermined",
+            "fieldVerification": "undetermined"
+          },
+          "status": "undetermined"
+        },
+        {
+          "role": "origin_outdoor",
+          "edgeId": "d1:outdoor:METRO-108",
+          "sourceWayId": "osm:way:531913236",
+          "pointId": "d1:point:B",
+          "entranceId": "osm:node:1030590123",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "timingSeconds": null,
+          "status": "undetermined",
+          "checks": {
+            "identity": "pass",
+            "geometry": "pass",
+            "connectivity": "pass",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined",
+            "provenance": "undetermined",
+            "orderedNodesExactlyMatchSourceWay": "pass"
+          },
+          "issues": [
+            "direction: undetermined",
+            "footAccess: undetermined",
+            "barrier: undetermined",
+            "surfaceLevel: undetermined",
+            "timing: undetermined",
+            "provenance: undetermined"
+          ],
+          "meaning": "Exact source-way node order confirmed, but missing passage/direction/surface/level/timing evidence is not filled."
+        },
+        {
+          "role": "origin_internal",
+          "stationId": "METRO-108",
+          "entranceId": "osm:node:1030590123",
+          "platformCandidateIds": [
+            "osm:way:618773155",
+            "osm:way:618773156"
+          ],
+          "platformId": null,
+          "edgeId": null,
+          "timingSeconds": null,
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "mappedEntranceAndStopAreaMembership": "pass",
+            "directionalPlatformAssociation": "undetermined",
+            "sourcePlatformHighwayNodeConnection": "fail",
+            "physicalPlatformAccess": "undetermined",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined"
+          },
+          "status": "fail",
+          "meaning": "Fail denotes missing mapped connection in this snapshot, NOT proof the physical path is blocked. No invented internal edge."
+        },
+        {
+          "role": "metro",
+          "status": "pass",
+          "checks": {
+            "historicalModeledTripReplay": "pass"
+          },
+          "sourceIds": [
+            "besrah:approved-r2a"
+          ],
+          "resultFile": "data/geospatial/r2bd1-c1-v1/derived/r2a-c1-platform-only-replay.json",
+          "calendar": {
+            "mode": "strict"
+          },
+          "serviceDate": "2026-10-16",
+          "modeledJourneyCount": 10,
+          "sourceVersion": "sha256:51ce05b4c0b67e221bde84573497ea16c56fb6802410886ef7ef2bbf0a50a009",
+          "physicalPlatformAssociationProved": false,
+          "meaning": "Historical Friday platform-ready replay only. Not live, not a real A-start, not future service-calendar proof."
+        },
+        {
+          "role": "destination_internal",
+          "stationId": "METRO-107",
+          "entranceId": "osm:node:1030590026",
+          "platformCandidateIds": [],
+          "platformId": null,
+          "edgeId": null,
+          "timingSeconds": null,
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "mappedEntranceAndStopAreaMembership": "pass",
+            "directionalPlatformAssociation": "undetermined",
+            "sourcePlatformHighwayNodeConnection": "undetermined",
+            "physicalPlatformAccess": "undetermined",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined"
+          },
+          "status": "undetermined",
+          "meaning": "Fail denotes missing mapped connection in this snapshot, NOT proof the physical path is blocked. No invented internal edge."
+        },
+        {
+          "role": "destination_outdoor",
+          "edgeId": "d1:outdoor:METRO-107",
+          "sourceWayId": "osm:way:531913241",
+          "pointId": "d1:point:A",
+          "entranceId": "osm:node:1030590026",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "timingSeconds": null,
+          "status": "undetermined",
+          "checks": {
+            "identity": "pass",
+            "geometry": "pass",
+            "connectivity": "pass",
+            "direction": "undetermined",
+            "footAccess": "undetermined",
+            "barrier": "undetermined",
+            "surfaceLevel": "undetermined",
+            "timing": "undetermined",
+            "provenance": "undetermined",
+            "orderedNodesExactlyMatchSourceWay": "pass"
+          },
+          "issues": [
+            "direction: undetermined",
+            "footAccess: undetermined",
+            "barrier: undetermined",
+            "surfaceLevel: undetermined",
+            "timing: undetermined",
+            "provenance: undetermined"
+          ],
+          "meaning": "Exact source-way node order confirmed, but missing passage/direction/surface/level/timing evidence is not filled."
+        },
+        {
+          "role": "destination_public_point",
+          "pointId": "d1:point:A",
+          "sourceIds": [
+            "overpass-de-c1-01"
+          ],
+          "checks": {
+            "idAndSourceGeometry": "pass",
+            "standingSpace": "undetermined",
+            "positionalAccuracy": "undetermined",
+            "fieldVerification": "undetermined"
+          },
+          "status": "undetermined"
+        }
+      ]
+    }
+  ],
+  "sourceIntegrity": "pass",
+  "sources": {
+    "osm-license": {
+      "sourceId": "osm-license",
+      "url": "https://www.openstreetmap.org/copyright",
+      "effectiveUrl": "https://www.openstreetmap.org/copyright",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:13:43.494298+00:00",
+      "retrievedAt": "2026-11-02T20:13:44.059742+00:00",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "error": null,
+      "bodyPath": "raw/osm-license.body",
+      "bytes": 21314,
+      "sha256": "740676606bd071be13c8931dd22816667f9586fa282f1809d24c8e2175afe60f",
+      "headersPath": "raw/osm-license.headers",
+      "responseHeaders": "HTTP/2 200 \nserver: Apache\ncache-control: max-age=0, private, must-revalidate\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\nreferrer-policy: strict-origin-when-cross-origin\nx-permitted-cross-domain-policies: none\nx-xss-protection: 0\ncontent-language: en\ncross-origin-opener-policy: same-origin\nx-request-id: auju9_KDR-uZOrHJJ7U1zgAAAAo\nlink: </assets/turbo-c17cce38062be94687ab3e688cf14213be635ee2b55e63d9d5778659fab0c27b.js>; rel=modulepreload; as=script; nopush,</assets/application-51f95e852077544f9446ba54e7f803574766433fbe9fc9f73af4f0fad73e4205.js>; rel=preload; as=script; nopush,</assets/i18n/en-e74144985e09be405fab7070256bc2d294633a989f292206d1eb4755ef7aeda7.js>; rel=preload; as=script; nopush,</assets/screen-auto-ltr-d1fba5979d2f387276d738920086742b0f4116326208bcd5cb034f984def84cb.css>; rel=preload; as=style; nopush,</assets/print-ltr-97dee1ca487394c852f28c2906a930316ab6d2cacf7f73e47c1c31fad8919051.css>; rel=preload; as=style; nopush,</assets/leaflet-all-d3e8505f47e0f0615d3daf2619f2267c086cbe9e17e276f393ee686dca54e0d3.css>; rel=preload; as=style; nopush,</assets/maplibre-gl-all-20d18df1d89490f1022cce8a156e2ff3958396ddad7f015c94b31f4da45543e6.css>; rel=preload; as=style; nopush\nx-frame-options: SAMEORIGIN\nx-runtime: 0.024726\nx-content-type-options: nosniff\ncontent-security-policy: default-src 'self'; child-src 'self'; connect-src 'self' tile.openstreetmap.org api.thunderforest.com tile.tracestrack.com *.openstreetmap.fr vector.openstreetmap.org api.maptiler.com matomo.openstreetmap.org; font-src 'self'; form-action 'self'; frame-ancestors 'self'; frame-src 'self'; img-src 'self' data: www.gravatar.com *.wp.com tile.openstreetmap.org gps.tile.openstreetmap.org api.thunderforest.com tile.tracestrack.com *.openstreetmap.fr matomo.openstreetmap.org https://openstreetmap-user-avatars.s3.dualstack.eu-west-1.amazonaws.com https://openstreetmap-gps-images.s3.dualstack.eu-west-1.amazonaws.com; manifest-src 'self'; media-src 'none'; object-src 'none'; script-src 'self' matomo.openstreetmap.org 'nonce-rNuxL1s4OqJvFog2xx+IGTZdnLYcnKlv'; style-src 'self' 'nonce-rNuxL1s4OqJvFog2xx+IGTZdnLYcnKlv'; worker-src blob:\nx-powered-by: Phusion Passenger(R) 6.2.1\nset-cookie: _osm_session=4c5b802f88c0e4cab6f53caf06475e81; path=/; secure; httponly; samesite=lax\netag: W/\"740676606bd071be13c8931dd2281666\"\nstatus: 200 OK\ncontent-type: text/html; charset=utf-8\naccept-ranges: bytes\ndate: Mon, 02 Nov 2026 20:13:43 GMT\nvia: 1.1 varnish\nx-served-by: cache-chi-kigq8000036-CHI\nx-cache: MISS\nx-cache-hits: 0\nx-timer: S1793650424.652913,VS0,VE303\nvary: Accept-Language,Accept-Encoding\nalt-svc: h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400\n\n",
+      "contentType": "text/html; charset=utf-8",
+      "totalSeconds": 0.544533,
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://www.openstreetmap.org/copyright",
+      "crs": null,
+      "queryPath": null,
+      "querySha256": null,
+      "snapshotAt": null,
+      "overpassRemark": null,
+      "fetchSucceeded": true,
+      "useAsGeometryEvidence": false,
+      "limitBytes": 5242880,
+      "timeoutSeconds": 45,
+      "automaticRetries": 0,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "artifact_and_source_claim_not_field_verification"
+    },
+    "osm-wiki-foot": {
+      "sourceId": "osm-wiki-foot",
+      "url": "https://wiki.openstreetmap.org/wiki/Key:foot",
+      "effectiveUrl": "https://wiki.openstreetmap.org/wiki/Key:foot",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:17:38.366357+00:00",
+      "retrievedAt": "2026-11-02T20:17:39.162637+00:00",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "error": null,
+      "bodyPath": "raw/osm-wiki-foot.body",
+      "bytes": 66617,
+      "sha256": "1125fedcb6cfcd177d89bdb649b0fcc86d3265a8537d37f01f0a21bd3dc95eb0",
+      "headersPath": "raw/osm-wiki-foot.headers",
+      "responseHeaders": "HTTP/2 200 \nx-content-type-options: nosniff\ncontent-language: en\naccept-ch: \nvary: Accept-Encoding,Accept-Language,Cookie\nexpires: Thu, 01 Jan 1970 00:00:00 GMT\ncache-control: private, must-revalidate, max-age=0\nx-request-id: 16f13e97645ea5b46c4cc13c\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\nlast-modified: Fri, 30 Oct 2026 22:18:52 GMT\ncontent-type: text/html; charset=UTF-8\ndate: Mon, 02 Nov 2026 20:17:38 GMT\nserver: Apache\n\n",
+      "contentType": "text/html; charset=UTF-8",
+      "totalSeconds": 0.776987,
+      "license": "CC-BY-SA-2.0",
+      "licenseUrl": "https://wiki.openstreetmap.org/wiki/Wiki:Copyright",
+      "crs": null,
+      "queryPath": null,
+      "querySha256": null,
+      "snapshotAt": null,
+      "overpassRemark": null,
+      "fetchSucceeded": true,
+      "useAsGeometryEvidence": false,
+      "limitBytes": 5242880,
+      "timeoutSeconds": 45,
+      "automaticRetries": 0,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "artifact_and_source_claim_not_field_verification"
+    },
+    "osm-wiki-metro-mapping": {
+      "sourceId": "osm-wiki-metro-mapping",
+      "url": "https://wiki.openstreetmap.org/wiki/Metro_Mapping",
+      "effectiveUrl": "https://wiki.openstreetmap.org/wiki/Metro_Mapping",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:13:44.619353+00:00",
+      "retrievedAt": "2026-11-02T20:13:45.389888+00:00",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "error": null,
+      "bodyPath": "raw/osm-wiki-metro-mapping.body",
+      "bytes": 57751,
+      "sha256": "850aaed789bd6903b178bbdfe2e4e8d12c3895140d8a720b0cbf7d69f9c3d6fd",
+      "headersPath": "raw/osm-wiki-metro-mapping.headers",
+      "responseHeaders": "HTTP/2 200 \nx-content-type-options: nosniff\ncontent-language: en\naccept-ch: \nvary: Accept-Encoding,Accept-Language,Cookie\nexpires: Thu, 01 Jan 1970 00:00:00 GMT\ncache-control: private, must-revalidate, max-age=0\nx-request-id: 2d18d8f9d866d11cd8553c0d\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\nlast-modified: Fri, 30 Oct 2026 22:18:52 GMT\ncontent-type: text/html; charset=UTF-8\ndate: Mon, 02 Nov 2026 20:13:44 GMT\nserver: Apache\n\n",
+      "contentType": "text/html; charset=UTF-8",
+      "totalSeconds": 0.747805,
+      "license": "CC-BY-SA-2.0",
+      "licenseUrl": "https://wiki.openstreetmap.org/wiki/Wiki:Copyright",
+      "crs": null,
+      "queryPath": null,
+      "querySha256": null,
+      "snapshotAt": null,
+      "overpassRemark": null,
+      "fetchSucceeded": true,
+      "useAsGeometryEvidence": false,
+      "limitBytes": 5242880,
+      "timeoutSeconds": 45,
+      "automaticRetries": 0,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "artifact_and_source_claim_not_field_verification"
+    },
+    "osm-wiki-subway-entrance": {
+      "sourceId": "osm-wiki-subway-entrance",
+      "url": "https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway_entrance",
+      "effectiveUrl": "https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway_entrance",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:11:43.574133+00:00",
+      "retrievedAt": "2026-11-02T20:11:44.409378+00:00",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "error": null,
+      "bodyPath": "raw/osm-wiki-subway-entrance.body",
+      "bytes": 88243,
+      "sha256": "eb66629735245d957f85e7d26958cac8931c600f88aba24654d6efcb3c6bb4b6",
+      "headersPath": "raw/osm-wiki-subway-entrance.headers",
+      "responseHeaders": "HTTP/2 200 \nx-content-type-options: nosniff\ncontent-language: en\naccept-ch: \nvary: Accept-Encoding,Accept-Language,Cookie\nexpires: Thu, 01 Jan 1970 00:00:00 GMT\ncache-control: private, must-revalidate, max-age=0\nx-request-id: 9852ba6de37101d403965cb0\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\nlast-modified: Fri, 30 Oct 2026 22:18:52 GMT\ncontent-type: text/html; charset=UTF-8\ndate: Mon, 02 Nov 2026 20:11:43 GMT\nserver: Apache\n\n",
+      "contentType": "text/html; charset=UTF-8",
+      "totalSeconds": 0.816625,
+      "license": "CC-BY-SA-2.0",
+      "licenseUrl": "https://wiki.openstreetmap.org/wiki/Wiki:Copyright",
+      "crs": null,
+      "queryPath": null,
+      "querySha256": null,
+      "snapshotAt": null,
+      "overpassRemark": null,
+      "fetchSucceeded": true,
+      "useAsGeometryEvidence": false,
+      "limitBytes": 5242880,
+      "timeoutSeconds": 45,
+      "automaticRetries": 0,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "artifact_and_source_claim_not_field_verification"
+    },
+    "overpass-de-c1-01": {
+      "sourceId": "overpass-de-c1-01",
+      "url": "https://overpass-api.de/api/interpreter",
+      "effectiveUrl": "https://overpass-api.de/api/interpreter",
+      "method": "POST",
+      "startedAt": "2026-11-02T20:09:56.314870+00:00",
+      "retrievedAt": "2026-11-02T20:10:35.078836+00:00",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "error": null,
+      "bodyPath": "raw/overpass-de-c1-01.body",
+      "bytes": 319323,
+      "sha256": "c47f70328055f52924f04be961494e34dbd5abd0f2e7d632095642046baf969b",
+      "headersPath": "raw/overpass-de-c1-01.headers",
+      "responseHeaders": "HTTP/2 200 \nserver: nginx\ndate: Mon, 02 Nov 2026 20:10:34 GMT\ncontent-type: application/json\n\n",
+      "contentType": "application/json",
+      "totalSeconds": 38.721114,
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://www.openstreetmap.org/copyright",
+      "crs": "EPSG:4326",
+      "queryPath": "queries/c1-pedestrian.overpassql",
+      "querySha256": "fac721c78bdb229ae6c2cdc9fe014f72e985beab4cdd5c1c3aa45d46d4d38c3f",
+      "snapshotAt": "2026-11-02T20:09:06Z",
+      "overpassRemark": null,
+      "fetchSucceeded": true,
+      "useAsGeometryEvidence": true,
+      "limitBytes": 5242880,
+      "timeoutSeconds": 45,
+      "automaticRetries": 0,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "artifact_and_source_claim_not_field_verification"
+    },
+    "01-metro-root": {
+      "sourceId": "01-metro-root",
+      "url": "https://metro.mashhad.ir/",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:07:34.497989+00:00",
+      "retrievedAt": "2026-11-02T20:07:54.973790+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ReadTimeout: HTTPSConnectionPool(host='metro.mashhad.ir', port=443): Read timed out. (read timeout=20)",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/01-metro-root.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/01-metro-root.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Official Metro Mashhad homepage discovery; entrance/station-plan links sought",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "02-fhwa-walk": {
+      "sourceId": "02-fhwa-walk",
+      "url": "https://www.fhwa.dot.gov/publications/research/safety/pedbike/98107/section2.cfm",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:07:55.219887+00:00",
+      "retrievedAt": "2026-11-02T20:07:55.623145+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 24293,
+      "sha256": "34ee850b313cd42b6f878bfd5ba65109aed2ccf38a3776d8f73c9142025ac2c1",
+      "error": null,
+      "publicationDate": "1998-02",
+      "archiveCaptureAt": null,
+      "license": "source-noted distribution; see rightsNote",
+      "rightsNote": "US federal agency publication; individual third-party credits must be checked; archived for private R&D.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/02-fhwa-walk.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/02-fhwa-walk.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "FHWA-HRT-98-107 (web label); report PDF cover FHWA-RD-98-107. Section 2.2: crossing design 1.2 m/s, 1.0 for specified older-population condition. Not observed Mashhad speed.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "Date": "Mon, 02 Nov 2026 20:07:55 GMT",
+        "Content-Length": "24293"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "03-wiki-haft": {
+      "sourceId": "03-wiki-haft",
+      "url": "https://en.wikipedia.org/wiki/Haft-e-Tir_Metro_Station_(Mashhad_Metro)",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:08:23.875455+00:00",
+      "retrievedAt": "2026-11-02T20:08:24.452993+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 118055,
+      "sha256": "07e08a7f4aa9b053563130ff42682bfd5f02800d667d4f150b4d07fc12e69378",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "source-noted distribution; see rightsNote",
+      "rightsNote": "Wikipedia page text generally CC BY-SA; verify embedded media separately. Private research discovery copy.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/03-wiki-haft.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/03-wiki-haft.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Secondary discovery only: trace exact original operator and municipality references; no station geometry authority",
+      "sourceFreshness": "fresh_fetch_not_field_observation",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "date": "Mon, 02 Nov 2026 20:08:24 GMT",
+        "last-modified": "Fri, 30 Oct 2026 05:55:30 GMT",
+        "content-type": "text/html; charset=UTF-8"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "04-wiki-danesh": {
+      "sourceId": "04-wiki-danesh",
+      "url": "https://en.wikipedia.org/wiki/Danesh_Amuz_Metro_Station_(Mashhad_Metro)",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:08:26.503204+00:00",
+      "retrievedAt": "2026-11-02T20:08:26.966760+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 116713,
+      "sha256": "9ee37cc5d7fb75149b7b48a1b7d9a36e82d8161cd9bd5ef494bee54add160d18",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "source-noted distribution; see rightsNote",
+      "rightsNote": "Wikipedia page text generally CC BY-SA; verify embedded media separately. Private research discovery copy.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/04-wiki-danesh.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/04-wiki-danesh.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Secondary discovery only: trace exact original operator and municipality references; no station geometry authority",
+      "sourceFreshness": "fresh_fetch_not_field_observation",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "date": "Mon, 02 Nov 2026 20:08:26 GMT",
+        "last-modified": "Fri, 30 Oct 2026 05:55:30 GMT",
+        "content-type": "text/html; charset=UTF-8"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "05-fhwa-course": {
+      "sourceId": "05-fhwa-course",
+      "url": "https://www.fhwa.dot.gov/publications/research/safety/pedbike/05085/chapt8.cfm",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:08:27.246270+00:00",
+      "retrievedAt": "2026-11-02T20:08:27.672042+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 67329,
+      "sha256": "76da0a218cf083ee2aaf203bee9219f69bd4c9b2641bdd5ca2f6716f9141cc48",
+      "error": null,
+      "publicationDate": "2006-07",
+      "archiveCaptureAt": null,
+      "license": "source-noted distribution; see rightsNote",
+      "rightsNote": "US federal agency publication; third-party credits may apply; private R&D copy.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/05-fhwa-course.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/05-fhwa-course.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "FHWA-HRT-05-099 Lesson 8. Section 8.4: historical design clearance speed versus heterogeneous measured walking speeds. Not current MUTCD and not station timing.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "Date": "Mon, 02 Nov 2026 20:08:26 GMT",
+        "Content-Length": "67329"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "06-operator-buses-http": {
+      "sourceId": "06-operator-buses-http",
+      "url": "http://www.musroc.ir/Pages/Portal/RelatedBuses.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:09:52.524222+00:00",
+      "retrievedAt": "2026-11-02T20:09:52.668997+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ConnectionError: HTTPConnectionPool(host='www.musroc.ir', port=80): Max retries exceeded with url: /Pages/Portal/RelatedBuses.aspx (Caused by NameResolutionError(\"HTTPConnection(host='www.musroc.ir', port=80): Failed to resolve 'www.musroc.ir' ([Errno -2] Name or service not known)\"))",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/06-operator-buses-http.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/06-operator-buses-http.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Original operator page cited by both station articles; related buses only, plans unknown",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "07-operator-buses-https": {
+      "sourceId": "07-operator-buses-https",
+      "url": "https://www.musroc.ir/Pages/Portal/RelatedBuses.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:09:54.719228+00:00",
+      "retrievedAt": "2026-11-02T20:09:54.944854+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ConnectionError: HTTPSConnectionPool(host='www.musroc.ir', port=443): Max retries exceeded with url: /Pages/Portal/RelatedBuses.aspx (Caused by NameResolutionError(\"HTTPSConnection(host='www.musroc.ir', port=443): Failed to resolve 'www.musroc.ir' ([Errno -2] Name or service not known)\"))",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/07-operator-buses-https.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/07-operator-buses-https.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "HTTPS counterpart of station-reference operator URL; availability test",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "08-bus-map-pdf": {
+      "sourceId": "08-bus-map-pdf",
+      "url": "https://bus.mashhad.ir//parameters/mashhad/modules/cdk/upload/content/file_manager/136/1406460232152s0fo6il5732gr6cio20vatkuf6.pdf",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:09:56.409637+00:00",
+      "retrievedAt": "2026-11-02T20:10:16.960019+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ReadTimeout: HTTPSConnectionPool(host='bus.mashhad.ir', port=443): Read timed out. (read timeout=20)",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/08-bus-map-pdf.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/08-bus-map-pdf.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Exact municipality PDF reference traced from both station pages; plan content unknown until fetched",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "09-metro-http": {
+      "sourceId": "09-metro-http",
+      "url": "http://metro.mashhad.ir/",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:10:19.010456+00:00",
+      "retrievedAt": "2026-11-02T20:10:39.488435+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ReadTimeout: HTTPConnectionPool(host='metro.mashhad.ir', port=80): Read timed out. (read timeout=20)",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/09-metro-http.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/09-metro-http.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "HTTP availability and redirect discovery after HTTPS timeout",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "10-fhwa-freeflow": {
+      "sourceId": "10-fhwa-freeflow",
+      "url": "https://www.fhwa.dot.gov/publications/research/safety/pedbike/98107/section3.cfm",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:10:39.970866+00:00",
+      "retrievedAt": "2026-11-02T20:10:40.432525+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 109244,
+      "sha256": "d7adffddc7d89cf45ddff5aa072ad62921fd87a5d68e50aeee4ce41bcb49695b",
+      "error": null,
+      "publicationDate": "1998-02",
+      "archiveCaptureAt": null,
+      "license": "source-noted distribution; see rightsNote",
+      "rightsNote": "US federal publication; third-party credits may apply. Private R&D archive.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/10-fhwa-freeflow.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/10-fhwa-freeflow.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Section 3.3 Table 23 footnote c: pedestrian walkway free-flow reference 1.4 m/s; minimum versus actual travel time explicitly separated. Stairs table uses horizontal speed and LOS, not a local measurement.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "Date": "Mon, 02 Nov 2026 20:10:39 GMT",
+        "Content-Length": "109244"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "11-murco-root": {
+      "sourceId": "11-murco-root",
+      "url": "https://murco.mashhad.ir/",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:11:32.166026+00:00",
+      "retrievedAt": "2026-11-02T20:11:52.596497+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ReadTimeout: HTTPSConnectionPool(host='murco.mashhad.ir', port=443): Read timed out. (read timeout=20)",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/11-murco-root.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/11-murco-root.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Official urban-rail municipal domain discovered from Persian Mashhad metro article search; station-plan discovery",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "12-archive-operator": {
+      "sourceId": "12-archive-operator",
+      "url": "https://web.archive.org/web/20150714113237/http://www.musroc.ir/Pages/Portal/RelatedBuses.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:11:53.153303+00:00",
+      "retrievedAt": "2026-11-02T20:11:58.941221+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 230458,
+      "sha256": "f5143a32ca96988623ef12c8e14902cf81f45d028f037a0cad4771bf62471587",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": "2015-07-14T11:32:37Z",
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/12-archive-operator.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/12-archive-operator.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Original public operator related-bus page. Both C1 station names present; historical buses not entrance mapping.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:11:57 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "memento-datetime": "Tue, 14 Jul 2015 11:32:37 GMT"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "13-archive-map": {
+      "sourceId": "13-archive-map",
+      "url": "https://web.archive.org/web/20190808215743/https://bus.mashhad.ir//parameters/mashhad/modules/cdk/upload/content/file_manager/136/1406460232152s0fo6il5732gr6cio20vatkuf6.pdf",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:12:00.991389+00:00",
+      "retrievedAt": "2026-11-02T20:12:08.437396+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 2623478,
+      "sha256": "3677de2f70d76abd3b01e4cb9b6bc200c9ac594f792429fcee3656a62f60dfda",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": "2019-08-08T21:57:43Z",
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/13-archive-map.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/13-archive-map.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Municipal bus route guide, NOT a metro station plan. PDF creation metadata 2014-07-12T05:50:55Z is not publication date. No platform mapping extracted.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:12:05 GMT",
+        "Content-Type": "application/pdf",
+        "Content-Length": "2623478",
+        "memento-datetime": "Thu, 08 Aug 2019 21:57:43 GMT"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "14-tourism-link-discovery": {
+      "sourceId": "14-tourism-link-discovery",
+      "url": "https://www.mashhad-tourist.ir/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D9%82%D8%B7%D8%A7%D8%B1-%D8%B4%D9%87%D8%B1%DB%8C-%D9%85%D8%B4%D9%87%D8%AF/",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:12:08.954680+00:00",
+      "retrievedAt": "2026-11-02T20:12:12.918053+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 163827,
+      "sha256": "5f954802c760014a6a6aea4a54adaa4d99fece89f6d842b7a8dbfd6eafc36e29",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/14-tourism-link-discovery.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/14-tourism-link-discovery.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Discovery-only links to municipality route/map service; not operator fare/calendar authority",
+      "sourceFreshness": "fresh_fetch_not_field_observation",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:12:12 GMT",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "15-municipal-map-root": {
+      "sourceId": "15-municipal-map-root",
+      "url": "https://map.mashhad.ir/",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:12:38.591370+00:00",
+      "retrievedAt": "2026-11-02T20:12:59.043694+00:00",
+      "httpStatus": null,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": "ReadTimeout: HTTPSConnectionPool(host='map.mashhad.ir', port=443): Read timed out. (read timeout=20)",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/15-municipal-map-root.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/15-municipal-map-root.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Municipality map service discovered through public tourism page hyperlink; targeted station entrance layer discovery only",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {},
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "16-archive-station-map": {
+      "sourceId": "16-archive-station-map",
+      "url": "https://web.archive.org/web/20150714113237/http://www.musroc.ir/Pages/Portal/Map.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:13:41.583766+00:00",
+      "retrievedAt": "2026-11-02T20:13:44.037201+00:00",
+      "httpStatus": 302,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/16-archive-station-map.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/16-archive-station-map.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Public operator station/line map linked from retrieved historical page; seek C1 entrances and directional platforms; historical-only",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:13:43 GMT",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "0",
+        "location": "https://web.archive.org/web/20150722171314/http://www.musroc.ir/Pages/Portal/Map.aspx"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "17-archive-station-equipment": {
+      "sourceId": "17-archive-station-equipment",
+      "url": "https://web.archive.org/web/20150714113237/http://www.musroc.ir/Pages/Portal/EquipmentsInStations.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:13:46.087379+00:00",
+      "retrievedAt": "2026-11-02T20:13:48.149190+00:00",
+      "httpStatus": 302,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/17-archive-station-equipment.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/17-archive-station-equipment.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Public operator equipment/accessibility page linked from retrieved archive; historical-only station applicability must be explicit",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:13:48 GMT",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "0",
+        "location": "https://web.archive.org/web/20150709234224/http://www.musroc.ir/Pages/Portal/EquipmentsInStations.aspx"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "18-archive-ticket": {
+      "sourceId": "18-archive-ticket",
+      "url": "https://web.archive.org/web/20150714113237/http://www.musroc.ir/Pages/Portal/Ticket.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:13:50.199454+00:00",
+      "retrievedAt": "2026-11-02T20:13:52.508903+00:00",
+      "httpStatus": 302,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/18-archive-ticket.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/18-archive-ticket.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Optional historical fare reference; not current prices or validated calendar",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:13:52 GMT",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "0",
+        "location": "https://web.archive.org/web/20150722170256/http://www.musroc.ir/Pages/Portal/Ticket.aspx"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "19-archive-station-map-capture": {
+      "sourceId": "19-archive-station-map-capture",
+      "url": "https://web.archive.org/web/20150722171314/http://www.musroc.ir/Pages/Portal/Map.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:14:13.777988+00:00",
+      "retrievedAt": "2026-11-02T20:14:18.040736+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 90179,
+      "sha256": "4407b5787a51c5dcb074486e418f4643c0861d07ec17969cd891ea421fce271d",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": "2015-07-22T17:13:14Z",
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/19-archive-station-map-capture.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/19-archive-station-map-capture.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Original public operator map page embeds C1 station markers; point locations only, no entrance/platform/internal traversal mapping.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:14:17 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "memento-datetime": "Wed, 22 Jul 2015 17:13:14 GMT"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "20-archive-station-equipment-capture": {
+      "sourceId": "20-archive-station-equipment-capture",
+      "url": "https://web.archive.org/web/20150709234224/http://www.musroc.ir/Pages/Portal/EquipmentsInStations.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:14:20.090938+00:00",
+      "retrievedAt": "2026-11-02T20:14:22.193427+00:00",
+      "httpStatus": 401,
+      "fetchSucceeded": false,
+      "bytes": 16,
+      "sha256": "123b263cbdff912e77daea63a3c0c1c68639a59e3bb021bf3f40b7b17d35ce7a",
+      "error": "http_401",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/20-archive-station-equipment-capture.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/20-archive-station-equipment-capture.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Follow observed archive Location for operator access equipment; capture date 2015-07-09, publication unknown",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:14:22 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "16",
+        "memento-datetime": "Thu, 09 Jul 2015 23:42:24 GMT"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "21-archive-ticket-capture": {
+      "sourceId": "21-archive-ticket-capture",
+      "url": "https://web.archive.org/web/20150722170256/http://www.musroc.ir/Pages/Portal/Ticket.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:14:24.243714+00:00",
+      "retrievedAt": "2026-11-02T20:14:27.114162+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 67999,
+      "sha256": "a2d81dddd4aa52e463950ca03150fbc7c3bb9f6a68c2ef29fc23e47620b482b9",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": "2015-07-22T17:02:56Z",
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/21-archive-ticket-capture.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/21-archive-ticket-capture.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Historical ticket page links a fare image; image not acquired/read. No verified fare amount or current validity.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:14:26 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "memento-datetime": "Wed, 22 Jul 2015 17:02:56 GMT"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "22-fhwa-full-report": {
+      "sourceId": "22-fhwa-full-report",
+      "url": "https://www.fhwa.dot.gov/publications/research/safety/pedbike/98107/98107.pdf",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:16:25.064205+00:00",
+      "retrievedAt": "2026-11-02T20:16:25.690423+00:00",
+      "httpStatus": 200,
+      "fetchSucceeded": true,
+      "bytes": 610795,
+      "sha256": "6100c9b590c24314f299450c6fbb1fa7c576be45c3756182dd03eafe951dc67b",
+      "error": null,
+      "publicationDate": "1998-02",
+      "archiveCaptureAt": null,
+      "license": "source-noted distribution; see rightsNote",
+      "rightsNote": "PDF technical documentation page declares no distribution restrictions and public NTIS availability; third-party credits not exhaustively assessed. Private R&D archival copy.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/22-fhwa-full-report.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/22-fhwa-full-report.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Complete author-authored NCSU final report for FHWA: Rouphail, Hummer, Milazzo II, Allen. Cover report ID FHWA-RD-98-107. Documentation page distribution statement: no restrictions. Not a Mashhad calibration.",
+      "sourceFreshness": "historical_document_not_current_operations",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Content-Type": "application/pdf",
+        "Last-Modified": "Thu, 18 Feb 2010 18:57:40 GMT",
+        "Date": "Mon, 02 Nov 2026 20:16:24 GMT",
+        "Content-Length": "610795"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": true,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "23-archive-catalogs": {
+      "sourceId": "23-archive-catalogs",
+      "url": "https://web.archive.org/web/20150722171314/http://www.musroc.ir/Pages/Portal/Catalogs.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:16:44.681540+00:00",
+      "retrievedAt": "2026-11-02T20:16:46.164038+00:00",
+      "httpStatus": 302,
+      "fetchSucceeded": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error": null,
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/23-archive-catalogs.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/23-archive-catalogs.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Observed public brochure/catalogue navigation on official operator map page; seek station-internal diagrams only",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:16:46 GMT",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "0",
+        "location": "https://web.archive.org/web/20150722171815/http://www.musroc.ir/Pages/Portal/Catalogs.aspx"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    },
+    "24-archive-catalogs-capture": {
+      "sourceId": "24-archive-catalogs-capture",
+      "url": "https://web.archive.org/web/20150722171815/http://www.musroc.ir/Pages/Portal/Catalogs.aspx",
+      "method": "GET",
+      "startedAt": "2026-11-02T20:16:58.065788+00:00",
+      "retrievedAt": "2026-11-02T20:17:00.081205+00:00",
+      "httpStatus": 401,
+      "fetchSucceeded": false,
+      "bytes": 16,
+      "sha256": "123b263cbdff912e77daea63a3c0c1c68639a59e3bb021bf3f40b7b17d35ce7a",
+      "error": "http_401",
+      "publicationDate": null,
+      "archiveCaptureAt": null,
+      "license": "unknown",
+      "rightsNote": "Rights not declared/unknown; public response archived for private R&D only.",
+      "privateRawArchivePath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/24-archive-catalogs-capture.body",
+      "privateRawMetadataPath": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/official-research/24-archive-catalogs-capture.metadata.json",
+      "rawIncludedInRepo": false,
+      "evidenceScope": "Follow observed archive Location for public operator brochures; historical data only, not live station validation",
+      "sourceFreshness": "no_successful_content",
+      "useAsGeometryEvidence": false,
+      "responseHeaderSummary": {
+        "Date": "Mon, 02 Nov 2026 20:17:00 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "16",
+        "memento-datetime": "Wed, 22 Jul 2015 17:18:15 GMT"
+      },
+      "timeout": {
+        "connect": 20,
+        "read": 20
+      },
+      "bodyLimit": 3145728,
+      "artifactIntegrityVerified": true,
+      "verifiedArtifact": false,
+      "assurance": "historical_or_discovery_document_not_platform_path_proof"
+    }
+  },
+  "internalSources": {
+    "besrah:approved-r2a": {
+      "sourceId": "besrah:approved-r2a",
+      "kind": "local_derived",
+      "artifactPath": "data/geospatial/r2bd1-c1-v1/derived/r2a-c1-platform-only-replay.json",
+      "sha256": "de90c86cfbddd2db0d266276da84f0b0b979493803c42331ee5c4c40327e9918",
+      "baseCommit": "a04d19d5ffff0ee6563bd7dc1f179af0c386bd16",
+      "modelVersion": "sha256:51ce05b4c0b67e221bde84573497ea16c56fb6802410886ef7ef2bbf0a50a009",
+      "networkSha256": "b77dfaa099f9cfaf69c248ceec35e3aa514029a088bcf93afbda0bcd3ae9a7ba",
+      "live": false,
+      "method": "Unchanged approved R2a planJourney/createModelSource; historical platform-only replay, no street connectors",
+      "executionTree": "/root/projects/besrah-r2a"
+    }
+  },
+  "acquisitionRequestCount": 29,
+  "httpStatusCounts": {
+    "200": 16,
+    "None": 7,
+    "302": 4,
+    "401": 2
+  },
+  "topology": {
+    "schemaVersion": 1,
+    "packageVersion": "r2bd1-c1-v1",
+    "sourceId": "overpass-de-c1-01",
+    "sourceSha256": "c47f70328055f52924f04be961494e34dbd5abd0f2e7d632095642046baf969b",
+    "sourceSnapshotAt": "2026-11-02T20:09:06Z",
+    "sourceRetrievedAt": "2026-11-02T20:10:35.078836+00:00",
+    "crs": "EPSG:4326",
+    "coordinateAccuracyMeters": null,
+    "counts": {
+      "elements": 951,
+      "types": {
+        "node": 745,
+        "relation": 2,
+        "way": 204
+      },
+      "highwayWays": 198,
+      "entrances": 6,
+      "railwayPlatformWays": 2
+    },
+    "tagCounts": {
+      "highway": {
+        "bus_stop": 16,
+        "crossing": 8,
+        "cycleway": 1,
+        "footway": 41,
+        "path": 1,
+        "pedestrian": 3,
+        "residential": 80,
+        "secondary": 25,
+        "secondary_link": 2,
+        "service": 6,
+        "steps": 10,
+        "tertiary": 8,
+        "tertiary_link": 1,
+        "traffic_signals": 2,
+        "trunk": 5,
+        "trunk_link": 15,
+        "turning_circle": 1
+      },
+      "foot": {
+        "yes": 1
+      },
+      "foot:conditional": {},
+      "access": {
+        "destination": 2
+      },
+      "access:conditional": {},
+      "barrier": {
+        "block": 1,
+        "fence": 1,
+        "gate": 1,
+        "wall": 2
+      },
+      "sidewalk": {
+        "both": 35,
+        "right": 8
+      },
+      "crossing": {},
+      "crossing:signals": {},
+      "surface": {
+        "asphalt": 94,
+        "metal": 3,
+        "paving_stones": 2
+      },
+      "smoothness": {},
+      "lit": {
+        "yes": 14
+      },
+      "wheelchair": {
+        "yes": 1
+      },
+      "level": {
+        "3": 1
+      },
+      "layer": {
+        "-1": 5,
+        "1": 3,
+        "2": 2
+      },
+      "bridge": {
+        "yes": 5
+      },
+      "tunnel": {
+        "yes": 3
+      },
+      "indoor": {},
+      "opening_hours": {
+        "08:00-22:00": 1,
+        "24/7": 1
+      },
+      "oneway:foot": {},
+      "incline": {
+        "up": 8
+      },
+      "ramp": {
+        "no": 2
+      },
+      "width": {
+        "1.5": 1
+      },
+      "step_count": {},
+      "railway": {
+        "platform": 2,
+        "station": 2,
+        "stop": 4,
+        "subway_entrance": 6
+      },
+      "public_transport": {
+        "platform": 10,
+        "station": 2,
+        "stop_area": 2,
+        "stop_position": 20
+      },
+      "name": {
+        "آموزش": 3,
+        "استاد معین ۵": 1,
+        "ایستگاه حافظ": 1,
+        "ایستگاه دانش آموز": 2,
+        "ایستگاه دانش آموز ۱۱": 1,
+        "ایستگاه دانش آموز ۱۲": 1,
+        "ایستگاه دانش آموز ۳": 1,
+        "ایستگاه دانشجو": 2,
+        "ایستگاه دانشجو ۸": 2,
+        "ایستگاه شهید صیاد شیرازی": 1,
+        "ایستگاه صدف": 1,
+        "ایستگاه فرهنگ ۲۲": 1,
+        "ایستگاه مترو دانش آموز": 4,
+        "ایستگاه مترو هفت تیر": 4,
+        "ایستگاه میدان دانش آموز": 2,
+        "ایستگاه هفت تیر": 2,
+        "ایستگاه هفت تیر ۵": 2,
+        "ایستگاه هفت تیر ۶": 1,
+        "ایستگاه هنرستان": 2,
+        "ایستگاه پارک گلها": 2,
+        "بزرگراه وکیل آباد": 5,
+        "بلوار هنرستان": 3,
+        "بلوار هنرستان 6": 1,
+        "بولوار دانش آموز": 4,
+        "بولوار دانشجو": 6,
+        "بولوار فرهنگ": 4,
+        "بولوار هفت تیر": 5,
+        "بیمارستان دامپزشکی آفتاب": 1,
+        "جنوب شرقی": 1,
+        "جنوب غربی": 1,
+        "جنوبی": 1,
+        "دانشجو ۹": 1,
+        "زیرگذر دانش آموز": 1,
+        "زیرگذر هفت تیر": 2,
+        "سامانیه ۱": 1,
+        "شمال شرقی": 1,
+        "شمال غربی": 1,
+        "شمالی": 1,
+        "صارمی ۳۷": 1,
+        "فروشگاه پخش قهوه دونچی": 1,
+        "قائم مقام فراهانی": 1,
+        "مرکز بهداشت شماره ۱": 1,
+        "مسجد فاطمه الزهرا": 1,
+        "میثاق": 2,
+        "میثاق ۱": 1,
+        "میثاق ۱/۲": 1,
+        "میثاق ۱/۴": 1,
+        "میدان دانش آموز": 6,
+        "هفت تیر": 1,
+        "هفت تیر ۱": 1,
+        "هفت تیر ۲": 2,
+        "هفت تیر ۳": 2,
+        "هفت تیر ۳/۲": 1,
+        "هفت تیر ۴": 2,
+        "هفت تیر ۶": 1,
+        "هنرستان ۲": 1,
+        "وکیل آباد ۲۲": 1,
+        "وکیل آباد ۳۵": 2,
+        "وکیل آباد۲۹": 1,
+        "وکیل آباد۳۱": 1,
+        "پرورش": 1,
+        "پل هفت تیر": 2,
+        "کوچه دانش آموز ۱": 1,
+        "کوچه دانش آموز ۱۰": 1,
+        "کوچه دانش آموز ۱۱": 1,
+        "کوچه دانش آموز ۱۲": 1,
+        "کوچه دانش آموز ۲": 1,
+        "کوچه دانش آموز ۳": 1,
+        "کوچه دانش آموز ۴": 1,
+        "کوچه دانش آموز ۵": 1,
+        "کوچه دانش آموز ۶": 1,
+        "کوچه دانش آموز ۷": 1,
+        "کوچه دانش آموز ۸": 1,
+        "کوچه دانش آموز ۹": 1,
+        "کوچه دانشجو ۱": 1,
+        "کوچه دانشجو ۲": 1,
+        "کوچه دانشجو ۳": 1,
+        "کوچه دانشجو ۴": 1,
+        "کوچه دانشجو ۵": 1,
+        "کوچه دانشجو ۶": 1,
+        "کوچه دانشجو ۸": 1,
+        "کوچه قائم مقام فراهانی ۱": 1,
+        "کوچه قائم مقام فراهانی ۳": 1,
+        "کوچه ۱۰ آموزش": 1,
+        "کوچه ۲ آموزش": 1,
+        "کوچه ۴ آموزش": 1,
+        "کوچه ۶ آموزش": 1,
+        "کوچه ۸ آموزش": 1,
+        "گلستان": 2,
+        "گلستان ۱": 1,
+        "گلشن": 1,
+        "گلشن - هفت تیر ۸": 1,
+        "گلشن غربی": 1,
+        "گلشن غربی - هفت تیر ۵": 1,
+        "گلشن ۱": 1,
+        "گلشن ۲": 1,
+        "گلشن ۴": 1,
+        "گلشن ۶/۴": 1,
+        "۲۰ وکیل آباد": 1,
+        "۲۴ وکیل آباد": 1,
+        "۲۶ وکیل آباد": 1
+      },
+      "ref": {
+        "1040": 1,
+        "1041": 1,
+        "1042": 1,
+        "1044": 1,
+        "1045": 1,
+        "1046": 1,
+        "1298": 1,
+        "1299": 1,
+        "1384": 1,
+        "1385": 1,
+        "1885": 1,
+        "1907": 1,
+        "1909": 1,
+        "1910": 1,
+        "5115": 1,
+        "5217": 1
+      }
+    },
+    "entrancesByStation": {
+      "METRO-107": [
+        "osm:node:1030590026",
+        "osm:node:1030590103",
+        "osm:node:1999516718",
+        "osm:node:1999516717"
+      ],
+      "METRO-108": [
+        "osm:node:1030590123",
+        "osm:node:1030590063"
+      ]
+    },
+    "entrances": [
+      {
+        "id": "osm:node:1030590026",
+        "entranceId": "osm:node:1030590026",
+        "stationId": "METRO-107",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 6,
+        "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+        "observedAt": null,
+        "lat": 36.3278665,
+        "lon": 59.5011025,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "sourceTags": {
+          "name": "شمال شرقی",
+          "name:en": "Northeast",
+          "railway": "subway_entrance"
+        },
+        "stopAreaId": "osm:relation:3156528",
+        "memberRole": "",
+        "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+        "assurance": "public_source_claim",
+        "fieldVerification": "unverified",
+        "directionalPlatformId": null,
+        "connectedHighwayWayIds": [
+          "osm:way:88807904",
+          "osm:way:531913241"
+        ],
+        "physicalAccessStatus": "undetermined"
+      },
+      {
+        "id": "osm:node:1030590063",
+        "entranceId": "osm:node:1030590063",
+        "stationId": "METRO-108",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 5,
+        "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+        "observedAt": null,
+        "lat": 36.3246418,
+        "lon": 59.5092179,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "sourceTags": {
+          "name": "جنوبی",
+          "name:en": "South",
+          "railway": "subway_entrance"
+        },
+        "stopAreaId": "osm:relation:3156522",
+        "memberRole": "",
+        "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+        "assurance": "public_source_claim",
+        "fieldVerification": "unverified",
+        "directionalPlatformId": null,
+        "connectedHighwayWayIds": [
+          "osm:way:163269413",
+          "osm:way:531913235"
+        ],
+        "physicalAccessStatus": "undetermined"
+      },
+      {
+        "id": "osm:node:1030590103",
+        "entranceId": "osm:node:1030590103",
+        "stationId": "METRO-107",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 5,
+        "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+        "observedAt": null,
+        "lat": 36.3272289,
+        "lon": 59.500901,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "sourceTags": {
+          "name": "جنوب شرقی",
+          "name:en": "Southeast",
+          "railway": "subway_entrance"
+        },
+        "stopAreaId": "osm:relation:3156528",
+        "memberRole": "",
+        "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+        "assurance": "public_source_claim",
+        "fieldVerification": "unverified",
+        "directionalPlatformId": null,
+        "connectedHighwayWayIds": [
+          "osm:way:88807946",
+          "osm:way:531913240"
+        ],
+        "physicalAccessStatus": "undetermined"
+      },
+      {
+        "id": "osm:node:1030590123",
+        "entranceId": "osm:node:1030590123",
+        "stationId": "METRO-108",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 5,
+        "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+        "observedAt": null,
+        "lat": 36.3252162,
+        "lon": 59.5095125,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "sourceTags": {
+          "name": "شمالی",
+          "name:en": "North",
+          "railway": "subway_entrance"
+        },
+        "stopAreaId": "osm:relation:3156522",
+        "memberRole": "",
+        "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+        "assurance": "public_source_claim",
+        "fieldVerification": "unverified",
+        "directionalPlatformId": null,
+        "connectedHighwayWayIds": [
+          "osm:way:163269462",
+          "osm:way:531913236"
+        ],
+        "physicalAccessStatus": "undetermined"
+      },
+      {
+        "id": "osm:node:1999516717",
+        "entranceId": "osm:node:1999516717",
+        "stationId": "METRO-107",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 4,
+        "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+        "observedAt": null,
+        "lat": 36.3275829,
+        "lon": 59.4997933,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "sourceTags": {
+          "name": "جنوب غربی",
+          "name:en": "Southwest",
+          "railway": "subway_entrance"
+        },
+        "stopAreaId": "osm:relation:3156528",
+        "memberRole": "",
+        "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+        "assurance": "public_source_claim",
+        "fieldVerification": "unverified",
+        "directionalPlatformId": null,
+        "connectedHighwayWayIds": [
+          "osm:way:189308669",
+          "osm:way:531913237"
+        ],
+        "physicalAccessStatus": "undetermined"
+      },
+      {
+        "id": "osm:node:1999516718",
+        "entranceId": "osm:node:1999516718",
+        "stationId": "METRO-107",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 4,
+        "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+        "observedAt": null,
+        "lat": 36.3281758,
+        "lon": 59.5000237,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "sourceTags": {
+          "name": "شمال غربی",
+          "name:en": "Northwest",
+          "railway": "subway_entrance"
+        },
+        "stopAreaId": "osm:relation:3156528",
+        "memberRole": "",
+        "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+        "assurance": "public_source_claim",
+        "fieldVerification": "unverified",
+        "directionalPlatformId": null,
+        "connectedHighwayWayIds": [
+          "osm:way:189308670",
+          "osm:way:531913239"
+        ],
+        "physicalAccessStatus": "undetermined"
+      }
+    ],
+    "platforms": [
+      {
+        "id": "osm:way:618773155",
+        "platformId": "osm:way:618773155",
+        "stationId": "METRO-108",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 3,
+        "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+        "direction": null,
+        "level": null,
+        "sourceTags": {
+          "covered": "yes",
+          "light_rail": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeIds": [
+          "osm:node:5848352591",
+          "osm:node:5848352590",
+          "osm:node:5848352589",
+          "osm:node:5848352588",
+          "osm:node:5848352587",
+          "osm:node:5848352586",
+          "osm:node:5848352591"
+        ],
+        "sharedHighwayNodeIds": [],
+        "assurance": "public_source_claim_not_physical_connection"
+      },
+      {
+        "id": "osm:way:618773156",
+        "platformId": "osm:way:618773156",
+        "stationId": "METRO-108",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 3,
+        "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+        "direction": null,
+        "level": null,
+        "sourceTags": {
+          "covered": "yes",
+          "light_rail": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeIds": [
+          "osm:node:5848352595",
+          "osm:node:5848352594",
+          "osm:node:5848352585",
+          "osm:node:5848352284",
+          "osm:node:5848352593",
+          "osm:node:5848352592",
+          "osm:node:5848352595"
+        ],
+        "sharedHighwayNodeIds": [],
+        "assurance": "public_source_claim_not_physical_connection"
+      }
+    ],
+    "publicPoints": [
+      {
+        "id": "d1:point:A",
+        "stationId": "METRO-107",
+        "sourceNodeId": "osm:node:7033302509",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 2,
+        "sourceLastEditedAt": "2021-08-20T10:19:54Z",
+        "observedAt": null,
+        "lat": 36.3279221,
+        "lon": 59.5011058,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "fieldVerification": "unverified",
+        "assurance": "public_source_geometry_not_field_survey",
+        "boundary": "Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913241; proposed standing start/end, not a station center or private address",
+        "standingSpaceVerified": false
+      },
+      {
+        "id": "d1:point:B",
+        "stationId": "METRO-108",
+        "sourceNodeId": "osm:node:5162609067",
+        "sourceId": "overpass-de-c1-01",
+        "sourceVersion": 2,
+        "sourceLastEditedAt": "2021-08-20T10:33:22Z",
+        "observedAt": null,
+        "lat": 36.3253283,
+        "lon": 59.5095642,
+        "crs": "EPSG:4326",
+        "accuracyMeters": null,
+        "fieldVerification": "unverified",
+        "assurance": "public_source_geometry_not_field_survey",
+        "boundary": "Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913236; proposed standing start/end, not a station center or private address",
+        "standingSpaceVerified": false
+      }
+    ],
+    "outdoorCandidates": [
+      {
+        "id": "d1:outdoor:METRO-107",
+        "pointId": "d1:point:A",
+        "entranceId": "osm:node:1030590026",
+        "sourceWayId": "osm:way:531913241",
+        "sourceId": "overpass-de-c1-01",
+        "stationId": "METRO-107",
+        "nodeIds": [
+          "osm:node:7033302509",
+          "osm:node:1030590026"
+        ],
+        "sourceTags": {
+          "highway": "footway"
+        },
+        "lengthMeters2DFromSourceGeometry": 6.19,
+        "lengthMethod": "Spherical polyline from exact source node coordinates, mean radius6371008.8m; approximate geometry length, unknown source positional error. Not an air-distance walk proxy.",
+        "mappedTopology": "pass",
+        "physicalPassability": "undetermined",
+        "permittedDirections": "unknown",
+        "barrier": "unknown",
+        "surface": null,
+        "levels": [
+          null,
+          null
+        ],
+        "timing": {
+          "seconds": null,
+          "method": null,
+          "sourceIds": []
+        }
+      },
+      {
+        "id": "d1:outdoor:METRO-108",
+        "pointId": "d1:point:B",
+        "entranceId": "osm:node:1030590123",
+        "sourceWayId": "osm:way:531913236",
+        "sourceId": "overpass-de-c1-01",
+        "stationId": "METRO-108",
+        "nodeIds": [
+          "osm:node:5162609067",
+          "osm:node:1030590123"
+        ],
+        "sourceTags": {
+          "highway": "footway"
+        },
+        "lengthMeters2DFromSourceGeometry": 13.298,
+        "lengthMethod": "Spherical polyline from exact source node coordinates, mean radius6371008.8m; approximate geometry length, unknown source positional error. Not an air-distance walk proxy.",
+        "mappedTopology": "pass",
+        "physicalPassability": "undetermined",
+        "permittedDirections": "unknown",
+        "barrier": "unknown",
+        "surface": null,
+        "levels": [
+          null,
+          null
+        ],
+        "timing": {
+          "seconds": null,
+          "method": null,
+          "sourceIds": []
+        }
+      }
+    ],
+    "registryDisagreements": [
+      {
+        "stationId": "METRO-107",
+        "registryLat": 36.32747,
+        "registryLon": 59.500774,
+        "osmStationNodeId": "osm:node:5162609074",
+        "osmLat": 36.3277382,
+        "osmLon": 59.5004042,
+        "separationMeters2D": 44.574,
+        "interpretation": "Different source positions/possibly roles; not proof either source is wrong. Baseline unchanged; not snapped."
+      },
+      {
+        "stationId": "METRO-108",
+        "registryLat": 36.3263889,
+        "registryLon": 59.5069444,
+        "osmStationNodeId": "osm:node:5162609068",
+        "osmLat": 36.3251818,
+        "osmLon": 59.5086023,
+        "separationMeters2D": 200.188,
+        "interpretation": "Different source positions/possibly roles; not proof either source is wrong. Baseline unchanged; not snapped."
+      }
+    ],
+    "railPlatformDefinitionMissingFor": [
+      "METRO-107"
+    ],
+    "artificialConnectorsCreated": false,
+    "physicalPassabilityCertified": false,
+    "importantDistinctions": [
+      "OSM source last-edit timestamps are not field observation times.",
+      "Stop-area membership groups objects, but does not assert a walkable connection or directional platform access.",
+      "A station underpass may only cross a road; its existence is not evidence of a platform branch.",
+      "No source coordinate is silently substituted into network.json.",
+      "Fresh download does not make an old or unobserved feature physically verified."
+    ]
+  },
+  "timingModel": {
+    "kind": "documentation_only_candidate",
+    "source_ids": [
+      "10-fhwa-freeflow",
+      "22-fhwa-full-report",
+      "02-fhwa-walk",
+      "05-fhwa-course"
+    ],
+    "publication_date": "1998-02 (primary report); 2006-07 (teaching guidance)",
+    "formula": "t_motion_seconds = verified_walkable_path_length_m / scenario_speed_m_per_s",
+    "level_unimpeded_walkway_candidate_m_per_s": 1.4,
+    "candidate_evidence_location": "Report Section 3.3, Table 23 footnote c: 1.4 m/s free-flow speed for pedestrian walkways",
+    "status": "Literature-based reference assumption only; not observed/local-calibrated speed, not a probability bound, not adopted into Planner",
+    "crossing_design_values_m_per_s": [
+      1.2,
+      1.0
+    ],
+    "crossing_values_scope": "Historical Section 2.2 crossing/time-limited-facility design values; do NOT relabel as actual trip walking speeds or current standard",
+    "unknown_components": [
+      "verified C1 entrance-to-directional-platform pedestrian path length",
+      "stairs ascent/descent length/grade and usable route",
+      "faregate/security/queue time",
+      "crossing signal wait",
+      "crowding/congestion",
+      "elevator/escalator availability and wait",
+      "wayfinding delay",
+      "actual user speed and mobility needs"
+    ],
+    "unusable_as_total": "Do not set unknown station, stair or wait durations to zero; no complete street-to-platform time can be asserted. No straight-line center distance substitutes for walkable geometry."
+  },
+  "historicalOfficialMarkers": [
+    {
+      "raw_marker": {
+        "Address": null,
+        "AutoPan": true,
+        "Bouncy": false,
+        "Clickable": true,
+        "Draggable": false,
+        "DragCrossMove": false,
+        "IconAnchor": {
+          "X": 8,
+          "Y": 16
+        },
+        "IconSize": {
+          "Height": 16,
+          "Width": 16
+        },
+        "IconUrl": null,
+        "InfoWindowAnchor": {
+          "X": 0,
+          "Y": 0
+        },
+        "Latitude": 36.32766,
+        "Longitude": 59.50034,
+        "MaxZoom": null,
+        "MinZoom": null,
+        "OpenInfoBehaviour": 0,
+        "ShadowSize": {
+          "Height": 16,
+          "Width": 16
+        },
+        "ShadowUrl": null,
+        "Text": "<div class='ParnianMapPointInfo'><div class=\"ExternalClassB51ABEBFA736489B8AACECAD656E489E\"><p>​ایستگاه هفت تير​</p></div><div/>",
+        "Title": "ایستگاه هفت تير"
+      },
+      "source_byte_character_offset": 64236,
+      "source_body": "19-archive-station-map-capture.body",
+      "scope": "Historical station marker only; not entrance, platform or current verification"
+    },
+    {
+      "raw_marker": {
+        "Address": null,
+        "AutoPan": true,
+        "Bouncy": false,
+        "Clickable": true,
+        "Draggable": false,
+        "DragCrossMove": false,
+        "IconAnchor": {
+          "X": 8,
+          "Y": 16
+        },
+        "IconSize": {
+          "Height": 16,
+          "Width": 16
+        },
+        "IconUrl": null,
+        "InfoWindowAnchor": {
+          "X": 0,
+          "Y": 0
+        },
+        "Latitude": 36.325173,
+        "Longitude": 59.508977,
+        "MaxZoom": null,
+        "MinZoom": null,
+        "OpenInfoBehaviour": 0,
+        "ShadowSize": {
+          "Height": 16,
+          "Width": 16
+        },
+        "ShadowUrl": null,
+        "Text": "<div class='ParnianMapPointInfo'><div class=\"ExternalClassA9658838ADBE47A8B22C621B00612C31\"><p>ایستگاه دانش آموز​</p></div><div/>",
+        "Title": "ایستگاه دانش آموز"
+      },
+      "source_byte_character_offset": 80594,
+      "source_body": "19-archive-station-map-capture.body",
+      "scope": "Historical station marker only; not entrance, platform or current verification"
+    }
+  ],
+  "fare": {
+    "requiredForTimeGate": false,
+    "status": "undetermined",
+    "value": null
+  },
+  "prospectiveServiceCalendar": {
+    "status": "undetermined",
+    "testDateSelected": false,
+    "note": "Historical R2a replay does not validate holidays or future service."
+  },
+  "evidenceReview": {
+    "physicalPassageNotAutomaticallyCertified": true,
+    "mappedMembershipNotInternalConnection": true,
+    "freshFetchNotFieldObservation": true
+  },
+  "plannerImplemented": false,
+  "fullAtoBDurationComputed": false,
+  "fullAtoBDurationSeconds": null,
+  "fieldEtaAccuracyClaimed": false,
+  "publicApiAdded": false,
+  "productionChanged": false,
+  "remainingMinimum": [
+    "Confirm A/B public standing boundaries and positional/source uncertainty.",
+    "Confirm both short outdoor paths, directions, barriers, surfaces/levels and timing.",
+    "Provide the four directional entrance-to-platform/platform-to-exit internal chains with observed or source-supported time accounting.",
+    "Choose an explicit service-date/calendar policy for a future internal modeled test."
+  ],
+  "stop": "Owner approval of a separate R2b-B design is required even if a later data Gate passes."
+}

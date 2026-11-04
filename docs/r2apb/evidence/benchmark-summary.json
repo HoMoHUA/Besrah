@@ -1,0 +1,155 @@
+{
+ "codeHead": "404cbed6b8f7059c5008a6cb7360774f3d493efa",
+ "node": "v22.23.4",
+ "cgroup": "MemoryMax=192M MemorySwapMax=0 TasksMax=64",
+ "budgets": {
+  "warmP95Ms": 80,
+  "coldMs": 250,
+  "concurrentP95Ms": 150,
+  "churnP95Ms": 200,
+  "nextP95Ms": 50,
+  "nextDeltaP95Ms": 30,
+  "feedbackP95Ms": 50,
+  "reopenMs": 500,
+  "eventLoopP95Ms": 30,
+  "eventLoopMaxMs": 150,
+  "rssMiB": 170,
+  "cgroupPeakMiB": 184
+ },
+ "runs": [
+  {
+   "run": "n100-a",
+   "iterations": 100,
+   "verdict": "WITHIN_BUDGETS",
+   "failures": [],
+   "coldMs": 87.0,
+   "warmP95": 7.2,
+   "concurrentP95": 12.0,
+   "churnP95": 51.2,
+   "nextContendedP95": 5.1,
+   "nextDeltaP95": 3.2,
+   "eventLoopP95": 25.5,
+   "eventLoopMax": 48.0,
+   "feedbackP95": 8.9,
+   "reopenMs": 440,
+   "serverRssMiB": 138.7,
+   "cgroupPeakMiB": 153.8,
+   "oomKill": 0,
+   "defaultBurst": {
+    "200": 2,
+    "429": 118
+   },
+   "feedbackBurst": {
+    "201": 1,
+    "429": 29
+   },
+   "modelFault": {
+    "faultStatus": 200,
+    "faultResult": "insufficient_data",
+    "recoveredOptions": 5
+   },
+   "storageFaultStatus": 503
+  },
+  {
+   "run": "n100-b",
+   "iterations": 100,
+   "verdict": "WITHIN_BUDGETS",
+   "failures": [],
+   "coldMs": 100.2,
+   "warmP95": 8.0,
+   "concurrentP95": 12.2,
+   "churnP95": 50.5,
+   "nextContendedP95": 5.3,
+   "nextDeltaP95": 1.6,
+   "eventLoopP95": 25.9,
+   "eventLoopMax": 39.7,
+   "feedbackP95": 11.6,
+   "reopenMs": 472,
+   "serverRssMiB": 142.5,
+   "cgroupPeakMiB": 150.3,
+   "oomKill": 0,
+   "defaultBurst": {
+    "200": 2,
+    "429": 118
+   },
+   "feedbackBurst": {
+    "201": 1,
+    "429": 29
+   },
+   "modelFault": {
+    "faultStatus": 200,
+    "faultResult": "insufficient_data",
+    "recoveredOptions": 5
+   },
+   "storageFaultStatus": 503
+  },
+  {
+   "run": "n100-c",
+   "iterations": 100,
+   "verdict": "WITHIN_BUDGETS",
+   "failures": [],
+   "coldMs": 92.6,
+   "warmP95": 6.9,
+   "concurrentP95": 12.3,
+   "churnP95": 51.9,
+   "nextContendedP95": 8.6,
+   "nextDeltaP95": 6.6,
+   "eventLoopP95": 25.2,
+   "eventLoopMax": 39.6,
+   "feedbackP95": 9.2,
+   "reopenMs": 448,
+   "serverRssMiB": 142.9,
+   "cgroupPeakMiB": 152.3,
+   "oomKill": 0,
+   "defaultBurst": {
+    "200": 2,
+    "429": 118
+   },
+   "feedbackBurst": {
+    "201": 1,
+    "429": 29
+   },
+   "modelFault": {
+    "faultStatus": 200,
+    "faultResult": "insufficient_data",
+    "recoveredOptions": 5
+   },
+   "storageFaultStatus": 503
+  },
+  {
+   "run": "n300",
+   "iterations": 300,
+   "verdict": "WITHIN_BUDGETS",
+   "failures": [],
+   "coldMs": 94.1,
+   "warmP95": 6.9,
+   "concurrentP95": 11.6,
+   "churnP95": 53.2,
+   "nextContendedP95": 4.6,
+   "nextDeltaP95": 2.0,
+   "eventLoopP95": 25.0,
+   "eventLoopMax": 45.9,
+   "feedbackP95": 8.6,
+   "reopenMs": 414,
+   "serverRssMiB": 146.6,
+   "cgroupPeakMiB": 181.2,
+   "oomKill": 0,
+   "defaultBurst": {
+    "200": 2,
+    "429": 118
+   },
+   "feedbackBurst": {
+    "201": 1,
+    "429": 29
+   },
+   "modelFault": {
+    "faultStatus": 200,
+    "faultResult": "insufficient_data",
+    "recoveredOptions": 5
+   },
+   "storageFaultStatus": 503
+  }
+ ],
+ "contendedRunEarlier": "2 spinning processes on 4 cores, same code lineage: WITHIN_BUDGETS, event loop p95 26.3 ms, API-old p95 11.4 ms",
+ "note": "Synthetic loopback benchmark on a shared 4-core host, not an SLO. Production admits at most 60 journey requests/min and 30 feedback attempts/min."
+}

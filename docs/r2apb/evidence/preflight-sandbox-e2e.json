@@ -1,0 +1,255 @@
+{
+  "stage": "/var/lib/besrah-preflight/srv",
+  "port": 18870,
+  "unitProperties": "MemoryMax=201326592\nUMask=0077\nDynamicUser=yes\nPrivateTmp=yes\nProtectHome=yes\nProtectSystem=strict\nNoNewPrivileges=yes\nStateDirectory=besrah-pb-preflight\n",
+  "stateListingBeforeCleanup": {
+    "feedback": {
+      "mode": "0o700",
+      "uid": 62037,
+      "size": 4096
+    },
+    "feedback/.feedback.lock": {
+      "mode": "0o600",
+      "uid": 62037,
+      "size": 44
+    },
+    "feedback/feedback-2026-11.jsonl": {
+      "mode": "0o600",
+      "uid": 62037,
+      "size": 5850
+    },
+    "feedback/rejections-2026-11.json": {
+      "mode": "0o600",
+      "uid": 62037,
+      "size": 133
+    }
+  },
+  "note": "Synthetic feedback in a disposable DynamicUser StateDirectory; not field evidence.",
+  "results": [
+    {
+      "check": "A0 unit runs with DynamicUser + ProtectSystem=strict + ProtectHome + NoNewPrivileges + MemoryMax=192M",
+      "result": "PASS",
+      "detail": "MemoryMax=201326592 UMask=0077 DynamicUser=yes PrivateTmp=yes ProtectHome=yes ProtectSystem=strict NoNewPrivileges=yes StateDirectory=besrah-pb-preflight "
+    },
+    {
+      "check": "A1 flag off: /app/api/beta reports disabled",
+      "result": "PASS",
+      "detail": "{\"journey\": {\"enabled\": false, \"rolloutPercent\": 0, \"feedbackEnabled\": false, \"calendarMode\": \"weekday_baseline\", \"horizonDays\": 7, \"windowMinutes\": 120}}"
+    },
+    {
+      "check": "A2 flag off: journey API is 404 (server-side, not UI hiding)",
+      "result": "PASS",
+      "detail": 404
+    },
+    {
+      "check": "A3 flag off: feedback POST is 404",
+      "result": "PASS",
+      "detail": 404
+    },
+    {
+      "check": "A4 flag off: existing /app/api/next still 200",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "A5 flag off: existing /app/api/trains still 200",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "A6 Mini App shell served with CSP",
+      "result": "PASS",
+      "detail": "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org"
+    },
+    {
+      "check": "A7 flag off: no state or feedback directory content created",
+      "result": "PASS",
+      "detail": "{}"
+    },
+    {
+      "check": "B1 beta on: journey 200, beta/modelOnly/live=false, no-store",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "B2 beta on: real options with HH:MM times (no seconds) and estimated calendar warning on non-Friday or known label",
+      "result": "PASS",
+      "detail": "{\"status\": \"partial\", \"options\": 5, \"calendar\": \"estimated\"}"
+    },
+    {
+      "check": "B3 valid anonymous feedback persisted in StateDirectory (201 only after durable write)",
+      "result": "PASS",
+      "detail": "[201, {\"status\": \"stored\", \"reportId\": \"44ca3a192c36415a8e90f46fa07f2242\", \"receivedDate\": \"2026-11-03\"}]"
+    },
+    {
+      "check": "B4 store files: directory 0700, record file 0600, owned by the DynamicUser (non-root)",
+      "result": "PASS",
+      "detail": "{\"feedback\": {\"mode\": \"0o700\", \"uid\": 62037, \"size\": 4096}, \"feedback/.feedback.lock\": {\"mode\": \"0o600\", \"uid\": 62037, \"size\": 44}, \"feedback/feedback-2026-11.jsonl\": {\"mode\": \"0o600\", \"uid\": 62037, \"size\": 974}}"
+    },
+    {
+      "check": "B5 stored record carries no IP/user-agent/identity fields",
+      "result": "PASS",
+      "detail": "{\"schema\":1,\"reportId\":\"44ca3a192c36415a8e90f46fa07f2242\",\"kind\":\"timing_quality\",\"modelVersion\":\"sha256:316fddafb9fab5c4e929e9e78e1365f9daaf1b90a8c716dc035f919522e5ce45\",\"context\":{\"line\":1,\"originId\":\"METRO-107\",\"destinationId\":\"METRO-108\",\"serviceDate\":\"2026-11-03\",\"tripId\":null,\"readyAt\":null,\"c"
+    },
+    {
+      "check": "B6 foreign Origin rejected 403",
+      "result": "PASS",
+      "detail": 403
+    },
+    {
+      "check": "B7 missing X-Besrah-Beta header rejected 403",
+      "result": "PASS",
+      "detail": 403
+    },
+    {
+      "check": "B8 wrong Content-Type rejected 415",
+      "result": "PASS",
+      "detail": 415
+    },
+    {
+      "check": "B9 body over 4 KiB rejected 413",
+      "result": "PASS",
+      "detail": 413
+    },
+    {
+      "check": "B10 malformed JSON rejected 400",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "B11 URL inside the note rejected 400",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "B12 missing consent rejected 400",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "B13 same reportId retried -> duplicate (idempotent), not double-stored",
+      "result": "PASS",
+      "detail": "[201, 200, {\"status\": \"duplicate\", \"reportId\": \"dup5ca0e1a7d963430e8dddc08e9f4b9ba2\"}]"
+    },
+    {
+      "check": "B14 GET on the feedback path is not a read endpoint",
+      "result": "PASS",
+      "detail": 404
+    },
+    {
+      "check": "B15 unknown query key (at=) rejected 400",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "B16 injected station id rejected 400",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "K1 enabled:false switch -> journey 404 + feedback 404 at once, same PID, existing API 200",
+      "result": "PASS",
+      "detail": "[404, 404, 200]"
+    },
+    {
+      "check": "K2 feedbackEnabled:false -> journey 200, feedback 503, no restart",
+      "result": "PASS",
+      "detail": "[200, 503]"
+    },
+    {
+      "check": "K2b /app/api/beta reflects the switch",
+      "result": "PASS",
+      "detail": "{\"journey\": {\"enabled\": true, \"rolloutPercent\": 0, \"feedbackEnabled\": false, \"calendarMode\": \"weekday_baseline\", \"horizonDays\": 7, \"windowMinutes\": 120}}"
+    },
+    {
+      "check": "K3 malformed switch file fails closed (journey 404)",
+      "result": "PASS",
+      "detail": 404
+    },
+    {
+      "check": "K4 group/world-writable switch file fails closed",
+      "result": "PASS",
+      "detail": 404
+    },
+    {
+      "check": "K5 missing switch file fails closed",
+      "result": "PASS",
+      "detail": 404
+    },
+    {
+      "check": "K6 switch restored -> journey 200 again",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "L1 per-client limit: 429 after 10/min even when X-Forwarded-For is varied",
+      "result": "PASS",
+      "detail": "[200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 429, 429, 429, 429]"
+    },
+    {
+      "check": "L2 another client key is not penalised",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "R0 lock file exists while the writer is alive",
+      "result": "PASS",
+      "detail": "{\"mode\": \"0o600\", \"uid\": 62037, \"size\": 44}"
+    },
+    {
+      "check": "R1 SIGTERM (systemctl stop) releases the store lock",
+      "result": "PASS",
+      "detail": "released"
+    },
+    {
+      "check": "R2 after a plain restart the first feedback write works again",
+      "result": "PASS",
+      "detail": "[200, 201, {\"status\": \"stored\", \"reportId\": \"6e0b0364373a4eab9094e99e0963268c\", \"receivedDate\": \"2026-11-03\"}]"
+    },
+    {
+      "check": "R3 after SIGKILL the planner works",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "R4 after SIGKILL feedback FAILS CLOSED (stale lock) with 503 and never fabricates an ACK",
+      "result": "PASS",
+      "detail": "[503, {\"error\": \"feedback_unavailable\"}, true]"
+    },
+    {
+      "check": "R5 after the explicit operator removal of the stale lock, feedback works again",
+      "result": "PASS",
+      "detail": 201
+    },
+    {
+      "check": "F1 feedback directory made group/world readable -> feedback 503, planner still 200",
+      "result": "PASS",
+      "detail": "[200, 503]"
+    },
+    {
+      "check": "F2 torn JSONL line -> store refuses writes (503), no silent repair",
+      "result": "PASS",
+      "detail": 503
+    },
+    {
+      "check": "F3 after operator restores the file, writes resume",
+      "result": "PASS",
+      "detail": 201
+    },
+    {
+      "check": "F4 feedback directory replaced by a symlink -> refused (503)",
+      "result": "PASS",
+      "detail": 503
+    },
+    {
+      "check": "C1 six parallel writes: every outcome is 201 or 429 (busy), nothing lost or duplicated",
+      "result": "PASS",
+      "detail": "[[201, 429, 429, 429, 429, 429], 6]"
+    },
+    {
+      "check": "C2 service log contains no request body, token, IP or note text",
+      "result": "PASS",
+      "detail": ": Failed with result 'exit-code'.\nStopped besrah-pb-preflight.service - /usr/bin/node /var/lib/besrah-preflight/srv/packages/core/dist/index.js.\nStarted besrah-pb-preflight.service - /usr/bin/node /var/lib/besrah-preflight/srv/packages/core/dist/index.js.\nmashhad-waze core on http://127.0.0.1:18870\n"
+    }
+  ]
+}

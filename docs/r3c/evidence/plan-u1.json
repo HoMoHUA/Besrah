@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "note": "R3C U1 (NET01 server+data), planned against live production",
+  "files": [
+    {
+      "group": "data",
+      "path": "data/official/kowsar_airport_poster_2026-11-03.json",
+      "candidateSha256": "49ba32c9f71291f73200a85f4c3b95cb0b3361956b53ee8ef0858d339ff35358",
+      "preSha256": null
+    },
+    {
+      "group": "data",
+      "path": "data/timetable/normal-day-overlay-v1.json",
+      "candidateSha256": "ed9c46a919baefce152ee8b593d9c63760048d493a94ec107bbda1dffa7651ed",
+      "preSha256": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/engine.js",
+      "candidateSha256": "29ccd94f30a2250589a05b52c0c16387059ce3c7aeab643a247d6be4db5f98f7",
+      "preSha256": "7f0c14cd98df7b6886afaad401110b12f31fb67dabab11d6028fbecd0d50b585",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/journey-beta/index.js",
+      "candidateSha256": "2dbff3a4345f74d73fb80c5fc52a206118e1e492a15f85506c50ac4c76addf49",
+      "preSha256": "a2f605d0c8e38d256802437d196f116df2e84942f208f0f27f7f7abca63c8c56",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/journey-beta/journey.js",
+      "candidateSha256": "3376d4ed25b9fddf591a1fd495dd3df2c60a61253b8724881d5c74f096806921",
+      "preSha256": "aef716c2fca98d76c5d0bf6ce3e671127d77f7cf6efaedcadd49051241d5af4a",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/journey-beta/source.js",
+      "candidateSha256": "8e852e975e31b87fa4a14baa658b33013d42eca174290238dc52c6e2c96ef29b",
+      "preSha256": "db8fb01fcb6d2e066766fbaf710b001553f2ab6adb5f1e2e8c369a686e43f6a6",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/server.js",
+      "candidateSha256": "9ab6c854aeb9ecc8711d5fb581bc80e2707372f60a23e661eec2f31e84197bd3",
+      "preSha256": "81ed51af44cf9a83dcd8e738fcfda73164b71b01da78bc16a15cc696f8b6d921",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/service.js",
+      "candidateSha256": "51568086ad1bd39afe5013b7447c9b0422253394200ed41427c9d292342dc61d",
+      "preSha256": "9b71235facefab934f044679093e031bea35aab9727cd37207fc9844ef2927de",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/timetable-overlay.js",
+      "candidateSha256": "c5eca5bc856c877058456eeaace350cb9b1cbd126fe409446cbe819bef717cdc",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/timetable-registry.js",
+      "candidateSha256": "b42e4f0314cb28861506dacb0551a846eb94361b398d33268449aecc714676dc",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/transit-journey/model-source.js",
+      "candidateSha256": "7173c32356c8891a1163ddc6073d11308f8d484c8c31016e2ed8a3dc13f22757",
+      "preSha256": "cf2b549f057e595f0cdd3b47bfffa06d7238b41241b201a143d22f5df5cbd88f",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/format.js",
+      "candidateSha256": "691a6779ac28889c89a041f5e168c3df7c80d47534754d321d896f659cb53c01",
+      "productionSha256": "3a289e343bda9c5586d7f549982dccf672566d61ac9f4cdb006f758fd20f9721"
+    },
+    {
+      "path": "apps/miniapp/app.js",
+      "candidateSha256": "a60a29f34b1a9520a298a9b05b783f71661771ad2e1eda06ff12625dfaa26ff8",
+      "productionSha256": "65fb0affa2273245a81a22997da8b4d3a819317c691d3e22594232be299b865c"
+    },
+    {
+      "path": "apps/miniapp/app.css",
+      "candidateSha256": "a21ea4551bb99a77e4257c4ebd971e1133b11923a5db358d51fe23a153726ddc",
+      "productionSha256": "e8eda45e639a995d786574ab4b5cb4f3d49ad38cbffdbe99dbd0dc3e14723cf7"
+    },
+    {
+      "path": "apps/miniapp/views/food.js",
+      "candidateSha256": "540b4630ea2c46dfc19b02859b1242b6d33ac1e6f07a1a284ddfbebc608b335c",
+      "productionSha256": "98238b6a85907fcc716fea3699ef86c776fb247eefe2754460d5fd753cfdd38d"
+    },
+    {
+      "path": "apps/miniapp/views/metro.js",
+      "candidateSha256": "7485a5d5b5d45c497ccf240f2d8115cdc054775c9a8ece28fbb6ac2b6de2b371",
+      "productionSha256": "425fd1b15859ca64af553139441bd2331312a832b9dfd905ddc65f1beb6de90b"
+    },
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    },
+    {
+      "path": "apps/miniapp/ui/station.js",
+      "candidateSha256": "f7203089d9b95f38ac8f7c80eb96ee145683cbc73f3207ef76c3ff5f2dee27aa",
+      "productionSha256": "a0c5d696d7974de482dac8bf8339ef31c81c4b04d3282502faa9875a8f0c4f30"
+    },
+    {
+      "path": "apps/miniapp/ui/tracker.js",
+      "candidateSha256": "2d03e7280325228a40a080160d6d918c7bfebfd19173b14b87920f305fc88ade",
+      "productionSha256": "5d237b34bab1ad279584b378f90b38d3af3d1a51f5abced91ad41434792eb5e0"
+    },
+    {
+      "path": "apps/miniapp/ui/planner.js",
+      "candidateSha256": "264b3fff9e7d395f034bccff398fe1c5552b1e132901b276e9b94e1348b91c63",
+      "productionSha256": "30fe6f58f3550eb9ad605b66f75ea6db257a59904a706ccf72bd7e52bd19f090"
+    }
+  ]
+}

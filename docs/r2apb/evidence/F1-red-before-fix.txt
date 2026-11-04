@@ -1,0 +1,11 @@
+   × graceful shutdown keeps the feedback store reusable > SIGTERM drains the store, releases .feedback.lock and exits 0 1547ms
+     → expected { code: null, signal: 'SIGTERM' } to deeply equal { code: +0, signal: null }
+   × graceful shutdown keeps the feedback store reusable > SIGINT behaves the same way 847ms
+     → expected { code: null, signal: 'SIGINT' } to deeply equal { code: +0, signal: null }
+   × graceful shutdown keeps the feedback store reusable > a second signal during drain does not start a second shutdown or crash 868ms
+     → expected { code: null, signal: 'SIGTERM' } to deeply equal { code: +0, signal: null }
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected { code: null, signal: 'SIGTERM' } to deeply equal { code: +0, signal: null }
+AssertionError: expected { code: null, signal: 'SIGINT' } to deeply equal { code: +0, signal: null }
+AssertionError: expected { code: null, signal: 'SIGTERM' } to deeply equal { code: +0, signal: null }
+      Tests  3 failed (3)

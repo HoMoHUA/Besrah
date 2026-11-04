@@ -1,0 +1,98 @@
+[
+ {
+  "total": 82,
+  "measured": 77,
+  "gradientSkipped": 5,
+  "min": 1.1,
+  "fails": [
+   {
+    "t": "مترو",
+    "ratio": 1.1,
+    "need": 4.5,
+    "img": false
+   }
+  ],
+  "viewport": "390x844",
+  "theme": "light"
+ },
+ {
+  "total": 82,
+  "measured": 77,
+  "gradientSkipped": 5,
+  "min": 1.16,
+  "fails": [
+   {
+    "t": "مترو",
+    "ratio": 1.16,
+    "need": 4.5,
+    "img": false
+   }
+  ],
+  "viewport": "390x844",
+  "theme": "dark"
+ },
+ {
+  "total": 82,
+  "measured": 77,
+  "gradientSkipped": 5,
+  "min": 1.1,
+  "fails": [
+   {
+    "t": "مترو",
+    "ratio": 1.1,
+    "need": 4.5,
+    "img": false
+   }
+  ],
+  "viewport": "360x740",
+  "theme": "light"
+ },
+ {
+  "total": 82,
+  "measured": 77,
+  "gradientSkipped": 5,
+  "min": 1.16,
+  "fails": [
+   {
+    "t": "مترو",
+    "ratio": 1.16,
+    "need": 4.5,
+    "img": false
+   }
+  ],
+  "viewport": "360x740",
+  "theme": "dark"
+ },
+ {
+  "total": 82,
+  "measured": 77,
+  "gradientSkipped": 5,
+  "min": 1.1,
+  "fails": [
+   {
+    "t": "مترو",
+    "ratio": 1.1,
+    "need": 4.5,
+    "img": false
+   }
+  ],
+  "viewport": "1440x900",
+  "theme": "light"
+ },
+ {
+  "total": 82,
+  "measured": 77,
+  "gradientSkipped": 5,
+  "min": 1.16,
+  "fails": [
+   {
+    "t": "مترو",
+    "ratio": 1.16,
+    "need": 4.5,
+    "img": false
+   }
+  ],
+  "viewport": "1440x900",
+  "theme": "dark"
+ }
+]

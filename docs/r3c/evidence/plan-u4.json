@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "note": "R3C U4 line view v2 + arrival rule",
+  "files": [
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.css",
+      "candidateSha256": "9bc706425e623744965e597cfaaba4da634f1cf2f93dc939fc2e39320024810f",
+      "preSha256": "10e554280d993c8c83794d2f52c344c6bd109572a257de00e779966e296a2341"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/format.js",
+      "candidateSha256": "a00d09b7568feb88e1b573d221da0f21396786f6c7a98414e8749467c251b161",
+      "preSha256": "691a6779ac28889c89a041f5e168c3df7c80d47534754d321d896f659cb53c01"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/board.js",
+      "candidateSha256": "a021ce12093169fbe9ec680e8bc3e77172b1db2da5b5fcc41e53542acb6ecc9c",
+      "preSha256": "974ccb2be3fbad5ad9f0ca3f4a148d6234bfa6ae5b4871395bf38ae1c3ee91b3"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/tracker.js",
+      "candidateSha256": "b9221fef4ce693fa75b45b899659631e0cf57c9cc7e3b14ff8df0bc3c7281286",
+      "preSha256": "bd3e3ce73eff594925555de12adb79def505dc6570a7119c638ffa94e372581e"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/metro.js",
+      "candidateSha256": "2aedc9d88d16fe1e0feb419d0310cdc7e8b9156c21587451b99560c622b06205",
+      "preSha256": "7485a5d5b5d45c497ccf240f2d8115cdc054775c9a8ece28fbb6ac2b6de2b371"
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/views/food.js",
+      "candidateSha256": "540b4630ea2c46dfc19b02859b1242b6d33ac1e6f07a1a284ddfbebc608b335c",
+      "productionSha256": "98238b6a85907fcc716fea3699ef86c776fb247eefe2754460d5fd753cfdd38d"
+    },
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

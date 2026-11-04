@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "recordType": "verification",
+  "verificationId": "ver:SYN-H7-IN-001-A",
+  "observationId": "obs:SYN-H7-IN-001",
+  "submissionSha256": "c60ee53f9a8cdfe8538667639b66421e33d35a889c6a32be2fac894b2cffede1",
+  "verifierCode": "SYN-VER-2",
+  "method": "second_observer_walk",
+  "verifiedAt": "2000-01-02T10:00:00+03:30",
+  "sourceId": "field:ver:SYN-H7-IN-001-A",
+  "secondObservationId": "obs:SYN-H7-IN-002",
+  "evidenceFileSha256": null,
+  "synthetic": true,
+  "notes": "SYNTHETIC FIXTURE"
+}

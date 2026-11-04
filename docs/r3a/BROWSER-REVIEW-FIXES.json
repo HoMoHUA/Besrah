@@ -1,0 +1,32 @@
+{
+  "favoritesSheetToJourney": {
+    "title": "مترو · Besrah",
+    "from": "دانش‌آموز",
+    "journeyVisible": true,
+    "access": "خروج از تجربه آزمایشی\nسفر، تابلو و مسیر با انتخاب مشترک",
+    "board": "حرکت های دانش‌آموز · زمان فعلی"
+  },
+  "favoriteSync": {
+    "buttons": [
+      {
+        "text": "تازه سازی تابلو",
+        "pressed": null
+      },
+      {
+        "text": "ذخیره ایستگاه",
+        "pressed": "false"
+      },
+      {
+        "text": "اطلاعات کامل ایستگاه",
+        "pressed": null
+      }
+    ],
+    "saved": [
+      "هفت‌تیر"
+    ]
+  },
+  "allDiscovery": {
+    "allSelected": "true",
+    "selectedLine": "1"
+  }
+}

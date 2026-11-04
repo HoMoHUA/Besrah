@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "note": "U8 food ranking: dishes named for the query outrank category-only items; no price floor",
+  "files": [
+    {
+      "group": "dist",
+      "path": "packages/core/dist/food/search.js",
+      "candidateSha256": "def1d43c0687c93814b1182a50a999c6c769a2bf0246d39e2bf7a09fcb7ec2de",
+      "preSha256": "133c8e79b7657b84a88b7fd1ffa49c029f4a959000da759fe4c61c922124cbce",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

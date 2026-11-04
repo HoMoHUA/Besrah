@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="client-nojs skin-theme-clientpref-thumb-standard" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>Metro Mapping - OpenStreetMap Wiki</title>
+<script>(function(){var className="client-js skin-theme-clientpref-thumb-standard";var cookie=document.cookie.match(/(?:^|; )wikimwclientpreferences=([^;]+)/);if(cookie){cookie[1].split('%2C').forEach(function(pref){className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});}document.documentElement.className=className;}());RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"2d18d8f9d866d11cd8553c0d","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Metro_Mapping","wgTitle":"Metro Mapping","wgCurRevisionId":2861512,"wgRevisionId":2861512,"wgArticleId":190429,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Metros"],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Metro_Mapping","wgRelevantArticleId":190429,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgConfirmEditCaptchaNeededForGenericEdit":false,"wgConfirmEditForceShowCaptcha":false,"wgMFDisplayWikibaseDescriptions":{"search":false,"watchlist":false,"tagline":false},"wgULSAcceptLanguageList":[],"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgCheckUserClientHintsHeadersJsApi":["brands","architecture","bitness","fullVersionList","mobile","model","platform","platformVersion"],"wgULSPosition":"personal","wgULSisCompactLinksEnabled":true,"wgVector2022LanguageInHeader":false,"wgULSisLanguageSelectorEmpty":false,"wgULSLanguageSelectorV2Enabled":false,"wgEditSubmitButtonLabelPublish":false,"wgVisualEditorPageIsDisambiguation":false};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","ext.OsmWikibase-all":"ready","ext.uls.pt":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js","ext.checkUser.clientHints","ext.gadget.taginfo","ext.gadget.dataitemlinks","ext.gadget.maps","ext.uls.compactlinks","ext.uls.interface","ext.visualEditor.desktopArticleTarget.init","wikibase.databox.fromWikidata"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.OsmWikibase-all%7Cext.uls.pt%7Cext.visualEditor.desktopArticleTarget.noscript%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector">
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector">
+<noscript><link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=noscript&amp;only=styles&amp;skin=vector"></noscript>
+<meta name="generator" content="MediaWiki 1.46.2">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1120">
+<link rel="search" type="application/opensearchdescription+xml" href="/w/rest.php/v1/search" title="OpenStreetMap Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="//wiki.openstreetmap.org/w/api.php?action=rsd">
+<link rel="license" href="/wiki/Wiki_content_license">
+<link rel="alternate" type="application/atom+xml" title="OpenStreetMap Wiki Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+</head>
+<body class="skin-vector-legacy mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Metro_Mapping rootpage-Metro_Mapping skin-vector action-view">
+<div id="mw-aria-live-region" class="mw-aria-live-region" aria-live="polite"></div><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span lang="en" dir="ltr"><span class="mw-page-title-main">Metro Mapping</span></span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From OpenStreetMap Wiki</div>
+		<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="ltr plainlinks" style="margin:2px 10%; border:1px solid #AAA; background:light-dark(#FFA,#FFA3); border-left:10px solid #F28500;"><tbody><tr><td style="border:none; padding:2px 0; padding-left:0.25em; text-align:center;"><div style="width:52px;"><span typeof="mw:File"><span title="Caution"><img alt="Caution" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Ambox_important.svg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=original" decoding="async" width="40" height="40" class="mw-file-element" /></span></span></div></td><td style="width:100%; border:none; padding:0.25em;">
+While all of the tagging described here is used on the map, some things are <a href="/wiki/Proposed_features/PTv2_Improvements_wrt_Rapid_Transit" class="mw-redirect" title="Proposed features/PTv2 Improvements wrt Rapid Transit">still in discussion</a>.</td></tr></tbody></table>
+<p>This document aims to clarify tagging of metro stations and lines, in the light of the modern Public Transport schema, and to make the data usable to data consumers. Having all metro systems tagged in a uniform and complete way would allow for making metro schemes and for proper routing.
+</p><p>More than two hundred metro networks all over the world have been already mapped as this document proposes. Refer to the <a rel="nofollow" class="external text" href="https://maps.mail.ru/osm/tools/subways/latest/">metro validator</a> for the list and for unresolved issues in other networks. <a href="/wiki/MAPS.ME" title="MAPS.ME">MAPS.ME</a>, <a href="/wiki/Organic_Maps" title="Organic Maps">Organic Maps</a>, and <a href="/wiki/CoMaps" title="CoMaps">CoMaps</a> applications use subways from OpenStreetMap mapped to this schema, and since the code is open source, other apps may follow.
+</p><p>Some parts of this schema, namely changes to <i>route</i>, <i>stop_area</i> and <i>stop_area_group</i> relations, are discussed in the <a href="/wiki/Proposed_features/PTv2_Improvements_wrt_Rapid_Transit" class="mw-redirect" title="Proposed features/PTv2 Improvements wrt Rapid Transit">PTv2 Improvements</a> proposal. Which means, they are not included in the "official" wiki pages for these relations. This should not put you off since wiki does not always reflect the real mapping.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Tagging_Stations"><span class="tocnumber">2</span> <span class="toctext">Tagging Stations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Station_Node"><span class="tocnumber">2.1</span> <span class="toctext">Station Node</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Entrance"><span class="tocnumber">2.2</span> <span class="toctext">Entrance</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Platform"><span class="tocnumber">2.3</span> <span class="toctext">Platform</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Footways"><span class="tocnumber">2.4</span> <span class="toctext">Footways</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Stop_Position"><span class="tocnumber">2.5</span> <span class="toctext">Stop Position</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Stop_Area"><span class="tocnumber">2.6</span> <span class="toctext">Stop Area</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Interchange"><span class="tocnumber">2.7</span> <span class="toctext">Interchange</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Multimodal_Interchange"><span class="tocnumber">2.8</span> <span class="toctext">Multimodal Interchange</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Tagging_Lines"><span class="tocnumber">3</span> <span class="toctext">Tagging Lines</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Tracks"><span class="tocnumber">3.1</span> <span class="toctext">Tracks</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Route_Relations"><span class="tocnumber">3.2</span> <span class="toctext">Route Relations</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Relation_Members"><span class="tocnumber">3.2.1</span> <span class="toctext">Relation Members</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Grouping_Routes"><span class="tocnumber">3.2.2</span> <span class="toctext">Grouping Routes</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<div class="mw-heading mw-heading2"><h2 id="Overview">Overview</h2></div>
+<p><span typeof="mw:File"><a href="/wiki/File:Metro-stop_area_group.svg" class="mw-file-description"><img src="/w/images/f/f4/Metro-stop_area_group.svg" decoding="async" width="800" height="562" class="mw-file-element" /></a></span>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Tagging_Stations">Tagging Stations</h2></div>
+<p>Of these objects, only the station node is mandatory for each station. Also, if possible, mark the subway entrance points, so routers won't bring people to an overground location of an underground station.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Station_Node">Station Node</h3></div>
+<p>Use only a single node <span class="mw-valign-text-bottom" typeof="mw:File"><a href="/wiki/Node" title="node"><img alt="node" src="/w/images/7/76/Osm_element_node.svg" decoding="async" width="20" height="20" class="mw-file-element" /></a></span> for marking a subway station. No ways, no multipolygons. Three mandatory tags on it are:
+</p>
+<ul><li><style data-mw-deduplicate="TemplateStyles:r3103348"></style><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dstation" title="Tag:railway=station"><bdi>station</bdi></a></code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:station" title="Key:station">station</a></bdi>=<a href="/wiki/Tag:station%3Dsubway" title="Tag:station=subway"><bdi>subway</bdi></a></code> (<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:station" title="Key:station">station</a></bdi>=<a href="/wiki/Tag:station%3Dlight_rail" title="Tag:station=light rail"><bdi>light_rail</bdi></a></code> for light rail stations, or use <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:subway" title="Key:subway">subway</a></bdi>=<bdi>yes</bdi></code> etc.)</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:name" title="Key:name">name</a></bdi>=&#42;</code></li></ul>
+<p>You are welcome to add more useful tags, like:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:wheelchair" title="Key:wheelchair">wheelchair</a></bdi>=&#42;</code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:opening_hours" title="Key:opening hours">opening_hours</a></bdi>=&#42;</code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:wikipedia" title="Key:wikipedia">wikipedia</a></bdi>=&#42;</code> and <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:wikidata" title="Key:wikidata">wikidata</a></bdi>=&#42;</code></li>
+<li>Localized names</li></ul>
+<p>The location of the node is irrelevant. Most often it is placed in the middle of a platform, be it underground or not. This sometimes causes controversies, since the station node is displayed very prominently on most maps, and people mistake it for the overground entrance. There is nothing wrong with putting the node near its entrance: it does not affect routing or anything else.
+</p><p>Overground light rail and train stations can be mapped with polygons. You may also use the <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dstation" title="Tag:public transport=station"><bdi>station</bdi></a></code> tag along with <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:subway" title="Key:subway">subway</a></bdi>=<bdi>yes</bdi></code> or <tt>light_rail=yes</tt>.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Entrance">Entrance</h3></div>
+<p>Please map station entrances and exits as nodes: it helps with the pedestrian routing. There is a single mandatory tag for subway entrances and exits:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dsubway_entrance" title="Tag:railway=subway entrance"><bdi>subway_entrance</bdi></a></code></li></ul>
+<p>But a lot of optional and highly recommended tags:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:ref" title="Key:ref">ref</a></bdi>=&#42;</code> if subway entrances are numbered and you know the number for this one.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:highway" title="Key:highway">highway</a></bdi>=<a href="/wiki/Tag:highway%3Delevator" title="Tag:highway=elevator"><bdi>elevator</bdi></a></code> if the entrance is an elevator.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:wheelchair" title="Key:wheelchair">wheelchair</a></bdi>=&#42;</code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:entrance" title="Key:entrance">entrance</a></bdi>=<bdi>entrance</bdi></code> if you cannot exit the station here, and <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:entrance" title="Key:entrance">entrance</a></bdi>=<bdi>exit</bdi></code> if you cannot enter here. See also <a href="#Stop_Area">roles in stop_area relations</a>. Oneway footways cannot be processed by all software, so please add this tag where known.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Platform">Platform</h3></div>
+<p>If you know the location and length of a platform for a subway station, map it as a way <span class="mw-valign-text-bottom" typeof="mw:File"><a href="/wiki/Way" title="way"><img alt="way" src="/w/images/e/ee/Osm_element_way.svg" decoding="async" width="20" height="20" class="mw-file-element" /></a></span>. If you know the dimensions, you can draw an area or a multipolygon. You can see an example of such thoroughly drawn platforms <a class="external text" href="http://www.openstreetmap.org/#map=18/55.75151/37.60768">here</a>.
+</p><p>Use these mandatory tags on a platform:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dplatform" title="Tag:railway=platform"><bdi>platform</bdi></a></code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dplatform" title="Tag:public transport=platform"><bdi>platform</bdi></a></code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:layer" title="Key:layer">layer</a></bdi>=<bdi>-N</bdi></code> if the platform is underground, so it is drawn underneath other features. N should be at least 3, varies by the city.</li></ul>
+<p>Also recommended:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:level" title="Key:level">level</a></bdi>=<bdi>-M</bdi></code> for when the exact level of the platform is known.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:ref" title="Key:ref">ref</a></bdi>=&#42;</code> when a platform is numbered.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:name" title="Key:name">name</a></bdi>=&#42;</code> with a name of a platform or a station, for easier route editing.</li></ul>
+<div class="mw-heading mw-heading3"><h3 id="Footways">Footways</h3></div>
+<p>If you want to map underground passages connecting entrances to platforms and platforms to other platforms, knock yourself out. Do not forget to use <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:layer" title="Key:layer">layer</a></bdi>=<bdi>-N</bdi></code> and <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:tunnel" title="Key:tunnel">tunnel</a></bdi>=<bdi>yes</bdi></code>.
+</p><p>For more complex underground mapping, please consider using <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:level" title="Key:level">level</a></bdi>=<bdi>-N</bdi></code> and <a href="/wiki/Simple_Indoor_Tagging" title="Simple Indoor Tagging">Simple Indoor Tagging</a> schema.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Stop_Position">Stop Position</h3></div>
+<p>The modern public transport tagging schema introduces stop positions: points on rails where trains actually stop. These nodes should be placed on <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<bdi>subway/light_rail</bdi></code> either in the front or in the middle of a hypothetical train (there is no consensus on that, do as you like). Sometimes you might need different stopping points for different route variants. The point should have at least these three tags:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dstop_position" title="Tag:public transport=stop position"><bdi>stop_position</bdi></a></code></li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:subway" title="Key:subway">subway</a></bdi>=<bdi>yes</bdi></code> (or another tag for the proper mode of transportation)</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:name" title="Key:name">name</a></bdi>=&#42;</code> with a name of the station.</li></ul>
+<p>Please refrain from using the same node for both a stop_position and a station. That would prevent a possible interchange from being mapped correctly.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Stop_Area">Stop Area</h3></div>
+<p>To link a subway station, a platform, stop positions and entrances, put these into a <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dstop_area" title="Tag:public transport=stop area"><bdi>stop_area</bdi></a></code> relation. For a subway station, a stop area relation should have <i>only</i> objects that are directly related to the station. No taxi stops, no other stations. Only objects with these tags:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dstation" title="Tag:railway=station"><bdi>station</bdi></a></code> — one and only one, with optional role 'station'</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dplatform" title="Tag:railway=platform"><bdi>platform</bdi></a></code> (with role 'platform')</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dstop_position" title="Tag:public transport=stop position"><bdi>stop_position</bdi></a></code> (with role 'stop')</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dsubway_entrance" title="Tag:railway=subway entrance"><bdi>subway_entrance</bdi></a></code> (with optional role 'entrance', or mandatory 'entry_only' or 'exit_only', depending on whether you can use the entrance to entry or to exit the station)</li></ul>
+<p>You can add other POIs for the station infrastructure, like <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:barrier" title="Key:barrier">barrier</a></bdi>=<a href="/wiki/Tag:barrier%3Dturnstile" title="Tag:barrier=turnstile"><bdi>turnstile</bdi></a></code> and <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:shop" title="Key:shop">shop</a></bdi>=<a href="/wiki/Tag:shop%3Dticket" title="Tag:shop=ticket"><bdi>ticket</bdi></a></code>. You should not add any tracks, footways, or bus stops. Use a station name for the <i>stop_area</i> relation name, on interchanges adding a line ref.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Interchange">Interchange</h3></div>
+<p><span typeof="mw:File"><a href="/wiki/File:Interchange_types.jpg" class="mw-file-description"><img src="/w/images/thumb/3/37/Interchange_types.jpg/960px-Interchange_types.jpg" decoding="async" width="800" height="226" class="mw-file-element" srcset="/w/images/3/37/Interchange_types.jpg 2x" /></a></span>
+</p><p>An interchange is a station or a group of stations where you can change lines or direction of travel. Technically by this description, most metro stations are interchanges. There are three types of interchanges, pictured above (A and B are lines, not stations):
+</p>
+<ol><li>First is when to change a line, you have to wait for the next train on the same platform, or walk a few meters to another nearby platform. You usually can see all tracks and platforms in this interchange from any platform. An island platform between opposite directions of a route is a simple example of such interchange.
+<dl><dd>You map such interchanges with a single <i>stop_area</i> relation.</dd></dl></li>
+<li>Second type is when you have to walk a reasonable time to get to another platform or a set of platforms. Sometimes even to switch directions for a single route you have to go down via an underpass. A rule of thumb is that when you need more than a minute to get from one platform to another, this is most likely a type 2 interchange.
+<dl><dd>You map such interchanges with several <i>stop_area</i> relations. After that, create a <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dstop_area_group" title="Tag:public transport=stop area group"><bdi>stop_area_group</bdi></a></code> relation and add these <i>stop_area relations</i> (not station nodes!) in it.</dd></dl></li>
+<li>Third type requires you to leave a metro station to enter another one. It can take five minutes or more to switch lines, and you would need to use on-the-ground pedestrian routing to find another entrance. This is not unlike moving between stations of the same line by leaving at one and entering at another. The line between type 2 and type 3 is blurred: please use your judgment and official maps.
+<dl><dd>You still create <i>stop_area</i> relations for these stations or platforms, but do not group these in a <i>stop_area_group</i> relation.</dd></dl></li></ol>
+<p>It does not matter whether an interchange is between differently-named stations or within a single big station. When a group of stations is formally a single station on all of the maps, it is okay to use a single station node, including it into all relevant <i>stop_area</i> relations.
+</p><p>If a station is mapped only with a station node, to create a stop area group, you would still need to create stop_area relations, even if just for a single node. <tt>Stop_area_groups</tt> collect only stop_area relations, <tt>stop_areas</tt> collect everything station-related.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Multimodal_Interchange">Multimodal Interchange</h3></div>
+<p>When stations for buses, trains, trams or other modes of transportation are located near a metro station, especially when they are named similarly, do create <i>stop_area</i> relations for these stations (one for each mode) and add these along with the <i>stop_area</i> for a metro station in a <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:public_transport" title="Key:public transport">public_transport</a></bdi>=<a href="/wiki/Tag:public_transport%3Dstop_area_group" title="Tag:public transport=stop area group"><bdi>stop_area_group</bdi></a></code> relation.
+</p><p>Do not add e.g. bus stations into a subway station's <i>stop_area</i>. Make two <i>stop_areas</i> and group these instead.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Tagging_Lines">Tagging Lines</h2></div>
+<div class="mw-heading mw-heading3"><h3 id="Tracks">Tracks</h3></div>
+<p>If you don't know how the underground tracks go, that is okay: just skip this. Tracks are optional.
+</p><p>To make the map a bit more complete, try connecting the stations and doing smooth turns. See <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dsubway" title="Tag:railway=subway"><bdi>subway</bdi></a></code> for a list of tags that go on the tracks. For a light rail tracks, switch <tt>subway</tt> for <tt>light_rail</tt>. The <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway" title="Key:railway">railway</a></bdi>=<a href="/wiki/Tag:railway%3Dlight_rail" title="Tag:railway=light rail"><bdi>light_rail</bdi></a></code> page is not as descriptive but provides some hints for the distinction of a subway, light rail, and regular tracks.
+</p><p>To simplify future mapping, it is best to draw a pair of parallel tracks. Do not use <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:oneway" title="Key:oneway">oneway</a></bdi>=<bdi>yes</bdi></code> on these, even if you know in which directions trains usually go. Instead, look at <a href="/wiki/OpenRailwayMap/Tagging#Tracks" title="OpenRailwayMap/Tagging">railway:preferred_direction</a> or <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:designated_direction" class="mw-redirect" title="Key:designated direction">designated_direction</a></bdi>=&#42;</code> keys. Put track numbers in <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:railway:track_ref" title="Key:railway:track ref">railway:track_ref</a></bdi>=&#42;</code> tags if you know these.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Route_Relations">Route Relations</h3></div>
+<p>For each of the subway and light rail lines, there should be at least one <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:route" title="Key:route">route</a></bdi>=<a href="/wiki/Tag:route%3Dsubway" title="Tag:route=subway"><bdi>subway</bdi></a></code> or <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:route" title="Key:route">route</a></bdi>=<a href="/wiki/Tag:route%3Dlight_rail" title="Tag:route=light rail"><bdi>light_rail</bdi></a></code> relation. Usually there are two, one in each direction. Sometimes more, when certain trips end earlier to be redirected to depots. When there are many route relations for a subway line, there should be at least one that contains all the stations in the line.
+</p><p>These tags are mandatory for a route relation:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:type" title="Key:type">type</a></bdi>=<a href="/wiki/Tag:type%3Droute" class="mw-redirect" title="Tag:type=route"><bdi>route</bdi></a></code> obviously</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:route" title="Key:route">route</a></bdi>=<a href="/wiki/Tag:route%3Dsubway" title="Tag:route=subway"><bdi>subway</bdi></a></code> (or <tt>light_rail</tt>)</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:ref" title="Key:ref">ref</a></bdi>=&#42;</code> with a line number or short reference.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:colour" title="Key:colour">colour</a></bdi>=&#42;</code> with an official line colour, either a hexadecimal value (<tt>#ffeedd</tt>) or a CSS3 colour name (<tt>red</tt>). Get it from an official metro map. If there isn't one, skip this tag.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:network" title="Key:network">network</a></bdi>=&#42;</code> is mandatory when there is more than one network in the city (e.g. <a href="https://en.wikipedia.org/wiki/Transportation_in_New_York_City#Rapid_transit_systems" class="extiw" title="wikipedia:Transportation in New York City">New York has three</a>). Route and Route Master relations should have matching <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:network" title="Key:network">network</a></bdi>=&#42;</code> tags: for example if one has a <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/w/index.php?title=Key:network:metro&amp;action=edit&amp;redlink=1" class="new" title="Key:network:metro (page does not exist)">network:metro</a></bdi>=&#42;</code> tag, the other should have the exact same <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/w/index.php?title=Key:network:metro&amp;action=edit&amp;redlink=1" class="new" title="Key:network:metro (page does not exist)">network:metro</a></bdi>=&#42;</code> tag.</li></ul>
+<p>Also recommended:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:operator" title="Key:operator">operator</a></bdi>=&#42;</code>, which should be the same for all lines of that operator.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:name" title="Key:name">name</a></bdi>=&#42;</code> with a full name of the line.</li>
+<li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:interval" title="Key:interval">interval</a></bdi>=&#42;</code> with a service interval in minutes.</li></ul>
+<p>When a line has an evident casing on the official map, especially when the line colour is white, put the main colour (of the casing) in <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:colour" title="Key:colour">colour</a></bdi>=&#42;</code>, and the inner colour — in <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:colour" title="Key:colour">colour&#58;infill</a></bdi>=&#42;</code>. This way you won't have a dozen white lines in software that doesn't support <tt>infill</tt>. For example, <tt>colour=cyan + colour:infill=white</tt> for <a rel="nofollow" class="external text" href="https://www.google.ru/search?q=london+dlr+map&amp;tbm=isch">London DLR routes</a>.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="Relation_Members">Relation Members</h4></div>
+<p>A route should have all its stops included and ordered from the first to the last. The recommended way is adding stop positions with "stop" roles. Adding platforms for each station is recommended. In that case, platform objects (with "platform" roles) should follow stop objects. There should be only one stop object and at most two platform objects for each station. For circular routes, the first station should equal the last (as with closed ways and their nodes).
+</p><p>If tracks are included, they should be sorted from the first to the last stop and should form a single line without gaps. When a line branches, you should create a separate route relation for the alternative route.
+</p><p>If a relation contains stop positions or platforms, these should belong to <i>stop_area</i> relations, so an algorithm could match these to station objects. Also, each stop and platform should belong to a single <i>stop_area</i> relation, otherwise it would look like a train stops at two stations simultaneously. That means, on type 2 transfer stations that are denoted by a single station node, you would need to make stop positions or platforms for each metro line, and include these into routes instead of the station node.
+</p><p><span typeof="mw:File"><a href="/wiki/File:Route_interchange.jpg" class="mw-file-description"><img src="/w/images/thumb/7/7b/Route_interchange.jpg/960px-Route_interchange.jpg" decoding="async" width="800" height="299" class="mw-file-element" srcset="/w/images/7/7b/Route_interchange.jpg 2x" /></a></span>
+</p><p>On type 2 interchanges, adding a station node to routes will not do. Add stop_positions to lines, use them in <i>route</i> relations instead of the station, group each of stop_positions with the station using a <i>stop_area</i> relation, and group these <i>stop_areas</i> in a <i>stop_area_group</i> relation.
+</p>
+<div class="mw-heading mw-heading4"><h4 id="Grouping_Routes">Grouping Routes</h4></div>
+<p>All <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:ref" title="Key:ref">ref</a></bdi>=&#42;</code> values for variants of a single route should be equal. That is enough to group these relations. But you can create a grouping <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r3103348" /><code dir="ltr" class="mw-content-ltr wraplink"><bdi style="white-space:nowrap"><a href="/wiki/Key:type" title="Key:type">type</a></bdi>=<a href="/wiki/Tag:type%3Droute_master" class="mw-redirect" title="Tag:type=route master"><bdi>route_master</bdi></a></code> relation, as per the public transport schema. In that case, you can put <tt>ref</tt>, <tt>colour</tt> and <tt>network</tt> tags on it instead.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="See_Also">See Also</h2></div>
+<ul><li><a href="/wiki/Metros" class="mw-redirect" title="Metros">Metros</a></li>
+<li><a href="/wiki/Public_transport" title="Public transport">Public transport</a></li>
+<li><a href="/wiki/User:Zverik/%D0%9C%D0%B5%D1%82%D1%80%D0%BE_2014" title="User:Zverik/Метро 2014">User:Zverik/Метро 2014</a> (in Russian)</li>
+<li><a href="/wiki/Proposed_features/Metro_Mapping" class="mw-redirect" title="Proposed features/Metro Mapping">Proposed features/Metro Mapping</a> and its <a href="/wiki/Talk:Proposed_features/Metro_Mapping" class="mw-redirect" title="Talk:Proposed features/Metro Mapping">discussion page</a></li>
+<li><a href="/wiki/Proposed_features/PTv2_Improvements_wrt_Rapid_Transit" class="mw-redirect" title="Proposed features/PTv2 Improvements wrt Rapid Transit">Proposed features/PTv2 Improvements wrt Rapid Transit</a></li>
+<li><a href="/wiki/Quality_assurance#subway-preprocessor" title="Quality assurance"> Subway Validator/Preprocessor</a></li>
+<li><a class="external text" href="https://www.openstreetmap.org/user/hanchao/diary/397362">地铁标注方法</a> (Subway tagging method, in Chinese)</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20261101232752
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.301 seconds
+Real time usage: 0.742 seconds
+Preprocessor visited node count: 1218/1000000
+Revision size: 13998/2097152 bytes
+Post‐expand include size: 18194/2097152 bytes
+Template argument size: 390/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 6283/5000000 bytes
+Lua time usage: 0.410/15 seconds
+Lua virtual size: 7057408/52428800 bytes
+Lua estimated memory usage: 0 bytes
+Number of Wikibase entities loaded: 0/250
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  644.920      1 -total
+ 82.38%  531.266     61 Template:Tag
+ 10.72%   69.122     10 Template:Langcode
+  9.08%   58.533      1 Template:Ambox
+  8.55%   55.149      3 Template:Dir
+  4.95%   31.938      1 Template:IconNode
+  3.68%   23.757      2 Template:LL
+  2.88%   18.581      6 Template:LangPrefix
+  2.49%   16.079      1 Template:LangSwitch
+  1.86%   11.970      1 Template:IconWay
+-->
+
+<!-- Render ID db94143e-d64b-11f1-8fe3-2d8f9c9e3736 -->
+
+<!-- Saved in parser cache with key wiki:pcache:190429:|%23|:idhash:canonical and timestamp 20261101232752 and revision id 2861512. Rendering was triggered because: page_view
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://wiki.openstreetmap.org/w/index.php?title=Metro_Mapping&amp;oldid=2861512">https://wiki.openstreetmap.org/w/index.php?title=Metro_Mapping&amp;oldid=2861512</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw-interface=""><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Metros" title="Category:Metros">Metros</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="pt-uls" class="mw-list-item active"><a class="uls-trigger" href="#"><span>English</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Metro+Mapping" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Metro+Mapping" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-associated-pages" class="mw-portlet mw-portlet-associated-pages vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-associated-pages-label"  >
+	<h3
+		id="p-associated-pages-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">associated-pages</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-nstab-main" class="selected vector-tab-noicon mw-list-item"><a href="/wiki/Metro_Mapping" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="vector-tab-noicon mw-list-item"><a href="/wiki/Talk:Metro_Mapping" rel="discussion" title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown vector-menu" aria-labelledby="p-variants-label"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	>
+	<label
+		id="p-variants-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-views-label"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-view" class="selected icon mw-list-item"><a href="/wiki/Metro_Mapping"><span>Read</span></a></li><li id="ca-viewsource" class="icon mw-list-item"><a href="/w/index.php?title=Metro_Mapping&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="icon mw-list-item"><a href="/w/index.php?title=Metro_Mapping&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-menu" aria-labelledby="p-cactions-label"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<h3 >Search</h3>
+	<form action="/w/index.php" id="searchform" class="vector-search-box-form">
+		<div id="simpleSearch"
+			class="vector-search-box-inner"
+			 data-search-loc="header-navigation">
+			<input class="vector-search-box-input"
+				 type="search" name="search" placeholder="Search OpenStreetMap Wiki" aria-label="Search OpenStreetMap Wiki" autocapitalize="none" spellcheck="false" title="Search OpenStreetMap Wiki [f]" accesskey="f" id="searchInput"
+			>
+			<input type="hidden" name="title" value="Special:Search">
+			<input id="mw-searchButton"
+				 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+			<input id="searchButton"
+				 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel" class="vector-legacy-sidebar">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-site" class="mw-portlet mw-portlet-site vector-menu-portal portal vector-menu" aria-labelledby="p-site-label"  >
+	<h3
+		id="p-site-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Site</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-mainpage" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main Page</span></a></li><li id="n-osm-homepage" class="mw-list-item"><a href="https://www.openstreetmap.org/"><span>The map</span></a></li><li id="n-mapfeatures" class="mw-list-item"><a href="/wiki/Map_features"><span>Map Features</span></a></li><li id="n-contributors" class="mw-list-item"><a href="/wiki/Contributors"><span>Contributors</span></a></li><li id="n-help" class="mw-list-item"><a href="/wiki/Get_help" title="The place to find out"><span>Help</span></a></li><li id="n-blogs" class="mw-list-item"><a href="/wiki/OSM_Blogs"><span>Blogs</span></a></li><li id="n-Shop" class="mw-list-item"><a href="/wiki/Merchandise"><span>Shop</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="/wiki/Donations"><span>Donations</span></a></li><li id="n-talk-wiki" class="mw-list-item"><a href="/wiki/Talk:Wiki"><span>Wiki discussion</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu-portal portal vector-menu" aria-labelledby="p-tb-label"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/Metro_Mapping" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/Metro_Mapping" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/w/index.php?title=Metro_Mapping&amp;oldid=2861512" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/w/index.php?title=Metro_Mapping&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Metro_Mapping&amp;id=2861512&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects emptyPortlet vector-menu-portal portal vector-menu" aria-labelledby="p-wikibase-otherprojects-label"  >
+	<h3
+		id="p-wikibase-otherprojects-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">In other projects</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu-portal portal vector-menu" aria-labelledby="p-lang-label"  >
+	<h3
+		id="p-lang-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">In other languages</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-add wb-langlinks-link"><a href="https://wiki.openstreetmap.org/wiki/Special:NewItem?site=wiki&amp;page=Metro+Mapping" title="Add interlanguage links" class="wbc-editpage">Add links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 1 June 2025, at 03:18.</li>
+	<li id="footer-info-copyright">Content is available under <a href="/wiki/Wiki_content_license" title="Wiki content license">Creative Commons Attribution-ShareAlike 2.0 license</a> unless otherwise noted.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://www.osmfoundation.org/wiki/Privacy_Policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/About">About OpenStreetMap Wiki</a></li>
+	<li id="footer-places-disclaimers"><a href="/wiki/Disclaimer">Disclaimers</a></li>
+	<li id="footer-places-mobileview"><a href="//wiki.openstreetmap.org/w/index.php?title=Metro_Mapping&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/2.0/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="/cc-wiki.png" alt="Creative Commons Attribution-ShareAlike 2.0 license" width="88" height="31" loading="lazy"></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><picture><source media="(min-width: 500px)" srcset="/w/resources/assets/poweredby_mediawiki.svg" width="88" height="31"><img src="/w/resources/assets/mediawiki_compact.svg" alt="Powered by MediaWiki" lang="en" width="25" height="25" loading="lazy"></picture></a></li>
+</ul>
+
+</footer>
+
+<div class="mw-portlet mw-portlet-dock-bottom emptyPortlet vector-menu-portal portal" id="p-dock-bottom">
+	<ul>
+		
+	</ul>
+</div>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":207,"wgPageParseReport":{"limitreport":{"cputime":"0.301","walltime":"0.742","ppvisitednodes":{"value":1218,"limit":1000000},"revisionsize":{"value":13998,"limit":2097152},"postexpandincludesize":{"value":18194,"limit":2097152},"templateargumentsize":{"value":390,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":6283,"limit":5000000},"entityaccesscount":{"value":0,"limit":250},"timingprofile":["100.00%  644.920      1 -total"," 82.38%  531.266     61 Template:Tag"," 10.72%   69.122     10 Template:Langcode","  9.08%   58.533      1 Template:Ambox","  8.55%   55.149      3 Template:Dir","  4.95%   31.938      1 Template:IconNode","  3.68%   23.757      2 Template:LL","  2.88%   18.581      6 Template:LangPrefix","  2.49%   16.079      1 Template:LangSwitch","  1.86%   11.970      1 Template:IconWay"]},"scribunto":{"limitreport-timeusage":{"value":"0.410","limit":"15"},"limitreport-virtmemusage":{"value":7057408,"limit":52428800},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20261101232752","ttl":86400,"transientcontent":false}}});});</script>
+</body>
+</html>

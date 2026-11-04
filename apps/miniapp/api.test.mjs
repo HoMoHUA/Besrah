@@ -5,6 +5,12 @@ import { createApi, ApiError } from './api.js';
 const json = (body, status = 200) => ({ ok: status >= 200 && status < 300, status, json: async () => body });
 const board = { station: 'شریعتی', line: 1, as_of: '20:27:13', day_type: 'thursday', passes: [], notes: [] };
 
+test('food status sends only a vendor identifier and validates the observation', async () => {
+  const api = createApi({ fetch: async url => { assert.equal(url, 'api/food-status?vendor=217xr2'); return json({ status: 'open', observedAt: '2026-01-01T00:00:00.000Z' }); } });
+  assert.equal((await api.foodStatus('217xr2')).status, 'open');
+  await assert.rejects(createApi({ fetch: async () => json({ status: 'open' }) }).foodStatus('217xr2'), e => e.kind === 'server');
+});
+
 test('next() uses a relative, encoded URL and sends no credentials or caching', async () => {
   const seen = [];
   const api = createApi({ fetch: async (url, init) => { seen.push([url, init]); return json(board); } });

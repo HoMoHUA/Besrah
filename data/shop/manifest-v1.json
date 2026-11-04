@@ -1,0 +1,50 @@
+{
+  "v": 1,
+  "note": "Curated by a human from the marketplace search. Products with at least two distinct sellers, each a different exact listing. The importer never discovers products.",
+  "products": [
+    {
+      "sku": "149051",
+      "category": "ساعت و مچ بند هوشمند"
+    },
+    {
+      "sku": "62935",
+      "category": "ساعت و مچ بند هوشمند"
+    },
+    {
+      "sku": "115804",
+      "category": "هدفون و هندزفری"
+    },
+    {
+      "sku": "513143",
+      "category": "هدفون و هندزفری"
+    },
+    {
+      "sku": "50614",
+      "category": "هدفون و هندزفری"
+    },
+    {
+      "sku": "100996",
+      "category": "اسپیکر"
+    },
+    {
+      "sku": "402603",
+      "category": "هدفون و هندزفری"
+    },
+    {
+      "sku": "109067",
+      "category": "پاوربانک"
+    },
+    {
+      "sku": "8178",
+      "category": "پاوربانک"
+    },
+    {
+      "sku": "446730",
+      "category": "کیبورد"
+    },
+    {
+      "sku": "30609",
+      "category": "هدفون و هندزفری"
+    }
+  ]
+}

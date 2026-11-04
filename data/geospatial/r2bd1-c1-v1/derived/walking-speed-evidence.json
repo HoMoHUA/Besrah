@@ -1,0 +1,30 @@
+{
+  "kind": "documentation_only_candidate",
+  "source_ids": [
+    "10-fhwa-freeflow",
+    "22-fhwa-full-report",
+    "02-fhwa-walk",
+    "05-fhwa-course"
+  ],
+  "publication_date": "1998-02 (primary report); 2006-07 (teaching guidance)",
+  "formula": "t_motion_seconds = verified_walkable_path_length_m / scenario_speed_m_per_s",
+  "level_unimpeded_walkway_candidate_m_per_s": 1.4,
+  "candidate_evidence_location": "Report Section 3.3, Table 23 footnote c: 1.4 m/s free-flow speed for pedestrian walkways",
+  "status": "Literature-based reference assumption only; not observed/local-calibrated speed, not a probability bound, not adopted into Planner",
+  "crossing_design_values_m_per_s": [
+    1.2,
+    1.0
+  ],
+  "crossing_values_scope": "Historical Section 2.2 crossing/time-limited-facility design values; do NOT relabel as actual trip walking speeds or current standard",
+  "unknown_components": [
+    "verified C1 entrance-to-directional-platform pedestrian path length",
+    "stairs ascent/descent length/grade and usable route",
+    "faregate/security/queue time",
+    "crossing signal wait",
+    "crowding/congestion",
+    "elevator/escalator availability and wait",
+    "wayfinding delay",
+    "actual user speed and mobility needs"
+  ],
+  "unusable_as_total": "Do not set unknown station, stair or wait durations to zero; no complete street-to-platform time can be asserted. No straight-line center distance substitutes for walkable geometry."
+}

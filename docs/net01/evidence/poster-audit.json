@@ -1,0 +1,2170 @@
+{
+ "meta": {
+  "poster_source_json": "data/official/kowsar_airport_poster_2026-11-03.json (sha256 49ba32c9f71291f73200a85f4c3b95cb0b3361956b53ee8ef0858d339ff35358)",
+  "DERIVED_ASSUMPTION": "Vakilabad departure = poster presence minus 18 min is DERIVED, not printed anywhere on the sheet. poster json meaning_note: \"Tuesday 2026-11-03 B left Vakilabad 19:32:22 -> sheet 19:49 at Kowsar (~17 min trip) fits\". The 18 min was fitted on ONE pair: board 19:31 (not the actual 19:32:22) vs sheet 19:49.",
+  "minute_resolution": "poster prints H:MM only; every comparison in seconds below is limited to +/-59 s by print resolution (derived departure treated as HH:MM:00).",
+  "baseline_engine": "HEAD of /root/projects/besrah-r3net01-r3b packages/core/src/engine.ts: Friday B phase 14:12:00 /24 min, start 06:30; Thursday B phase 14:05:17 /30 min, extra 06:00:17, B stops <20:00; normal day B phase 06:30 /30 min (site assumption, not measured)"
+ },
+ "columns": {
+  "sat_to_wed": {
+   "count": 32,
+   "expected_count": 32,
+   "count_ok": true,
+   "values": [
+    "6:18",
+    "6:47",
+    "7:18",
+    "7:42",
+    "8:14",
+    "8:43",
+    "9:13",
+    "9:42",
+    "10:13",
+    "10:43",
+    "11:13",
+    "11:43",
+    "12:12",
+    "12:37",
+    "13:01",
+    "13:25",
+    "13:49",
+    "14:12",
+    "14:37",
+    "15:01",
+    "15:25",
+    "15:49",
+    "16:13",
+    "16:37",
+    "17:01",
+    "17:25",
+    "17:49",
+    "18:13",
+    "18:37",
+    "19:01",
+    "19:25",
+    "19:49"
+   ],
+   "hmm_format_valid_all": true,
+   "invalid": [],
+   "strictly_increasing": true,
+   "consecutive_gaps_min": [
+    29,
+    31,
+    24,
+    32,
+    29,
+    30,
+    29,
+    31,
+    30,
+    30,
+    30,
+    29,
+    25,
+    24,
+    24,
+    24,
+    23,
+    25,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24
+   ],
+   "gap_summary": {
+    "23": 1,
+    "24": 17,
+    "25": 2,
+    "29": 4,
+    "30": 4,
+    "31": 2,
+    "32": 1
+   },
+   "first": "6:18",
+   "last": "19:49",
+   "derived_vakilabad_departure_DERIVED_minus_18min": [
+    "06:00",
+    "06:29",
+    "07:00",
+    "07:24",
+    "07:56",
+    "08:25",
+    "08:55",
+    "09:24",
+    "09:55",
+    "10:25",
+    "10:55",
+    "11:25",
+    "11:54",
+    "12:19",
+    "12:43",
+    "13:07",
+    "13:31",
+    "13:54",
+    "14:19",
+    "14:43",
+    "15:07",
+    "15:31",
+    "15:55",
+    "16:19",
+    "16:43",
+    "17:07",
+    "17:31",
+    "17:55",
+    "18:19",
+    "18:43",
+    "19:07",
+    "19:31"
+   ],
+   "derived_flag": "DERIVED: presence - 18 min (assumption stated in poster json meaning_note, fitted on 1 observation)",
+   "derived_minute_of_day_mod_8": [
+    0,
+    5,
+    4,
+    4,
+    4,
+    1,
+    7,
+    4,
+    3,
+    1,
+    7,
+    5,
+    2,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "derived_minute_mod_8_counts": {
+    "0": 1,
+    "5": 2,
+    "4": 4,
+    "1": 2,
+    "7": 2,
+    "3": 19,
+    "2": 2
+   },
+   "vs_baseline_engine_B": [
+    {
+     "poster": "6:18",
+     "derived_dep": "06:00",
+     "nearest_engine_B": "06:30:00",
+     "residual_s_derived_minus_engine": -1800
+    },
+    {
+     "poster": "6:47",
+     "derived_dep": "06:29",
+     "nearest_engine_B": "06:30:00",
+     "residual_s_derived_minus_engine": -60
+    },
+    {
+     "poster": "7:18",
+     "derived_dep": "07:00",
+     "nearest_engine_B": "07:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "7:42",
+     "derived_dep": "07:24",
+     "nearest_engine_B": "07:30:00",
+     "residual_s_derived_minus_engine": -360
+    },
+    {
+     "poster": "8:14",
+     "derived_dep": "07:56",
+     "nearest_engine_B": "08:00:00",
+     "residual_s_derived_minus_engine": -240
+    },
+    {
+     "poster": "8:43",
+     "derived_dep": "08:25",
+     "nearest_engine_B": "08:30:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "9:13",
+     "derived_dep": "08:55",
+     "nearest_engine_B": "09:00:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "9:42",
+     "derived_dep": "09:24",
+     "nearest_engine_B": "09:30:00",
+     "residual_s_derived_minus_engine": -360
+    },
+    {
+     "poster": "10:13",
+     "derived_dep": "09:55",
+     "nearest_engine_B": "10:00:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "10:43",
+     "derived_dep": "10:25",
+     "nearest_engine_B": "10:30:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "11:13",
+     "derived_dep": "10:55",
+     "nearest_engine_B": "11:00:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "11:43",
+     "derived_dep": "11:25",
+     "nearest_engine_B": "11:30:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "12:12",
+     "derived_dep": "11:54",
+     "nearest_engine_B": "12:00:00",
+     "residual_s_derived_minus_engine": -360
+    },
+    {
+     "poster": "12:37",
+     "derived_dep": "12:19",
+     "nearest_engine_B": "12:30:00",
+     "residual_s_derived_minus_engine": -660
+    },
+    {
+     "poster": "13:01",
+     "derived_dep": "12:43",
+     "nearest_engine_B": "12:30:00",
+     "residual_s_derived_minus_engine": 780
+    },
+    {
+     "poster": "13:25",
+     "derived_dep": "13:07",
+     "nearest_engine_B": "13:00:00",
+     "residual_s_derived_minus_engine": 420
+    },
+    {
+     "poster": "13:49",
+     "derived_dep": "13:31",
+     "nearest_engine_B": "13:30:00",
+     "residual_s_derived_minus_engine": 60
+    },
+    {
+     "poster": "14:12",
+     "derived_dep": "13:54",
+     "nearest_engine_B": "14:00:00",
+     "residual_s_derived_minus_engine": -360
+    },
+    {
+     "poster": "14:37",
+     "derived_dep": "14:19",
+     "nearest_engine_B": "14:30:00",
+     "residual_s_derived_minus_engine": -660
+    },
+    {
+     "poster": "15:01",
+     "derived_dep": "14:43",
+     "nearest_engine_B": "14:30:00",
+     "residual_s_derived_minus_engine": 780
+    },
+    {
+     "poster": "15:25",
+     "derived_dep": "15:07",
+     "nearest_engine_B": "15:00:00",
+     "residual_s_derived_minus_engine": 420
+    },
+    {
+     "poster": "15:49",
+     "derived_dep": "15:31",
+     "nearest_engine_B": "15:30:00",
+     "residual_s_derived_minus_engine": 60
+    },
+    {
+     "poster": "16:13",
+     "derived_dep": "15:55",
+     "nearest_engine_B": "16:00:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "16:37",
+     "derived_dep": "16:19",
+     "nearest_engine_B": "16:30:00",
+     "residual_s_derived_minus_engine": -660
+    },
+    {
+     "poster": "17:01",
+     "derived_dep": "16:43",
+     "nearest_engine_B": "16:30:00",
+     "residual_s_derived_minus_engine": 780
+    },
+    {
+     "poster": "17:25",
+     "derived_dep": "17:07",
+     "nearest_engine_B": "17:00:00",
+     "residual_s_derived_minus_engine": 420
+    },
+    {
+     "poster": "17:49",
+     "derived_dep": "17:31",
+     "nearest_engine_B": "17:30:00",
+     "residual_s_derived_minus_engine": 60
+    },
+    {
+     "poster": "18:13",
+     "derived_dep": "17:55",
+     "nearest_engine_B": "18:00:00",
+     "residual_s_derived_minus_engine": -300
+    },
+    {
+     "poster": "18:37",
+     "derived_dep": "18:19",
+     "nearest_engine_B": "18:30:00",
+     "residual_s_derived_minus_engine": -660
+    },
+    {
+     "poster": "19:01",
+     "derived_dep": "18:43",
+     "nearest_engine_B": "18:30:00",
+     "residual_s_derived_minus_engine": 780
+    },
+    {
+     "poster": "19:25",
+     "derived_dep": "19:07",
+     "nearest_engine_B": "19:00:00",
+     "residual_s_derived_minus_engine": 420
+    },
+    {
+     "poster": "19:49",
+     "derived_dep": "19:31",
+     "nearest_engine_B": "19:00:00",
+     "residual_s_derived_minus_engine": 1860
+    }
+   ],
+   "vs_baseline_engine_B_summary": {
+    "n": 32,
+    "min_s": -1800,
+    "max_s": 1860,
+    "mean_s": -54.4,
+    "rows_with_|residual|<=60s": 5,
+    "distribution": {
+     "-1800": 1,
+     "-660": 4,
+     "-360": 4,
+     "-300": 8,
+     "-240": 1,
+     "-60": 1,
+     "0": 1,
+     "60": 3,
+     "420": 4,
+     "780": 4,
+     "1860": 1
+    }
+   },
+   "engine_B_departures_inside_poster_span_with_no_poster_row_within_60s": [
+    "07:30:00",
+    "08:00:00",
+    "08:30:00",
+    "09:00:00",
+    "09:30:00",
+    "10:00:00",
+    "10:30:00",
+    "11:00:00",
+    "11:30:00",
+    "12:00:00",
+    "12:30:00",
+    "13:00:00",
+    "14:00:00",
+    "14:30:00",
+    "15:00:00",
+    "16:00:00",
+    "16:30:00",
+    "17:00:00",
+    "18:00:00",
+    "18:30:00",
+    "19:00:00"
+   ],
+   "engine_B_departures_outside_poster_span_(extrapolation_beyond_poster)": [],
+   "earlier_sheet_1405-07-22_from_ghadir_count": 32,
+   "vs_earlier_sheet_index_aligned": [
+    {
+     "poster": "6:18",
+     "sheet_from_ghadir": "06:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "06:00:17",
+     "poster_derived_dep": "06:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "6:47",
+     "sheet_from_ghadir": "07:10",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "06:29:17",
+     "poster_derived_dep": "06:29:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "7:18",
+     "sheet_from_ghadir": "07:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:00:17",
+     "poster_derived_dep": "07:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "7:42",
+     "sheet_from_ghadir": "08:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:24:17",
+     "poster_derived_dep": "07:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:14",
+     "sheet_from_ghadir": "08:37",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:56:17",
+     "poster_derived_dep": "07:56:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:43",
+     "sheet_from_ghadir": "09:06",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "08:25:17",
+     "poster_derived_dep": "08:25:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "9:13",
+     "sheet_from_ghadir": "09:36",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "08:55:17",
+     "poster_derived_dep": "08:55:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "9:42",
+     "sheet_from_ghadir": "10:06",
+     "sheet_minus_poster_min": 24.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:25:17",
+     "poster_derived_dep": "09:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -77
+    },
+    {
+     "poster": "10:13",
+     "sheet_from_ghadir": "10:36",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:55:17",
+     "poster_derived_dep": "09:55:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "10:43",
+     "sheet_from_ghadir": "11:06",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "10:25:17",
+     "poster_derived_dep": "10:25:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "11:13",
+     "sheet_from_ghadir": "11:36",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "10:55:17",
+     "poster_derived_dep": "10:55:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "11:43",
+     "sheet_from_ghadir": "12:06",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:25:17",
+     "poster_derived_dep": "11:25:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "12:12",
+     "sheet_from_ghadir": "12:36",
+     "sheet_minus_poster_min": 24.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:55:17",
+     "poster_derived_dep": "11:54:00",
+     "residual_s_poster_derived_minus_sheet_derived": -77
+    },
+    {
+     "poster": "12:37",
+     "sheet_from_ghadir": "13:00",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "12:19:17",
+     "poster_derived_dep": "12:19:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:01",
+     "sheet_from_ghadir": "13:24",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "12:43:17",
+     "poster_derived_dep": "12:43:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:25",
+     "sheet_from_ghadir": "13:48",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:07:17",
+     "poster_derived_dep": "13:07:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:49",
+     "sheet_from_ghadir": "14:12",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:31:17",
+     "poster_derived_dep": "13:31:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "14:12",
+     "sheet_from_ghadir": "14:36",
+     "sheet_minus_poster_min": 24.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:55:17",
+     "poster_derived_dep": "13:54:00",
+     "residual_s_poster_derived_minus_sheet_derived": -77
+    },
+    {
+     "poster": "14:37",
+     "sheet_from_ghadir": "15:00",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "14:19:17",
+     "poster_derived_dep": "14:19:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:01",
+     "sheet_from_ghadir": "15:24",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "14:43:17",
+     "poster_derived_dep": "14:43:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:25",
+     "sheet_from_ghadir": "15:48",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:07:17",
+     "poster_derived_dep": "15:07:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:49",
+     "sheet_from_ghadir": "16:12",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:31:17",
+     "poster_derived_dep": "15:31:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:13",
+     "sheet_from_ghadir": "16:36",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:55:17",
+     "poster_derived_dep": "15:55:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:37",
+     "sheet_from_ghadir": "17:00",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "16:19:17",
+     "poster_derived_dep": "16:19:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:01",
+     "sheet_from_ghadir": "17:24",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "16:43:17",
+     "poster_derived_dep": "16:43:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:25",
+     "sheet_from_ghadir": "17:48",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:07:17",
+     "poster_derived_dep": "17:07:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:49",
+     "sheet_from_ghadir": "18:12",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:31:17",
+     "poster_derived_dep": "17:31:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:13",
+     "sheet_from_ghadir": "18:36",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:55:17",
+     "poster_derived_dep": "17:55:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:37",
+     "sheet_from_ghadir": "19:00",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "18:19:17",
+     "poster_derived_dep": "18:19:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:01",
+     "sheet_from_ghadir": "19:24",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "18:43:17",
+     "poster_derived_dep": "18:43:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:25",
+     "sheet_from_ghadir": "19:48",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "19:07:17",
+     "poster_derived_dep": "19:07:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:49",
+     "sheet_from_ghadir": "20:12",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "19:31:17",
+     "poster_derived_dep": "19:31:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    }
+   ],
+   "vs_earlier_sheet_summary": {
+    "n": 32,
+    "distribution_s": {
+     "-77": 3,
+     "-17": 29
+    },
+    "sheet_minus_poster_minutes_distribution": {
+     "23.0": 29,
+     "24.0": 3
+    },
+    "note": "40:43 = observed Friday A-train Vakilabad depart 13:59:51 -> Ghadir arrive 14:40:34, used by the engine to turn a Ghadir pass time into a Vakilabad departure (assumes B has the same run time as A: DERIVED). Rows aligned by index; printed times have minute resolution so +-60 s is noise."
+   }
+  },
+  "thursday": {
+   "count": 28,
+   "expected_count": 28,
+   "count_ok": true,
+   "values": [
+    "6:18",
+    "6:53",
+    "7:23",
+    "7:53",
+    "8:23",
+    "8:53",
+    "9:23",
+    "9:53",
+    "10:23",
+    "10:53",
+    "11:23",
+    "11:53",
+    "12:23",
+    "12:53",
+    "13:23",
+    "13:53",
+    "14:23",
+    "14:53",
+    "15:23",
+    "15:53",
+    "16:23",
+    "16:53",
+    "17:23",
+    "17:53",
+    "18:23",
+    "18:53",
+    "19:23",
+    "19:53"
+   ],
+   "hmm_format_valid_all": true,
+   "invalid": [],
+   "strictly_increasing": true,
+   "consecutive_gaps_min": [
+    35,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "gap_summary": {
+    "30": 26,
+    "35": 1
+   },
+   "first": "6:18",
+   "last": "19:53",
+   "derived_vakilabad_departure_DERIVED_minus_18min": [
+    "06:00",
+    "06:35",
+    "07:05",
+    "07:35",
+    "08:05",
+    "08:35",
+    "09:05",
+    "09:35",
+    "10:05",
+    "10:35",
+    "11:05",
+    "11:35",
+    "12:05",
+    "12:35",
+    "13:05",
+    "13:35",
+    "14:05",
+    "14:35",
+    "15:05",
+    "15:35",
+    "16:05",
+    "16:35",
+    "17:05",
+    "17:35",
+    "18:05",
+    "18:35",
+    "19:05",
+    "19:35"
+   ],
+   "derived_flag": "DERIVED: presence - 18 min (assumption stated in poster json meaning_note, fitted on 1 observation)",
+   "derived_minute_of_day_mod_8": [
+    0,
+    3,
+    1,
+    7,
+    5,
+    3,
+    1,
+    7,
+    5,
+    3,
+    1,
+    7,
+    5,
+    3,
+    1,
+    7,
+    5,
+    3,
+    1,
+    7,
+    5,
+    3,
+    1,
+    7,
+    5,
+    3,
+    1,
+    7
+   ],
+   "derived_minute_mod_8_counts": {
+    "0": 1,
+    "3": 7,
+    "1": 7,
+    "7": 7,
+    "5": 6
+   },
+   "vs_baseline_engine_B": [
+    {
+     "poster": "6:18",
+     "derived_dep": "06:00",
+     "nearest_engine_B": "06:00:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "6:53",
+     "derived_dep": "06:35",
+     "nearest_engine_B": "06:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "7:23",
+     "derived_dep": "07:05",
+     "nearest_engine_B": "07:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "7:53",
+     "derived_dep": "07:35",
+     "nearest_engine_B": "07:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "8:23",
+     "derived_dep": "08:05",
+     "nearest_engine_B": "08:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "8:53",
+     "derived_dep": "08:35",
+     "nearest_engine_B": "08:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "9:23",
+     "derived_dep": "09:05",
+     "nearest_engine_B": "09:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "9:53",
+     "derived_dep": "09:35",
+     "nearest_engine_B": "09:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "10:23",
+     "derived_dep": "10:05",
+     "nearest_engine_B": "10:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "10:53",
+     "derived_dep": "10:35",
+     "nearest_engine_B": "10:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "11:23",
+     "derived_dep": "11:05",
+     "nearest_engine_B": "11:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "11:53",
+     "derived_dep": "11:35",
+     "nearest_engine_B": "11:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "12:23",
+     "derived_dep": "12:05",
+     "nearest_engine_B": "12:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "12:53",
+     "derived_dep": "12:35",
+     "nearest_engine_B": "12:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "13:23",
+     "derived_dep": "13:05",
+     "nearest_engine_B": "13:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "13:53",
+     "derived_dep": "13:35",
+     "nearest_engine_B": "13:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "14:23",
+     "derived_dep": "14:05",
+     "nearest_engine_B": "14:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "14:53",
+     "derived_dep": "14:35",
+     "nearest_engine_B": "14:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "15:23",
+     "derived_dep": "15:05",
+     "nearest_engine_B": "15:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "15:53",
+     "derived_dep": "15:35",
+     "nearest_engine_B": "15:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "16:23",
+     "derived_dep": "16:05",
+     "nearest_engine_B": "16:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "16:53",
+     "derived_dep": "16:35",
+     "nearest_engine_B": "16:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "17:23",
+     "derived_dep": "17:05",
+     "nearest_engine_B": "17:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "17:53",
+     "derived_dep": "17:35",
+     "nearest_engine_B": "17:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "18:23",
+     "derived_dep": "18:05",
+     "nearest_engine_B": "18:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "18:53",
+     "derived_dep": "18:35",
+     "nearest_engine_B": "18:35:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "19:23",
+     "derived_dep": "19:05",
+     "nearest_engine_B": "19:05:17",
+     "residual_s_derived_minus_engine": -17
+    },
+    {
+     "poster": "19:53",
+     "derived_dep": "19:35",
+     "nearest_engine_B": "19:35:17",
+     "residual_s_derived_minus_engine": -17
+    }
+   ],
+   "vs_baseline_engine_B_summary": {
+    "n": 28,
+    "min_s": -17,
+    "max_s": -17,
+    "mean_s": -17,
+    "rows_with_|residual|<=60s": 28,
+    "distribution": {
+     "-17": 28
+    }
+   },
+   "engine_B_departures_inside_poster_span_with_no_poster_row_within_60s": [],
+   "engine_B_departures_outside_poster_span_(extrapolation_beyond_poster)": [],
+   "earlier_sheet_1405-07-22_from_ghadir_count": 28,
+   "vs_earlier_sheet_index_aligned": [
+    {
+     "poster": "6:18",
+     "sheet_from_ghadir": "06:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "06:00:17",
+     "poster_derived_dep": "06:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "6:53",
+     "sheet_from_ghadir": "07:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "06:35:17",
+     "poster_derived_dep": "06:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "7:23",
+     "sheet_from_ghadir": "07:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:05:17",
+     "poster_derived_dep": "07:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "7:53",
+     "sheet_from_ghadir": "08:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:35:17",
+     "poster_derived_dep": "07:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:23",
+     "sheet_from_ghadir": "08:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "08:05:17",
+     "poster_derived_dep": "08:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:53",
+     "sheet_from_ghadir": "09:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "08:35:17",
+     "poster_derived_dep": "08:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "9:23",
+     "sheet_from_ghadir": "09:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:05:17",
+     "poster_derived_dep": "09:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "9:53",
+     "sheet_from_ghadir": "10:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:35:17",
+     "poster_derived_dep": "09:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "10:23",
+     "sheet_from_ghadir": "10:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "10:05:17",
+     "poster_derived_dep": "10:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "10:53",
+     "sheet_from_ghadir": "11:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "10:35:17",
+     "poster_derived_dep": "10:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "11:23",
+     "sheet_from_ghadir": "11:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:05:17",
+     "poster_derived_dep": "11:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "11:53",
+     "sheet_from_ghadir": "12:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:35:17",
+     "poster_derived_dep": "11:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "12:23",
+     "sheet_from_ghadir": "12:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "12:05:17",
+     "poster_derived_dep": "12:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "12:53",
+     "sheet_from_ghadir": "13:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "12:35:17",
+     "poster_derived_dep": "12:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:23",
+     "sheet_from_ghadir": "13:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:05:17",
+     "poster_derived_dep": "13:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:53",
+     "sheet_from_ghadir": "14:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:35:17",
+     "poster_derived_dep": "13:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "14:23",
+     "sheet_from_ghadir": "14:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "14:05:17",
+     "poster_derived_dep": "14:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "14:53",
+     "sheet_from_ghadir": "15:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "14:35:17",
+     "poster_derived_dep": "14:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:23",
+     "sheet_from_ghadir": "15:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:05:17",
+     "poster_derived_dep": "15:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:53",
+     "sheet_from_ghadir": "16:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:35:17",
+     "poster_derived_dep": "15:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:23",
+     "sheet_from_ghadir": "16:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "16:05:17",
+     "poster_derived_dep": "16:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:53",
+     "sheet_from_ghadir": "17:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "16:35:17",
+     "poster_derived_dep": "16:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:23",
+     "sheet_from_ghadir": "17:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:05:17",
+     "poster_derived_dep": "17:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:53",
+     "sheet_from_ghadir": "18:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:35:17",
+     "poster_derived_dep": "17:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:23",
+     "sheet_from_ghadir": "18:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "18:05:17",
+     "poster_derived_dep": "18:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:53",
+     "sheet_from_ghadir": "19:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "18:35:17",
+     "poster_derived_dep": "18:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:23",
+     "sheet_from_ghadir": "19:46",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "19:05:17",
+     "poster_derived_dep": "19:05:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:53",
+     "sheet_from_ghadir": "20:16",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "19:35:17",
+     "poster_derived_dep": "19:35:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    }
+   ],
+   "vs_earlier_sheet_summary": {
+    "n": 28,
+    "distribution_s": {
+     "-17": 28
+    },
+    "sheet_minus_poster_minutes_distribution": {
+     "23.0": 28
+    },
+    "note": "40:43 = observed Friday A-train Vakilabad depart 13:59:51 -> Ghadir arrive 14:40:34, used by the engine to turn a Ghadir pass time into a Vakilabad departure (assumes B has the same run time as A: DERIVED). Rows aligned by index; printed times have minute resolution so +-60 s is noise."
+   }
+  },
+  "friday": {
+   "count": 32,
+   "expected_count": 32,
+   "count_ok": true,
+   "values": [
+    "7:18",
+    "7:42",
+    "8:06",
+    "8:30",
+    "8:54",
+    "9:18",
+    "9:42",
+    "10:06",
+    "10:30",
+    "10:54",
+    "11:18",
+    "11:42",
+    "12:06",
+    "12:30",
+    "12:54",
+    "13:18",
+    "13:42",
+    "14:06",
+    "14:30",
+    "14:54",
+    "15:18",
+    "15:42",
+    "16:06",
+    "16:30",
+    "16:54",
+    "17:18",
+    "17:42",
+    "18:06",
+    "18:30",
+    "18:54",
+    "19:18",
+    "19:42"
+   ],
+   "hmm_format_valid_all": true,
+   "invalid": [],
+   "strictly_increasing": true,
+   "consecutive_gaps_min": [
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24
+   ],
+   "gap_summary": {
+    "24": 31
+   },
+   "first": "7:18",
+   "last": "19:42",
+   "derived_vakilabad_departure_DERIVED_minus_18min": [
+    "07:00",
+    "07:24",
+    "07:48",
+    "08:12",
+    "08:36",
+    "09:00",
+    "09:24",
+    "09:48",
+    "10:12",
+    "10:36",
+    "11:00",
+    "11:24",
+    "11:48",
+    "12:12",
+    "12:36",
+    "13:00",
+    "13:24",
+    "13:48",
+    "14:12",
+    "14:36",
+    "15:00",
+    "15:24",
+    "15:48",
+    "16:12",
+    "16:36",
+    "17:00",
+    "17:24",
+    "17:48",
+    "18:12",
+    "18:36",
+    "19:00",
+    "19:24"
+   ],
+   "derived_flag": "DERIVED: presence - 18 min (assumption stated in poster json meaning_note, fitted on 1 observation)",
+   "derived_minute_of_day_mod_8": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "derived_minute_mod_8_counts": {
+    "4": 32
+   },
+   "vs_baseline_engine_B": [
+    {
+     "poster": "7:18",
+     "derived_dep": "07:00",
+     "nearest_engine_B": "07:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "7:42",
+     "derived_dep": "07:24",
+     "nearest_engine_B": "07:24:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "8:06",
+     "derived_dep": "07:48",
+     "nearest_engine_B": "07:48:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "8:30",
+     "derived_dep": "08:12",
+     "nearest_engine_B": "08:12:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "8:54",
+     "derived_dep": "08:36",
+     "nearest_engine_B": "08:36:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "9:18",
+     "derived_dep": "09:00",
+     "nearest_engine_B": "09:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "9:42",
+     "derived_dep": "09:24",
+     "nearest_engine_B": "09:24:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "10:06",
+     "derived_dep": "09:48",
+     "nearest_engine_B": "09:48:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "10:30",
+     "derived_dep": "10:12",
+     "nearest_engine_B": "10:12:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "10:54",
+     "derived_dep": "10:36",
+     "nearest_engine_B": "10:36:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "11:18",
+     "derived_dep": "11:00",
+     "nearest_engine_B": "11:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "11:42",
+     "derived_dep": "11:24",
+     "nearest_engine_B": "11:24:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "12:06",
+     "derived_dep": "11:48",
+     "nearest_engine_B": "11:48:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "12:30",
+     "derived_dep": "12:12",
+     "nearest_engine_B": "12:12:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "12:54",
+     "derived_dep": "12:36",
+     "nearest_engine_B": "12:36:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "13:18",
+     "derived_dep": "13:00",
+     "nearest_engine_B": "13:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "13:42",
+     "derived_dep": "13:24",
+     "nearest_engine_B": "13:24:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "14:06",
+     "derived_dep": "13:48",
+     "nearest_engine_B": "13:48:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "14:30",
+     "derived_dep": "14:12",
+     "nearest_engine_B": "14:12:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "14:54",
+     "derived_dep": "14:36",
+     "nearest_engine_B": "14:36:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "15:18",
+     "derived_dep": "15:00",
+     "nearest_engine_B": "15:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "15:42",
+     "derived_dep": "15:24",
+     "nearest_engine_B": "15:24:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "16:06",
+     "derived_dep": "15:48",
+     "nearest_engine_B": "15:48:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "16:30",
+     "derived_dep": "16:12",
+     "nearest_engine_B": "16:12:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "16:54",
+     "derived_dep": "16:36",
+     "nearest_engine_B": "16:36:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "17:18",
+     "derived_dep": "17:00",
+     "nearest_engine_B": "17:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "17:42",
+     "derived_dep": "17:24",
+     "nearest_engine_B": "17:24:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "18:06",
+     "derived_dep": "17:48",
+     "nearest_engine_B": "17:48:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "18:30",
+     "derived_dep": "18:12",
+     "nearest_engine_B": "18:12:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "18:54",
+     "derived_dep": "18:36",
+     "nearest_engine_B": "18:36:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "19:18",
+     "derived_dep": "19:00",
+     "nearest_engine_B": "19:00:00",
+     "residual_s_derived_minus_engine": 0
+    },
+    {
+     "poster": "19:42",
+     "derived_dep": "19:24",
+     "nearest_engine_B": "19:24:00",
+     "residual_s_derived_minus_engine": 0
+    }
+   ],
+   "vs_baseline_engine_B_summary": {
+    "n": 32,
+    "min_s": 0,
+    "max_s": 0,
+    "mean_s": 0,
+    "rows_with_|residual|<=60s": 32,
+    "distribution": {
+     "0": 32
+    }
+   },
+   "engine_B_departures_inside_poster_span_with_no_poster_row_within_60s": [],
+   "engine_B_departures_outside_poster_span_(extrapolation_beyond_poster)": [
+    "06:36:00",
+    "19:48:00",
+    "20:12:00",
+    "20:36:00",
+    "21:00:00",
+    "21:24:00",
+    "21:48:00"
+   ],
+   "earlier_sheet_1405-07-22_from_ghadir_count": 32,
+   "vs_earlier_sheet_index_aligned": [
+    {
+     "poster": "7:18",
+     "sheet_from_ghadir": "07:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:00:17",
+     "poster_derived_dep": "07:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "7:42",
+     "sheet_from_ghadir": "08:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:24:17",
+     "poster_derived_dep": "07:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:06",
+     "sheet_from_ghadir": "08:29",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "07:48:17",
+     "poster_derived_dep": "07:48:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:30",
+     "sheet_from_ghadir": "08:53",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "08:12:17",
+     "poster_derived_dep": "08:12:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "8:54",
+     "sheet_from_ghadir": "09:17",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "08:36:17",
+     "poster_derived_dep": "08:36:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "9:18",
+     "sheet_from_ghadir": "09:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:00:17",
+     "poster_derived_dep": "09:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "9:42",
+     "sheet_from_ghadir": "10:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:24:17",
+     "poster_derived_dep": "09:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "10:06",
+     "sheet_from_ghadir": "10:29",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "09:48:17",
+     "poster_derived_dep": "09:48:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "10:30",
+     "sheet_from_ghadir": "10:53",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "10:12:17",
+     "poster_derived_dep": "10:12:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "10:54",
+     "sheet_from_ghadir": "11:17",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "10:36:17",
+     "poster_derived_dep": "10:36:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "11:18",
+     "sheet_from_ghadir": "11:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:00:17",
+     "poster_derived_dep": "11:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "11:42",
+     "sheet_from_ghadir": "12:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:24:17",
+     "poster_derived_dep": "11:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "12:06",
+     "sheet_from_ghadir": "12:29",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "11:48:17",
+     "poster_derived_dep": "11:48:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "12:30",
+     "sheet_from_ghadir": "12:53",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "12:12:17",
+     "poster_derived_dep": "12:12:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "12:54",
+     "sheet_from_ghadir": "13:17",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "12:36:17",
+     "poster_derived_dep": "12:36:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:18",
+     "sheet_from_ghadir": "13:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:00:17",
+     "poster_derived_dep": "13:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "13:42",
+     "sheet_from_ghadir": "14:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:24:17",
+     "poster_derived_dep": "13:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "14:06",
+     "sheet_from_ghadir": "14:29",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "13:48:17",
+     "poster_derived_dep": "13:48:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "14:30",
+     "sheet_from_ghadir": "14:53",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "14:12:17",
+     "poster_derived_dep": "14:12:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "14:54",
+     "sheet_from_ghadir": "15:17",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "14:36:17",
+     "poster_derived_dep": "14:36:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:18",
+     "sheet_from_ghadir": "15:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:00:17",
+     "poster_derived_dep": "15:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "15:42",
+     "sheet_from_ghadir": "16:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:24:17",
+     "poster_derived_dep": "15:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:06",
+     "sheet_from_ghadir": "16:29",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "15:48:17",
+     "poster_derived_dep": "15:48:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:30",
+     "sheet_from_ghadir": "16:53",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "16:12:17",
+     "poster_derived_dep": "16:12:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "16:54",
+     "sheet_from_ghadir": "17:17",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "16:36:17",
+     "poster_derived_dep": "16:36:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:18",
+     "sheet_from_ghadir": "17:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:00:17",
+     "poster_derived_dep": "17:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "17:42",
+     "sheet_from_ghadir": "18:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:24:17",
+     "poster_derived_dep": "17:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:06",
+     "sheet_from_ghadir": "18:29",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "17:48:17",
+     "poster_derived_dep": "17:48:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:30",
+     "sheet_from_ghadir": "18:53",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "18:12:17",
+     "poster_derived_dep": "18:12:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "18:54",
+     "sheet_from_ghadir": "19:17",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "18:36:17",
+     "poster_derived_dep": "18:36:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:18",
+     "sheet_from_ghadir": "19:41",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "19:00:17",
+     "poster_derived_dep": "19:00:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    },
+    {
+     "poster": "19:42",
+     "sheet_from_ghadir": "20:05",
+     "sheet_minus_poster_min": 23.0,
+     "sheet_derived_vak_dep_(sheet-40:43)": "19:24:17",
+     "poster_derived_dep": "19:24:00",
+     "residual_s_poster_derived_minus_sheet_derived": -17
+    }
+   ],
+   "vs_earlier_sheet_summary": {
+    "n": 32,
+    "distribution_s": {
+     "-17": 32
+    },
+    "sheet_minus_poster_minutes_distribution": {
+     "23.0": 32
+    },
+    "note": "40:43 = observed Friday A-train Vakilabad depart 13:59:51 -> Ghadir arrive 14:40:34, used by the engine to turn a Ghadir pass time into a Vakilabad departure (assumes B has the same run time as A: DERIVED). Rows aligned by index; printed times have minute resolution so +-60 s is noise."
+   }
+  }
+ },
+ "_engine_B_lists": {
+  "friday": [
+   "06:36:00",
+   "07:00:00",
+   "07:24:00",
+   "07:48:00",
+   "08:12:00",
+   "08:36:00",
+   "09:00:00",
+   "09:24:00",
+   "09:48:00",
+   "10:12:00",
+   "10:36:00",
+   "11:00:00",
+   "11:24:00",
+   "11:48:00",
+   "12:12:00",
+   "12:36:00",
+   "13:00:00",
+   "13:24:00",
+   "13:48:00",
+   "14:12:00",
+   "14:36:00",
+   "15:00:00",
+   "15:24:00",
+   "15:48:00",
+   "16:12:00",
+   "16:36:00",
+   "17:00:00",
+   "17:24:00",
+   "17:48:00",
+   "18:12:00",
+   "18:36:00",
+   "19:00:00",
+   "19:24:00",
+   "19:48:00",
+   "20:12:00",
+   "20:36:00",
+   "21:00:00",
+   "21:24:00",
+   "21:48:00"
+  ],
+  "thursday": [
+   "06:00:17",
+   "06:35:17",
+   "07:05:17",
+   "07:35:17",
+   "08:05:17",
+   "08:35:17",
+   "09:05:17",
+   "09:35:17",
+   "10:05:17",
+   "10:35:17",
+   "11:05:17",
+   "11:35:17",
+   "12:05:17",
+   "12:35:17",
+   "13:05:17",
+   "13:35:17",
+   "14:05:17",
+   "14:35:17",
+   "15:05:17",
+   "15:35:17",
+   "16:05:17",
+   "16:35:17",
+   "17:05:17",
+   "17:35:17",
+   "18:05:17",
+   "18:35:17",
+   "19:05:17",
+   "19:35:17"
+  ],
+  "normal": [
+   "06:30:00",
+   "07:00:00",
+   "07:30:00",
+   "08:00:00",
+   "08:30:00",
+   "09:00:00",
+   "09:30:00",
+   "10:00:00",
+   "10:30:00",
+   "11:00:00",
+   "11:30:00",
+   "12:00:00",
+   "12:30:00",
+   "13:00:00",
+   "13:30:00",
+   "14:00:00",
+   "14:30:00",
+   "15:00:00",
+   "15:30:00",
+   "16:00:00",
+   "16:30:00",
+   "17:00:00",
+   "17:30:00",
+   "18:00:00",
+   "18:30:00",
+   "19:00:00"
+  ]
+ },
+ "observed_A_train_vakilabad_depart_to_kowsar": {
+  "friday_2026-10-16": {
+   "v_depart_t": 1792146591683,
+   "kowsar_arrive_t": 1792147613529,
+   "kowsar_depart_t": 1792147632441,
+   "v_to_kowsar_arrive_s": 1021.8,
+   "v_to_kowsar_depart_s": 1040.8
+  },
+  "tuesday_2026-11-03": {
+   "v_depart_t": 1793723590948,
+   "kowsar_arrive_t": 1793724639121,
+   "kowsar_depart_t": 1793724659071,
+   "v_to_kowsar_arrive_s": 1048.2,
+   "v_to_kowsar_depart_s": 1068.1
+  },
+  "note": "These are A (Ghadir) trains, n=2; NO B-train Vakilabad->Kowsar run time exists in any CSV (n=0). Assumed 1080 s offset minus observed: arrive 58 / 32 s, depart 39 / 12 s."
+ },
+ "claim_check_19_of_19_rows_on_8min_grid": {
+  "rows_from_12:30_on": 19,
+  "derived_minute_mod_8_for_those_rows": [
+   3,
+   3,
+   3,
+   3,
+   2,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3
+  ],
+  "rows_before_12:30_mod8": {
+   "6:18": 0,
+   "6:47": 5,
+   "7:18": 4,
+   "7:42": 4,
+   "8:14": 4,
+   "8:43": 1,
+   "9:13": 7,
+   "9:42": 4,
+   "10:13": 3,
+   "10:43": 1,
+   "11:13": 7,
+   "11:43": 5,
+   "12:12": 2
+  },
+  "consecutive_gaps_for_those_rows_min": [
+   25,
+   24,
+   24,
+   24,
+   23,
+   25,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24
+  ],
+  "CIRCULARITY": "gaps of those 19 rows are 25,24,24,24,23,25 then 24 x13 (not perfectly regular: 14:12 is 1 min off the 8-min grid, i.e. 18/19 exact + 1 at -1 min, which is what \"within 1 min\" in network.json means). The list is a 24-min cadence (=3x8), so it is compatible with an 8-min grid, but a 24-min list says nothing about the A trains between B trains. All rows share ONE offset (18 min) fitted on ONE pair (board 19:31 vs sheet 19:49), so \"19 of 19\" tests the regularity of the printed list, not the 18-min offset and not the 8-min all-train grid.",
+  "offset_sensitivity": "if offset were 17 min the derived Tuesday B would be 19:32:00 (minute 4 mod 8, off grid by 1 min); 19 min -> 19:30:00 (minute 2 mod 8). Only 18 puts it on 3 mod 8."
+ },
+ "tuesday_vakilabad_departures_vs_poster": [
+  {
+   "row": 22,
+   "csv_line": 23,
+   "t_ms": 1793720729120,
+   "tehran": "19:15:29",
+   "dir_field": "غدیر",
+   "logged_dwell_s": "38",
+   "note_on_row": "",
+   "nearest_poster_minus_18": null,
+   "residual_s_actual_minus_poster_derived": null,
+   "comparison": "dir=غدیر (A) - A trains are not on the poster; no poster comparison possible (n/a)"
+  },
+  {
+   "row": 24,
+   "csv_line": 25,
+   "t_ms": 1793721172610,
+   "tehran": "19:22:52",
+   "dir_field": "غدیر",
+   "logged_dwell_s": "95",
+   "note_on_row": "",
+   "nearest_poster_minus_18": null,
+   "residual_s_actual_minus_poster_derived": null,
+   "comparison": "dir=غدیر (A) - A trains are not on the poster; no poster comparison possible (n/a)"
+  },
+  {
+   "row": 26,
+   "csv_line": 27,
+   "t_ms": 1793721742090,
+   "tehran": "19:32:22",
+   "dir_field": "فرودگاه",
+   "logged_dwell_s": "41",
+   "note_on_row": "",
+   "nearest_poster_minus_18": "19:31",
+   "residual_s_actual_minus_poster_derived": 82.1,
+   "comparison": "B (dir=فرودگاه): compared with poster-18"
+  },
+  {
+   "row": 28,
+   "csv_line": 29,
+   "t_ms": 1793722155103,
+   "tehran": "19:39:15",
+   "dir_field": "غدیر",
+   "logged_dwell_s": "64",
+   "note_on_row": "",
+   "nearest_poster_minus_18": null,
+   "residual_s_actual_minus_poster_derived": null,
+   "comparison": "dir=غدیر (A) - A trains are not on the poster; no poster comparison possible (n/a)"
+  },
+  {
+   "row": 31,
+   "csv_line": 32,
+   "t_ms": 1793722618851,
+   "tehran": "19:46:58",
+   "dir_field": "غدیر",
+   "logged_dwell_s": "88",
+   "note_on_row": "",
+   "nearest_poster_minus_18": null,
+   "residual_s_actual_minus_poster_derived": null,
+   "comparison": "dir=غدیر (A) - A trains are not on the poster; no poster comparison possible (n/a)"
+  },
+  {
+   "row": 33,
+   "csv_line": 34,
+   "t_ms": 1793723103351,
+   "tehran": "19:55:03",
+   "dir_field": "غدیر",
+   "logged_dwell_s": "66",
+   "note_on_row": "آپدیت تابلو :20:21",
+   "nearest_poster_minus_18": null,
+   "residual_s_actual_minus_poster_derived": null,
+   "comparison": "dir=غدیر (A) - A trains are not on the poster; no poster comparison possible (n/a)"
+  },
+  {
+   "row": 35,
+   "csv_line": 36,
+   "t_ms": 1793723590948,
+   "tehran": "20:03:10",
+   "dir_field": "غدیر",
+   "logged_dwell_s": "8",
+   "note_on_row": "آپدیت تابلو :20:11، 20:19 ،20:27",
+   "nearest_poster_minus_18": null,
+   "residual_s_actual_minus_poster_derived": null,
+   "comparison": "dir=غدیر (A) - A trains are not on the poster; no poster comparison possible (n/a)"
+  }
+ ],
+ "tuesday_B_check": {
+  "actual_B_depart": "19:32:22 (dir=فرودگاه in CSV; board at 19:21:17 listed \"19:31 فرودگاه\")",
+  "poster_19:49_minus_18": "19:31:00",
+  "residual_s": 82.1,
+  "residual_range_if_printed_minute_is_floor_of_true_time_s": [
+   23.1,
+   82.1
+  ],
+  "board_vs_poster": "board 19:31 equals poster-18 (0 s) -> board and poster are the same schedule seen twice, not two independent confirmations",
+  "n_independent_B_observations_at_vakilabad": 1,
+  "candidate_meaning_note_says_trip_~17min": "actual 19:32:22 -> 19:49:00 is 16.6 min; the 18-min offset applied to the board time 19:31, not to the actual departure"
+ },
+ "tuesday_independence": {
+  "independent_of_poster (recorded by owner before/without the poster)": [
+   "all 7 Vakilabad depart rows (times, dwell) and 6 arrive rows",
+   "board texts at 19:21:17 (19:23 غدیر, 19:31 فرودگاه, 19:39 غدیر, 19:47 غدیر), 19:31:40 (19:55), 19:38:10 (20:03), 19:45:30 (20:11), 19:53:57 and 19:55:03 (20:21), 20:03:03 (20:11, 20:19, 20:27)",
+   "dir=فرودگاه on the 19:32:22 depart row (only row that states airport)",
+   "note at 19:14:50: the previous train that had left was the airport train (departure itself not logged, time unknown)"
+  ],
+  "NOT independent / derived using the poster": [
+   "19:55:03 labelled Ghadir: UPDATE docs say destination was never seen and the label is inferred because the poster has no airport train after 19:49 at Kowsar; the CSV dir field says غدیر without marking it as inferred",
+   "B scheduled at 19:07 and the claim \"every third train is B\": 19:07 is not observed, only grid + poster",
+   "the 18-min offset (fitted on the 19:31/19:49 pair)",
+   "any statement that a train other than 19:32:22 was A or B beyond the dir field / board labels"
+  ]
+ }
+}

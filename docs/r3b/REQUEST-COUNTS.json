@@ -1,0 +1,30 @@
+{
+ "R3-A": {
+  "idle12s_no_origin": {},
+  "after_origin_selected": {
+   "next": 1
+  },
+  "future_time_plan": {
+   "beta": 1,
+   "journey": 1
+  },
+  "closed_tracker_12s_after": {},
+  "tracker_open_12s": {
+   "trains": 2
+  }
+ },
+ "R3-B": {
+  "idle12s_no_origin": {},
+  "after_origin_selected": {
+   "next": 1
+  },
+  "future_time_plan": {
+   "beta": 1,
+   "journey": 1
+  },
+  "closed_tracker_12s_after": {},
+  "tracker_open_12s": {
+   "trains": 2
+  }
+ }
+}

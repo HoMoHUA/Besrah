@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "gate": "BLOCKED",
+  "dataTechnicallyCompletePendingIndependentVerification": false,
+  "directions": {
+    "107->108": {
+      "legs": [
+        {
+          "role": "origin_public_point",
+          "status": "undetermined",
+          "basis": "verified boundaryStandable in A-TO-H7"
+        },
+        {
+          "role": "origin_outdoor",
+          "missionId": "A-TO-H7",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "origin_internal",
+          "missionId": "H7-IN-OUTBOUND",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "metro",
+          "status": "pass",
+          "basis": "D1 historical platform-only R2a replay"
+        },
+        {
+          "role": "destination_internal",
+          "missionId": "DA-OUT-OUTBOUND",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "destination_outdoor",
+          "missionId": "DA-TO-B",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "destination_public_point",
+          "status": "undetermined",
+          "basis": "verified boundaryStandable in DA-TO-B"
+        }
+      ],
+      "boundaryContinuity": "undetermined",
+      "gate": "BLOCKED"
+    },
+    "108->107": {
+      "legs": [
+        {
+          "role": "origin_public_point",
+          "status": "undetermined",
+          "basis": "verified boundaryStandable in B-TO-DA"
+        },
+        {
+          "role": "origin_outdoor",
+          "missionId": "B-TO-DA",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "origin_internal",
+          "missionId": "DA-IN-INBOUND",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "metro",
+          "status": "pass",
+          "basis": "D1 historical platform-only R2a replay"
+        },
+        {
+          "role": "destination_internal",
+          "missionId": "H7-OUT-INBOUND",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "destination_outdoor",
+          "missionId": "H7-TO-A",
+          "status": "undetermined",
+          "observations": []
+        },
+        {
+          "role": "destination_public_point",
+          "status": "undetermined",
+          "basis": "verified boundaryStandable in H7-TO-A"
+        }
+      ],
+      "boundaryContinuity": "undetermined",
+      "gate": "BLOCKED"
+    }
+  },
+  "duplicates": [],
+  "verifications": [],
+  "verdicts": {},
+  "rejectedWithoutMission": [],
+  "openChecks": [
+    "DA-COORD-CHECK: registry versus OSM station point (~200 m) is unresolved and never auto-corrected"
+  ],
+  "note": "READY would only permit an owner decision about R2b-B design; never a planner, ETA or release."
+}

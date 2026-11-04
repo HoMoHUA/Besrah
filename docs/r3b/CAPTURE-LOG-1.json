@@ -1,0 +1,160 @@
+[
+ {
+  "file": "r3b-360x740-01-start-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "start"
+ },
+ {
+  "file": "r3b-360x740-01-start-light-fullpage.png",
+  "full": true,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "start"
+ },
+ {
+  "file": "r3b-360x740-02-filled-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "filled"
+ },
+ {
+  "file": "r3b-360x740-03-results-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "results",
+  "options": 5
+ },
+ {
+  "file": "r3b-360x740-03-results-light-fullpage.png",
+  "full": true,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "results"
+ },
+ {
+  "file": "r3b-360x740-04-board-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "board"
+ },
+ {
+  "file": "r3b-360x740-05-tracker-open-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "tracker-open"
+ },
+ {
+  "file": "r3b-360x740-06-stations-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "stations"
+ },
+ {
+  "file": "r3b-360x740-01-start-dark-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "dark",
+  "state": "start"
+ },
+ {
+  "file": "r3b-360x740-03-results-dark-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "dark",
+  "state": "results",
+  "options": 5
+ },
+ {
+  "file": "r3b-360x740-03-results-dark-fullpage.png",
+  "full": true,
+  "viewport": "360x740",
+  "theme": "dark",
+  "state": "results"
+ },
+ {
+  "file": "r3b-390x844-01-start-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "start"
+ },
+ {
+  "file": "r3b-390x844-01-start-light-fullpage.png",
+  "full": true,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "start"
+ },
+ {
+  "file": "r3b-390x844-02-filled-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "filled"
+ },
+ {
+  "file": "r3b-390x844-03-results-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "results",
+  "options": 5
+ },
+ {
+  "file": "r3b-390x844-03-results-light-fullpage.png",
+  "full": true,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "results"
+ },
+ {
+  "file": "r3b-390x844-04-board-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "board"
+ },
+ {
+  "file": "r3b-390x844-05-tracker-open-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "tracker-open"
+ },
+ {
+  "file": "r3b-390x844-06-stations-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "stations"
+ },
+ {
+  "file": "r3b-390x844-01-start-dark-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "dark",
+  "state": "start"
+ },
+ {
+  "file": "r3b-390x844-03-results-dark-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "dark",
+  "state": "results",
+  "options": 5
+ },
+ {
+  "file": "r3b-390x844-03-results-dark-fullpage.png",
+  "full": true,
+  "viewport": "390x844",
+  "theme": "dark",
+  "state": "results"
+ }
+]

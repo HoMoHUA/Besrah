@@ -1,0 +1,1297 @@
+{
+  "realModel": true,
+  "fixture": false,
+  "date": "2026-11-04",
+  "testsRun": 8,
+  "failures": 0,
+  "errors": 0,
+  "requests": [
+    {
+      "port": 18881,
+      "path": "/app/api/beta",
+      "http": 200,
+      "bytes": 141,
+      "sha256": "af19f597f23193f1cc79335cdac26c23152b10061beca7b315441bc2a5592ba1",
+      "ms": 9.811,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey-feedback",
+      "http": 503,
+      "bytes": 32,
+      "sha256": "ae0b55bb6c7dff10f945632248ebee58bc1262d0d32f80281d4beb5c0ddf67eb",
+      "ms": 1.632,
+      "modelStatus": null
+    },
+    {
+      "port": 18882,
+      "path": "/app/api/beta",
+      "http": 200,
+      "bytes": 142,
+      "sha256": "77864cb042bdca26cb076cf078ae820e97fdb2a26c6db035b9aaa6d4666def8a",
+      "ms": 4.881,
+      "modelStatus": null
+    },
+    {
+      "port": 18882,
+      "path": "/app/api/journey-feedback",
+      "http": 404,
+      "bytes": 21,
+      "sha256": "d2dfdc9511fbeaa0701d1f8730f4989313b062ca1b61a2bd8bed8f4f5d654b5d",
+      "ms": 1.269,
+      "modelStatus": null
+    },
+    {
+      "port": 18883,
+      "path": "/app/api/beta",
+      "http": 200,
+      "bytes": 131,
+      "sha256": "43cfea82d578620dd36dc6194f02e12115709bd27359054cd1777ab50252a5ac",
+      "ms": 12.156,
+      "modelStatus": null
+    },
+    {
+      "port": 18883,
+      "path": "/app/api/journey-feedback",
+      "http": 503,
+      "bytes": 32,
+      "sha256": "ae0b55bb6c7dff10f945632248ebee58bc1262d0d32f80281d4beb5c0ddf67eb",
+      "ms": 2.508,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 3158,
+      "sha256": "6dfb8d803060f92dc1e259472e7253685d6ba53a172d9a2443e3f735baf54952",
+      "ms": 13.286,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-108&to=METRO-107&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 3197,
+      "sha256": "1ae197e4a8fa8f80d49f310a48a955b385fb09bf0085d38f1d3bc20005d4aff2",
+      "ms": 5.289,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=2&from=METRO-201&to=METRO-203&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 3194,
+      "sha256": "b347f20c51fa795473396b6e91dcebe30ab2e3eecc7bc3a1168e07dcf0bf2791",
+      "ms": 4.933,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=2&from=METRO-203&to=METRO-201&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 3156,
+      "sha256": "b3e03811fbaad4f7b9950f272d7432ca7681532f1cc5cc74fca41642805b76f2",
+      "ms": 4.658,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-124&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 2324,
+      "sha256": "3fa4220249fb85436d8735486ebd9a3d4a4e17b5a95a4d80c741896872feefc5",
+      "ms": 3.75,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18883,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 1018,
+      "sha256": "d188f5af51737fddf179f36259dad9f8f775228d3c620727b43bfed8662dbe3a",
+      "ms": 5.546,
+      "modelStatus": "insufficient_data"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-04&time=00%3A05",
+      "http": 200,
+      "bytes": 1066,
+      "sha256": "7a04ebf3890ba7206e06ec25a4720a8d6ea2e380d4af707edd625fcbfceef857",
+      "ms": 44.259,
+      "modelStatus": "insufficient_data"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-107&date=2026-11-04&time=10%3A00",
+      "http": 400,
+      "bytes": 45,
+      "sha256": "184d4fa78276e497852a4faefb6f5986fded8621711f58c525fd1c321b096162",
+      "ms": 1.844,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-201&date=2026-11-04&time=10%3A00",
+      "http": 400,
+      "bytes": 44,
+      "sha256": "3bb74eda953f55ba0d42ebba29e700875a5078d981ee6652d54e5fd415f38725",
+      "ms": 1.337,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=3&from=METRO-107&to=METRO-108&date=2026-11-04&time=10%3A00",
+      "http": 400,
+      "bytes": 41,
+      "sha256": "945eb444e214852d496f558f261e93684ab28e10ed99912b13fa54e7da7afa1a",
+      "ms": 2.574,
+      "modelStatus": null
+    },
+    {
+      "port": 18882,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-04&time=10%3A00",
+      "http": 404,
+      "bytes": 21,
+      "sha256": "d2dfdc9511fbeaa0701d1f8730f4989313b062ca1b61a2bd8bed8f4f5d654b5d",
+      "ms": 1.628,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-04&time=10%3A00",
+      "http": 200,
+      "bytes": 3158,
+      "sha256": "6dfb8d803060f92dc1e259472e7253685d6ba53a172d9a2443e3f735baf54952",
+      "ms": 6.738,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-04&time=10%3A13",
+      "http": 200,
+      "bytes": 3155,
+      "sha256": "88289f8991694f7c4c15c87b311b4dfa860f77dad5e7a4abf23d07ae51852708",
+      "ms": 5.417,
+      "modelStatus": "partial"
+    },
+    {
+      "port": 18880,
+      "path": "/health",
+      "http": 200,
+      "bytes": 11,
+      "sha256": "4062edaf750fb8074e7e83e0c9028c94e32468a8b6f1614774328ef045150f93",
+      "ms": 7.668,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/health",
+      "http": 200,
+      "bytes": 11,
+      "sha256": "4062edaf750fb8074e7e83e0c9028c94e32468a8b6f1614774328ef045150f93",
+      "ms": 1.626,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=1&at=2026-10-16T14%3A00%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 2696,
+      "sha256": "dc280a5b4573314f521f235b60f045bc07e4fe64d05c4f651a171447c825f866",
+      "ms": 3.478,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=1&at=2026-10-16T14%3A00%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 2696,
+      "sha256": "dc280a5b4573314f521f235b60f045bc07e4fe64d05c4f651a171447c825f866",
+      "ms": 2.586,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=2&at=2026-10-16T14%3A00%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1881,
+      "sha256": "92846a331b713de0d851e2196767b212841981bdbbafd96821620876ded4985c",
+      "ms": 2.182,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=2&at=2026-10-16T14%3A00%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1881,
+      "sha256": "92846a331b713de0d851e2196767b212841981bdbbafd96821620876ded4985c",
+      "ms": 1.473,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1085,
+      "sha256": "c9cb2a27d527064cc493c9b6f8a1794c49d559305ed45bd226a253ec96f7c7fd",
+      "ms": 2.255,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1085,
+      "sha256": "c9cb2a27d527064cc493c9b6f8a1794c49d559305ed45bd226a253ec96f7c7fd",
+      "ms": 1.787,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1044,
+      "sha256": "8a6e2b69a73c61892e8cbd8455945b967d1db10b749aa4dd5d8fb7dc330cd1b7",
+      "ms": 1.73,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1044,
+      "sha256": "8a6e2b69a73c61892e8cbd8455945b967d1db10b749aa4dd5d8fb7dc330cd1b7",
+      "ms": 1.383,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1030,
+      "sha256": "ed8ebcca88166fab0c0e4cccde2b89ca8f6e2d47d3454a5d86e8483495f3470d",
+      "ms": 1.646,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1030,
+      "sha256": "ed8ebcca88166fab0c0e4cccde2b89ca8f6e2d47d3454a5d86e8483495f3470d",
+      "ms": 1.886,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1042,
+      "sha256": "51748c95eb22106678a2198c0f10b9a8777f75e9995661f53148ef746fdd97c3",
+      "ms": 2.939,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1042,
+      "sha256": "51748c95eb22106678a2198c0f10b9a8777f75e9995661f53148ef746fdd97c3",
+      "ms": 2.721,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1040,
+      "sha256": "d447a7615f65bb0c72c42541c1ad39dd3d273acec7ecab7e9bc8bca431738bb0",
+      "ms": 2.084,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1040,
+      "sha256": "d447a7615f65bb0c72c42541c1ad39dd3d273acec7ecab7e9bc8bca431738bb0",
+      "ms": 2.079,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1010,
+      "sha256": "5a0ed10f0a69e9da6ede9864dff4992d61a34c842f31b4de8964310e84ebc4d3",
+      "ms": 1.711,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1010,
+      "sha256": "5a0ed10f0a69e9da6ede9864dff4992d61a34c842f31b4de8964310e84ebc4d3",
+      "ms": 1.54,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1046,
+      "sha256": "1cf841d9d30f8313688a3953938fbc0e79696e2ca0501db493528ee80f4cb67b",
+      "ms": 1.606,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1046,
+      "sha256": "1cf841d9d30f8313688a3953938fbc0e79696e2ca0501db493528ee80f4cb67b",
+      "ms": 1.48,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1385,
+      "sha256": "95169beb971b20df85d805edf9eced27b83f10e7238484d1bb21de428afdbc44",
+      "ms": 1.909,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1385,
+      "sha256": "95169beb971b20df85d805edf9eced27b83f10e7238484d1bb21de428afdbc44",
+      "ms": 1.582,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1203,
+      "sha256": "976efb0399fc57992cac564ee117968f229076508856a3d80e089246e726ac0a",
+      "ms": 1.906,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1203,
+      "sha256": "976efb0399fc57992cac564ee117968f229076508856a3d80e089246e726ac0a",
+      "ms": 1.586,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1296,
+      "sha256": "b95cc28fbe25c8dd4e4f2474698b17b841f3c5bdf3c005c4e00a33f21f38ca8a",
+      "ms": 2.115,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-10-16T14%3A00%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1296,
+      "sha256": "b95cc28fbe25c8dd4e4f2474698b17b841f3c5bdf3c005c4e00a33f21f38ca8a",
+      "ms": 2.601,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=1&at=2026-10-22T09%3A30%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 3202,
+      "sha256": "9aa3263222710fa2a457fa1827dc1af842b68b3d2568acaab035b1413f8601b0",
+      "ms": 2.892,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=1&at=2026-10-22T09%3A30%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 3202,
+      "sha256": "9aa3263222710fa2a457fa1827dc1af842b68b3d2568acaab035b1413f8601b0",
+      "ms": 2.439,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=2&at=2026-10-22T09%3A30%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1425,
+      "sha256": "f4b4f837293b0e79faac22bd5528d04ea0a1886c081fefa09a19506f4b175e7b",
+      "ms": 1.942,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=2&at=2026-10-22T09%3A30%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1425,
+      "sha256": "f4b4f837293b0e79faac22bd5528d04ea0a1886c081fefa09a19506f4b175e7b",
+      "ms": 1.745,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1376,
+      "sha256": "483594a1cbe9fff7ac3ed26a06dfadda34099c82dedb54d45ee6688f67aefd45",
+      "ms": 1.678,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1376,
+      "sha256": "483594a1cbe9fff7ac3ed26a06dfadda34099c82dedb54d45ee6688f67aefd45",
+      "ms": 1.64,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1343,
+      "sha256": "7bfd14788363fe7c9819c3e6bbc84778613799fbef0afb0facc8f7bbea553b3b",
+      "ms": 1.616,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1343,
+      "sha256": "7bfd14788363fe7c9819c3e6bbc84778613799fbef0afb0facc8f7bbea553b3b",
+      "ms": 3.115,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1315,
+      "sha256": "0ba3aaa33162edfd48419be62c2a9f7daa4aca9861e4666b2b120fc6bf0fc164",
+      "ms": 1.769,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1315,
+      "sha256": "0ba3aaa33162edfd48419be62c2a9f7daa4aca9861e4666b2b120fc6bf0fc164",
+      "ms": 1.458,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1329,
+      "sha256": "88d60b5ed1ef6443d47cb4b16669ef092e89d219e730535f6a7607e2fc813731",
+      "ms": 1.694,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1329,
+      "sha256": "88d60b5ed1ef6443d47cb4b16669ef092e89d219e730535f6a7607e2fc813731",
+      "ms": 1.45,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1337,
+      "sha256": "01876de5b356a8d7285d98382847cf0cd70566b2b67025be2ae7f21917f084ae",
+      "ms": 1.661,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1337,
+      "sha256": "01876de5b356a8d7285d98382847cf0cd70566b2b67025be2ae7f21917f084ae",
+      "ms": 1.452,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1303,
+      "sha256": "812d6030cfa9fd35ea846b24ae65a31a69a22afc4c88999f27304295c34e58e5",
+      "ms": 3.413,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1303,
+      "sha256": "812d6030cfa9fd35ea846b24ae65a31a69a22afc4c88999f27304295c34e58e5",
+      "ms": 1.809,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1345,
+      "sha256": "f71ffb46fa9dc287745a97fb5def0ba63583a8625a21e1bfe0decf1b8ae8f571",
+      "ms": 2.069,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1345,
+      "sha256": "f71ffb46fa9dc287745a97fb5def0ba63583a8625a21e1bfe0decf1b8ae8f571",
+      "ms": 1.796,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1677,
+      "sha256": "f50c984b44a604ad51eec2ef982a566925707afd6135a2a062691427900e25f1",
+      "ms": 1.712,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1677,
+      "sha256": "f50c984b44a604ad51eec2ef982a566925707afd6135a2a062691427900e25f1",
+      "ms": 1.766,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1487,
+      "sha256": "f0497fedfcabf4f3c813658bbde17f196425d4e846390194a0a2b6096c07e4cd",
+      "ms": 2.047,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1487,
+      "sha256": "f0497fedfcabf4f3c813658bbde17f196425d4e846390194a0a2b6096c07e4cd",
+      "ms": 1.828,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1578,
+      "sha256": "a79e8427bd7d92cddf1d17ec366206846a99ff522f347f63afd822206e3d1452",
+      "ms": 1.707,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1578,
+      "sha256": "a79e8427bd7d92cddf1d17ec366206846a99ff522f347f63afd822206e3d1452",
+      "ms": 1.694,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=1&at=2026-11-03T18%3A10%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 3742,
+      "sha256": "e313a6ba37ac0b1325e0935530e8c585af7c3845cb0ad66a2e8b8c384f632b95",
+      "ms": 2.304,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=1&at=2026-11-03T18%3A10%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 3742,
+      "sha256": "e313a6ba37ac0b1325e0935530e8c585af7c3845cb0ad66a2e8b8c384f632b95",
+      "ms": 1.636,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=2&at=2026-11-03T18%3A10%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1858,
+      "sha256": "b50c777a4266fa5f82ab6848fb68bf14c60766115ec13f9759fde6059c4e6f22",
+      "ms": 1.648,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=2&at=2026-11-03T18%3A10%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1858,
+      "sha256": "b50c777a4266fa5f82ab6848fb68bf14c60766115ec13f9759fde6059c4e6f22",
+      "ms": 1.707,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1322,
+      "sha256": "b3f4322b68eb1508f0c386ff2c24d492b74a6f76a662eec778d432a58e6c9809",
+      "ms": 1.667,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1322,
+      "sha256": "b3f4322b68eb1508f0c386ff2c24d492b74a6f76a662eec778d432a58e6c9809",
+      "ms": 1.741,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1275,
+      "sha256": "59e2b0f28ba513a6017f0af74e0cfb48e5783f4b8a09d01722cf2e8b25319bd9",
+      "ms": 1.591,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1275,
+      "sha256": "59e2b0f28ba513a6017f0af74e0cfb48e5783f4b8a09d01722cf2e8b25319bd9",
+      "ms": 1.599,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1267,
+      "sha256": "99b5abe7b2c4a7980f498f700ae4813ac8f73cbe45c16dece8eedf4b1528c4dd",
+      "ms": 1.705,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1267,
+      "sha256": "99b5abe7b2c4a7980f498f700ae4813ac8f73cbe45c16dece8eedf4b1528c4dd",
+      "ms": 2.884,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1279,
+      "sha256": "1c8881247d399225614cc4ed4389dcf72ba2383631a4a379a80338ba58e5c847",
+      "ms": 4.099,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1279,
+      "sha256": "1c8881247d399225614cc4ed4389dcf72ba2383631a4a379a80338ba58e5c847",
+      "ms": 2.073,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1275,
+      "sha256": "036e7fb6e23211b0372f5c14f93bdee5fbd9e922348d8c362480b786fc739efa",
+      "ms": 1.644,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1275,
+      "sha256": "036e7fb6e23211b0372f5c14f93bdee5fbd9e922348d8c362480b786fc739efa",
+      "ms": 2.27,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1285,
+      "sha256": "c7a9d92d3001d8c96109a3cfb48380a881b1dceb12cf8f5af1b5c5b45deb2fa5",
+      "ms": 1.851,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1285,
+      "sha256": "c7a9d92d3001d8c96109a3cfb48380a881b1dceb12cf8f5af1b5c5b45deb2fa5",
+      "ms": 1.684,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1285,
+      "sha256": "6e6790a73bad0edbdfaf67b20a378b8351b049f44c4ad0a281f75f999d8469cd",
+      "ms": 1.891,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1285,
+      "sha256": "6e6790a73bad0edbdfaf67b20a378b8351b049f44c4ad0a281f75f999d8469cd",
+      "ms": 2.403,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1659,
+      "sha256": "ebaee9ea8e50e52550f13ebfd1aed84c4af4b990e5d41795f1204830b811ae71",
+      "ms": 1.784,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1659,
+      "sha256": "ebaee9ea8e50e52550f13ebfd1aed84c4af4b990e5d41795f1204830b811ae71",
+      "ms": 1.705,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1485,
+      "sha256": "ce41907aa098f4f6494cb3b04c17d352a77bfd81b73eb58abff8788d6e98cda1",
+      "ms": 1.73,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1485,
+      "sha256": "ce41907aa098f4f6494cb3b04c17d352a77bfd81b73eb58abff8788d6e98cda1",
+      "ms": 1.743,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1578,
+      "sha256": "767387b2b8129be64715f5200d97217dd6c0e56ba09c33863ca418b541670aad",
+      "ms": 1.573,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-11-03T18%3A10%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1578,
+      "sha256": "767387b2b8129be64715f5200d97217dd6c0e56ba09c33863ca418b541670aad",
+      "ms": 1.577,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=1&at=2026-11-04T07%3A05%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 2514,
+      "sha256": "8b0683c6b61f9fcaead5ba2483c099e068cbe289fbda73c7d81d6040ceedde92",
+      "ms": 1.965,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=1&at=2026-11-04T07%3A05%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 2514,
+      "sha256": "8b0683c6b61f9fcaead5ba2483c099e068cbe289fbda73c7d81d6040ceedde92",
+      "ms": 2.142,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=2&at=2026-11-04T07%3A05%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1875,
+      "sha256": "3ffbe9d791b81ec8a70d0fae97617fe83774068bb5c58176a459de528a0a0e1a",
+      "ms": 1.571,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=2&at=2026-11-04T07%3A05%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1875,
+      "sha256": "3ffbe9d791b81ec8a70d0fae97617fe83774068bb5c58176a459de528a0a0e1a",
+      "ms": 1.578,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1305,
+      "sha256": "36b8139c25d294591bdc2d39a9a126bd22fe2c89b85362485ccb39e458b90efb",
+      "ms": 1.678,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1305,
+      "sha256": "36b8139c25d294591bdc2d39a9a126bd22fe2c89b85362485ccb39e458b90efb",
+      "ms": 1.793,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1315,
+      "sha256": "c59d26b87b7a6ea0d7008f52568fa7cb306d31a9c33d76b00f553db19a24993e",
+      "ms": 3.326,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1315,
+      "sha256": "c59d26b87b7a6ea0d7008f52568fa7cb306d31a9c33d76b00f553db19a24993e",
+      "ms": 3.007,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1297,
+      "sha256": "b03fe77bd4961c166b1a38e14c0900560d59ca3e1a710af456365d12b96bc9e0",
+      "ms": 2.451,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1297,
+      "sha256": "b03fe77bd4961c166b1a38e14c0900560d59ca3e1a710af456365d12b96bc9e0",
+      "ms": 1.826,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1311,
+      "sha256": "0877ae9b89d35a0e25490cfbe4cf2a87b8cb55558fecd1cf01a379557a15ad4a",
+      "ms": 1.668,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1311,
+      "sha256": "0877ae9b89d35a0e25490cfbe4cf2a87b8cb55558fecd1cf01a379557a15ad4a",
+      "ms": 1.86,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1307,
+      "sha256": "23e18d5c9db408866f99d47b88c5bcad2d5e4297b83aec3204a65b335dbb281a",
+      "ms": 1.822,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1307,
+      "sha256": "23e18d5c9db408866f99d47b88c5bcad2d5e4297b83aec3204a65b335dbb281a",
+      "ms": 1.682,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1277,
+      "sha256": "0f8ecfd22d4816bb648456c15376b3957a9c41f8b0882ea1ad2658fa81b1c88c",
+      "ms": 1.621,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1277,
+      "sha256": "0f8ecfd22d4816bb648456c15376b3957a9c41f8b0882ea1ad2658fa81b1c88c",
+      "ms": 1.921,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1325,
+      "sha256": "f376463e2712f208ad174364c11b6fe07e506b466c1b2a1f8579b3bd60d83689",
+      "ms": 2.486,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1325,
+      "sha256": "f376463e2712f208ad174364c11b6fe07e506b466c1b2a1f8579b3bd60d83689",
+      "ms": 2.191,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1679,
+      "sha256": "b014c3a65d364505bbcb22191309cb324ca8422f1e121b3859f689f5c9e2fc3f",
+      "ms": 2.098,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1679,
+      "sha256": "b014c3a65d364505bbcb22191309cb324ca8422f1e121b3859f689f5c9e2fc3f",
+      "ms": 1.805,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1487,
+      "sha256": "d6b5c60252701e81be4cbc26320dc0bd2b93234dca48c06d319a4e42c856fcd8",
+      "ms": 1.656,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1487,
+      "sha256": "d6b5c60252701e81be4cbc26320dc0bd2b93234dca48c06d319a4e42c856fcd8",
+      "ms": 1.568,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1578,
+      "sha256": "c09a844bf6372540374c0516a1426cd321d090a2a12ae4c0b4f6238a087ec608",
+      "ms": 1.673,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-11-04T07%3A05%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1578,
+      "sha256": "c09a844bf6372540374c0516a1426cd321d090a2a12ae4c0b4f6238a087ec608",
+      "ms": 1.738,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=1&at=2026-11-06T22%3A40%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1820,
+      "sha256": "638a0f1769250eb61bb1e2ea04f76dce8b7a7ad73ecd130292b284b0b9a4a681",
+      "ms": 1.842,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=1&at=2026-11-06T22%3A40%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 1820,
+      "sha256": "638a0f1769250eb61bb1e2ea04f76dce8b7a7ad73ecd130292b284b0b9a4a681",
+      "ms": 1.753,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/trains?line=2&at=2026-11-06T22%3A40%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 492,
+      "sha256": "aa23f3b5433c6b87c1c1bd58ef8c449281864996774102ebc65e30ef612ae8a9",
+      "ms": 1.389,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/trains?line=2&at=2026-11-06T22%3A40%3A00%2B03%3A30",
+      "http": 200,
+      "bytes": 492,
+      "sha256": "aa23f3b5433c6b87c1c1bd58ef8c449281864996774102ebc65e30ef612ae8a9",
+      "ms": 1.275,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1055,
+      "sha256": "c1ec55c2304969986e3b8b57f5874b3c5418ea625f1a8561bc894d1e4535e267",
+      "ms": 1.481,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1055,
+      "sha256": "c1ec55c2304969986e3b8b57f5874b3c5418ea625f1a8561bc894d1e4535e267",
+      "ms": 1.386,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 964,
+      "sha256": "d1911a6efb50de228626767de780fc4b88a6febb92a835f87c34ee98fcdfc344",
+      "ms": 1.427,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 964,
+      "sha256": "d1911a6efb50de228626767de780fc4b88a6febb92a835f87c34ee98fcdfc344",
+      "ms": 2.449,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 950,
+      "sha256": "4e0c36f3fda28ad40bdcbb96e66c03c1e72bd30273cbb666a6deeba066af306c",
+      "ms": 2.203,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 950,
+      "sha256": "4e0c36f3fda28ad40bdcbb96e66c03c1e72bd30273cbb666a6deeba066af306c",
+      "ms": 1.587,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 964,
+      "sha256": "282f51660a26009c0a9d066365e8dcddff8834af6fffe5414e2d4c2a68394ac2",
+      "ms": 1.443,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 964,
+      "sha256": "282f51660a26009c0a9d066365e8dcddff8834af6fffe5414e2d4c2a68394ac2",
+      "ms": 1.377,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 960,
+      "sha256": "3cc2179afc8593cba0c9e40a4bdbc0fe6c2193e1cf4935f5c62e5b004995fdee",
+      "ms": 1.396,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 960,
+      "sha256": "3cc2179afc8593cba0c9e40a4bdbc0fe6c2193e1cf4935f5c62e5b004995fdee",
+      "ms": 1.617,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 930,
+      "sha256": "93a403654f810828cb43d806b001b0f0d016ac60792575e7d9e71138b00fdea2",
+      "ms": 1.312,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 930,
+      "sha256": "93a403654f810828cb43d806b001b0f0d016ac60792575e7d9e71138b00fdea2",
+      "ms": 1.529,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 634,
+      "sha256": "69692ab4401f78110ab22c0b5e32aa5d66c1308784c5d0f7981dc6a5d55f1af8",
+      "ms": 1.367,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 634,
+      "sha256": "69692ab4401f78110ab22c0b5e32aa5d66c1308784c5d0f7981dc6a5d55f1af8",
+      "ms": 1.449,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1170,
+      "sha256": "6678a7c8f0f0087d6c3d6eed8541569a76ae212a6694623661396330c4ee8056",
+      "ms": 1.496,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 1170,
+      "sha256": "6678a7c8f0f0087d6c3d6eed8541569a76ae212a6694623661396330c4ee8056",
+      "ms": 1.326,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 634,
+      "sha256": "2fc47326dbb8bd7bc9534066b20b8a52a5bc48aa03e63639b7a1e40cdcf60aeb",
+      "ms": 1.428,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 634,
+      "sha256": "2fc47326dbb8bd7bc9534066b20b8a52a5bc48aa03e63639b7a1e40cdcf60aeb",
+      "ms": 1.405,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 674,
+      "sha256": "74415bf678112cdec169b106d89d35057652c57655ba95c66ba1ccae448ddaac",
+      "ms": 1.438,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-11-06T22%3A40%3A00%2B03%3A30&limit=4",
+      "http": 200,
+      "bytes": 674,
+      "sha256": "74415bf678112cdec169b106d89d35057652c57655ba95c66ba1ccae448ddaac",
+      "ms": 1.533,
+      "modelStatus": null
+    },
+    {
+      "port": 18880,
+      "path": "/app/api/food-status?vendor=nonexistent",
+      "http": 404,
+      "bytes": 26,
+      "sha256": "99368b4b838a52376195e3f3198100d63d95931950baaffbe1a8cdd259545119",
+      "ms": 1.548,
+      "modelStatus": null
+    },
+    {
+      "port": 18881,
+      "path": "/app/api/food-status?vendor=nonexistent",
+      "http": 404,
+      "bytes": 26,
+      "sha256": "99368b4b838a52376195e3f3198100d63d95931950baaffbe1a8cdd259545119",
+      "ms": 2.11,
+      "modelStatus": null
+    }
+  ]
+}

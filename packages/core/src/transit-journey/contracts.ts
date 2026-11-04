@@ -1,0 +1,18 @@
+import type { Candidate, DecisionResult, Evidence, HardConstraint, NumericMetric } from '../intelligence/contracts.js';
+import type { DayType } from '../time.js';
+export type MetroLine = 1 | 2;
+export const JOURNEY_LIMITS = Object.freeze({ stations: 64, stopsPerTrip: 32, tripsPerDay: 512, searchSeconds: 21600, days: 3, candidates: 64, cacheEntries: 2, tripSpanSeconds: 14400, issues: 24 });
+export interface PhysicalStation { id: string; name: string; lines: readonly MetroLine[] }
+export interface StationCatalog { stations: readonly PhysicalStation[]; orders: Readonly<Record<MetroLine, readonly string[]>>; ghadirId: string }
+export interface CalendarEntry { date: string; dayType: DayType; sourceId: string; dataVersion: string }
+export interface CalendarPolicy { mode: 'strict' | 'weekday_baseline'; days?: CalendarEntry[] }
+export interface CalendarResolution { date: string; state: 'known' | 'estimated' | 'unknown'; dayType?: DayType; sourceId: string; dataVersion: string; reason: string }
+export interface JourneyRequest { schemaVersion: 1; requestId: string; line: MetroLine; originId: string; destinationId: string; readyAt: string; calendar: CalendarPolicy; decisionPermission: 'granted' | 'denied'; searchSeconds?: number; maxCandidates?: number; constraints?: HardConstraint[] }
+export interface ModelStop { sequence: number; stationId: string; lineIndex: number; arrive: number; depart: number }
+export interface ModelTrip { id: string; sourceTrainId: string; serviceDate: string; line: MetroLine; service: 'A' | 'B' | null; direction: 'out' | 'back'; confidence: string; derivedExtension: boolean; stops: readonly ModelStop[] }
+export interface ModelIssue { code: string; trainId?: string; detail?: string }
+export interface RawModelDay { line: MetroLine; serviceDate: string; dayType: DayType; dataVersion: string; trains: unknown[]; runQuality: readonly string[] }
+export interface ModelDay { line: MetroLine; serviceDate: string; dayType: DayType; dataVersion: string; trips: readonly ModelTrip[]; runQuality: readonly string[]; complete: boolean; rejectedTrips: number; issues: readonly ModelIssue[] }
+export interface TimetableSource { readonly catalog: StationCatalog; readonly dataVersion: string; /** Identity token of the timetable model behind trip event ids; absent for injected providers. */ readonly identityVersion?: string; readonly evidence: readonly Evidence[]; getDay(line: MetroLine, date: string, dayType: DayType): Promise<ModelDay>; stats(): { entries: number; maxEntries: number; hits: number; misses: number; evictions: number }; clear(): void }
+export interface Journey { candidateId: string; tripId: string; sourceTrainId: string; serviceDate: string; line: MetroLine; service: 'A' | 'B' | null; direction: 'out' | 'back'; confidence: string; derivedExtension: boolean; sourceVersion: string; runQuality: readonly string[]; calendar: CalendarResolution; origin: ModelStop; destination: ModelStop; stops: readonly ModelStop[]; departureEpochSeconds: number; arrivalEpochSeconds: number; metrics: { waitingSeconds: NumericMetric; inVehicleSeconds: NumericMetric }; evidence: Evidence[] }
+export interface JourneyResult { schemaVersion: 1; modelOnly: true; requestId: string; status: DecisionResult['status']; reason: string; scope: { kind: 'same_line_platform_to_platform'; line: MetroLine; originId: string; destinationId: string; readyAt: string; until: string }; candidates: Candidate[]; journeys: Journey[]; decision: DecisionResult; diagnostics: { serviceDates: string[]; calendars: CalendarResolution[]; matchedTrips: number; candidateTruncated: boolean; rejectedTrips: number; issues: ModelIssue[]; complete: boolean; timingsMs: { source: number; extraction: number; decision: number; total: number } } }

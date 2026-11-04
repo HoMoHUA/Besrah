@@ -1,0 +1,2868 @@
+{
+ "servers": {
+  "A": "clean build of 587accb (dist identical to /srv/besrah)",
+  "C": "NET01-QG candidate with overlay",
+  "F": "NET01-QG candidate, overlay file absent"
+ },
+ "requests": 1868,
+ "seconds": 15.8,
+ "summary": {
+  "A_vs_F": {
+   "id_only": 1708,
+   "identical_bytes": 160
+  },
+  "A_vs_C": {
+   "id_only": 1591,
+   "identical_bytes": 160,
+   "UNEXPECTED_DIFF": 117
+  }
+ },
+ "families": {
+  "next": {
+   "requests": 672,
+   "status": {
+    "200": 672
+   }
+  },
+  "next2": {
+   "requests": 560,
+   "status": {
+    "200": 560
+   }
+  },
+  "trains1": {
+   "requests": 112,
+   "status": {
+    "200": 112
+   }
+  },
+  "trains2": {
+   "requests": 112,
+   "status": {
+    "200": 112
+   }
+  },
+  "journey1": {
+   "requests": 252,
+   "status": {
+    "200": 252
+   }
+  },
+  "journey2": {
+   "requests": 84,
+   "status": {
+    "200": 84
+   }
+  },
+  "error": {
+   "requests": 15,
+   "status": {
+    "400": 10,
+    "404": 2,
+    "200": 3
+   }
+  },
+  "legacy": {
+   "requests": 61,
+   "status": {
+    "200": 61
+   }
+  }
+ },
+ "violations": [
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:35:17 != 06:36:17",
+    "/passes[3]/eta_min: 391 != 392",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/00:05:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T00%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "ddb06203fcd1501b",
+    "C": "3692dda9c673be8a",
+    "F": "ec076c3d0d756f19"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:47:18 != 06:48:18",
+    "/passes[3]/eta_min: 403 != 404",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/00:05:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T00%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "92c15233249374e2",
+    "C": "eed6e333f5ad36fc",
+    "F": "26ab854c4c540a55"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:48:58 != 06:49:58",
+    "/passes[3]/eta_min: 404 != 405",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/00:05:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T00%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f521b42ed07e7b37",
+    "C": "fd2c054305e5d358",
+    "F": "ce588bbf91310e90"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:52:14 != 06:53:14",
+    "/passes[3]/eta_min: 408 != 409",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/00:05:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T00%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "1ece296798e4d5e0",
+    "C": "6428da8241532a63",
+    "F": "dadc57d6583e5de3"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 07:27:50 != 07:28:50",
+    "/passes[2]/eta_min: 443 != 444",
+    "/passes[3]/arrive: 07:39:17 != 07:40:17",
+    "/passes[3]/eta_min: 455 != 456",
+    "/passes[4]/arrive: 07:57:50 != 07:58:50",
+    "/passes[4]/eta_min: 473 != 474"
+   ],
+   "label": "next/thu/00:05:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T00%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "01d5a533f07156c7",
+    "C": "6a79a393bf0c088e",
+    "F": "96e035caeff1c7b1"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:35:17 != 06:36:17",
+    "/passes[3]/eta_min: 41 != 42",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/05:55:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T05%3A55%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9d905130e75c1b03",
+    "C": "413d032085f0a9ec",
+    "F": "0632c61c968bfeaf"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:47:18 != 06:48:18",
+    "/passes[3]/eta_min: 53 != 54",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/05:55:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T05%3A55%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "72e62e005041db0e",
+    "C": "c392c19393c38ff4",
+    "F": "4f5a378145493ef8"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:48:58 != 06:49:58",
+    "/passes[3]/eta_min: 54 != 55",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/05:55:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T05%3A55%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "3973ec1868ba8438",
+    "C": "df1c5b740de9390e",
+    "F": "b17b4cced57f4487"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:52:14 != 06:53:14",
+    "/passes[3]/eta_min: 58 != 59",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/05:55:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T05%3A55%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b06a08631b70dde6",
+    "C": "5720a193ca6fbcf4",
+    "F": "a2d1f225b69dad03"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 07:27:50 != 07:28:50",
+    "/passes[2]/eta_min: 93 != 94",
+    "/passes[3]/arrive: 07:39:17 != 07:40:17",
+    "/passes[3]/eta_min: 105 != 106",
+    "/passes[4]/arrive: 07:57:50 != 07:58:50",
+    "/passes[4]/eta_min: 123 != 124"
+   ],
+   "label": "next/thu/05:55:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T05%3A55%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "cfae7b066c23ac38",
+    "C": "194752dc832587d4",
+    "F": "7f6b2d86f9d76698"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 06:35:17 != 06:36:17",
+    "/passes[2]/eta_min: 35 != 36",
+    "/passes[5]/arrive: 07:05:17 != 07:06:17",
+    "/passes[5]/eta_min: 65 != 66",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/06:00:30/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T06%3A00%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "8ad4381b0e492bf8",
+    "C": "ec4a060ffd145de5",
+    "F": "ad75b8d2bc6a0e5f"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:47:18 != 06:48:18",
+    "/passes[3]/eta_min: 47 != 48",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/06:00:30/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T06%3A00%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c1a6dd90a145ba23",
+    "C": "26f88e319c49c695",
+    "F": "15768d7980ab713d"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:48:58 != 06:49:58",
+    "/passes[3]/eta_min: 49 != 50",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/06:00:30/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T06%3A00%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "196299ee58392a17",
+    "C": "d0156d4a8900ab2c",
+    "F": "3396ce8749c6c7c2"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 06:52:14 != 06:53:14",
+    "/passes[3]/eta_min: 52 != 53",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/06:00:30/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T06%3A00%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "a33ca79176c931ae",
+    "C": "0b23df5aaca6219b",
+    "F": "eab8f720f0ad59ab"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 07:27:50 != 07:28:50",
+    "/passes[2]/eta_min: 88 != 89",
+    "/passes[3]/arrive: 07:39:17 != 07:40:17",
+    "/passes[3]/eta_min: 99 != 100",
+    "/passes[4]/arrive: 07:57:50 != 07:58:50",
+    "/passes[4]/eta_min: 118 != 119"
+   ],
+   "label": "next/thu/06:00:30/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T06%3A00%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "ddc536da3819dd38",
+    "C": "3338d6c92bc5672e",
+    "F": "d9e367bffd3bfbab"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 06:35:17 != 06:36:17",
+    "/passes[0]/eta_min: 6 != 7",
+    "/passes[3]/arrive: 07:05:17 != 07:06:17",
+    "/passes[3]/eta_min: 36 != 37",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/06:29:30/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T06%3A29%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "23f00f787d7af84b",
+    "C": "8654a19d6d67e31b",
+    "F": "62c1c92196dc553f"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 06:47:18 != 06:48:18",
+    "/passes[1]/eta_min: 18 != 19",
+    "/passes[4]/arrive: 07:17:18 != 07:18:18",
+    "/passes[4]/eta_min: 48 != 49",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/06:29:30/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T06%3A29%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9a321e0095136960",
+    "C": "def37f13efeeadff",
+    "F": "c812e5c3fd2c37c0"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 06:48:58 != 06:49:58",
+    "/passes[1]/eta_min: 20 != 21",
+    "/passes[4]/arrive: 07:18:58 != 07:19:58",
+    "/passes[4]/eta_min: 50 != 51",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/06:29:30/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T06%3A29%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "1c45628a95445459",
+    "C": "0837a651fa4fdac2",
+    "F": "a33fadb647343bbc"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 06:52:14 != 06:53:14",
+    "/passes[1]/eta_min: 23 != 24",
+    "/passes[4]/arrive: 07:22:14 != 07:23:14",
+    "/passes[4]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[4]/direction: out != back",
+    "/passes[4]/eta_min: 53 != 54"
+   ],
+   "label": "next/thu/06:29:30/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T06%3A29%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "7a8dfc476e29a31f",
+    "C": "e6f0cee5356ebd1e",
+    "F": "965d37cd87f97f0c"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 07:27:50 != 07:28:50",
+    "/passes[2]/eta_min: 59 != 60",
+    "/passes[3]/arrive: 07:39:17 != 07:40:17",
+    "/passes[3]/eta_min: 70 != 71",
+    "/passes[4]/arrive: 07:57:50 != 07:58:50",
+    "/passes[4]/eta_min: 89 != 90"
+   ],
+   "label": "next/thu/06:29:30/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T06%3A29%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "32d78ffa7cd88881",
+    "C": "db70b54768755acd",
+    "F": "bc906cea2a192e95"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 07:05:17 != 07:06:17",
+    "/passes[0]/eta_min: 6 != 7",
+    "/passes[3]/arrive: 07:35:17 != 07:36:17",
+    "/passes[3]/eta_min: 36 != 37",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/06:59:30/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c21b2a9b462c20f5",
+    "C": "1d2f9a0f97f11bb7",
+    "F": "20c65c8f3c1375fa"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 07:17:18 != 07:18:18",
+    "/passes[1]/eta_min: 18 != 19",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/06:59:30/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "e1f7e05b13da37eb",
+    "C": "0edb545cc3cbb6e3",
+    "F": "a0f5a330d4c3cfe9"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 07:18:58 != 07:19:58",
+    "/passes[1]/eta_min: 20 != 21",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/06:59:30/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "98e73218129a23c2",
+    "C": "2e03e45d468acb08",
+    "F": "a40119744414293b"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 07:22:14 != 07:23:14",
+    "/passes[1]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[1]/direction: out != back",
+    "/passes[1]/eta_min: 23 != 24",
+    "/passes[1]/service: B != A",
+    "/passes[1]/toward: فرودگاه != وکیل‌آباد"
+   ],
+   "label": "next/thu/06:59:30/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "27b3c627419d8d25",
+    "C": "351d2cfc11488d7c",
+    "F": "daa24f5e73bb33f9"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 07:17:12 != 07:18:12",
+    "/passes[3]/eta_min: 18 != 19",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/06:59:30/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b0b0228a14780504",
+    "C": "f8063a4629161533",
+    "F": "71294f7cb5770dba"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 07:27:50 != 07:28:50",
+    "/passes[1]/eta_min: 29 != 30",
+    "/passes[2]/arrive: 07:39:17 != 07:40:17",
+    "/passes[2]/eta_min: 40 != 41",
+    "/passes[3]/arrive: 07:57:50 != 07:58:50",
+    "/passes[3]/eta_min: 59 != 60"
+   ],
+   "label": "next/thu/06:59:30/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "a9a7a52f38e7903f",
+    "C": "ba59e4eb68e84970",
+    "F": "53a4f4644de763ed"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[2]/eta_s: 39 != 99",
+    "/trains[2]/pos: 12.633 != 12.067",
+    "/trains[2]/until_s: 39 != 99"
+   ],
+   "label": "trains1/thu/06:59:30",
+   "path": "/app/api/trains?line=1&at=2026-11-05T06%3A59%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "bb15a8e5544674d6",
+    "C": "160cc646021f67e8",
+    "F": "c380eb623eb20411"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 08:33:51 != 08:34:51",
+    "/passes[2]/eta_min: 19 != 20",
+    "/passes[3]/arrive: 08:35:17 != 08:36:17",
+    "/passes[3]/eta_min: 21 != 22",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/08:15:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f17c66e4ab5325ae",
+    "C": "f617d5f48e7d5d2f",
+    "F": "b921e6303bcd5ec1"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 08:17:18 != 08:18:18",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[1]/arrive: 08:18:34 != 08:19:34",
+    "/passes[1]/eta_min: 4 != 5",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/08:15:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9189c4824925e16d",
+    "C": "fc53195816aab8dd",
+    "F": "4d7804f802db3982"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 08:17:04 != 08:18:04",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[1]/arrive: 08:18:58 != 08:19:58",
+    "/passes[1]/eta_min: 4 != 5",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/08:15:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "fc711afccaa66914",
+    "C": "007879ad6e402367",
+    "F": "b4094139c1408df5"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 08:22:14 != 08:23:14",
+    "/passes[0]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[0]/direction: out != back",
+    "/passes[0]/eta_min: 8 != 9",
+    "/passes[0]/service: B != A",
+    "/passes[0]/toward: فرودگاه != وکیل‌آباد"
+   ],
+   "label": "next/thu/08:15:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b0ad6ab3c38d9de2",
+    "C": "ee64b8cca478d153",
+    "F": "c0a3afa6f2eb8d99"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 08:17:12 != 08:18:12",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[1]/arrive: 08:19:30 != 08:20:30",
+    "/passes[1]/eta_min: 5 != 6",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/08:15:00/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c99e8aec50b57ecb",
+    "C": "d75e4aa6fe350ef0",
+    "F": "1866152b56d74bed"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 08:27:50 != 08:28:50",
+    "/passes[0]/eta_min: 13 != 14",
+    "/passes[1]/arrive: 08:39:17 != 08:40:17",
+    "/passes[1]/eta_min: 25 != 26",
+    "/passes[2]/arrive: 08:57:50 != 08:58:50",
+    "/passes[2]/eta_min: 43 != 44"
+   ],
+   "label": "next/thu/08:15:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "fd0a3cf805529b47",
+    "C": "8f8d7ee9e448868a",
+    "F": "8c9d87677afe27a5"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/eta_s: 132 != 192",
+    "/trains[0]/pos: 20.309 != 20",
+    "/trains[0]/rate: 0.005235602094240838 != 0",
+    "/trains[0]/state: running != dwelling",
+    "/trains[0]/to: 21 != 20",
+    "/trains[0]/until_s: 132 != 1"
+   ],
+   "label": "trains1/thu/08:15:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T08%3A15%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "38c921f22505e7f8",
+    "C": "c53dcdc4539ff23e",
+    "F": "e7a1cc4acae5f12c"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 12:33:51 != 12:34:51",
+    "/passes[2]/eta_min: 15 != 16",
+    "/passes[3]/arrive: 12:35:17 != 12:36:17",
+    "/passes[3]/eta_min: 16 != 17",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/12:19:30/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "a39fbffd4f93d51e",
+    "C": "1aa7d1fe5615e5ab",
+    "F": "fadaad860b710518"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 12:22:07 != 12:19:34",
+    "/passes[0]/confidence: site_headway_assumed_phase != official_sheet_phase",
+    "/passes[0]/direction: out != back",
+    "/passes[0]/eta_min: 3 != 1",
+    "/passes[0]/service: A != B",
+    "/passes[0]/toward: غدیر != وکیل‌آباد"
+   ],
+   "label": "next/thu/12:19:30/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "7a6f0b49b11c5613",
+    "C": "2e2bdab59d54e5f3",
+    "F": "04c6b5caede89c09"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 12:23:47 != 12:19:58",
+    "/passes[0]/confidence: site_headway_assumed_phase != official_sheet_phase",
+    "/passes[0]/eta_min: 5 != 1",
+    "/passes[0]/service: A != B",
+    "/passes[0]/toward: غدیر != فرودگاه",
+    "/passes[1]/arrive: 12:26:32 != 12:23:47"
+   ],
+   "label": "next/thu/12:19:30/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "933cdcc97d0e295b",
+    "C": "a67f75cca6c80ee0",
+    "F": "278d0999470d7045"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 12:22:14 != 12:23:14",
+    "/passes[0]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[0]/direction: out != back",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[0]/service: B != A",
+    "/passes[0]/toward: فرودگاه != وکیل‌آباد"
+   ],
+   "label": "next/thu/12:19:30/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "8a8f6772d283a9d4",
+    "C": "580bc9d6745dfe50",
+    "F": "323168ddb2082ae8"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 12:19:30 != 12:20:30",
+    "/passes[0]/eta_min: 0 != 1",
+    "/passes[5]/arrive: 12:47:12 != 12:48:12",
+    "/passes[5]/eta_min: 28 != 29",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/12:19:30/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "8e584418e4cf3b0d",
+    "C": "670bd27f00b0967e",
+    "F": "2e44a007ce96d84b"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 12:27:50 != 12:28:50",
+    "/passes[0]/eta_min: 9 != 10",
+    "/passes[1]/arrive: 12:39:17 != 12:40:17",
+    "/passes[1]/eta_min: 20 != 21",
+    "/passes[2]/arrive: 12:57:50 != 12:58:50",
+    "/passes[2]/eta_min: 39 != 40"
+   ],
+   "label": "next/thu/12:19:30/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b297adbdaaddb338",
+    "C": "63d151c233eb3a06",
+    "F": "98bad26527bce482"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/eta_s: 108 != 168",
+    "/trains[0]/pos: 21.511 != 21.24",
+    "/trains[0]/until_s: 108 != 168",
+    "/trains[1]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/trains[1]/direction: back != out",
+    "/trains[1]/eta_s: 38 != 151"
+   ],
+   "label": "trains1/thu/12:19:30",
+   "path": "/app/api/trains?line=1&at=2026-11-05T12%3A19%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "24152189093f48ff",
+    "C": "33680bff3d8b021e",
+    "F": "6ed43ee475b1b790"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 14:05:17 != 14:06:17",
+    "/passes[0]/eta_min: 1 != 2",
+    "/passes[5]/arrive: 14:33:51 != 14:34:51",
+    "/passes[5]/eta_min: 29 != 30",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/14:05:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b327eb5b0a1f9910",
+    "C": "bbd381f5a7c7dd29",
+    "F": "30f85b2179f0ee6c"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 14:17:18 != 14:18:18",
+    "/passes[2]/eta_min: 13 != 14",
+    "/passes[3]/arrive: 14:18:34 != 14:19:34",
+    "/passes[3]/eta_min: 14 != 15",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/14:05:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "282d31c727bf8d61",
+    "C": "1f116317a31fcd60",
+    "F": "279660f4299e07a0"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 14:17:04 != 14:18:04",
+    "/passes[2]/eta_min: 13 != 14",
+    "/passes[3]/arrive: 14:18:58 != 14:19:58",
+    "/passes[3]/eta_min: 14 != 15",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/14:05:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "a779734f51af551a",
+    "C": "76c5fd972b611ea4",
+    "F": "c1f3293dc9d30674"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 14:13:46 != 14:14:46",
+    "/passes[2]/eta_min: 9 != 10",
+    "/passes[3]/arrive: 14:22:14 != 14:23:14",
+    "/passes[3]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[3]/direction: out != back",
+    "/passes[3]/eta_min: 18 != 19"
+   ],
+   "label": "next/thu/14:05:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "7c1a59ee98971046",
+    "C": "d05d5503479640de",
+    "F": "06726d2a8ad08af4"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 14:17:12 != 14:18:12",
+    "/passes[2]/eta_min: 13 != 14",
+    "/passes[3]/arrive: 14:19:30 != 14:20:30",
+    "/passes[3]/eta_min: 15 != 16",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/14:05:00/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f74ffc5f9c6eb127",
+    "C": "a31cdb54e275617f",
+    "F": "ea75a4db09f1ebfd"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 14:09:17 != 14:10:17",
+    "/passes[0]/eta_min: 5 != 6",
+    "/passes[1]/arrive: 14:27:50 != 14:28:50",
+    "/passes[1]/eta_min: 23 != 24",
+    "/passes[2]/arrive: 14:39:17 != 14:40:17",
+    "/passes[2]/eta_min: 35 != 36"
+   ],
+   "label": "next/thu/14:05:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c5d2147ca0efa8b6",
+    "C": "ec36930312bcf0c6",
+    "F": "c3a71e7ca406f701"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/until_s: 257 != 317",
+    "/trains[3]/eta_s: 48 != 1",
+    "/trains[3]/from: 15 != 14",
+    "/trains[3]/next: 16 != 15",
+    "/trains[3]/pos: 15.453 != 14.984",
+    "/trains[3]/rate: 0.011363636363636364 != 0.0125"
+   ],
+   "label": "trains1/thu/14:05:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T14%3A05%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "92d09cf4301cb1c1",
+    "C": "2109b1ce0b77c59c",
+    "F": "7623b4db3b89ab58"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[4]/arrive: 18:03:51 != 18:04:51",
+    "/passes[4]/eta_min: 19 != 20",
+    "/passes[5]/arrive: 18:05:17 != 18:06:17",
+    "/passes[5]/eta_min: 21 != 22",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/17:45:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c9901f84d3590a86",
+    "C": "4b193e5f28f1e460",
+    "F": "cfd7a5f02c8be0d0"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 17:47:18 != 17:48:18",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[1]/arrive: 17:48:34 != 17:49:34",
+    "/passes[1]/eta_min: 4 != 5",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/17:45:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f4557ab6899bc6b9",
+    "C": "aeb64d7c1484c6d0",
+    "F": "9f1dd1c4358a3c2f"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 17:47:04 != 17:48:04",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[1]/arrive: 17:48:58 != 17:49:58",
+    "/passes[1]/eta_min: 4 != 5",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/17:45:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c3fd3947b28f9ec0",
+    "C": "4669a7f6830b2916",
+    "F": "643a4396de88184a"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 17:52:14 != 17:53:14",
+    "/passes[2]/eta_min: 8 != 9",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/17:45:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "d023e17abbb8ecbe",
+    "C": "ffacc27e132ff946",
+    "F": "81c5f1c70096b872"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 17:47:12 != 17:48:12",
+    "/passes[1]/eta_min: 3 != 4",
+    "/passes[3]/arrive: 17:49:30 != 17:50:30",
+    "/passes[3]/eta_min: 5 != 6",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/17:45:00/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "488df7a3671499f5",
+    "C": "3661053d0818dfdf",
+    "F": "4ffcbeee7758b78a"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 17:57:50 != 17:58:50",
+    "/passes[0]/eta_min: 13 != 14",
+    "/passes[1]/arrive: 18:09:17 != 18:10:17",
+    "/passes[1]/eta_min: 25 != 26",
+    "/passes[2]/arrive: 18:27:50 != 18:28:50",
+    "/passes[2]/eta_min: 43 != 44"
+   ],
+   "label": "next/thu/17:45:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "ae06a0beaffb4df1",
+    "C": "c49cc13eb296ca03",
+    "F": "abda3b7ae29ee913"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[10]/eta_s: 59 != 24",
+    "/trains[10]/from: 4 != 3",
+    "/trains[10]/next: 5 != 4",
+    "/trains[10]/pos: 4.263 != 3.73",
+    "/trains[10]/rate: 0.0125 != 0.011235955056179775",
+    "/trains[10]/to: 5 != 4"
+   ],
+   "label": "trains1/thu/17:45:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T17%3A45%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "a3f7bafacced3b60",
+    "C": "7e64aafbf37df7b0",
+    "F": "49f6efddfa7f8f68"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 19:33:51 != 19:34:51",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[2]/arrive: 19:35:17 != 19:36:17",
+    "/passes[2]/eta_min: 5 != 6",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/19:31:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f279fc11a47ce6a5",
+    "C": "e58e56ecd44ca80d",
+    "F": "6cc82c54a45ff6e9"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 19:47:18 != 19:48:18",
+    "/passes[2]/eta_min: 17 != 18",
+    "/passes[3]/arrive: 19:48:34 != 19:49:34",
+    "/passes[3]/eta_min: 18 != 19",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/19:31:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "d8d78ff864dae057",
+    "C": "a6b5c4468339b457",
+    "F": "1f3bc269c925893d"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 19:47:04 != 19:48:04",
+    "/passes[3]/eta_min: 17 != 18",
+    "/passes[4]/arrive: 19:48:58 != 19:49:58",
+    "/passes[4]/eta_min: 18 != 19",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/19:31:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c846b8b5ff33653e",
+    "C": "c385195868ad67fd",
+    "F": "2062f98b1a33635c"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 19:43:46 != 19:44:46",
+    "/passes[2]/eta_min: 13 != 14",
+    "/passes[5]/arrive: 19:52:14 != 19:53:14",
+    "/passes[5]/eta_min: 22 != 23",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/19:31:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f589fe0b7ecb741d",
+    "C": "8d7f2a0053a7bd68",
+    "F": "470774807c3587df"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[3]/arrive: 19:47:12 != 19:48:12",
+    "/passes[3]/eta_min: 17 != 18",
+    "/passes[5]/arrive: 19:49:30 != 19:50:30",
+    "/passes[5]/eta_min: 19 != 20",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/19:31:00/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "dca45521022d6761",
+    "C": "eab15bf2d0f38c0c",
+    "F": "e6edd3c7a107ebfc"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 19:39:17 != 19:40:17",
+    "/passes[0]/eta_min: 9 != 10",
+    "/passes[1]/arrive: 19:57:50 != 19:58:50",
+    "/passes[1]/eta_min: 27 != 28",
+    "/passes[2]/arrive: 20:09:17 != 20:10:17",
+    "/passes[2]/eta_min: 39 != 40"
+   ],
+   "label": "next/thu/19:31:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "5e5d8fc964270ec5",
+    "C": "358a030b211e1194",
+    "F": "caa1e7b3fc084045"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/until_s: 497 != 557",
+    "/trains[1]/eta_s: 171 != 231",
+    "/trains[1]/pos: 0.41 != 0.554",
+    "/trains[1]/until_s: 171 != 231",
+    "/trains[6]/eta_s: 69 != 9",
+    "/trains[6]/from: 13 != 12"
+   ],
+   "label": "trains1/thu/19:31:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T19%3A31%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "91d03792f33f900a",
+    "C": "5587f1f35324c179",
+    "F": "39eff4321242de99"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 20:03:51 != 20:04:51",
+    "/passes[2]/eta_min: 14 != 15",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/19:50:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "de01d750bfc1a682",
+    "C": "8de689a7849c2347",
+    "F": "ebfa7943468fca06"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[5]/arrive: 20:18:34 != 20:19:34",
+    "/passes[5]/eta_min: 29 != 30"
+   ],
+   "label": "next/thu/19:50:00/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "fcbd1641f8af879e",
+    "C": "686d5585dab9f9a6",
+    "F": "5805918b110970e5"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[5]/arrive: 20:17:04 != 20:18:04",
+    "/passes[5]/eta_min: 28 != 29"
+   ],
+   "label": "next/thu/19:50:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "95af8a599b43b31d",
+    "C": "9842f8902eb9c8d3",
+    "F": "fa1ebd80e9a7555a"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 19:52:14 != 19:53:14",
+    "/passes[0]/eta_min: 3 != 4",
+    "/passes[4]/arrive: 20:13:46 != 20:14:46",
+    "/passes[4]/eta_min: 24 != 25",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/19:50:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "47d24576c803fe75",
+    "C": "d132ad15a0906129",
+    "F": "31fbaa236b3e8e49"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 19:56:39 != 19:50:30",
+    "/passes[0]/beyond_ghadir_derived: False != True",
+    "/passes[0]/confidence: site_headway_assumed_phase != official_sheet_phase",
+    "/passes[0]/eta_min: 7 != 1",
+    "/passes[0]/service: A != B",
+    "/passes[1]/arrive: 20:00:12 != 19:56:39"
+   ],
+   "label": "next/thu/19:50:00/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "4f7e674a7ed60ea7",
+    "C": "0504b6371c754651",
+    "F": "b0d1a1b21d618438"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 19:57:50 != 19:58:50",
+    "/passes[0]/eta_min: 8 != 9",
+    "/passes[1]/arrive: 20:09:17 != 20:10:17",
+    "/passes[1]/eta_min: 20 != 21",
+    "/passes[2]/arrive: 20:27:50 != 20:28:50",
+    "/passes[2]/eta_min: 38 != 39"
+   ],
+   "label": "next/thu/19:50:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "d326751e7c8e5428",
+    "C": "800c9b6c63f28cc5",
+    "F": "6004cee32f426c89"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/eta_s: 78 != 138",
+    "/trains[0]/pos: 21.647 != 21.376",
+    "/trains[0]/until_s: 78 != 138",
+    "/trains[2]/eta_s: 8 != 68",
+    "/trains[2]/pos: 5.113 != 5.958",
+    "/trains[2]/until_s: 8 != 68"
+   ],
+   "label": "trains1/thu/19:50:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T19%3A50%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "461a30524eabff42",
+    "C": "a30a094c039a7673",
+    "F": "c7d0e83c344f206e"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 20:03:51 != 20:04:51",
+    "/passes[0]/eta_min: 1 != 2",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "next/thu/20:03:30/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "3578cba99c67e2bd",
+    "C": "2b10e0e2dcf5947b",
+    "F": "cea4fa78ddff3b7f"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 20:18:34 != 20:19:34",
+    "/passes[2]/eta_min: 16 != 17",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر*  != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *هفت‌تیر* "
+   ],
+   "label": "next/thu/20:03:30/METRO-107",
+   "path": "/app/api/next?station=%D9%87%D9%81%D8%AA%E2%80%8C%D8%AA%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "cae2c99d7e48b7ac",
+    "C": "189c24750a2cb5b4",
+    "F": "fa7d5b3024764a93"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 20:17:04 != 20:18:04",
+    "/passes[2]/eta_min: 14 != 15",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *دانش‌آموز"
+   ],
+   "label": "next/thu/20:03:30/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9fa427365d1e9cf1",
+    "C": "15fc1366317b607d",
+    "F": "8783169e8e2fd567"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 20:13:46 != 20:14:46",
+    "/passes[1]/eta_min: 11 != 12",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوثر* (خط"
+   ],
+   "label": "next/thu/20:03:30/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "0a43fc7781279b2b",
+    "C": "ec4c724474b85647",
+    "F": "983b2d9948a8eba2"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 20:17:12 != 20:18:12",
+    "/passes[2]/eta_min: 14 != 15",
+    "/passes[4]/arrive: 20:19:30 != 20:20:30",
+    "/passes[4]/eta_min: 16 != 17",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "next/thu/20:03:30/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9ff3e971e8fb9a24",
+    "C": "f10be7a630bf6fb7",
+    "F": "2d2f521070ae334e"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 20:09:17 != 20:10:17",
+    "/passes[0]/eta_min: 6 != 7",
+    "/passes[1]/arrive: 20:27:50 != 20:28:50",
+    "/passes[1]/eta_min: 25 != 26",
+    "/passes[2]/arrive: 20:39:17 != 20:40:17",
+    "/passes[2]/eta_min: 36 != 37"
+   ],
+   "label": "next/thu/20:03:30/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "ee6911b07fddbc32",
+    "C": "33011baa927f6883",
+    "F": "c9827ee3e0097a5c"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/until_s: 347 != 407",
+    "/trains[1]/eta_s: 21 != 81",
+    "/trains[1]/pos: 0.05 != 0.194",
+    "/trains[1]/until_s: 21 != 81",
+    "/trains[6]/eta_s: 31 != 91",
+    "/trains[6]/pos: 14.609 != 14"
+   ],
+   "label": "trains1/thu/20:03:30",
+   "path": "/app/api/trains?line=1&at=2026-11-05T20%3A03%3A30%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9adeb78a7cd66c26",
+    "C": "fbfa1543a2aecad6",
+    "F": "4c080f3493d472a3"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 20:33:51 != 20:34:11",
+    "/passes[2]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[2]/direction: back != out",
+    "/passes[2]/eta_min: 13 != 14",
+    "/passes[2]/service: B != A",
+    "/passes[2]/toward: ورودی از فرودگاه != غدیر"
+   ],
+   "label": "next/thu/20:21:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T20%3A21%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "0f4881fc8b426477",
+    "C": "1809da1500c30444",
+    "F": "dca5713720569b20"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[5]/arrive: 20:47:04 != 20:47:52",
+    "/passes[5]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[5]/direction: back != out",
+    "/passes[5]/service: B != A",
+    "/passes[5]/toward: وکیل‌آباد != غدیر"
+   ],
+   "label": "next/thu/20:21:00/METRO-108",
+   "path": "/app/api/next?station=%D8%AF%D8%A7%D9%86%D8%B4%E2%80%8C%D8%A2%D9%85%D9%88%D8%B2&limit=6&line=1&at=2026-11-05T20%3A21%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b85af08d446331b0",
+    "C": "62aa71ce9fdcaa45",
+    "F": "9cc18b2549532d2e"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[4]/arrive: 20:43:46 != 20:44:46",
+    "/passes[4]/eta_min: 23 != 24"
+   ],
+   "label": "next/thu/20:21:00/METRO-110",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D8%AB%D8%B1&limit=6&line=1&at=2026-11-05T20%3A21%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "394650bcc47b55ef",
+    "C": "64d5c0a0392f1af3",
+    "F": "b28b8086e24fb10f"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[4]/arrive: 20:49:30 != 20:50:30",
+    "/passes[4]/eta_min: 29 != 30"
+   ],
+   "label": "next/thu/20:21:00/METRO-122",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&limit=6&line=1&at=2026-11-05T20%3A21%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b1b49d290d7b80bf",
+    "C": "184f7115c5f88651",
+    "F": "02658249d579c8e1"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 20:27:50 != 20:28:50",
+    "/passes[0]/eta_min: 7 != 8",
+    "/passes[1]/arrive: 20:39:17 != 20:40:17",
+    "/passes[1]/eta_min: 19 != 20",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *فرودگاه ش != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *فرودگاه ش"
+   ],
+   "label": "next/thu/20:21:00/METRO-124",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T20%3A21%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "b960112e5e4d41ac",
+    "C": "bcae6005241620c5",
+    "F": "4bcd6227a7fbed2e"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/eta_s: 18 != 78",
+    "/trains[0]/pos: 21.919 != 21.647",
+    "/trains[0]/until_s: 18 != 78",
+    "/trains[1]/eta_s: 32 != 8",
+    "/trains[1]/from: 5 != 6",
+    "/trains[1]/next: 4 != 5"
+   ],
+   "label": "trains1/thu/20:21:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T20%3A21%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9dffd56cd8a064d3",
+    "C": "e24d37e6e417b127",
+    "F": "a2b636dc4b5af86b"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 21:33:51 != 21:34:11",
+    "/passes[1]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[1]/direction: back != out",
+    "/passes[1]/eta_min: 4 != 5",
+    "/passes[1]/service: B != A",
+    "/passes[1]/toward: ورودی از فرودگاه != غدیر"
+   ],
+   "label": "next/thu/21:30:00/METRO-101",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&limit=6&line=1&at=2026-11-05T21%3A30%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "fd4b4f65251311e3",
+    "C": "c9b5352f04047a61",
+    "F": "939acdeadf63537d"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/eta_s: 231 != 291",
+    "/trains[0]/pos: 0.554 != 0.698",
+    "/trains[0]/until_s: 231 != 291"
+   ],
+   "label": "trains1/thu/21:30:00",
+   "path": "/app/api/trains?line=1&at=2026-11-05T21%3A30%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c273d7f02eec3917",
+    "C": "fe7603fe2dbfaa83",
+    "F": "32389fb313c6c82b"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 06:48 != 06:49",
+    "/options[1]/arriveEpoch: 1793848738 != 1793848798",
+    "/options[1]/departAt: 06:47 != 06:48",
+    "/options[1]/departEpoch: 1793848661 != 1793848721",
+    "/options[1]/waitSeconds: 1361 != 1421",
+    "/options[4]/arriveAt: 07:18 != 07:19"
+   ],
+   "label": "journey1/thu/06:25/METRO-107>METRO-108",
+   "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-05&time=06%3A25",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "43a5ee84998232f1",
+    "C": "29aeae5b143ef953",
+    "F": "ab5622e889505229"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 07:17 != 07:18",
+    "/options[1]/arriveEpoch: 1793850432 != 1793850492",
+    "/options[1]/departAt: 06:35 != 06:36",
+    "/options[1]/departEpoch: 1793847917 != 1793847977",
+    "/options[1]/waitSeconds: 617 != 677",
+    "/options[4]/arriveAt: 07:47 != 07:48"
+   ],
+   "label": "journey1/thu/06:25/METRO-101>METRO-122",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-122&date=2026-11-05&time=06%3A25",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "7d7cfc6948477b14",
+    "C": "2e5f73b832bb8ebd",
+    "F": "410dddb1e85ab2ae"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 07:27 != 07:28",
+    "/options[0]/arriveEpoch: 1793851070 != 1793851130",
+    "/options[0]/departAt: 06:35 != 06:36",
+    "/options[0]/departEpoch: 1793847917 != 1793847977",
+    "/options[0]/waitSeconds: 617 != 677",
+    "/options[1]/arriveAt: 07:57 != 07:58"
+   ],
+   "label": "journey1/thu/06:25/METRO-101>METRO-124",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-124&date=2026-11-05&time=06%3A25",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "af0b940be339bbb7",
+    "C": "a982fa15b2c3477b",
+    "F": "2ca70e2d6712c6e0"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 07:18 != 07:19",
+    "/options[1]/arriveEpoch: 1793850538 != 1793850598",
+    "/options[1]/departAt: 07:17 != 07:18",
+    "/options[1]/departEpoch: 1793850461 != 1793850521",
+    "/options[1]/waitSeconds: 1361 != 1421",
+    "/options[4]/arriveAt: 07:48 != 07:49"
+   ],
+   "label": "journey1/thu/06:55/METRO-107>METRO-108",
+   "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-05&time=06%3A55",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "7f4f9522f7d27c8d",
+    "C": "b737d351073dd2e9",
+    "F": "7545044ce9eba6ab"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 07:47 != 07:48",
+    "/options[1]/arriveEpoch: 1793852232 != 1793852292",
+    "/options[1]/departAt: 07:05 != 07:06",
+    "/options[1]/departEpoch: 1793849717 != 1793849777",
+    "/options[1]/waitSeconds: 617 != 677",
+    "/options[4]/arriveAt: 08:17 != 08:18"
+   ],
+   "label": "journey1/thu/06:55/METRO-101>METRO-122",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-122&date=2026-11-05&time=06%3A55",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "70e5cbca477cc2bb",
+    "C": "1f46dc88bda67611",
+    "F": "046494c6ac800ec6"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 07:57 != 07:58",
+    "/options[0]/arriveEpoch: 1793852870 != 1793852930",
+    "/options[0]/departAt: 07:05 != 07:06",
+    "/options[0]/departEpoch: 1793849717 != 1793849777",
+    "/options[0]/waitSeconds: 617 != 677",
+    "/options[1]/arriveAt: 08:27 != 08:28"
+   ],
+   "label": "journey1/thu/06:55/METRO-101>METRO-124",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-124&date=2026-11-05&time=06%3A55",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "6834ecfaecd44466",
+    "C": "5ea5514624d0b113",
+    "F": "569966e1fa4e5616"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 08:33 != 08:34",
+    "/options[1]/arriveEpoch: 1793855031 != 1793855091",
+    "/options[1]/departAt: 07:39 != 07:40",
+    "/options[1]/departEpoch: 1793851757 != 1793851817",
+    "/options[1]/waitSeconds: 2657 != 2717"
+   ],
+   "label": "journey1/thu/06:55/METRO-124>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-124&to=METRO-101&date=2026-11-05&time=06%3A55",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "668d9189fecab3c0",
+    "C": "59e47f37c1a4373c",
+    "F": "67ebc388dc1a98aa"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 12:18 != 12:19",
+    "/options[1]/arriveEpoch: 1793868538 != 1793868598",
+    "/options[1]/departAt: 12:17 != 12:18",
+    "/options[1]/departEpoch: 1793868461 != 1793868521",
+    "/options[1]/waitSeconds: 1061 != 1121",
+    "/options[4]/arriveAt: 12:48 != 12:49"
+   ],
+   "label": "journey1/thu/12:00/METRO-107>METRO-108",
+   "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-05&time=12%3A00",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "d804d72617cc2f50",
+    "C": "4f242a175e91a46a",
+    "F": "48ab6c0ea1de2ef2"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 12:18 != 12:19",
+    "/options[1]/arriveEpoch: 1793868514 != 1793868574",
+    "/options[1]/departAt: 12:17 != 12:18",
+    "/options[1]/departEpoch: 1793868442 != 1793868502",
+    "/options[1]/waitSeconds: 1042 != 1102",
+    "/options[4]/arriveAt: 12:48 != 12:49"
+   ],
+   "label": "journey1/thu/12:00/METRO-108>METRO-107",
+   "path": "/app/api/journey?line=1&from=METRO-108&to=METRO-107&date=2026-11-05&time=12%3A00",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "3a90c283ca5be151",
+    "C": "eda581bfc6802558",
+    "F": "10a802e5e4489857"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 12:47 != 12:48",
+    "/options[0]/arriveEpoch: 1793870232 != 1793870292",
+    "/options[0]/departAt: 12:05 != 12:06",
+    "/options[0]/departEpoch: 1793867717 != 1793867777",
+    "/options[0]/waitSeconds: 317 != 377",
+    "/options[3]/arriveAt: 13:17 != 13:18"
+   ],
+   "label": "journey1/thu/12:00/METRO-101>METRO-122",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-122&date=2026-11-05&time=12%3A00",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "2e6a8c79f4a0625e",
+    "C": "58cecf30a2c0c8b9",
+    "F": "95ebe115c83c47bc"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 12:57 != 12:58",
+    "/options[0]/arriveEpoch: 1793870870 != 1793870930",
+    "/options[0]/departAt: 12:05 != 12:06",
+    "/options[0]/departEpoch: 1793867717 != 1793867777",
+    "/options[0]/waitSeconds: 317 != 377",
+    "/options[1]/arriveAt: 13:27 != 13:28"
+   ],
+   "label": "journey1/thu/12:00/METRO-101>METRO-124",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-124&date=2026-11-05&time=12%3A00",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "38bd50eb56ee8552",
+    "C": "551257f43c694656",
+    "F": "a54136488b09677f"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 13:03 != 13:04",
+    "/options[1]/arriveEpoch: 1793871231 != 1793871291",
+    "/options[1]/departAt: 12:19 != 12:20",
+    "/options[1]/departEpoch: 1793868595 != 1793868655",
+    "/options[1]/waitSeconds: 1195 != 1255",
+    "/options[4]/arriveAt: 13:33 != 13:34"
+   ],
+   "label": "journey1/thu/12:00/METRO-122>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-122&to=METRO-101&date=2026-11-05&time=12%3A00",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "c9b49aa037f471f2",
+    "C": "5938d1802a12f87d",
+    "F": "b358261c8152fe33"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 13:03 != 13:04",
+    "/options[0]/arriveEpoch: 1793871231 != 1793871291",
+    "/options[0]/departAt: 12:09 != 12:10",
+    "/options[0]/departEpoch: 1793867957 != 1793868017",
+    "/options[0]/waitSeconds: 557 != 617",
+    "/options[1]/arriveAt: 13:33 != 13:34"
+   ],
+   "label": "journey1/thu/12:00/METRO-124>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-124&to=METRO-101&date=2026-11-05&time=12%3A00",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "e4488a8ce5cba91f",
+    "C": "dc282ebee4f98cd6",
+    "F": "afe90fc2858ea4f1"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 19:18 != 19:19",
+    "/options[0]/arriveEpoch: 1793893738 != 1793893798",
+    "/options[0]/departAt: 19:17 != 19:18",
+    "/options[0]/departEpoch: 1793893661 != 1793893721",
+    "/options[0]/waitSeconds: 461 != 521",
+    "/options[4]/arriveAt: 19:48 != 19:49"
+   ],
+   "label": "journey1/thu/19:10/METRO-107>METRO-108",
+   "path": "/app/api/journey?line=1&from=METRO-107&to=METRO-108&date=2026-11-05&time=19%3A10",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "5af86f622153fba9",
+    "C": "086723944322abf0",
+    "F": "8329e67f72b08372"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 19:18 != 19:19",
+    "/options[0]/arriveEpoch: 1793893714 != 1793893774",
+    "/options[0]/departAt: 19:17 != 19:18",
+    "/options[0]/departEpoch: 1793893642 != 1793893702",
+    "/options[0]/waitSeconds: 442 != 502",
+    "/options[4]/arriveAt: 19:48 != 19:49"
+   ],
+   "label": "journey1/thu/19:10/METRO-108>METRO-107",
+   "path": "/app/api/journey?line=1&from=METRO-108&to=METRO-107&date=2026-11-05&time=19%3A10",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "4ca7a6206c186242",
+    "C": "8d3ecb6051aa44ca",
+    "F": "665925a5a0564f19"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[2]/arriveAt: 20:17 != 20:18",
+    "/options[2]/arriveEpoch: 1793897232 != 1793897292",
+    "/options[2]/departAt: 19:35 != 19:36",
+    "/options[2]/departEpoch: 1793894717 != 1793894777",
+    "/options[2]/waitSeconds: 1517 != 1577"
+   ],
+   "label": "journey1/thu/19:10/METRO-101>METRO-122",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-122&date=2026-11-05&time=19%3A10",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "3130b6dfd7e21e93",
+    "C": "c7222df8230a1cdf",
+    "F": "382cad479d231d73"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 20:27 != 20:28",
+    "/options[0]/arriveEpoch: 1793897870 != 1793897930",
+    "/options[0]/departAt: 19:35 != 19:36",
+    "/options[0]/departEpoch: 1793894717 != 1793894777",
+    "/options[0]/waitSeconds: 1517 != 1577"
+   ],
+   "label": "journey1/thu/19:10/METRO-101>METRO-124",
+   "path": "/app/api/journey?line=1&from=METRO-101&to=METRO-124&date=2026-11-05&time=19%3A10",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "ca73b3dcafb60562",
+    "C": "0723b9399d6bd213",
+    "F": "59c53a08c05b8aa4"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 20:03 != 20:04",
+    "/options[1]/arriveEpoch: 1793896431 != 1793896491",
+    "/options[1]/departAt: 19:19 != 19:20",
+    "/options[1]/departEpoch: 1793893795 != 1793893855",
+    "/options[1]/waitSeconds: 595 != 655"
+   ],
+   "label": "journey1/thu/19:10/METRO-122>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-122&to=METRO-101&date=2026-11-05&time=19%3A10",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "8f28ee01e72ce408",
+    "C": "3724b121686113e9",
+    "F": "143d006fd1d5a038"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/coverage/listed: 2 != 3",
+    "/coverage/matched: 2 != 3",
+    "/options[0]/arriveAt: 20:33 != 20:04",
+    "/options[0]/arriveEpoch: 1793898231 != 1793896491",
+    "/options[0]/departAt: 19:39 != 19:10",
+    "/options[0]/departEpoch: 1793894957 != 1793893217"
+   ],
+   "label": "journey1/thu/19:10/METRO-124>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-124&to=METRO-101&date=2026-11-05&time=19%3A10",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "538bcaec37bb7db4",
+    "C": "6c29da25afcb751f",
+    "F": "0aee103c071aac80"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 20:18 != 20:19",
+    "/options[0]/arriveEpoch: 1793897314 != 1793897374",
+    "/options[0]/departAt: 20:17 != 20:18",
+    "/options[0]/departEpoch: 1793897242 != 1793897302",
+    "/options[0]/waitSeconds: 142 != 202",
+    "/options[4]/arriveAt: 20:48 != 20:49"
+   ],
+   "label": "journey1/thu/20:15/METRO-108>METRO-107",
+   "path": "/app/api/journey?line=1&from=METRO-108&to=METRO-107&date=2026-11-05&time=20%3A15",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "bec637d6a0d51fda",
+    "C": "8f47b5a8cbae5701",
+    "F": "591c0705a0802f95"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[1]/arriveAt: 21:03 != 21:04",
+    "/options[1]/arriveEpoch: 1793900031 != 1793900091",
+    "/options[1]/departAt: 20:19 != 20:20",
+    "/options[1]/departEpoch: 1793897395 != 1793897455",
+    "/options[1]/waitSeconds: 295 != 355",
+    "/options[4]/arriveAt: 21:33 != 21:34"
+   ],
+   "label": "journey1/thu/20:15/METRO-122>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-122&to=METRO-101&date=2026-11-05&time=20%3A15",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "1c34c16e765d6162",
+    "C": "ba24836b4b4f0f3a",
+    "F": "6e5e2566d86f7fd1"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/options[0]/arriveAt: 21:33 != 21:34",
+    "/options[0]/arriveEpoch: 1793901831 != 1793901891",
+    "/options[0]/departAt: 20:39 != 20:40",
+    "/options[0]/departEpoch: 1793898557 != 1793898617",
+    "/options[0]/waitSeconds: 1457 != 1517"
+   ],
+   "label": "journey1/thu/20:15/METRO-124>METRO-101",
+   "path": "/app/api/journey?line=1&from=METRO-124&to=METRO-101&date=2026-11-05&time=20%3A15",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "2a2954f1211e4371",
+    "C": "290349422b784a15",
+    "F": "330a9b4a7cd4bbe5"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/trains[0]/until_s: 557 != 617",
+    "/trains[1]/eta_s: 231 != 291",
+    "/trains[1]/pos: 0.554 != 0.698",
+    "/trains[1]/until_s: 231 != 291",
+    "/trains[4]/eta_s: 9 != 69",
+    "/trains[4]/pos: 12.916 != 12.35"
+   ],
+   "label": "legacy/13",
+   "path": "/app/api/trains?line=1&at=2026-10-22T09%3A30%3A00%2B03%3A30",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "9aa3263222710fa2",
+    "C": "2280645db70d8f2f",
+    "F": "784265d7fff8804c"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 09:33:51 != 09:34:51",
+    "/passes[0]/eta_min: 4 != 5",
+    "/passes[1]/arrive: 09:35:17 != 09:36:17",
+    "/passes[1]/eta_min: 6 != 7",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *وکیل‌آباد"
+   ],
+   "label": "legacy/15",
+   "path": "/app/api/next?station=%D9%88%DA%A9%DB%8C%D9%84%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "483594a1cbe9fff7",
+    "C": "d35c5280d281a118",
+    "F": "7bd965334355ad24"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[1]/arrive: 09:39:09 != 09:40:09",
+    "/passes[1]/eta_min: 10 != 11",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوهستان پ != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *کوهستان پ"
+   ],
+   "label": "legacy/16",
+   "path": "/app/api/next?station=%DA%A9%D9%88%D9%87%D8%B3%D8%AA%D8%A7%D9%86%20%D9%BE%D8%A7%D8%B1%DA%A9&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "7bfd14788363fe7c",
+    "C": "deea54a9c919236b",
+    "F": "6a34f0810ff93359"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 09:40:55 != 09:41:55",
+    "/passes[2]/eta_min: 11 != 12",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *نمایشگاه* != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *نمایشگاه*"
+   ],
+   "label": "legacy/17",
+   "path": "/app/api/next?station=%D9%86%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "0ba3aaa33162edfd",
+    "C": "42ad112904d246cc",
+    "F": "c07473a10dc8b9f0"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 09:42:41 != 09:43:41",
+    "/passes[2]/eta_min: 13 != 14",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *اقبال لاه != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *اقبال لاه"
+   ],
+   "label": "legacy/18",
+   "path": "/app/api/next?station=%D8%A7%D9%82%D8%A8%D8%A7%D9%84%20%D9%84%D8%A7%D9%87%D9%88%D8%B1%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "88d60b5ed1ef6443",
+    "C": "9fdb322f86a19271",
+    "F": "cf1ebc45b4926521"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 09:44:24 != 09:45:24",
+    "/passes[2]/eta_min: 15 != 16",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *صیاد شیرا != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *صیاد شیرا"
+   ],
+   "label": "legacy/19",
+   "path": "/app/api/next?station=%D8%B5%DB%8C%D8%A7%D8%AF%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "01876de5b356a8d7",
+    "C": "24806078f07542a4",
+    "F": "3d6359e5f534f013"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 09:45:59 != 09:46:59",
+    "/passes[2]/eta_min: 16 != 17",
+    "/passes[3]/arrive: 09:50:08 != 09:50:48",
+    "/passes[3]/confidence: official_sheet_phase != site_headway_assumed_phase",
+    "/passes[3]/direction: back != out",
+    "/passes[3]/service: B != A"
+   ],
+   "label": "legacy/20",
+   "path": "/app/api/next?station=%D8%B5%D8%AF%D9%81&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "812d6030cfa9fd35",
+    "C": "3c77aa2fd06037dd",
+    "F": "970e2782fa0096dd"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 09:43:43 != 09:44:43",
+    "/passes[2]/eta_min: 14 != 15",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *پروین اعت != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *پروین اعت"
+   ],
+   "label": "legacy/21",
+   "path": "/app/api/next?station=%D9%BE%D8%B1%D9%88%DB%8C%D9%86%20%D8%A7%D8%B9%D8%AA%D8%B5%D8%A7%D9%85%DB%8C&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f71ffb46fa9dc287",
+    "C": "3fb199f58c187951",
+    "F": "9036962058288234"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[2]/arrive: 09:47:12 != 09:48:12",
+    "/passes[2]/eta_min: 18 != 19",
+    "/passes[3]/arrive: 09:49:30 != 09:50:30",
+    "/passes[3]/eta_min: 20 != 21",
+    "/text: ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط != ⏳ زمان رسیدن قطارهای بعدی:\n\n🚉 *غدیر* (خط"
+   ],
+   "label": "legacy/22",
+   "path": "/app/api/next?station=%D8%BA%D8%AF%DB%8C%D8%B1&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f50c984b44a604ad",
+    "C": "d6e0c5180e1b489b",
+    "F": "488e06452b7e73cb"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 09:45:24 != 09:46:24",
+    "/passes[0]/eta_min: 16 != 17",
+    "/passes[1]/arrive: 09:51:18 != 09:52:18",
+    "/passes[1]/eta_min: 22 != 23",
+    "/passes[2]/arrive: 10:15:24 != 10:16:24",
+    "/passes[2]/eta_min: 46 != 47"
+   ],
+   "label": "legacy/23",
+   "path": "/app/api/next?station=%D8%A8%D9%88%D8%B3%D8%AA%D8%A7%D9%86%20%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "f0497fedfcabf4f3",
+    "C": "6245ee97e3c58897",
+    "F": "f6c23f10b392a43d"
+   }
+  },
+  {
+   "A_vs_C_diff": [
+    "/passes[0]/arrive: 09:39:17 != 09:40:17",
+    "/passes[0]/eta_min: 10 != 11",
+    "/passes[1]/arrive: 09:57:50 != 09:58:50",
+    "/passes[1]/eta_min: 28 != 29",
+    "/passes[2]/arrive: 10:09:17 != 10:10:17",
+    "/passes[2]/eta_min: 40 != 41"
+   ],
+   "label": "legacy/24",
+   "path": "/app/api/next?station=%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87%20%D8%B4%D9%87%DB%8C%D8%AF%20%D9%87%D8%A7%D8%B4%D9%85%DB%8C%E2%80%8C%D9%86%DA%98%D8%A7%D8%AF&at=2026-10-22T09%3A30%3A00%2B03%3A30&limit=4",
+   "scope": "other",
+   "status": {
+    "A": 200,
+    "C": 200,
+    "F": 200
+   },
+   "A_vs_F": "id_only",
+   "A_vs_C": "UNEXPECTED_DIFF",
+   "sha256": {
+    "A": "a79e8427bd7d92cd",
+    "C": "9df3dac15230cc97",
+    "F": "0a9295edf7573ac1"
+   }
+  }
+ ],
+ "about": "Falsification run: candidate server replaced by a mutant whose Thursday B phase is +60 s. The harness must fail; it reported violations on Thursday /next, /trains, /journey and legacy paths. Rows omitted, violations kept."
+}

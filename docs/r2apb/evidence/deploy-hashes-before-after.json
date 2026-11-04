@@ -1,0 +1,306 @@
+{
+ "head": "587accb6d92e4a93c468047745743b856c651804",
+ "deployedAtUtc": "2026-11-03T16:17:39Z (dist) / 16:18:2x (assets, drop-in) / 16:18:54 (nginx reload)",
+ "files": [
+  {
+   "group": "dist",
+   "path": "packages/core/dist/index.js",
+   "before": "8047a62e8ca8d74668efce41347f6f2672bfeaaeecc2ea517c2425ed8d4fa235",
+   "after": "d2e936acf928c2785683158fdf0ad729a298709acca463aa8905370b0a36586c",
+   "appliedMatchesPlan": true,
+   "new": false
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/compare.js",
+   "before": null,
+   "after": "702aaa30e8e308b34ae359de5ca7cc8cfe3567f4bbb49ddfde30c7caaf07be75",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/constraints.js",
+   "before": null,
+   "after": "799c4446c89f73db2e86fa1ad5253801ce2838ffe9aa5db5204973e0a12a3acd",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/contracts.js",
+   "before": null,
+   "after": "b7c0e34d12b1140f256dcdb75960002edc6dc1833fd2476caaf31bb429785983",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/decision.js",
+   "before": null,
+   "after": "a1f8c170cff9d288b3ea59ce0663601dad5a45e3e9a1b71e6577b7735f5f83f4",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/explain.js",
+   "before": null,
+   "after": "b37a931e042685b64e7456d4375ab4b95af0f0f3e674148919b2bbabb7ca9791",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/index.js",
+   "before": null,
+   "after": "c9ca904aec6df5c6991027b213136f438c63acc762651e6ab7867769386e3b7f",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/memory.js",
+   "before": null,
+   "after": "b1ec161eda68a018ef9c0d14abf61207547903f6f5d4e603ffa32834bcd77f80",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/metrics.js",
+   "before": null,
+   "after": "610d224199e5c6026d70387fa82d4fe8eabda28f3d8e10eea13cb284973fe8f4",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/preferences.js",
+   "before": null,
+   "after": "a1cf4ee3ae6ba4870323e832309e7717bd9c33243bc9f091bc368654ded4e639",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/questions.js",
+   "before": null,
+   "after": "a9159202b0b7acb2d0f8c4b07b51529216282d757857070808ae5c7e7102a5dc",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/intelligence/validation.js",
+   "before": null,
+   "after": "22d2677ed9d50cbf4da01a6b6194ef814de7bb7ff46d0ce397eeb8b34a40d8b1",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/config.js",
+   "before": null,
+   "after": "6f075549457de507e3be0c82121b78db5f57763897e99ea16e0dc8334701a16b",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/control.js",
+   "before": null,
+   "after": "3e27deb6dd70549ac92ca7b09d06979ecf4f4953fed160e11f6b607de6028567",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/feedback.js",
+   "before": null,
+   "after": "1de61b452a416caa02139da078ebbb962abe7669f2bc0b30bd9e24f4f074bb69",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/index.js",
+   "before": null,
+   "after": "a2f605d0c8e38d256802437d196f116df2e84942f208f0f27f7f7abca63c8c56",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/journey.js",
+   "before": null,
+   "after": "aef716c2fca98d76c5d0bf6ce3e671127d77f7cf6efaedcadd49051241d5af4a",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/limits.js",
+   "before": null,
+   "after": "f5b35f171adfe3d6e14e485afcae7a2391928480e0f353423f9a433152f4494f",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/journey-beta/source.js",
+   "before": null,
+   "after": "db8fb01fcb6d2e066766fbaf710b001553f2ab6adb5f1e2e8c369a686e43f6a6",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/miniapp.js",
+   "before": "e99c356b78ff2054d001bbd912d1cbe3ba9cd1fbd1998725afb010bb1726e673",
+   "after": "e2a60f82ec28b363a36b78584f6b28b6ade8ea342b01e2559ad93511a19ae45f",
+   "appliedMatchesPlan": true,
+   "new": false
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/server.js",
+   "before": "68e3e2620bfb7c9809d5fd379337f6566625b16ea6404cd6d1b802d94c102080",
+   "after": "81ed51af44cf9a83dcd8e738fcfda73164b71b01da78bc16a15cc696f8b6d921",
+   "appliedMatchesPlan": true,
+   "new": false
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/shutdown.js",
+   "before": null,
+   "after": "92625f8bf2e7bc7879c7b378b459fbf90da70ce9622d0e7c6df0256abcce5278",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/time.js",
+   "before": "7ace7f4fad9bb2718d318426cf239cc2e447588c2f71e0de8b9642ccc8a4830c",
+   "after": "f1a0f7fc17b0afd302e10a7de53174a98b54050c080c1f6162fda0f526b83233",
+   "appliedMatchesPlan": true,
+   "new": false
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/calendar.js",
+   "before": null,
+   "after": "34766aa0c52f37e700404775f2cbf70c64aeb80134badf6fca3e4d10077be4f0",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/contracts.js",
+   "before": null,
+   "after": "d818ae30ae2ca918a3f90b6d565dd5904bf3e587e0d41d29b2406eaeb5e19eec",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/index.js",
+   "before": null,
+   "after": "bb13b3c6ca2a72c7aa1a3642384e088f10e4d8e68bffd4d77943f5ab047884c6",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/model-source.js",
+   "before": null,
+   "after": "cf2b549f057e595f0cdd3b47bfffa06d7238b41241b201a143d22f5df5cbd88f",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/normalize.js",
+   "before": null,
+   "after": "4eeaadfe6b2752e42ef278a2906fba9b5fb38f5b94a82d66573bff236aa6bea5",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/planner.js",
+   "before": null,
+   "after": "809984a0296f2fa99375b44d5a62732e2fba3d11ac6ae0039c44131766e95039",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/registry.js",
+   "before": null,
+   "after": "1f1b9044975862bc76f0a725431025fa6df4139490a36eb5f4c10e6559899083",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "dist",
+   "path": "packages/core/dist/transit-journey/validation.js",
+   "before": null,
+   "after": "493dc28ff21ed371824f85bf3b842f7ebca1d66f4f064591930d79b4af9041bf",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "assets",
+   "path": "apps/miniapp/api.js",
+   "before": "8b9a66217772d9854ce0fe1e9d4d4baf37abfbacc966513c6db3bb8e6df627b4",
+   "after": "dc5d91a53a796e626b2b6c9dca8e60dcf482c1a5bb8a534bf4b8e4f206475e76",
+   "appliedMatchesPlan": true,
+   "new": false
+  },
+  {
+   "group": "assets",
+   "path": "apps/miniapp/app.css",
+   "before": "d5c3f0a74b1fb45c98e18e72018fb6b25938d37cca82f1ca5ec7b5efb42077ee",
+   "after": "e8eda45e639a995d786574ab4b5cb4f3d49ad38cbffdbe99dbd0dc3e14723cf7",
+   "appliedMatchesPlan": true,
+   "new": false
+  },
+  {
+   "group": "assets",
+   "path": "apps/miniapp/journey.js",
+   "before": null,
+   "after": "e3a74f7996c883eda8fbc9afb42d2d9a82686d29b24d62ac89eb3aedc87f6f40",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "assets",
+   "path": "apps/miniapp/ui/planner.js",
+   "before": null,
+   "after": "30fe6f58f3550eb9ad605b66f75ea6db257a59904a706ccf72bd7e52bd19f090",
+   "appliedMatchesPlan": true,
+   "new": true
+  },
+  {
+   "group": "assets",
+   "path": "apps/miniapp/views/metro.js",
+   "before": "a8c459284bca3e8ff9fa7508f9ebde11b67a380effa223a66e63a04ed9aeaf0b",
+   "after": "425fd1b15859ca64af553139441bd2331312a832b9dfd905ddc65f1beb6de90b",
+   "appliedMatchesPlan": true,
+   "new": false
+  }
+ ],
+ "excludedDriftNotShipped": [
+  {
+   "path": "apps/miniapp/views/food.js",
+   "candidateSha256": "540b4630ea2c46dfc19b02859b1242b6d33ac1e6f07a1a284ddfbebc608b335c",
+   "productionSha256": "98238b6a85907fcc716fea3699ef86c776fb247eefe2754460d5fd753cfdd38d"
+  },
+  {
+   "path": "apps/miniapp/assets/bus-guide.json",
+   "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+   "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+  }
+ ]
+}

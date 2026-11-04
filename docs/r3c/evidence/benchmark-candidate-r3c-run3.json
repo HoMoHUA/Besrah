@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "benchmark": "r2a-pb-real-loopback",
+  "timetable": {
+    "state": "applied",
+    "overlayId": "net01-normal-day-v1",
+    "digest": "7efaa20c17c394e6a5b55563334f86ae46fa963ad68ebedac9b2c16c2905ac64",
+    "reason": null
+  },
+  "at": "2026-11-04T10:50:22.990Z",
+  "node": "v22.23.4",
+  "iterations": 100,
+  "budgets": {
+    "warmP95Ms": 80,
+    "coldMs": 250,
+    "concurrentP95Ms": 150,
+    "churnP95Ms": 200,
+    "nextP95Ms": 50,
+    "nextDeltaP95Ms": 30,
+    "feedbackP95Ms": 50,
+    "reopenMs": 500,
+    "eventLoopP95Ms": 30,
+    "eventLoopMaxMs": 150,
+    "rssMiB": 170,
+    "cgroupPeakMiB": 184
+  },
+  "cgroup": {
+    "path": "/system.slice/run-u614.service",
+    "max": "201326592",
+    "swapMax": "0",
+    "eventsBefore": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "peakMiB": 146.16796875,
+    "eventsAfter": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    }
+  },
+  "phases": {
+    "nextBaseline": {
+      "n": 100,
+      "p50": 1.902007000000026,
+      "p95": 3.0129139999999097,
+      "max": 3.358871000000022
+    },
+    "cold": {
+      "ms": 108.10388599999987,
+      "options": 5
+    },
+    "warm": {
+      "n": 100,
+      "p50": 6.418329999999969,
+      "p95": 10.317780999999968,
+      "max": 17.616960000000063
+    },
+    "concurrent": {
+      "n": 100,
+      "p50": 9.526262000000315,
+      "p95": 15.235956999999871,
+      "max": 28.976046999999653
+    },
+    "churn": {
+      "n": 100,
+      "p50": 32.44904200000019,
+      "p95": 58.77677700000004,
+      "max": 70.67098600000008
+    },
+    "nextContended": {
+      "n": 100,
+      "p50": 3.7321679999995467,
+      "p95": 8.56898099999944,
+      "max": 48.886695000000145,
+      "deltaP95": 5.55606699999953,
+      "ratioP95": 2.8440841656946385
+    },
+    "eventLoop": {
+      "n": 802,
+      "p50": 6.754303,
+      "p95": 26.623999,
+      "p99": 32.358399,
+      "max": 48.398335
+    },
+    "feedback": {
+      "n": 100,
+      "p50": 7.129048999999213,
+      "p95": 12.092899999999645,
+      "max": 39.12610700000005
+    },
+    "feedbackBurst": {
+      "201": 1,
+      "429": 29
+    },
+    "feedbackIntegrity": {
+      "records": 101,
+      "unique": true,
+      "durableReadback": true
+    },
+    "nearQuotaReopen": {
+      "ms": 484.26247499999954,
+      "bytes": 7340064,
+      "records": 7536
+    },
+    "defaultBurst": {
+      "200": 2,
+      "429": 118
+    },
+    "modelFaultRecovery": {
+      "faultStatus": 200,
+      "faultResult": "insufficient_data",
+      "recoveredOptions": 5
+    },
+    "storageFaultRecovery": {
+      "faultStatus": 503,
+      "recoveredStatus": 201,
+      "recovery": "fresh safe store, not silent corruption repair"
+    }
+  },
+  "modelVersion": "sha256:cc3c6c4a33a40c02916562505507162d7161d94b9c89e2aad749a1cd7f99a4c5",
+  "rssPeakMiB": 139.1875,
+  "rssBreakdownMiB": {
+    "serverWorker": 139.1875,
+    "loadClientProcess": 111.5078125,
+    "note": "RSS budget applies to the server process under test (the production-equivalent). The load client is a test artefact; the cgroup peak check covers both processes together."
+  },
+  "failures": [],
+  "verdict": "WITHIN_BUDGETS",
+  "caveats": [
+    "Server worker and load client are separate processes inside one cgroup on a shared host; short samples are not an SLO.",
+    "Default rate limits are disabled only for latency samples; concurrency remains two. Default burst is measured separately.",
+    "Feedback fixtures are private synthetic test inputs, never real observations.",
+    "Provider means the in-process timetable source, not an external real-time service."
+  ]
+}

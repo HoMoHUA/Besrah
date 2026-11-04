@@ -35,13 +35,28 @@ export function nearestStation(stations, lat, lon, maxKm = 10) {
   }
   return nearest;
 }
+// Exact core metro distance calculation (km)
+export function distanceKm(lat1, lon1, lat2, lon2) {
+  const rad = d => d * Math.PI / 180;
+  const a = Math.sin(rad(lat2 - lat1) / 2) ** 2 + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(rad(lon2 - lon1) / 2) ** 2;
+  return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 export function groupPasses(passes) {
   const groups = new Map();
   for (const pass of passes) {
-    if (!groups.has(pass.toward)) groups.set(pass.toward, []);
-    if (groups.get(pass.toward).length < 2) groups.get(pass.toward).push(pass);
+    let key = pass.toward;
+    if (!groups.has(key)) groups.set(key, []);
+    if (groups.get(key).length < 2) groups.get(key).push(pass);
   }
   return [...groups];
+}
+
+export async function resolveUserCoords(tgApp, timeoutMs = 10000) {
+  const geo = typeof navigator !== 'undefined' && navigator.geolocation && {
+    getCurrentPosition: (ok, fail, opts) => navigator.geolocation.getCurrentPosition(ok, fail, opts)
+  };
+  return requestPosition(tgApp, geo, timeoutMs);
 }
 
 // Permission is requested only when the UI explicitly calls this helper.

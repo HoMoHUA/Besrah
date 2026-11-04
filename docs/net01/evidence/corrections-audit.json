@@ -1,0 +1,763 @@
+{
+ "meta": {
+  "method": "effect = recomputing simple derived stats (dwell = depart-arrive adjacent rows same station+dir; run = next-station arrive - depart; logged headway_s/dwell_s columns) with and without each item, over all 7 CSVs. This is NOT the candidate engine or network.json pipeline; where the candidate pipeline uses other rules the effect may differ -> unknown.",
+  "repo_corrections_json_equals_package_prefix": true,
+  "package_has_extra_excluded_rows_vs_repo": 2,
+  "candidate_doc_03b_says": "two rows excluded (double tap 19:45:30, fake arrive 20:03:03) -> consistent with corrections.json"
+ },
+ "combined_three_line2_corrections_only_effect": [
+  {
+   "stat": "arrive_count",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151127895,
+   "tehran": "15:15:27.895",
+   "before": [
+    "کوهسنگی",
+    "فکوری"
+   ],
+   "after": [
+    "شهیدکاوه",
+    "فکوری"
+   ]
+  },
+  {
+   "stat": "logged_headway",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151127895,
+   "tehran": "15:15:27.895",
+   "before": [
+    "کوهسنگی",
+    "فکوری",
+    "158"
+   ],
+   "after": [
+    "شهیدکاوه",
+    "فکوری",
+    "158"
+   ]
+  },
+  {
+   "stat": "run",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151127895,
+   "tehran": "15:15:27.895",
+   "before": null,
+   "after": [
+    "کوهسنگی",
+    "شهیدکاوه",
+    "فکوری",
+    142.5
+   ]
+  },
+  {
+   "stat": "dwell",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151174423,
+   "tehran": "15:16:14.423",
+   "before": [
+    "کوهسنگی",
+    "فکوری",
+    46.5
+   ],
+   "after": [
+    "شهیدکاوه",
+    "فکوری",
+    46.5
+   ]
+  },
+  {
+   "stat": "logged_dwell",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151174423,
+   "tehran": "15:16:14.423",
+   "before": [
+    "کوهسنگی",
+    "فکوری",
+    "47"
+   ],
+   "after": [
+    "شهیدکاوه",
+    "فکوری",
+    "47"
+   ]
+  },
+  {
+   "stat": "run",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151331003,
+   "tehran": "15:18:51.003",
+   "before": [
+    "کوهسنگی",
+    "فکوری",
+    "فکوری",
+    156.6
+   ],
+   "after": [
+    "شهیدکاوه",
+    "فکوری",
+    "فکوری",
+    156.6
+   ]
+  }
+ ],
+ "combined_all_corrections_and_exclusions_changed_item_count": 15,
+ "items": [
+  {
+   "kind": "correction",
+   "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+   "t": 1792146830667,
+   "tehran": "14:03:50.667",
+   "why_in_corrections_json": "depart pressed after station field was already advanced (confirmed by user)",
+   "file_found_in_package_or_baseline": true,
+   "referenced_epoch_t_exists_in_named_file": true,
+   "row": 3,
+   "csv_line": 4,
+   "row_content": {
+    "time": "14:03:50",
+    "station": "نمایشگاه",
+    "dir": "غدیر",
+    "ev": "depart",
+    "headway_s": "",
+    "dwell_s": "",
+    "note": ""
+   },
+   "current_value_equals_from": true,
+   "field": "station",
+   "from": "نمایشگاه",
+   "to": "کوهستان پارک",
+   "same_epoch_t_also_in_other_files": [],
+   "correction_would_miss_these_copies_if_keyed_by_file": [],
+   "effect_on_derived_stats_my_pairing": [
+    {
+     "stat": "dwell",
+     "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+     "t": 1792146830667,
+     "tehran": "14:03:50.667",
+     "before": null,
+     "after": [
+      "کوهستانپارک",
+      "غدیر",
+      20.8
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+     "t": 1792146907848,
+     "tehran": "14:05:07.848",
+     "before": null,
+     "after": [
+      "کوهستانپارک",
+      "نمایشگاه",
+      "غدیر",
+      77.2
+     ]
+    }
+   ],
+   "effect_if_applied_to_all_copies": null,
+   "changes_any_derived_statistic": true
+  },
+  {
+   "kind": "correction",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151127895,
+   "tehran": "15:15:27.895",
+   "why_in_corrections_json": "station not advanced after Kouhsangi (Wikipedia order Kouhsangi->Kaveh->Fakouri)",
+   "file_found_in_package_or_baseline": true,
+   "referenced_epoch_t_exists_in_named_file": true,
+   "row": 7,
+   "csv_line": 8,
+   "row_content": {
+    "time": "15:15:27",
+    "station": "کوهسنگی",
+    "dir": "فکوری",
+    "ev": "arrive",
+    "headway_s": "158",
+    "dwell_s": "",
+    "note": ""
+   },
+   "current_value_equals_from": true,
+   "field": "station",
+   "from": "کوهسنگی",
+   "to": "شهید کاوه",
+   "same_epoch_t_also_in_other_files": [
+    [
+     "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     7
+    ]
+   ],
+   "correction_would_miss_these_copies_if_keyed_by_file": [
+    [
+     "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     7
+    ]
+   ],
+   "effect_on_derived_stats_my_pairing": [
+    {
+     "stat": "arrive_count",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": [
+      "کوهسنگی",
+      "فکوری"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری"
+     ]
+    },
+    {
+     "stat": "logged_headway",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "158"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "158"
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": null,
+     "after": [
+      "کوهسنگی",
+      "شهیدکاوه",
+      "فکوری",
+      142.5
+     ]
+    },
+    {
+     "stat": "dwell",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      46.5
+     ],
+     "after": null
+    }
+   ],
+   "effect_if_applied_to_all_copies": [
+    {
+     "stat": "arrive_count",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": [
+      "کوهسنگی",
+      "فکوری"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری"
+     ]
+    },
+    {
+     "stat": "arrive_count",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": [
+      "کوهسنگی",
+      "فکوری"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری"
+     ]
+    },
+    {
+     "stat": "logged_headway",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "158"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "158"
+     ]
+    },
+    {
+     "stat": "logged_headway",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "158"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "158"
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": null,
+     "after": [
+      "کوهسنگی",
+      "شهیدکاوه",
+      "فکوری",
+      142.5
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151127895,
+     "tehran": "15:15:27.895",
+     "before": null,
+     "after": [
+      "کوهسنگی",
+      "شهیدکاوه",
+      "فکوری",
+      142.5
+     ]
+    },
+    {
+     "stat": "dwell",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      46.5
+     ],
+     "after": null
+    },
+    {
+     "stat": "dwell",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      46.5
+     ],
+     "after": null
+    }
+   ],
+   "changes_any_derived_statistic": true
+  },
+  {
+   "kind": "correction",
+   "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+   "t": 1792151174423,
+   "tehran": "15:16:14.423",
+   "why_in_corrections_json": "same as above",
+   "file_found_in_package_or_baseline": true,
+   "referenced_epoch_t_exists_in_named_file": true,
+   "row": 8,
+   "csv_line": 9,
+   "row_content": {
+    "time": "15:16:14",
+    "station": "کوهسنگی",
+    "dir": "فکوری",
+    "ev": "depart",
+    "headway_s": "",
+    "dwell_s": "47",
+    "note": ""
+   },
+   "current_value_equals_from": true,
+   "field": "station",
+   "from": "کوهسنگی",
+   "to": "شهید کاوه",
+   "same_epoch_t_also_in_other_files": [
+    [
+     "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     8
+    ]
+   ],
+   "correction_would_miss_these_copies_if_keyed_by_file": [
+    [
+     "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     8
+    ]
+   ],
+   "effect_on_derived_stats_my_pairing": [
+    {
+     "stat": "dwell",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      46.5
+     ],
+     "after": null
+    },
+    {
+     "stat": "logged_dwell",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "47"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "47"
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151331003,
+     "tehran": "15:18:51.003",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "فکوری",
+      156.6
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "فکوری",
+      156.6
+     ]
+    }
+   ],
+   "effect_if_applied_to_all_copies": [
+    {
+     "stat": "dwell",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      46.5
+     ],
+     "after": null
+    },
+    {
+     "stat": "dwell",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      46.5
+     ],
+     "after": null
+    },
+    {
+     "stat": "logged_dwell",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "47"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "47"
+     ]
+    },
+    {
+     "stat": "logged_dwell",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151174423,
+     "tehran": "15:16:14.423",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "47"
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "47"
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "t": 1792151331003,
+     "tehran": "15:18:51.003",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "فکوری",
+      156.6
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "فکوری",
+      156.6
+     ]
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "t": 1792151331003,
+     "tehran": "15:18:51.003",
+     "before": [
+      "کوهسنگی",
+      "فکوری",
+      "فکوری",
+      156.6
+     ],
+     "after": [
+      "شهیدکاوه",
+      "فکوری",
+      "فکوری",
+      156.6
+     ]
+    }
+   ],
+   "changes_any_derived_statistic": true
+  },
+  {
+   "kind": "excluded_row",
+   "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+   "t": 1792149933818,
+   "tehran": "14:55:33.818",
+   "why_in_corrections_json": "Imam Khomeini dwell 3 s on return, almost surely a mis-tap (reported to user)",
+   "file_found_in_package_or_baseline": true,
+   "referenced_epoch_t_exists_in_named_file": true,
+   "row": 52,
+   "csv_line": 53,
+   "row_content": {
+    "time": "14:55:33",
+    "station": "امام خمینی",
+    "dir": "وکیل آباد",
+    "ev": "depart",
+    "headway_s": "",
+    "dwell_s": "3",
+    "note": ""
+   },
+   "effect_on_derived_stats_my_pairing": [
+    {
+     "stat": "dwell",
+     "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+     "t": 1792149933818,
+     "tehran": "14:55:33.818",
+     "before": [
+      "امامخمینی",
+      "وکیل آباد",
+      3.1
+     ],
+     "after": null
+    },
+    {
+     "stat": "logged_dwell",
+     "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+     "t": 1792149933818,
+     "tehran": "14:55:33.818",
+     "before": [
+      "امامخمینی",
+      "وکیل آباد",
+      "3"
+     ],
+     "after": null
+    },
+    {
+     "stat": "run",
+     "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv",
+     "t": 1792150038027,
+     "tehran": "14:57:18.027",
+     "before": [
+      "امامخمینی",
+      "شریعتی",
+      "وکیل آباد",
+      104.2
+     ],
+     "after": null
+    }
+   ],
+   "changes_any_derived_statistic": true
+  },
+  {
+   "kind": "excluded_row",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+   "t": 1793722530998,
+   "tehran": "19:45:30.998",
+   "why_in_corrections_json": "double tap 79 ms after t=1793722530919 (same Vakilabad arrival, headway 0)",
+   "file_found_in_package_or_baseline": true,
+   "referenced_epoch_t_exists_in_named_file": true,
+   "row": 30,
+   "csv_line": 31,
+   "row_content": {
+    "time": "19:45:30",
+    "station": "وکیل آباد",
+    "dir": "وکیل آباد",
+    "ev": "arrive",
+    "headway_s": "0",
+    "dwell_s": "",
+    "note": "آپدیت تابلو : 20:11"
+   },
+   "effect_on_derived_stats_my_pairing": [
+    {
+     "stat": "arrive_count",
+     "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+     "t": 1793722530998,
+     "tehran": "19:45:30.998",
+     "before": [
+      "وکیلآباد",
+      "وکیل آباد"
+     ],
+     "after": null
+    },
+    {
+     "stat": "logged_headway",
+     "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+     "t": 1793722530998,
+     "tehran": "19:45:30.998",
+     "before": [
+      "وکیلآباد",
+      "وکیل آباد",
+      "0"
+     ],
+     "after": null
+    }
+   ],
+   "changes_any_derived_statistic": true,
+   "residual_contamination": "none material: the paired depart row dwell_s=88 is 87.93 s from the kept first tap and 87.85 s from the excluded tap (both round to 88). Effect of exclusion = removes one arrive (count) and one logged headway 0 (min arrival headway 0 -> 387 s)."
+  },
+  {
+   "kind": "excluded_row",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+   "t": 1793723583115,
+   "tehran": "20:03:03.115",
+   "why_in_corrections_json": "owner: forgot to log the arrival of the train he boarded, so arrive and depart were pressed together at ~20:03:03/20:03:10; this arrive row is not a real arrival (the depart row is real)",
+   "file_found_in_package_or_baseline": true,
+   "referenced_epoch_t_exists_in_named_file": true,
+   "row": 34,
+   "csv_line": 35,
+   "row_content": {
+    "time": "20:03:03",
+    "station": "وکیل آباد",
+    "dir": "وکیل آباد",
+    "ev": "arrive",
+    "headway_s": "545",
+    "dwell_s": "",
+    "note": "آپدیت تابلو :20:11، 20:19 ،20:27"
+   },
+   "effect_on_derived_stats_my_pairing": [
+    {
+     "stat": "arrive_count",
+     "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+     "t": 1793723583115,
+     "tehran": "20:03:03.115",
+     "before": [
+      "وکیلآباد",
+      "وکیل آباد"
+     ],
+     "after": null
+    },
+    {
+     "stat": "logged_headway",
+     "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+     "t": 1793723583115,
+     "tehran": "20:03:03.115",
+     "before": [
+      "وکیلآباد",
+      "وکیل آباد",
+      "545"
+     ],
+     "after": null
+    }
+   ],
+   "changes_any_derived_statistic": true,
+   "residual_contamination": "the paired DEPART row (19:... 20:03:10, row 35) keeps logged dwell_s=8 (7.833 s from the fake arrive); corrections.json excludes only the arrive row, so any pipeline reading the dwell_s column (not recomputing from arrive/depart) still ingests an 8 s Vakilabad dwell. Real Tuesday Vakilabad dwell range is 38-95 s (n=6)."
+  }
+ ],
+ "context_numbers": {
+  "tuesday_vakilabad_arrival_headways_logged_s_all_rows": [
+   387,
+   623,
+   390,
+   440,
+   0,
+   507,
+   545
+  ],
+  "tuesday_vakilabad_arrival_headways_after_exclusions_s": [
+   387,
+   623,
+   390,
+   440,
+   507
+  ],
+  "min_logged_arrival_headway_with_vs_without_exclusions": [
+   0,
+   387
+  ],
+  "tuesday_vakilabad_logged_depart_dwell_s_column": [
+   38,
+   95,
+   41,
+   64,
+   88,
+   66,
+   8
+  ],
+  "tuesday_vakilabad_dwell_range_if_8s_fake_removed": [
+   38,
+   95
+  ],
+  "candidate_network_json_says_turnaround_39_95s": "raw min after removing the fake 8 s is 38 (19:14:50.728->19:15:29.120), not 39",
+  "imam_khomeini_return_rows": [
+   {
+    "row": 34,
+    "time": "14:32:14",
+    "ev": "arrive",
+    "dwell_s": ""
+   },
+   {
+    "row": 35,
+    "time": "14:32:34",
+    "ev": "depart",
+    "dwell_s": "21"
+   },
+   {
+    "row": 51,
+    "time": "14:55:30",
+    "ev": "arrive",
+    "dwell_s": ""
+   },
+   {
+    "row": 52,
+    "time": "14:55:33",
+    "ev": "depart",
+    "dwell_s": "3"
+   }
+  ],
+  "note_on_exclusion_1_oct16": "Excluded row is the DEPART row (3 s dwell). Its ARRIVE row (14:55:30) stays in the CSV; arrival-based stats and the arrive->arrive chain still include it. Only dwell and the following run depart->Shariati arrive (105 s) disappear in my pairing."
+ }
+}

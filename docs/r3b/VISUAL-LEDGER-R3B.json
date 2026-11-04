@@ -1,0 +1,206 @@
+[
+ {
+  "file": "before-r3a-360x740-fullpage-light.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 175108
+ },
+ {
+  "file": "before-r3a-360x740-viewport-light.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 72010
+ },
+ {
+  "file": "before-r3a-390x844-fullpage-light.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 167086
+ },
+ {
+  "file": "before-r3a-390x844-viewport-light.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 92789
+ },
+ {
+  "file": "r3b-360x420-keyboard-sim-picker-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen (viewport-resize simulation, not a real keyboard)",
+  "bytes": 52558
+ },
+ {
+  "file": "r3b-360x740-01-start-dark-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 91832
+ },
+ {
+  "file": "r3b-360x740-01-start-light-fullpage.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 102682
+ },
+ {
+  "file": "r3b-360x740-01-start-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 92591
+ },
+ {
+  "file": "r3b-360x740-02-filled-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 99909
+ },
+ {
+  "file": "r3b-360x740-03-results-dark-fullpage.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 294868
+ },
+ {
+  "file": "r3b-360x740-03-results-dark-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 101266
+ },
+ {
+  "file": "r3b-360x740-03-results-light-fullpage.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 294431
+ },
+ {
+  "file": "r3b-360x740-03-results-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen (after notice reorder)",
+  "bytes": 101055
+ },
+ {
+  "file": "r3b-360x740-04-board-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 84382
+ },
+ {
+  "file": "r3b-360x740-05-tracker-open-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 63132
+ },
+ {
+  "file": "r3b-360x740-06-stations-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 63541
+ },
+ {
+  "file": "r3b-360x740-07-picker-open-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 78434
+ },
+ {
+  "file": "r3b-360x740-08-offline-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 103088
+ },
+ {
+  "file": "r3b-360x740-09-insufficient-strict-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen (after empty-result copy)",
+  "bytes": 107252
+ },
+ {
+  "file": "r3b-390x844-00-not-opted-in-legacy-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 95519
+ },
+ {
+  "file": "r3b-390x844-01-start-dark-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 92268
+ },
+ {
+  "file": "r3b-390x844-01-start-light-fullpage.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 102618
+ },
+ {
+  "file": "r3b-390x844-01-start-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 93184
+ },
+ {
+  "file": "r3b-390x844-02-filled-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 123094
+ },
+ {
+  "file": "r3b-390x844-03-results-dark-fullpage.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 292571
+ },
+ {
+  "file": "r3b-390x844-03-results-dark-viewport.png",
+  "viewport": "viewport",
+  "status": "seen (after notice reorder)",
+  "bytes": 112063
+ },
+ {
+  "file": "r3b-390x844-03-results-light-fullpage.png",
+  "viewport": "fullpage",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 292605
+ },
+ {
+  "file": "r3b-390x844-03-results-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 111805
+ },
+ {
+  "file": "r3b-390x844-04-board-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 91055
+ },
+ {
+  "file": "r3b-390x844-05-tracker-open-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 67278
+ },
+ {
+  "file": "r3b-390x844-06-stations-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 68357
+ },
+ {
+  "file": "r3b-390x844-07-picker-open-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 83576
+ },
+ {
+  "file": "r3b-390x844-08-offline-light-viewport.png",
+  "viewport": "viewport",
+  "status": "captured; geometry measured by DOM probe, NOT individually viewed",
+  "bytes": 101411
+ },
+ {
+  "file": "r3b-390x844-10-station-sheet-light-viewport.png",
+  "viewport": "viewport",
+  "status": "seen",
+  "bytes": 68076
+ }
+]

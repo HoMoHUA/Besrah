@@ -18,9 +18,14 @@ export function createBusView(ctx) {
 
   const lineButton = line => {
     const first = line.variants[0];
-    return h('button', { type: 'button', class: 'bus-line', dataset: { line: line.ref }, 'aria-label': `خط ${line.ref}، از ${first.from} به ${first.to}`, onClick: () => showLine(line) },
-      h('bdi', { class: 'bus-line__ref', dir: 'ltr', text: line.ref }),
-      h('span', { class: 'bus-line__body' }, h('strong', { text: `از ${first.from} به ${first.to}` }), h('small', { text: `${line.variants.length} مسیر ثبت شده` })),
+    const isExp = line.isExpress || /^EXP-/i.test(line.ref);
+    const label = line.label || line.ref;
+    const title = line.title || `خط ${line.ref}`;
+    return h('button', { type: 'button', class: ['bus-line', isExp && 'bus-line--express'].filter(Boolean).join(' '), dataset: { line: line.ref }, 'aria-label': `${title}، از ${first.from} به ${first.to}`, onClick: () => showLine(line) },
+      h('bdi', { class: ['bus-line__ref', isExp && 'bus-line__ref--express'].filter(Boolean).join(' '), dir: isExp ? 'rtl' : 'ltr', text: label }),
+      h('span', { class: 'bus-line__body' },
+        h('strong', { text: `از ${first.from} به ${first.to}` }),
+        h('small', { text: isExp ? `${line.variants.length} مسیر ثبت شده • خط تندرو` : `${line.variants.length} مسیر ثبت شده` })),
       icon('chevron_left'));
   };
   const stopButton = stop => h('button', { type: 'button', class: 'bus-line bus-line--stop', dataset: { stop: stop.name }, 'aria-label': `${stop.name}، ${stop.refs.length} خط`, onClick: () => showStop(stop) },
@@ -65,6 +70,8 @@ export function createBusView(ctx) {
     const variants = h('div', { class: 'cm-chips bus-variants', role: 'group', 'aria-label': 'مسیرهای ثبت شده' });
     const list = h('ol', { class: 'bus-stops' });
     const notes = h('div', { class: 'bus-notes' });
+    const title = line.title || `خط ${line.ref}`;
+    const isExp = line.isExpress || /^EXP-/i.test(line.ref);
     const paintLine = () => {
       variants.replaceChildren(...(line.variants.length > 1 ? line.variants.map(v => h('button', { type: 'button', class: 'cm-chip bus-variant', 'aria-pressed': String(v === active),
         onClick: () => { active = v; paintLine(); } }, `از ${v.from} به ${v.to}`)) : []));
@@ -72,12 +79,13 @@ export function createBusView(ctx) {
       // Native replaceChildren renders `false` as text, so conditional notes are filtered explicitly.
       notes.replaceChildren(...[
         h('p', { class: 'bus-note', text: `${active.stops.length} ایستگاه ثبت شده، به ترتیب داده منبع.` }),
+        isExp && h('p', { class: 'bus-note bus-note--express', text: 'این خط تندرو (اکسپرس) است و در مسیر خود تنها در ایستگاه‌های منتخب توقف دارد.' }),
         loopVariant(active) && h('p', { class: 'bus-note', text: 'ایستگاه اول و آخر این مسیر یکی است؛ ممکن است مسیر گردشی باشد.' }),
         active.derived && h('p', { class: 'bus-note', text: 'مبدا و مقصد این مسیر در داده منبع ثبت نشده و از نام انگلیسی همان مسیر و نام پایانه ها برداشته شده است.' }),
         h('p', { class: 'bus-note', text: SOURCE_NOTE })].filter(Boolean));
     };
     paintLine();
-    present(h('div', { class: 'station bus-sheet' }, sheetHead(`خط ${line.ref}`, 'ایستگاه های ثبت شده'), h('div', { class: 'station__scroll' }, variants, list, notes)));
+    present(h('div', { class: 'station bus-sheet' }, sheetHead(title, isExp ? 'ایستگاه های منتخب (خط تندرو)' : 'ایستگاه های ثبت شده'), h('div', { class: 'station__scroll' }, variants, list, notes)));
   }
 
   function showStop(stop) {

@@ -1,0 +1,38 @@
+[
+  {
+    "width": 390,
+    "theme": "light",
+    "checked": 64,
+    "failures": [],
+    "gradientSkipped": 10,
+    "headingBadgeCollisions": [],
+    "method": "closed details excluded; selected ride tab measured over its actual parent ::before background"
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "checked": 64,
+    "failures": [],
+    "gradientSkipped": 10,
+    "headingBadgeCollisions": [],
+    "method": "closed details excluded; selected ride tab measured over its actual parent ::before background"
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "checked": 64,
+    "failures": [],
+    "gradientSkipped": 10,
+    "headingBadgeCollisions": [],
+    "method": "closed details excluded; selected ride tab measured over its actual parent ::before background"
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "checked": 64,
+    "failures": [],
+    "gradientSkipped": 10,
+    "headingBadgeCollisions": [],
+    "method": "closed details excluded; selected ride tab measured over its actual parent ::before background"
+  }
+]

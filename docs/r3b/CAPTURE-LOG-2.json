@@ -1,0 +1,106 @@
+[
+ {
+  "file": "r3b-360x740-03-results-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "results"
+ },
+ {
+  "file": "r3b-360x740-03-results-light-fullpage.png",
+  "full": true,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "results"
+ },
+ {
+  "file": "r3b-360x740-03-results-dark-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "dark",
+  "state": "results"
+ },
+ {
+  "file": "r3b-360x740-03-results-dark-fullpage.png",
+  "full": true,
+  "viewport": "360x740",
+  "theme": "dark",
+  "state": "results"
+ },
+ {
+  "file": "r3b-360x740-07-picker-open-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "picker-open",
+  "listbox": {
+   "top": 437,
+   "bottom": 650,
+   "navTop": 662
+  }
+ },
+ {
+  "file": "r3b-360x740-08-offline-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "offline",
+  "text": "اتصال برقرار نشد\n\nاتصال اینترنت را بررسی کنید و دوباره تلاش کنید.\n\nاین زمان ها برآورد مدل برنامه قطارند، نه موقعیت زنده. زمان رسیدن شما از ورودی ایستگاه به سکو، پیاده روی و جابه جایی بین خطوط محاسبه ن"
+ },
+ {
+  "file": "r3b-390x844-03-results-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "results"
+ },
+ {
+  "file": "r3b-390x844-03-results-light-fullpage.png",
+  "full": true,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "results"
+ },
+ {
+  "file": "r3b-390x844-03-results-dark-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "dark",
+  "state": "results"
+ },
+ {
+  "file": "r3b-390x844-03-results-dark-fullpage.png",
+  "full": true,
+  "viewport": "390x844",
+  "theme": "dark",
+  "state": "results"
+ },
+ {
+  "file": "r3b-390x844-07-picker-open-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "picker-open",
+  "listbox": {
+   "top": 473,
+   "bottom": 753,
+   "navTop": 766
+  }
+ },
+ {
+  "file": "r3b-390x844-08-offline-light-viewport.png",
+  "full": false,
+  "viewport": "390x844",
+  "theme": "light",
+  "state": "offline",
+  "text": "اتصال برقرار نشد\n\nاتصال اینترنت را بررسی کنید و دوباره تلاش کنید.\n\nاین زمان ها برآورد مدل برنامه قطارند، نه موقعیت زنده. زمان رسیدن شما از ورودی ایستگاه به سکو، پیاده روی و جابه جایی بین خطوط محاسبه ن"
+ },
+ {
+  "file": "r3b-360x740-09-insufficient-strict-light-viewport.png",
+  "full": false,
+  "viewport": "360x740",
+  "theme": "light",
+  "state": "insufficient-strict",
+  "text": "از هفت تیر به دانش آموز\n\nخط ۱ · آماده روی سکوی مبدأ: فردا ساعت ۱۰:۰۰ به وقت تهران\n\nبرنامهٔ این روز در مدل کافی نیست\n\nبرای این روز برنامه ای که بتوان به آن اعتماد کرد در مدل نیست؛ زمان بندی نمایش داده نمی شود.\n\nاین زمان ها برآورد مدل برنامه قطارند، نه موقعیت زن"
+ }
+]

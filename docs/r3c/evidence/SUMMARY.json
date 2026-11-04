@@ -1,0 +1,177 @@
+{
+ "schema": 1,
+ "codeHead": "bb6cf45ce38ff958977953fb4aeab36ec33cf22c",
+ "productionBaseline": "587accb",
+ "decision": "QG-010=APPROVED_EXPERIMENTAL_EXTENDED",
+ "parity": {
+  "requests": 1868,
+  "violations": 0,
+  "summary": {
+   "A_vs_F": {
+    "id_only": 1774,
+    "identical_bytes": 94
+   },
+   "A_vs_C": {
+    "declared_timetable_change": 693,
+    "id_only": 1026,
+    "identical_bytes": 149
+   }
+  },
+  "degradedNoticeCheck": {
+   "ok": 1868
+  },
+  "servers": "587accb build / candidate / candidate-without-overlay (loopback, never Production)"
+ },
+ "benchmark": {
+  "verdict": "WITHIN_BUDGETS",
+  "failures": [],
+  "timetable": {
+   "state": "applied",
+   "overlayId": "net01-normal-day-v1",
+   "digest": "7efaa20c17c394e6a5b55563334f86ae46fa963ad68ebedac9b2c16c2905ac64",
+   "reason": null
+  },
+  "cgroupPeakMiB": {
+   "baseline": 147.203125,
+   "candidate": 145.51953125
+  },
+  "rssPeakMiB": {
+   "baseline": 140.6953125,
+   "candidate": 138.65234375
+  },
+  "p95Ms": {
+   "warm": {
+    "baseline": 8.03,
+    "candidate": 9.9
+   },
+   "concurrent": {
+    "baseline": 11.6,
+    "candidate": 13.82
+   },
+   "churn": {
+    "baseline": 48.11,
+    "candidate": 66.0
+   },
+   "nextBaseline": {
+    "baseline": 1.56,
+    "candidate": 4.87
+   },
+   "nextContended": {
+    "baseline": 4.71,
+    "candidate": 19.03
+   },
+   "eventLoop": {
+    "baseline": 24.61,
+    "candidate": 29.49
+   },
+   "feedback": {
+    "baseline": 7.49,
+    "candidate": 14.59
+   }
+  },
+  "budgetNote": "eventLoop p95 budget is 30 ms; candidate is within budget with small margin",
+  "runs": [
+   {
+    "verdict": "WITHIN_BUDGETS",
+    "cgroupPeakMiB": 145.5,
+    "eventLoopP95Ms": 29.5,
+    "nextContendedP95Ms": 19.0,
+    "churnP95Ms": 66.0
+   },
+   {
+    "verdict": "WITHIN_BUDGETS",
+    "cgroupPeakMiB": 147.3,
+    "eventLoopP95Ms": 27.3,
+    "nextContendedP95Ms": 6.4,
+    "churnP95Ms": 61.3
+   },
+   {
+    "verdict": "WITHIN_BUDGETS",
+    "cgroupPeakMiB": 146.2,
+    "eventLoopP95Ms": 26.6,
+    "nextContendedP95Ms": 8.6,
+    "churnP95Ms": 58.8
+   }
+  ],
+  "note": "Three 100-sample runs in a 192 MiB cgroup (no swap). Candidate is slightly slower than the 587accb baseline in every phase but WITHIN_BUDGETS in all runs; event-loop p95 26.6-29.5 ms vs 30 ms budget (baseline 24.6)."
+ },
+ "model": {
+  "baseline": null,
+  "trainCounts": {
+   "baseline": {
+    "outTrips": 101,
+    "A": 75,
+    "B": 26,
+    "allTrips": 202
+   },
+   "overlay": {
+    "outTrips": 110,
+    "A": 78,
+    "B": 32,
+    "allTrips": 220
+   }
+  },
+  "firstLast": {
+   "baseline": {
+    "first": "06:00:00",
+    "last": "21:50:00"
+   },
+   "overlay": {
+    "first": "06:00:00",
+    "last": "21:57:00"
+   }
+  },
+  "minAbSeparationSeconds": 160
+ },
+ "sandboxRehearsal": {
+  "passed": 13,
+  "failed": 0,
+  "checks": [
+   "unit starts under Production hardening with U1+U2",
+   "flag OFF is reported and the NET01 overlay is applied",
+   "/app/api/next answers 200 and carries event_id",
+   "journey endpoint is closed while the switch is OFF",
+   "20 repeated reads stay 200 (rate limiter is not tripped by normal use)",
+   "memory after warm-up within the 192 MiB cap",
+   "missing overlay file: service stays up, state is baseline_missing and the notice is visible",
+   "overlay restored: state is applied again",
+   "NRestarts counter is 0 (manual restarts do not count as failures)",
+   "rollback u2 verified by the tool",
+   "after rolling U2 back alone, the U1 data and code are still in place",
+   "rollback u1 verified by the tool",
+   "after both rollbacks the tree equals live Production, hash for hash"
+  ]
+ },
+ "plans": {
+  "u1": {
+   "files": 11,
+   "groups": [
+    "data",
+    "dist"
+   ]
+  },
+  "u2": {
+   "files": 7,
+   "groups": [
+    "assets"
+   ]
+  },
+  "excludedDriftU2": [
+   "apps/miniapp/views/food.js",
+   "apps/miniapp/assets/bus-guide.json"
+  ]
+ },
+ "tests": {
+  "core": "ests  573 passed (573) |    Start at  10:45:52 |    Duration  69.82s (transform 2.03s, setup 0ms, collect 10.40s, tests 36.76s, environment 20ms, prepare 7.34s)",
+  "miniapp": "# cancelled 0 | # skipped 0 | # todo 0 | # duration_ms 5815.059899",
+  "n8n": "# cancelled 0 | # skipped 0 | # todo 0 | # duration_ms 1064.42573",
+  "releasejs": "# cancelled 0 | # skipped 0 | # todo 0 | # duration_ms 2411.776386",
+  "pydata": "---------------------------------------------------------------------- | Ran 167 tests in 9.148s |  | OK",
+  "pyrelease": "---------------------------------------------------------------------- | Ran 21 tests in 8.658s |  | OK",
+  "http": "---------------------------------------------------------------------- | Ran 8 tests in 0.649s |  | OK",
+  "typecheck": "",
+  "build": "> @mashhad-waze/core@0.1.0 build | > tsc -p tsconfig.build.json",
+  "bus": "bus-guide.json is current",
+  "diffcheck": ""
+ }
+}

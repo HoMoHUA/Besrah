@@ -19,3 +19,8 @@ test('groups by actual destination including terminal arrivals', () => {
   const a={toward:'غدیر',eta_min:3},b={toward:'وکیل‌آباد',eta_min:4},c={toward:'غدیر',eta_min:9};
   assert.deepEqual(groupPasses([a,b,c]),[['غدیر',[a,c]],['وکیل‌آباد',[b]]]);
 });
+
+test('groups line 1 passes by actual distinct destination', () => {
+  const a={line:1,toward:'غدیر',eta_min:3},b={line:1,toward:'فرودگاه',eta_min:7};
+  assert.deepEqual(groupPasses([a,b]),[['غدیر',[a]],['فرودگاه',[b]]]);
+});

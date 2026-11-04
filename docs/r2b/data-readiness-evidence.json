@@ -1,0 +1,461 @@
+{
+  "auditVersion": 1,
+  "generatedAt": "2026-11-02T16:11:27.362936+00:00",
+  "scope": "existing project data only; no city data downloaded or routing implemented",
+  "baseR2a": "a04d19d5ffff0ee6563bd7dc1f179af0c386bd16",
+  "sources": {
+    "data/network.json": {
+      "bytes": 35390,
+      "sha256": "b77dfaa099f9cfaf69c248ceec35e3aa514029a088bcf93afbda0bcd3ae9a7ba"
+    },
+    "data/anchors.json": {
+      "bytes": 629,
+      "sha256": "3234f9e50deafdcb42077cd6030b946189b37d1d6e558c6b6775e8dfa92c7250"
+    },
+    "data/bus/raw/overpass-mashhad-expanded.json.gz": {
+      "bytes": 1705057,
+      "sha256": "fdcd66d6c87e7928c2bfe3650dee733d8ec43f91b6dbf35ad4d176ddf59c4a25"
+    },
+    "data/bus/raw/overpass-mashhad-expanded.source.json": {
+      "bytes": 733,
+      "sha256": "0c9863847e44113d02b3702d92de0ff0f460b5b5efe7c54b067cae23f87c3333"
+    },
+    "research/bus-static/mashhad-bus-expanded.overpassql": {
+      "bytes": 494,
+      "sha256": "e4398cfc199d0ebf5f775ac7074395cdef94c0a19e015665b27ddd5c45ba0ec1"
+    },
+    "data/bus/mashhad-bus.sqlite": {
+      "bytes": 8544256,
+      "sha256": "b571618086b99a0d8404b4860a8206d19f8b8c9ed20d7f6afd4382661f1de61f"
+    },
+    "data/bus/exports/arrival_observations.csv": {
+      "bytes": 144,
+      "sha256": "b31d61acbc61a93e3a6231eedd79c352186a8af5b1b68d6b65b0e6cc8a9acacc"
+    },
+    "data/field/2026-10-16_line1_vakilabad-ghadir-vakilabad.csv": {
+      "bytes": 4527,
+      "sha256": "34fb6cc85674d09f4dcb1ae963ac5dec7f21a72151b68a4af7eb6f7a650a555a"
+    },
+    "data/field/2026-10-16_line2_shariati-fakouri-tabarsi.csv": {
+      "bytes": 1192,
+      "sha256": "5485596f79aa4e74863ad2975136a427323f93803529ed85ba69c9865729bb6d"
+    },
+    "data/field/2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv": {
+      "bytes": 4826,
+      "sha256": "c2ba3ce3d069c0b42f5f314a9df172bf4a3ba8d49b26cf0652c017bb7f4b6078"
+    },
+    "data/field/corrections.json": {
+      "bytes": 969,
+      "sha256": "d5a7a0183cadb78243eac23f48a18d55378058f3618bebdc44fc4139a6ca84dc"
+    },
+    "data/official/airport_route_sheet_1405-07-22.json": {
+      "bytes": 13112,
+      "sha256": "3cc42aa48cbe7fa7b0fecea744da1ccb965172b435a942c14b36d42bb23f16c6"
+    },
+    "data/official/metro_mashhad_ir_schedule_1405-07-21.json": {
+      "bytes": 12487,
+      "sha256": "54af2627f225a9ee6db7d01fc0f3e7a691da350e17b7a503e38e8947d89d7ad3"
+    }
+  },
+  "stationRegistry": {
+    "count": 36,
+    "uniqueIds": 36,
+    "uniqueNames": 36,
+    "fieldPresence": {
+      "id": 36,
+      "name": 36,
+      "lat": 36,
+      "lon": 36,
+      "lines": 36
+    },
+    "validNumericLatLon": 36,
+    "lineMemberships": {
+      "1": 24,
+      "2": 13
+    },
+    "distanceUnitDeclaration": "km straight line",
+    "note": "Valid numbers and existing IDs do not certify entrance identity, datum accuracy or field access."
+  },
+  "osm": {
+    "elementCount": 26948,
+    "types": {
+      "node": 23193,
+      "way": 3562,
+      "relation": 193
+    },
+    "snapshotAt": "2026-10-29T22:19:55Z",
+    "retrievedAt": "2026-10-29T22:21:39.675041+00:00",
+    "sourcePayloadBytes": 12115531,
+    "sourcePayloadSha256": "073fa2799315256eb9a7c163564860acc9226045ce2d5a9430099acbbf335181",
+    "sourceHashMatches": true,
+    "sourceBytesMatch": true,
+    "tagCounts": {
+      "railway": {
+        "platform": 9
+      },
+      "entrance": {},
+      "highway": {
+        "bus_stop": 2172,
+        "busway": 9,
+        "crossing": 471,
+        "cycleway": 1,
+        "footway": 1,
+        "living_street": 1,
+        "mini_roundabout": 1,
+        "motorway_junction": 40,
+        "primary": 822,
+        "primary_link": 81,
+        "residential": 133,
+        "secondary": 1129,
+        "secondary_link": 123,
+        "service": 199,
+        "speed_camera": 11,
+        "tertiary": 434,
+        "tertiary_link": 13,
+        "traffic_signals": 462,
+        "trunk": 325,
+        "trunk_link": 213,
+        "unclassified": 26
+      },
+      "public_transport": {
+        "platform": 1252,
+        "station": 16,
+        "stop_position": 2168
+      },
+      "foot": {
+        "no": 27,
+        "yes": 22
+      },
+      "access": {
+        "destination": 43,
+        "no": 86,
+        "private": 28
+      },
+      "barrier": {
+        "entrance": 2,
+        "gate": 4,
+        "lift_gate": 2,
+        "wall": 1
+      },
+      "indoor": {},
+      "level": {},
+      "sidewalk": {
+        "both": 93,
+        "no": 8,
+        "right": 54,
+        "separate": 1
+      },
+      "crossing": {
+        "marked": 72,
+        "shariati39.1.farhang": 1,
+        "shariati54": 1,
+        "street": 1,
+        "traffic_signals": 35,
+        "uncontrolled": 36,
+        "yes": 2,
+        "zebra": 1
+      },
+      "wheelchair": {
+        "no": 1
+      }
+    },
+    "railwayPlatformWays": [
+      {
+        "id": "osm:way:618773155",
+        "tags": {
+          "covered": "yes",
+          "light_rail": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeCount": 7,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:618773156",
+        "tags": {
+          "covered": "yes",
+          "light_rail": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeCount": 7,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:710899356",
+        "tags": {
+          "area": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeCount": 5,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:710899357",
+        "tags": {
+          "area": "yes",
+          "covered": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeCount": 6,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:958882361",
+        "tags": {
+          "area": "yes",
+          "public_transport": "platform",
+          "railway": "platform",
+          "train": "yes"
+        },
+        "nodeCount": 10,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:958882362",
+        "tags": {
+          "area": "yes",
+          "public_transport": "platform",
+          "railway": "platform",
+          "train": "yes"
+        },
+        "nodeCount": 12,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:1201941606",
+        "tags": {
+          "area": "yes",
+          "public_transport": "platform",
+          "railway": "platform"
+        },
+        "nodeCount": 9,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:1216245190",
+        "tags": {
+          "bench": "yes",
+          "covered": "yes",
+          "light_rail": "yes",
+          "passenger_information_display": "yes",
+          "public_transport": "platform",
+          "railway": "platform",
+          "ref": "1",
+          "tactile_paving": "no"
+        },
+        "nodeCount": 5,
+        "sharedHighwayNodeIds": []
+      },
+      {
+        "id": "osm:way:1216245191",
+        "tags": {
+          "bench": "yes",
+          "covered": "yes",
+          "light_rail": "yes",
+          "passenger_information_display": "yes",
+          "public_transport": "platform",
+          "railway": "platform",
+          "ref": "2",
+          "tactile_paving": "no"
+        },
+        "nodeCount": 5,
+        "sharedHighwayNodeIds": []
+      }
+    ],
+    "footwayWays": [
+      {
+        "id": "osm:way:1246275056",
+        "tags": {
+          "highway": "footway"
+        },
+        "nodeIds": [
+          5674803541,
+          11586598912
+        ],
+        "coordinates": [
+          {
+            "id": 5674803541,
+            "lat": 36.3915083,
+            "lon": 59.5220725
+          },
+          {
+            "id": 11586598912,
+            "lat": 36.3914284,
+            "lon": 59.5219551
+          }
+        ],
+        "otherHighwayWayIds": [
+          595420876,
+          976994867
+        ]
+      }
+    ],
+    "validatedMetroEntranceMappingRecords": 0,
+    "note": "Zero entrance mappings is an observed evidence-record gap, not a claim that physical entrances do not exist. Highway-tagged bus-route geometry is not a validated pedestrian graph; shared-node check is only snapshot topology."
+  },
+  "busDatabase": {
+    "readMode": "ro, immutable=1",
+    "tableRowCounts": {
+      "arrival_observations": 0,
+      "excluded_routes": 1,
+      "external_stop_mappings": 0,
+      "facilities": 39,
+      "issues": 45,
+      "lines": 92,
+      "metadata": 5,
+      "observed_route_refs": 4043,
+      "platforms": 1210,
+      "reference_pdf_mentions": 144,
+      "reference_route_records": 205,
+      "reference_sources": 3,
+      "route_geometry": 11644,
+      "route_master_members": 37,
+      "route_masters": 11,
+      "route_members": 20165,
+      "route_platforms": 3243,
+      "route_stops": 5275,
+      "routes": 180,
+      "stop_refs": 2114,
+      "stops": 2196
+    }
+  },
+  "stage1Gate": {
+    "decision": "blocked",
+    "eligibleCorridorCount": 0,
+    "reason": "No evidenced street-to-entrance-to-platform access or complete A-to-B footpath/time model was found; existing metro schedules cannot fill those missing legs.",
+    "mandatoryMissing": [
+      "validated entrance/exit identity and platform link",
+      "connected traversable access and egress walking routes with restrictions",
+      "sourced timing method for walking/internal station traversal",
+      "fixed public A/B endpoints and complete boundary accounting for the selected study envelope"
+    ],
+    "optionalUnavailable": [
+      "defensible Shariati interline transfer route/time",
+      "verified total fare",
+      "comprehensive service holiday calendar"
+    ],
+    "doNotInfer": [
+      "straight-line station coordinates as walking paths",
+      "bus/rail platform outlines as station entrances",
+      "default walking speed as field validation",
+      "shared physical Shariati station ID as zero-time interchange"
+    ]
+  },
+  "corpusInventory": {
+    "jsonCounts": {
+      "data": 15,
+      "research": 1306
+    },
+    "jsonParseErrors": [],
+    "topLevelOsmCollections": [
+      {
+        "path": "research/bus-static/boundary-candidates.json",
+        "elements": 0
+      }
+    ],
+    "geojsonFeatures": [
+      {
+        "path": "data/bus/exports/facilities.geojson",
+        "features": 39
+      },
+      {
+        "path": "data/bus/exports/routes.geojson",
+        "features": 180
+      },
+      {
+        "path": "data/bus/exports/stops.geojson",
+        "features": 2196
+      }
+    ]
+  },
+  "independentAudits": {
+    "count": 2,
+    "bothConcludeNoEligibleCorridor": true,
+    "mode": "read-only existing corpus; parent corroborated raw hashes, counts, platform-highway node intersections, CSV contents and DB counts"
+  },
+  "corridorValidationCandidates": [
+    {
+      "id": "study:L1:107-108",
+      "name": "هفت تیر ↔ دانش آموز",
+      "stationIds": [
+        "METRO-107",
+        "METRO-108"
+      ],
+      "lines": [
+        1
+      ],
+      "status": "blocked_not_selected_for_routing",
+      "priority": "first_data_collection_candidate_only",
+      "evidence": "Existing IDs/coordinates; Friday train timing and Thursday records in both directions. Not walking measurements.",
+      "readiness": {
+        "entranceExit": "missing_validated_station_mapping",
+        "outdoorAccessEgress": "missing_validated_continuous_paths",
+        "platformAccessEgress": "missing_validated_geometry_and_duration",
+        "walkingTimeMethod": "missing_sourced_model_or_measurements",
+        "restrictions": "fragmentary_tags_not_validated_corridor_passability",
+        "fare": "unknown_optional_not_sole_blocker",
+        "calendar": "explicit_service_policy_needed_or_partial_weekday_baseline",
+        "metro": "R2a_modeled_same_line_estimated",
+        "transfer": "not_required"
+      },
+      "comparability": "Potential direct walk vs metro and access alternatives; no such A-to-B options currently validated."
+    },
+    {
+      "id": "study:L1:117-118",
+      "name": "شریعتی ↔ امام خمینی",
+      "stationIds": [
+        "METRO-117",
+        "METRO-118"
+      ],
+      "lines": [
+        1
+      ],
+      "status": "blocked_not_selected_for_routing",
+      "evidence": "Existing IDs/coordinates and Friday train logs. Reverse run provenance is not independently measured everywhere; correction ledger excludes a mistap.",
+      "readiness": {
+        "entranceExit": "missing_validated_station_mapping",
+        "outdoorAccessEgress": "missing_validated_continuous_paths",
+        "platformAccessEgress": "missing_validated_geometry_and_duration",
+        "walkingTimeMethod": "missing_sourced_model_or_measurements",
+        "restrictions": "fragmentary_tags_not_validated_corridor_passability",
+        "fare": "unknown_optional_not_sole_blocker",
+        "calendar": "explicit_service_policy_needed_or_partial_weekday_baseline",
+        "metro": "R2a_modeled_same_line_estimated",
+        "transfer": "not_required"
+      },
+      "comparability": "Potential direct walk vs same-line metro only after access evidence."
+    },
+    {
+      "id": "study:L1-L2:116-117-210",
+      "name": "قائم → شریعتی → الندشت",
+      "stationIds": [
+        "METRO-116",
+        "METRO-117",
+        "METRO-210"
+      ],
+      "lines": [
+        1,
+        2
+      ],
+      "status": "blocked_not_selected_for_routing",
+      "priority": "defer_transfer_for_first_pilot",
+      "evidence": "Shared physical Shariati ID and separate train observations do not establish a transfer path/time.",
+      "readiness": {
+        "entranceExit": "missing_validated_station_mapping",
+        "outdoorAccessEgress": "missing_validated_continuous_paths",
+        "platformAccessEgress": "missing_validated_geometry_and_duration",
+        "walkingTimeMethod": "missing_sourced_model_or_measurements",
+        "restrictions": "fragmentary_tags_not_validated_corridor_passability",
+        "fare": "unknown_optional_not_sole_blocker",
+        "calendar": "explicit_service_policy_needed_or_partial_weekday_baseline",
+        "metro": "two_R2a_line_models_not_a_transfer_itinerary",
+        "transfer": "missing_required_directional_platform_path_and_time"
+      },
+      "comparability": "No composed interline route has been generated."
+    }
+  ]
+}

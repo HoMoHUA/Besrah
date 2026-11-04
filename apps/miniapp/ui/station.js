@@ -21,9 +21,9 @@ const SPINE_NOTE = {
 };
 
 // `getOrders` returns { 1: line-1 order, 2: line-2 order }.
-export function createStationSheet({ sheet, api, store, getStations, getOrders, onBoard = () => {}, onRecent = () => {} }) {
+export function createStationSheet({ sheet, api, store, getStations, getOrders, onBoard = () => {}, onRecent = () => {}, canPlanFrom = () => false, onPlanFrom = () => {} }) {
   const seq = createSequencer();
-  let timer = 0, current = null, lastOk = 0, view = null;
+  let timer = 0, current = null, lastOk = 0, view = null, pendingPlan = null;
 
   function stopTimer() { clearTimeout(timer); timer = 0; }
   function schedule() {
@@ -138,7 +138,9 @@ export function createStationSheet({ sheet, api, store, getStations, getOrders, 
           h('h2', { class: 'station__name', id: titleId, tabindex: '-1', 'data-autofocus': '', text: name }),
           h('p', { class: 'station__sub' }, lines.length === 1 && positionLabel(orders[lines[0]] ?? [], name), lines.length > 1 && h('span', { class: 'cm-badge cm-badge--new', text: `تقاطع ${lineLabel(lines)}` }))),
         heart, close),
-      h('div', { class: 'station__scroll' }, asOfRow, day, board.el, status, notes, ...spineEls));
+      h('div', { class: 'station__scroll' },
+        canPlanFrom() && h('button', { type: 'button', class: 'cm-btn cm-btn--sm', text: 'از این ایستگاه سفر بساز', onClick: () => { pendingPlan = name; sheet.close(); } }),
+        asOfRow, day, board.el, status, notes, ...spineEls));
     view = { board, refresh, asOf, day, status, notes, hasBoard: false };
     return { root, titleId };
   }
@@ -146,7 +148,7 @@ export function createStationSheet({ sheet, api, store, getStations, getOrders, 
   function show(name) {
     const sourceFocus = document.activeElement;
     seq.cancel(); stopTimer();
-    current = name;
+    current = name; pendingPlan = null;
     store.addRecent(name); store.setLast(name); onRecent(name);
     const { root, titleId } = build(name);
     const openedView = view;
@@ -158,7 +160,7 @@ export function createStationSheet({ sheet, api, store, getStations, getOrders, 
         return key ? document.querySelector(`[data-focus-key="${CSS.escape(key)}"]`) : null;
       },
       onRestore: () => show(name),
-      onClosed: () => { if (view !== openedView) return; seq.cancel(); stopTimer(); view = null; current = null; },
+      onClosed: () => { if (view !== openedView) return; seq.cancel(); stopTimer(); view = null; current = null; const next = pendingPlan; pendingPlan = null; if (next && canPlanFrom()) onPlanFrom(next); },
     });
     load({});
   }

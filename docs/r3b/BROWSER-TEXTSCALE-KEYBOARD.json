@@ -1,0 +1,50 @@
+{
+ "zoom1.0": {
+  "ctaBottom": 495,
+  "navTop": 662,
+  "scrollNeededForCta": 0,
+  "overflowX": 0,
+  "visible": {
+   "from": true,
+   "to": true,
+   "cta": true,
+   "time": true
+  },
+  "smallTargets": []
+ },
+ "zoom1.25": {
+  "ctaBottom": 645,
+  "navTop": 643,
+  "scrollNeededForCta": 11,
+  "overflowX": 0,
+  "visible": {
+   "from": true,
+   "to": true,
+   "cta": false,
+   "time": true
+  },
+  "smallTargets": []
+ },
+ "zoom1.5": {
+  "ctaBottom": 774,
+  "navTop": 623,
+  "scrollNeededForCta": 159,
+  "overflowX": 0,
+  "visible": {
+   "from": true,
+   "to": true,
+   "cta": false,
+   "time": true
+  },
+  "smallTargets": []
+ },
+ "keyboardSim360x420": {
+  "vh": 420,
+  "navTop": 342,
+  "inputTop": 84,
+  "inputBottom": 128,
+  "listTop": 183,
+  "listBottom": 330,
+  "inputVisible": true
+ }
+}

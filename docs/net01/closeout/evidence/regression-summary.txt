@@ -1,0 +1,11 @@
+typecheck rc=0 
+build rc=0 
+core rc=0  Test Files  46 passed (46)       Tests  564 passed (564) 
+miniapp rc=0 # Subtest: feedback kinds remain distinct, notes safe, and retry tracker keeps failed reports available ok 61 - feedback kinds remain distinct, notes safe, and retry tracker keeps failed reports avail
+n8n rc=0 # pass 21 # fail 0 
+releasejs rc=0 # pass 3 # fail 0 
+pydata rc=0 Ran 167 tests in 6.530s OK 
+pyrelease rc=0 Ran 20 tests in 5.239s OK 
+bus rc=0 
+diffcheck rc=0 
+http rc=0 Ran 8 tests in 0.553s OK 

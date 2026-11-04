@@ -1,0 +1,105 @@
+{
+  "replica": "/var/lib/besrah-preflight/nginx/nginx.conf",
+  "results": [
+    {
+      "check": "E0 TLS: real certificate validates for the real hostname, HTTP/1.1+ response",
+      "result": "PASS",
+      "detail": "0 200 1.1"
+    },
+    {
+      "check": "E1 GET /api/journey through Nginx -> candidate core 200 (read path unchanged: GET/HEAD only)",
+      "result": "PASS",
+      "detail": "200"
+    },
+    {
+      "check": "E2 POST exact path with valid body, Origin, header -> 201 over TLS",
+      "result": "PASS",
+      "detail": "[201, '{\"status\":\"stored\",\"reportId\":\"98b8b384edgeaaaaaaaaaaaa\",\"receivedDate\":\"2026-11-03\"}']"
+    },
+    {
+      "check": "E3 POST to any other API path is denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E3b POST to the planner read path denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E4 POST to static root denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E4b POST to / denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E5 POST to a sub-path of the feedback route denied (403, exact location only)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E6 GET on the feedback route denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E6b HEAD on the feedback route denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E6c PUT/DELETE style methods denied (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E7 any query string on the feedback route is refused (400) so a token can never reach logs/core",
+      "result": "PASS",
+      "detail": "400"
+    },
+    {
+      "check": "E8 body > 4 KiB rejected at the edge (413)",
+      "result": "PASS",
+      "detail": "413"
+    },
+    {
+      "check": "E9 foreign Origin reaches the core and is rejected (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E10 missing X-Besrah-Beta rejected (403)",
+      "result": "PASS",
+      "detail": "403"
+    },
+    {
+      "check": "E11 malformed JSON -> 400, not a proxy error",
+      "result": "PASS",
+      "detail": "400"
+    },
+    {
+      "check": "E12 client-supplied X-Real-IP / X-Forwarded-For cannot dodge the per-client limit (429 appears)",
+      "result": "PASS",
+      "detail": "[200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 429, 429, 429, 429]"
+    },
+    {
+      "check": "E13 rapid POST burst: only 201/429 (edge zone + core limits), never 5xx",
+      "result": "PASS",
+      "detail": "[201, 201, 201, 201, 201, 201, 201, 429, 429, 429, 429, 429, 429, 429]"
+    },
+    {
+      "check": "E14 access log has no entry for any /api route (the real /api/ and fragment locations are access_log off)",
+      "result": "PASS",
+      "detail": "api lines=0"
+    },
+    {
+      "check": "E15 no request body or token text in either Nginx log",
+      "result": "PASS",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "collapsedTracker": {
+    "before": 4,
+    "after": 4
+  },
+  "text125": {
+    "overflow": 0,
+    "font": "20px",
+    "from": {
+      "x": 14,
+      "y": 647.6875,
+      "width": 292,
+      "height": 47.5,
+      "top": 647.6875,
+      "right": 306,
+      "bottom": 695.1875,
+      "left": 14
+    }
+  }
+}

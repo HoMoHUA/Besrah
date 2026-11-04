@@ -1,0 +1,1184 @@
+{
+ "meta": {
+  "package_root": "/var/backups/besrah/r3net01-20261103T233708Z/package/inputs/CLAUDE_SOURCE_READONLY",
+  "baseline_repo": "/root/projects/besrah-r3net01-r3b",
+  "baseline_commit": "9d5b3a16e24d7af202ce602d7823c9e905abe3c5 (HEAD; worktree has uncommitted edits by someone else, old CSVs read from git HEAD)",
+  "tz": "Asia/Tehran fixed +03:30",
+  "time_vs_t_rule": "Tehran rendering of t truncated to whole seconds (floor); round() mismatches also counted"
+ },
+ "files": {
+  "2026-10-26_line2_shohada-kaveh_monday.csv": {
+   "sha256": "90fd4e00b7b8c70b2fe23c7a2cb606e748179092ef403971c425c33d64582a12",
+   "sha256_matches_CHECKSUMS.sha256": true,
+   "bytes": 985,
+   "row_count": 11,
+   "rows_in_file_order_monotonic_t": true,
+   "first_t_ms": 1793023005000,
+   "first_tehran": "17:26:45.000",
+   "last_t_ms": 1793023825626,
+   "last_tehran": "17:40:25.626",
+   "span_s": 820.6,
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "time_mismatches_floor": [],
+   "rows_that_would_mismatch_if_round_instead_of_floor": 7,
+   "date_equals_tehran_date_all_rows": true,
+   "dow_label_matches_calendar_all_rows": true,
+   "dow_mismatches": [],
+   "excluded_rows_in_corrections_json": [],
+   "excluded_t_not_found_in_file": [],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [],
+   "rows_with_identical_t_in_other_OLD_csv": 0,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [],
+   "line_dir_windows": [
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "n_rows": 11,
+     "first_tehran": "17:26:45",
+     "last_tehran": "17:40:25",
+     "span_s": 821,
+     "first_t_ms": 1793023005000,
+     "last_t_ms": 1793023825626,
+     "stations_in_order_of_appearance": [
+      "شهدا",
+      "سعدی",
+      "شریعتی",
+      "الندشت",
+      "کوهسنگی",
+      "شهید کاوه"
+     ]
+    }
+   ],
+   "station_windows": [
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "station": "شهدا",
+     "first_tehran": "17:26:45",
+     "last_tehran": "17:26:45",
+     "events": [
+      "d:17:26:45"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "station": "سعدی",
+     "first_tehran": "17:28:40",
+     "last_tehran": "17:29:22",
+     "events": [
+      "a:17:28:40",
+      "d:17:29:22"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "station": "شریعتی",
+     "first_tehran": "17:31:13",
+     "last_tehran": "17:31:55",
+     "events": [
+      "a:17:31:13",
+      "d:17:31:55"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "station": "الندشت",
+     "first_tehran": "17:33:41",
+     "last_tehran": "17:33:59",
+     "events": [
+      "a:17:33:41",
+      "d:17:33:59"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "station": "کوهسنگی",
+     "first_tehran": "17:35:55",
+     "last_tehran": "17:36:24",
+     "events": [
+      "a:17:35:55",
+      "d:17:36:24"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "station": "شهید کاوه",
+     "first_tehran": "17:38:29",
+     "last_tehran": "17:40:25",
+     "events": [
+      "a:17:38:29",
+      "d:17:40:25"
+     ]
+    }
+   ],
+   "logged_dwell_s_inconsistencies": [],
+   "logged_headway_s_inconsistencies": [],
+   "station_name_spelling_variants_in_file": [
+    "الندشت",
+    "سعدی",
+    "شریعتی",
+    "شهدا",
+    "شهید کاوه",
+    "کوهسنگی"
+   ]
+  },
+  "2026-11-01_line1_palestine-sadaf-toward-vakilabad_sunday.csv": {
+   "sha256": "9f28a5ff5c35fd9160980429759ddf1060df06752954ee8f1fbbc174dbe81d53",
+   "sha256_matches_CHECKSUMS.sha256": true,
+   "bytes": 1778,
+   "row_count": 18,
+   "rows_in_file_order_monotonic_t": true,
+   "first_t_ms": 1793550481708,
+   "first_tehran": "19:58:01.708",
+   "last_t_ms": 1793551387224,
+   "last_tehran": "20:13:07.224",
+   "span_s": 905.5,
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "time_mismatches_floor": [],
+   "rows_that_would_mismatch_if_round_instead_of_floor": 8,
+   "date_equals_tehran_date_all_rows": true,
+   "dow_label_matches_calendar_all_rows": true,
+   "dow_mismatches": [],
+   "excluded_rows_in_corrections_json": [],
+   "excluded_t_not_found_in_file": [],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [],
+   "rows_with_identical_t_in_other_OLD_csv": 0,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [],
+   "line_dir_windows": [
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "n_rows": 18,
+     "first_tehran": "19:58:01",
+     "last_tehran": "20:13:07",
+     "span_s": 906,
+     "first_t_ms": 1793550481708,
+     "last_t_ms": 1793551387224,
+     "stations_in_order_of_appearance": [
+      "فلسطین",
+      "خیام",
+      "آزادی",
+      "ملت",
+      "کوثر",
+      "سیدرضی",
+      "دانش آموز",
+      "هفت تیر",
+      "صدف"
+     ]
+    }
+   ],
+   "station_windows": [
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "فلسطین",
+     "first_tehran": "19:58:01",
+     "last_tehran": "19:58:24",
+     "events": [
+      "a:19:58:01",
+      "d:19:58:24"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "خیام",
+     "first_tehran": "20:00:10",
+     "last_tehran": "20:00:32",
+     "events": [
+      "a:20:00:10",
+      "d:20:00:32"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "آزادی",
+     "first_tehran": "20:02:03",
+     "last_tehran": "20:02:23",
+     "events": [
+      "a:20:02:03",
+      "d:20:02:23"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "ملت",
+     "first_tehran": "20:04:20",
+     "last_tehran": "20:04:47",
+     "events": [
+      "a:20:04:20",
+      "d:20:04:47"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "کوثر",
+     "first_tehran": "20:06:07",
+     "last_tehran": "20:06:31",
+     "events": [
+      "a:20:06:07",
+      "d:20:06:31"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "سیدرضی",
+     "first_tehran": "20:07:52",
+     "last_tehran": "20:08:21",
+     "events": [
+      "a:20:07:52",
+      "d:20:08:21"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "دانش آموز",
+     "first_tehran": "20:09:38",
+     "last_tehran": "20:09:52",
+     "events": [
+      "a:20:09:38",
+      "d:20:09:52"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "هفت تیر",
+     "first_tehran": "20:11:09",
+     "last_tehran": "20:11:34",
+     "events": [
+      "a:20:11:09",
+      "d:20:11:34"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "صدف",
+     "first_tehran": "20:12:48",
+     "last_tehran": "20:13:07",
+     "events": [
+      "a:20:12:48",
+      "d:20:13:07"
+     ]
+    }
+   ],
+   "logged_dwell_s_inconsistencies": [],
+   "logged_headway_s_inconsistencies": [],
+   "station_name_spelling_variants_in_file": [
+    "آزادی",
+    "خیام",
+    "دانش آموز",
+    "سیدرضی",
+    "صدف",
+    "فلسطین",
+    "ملت",
+    "هفت تیر",
+    "کوثر"
+   ]
+  },
+  "2026-11-01_line2_alandasht-shohada_sunday.csv": {
+   "sha256": "68689c849e0b84a1885f61147c6b59058efec9c8b279fa914b81c6adaf5c80cd",
+   "sha256_matches_CHECKSUMS.sha256": true,
+   "bytes": 582,
+   "row_count": 6,
+   "rows_in_file_order_monotonic_t": true,
+   "first_t_ms": 1793526680438,
+   "first_tehran": "13:21:20.438",
+   "last_t_ms": 1793527035336,
+   "last_tehran": "13:27:15.336",
+   "span_s": 354.9,
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "time_mismatches_floor": [],
+   "rows_that_would_mismatch_if_round_instead_of_floor": 3,
+   "date_equals_tehran_date_all_rows": true,
+   "dow_label_matches_calendar_all_rows": true,
+   "dow_mismatches": [],
+   "excluded_rows_in_corrections_json": [],
+   "excluded_t_not_found_in_file": [],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [],
+   "rows_with_identical_t_in_other_OLD_csv": 0,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [],
+   "line_dir_windows": [
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "n_rows": 6,
+     "first_tehran": "13:21:20",
+     "last_tehran": "13:27:15",
+     "span_s": 355,
+     "first_t_ms": 1793526680438,
+     "last_t_ms": 1793527035336,
+     "stations_in_order_of_appearance": [
+      "الندشت",
+      "شریعتی",
+      "سعدی",
+      "شهدا"
+     ]
+    }
+   ],
+   "station_windows": [
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "station": "الندشت",
+     "first_tehran": "13:21:20",
+     "last_tehran": "13:21:20",
+     "events": [
+      "d:13:21:20"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "station": "شریعتی",
+     "first_tehran": "13:22:48",
+     "last_tehran": "13:23:25",
+     "events": [
+      "a:13:22:48",
+      "d:13:23:25"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "station": "سعدی",
+     "first_tehran": "13:25:21",
+     "last_tehran": "13:25:45",
+     "events": [
+      "a:13:25:21",
+      "d:13:25:45"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "station": "شهدا",
+     "first_tehran": "13:27:15",
+     "last_tehran": "13:27:15",
+     "events": [
+      "a:13:27:15"
+     ]
+    }
+   ],
+   "logged_dwell_s_inconsistencies": [],
+   "logged_headway_s_inconsistencies": [],
+   "station_name_spelling_variants_in_file": [
+    "الندشت",
+    "سعدی",
+    "شریعتی",
+    "شهدا"
+   ]
+  },
+  "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv": {
+   "sha256": "8fe94317787b20a017d667824e96dff1b50fbc43933ef96224a5b4dbfae87c4c",
+   "sha256_matches_CHECKSUMS.sha256": true,
+   "bytes": 6455,
+   "row_count": 55,
+   "rows_in_file_order_monotonic_t": true,
+   "first_t_ms": 1793719313569,
+   "first_tehran": "18:51:53.569",
+   "last_t_ms": 1793724708161,
+   "last_tehran": "20:21:48.161",
+   "span_s": 5394.6,
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "time_mismatches_floor": [],
+   "rows_that_would_mismatch_if_round_instead_of_floor": 31,
+   "date_equals_tehran_date_all_rows": true,
+   "dow_label_matches_calendar_all_rows": true,
+   "dow_mismatches": [],
+   "excluded_rows_in_corrections_json": [
+    {
+     "row": 30,
+     "csv_line": 31,
+     "t": 1793722530998,
+     "tehran": "19:45:30.998",
+     "station": "وکیل آباد",
+     "ev": "arrive",
+     "dir": "وکیل آباد",
+     "note": "آپدیت تابلو : 20:11"
+    },
+    {
+     "row": 34,
+     "csv_line": 35,
+     "t": 1793723583115,
+     "tehran": "20:03:03.115",
+     "station": "وکیل آباد",
+     "ev": "arrive",
+     "dir": "وکیل آباد",
+     "note": "آپدیت تابلو :20:11، 20:19 ،20:27"
+    }
+   ],
+   "excluded_t_not_found_in_file": [],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [
+    {
+     "rows": [
+      29,
+      30
+     ],
+     "station": "وکیل آباد",
+     "ev": "arrive",
+     "dir_a": "وکیل آباد",
+     "dir_b": "وکیل آباد",
+     "delta_ms": 79,
+     "tehran": [
+      "19:45:30.919",
+      "19:45:30.998"
+     ],
+     "excluded_by_corrections": [
+      false,
+      true
+     ]
+    }
+   ],
+   "rows_with_identical_t_in_other_OLD_csv": 0,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [],
+   "line_dir_windows": [
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "n_rows": 26,
+     "first_tehran": "18:51:53",
+     "last_tehran": "20:20:59",
+     "span_s": 5346,
+     "first_t_ms": 1793719313569,
+     "last_t_ms": 1793724659071,
+     "stations_in_order_of_appearance": [
+      "کوثر",
+      "وکیل آباد",
+      "کوهستان پارک",
+      "نمایشگاه",
+      "اقبال لاهوری",
+      "صیاد شیرازی",
+      "صدف",
+      "هفت تیر",
+      "دانش آموز",
+      "سید رضی",
+      "کوثر"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "n_rows": 28,
+     "first_tehran": "18:54:30",
+     "last_tehran": "20:21:48",
+     "span_s": 5237,
+     "first_t_ms": 1793719470789,
+     "last_t_ms": 1793724708161,
+     "stations_in_order_of_appearance": [
+      "کوثر",
+      "سیدرضی",
+      "دانش آموز",
+      "هفت تیر",
+      "صدف",
+      "صیاد شیرازی",
+      "اقبال لاهوری",
+      "نمایشگاه",
+      "کوهستان پارک",
+      "وکیل آباد",
+      "کوثر"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "فرودگاه",
+     "n_rows": 1,
+     "first_tehran": "19:32:22",
+     "last_tehran": "19:32:22",
+     "span_s": 0,
+     "first_t_ms": 1793721742090,
+     "last_t_ms": 1793721742090,
+     "stations_in_order_of_appearance": [
+      "وکیل آباد"
+     ]
+    }
+   ],
+   "station_windows": [
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "کوثر",
+     "first_tehran": "18:51:53",
+     "last_tehran": "20:20:59",
+     "events": [
+      "a:18:51:53",
+      "d:18:52:12",
+      "a:20:20:39",
+      "d:20:20:59"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "کوثر",
+     "first_tehran": "18:54:30",
+     "last_tehran": "20:21:48",
+     "events": [
+      "a:18:54:30",
+      "d:18:55:01",
+      "a:20:21:23",
+      "d:20:21:48"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "سیدرضی",
+     "first_tehran": "18:56:11",
+     "last_tehran": "18:56:33",
+     "events": [
+      "a:18:56:11",
+      "d:18:56:33"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "دانش آموز",
+     "first_tehran": "18:57:41",
+     "last_tehran": "18:58:02",
+     "events": [
+      "a:18:57:41",
+      "d:18:58:02"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "هفت تیر",
+     "first_tehran": "18:59:16",
+     "last_tehran": "18:59:41",
+     "events": [
+      "a:18:59:16",
+      "d:18:59:41"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "صدف",
+     "first_tehran": "19:00:49",
+     "last_tehran": "19:01:09",
+     "events": [
+      "a:19:00:49",
+      "d:19:01:09"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "صیاد شیرازی",
+     "first_tehran": "19:02:21",
+     "last_tehran": "19:02:42",
+     "events": [
+      "a:19:02:21",
+      "d:19:02:42"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "اقبال لاهوری",
+     "first_tehran": "19:04:05",
+     "last_tehran": "19:04:23",
+     "events": [
+      "a:19:04:05",
+      "d:19:04:23"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "نمایشگاه",
+     "first_tehran": "19:05:47",
+     "last_tehran": "19:06:07",
+     "events": [
+      "a:19:05:47",
+      "d:19:06:07"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "کوهستان پارک",
+     "first_tehran": "19:07:30",
+     "last_tehran": "19:07:51",
+     "events": [
+      "a:19:07:30",
+      "d:19:07:51"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "station": "وکیل آباد",
+     "first_tehran": "19:14:50",
+     "last_tehran": "20:03:03",
+     "events": [
+      "a:19:14:50",
+      "a:19:21:17",
+      "a:19:31:40",
+      "a:19:38:10",
+      "a:19:45:30",
+      "a:19:45:30",
+      "a:19:53:57",
+      "a:20:03:03"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "وکیل آباد",
+     "first_tehran": "19:15:29",
+     "last_tehran": "20:03:10",
+     "events": [
+      "d:19:15:29",
+      "d:19:22:52",
+      "d:19:39:15",
+      "d:19:46:58",
+      "d:19:55:03",
+      "d:20:03:10"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "فرودگاه",
+     "station": "وکیل آباد",
+     "first_tehran": "19:32:22",
+     "last_tehran": "19:32:22",
+     "events": [
+      "d:19:32:22"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "کوهستان پارک",
+     "first_tehran": "20:07:35",
+     "last_tehran": "20:07:48",
+     "events": [
+      "a:20:07:35",
+      "d:20:07:48"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "نمایشگاه",
+     "first_tehran": "20:09:13",
+     "last_tehran": "20:09:28",
+     "events": [
+      "a:20:09:13",
+      "d:20:09:28"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "اقبال لاهوری",
+     "first_tehran": "20:10:57",
+     "last_tehran": "20:11:10",
+     "events": [
+      "a:20:10:57",
+      "d:20:11:10"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "صیاد شیرازی",
+     "first_tehran": "20:12:35",
+     "last_tehran": "20:13:02",
+     "events": [
+      "a:20:12:35",
+      "d:20:13:02"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "صدف",
+     "first_tehran": "20:14:16",
+     "last_tehran": "20:14:32",
+     "events": [
+      "a:20:14:16",
+      "d:20:14:32"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "هفت تیر",
+     "first_tehran": "20:15:41",
+     "last_tehran": "20:16:03",
+     "events": [
+      "a:20:15:41",
+      "d:20:16:03"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "دانش آموز",
+     "first_tehran": "20:17:21",
+     "last_tehran": "20:17:44",
+     "events": [
+      "a:20:17:21",
+      "d:20:17:44"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "station": "سید رضی",
+     "first_tehran": "20:18:56",
+     "last_tehran": "20:19:21",
+     "events": [
+      "a:20:18:56",
+      "d:20:19:21"
+     ]
+    }
+   ],
+   "logged_dwell_s_inconsistencies": [
+    {
+     "row": 31,
+     "logged_dwell_s": "88",
+     "problem": "dwell_s was computed from an arrive row that corrections.json excludes (arrive t=1793722530998); the depart row itself is NOT excluded, so a pipeline that reads the dwell_s column still ingests this number",
+     "recomputed_s": 87.853
+    },
+    {
+     "row": 35,
+     "logged_dwell_s": "8",
+     "problem": "dwell_s was computed from an arrive row that corrections.json excludes (arrive t=1793723583115); the depart row itself is NOT excluded, so a pipeline that reads the dwell_s column still ingests this number",
+     "recomputed_s": 7.833
+    }
+   ],
+   "logged_headway_s_inconsistencies": [],
+   "station_name_spelling_variants_in_file": [
+    "اقبال لاهوری",
+    "دانش آموز",
+    "سید رضی",
+    "سیدرضی",
+    "صدف",
+    "صیاد شیرازی",
+    "نمایشگاه",
+    "هفت تیر",
+    "وکیل آباد",
+    "کوثر",
+    "کوهستان پارک"
+   ]
+  }
+ },
+ "old_files": {
+  "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv": {
+   "sha256": "34fb6cc85674d09f4dcb1ae963ac5dec7f21a72151b68a4af7eb6f7a650a555a",
+   "bytes": 4527,
+   "row_count": 54,
+   "first_tehran": "13:59:51.683",
+   "last_tehran": "14:57:47.413",
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "rows_with_identical_t_in_other_OLD_csv": 0,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [],
+   "excluded_rows_in_corrections_json": [
+    {
+     "row": 52,
+     "csv_line": 53,
+     "t": 1792149933818,
+     "tehran": "14:55:33.818",
+     "station": "امام خمینی",
+     "ev": "depart",
+     "dir": "وکیل آباد",
+     "note": ""
+    }
+   ],
+   "line_dir_windows": [
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "n_rows": 42,
+     "first_tehran": "13:59:51",
+     "last_tehran": "14:40:34",
+     "span_s": 2443,
+     "first_t_ms": 1792146591683,
+     "last_t_ms": 1792149034652,
+     "stations_in_order_of_appearance": [
+      "پایانه وکیل آباد",
+      "کوهستان پارک",
+      "نمایشگاه",
+      "اقبال لاهوری",
+      "صیاد شیرازی",
+      "صدف",
+      "هفت تیر",
+      "دانش آموز",
+      "سید رضی",
+      "کوثر",
+      "پارک ملت",
+      "آزادی",
+      "خیام",
+      "فلسطین",
+      "طالقانی",
+      "قائم",
+      "شریعتی",
+      "امام خمینی",
+      "بسیج",
+      "هفده شهریور",
+      "پروین اعتصامی",
+      "غدیر"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "n_rows": 12,
+     "first_tehran": "14:43:12",
+     "last_tehran": "14:57:47",
+     "span_s": 875,
+     "first_t_ms": 1792149192737,
+     "last_t_ms": 1792150067413,
+     "stations_in_order_of_appearance": [
+      "غدیر",
+      "پروین اعتصامی",
+      "هفده شهریور",
+      "بسیج",
+      "امام خمینی",
+      "شریعتی"
+     ]
+    }
+   ]
+  },
+  "2026-10-16_line2_shariati-fakouri-tabarsi.csv": {
+   "sha256": "5485596f79aa4e74863ad2975136a427323f93803529ed85ba69c9865729bb6d",
+   "bytes": 1192,
+   "row_count": 14,
+   "first_tehran": "15:08:07.252",
+   "last_tehran": "15:28:00.807",
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "rows_with_identical_t_in_other_OLD_csv": 14,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [
+    {
+     "row": 1,
+     "t": 1792150687252,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 1
+    },
+    {
+     "row": 2,
+     "t": 1792150722039,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 2
+    },
+    {
+     "row": 3,
+     "t": 1792150818093,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 3
+    },
+    {
+     "row": 4,
+     "t": 1792150844516,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 4
+    },
+    {
+     "row": 5,
+     "t": 1792150970045,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 5
+    },
+    {
+     "row": 6,
+     "t": 1792150985391,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 6
+    },
+    {
+     "row": 7,
+     "t": 1792151127895,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 7
+    },
+    {
+     "row": 8,
+     "t": 1792151174423,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 8
+    },
+    {
+     "row": 9,
+     "t": 1792151331003,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 9
+    },
+    {
+     "row": 10,
+     "t": 1792151351167,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 10
+    },
+    {
+     "row": 11,
+     "t": 1792151623070,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 11
+    },
+    {
+     "row": 12,
+     "t": 1792151688870,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 12
+    },
+    {
+     "row": 13,
+     "t": 1792151859674,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 13
+    },
+    {
+     "row": 14,
+     "t": 1792151880807,
+     "old_file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv",
+     "old_row": 14
+    }
+   ],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [],
+   "excluded_rows_in_corrections_json": [],
+   "line_dir_windows": [
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "n_rows": 10,
+     "first_tehran": "15:08:07",
+     "last_tehran": "15:19:11",
+     "span_s": 664,
+     "first_t_ms": 1792150687252,
+     "last_t_ms": 1792151351167,
+     "stations_in_order_of_appearance": [
+      "شریعتی",
+      "الندشت",
+      "کوهسنگی",
+      "فکوری"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "n_rows": 4,
+     "first_tehran": "15:23:43",
+     "last_tehran": "15:28:00",
+     "span_s": 258,
+     "first_t_ms": 1792151623070,
+     "last_t_ms": 1792151880807,
+     "stations_in_order_of_appearance": [
+      "فکوری",
+      "شهید کاوه"
+     ]
+    }
+   ]
+  },
+  "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv": {
+   "sha256": "c2ba3ce3d069c0b42f5f314a9df172bf4a3ba8d49b26cf0652c017bb7f4b6078",
+   "bytes": 4826,
+   "row_count": 50,
+   "first_tehran": "15:08:07.252",
+   "last_tehran": "14:40:36.001",
+   "time_equals_tehran_floor_of_t_all_rows": true,
+   "rows_with_identical_t_in_other_OLD_csv": 14,
+   "rows_with_identical_t_in_other_OLD_csv_detail": [
+    {
+     "row": 1,
+     "t": 1792150687252,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 1
+    },
+    {
+     "row": 2,
+     "t": 1792150722039,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 2
+    },
+    {
+     "row": 3,
+     "t": 1792150818093,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 3
+    },
+    {
+     "row": 4,
+     "t": 1792150844516,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 4
+    },
+    {
+     "row": 5,
+     "t": 1792150970045,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 5
+    },
+    {
+     "row": 6,
+     "t": 1792150985391,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 6
+    },
+    {
+     "row": 7,
+     "t": 1792151127895,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 7
+    },
+    {
+     "row": 8,
+     "t": 1792151174423,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 8
+    },
+    {
+     "row": 9,
+     "t": 1792151331003,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 9
+    },
+    {
+     "row": 10,
+     "t": 1792151351167,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 10
+    },
+    {
+     "row": 11,
+     "t": 1792151623070,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 11
+    },
+    {
+     "row": 12,
+     "t": 1792151688870,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 12
+    },
+    {
+     "row": 13,
+     "t": 1792151859674,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 13
+    },
+    {
+     "row": 14,
+     "t": 1792151880807,
+     "old_file": "2026-10-16_line2_shariati-fakouri-tabarsi.csv",
+     "old_row": 14
+    }
+   ],
+   "exact_duplicate_t_within_file": [],
+   "same_station_and_ev_within_2s": [],
+   "excluded_rows_in_corrections_json": [],
+   "line_dir_windows": [
+    {
+     "line": "2",
+     "dir": "فکوری",
+     "n_rows": 10,
+     "first_tehran": "15:08:07",
+     "last_tehran": "15:19:11",
+     "span_s": 664,
+     "first_t_ms": 1792150687252,
+     "last_t_ms": 1792151351167,
+     "stations_in_order_of_appearance": [
+      "شریعتی",
+      "الندشت",
+      "کوهسنگی",
+      "فکوری"
+     ]
+    },
+    {
+     "line": "2",
+     "dir": "طبرسی",
+     "n_rows": 4,
+     "first_tehran": "15:23:43",
+     "last_tehran": "15:28:00",
+     "span_s": 258,
+     "first_t_ms": 1792151623070,
+     "last_t_ms": 1792151880807,
+     "stations_in_order_of_appearance": [
+      "فکوری",
+      "شهید کاوه"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "وکیل آباد",
+     "n_rows": 19,
+     "first_tehran": "14:03:05",
+     "last_tehran": "14:23:07",
+     "span_s": 1202,
+     "first_t_ms": 1792665185568,
+     "last_t_ms": 1792666387906,
+     "stations_in_order_of_appearance": [
+      "کوثر",
+      "سید رضی",
+      "دانش آموز",
+      "هفت تیر",
+      "صدف",
+      "صیاد شیرازی",
+      "اقبال لاهوری",
+      "نمايشگاه",
+      "کوهستان پارک",
+      "وکیل آباد"
+     ]
+    },
+    {
+     "line": "1",
+     "dir": "غدیر",
+     "n_rows": 17,
+     "first_tehran": "14:25:06",
+     "last_tehran": "14:40:36",
+     "span_s": 930,
+     "first_t_ms": 1792666506328,
+     "last_t_ms": 1792667436001,
+     "stations_in_order_of_appearance": [
+      "وکیل آباد",
+      "کوهستان پارک",
+      "نمايشگاه",
+      "اقبال لاهوری",
+      "صیاد شیرازی",
+      "صدف",
+      "هفت تیر",
+      "دانش آموز",
+      "سید رضی"
+     ]
+    }
+   ]
+  }
+ },
+ "new_vs_new_identical_t": [],
+ "new_total_rows": 90,
+ "old_total_rows": 118,
+ "old_files_note": "2026-10-22_line1_thursday CSV in the repo begins with 14 rows that are the Oct-16 line-2 rows (identical epoch t, same as 2026-10-16_line2 CSV): the repo already holds duplicate rows; corrections.json (keyed by file name) only references the line-2 file, so the copies inside the Thursday file are uncorrected.",
+ "candidate_doc_claims_checked": {
+  "UPDATE_2026-11-03.md says 85 rows in logger output, 49 duplicate (14 Fri line2 + 35 Thu line1), 35 new": {
+   "line2 Friday rows in repo": 14,
+   "thursday line1 rows in repo (excluding the 14 line-2 copies)": 36,
+   "new rows (monday 11 + sunday l2 6 + sunday l1 18)": 35,
+   "tuesday rows": 55,
+   "note": "doc 03b says Tuesday had 55 new rows; the CSV has 55 rows (incl. 1 double-tap + 1 fake arrive).",
+   "arithmetic": "85 = 14 + 36 + 35 -> duplicates = 50 (14 line-2 + 36 line-1), not 49 as written in UPDATE_2026-11-03.md; and the Thursday file really has 36 line-1 rows. Either the doc miscounted by one or one logger row was dropped; unknown which."
+  }
+ }
+}

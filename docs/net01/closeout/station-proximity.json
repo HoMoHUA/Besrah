@@ -1,0 +1,803 @@
+{
+ "schema": "net01-station-proximity/1",
+ "date": "2026-11-04",
+ "definition": "A and B passes at the same station and direction at most 120 s apart",
+ "baseline": {
+  "pairsWithin120s": 486,
+  "within90s": 484,
+  "within60s": 484,
+  "sameDisplayedMinute": 462,
+  "byDirection": {
+   "out": 440,
+   "back": 46
+  }
+ },
+ "overlay": {
+  "pairsWithin120s": 66,
+  "within90s": 44,
+  "within60s": 22,
+  "sameDisplayedMinute": 20,
+  "byDirection": {
+   "out": 0,
+   "back": 66
+  }
+ },
+ "overlayRows": [
+  {
+   "station": "غدیر",
+   "direction": "back",
+   "a": "07:39:19",
+   "b": "07:40:35",
+   "gapS": 76,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "غدیر",
+   "direction": "back",
+   "a": "09:07:35",
+   "b": "09:09:19",
+   "gapS": 104,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "غدیر",
+   "direction": "back",
+   "a": "20:42:35",
+   "b": "20:42:59",
+   "gapS": 24,
+   "services": "B/A",
+   "sameMinute": true
+  },
+  {
+   "station": "پروین اعتصامی",
+   "direction": "back",
+   "a": "07:41:35",
+   "b": "07:43:16",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "پروین اعتصامی",
+   "direction": "back",
+   "a": "09:10:16",
+   "b": "09:11:35",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "پروین اعتصامی",
+   "direction": "back",
+   "a": "20:45:15",
+   "b": "20:45:16",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "هفده شهریور",
+   "direction": "back",
+   "a": "07:43:09",
+   "b": "07:44:50",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "هفده شهریور",
+   "direction": "back",
+   "a": "09:11:50",
+   "b": "09:13:09",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "هفده شهریور",
+   "direction": "back",
+   "a": "20:46:49",
+   "b": "20:46:50",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "بسیج",
+   "direction": "back",
+   "a": "07:44:33",
+   "b": "07:46:14",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "بسیج",
+   "direction": "back",
+   "a": "09:13:14",
+   "b": "09:14:33",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "بسیج",
+   "direction": "back",
+   "a": "20:48:13",
+   "b": "20:48:14",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "امام خمینی",
+   "direction": "back",
+   "a": "07:46:37",
+   "b": "07:48:18",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "امام خمینی",
+   "direction": "back",
+   "a": "09:15:18",
+   "b": "09:16:37",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "امام خمینی",
+   "direction": "back",
+   "a": "20:50:17",
+   "b": "20:50:18",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "شریعتی",
+   "direction": "back",
+   "a": "07:48:43",
+   "b": "07:50:24",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "شریعتی",
+   "direction": "back",
+   "a": "09:17:24",
+   "b": "09:18:43",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "شریعتی",
+   "direction": "back",
+   "a": "20:52:23",
+   "b": "20:52:24",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "قائم",
+   "direction": "back",
+   "a": "07:50:42",
+   "b": "07:52:23",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "قائم",
+   "direction": "back",
+   "a": "09:19:23",
+   "b": "09:20:42",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "قائم",
+   "direction": "back",
+   "a": "20:54:22",
+   "b": "20:54:23",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "طالقانی",
+   "direction": "back",
+   "a": "07:52:16",
+   "b": "07:53:57",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "طالقانی",
+   "direction": "back",
+   "a": "09:20:57",
+   "b": "09:22:16",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "طالقانی",
+   "direction": "back",
+   "a": "20:55:56",
+   "b": "20:55:57",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "فلسطین",
+   "direction": "back",
+   "a": "07:54:19",
+   "b": "07:56:00",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "فلسطین",
+   "direction": "back",
+   "a": "09:23:00",
+   "b": "09:24:19",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "فلسطین",
+   "direction": "back",
+   "a": "20:57:59",
+   "b": "20:58:00",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "خیام",
+   "direction": "back",
+   "a": "07:56:20",
+   "b": "07:58:01",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "خیام",
+   "direction": "back",
+   "a": "09:25:01",
+   "b": "09:26:20",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "خیام",
+   "direction": "back",
+   "a": "21:00:00",
+   "b": "21:00:01",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "آزادی",
+   "direction": "back",
+   "a": "07:58:03",
+   "b": "07:59:44",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "آزادی",
+   "direction": "back",
+   "a": "09:26:44",
+   "b": "09:28:03",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "آزادی",
+   "direction": "back",
+   "a": "21:01:43",
+   "b": "21:01:44",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "پارک ملت",
+   "direction": "back",
+   "a": "07:59:57",
+   "b": "08:01:38",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "پارک ملت",
+   "direction": "back",
+   "a": "09:28:38",
+   "b": "09:29:57",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "پارک ملت",
+   "direction": "back",
+   "a": "21:03:37",
+   "b": "21:03:38",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "کوثر",
+   "direction": "back",
+   "a": "08:01:51",
+   "b": "08:03:32",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "کوثر",
+   "direction": "back",
+   "a": "09:30:32",
+   "b": "09:31:51",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "کوثر",
+   "direction": "back",
+   "a": "21:05:31",
+   "b": "21:05:32",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "سیدرضی",
+   "direction": "back",
+   "a": "08:03:31",
+   "b": "08:05:12",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "سیدرضی",
+   "direction": "back",
+   "a": "09:32:12",
+   "b": "09:33:31",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "سیدرضی",
+   "direction": "back",
+   "a": "21:07:11",
+   "b": "21:07:12",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "دانش‌آموز",
+   "direction": "back",
+   "a": "08:05:08",
+   "b": "08:06:49",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "دانش‌آموز",
+   "direction": "back",
+   "a": "09:33:49",
+   "b": "09:35:08",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "دانش‌آموز",
+   "direction": "back",
+   "a": "21:08:48",
+   "b": "21:08:49",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "هفت‌تیر",
+   "direction": "back",
+   "a": "08:06:40",
+   "b": "08:08:21",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "هفت‌تیر",
+   "direction": "back",
+   "a": "09:35:21",
+   "b": "09:36:40",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "هفت‌تیر",
+   "direction": "back",
+   "a": "21:10:20",
+   "b": "21:10:21",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "صدف",
+   "direction": "back",
+   "a": "08:08:06",
+   "b": "08:09:47",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "صدف",
+   "direction": "back",
+   "a": "09:36:47",
+   "b": "09:38:06",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "صدف",
+   "direction": "back",
+   "a": "21:11:46",
+   "b": "21:11:47",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "صیاد شیرازی",
+   "direction": "back",
+   "a": "08:09:34",
+   "b": "08:11:15",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "صیاد شیرازی",
+   "direction": "back",
+   "a": "09:38:15",
+   "b": "09:39:34",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "صیاد شیرازی",
+   "direction": "back",
+   "a": "21:13:14",
+   "b": "21:13:15",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "اقبال لاهوری",
+   "direction": "back",
+   "a": "08:11:19",
+   "b": "08:13:00",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "اقبال لاهوری",
+   "direction": "back",
+   "a": "09:40:00",
+   "b": "09:41:19",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "اقبال لاهوری",
+   "direction": "back",
+   "a": "21:14:59",
+   "b": "21:15:00",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "نمایشگاه",
+   "direction": "back",
+   "a": "08:13:06",
+   "b": "08:14:47",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "نمایشگاه",
+   "direction": "back",
+   "a": "09:41:47",
+   "b": "09:43:06",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "نمایشگاه",
+   "direction": "back",
+   "a": "21:16:46",
+   "b": "21:16:47",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "کوهستان پارک",
+   "direction": "back",
+   "a": "08:15:14",
+   "b": "08:16:55",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "کوهستان پارک",
+   "direction": "back",
+   "a": "09:43:55",
+   "b": "09:45:14",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "کوهستان پارک",
+   "direction": "back",
+   "a": "21:18:54",
+   "b": "21:18:55",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "back",
+   "a": "08:19:13",
+   "b": "08:20:54",
+   "gapS": 101,
+   "services": "A/B",
+   "sameMinute": false
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "back",
+   "a": "09:47:54",
+   "b": "09:49:13",
+   "gapS": 79,
+   "services": "B/A",
+   "sameMinute": false
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "back",
+   "a": "21:22:53",
+   "b": "21:22:54",
+   "gapS": 1,
+   "services": "A/B",
+   "sameMinute": true
+  }
+ ],
+ "baselineRows": [
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "06:30:00",
+   "b": "06:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "07:00:00",
+   "b": "07:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "07:30:00",
+   "b": "07:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "08:00:00",
+   "b": "08:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "08:30:00",
+   "b": "08:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "09:00:00",
+   "b": "09:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "09:30:00",
+   "b": "09:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "10:00:00",
+   "b": "10:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "10:30:00",
+   "b": "10:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "11:00:00",
+   "b": "11:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "11:30:00",
+   "b": "11:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "12:00:00",
+   "b": "12:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "12:30:00",
+   "b": "12:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "13:00:00",
+   "b": "13:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "13:30:00",
+   "b": "13:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "14:00:00",
+   "b": "14:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "14:30:00",
+   "b": "14:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "15:00:00",
+   "b": "15:00:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "15:30:00",
+   "b": "15:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  },
+  {
+   "station": "وکیل‌آباد",
+   "direction": "out",
+   "a": "17:30:00",
+   "b": "17:30:00",
+   "gapS": 0,
+   "services": "A/B",
+   "sameMinute": true
+  }
+ ]
+}

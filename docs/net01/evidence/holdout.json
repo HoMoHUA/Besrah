@@ -1,0 +1,258 @@
+{
+ "meta": {
+  "claim_under_test": "afternoon normal-day Vakilabad departures at minute 3 mod 8, all trains on an 8-min grid, B every 3rd train",
+  "calibration_set": "Tuesday 2026-11-03 Vakilabad platform log 19:14:50-20:03:10 (7 departures, 6 with board labels). Everything the candidate calls evidence for the grid comes from this one evening (plus the poster, see circularity)."
+ },
+ "calibration_tuesday": {
+  "n_departures": 7,
+  "rows": [
+   {
+    "tehran": "19:15:29",
+    "dir": "غدیر",
+    "grid_point_3mod8": "19:15",
+    "residual_s_vs_grid": 29.1,
+    "board_label": null,
+    "residual_s_vs_board": null
+   },
+   {
+    "tehran": "19:22:52",
+    "dir": "غدیر",
+    "grid_point_3mod8": "19:23",
+    "residual_s_vs_grid": -7.4,
+    "board_label": "19:23",
+    "residual_s_vs_board": -7.4
+   },
+   {
+    "tehran": "19:32:22",
+    "dir": "فرودگاه",
+    "grid_point_3mod8": "19:31",
+    "residual_s_vs_grid": 82.1,
+    "board_label": "19:31",
+    "residual_s_vs_board": 82.1
+   },
+   {
+    "tehran": "19:39:15",
+    "dir": "غدیر",
+    "grid_point_3mod8": "19:39",
+    "residual_s_vs_grid": 15.1,
+    "board_label": "19:39",
+    "residual_s_vs_board": 15.1
+   },
+   {
+    "tehran": "19:46:58",
+    "dir": "غدیر",
+    "grid_point_3mod8": "19:47",
+    "residual_s_vs_grid": -1.1,
+    "board_label": "19:47",
+    "residual_s_vs_board": -1.1
+   },
+   {
+    "tehran": "19:55:03",
+    "dir": "غدیر",
+    "grid_point_3mod8": "19:55",
+    "residual_s_vs_grid": 3.4,
+    "board_label": "19:55",
+    "residual_s_vs_board": 3.4
+   },
+   {
+    "tehran": "20:03:10",
+    "dir": "غدیر",
+    "grid_point_3mod8": "20:03",
+    "residual_s_vs_grid": 10.9,
+    "board_label": "20:03",
+    "residual_s_vs_board": 10.9
+   }
+  ],
+  "residual_range_all_s": [
+   -7.4,
+   82.1
+  ],
+  "residual_range_excluding_late_B_s": [
+   -7.4,
+   29.1
+  ],
+  "candidate_doc_range": "-8..+15 s vs BOARD time (rows with a board label only); the unlabeled 19:15:29 row is +29 s vs grid, outside +15",
+  "gaps_between_consecutive_departures_s": [
+   443.49,
+   569.48,
+   413.013,
+   463.748,
+   484.5,
+   487.597
+  ],
+  "board_4th_entry_pattern": "each board lists 4 upcoming trains. 4th entries seen: 19:47@19:21, 19:55@19:31, 20:03@19:38, 20:11@19:45, then 20:21@19:53 and 20:21@19:55 (expected 20:19 and 20:19/20:27 on a pure 8-min grid), then 20:11/20:19/20:27@20:03. The 20:21 board value is not 3 mod 8 (minute 5); candidate explains it as \"20:19 slipped 2 min\" (unverified)."
+ },
+ "sunday_2026-11-01_crossing": {
+  "observation": {
+   "file": "2026-11-01_line1_palestine-sadaf-toward-vakilabad_sunday.csv",
+   "row": 13,
+   "tehran": "20:09:38",
+   "t_ms": 1793551178880,
+   "note_text": "وقتی قطار داشت به سکو می‌رسید قطار غدیر هم تازه راه افتاده بود (owner, no timer: a free-text remark attached to the arrive row; time resolution of \"just started\" unknown)",
+   "what_it_is": "one remark, one train (n=1). Destination \"Ghadir\" per owner; nothing says A or B"
+  },
+  "reference_vakilabad_to_Daneshamouz_runs_A_trains": {
+   "2026-10-16": {
+    "arrive_s": 827.6,
+    "depart_s": 845.1
+   },
+   "2026-10-22": {
+    "arrive_s": 821.3,
+    "depart_s": 839.0
+   },
+   "2026-11-03": {
+    "arrive_s": 850.2,
+    "depart_s": 874.0
+   }
+  },
+  "reference_runs_note": "No Sunday Vakilabad->Daneshamouz run exists (Sunday owner rode the opposite direction). Conversion uses other days: Fri 10-16, Thu 10-22, Tue 11-03 (n=3). Candidate network.json used 795-828 s (\"Thursday-dwell vs Friday model\"), which is shorter than all three measured depart-based values (839-874 s) and than the Tuesday value (851/874).",
+  "implied_vakilabad_departure_range_residuals": [
+   {
+    "ref_run_date": "2026-10-16",
+    "ref_run_depart_s": 845.1,
+    "assumed_train_left_DA_before_20:09:38_by_s": 0,
+    "implied_V_depart_at": "19:55:34",
+    "residual_s_vs_grid_19:55:00": 33.8
+   },
+   {
+    "ref_run_date": "2026-10-16",
+    "ref_run_depart_s": 845.1,
+    "assumed_train_left_DA_before_20:09:38_by_s": 30,
+    "implied_V_depart_at": "19:55:04",
+    "residual_s_vs_grid_19:55:00": 3.8
+   },
+   {
+    "ref_run_date": "2026-10-22",
+    "ref_run_depart_s": 839.0,
+    "assumed_train_left_DA_before_20:09:38_by_s": 0,
+    "implied_V_depart_at": "19:55:40",
+    "residual_s_vs_grid_19:55:00": 39.9
+   },
+   {
+    "ref_run_date": "2026-10-22",
+    "ref_run_depart_s": 839.0,
+    "assumed_train_left_DA_before_20:09:38_by_s": 30,
+    "implied_V_depart_at": "19:55:10",
+    "residual_s_vs_grid_19:55:00": 9.9
+   },
+   {
+    "ref_run_date": "2026-11-03",
+    "ref_run_depart_s": 874.0,
+    "assumed_train_left_DA_before_20:09:38_by_s": 0,
+    "implied_V_depart_at": "19:55:05",
+    "residual_s_vs_grid_19:55:00": 4.9
+   },
+   {
+    "ref_run_date": "2026-11-03",
+    "ref_run_depart_s": 874.0,
+    "assumed_train_left_DA_before_20:09:38_by_s": 30,
+    "implied_V_depart_at": "19:54:35",
+    "residual_s_vs_grid_19:55:00": -25.1
+   }
+  ],
+  "summary": {
+   "residual_vs_19:55:00_range_s": [
+    -25.1,
+    39.9
+   ],
+   "upper_bound_no_slack_residuals_s": {
+    "2026-10-16": 33.8,
+    "2026-10-22": 39.9,
+    "2026-11-03": 4.9
+   },
+   "tuesday_actual_departure": "19:55:03 (+3 s vs grid)",
+   "candidate_claims": [
+    "network.json: V depart ~19:55:30, \"about 25 s\" from Tuesday 19:55:00 (arithmetic is 30 s from 19:55:00, 27 s from the actual 19:55:03)",
+    "network.json evidence_phase: xx:x5:45 mod 10 +-35 s (19:55:15-19:56:20)",
+    "UPDATE_2026-11-03.md: x5:45 +-35 s"
+   ],
+   "candidate_range_vs_mine": "if the train left DA no later than 20:09:38, V departure <= 20:09:38 - run: 19:55:05 (Tue run) / 19:55:34 (Fri run) / 19:55:40 (Thu run). Candidate window 19:55:15-19:56:20 has its upper end (+80 s vs grid) later than all three bounds, because candidate used trip 795-828 s and arrival ~20:09:18, which are not the measured values (arrive 821-850 s, depart 839-874 s).",
+   "verdict": "consistent with the 19:55:00 grid within roughly -26..+39 s given the assumptions, but this is ONE remark converted with a trip time from other days; it cannot discriminate the 8-min period from a 10-min grid (19:55:00 is on both 3-mod-8 and :x5 grids) nor from other phases within +-40 s. Not an independent confirmation of the 8-min period itself: the Sunday observation has no second train.",
+   "sample_sizes": "observations n=1; reference run times n=3"
+  }
+ },
+ "sunday_csv_other_rows": "The other 17 Sunday rows are the owner's own Vakilabad-bound ride Palestine->Sadaf 19:58:01-20:13:07; no Vakilabad departure, no arrival at Vakilabad, no board text. They give no phase check for the 8-min grid (unknown).",
+ "tuesday_extra_points_same_session": {
+  "point_1_kowsar_18:51:53": {
+   "description": "Ghadir-bound train arrives Kowsar 18:51:53 (depart 18:52:12), before the owner's own train; A/B not stated (poster has no B at Kowsar between 18:37 and 19:01, so A by poster; poster-dependent)",
+   "n": 1,
+   "rows": [
+    {
+     "ref": "friday_2026-10-16",
+     "run_V_depart_to_Kowsar_arrive_s": 1021.846,
+     "implied_V_depart": "18:34:52",
+     "grid_point": "18:35:00",
+     "residual_s": -8.3
+    },
+    {
+     "ref": "tuesday_2026-11-03",
+     "run_V_depart_to_Kowsar_arrive_s": 1048.173,
+     "implied_V_depart": "18:34:25",
+     "grid_point": "18:35:00",
+     "residual_s": -34.6
+    }
+   ],
+   "caveat": "same day as calibration, outside the 19:15-20:03 window; run time borrowed from other A trains. Weak support: V departure ~18:34:2x-18:34:5x vs grid 18:35:00."
+  },
+  "point_2_vakilabad_bound_sightings_after_20:03": {
+   "rows": [
+    {
+     "sighting": "Nemayeshgah 20:09:13: V-bound train departing opposite platform",
+     "implied_V_arrival": "20:17:57",
+     "next_grid_point_3mod8": "20:19",
+     "arrival_minus_next_grid_s": -63.0
+    },
+    {
+     "sighting": "Sayad Shirazi 20:13:02 (note on depart row): V-bound train at platform (arrival or departure unknown; both bounds)",
+     "implied_V_arrival": "20:25:32",
+     "next_grid_point_3mod8": "20:27",
+     "arrival_minus_next_grid_s": -87.7
+    },
+    {
+     "sighting": "Sayad Shirazi 20:13:02 (note on depart row): V-bound train at platform (arrival or departure unknown; both bounds)",
+     "implied_V_arrival": "20:25:11",
+     "next_grid_point_3mod8": "20:27",
+     "arrival_minus_next_grid_s": -109.2
+    },
+    {
+     "sighting": "Daneshamouz 20:17:21: V-bound train had just left platform",
+     "implied_V_arrival": "20:34:10",
+     "next_grid_point_3mod8": "20:35",
+     "arrival_minus_next_grid_s": -50.4
+    }
+   ],
+   "run_basis": "Tuesday 18:55-19:14 Kowsar->Vakilabad back-run of the owner (single run, n=1); observed on-time arrival-before-board offsets (-103..-50 s) from 4 Tuesday arrivals. Consistent if the implied arrival lies ~50-103 s before a 3-mod-8 grid point: implied offsets are -63, -50 and -88/-109 s (one bound 7 s outside the range) -> consistent, n=3 trains, single back-run basis.",
+   "caveat": "sightings are free-text with unknown timing slack (tens of seconds). 20:16:03 Haft-Tir board \"2 min\" and 20:17:21 Daneshamouz \"just left\" are plausibly the SAME train (DA->HaftTir leg ~74 s) although candidate network.json says \"owner confirmed every sighting is a different train\": not resolvable from the CSV."
+  },
+  "arrival_minus_board_time_s_observed_(on-time_trains)": [
+   -102.1,
+   -49.4,
+   -89.1,
+   -62.3
+  ],
+  "(late B 19:31:40 vs board 19:31:00)": 40.7
+ },
+ "independent_data_inventory": {
+  "truly_independent_day_check_of_Tuesday_grid": "NONE complete. Candidates: Sunday 2026-11-01 20:09:38 remark (n=1, weak, needs borrowed trip time); no Sunday/Monday/other-day Vakilabad departure log exists.",
+  "same_session_not_independent_day": [
+   "Tuesday 18:51:53 Kowsar Ghadir-bound train (n=1)",
+   "Tuesday Vakilabad-bound sightings 20:09:13/20:13:02/20:17:21 (n=3 usable, low precision)",
+   "Tuesday opposite-direction sightings 18:57:41, 19:01:09, 19:05:47 (A or B unknown; position slack large; not computed numerically)"
+  ],
+  "poster": "not independent for the 8-min claim (24-min spacing is a multiple of 8; offset fitted on 1 pair). It is independent evidence for the 24-min B cadence itself (printed list) and agrees with the older sheet (see poster-audit.json).",
+  "older_sheet_1405-07-22": "normal_days from_ghadir 24-min after 12:36 is a second printed source for the B cadence, not for A or for the 8-min all-train grid.",
+  "what_cannot_be_validated": [
+   "A-service phase at any time other than Tue 19:15:29-20:03:10",
+   "the claim for \"afternoon\" generally (11:55-19:15 no observation)",
+   "switch time 10->8 min",
+   "B destination identity beyond 19:32:22"
+  ]
+ },
+ "sample_sizes": {
+  "calibration_departures": 7,
+  "board_labelled": 6,
+  "airport_departures_observed_at_vakilabad": 1,
+  "sunday_independent_checks": 1,
+  "tuesday_same_session_extras": 4
+ }
+}

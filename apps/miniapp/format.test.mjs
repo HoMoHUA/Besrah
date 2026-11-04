@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { isSupported, SUPPORTED_LINES, fa, etaParts, etaText, clockLabel, asOfLabel, dayTypeLabel, confidenceLabel, distanceLabel, headingFor, summarizeBoard, lineLabel } from './format.js';
+import { isSupported, SUPPORTED_LINES, fa, etaParts, etaText, arrivalState, arrivalText, clockLabel, asOfLabel, dayTypeLabel, confidenceLabel, distanceLabel, headingFor, summarizeBoard, lineLabel } from './format.js';
 
 test('Persian digits and Arabic/ASCII mix', () => {
   assert.equal(fa(1405), '۱۴۰۵');
@@ -8,10 +8,13 @@ test('Persian digits and Arabic/ASCII mix', () => {
 });
 
 test('ETA text: now, minutes, and a roll-friendly split', () => {
-  assert.equal(etaText(0), 'اکنون');
+  assert.equal(etaText(0), 'در حال ورود');
+  assert.equal(etaText(1), 'در حال ورود', 'one minute is the arriving state, never a countdown');
+  assert.equal(etaText(2), '۲ دقیقه');
   assert.equal(etaText(3), '۳ دقیقه');
   assert.deepEqual(etaParts(12), { value: '۱۲', unit: 'دقیقه' });
-  assert.deepEqual(etaParts(0), { value: 'اکنون', unit: '' });
+  assert.deepEqual(etaParts(0), { value: 'در حال ورود', unit: '' });
+  assert.deepEqual(etaParts(1), { value: 'در حال ورود', unit: '' });
 });
 
 test('clock and as_of labels keep the server time and say it is Tehran time', () => {
@@ -30,6 +33,12 @@ test('day type and confidence labels are honest and tolerate unknown values', ()
   assert.equal(confidenceLabel('official_sheet_phase').tone, 'ok');
   assert.equal(confidenceLabel('site_headway_assumed_phase').tone, 'warn');
   assert.equal(confidenceLabel('measured_phase').tone, 'ok');
+  // Beta overlay classes are warnings, never "ok", and say what they are.
+  assert.equal(confidenceLabel('generalized_observation_phase').tone, 'warn');
+  assert.equal(confidenceLabel('sheet_derived_phase').tone, 'warn');
+  assert.match(confidenceLabel('generalized_observation_phase').text, /برآورد/);
+  assert.match(confidenceLabel('sheet_derived_phase').text, /برآورد/);
+  assert.doesNotMatch(confidenceLabel('sheet_derived_phase').text + confidenceLabel('generalized_observation_phase').text, /رسمی|زنده|دقیق|تضمین/);
   assert.equal(confidenceLabel('???'), null);
 });
 
@@ -78,4 +87,15 @@ test('summaries name the line only when an interchange board mixes two lines', a
   assert.deepEqual(summarizeBoard(mixed).map(r => r.heading), ['به سمت غدیر · خط ۱', 'به سمت طبرسی · خط ۲']);
   const single = { passes: [{ line: 2, toward: 'طبرسی', eta_min: 5, service: null }] };
   assert.deepEqual(summarizeBoard(single).map(r => r.heading), ['به سمت طبرسی']);
+});
+
+test('arrival wording: 2 minutes is the smallest countdown, at most 60 s (or already due) is arriving', () => {
+  for (const s of [-120, -1, 0, 1, 30, 45, 59, 60]) assert.deepEqual(arrivalState(s), { arriving: true, minutes: 0 }, `${s}s`);
+  assert.deepEqual(arrivalState(61), { arriving: false, minutes: 2 });
+  assert.deepEqual(arrivalState(120), { arriving: false, minutes: 2 });
+  assert.deepEqual(arrivalState(121), { arriving: false, minutes: 3 });
+  assert.equal(arrivalText(60), 'در حال ورود');
+  assert.equal(arrivalText(61), 'حدود ۲ دقیقه');
+  assert.equal(arrivalText(NaN), '');
+  assert.equal(arrivalState(null), null);
 });

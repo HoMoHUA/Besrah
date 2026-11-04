@@ -1,0 +1,70 @@
+{
+ "stage": "/root/.hermes/cache/scratch/r3c/stage",
+ "results": [
+  {
+   "check": "unit starts under Production hardening with U1+U2",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "flag OFF is reported and the NET01 overlay is applied",
+   "result": "PASS",
+   "detail": "{\"journey\": {\"enabled\": false, \"rolloutPercent\": 0, \"feedbackEnabled\": false, \"calendarMode\": \"weekday_baseline\", \"horizonDays\": 7, \"windowMinutes\": 120}, \"timetable\": {\"state\": \"applied\", \"overlayId\""
+  },
+  {
+   "check": "/app/api/next answers 200 and carries event_id",
+   "result": "PASS",
+   "detail": "200"
+  },
+  {
+   "check": "journey endpoint is closed while the switch is OFF",
+   "result": "PASS",
+   "detail": "404"
+  },
+  {
+   "check": "20 repeated reads stay 200 (rate limiter is not tripped by normal use)",
+   "result": "PASS",
+   "detail": "{200}"
+  },
+  {
+   "check": "memory after warm-up within the 192 MiB cap",
+   "result": "PASS",
+   "detail": "37.6 MiB"
+  },
+  {
+   "check": "missing overlay file: service stays up, state is baseline_missing and the notice is visible",
+   "result": "PASS",
+   "detail": "baseline_missing"
+  },
+  {
+   "check": "overlay restored: state is applied again",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "NRestarts counter is 0 (manual restarts do not count as failures)",
+   "result": "PASS",
+   "detail": "0"
+  },
+  {
+   "check": "rollback u2 verified by the tool",
+   "result": "PASS",
+   "detail": "rolled back; pre-state verified\n"
+  },
+  {
+   "check": "after rolling U2 back alone, the U1 data and code are still in place",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "rollback u1 verified by the tool",
+   "result": "PASS",
+   "detail": "rolled back; pre-state verified\n"
+  },
+  {
+   "check": "after both rollbacks the tree equals live Production, hash for hash",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

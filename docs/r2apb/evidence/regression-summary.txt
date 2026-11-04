@@ -1,0 +1,11 @@
+tsc=0 vitest=0 build=0 miniapp=0 n8n=0 pydata=0 pyrelease=0 bus-build-diff-lines=0
+ Test Files  40 passed (40)
+      Tests  506 passed (506)
+miniapp # tests 152
+miniapp # pass 152
+miniapp # fail 0
+n8n # tests 21
+n8n # pass 21
+n8n # fail 0
+py-data Ran 167 tests in 6.950s
+py-release Ran 20 tests in 5.197s

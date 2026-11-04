@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>فرم برداشت بسراه — هفت تیر و دانش آموز</title>
+<style>
+:root{--bg:#f6f7f5;--card:#fff;--ink:#17201b;--muted:#4b5a52;--line:#cfd8d2;--accent:#0b6b3a;--warn:#8a4b00}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}
+main{max-width:720px;margin:0 auto;padding:12px}h1{font-size:20px;margin:8px 0}h2{font-size:17px;margin:0 0 8px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+label{display:block;margin:10px 0 4px;font-weight:600}.hint{color:var(--muted);font-size:14px;margin:2px 0 6px}
+input,select,textarea{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:72px}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}
+button{font:inherit;min-height:44px;padding:8px 12px;border-radius:10px;border:1px solid var(--accent);background:#fff;color:var(--accent);cursor:pointer}
+button.primary{background:var(--accent);color:#fff}.check{display:flex;gap:8px;align-items:flex-start;margin:8px 0}.check input{width:auto;margin-top:6px}
+.warn{color:var(--warn);font-weight:600}.hidden{display:none}pre{white-space:pre-wrap;direction:ltr;text-align:left;font-size:12px;background:#f0f2f0;padding:8px;border-radius:8px;max-height:240px;overflow:auto}
+</style>
+</head>
+<body>
+<main>
+<h1>برداشت بسراه — فقط هفت تیر و دانش آموز</h1>
+<p class="hint">این فرم روی همین گوشی کار می کند و هیچ چیزی را به اینترنت نمی فرستد. موقعیت GPS را خودکار نمی خواند. در پایان، فایل JSON را بسازید و همراه عکس ها برای ما بفرستید. هر چیزی را که نمی دانید خالی بگذارید یا «نمی دانم» را انتخاب کنید؛ حدس نزنید.</p>
+
+<section>
+<h2>۱. مأموریت و رضایت</h2>
+<label for="mission">کدام مأموریت؟</label>
+<select id="mission"></select>
+<p id="missionHint" class="hint"></p>
+<label for="observer">کد شما (نام یا شماره تلفن ننویسید)</label>
+<input id="observer" placeholder="مثلاً OBS-1" autocomplete="off">
+<div class="check"><input type="checkbox" id="c1"><label for="c1">با ثبت و استفاده پژوهشی این مشاهده موافقم.</label></div>
+<div class="check"><input type="checkbox" id="c2"><label for="c2">فقط در فضای عمومی و مسیر مجاز مسافر حرکت کردم.</label></div>
+<div class="check"><input type="checkbox" id="c3"><label for="c3">در عکس ها چهره افراد، بلیت یا کارت کسی دیده نمی شود.</label></div>
+</section>
+
+<section>
+<h2>۲. ورودی و مسیر</h2>
+<label for="entranceMatch">آیا همان ورودی معرفی شده را پیدا کردید؟</label>
+<select id="entranceMatch"><option value="">انتخاب کنید</option><option value="yes">بله، همان است</option><option value="no">نه، ورودی دیگری بود</option><option value="unknown">نمی دانم</option></select>
+<div id="newEntranceBox" class="hidden"><label for="newEntrance">یک برچسب کوتاه انگلیسی برای ورودی واقعی</label><input id="newEntrance" placeholder="مثلاً north-2" dir="ltr"><p class="hint">در توضیحات بنویسید کجاست و چه تابلویی دارد.</p></div>
+<label for="pathExists">آیا مسیر این مأموریت واقعاً قابل استفاده بود؟</label>
+<select id="pathExists"><option value="">انتخاب کنید</option><option value="yes">بله</option><option value="no">نه، بسته یا ممنوع بود</option><option value="unknown">نمی دانم</option></select>
+<label for="entryAllowed">از این در می شود وارد شد؟</label>
+<select id="entryAllowed"><option value="">نمی دانم</option><option value="yes">بله</option><option value="no">نه</option><option value="unknown">نمی دانم</option></select>
+<label for="exitAllowed">از این در می شود خارج شد؟</label>
+<select id="exitAllowed"><option value="">نمی دانم</option><option value="yes">بله</option><option value="no">نه</option><option value="unknown">نمی دانم</option></select>
+<label for="hours">ساعت باز بودن که روی تابلو نوشته شده (اگر هست)</label>
+<input id="hours">
+<div id="accessBox">
+<label for="sign">متن دقیق تابلوی مقصد روی سکو</label><input id="sign">
+<label for="platformReached">به سکوی آماده سوار شدن رسیدید؟</label>
+<select id="platformReached"><option value="">انتخاب کنید</option><option value="yes">بله</option><option value="no">نه</option><option value="unknown">نمی دانم</option></select>
+<label for="directionMatch">جهت سکو همان جهت این مأموریت بود؟</label>
+<select id="directionMatch"><option value="">انتخاب کنید</option><option value="yes">بله</option><option value="no">نه، سمت دیگر بود</option><option value="unknown">نمی دانم</option></select>
+</div>
+<div id="egressBox"><label for="arrivedFrom">قطار از کدام ایستگاه آمده بود؟ (همان چیزی که دیدید یا اعلام شد)</label><input id="arrivedFrom"></div>
+<div id="outdoorBox">
+<label for="standable">نقطه شروع/پایان بیرونی جای امن و عمومی برای ایستادن است؟</label>
+<select id="standable"><option value="">انتخاب کنید</option><option value="yes">بله</option><option value="no">نه</option><option value="unknown">نمی دانم</option></select>
+</div>
+<label for="transition">تغییر ارتفاع با چه بود؟</label>
+<select id="transition"><option value="">نمی دانم</option><option value="none">نداشت</option><option value="stairs">پله</option><option value="escalator">پله برقی</option><option value="elevator">آسانسور</option><option value="ramp">سطح شیب دار</option><option value="mixed">ترکیبی</option><option value="unknown">نمی دانم</option></select>
+<div class="row"><div><label for="levelStart">تراز شروع</label><input id="levelStart" placeholder="مثلاً خیابان"></div><div><label for="levelEnd">تراز پایان</label><input id="levelEnd" placeholder="مثلاً سکو"></div></div>
+<label for="steps">ترتیب قدم ها، هر کدام در یک خط</label>
+<textarea id="steps" placeholder="پیاده رو&#10;آستانه ورودی&#10;پله پایین&#10;گیت بلیت&#10;سکو"></textarea>
+<label for="surface">سطح مسیر</label><input id="surface" placeholder="مثلاً سنگ فرش، آسفالت">
+<label for="barriers">مانع، نرده، در بسته یا محدودیت</label><input id="barriers">
+</section>
+
+<section>
+<h2>۳. زمان ها</h2>
+<p class="hint">در هر نقطه دکمه «الان» را بزنید. ساعت به وقت تهران ثبت می شود. انتظار برای قطار را جزو این مأموریت حساب نکنید.</p>
+<div id="events"></div>
+<p class="hint">مدت های جدا، بر حسب ثانیه. اگر اتفاق نیفتاد عدد 0 را بزنید؛ اگر نمی دانید خالی بگذارید.</p>
+<div id="waits"></div>
+</section>
+
+<section>
+<h2>۴. عکس و طرح</h2>
+<p class="hint">فقط تابلو، ورودی، انشعاب مسیر یا طرح دستی. عکس ها روی گوشی می مانند و جدا ارسال می شوند؛ این فرم فقط نام و اثر انگشت فایل را ثبت می کند.</p>
+<input type="file" id="files" multiple accept="image/*,application/pdf">
+<div id="fileList"></div>
+<label for="rights">مالکیت عکس ها</label>
+<input id="rights" value="عکس را خودم گرفتم و برای پژوهش خصوصی بسراه می فرستم">
+</section>
+
+<section>
+<h2>۵. ناهماهنگی و توضیح</h2>
+<label for="contradictions">چیزی که با توضیح ما فرق داشت، هر کدام در یک خط</label><textarea id="contradictions"></textarea>
+<label for="unknowns">چیزهایی که نتوانستید بفهمید، هر کدام در یک خط</label><textarea id="unknowns"></textarea>
+<div id="coordBox" class="hidden">
+<label for="regPoint">در نقطه ثبت شده قدیمی دانش آموز (پیوند نقشه در راهنما) چه دیدید؟</label>
+<select id="regPoint"><option value="unknown">نمی دانم / نرفتم</option><option value="station_entrance">ورودی ایستگاه</option><option value="station_structure">سازه ایستگاه بدون ورودی</option><option value="no_station_feature">هیچ نشانه ای از ایستگاه</option></select>
+<label for="osmPoint">در نقطه ایستگاه طبق نقشه آزاد چه دیدید؟</label>
+<select id="osmPoint"><option value="unknown">نمی دانم / نرفتم</option><option value="station_entrance">ورودی ایستگاه</option><option value="station_structure">سازه ایستگاه بدون ورودی</option><option value="no_station_feature">هیچ نشانه ای از ایستگاه</option></select>
+<label for="coordNote">توضیح کوتاه</label><input id="coordNote">
+</div>
+<label for="notes">توضیح آزاد (اطلاعات شخصی ننویسید)</label><textarea id="notes"></textarea>
+</section>
+
+<section>
+<button class="primary" id="build" type="button">ساخت فایل نتیجه</button>
+<p id="status" class="warn"></p>
+<pre id="preview" class="hidden"></pre>
+</section>
+</main>
+
+<script id="besrah-builder">
+// Pure builder shared by the page and offline tests. No network, storage or clock access here.
+var BESRAH_EVENT_KEYS = ['startAt', 'entranceThresholdAt', 'ticketQueueStartAt', 'ticketControlCompleteAt',
+  'platformReadyAt', 'alightedAt', 'exitThresholdAt', 'trainArrivedAt', 'endAt'];
+var BESRAH_WAITS = ['crossingWait', 'ticketQueue', 'ticketControl', 'elevatorWait', 'researcherPause', 'walking', 'steps'];
+function besrahTehranStamp(epochMs) {
+  var d = new Date(epochMs + 12600000);
+  function p(n) { return (n < 10 ? '0' : '') + n; }
+  return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) + 'T' +
+    p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds()) + '+03:30';
+}
+function besrahLines(text) {
+  return String(text || '').split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+}
+function besrahOrNull(value) { var v = String(value == null ? '' : value).trim(); return v ? v : null; }
+function besrahBuildObservation(a, mission, observationId) {
+  var events = {}, durations = {};
+  BESRAH_EVENT_KEYS.forEach(function (k) { events[k] = besrahOrNull(a.events && a.events[k]); });
+  BESRAH_WAITS.forEach(function (k) {
+    var raw = a.durations && a.durations[k];
+    durations[k] = raw === '' || raw == null ? null : Number(raw);
+  });
+  if (mission.kind === 'internal_access') events.endAt = events.platformReadyAt;
+  if (mission.kind === 'internal_egress') events.startAt = events.alightedAt;
+  if (mission.end.type === 'entrance_threshold') events.entranceThresholdAt = events.endAt;
+  if (mission.start.type === 'entrance_threshold') events.entranceThresholdAt = events.startAt;
+  if (mission.end.type === 'exit_threshold') events.exitThresholdAt = events.endAt;
+  if (mission.start.type === 'exit_threshold') events.exitThresholdAt = events.startAt;
+  var files = (a.files || []).map(function (f) {
+    return { fileName: f.fileName, sha256: f.sha256 || null, kind: f.kind,
+      containsPeopleOrTickets: a.noPeople === true ? false : true, rights: besrahOrNull(a.rights) };
+  });
+  var hashed = files.some(function (f) { return f.sha256; });
+  var match = a.entranceMatch || 'unknown';
+  return {
+    schemaVersion: 2, isTemplateNotObservation: false, synthetic: a.synthetic === true,
+    missionId: mission.missionId, observationId: observationId, sourceId: 'field:' + observationId,
+    observerCode: besrahOrNull(a.observer), observedAt: events.startAt, timezone: '+03:30',
+    consent: { recordingConsent: a.consent === true, publicAreaOnly: a.publicOnly === true, noPeopleOrTicketsInMedia: a.noPeople === true },
+    publicAreaOnly: a.publicOnly === true,
+    stationId: mission.stationId,
+    entranceId: match === 'no' ? 'new:' + (besrahOrNull(a.newEntrance) || 'unlabelled') : mission.entrance.entranceId,
+    entranceMatchesCandidate: match, platformId: null,
+    directionDestinationText: mission.kind === 'internal_access' ? besrahOrNull(a.sign) : null,
+    fromPointId: mission.start.id, toPointId: mission.end.id,
+    pathExists: a.pathExists || 'unknown',
+    platformReached: mission.kind === 'internal_access' ? (a.platformReached || 'unknown') : null,
+    platformDirectionMatchesMission: mission.kind === 'internal_access' ? (a.directionMatch || 'unknown') : null,
+    arrivedFromStationText: mission.kind === 'internal_egress' ? besrahOrNull(a.arrivedFrom) : null,
+    boundaryStandable: mission.kind === 'outdoor' ? (a.standable || 'unknown') : null,
+    sourceEvidenceFiles: files, pathNodes: [], segments: besrahLines(a.steps),
+    entranceRules: { entryAllowed: a.entryAllowed || 'unknown', exitAllowed: a.exitAllowed || 'unknown',
+      openingHours: besrahOrNull(a.hours), sourceId: 'field:' + observationId },
+    surface: besrahOrNull(a.surface), barriers: besrahOrNull(a.barriers),
+    levels: (besrahOrNull(a.levelStart) || besrahOrNull(a.levelEnd)) ? [besrahOrNull(a.levelStart), besrahOrNull(a.levelEnd)] : null,
+    transition: a.transition || null, events: events, durationsSeconds: durations,
+    pathLengthMeters: null, lengthMethod: null,
+    coordinateCapture: { crs: null, method: null, accuracyMeters: null, lat: null, lon: null },
+    evidenceLevel: hashed ? 'documented' : 'self_reported', verification: null,
+    coordinateCheck: mission.stationId === 'METRO-108' && a.coordinate ? a.coordinate : null,
+    contradictions: besrahLines(a.contradictions), unknowns: besrahLines(a.unknowns), notes: besrahOrNull(a.notes)
+  };
+}
+</script>
+<script>
+var MISSIONS = {"schemaVersion":1,"registryVersion":"r2bd2-c1-missions-v1","corridor":"C1","line":1,"stations":["METRO-107","METRO-108"],"timezoneOffset":"+03:30","derivedFrom":{"topology":"data/geospatial/r2bd1-c1-v1/derived/c1-source-topology.json","topologySha256":"5d6f372179925c49c87c18dd1a6c5c0747b0d27c2c8f584c5bd0b5a2e1ac6fc3","network":"data/network.json","networkSha256":"b77dfaa099f9cfaf69c248ceec35e3aa514029a088bcf93afbda0bcd3ae9a7ba"},"isObservation":false,"missions":[{"missionId":"H7-IN-OUTBOUND","kind":"internal_access","stationId":"METRO-107","entrance":{"entranceId":"osm:node:1030590026","sourceName":"شمال شرقی","sourceNameEn":"Northeast","lat":36.3278665,"lon":59.5011025,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"start":{"type":"entrance_threshold","id":"osm:node:1030590026"},"end":{"type":"platform_ready","id":"platform:METRO-107:toward:METRO-108"},"trainTowardStationId":"METRO-108","expectedSignCandidates":["غدیر","فرودگاه شهید هاشمی‌نژاد"],"role":{"107->108":"origin_internal"},"stationName":"هفت‌تیر"},{"missionId":"DA-OUT-OUTBOUND","kind":"internal_egress","stationId":"METRO-108","entrance":{"entranceId":"osm:node:1030590123","sourceName":"شمالی","sourceNameEn":"North","lat":36.3252162,"lon":59.5095125,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"start":{"type":"platform_alighting","id":"platform:METRO-108:arrival-from:METRO-107"},"end":{"type":"exit_threshold","id":"osm:node:1030590123"},"trainFromStationId":"METRO-107","role":{"107->108":"destination_internal"},"stationName":"دانش‌آموز"},{"missionId":"DA-IN-INBOUND","kind":"internal_access","stationId":"METRO-108","entrance":{"entranceId":"osm:node:1030590123","sourceName":"شمالی","sourceNameEn":"North","lat":36.3252162,"lon":59.5095125,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"start":{"type":"entrance_threshold","id":"osm:node:1030590123"},"end":{"type":"platform_ready","id":"platform:METRO-108:toward:METRO-107"},"trainTowardStationId":"METRO-107","expectedSignCandidates":["وکیل‌آباد"],"role":{"108->107":"origin_internal"},"stationName":"دانش‌آموز"},{"missionId":"H7-OUT-INBOUND","kind":"internal_egress","stationId":"METRO-107","entrance":{"entranceId":"osm:node:1030590026","sourceName":"شمال شرقی","sourceNameEn":"Northeast","lat":36.3278665,"lon":59.5011025,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"start":{"type":"platform_alighting","id":"platform:METRO-107:arrival-from:METRO-108"},"end":{"type":"exit_threshold","id":"osm:node:1030590026"},"trainFromStationId":"METRO-108","role":{"108->107":"destination_internal"},"stationName":"هفت‌تیر"},{"missionId":"A-TO-H7","kind":"outdoor","stationId":"METRO-107","entrance":{"entranceId":"osm:node:1030590026","sourceName":"شمال شرقی","sourceNameEn":"Northeast","lat":36.3278665,"lon":59.5011025,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"publicPoint":{"pointId":"d1:point:A","sourceNodeId":"osm:node:7033302509","lat":36.3279221,"lon":59.5011058,"crs":"EPSG:4326","accuracyMeters":null,"fieldVerification":"unverified","boundary":"Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913241; proposed standing start/end, not a station center or private address"},"start":{"type":"public_point","id":"d1:point:A"},"end":{"type":"entrance_threshold","id":"osm:node:1030590026"},"sourceWayId":"osm:way:531913241","role":{"107->108":"origin_outdoor"},"stationName":"هفت‌تیر"},{"missionId":"H7-TO-A","kind":"outdoor","stationId":"METRO-107","entrance":{"entranceId":"osm:node:1030590026","sourceName":"شمال شرقی","sourceNameEn":"Northeast","lat":36.3278665,"lon":59.5011025,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"publicPoint":{"pointId":"d1:point:A","sourceNodeId":"osm:node:7033302509","lat":36.3279221,"lon":59.5011058,"crs":"EPSG:4326","accuracyMeters":null,"fieldVerification":"unverified","boundary":"Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913241; proposed standing start/end, not a station center or private address"},"start":{"type":"exit_threshold","id":"osm:node:1030590026"},"end":{"type":"public_point","id":"d1:point:A"},"sourceWayId":"osm:way:531913241","role":{"108->107":"destination_outdoor"},"stationName":"هفت‌تیر"},{"missionId":"B-TO-DA","kind":"outdoor","stationId":"METRO-108","entrance":{"entranceId":"osm:node:1030590123","sourceName":"شمالی","sourceNameEn":"North","lat":36.3252162,"lon":59.5095125,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"publicPoint":{"pointId":"d1:point:B","sourceNodeId":"osm:node:5162609067","lat":36.3253283,"lon":59.5095642,"crs":"EPSG:4326","accuracyMeters":null,"fieldVerification":"unverified","boundary":"Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913236; proposed standing start/end, not a station center or private address"},"start":{"type":"public_point","id":"d1:point:B"},"end":{"type":"entrance_threshold","id":"osm:node:1030590123"},"sourceWayId":"osm:way:531913236","role":{"108->107":"origin_outdoor"},"stationName":"دانش‌آموز"},{"missionId":"DA-TO-B","kind":"outdoor","stationId":"METRO-108","entrance":{"entranceId":"osm:node:1030590123","sourceName":"شمالی","sourceNameEn":"North","lat":36.3252162,"lon":59.5095125,"crs":"EPSG:4326","sourceId":"overpass-de-c1-01","assurance":"public_source_claim","fieldVerification":"unverified"},"publicPoint":{"pointId":"d1:point:B","sourceNodeId":"osm:node:5162609067","lat":36.3253283,"lon":59.5095642,"crs":"EPSG:4326","accuracyMeters":null,"fieldVerification":"unverified","boundary":"Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913236; proposed standing start/end, not a station center or private address"},"start":{"type":"exit_threshold","id":"osm:node:1030590123"},"end":{"type":"public_point","id":"d1:point:B"},"sourceWayId":"osm:way:531913236","role":{"107->108":"destination_outdoor"},"stationName":"دانش‌آموز"}],"checks":[{"checkId":"DA-COORD-CHECK","kind":"coordinate_check","stationId":"METRO-108","registryPoint":{"lat":36.3263889,"lon":59.5069444,"crs":"EPSG:4326","source":"data/network.json (unchanged baseline)"},"osmStationPoint":{"id":"osm:node:5162609068","lat":36.3251818,"lon":59.5086023,"crs":"EPSG:4326"},"separationMeters2D":200.188,"gating":false,"purpose":"Record what physically exists at each point; never move or snap the baseline from this check."}],"directions":{"107->108":["origin_public_point","origin_outdoor","origin_internal","metro","destination_internal","destination_outdoor","destination_public_point"],"108->107":["origin_public_point","origin_outdoor","origin_internal","metro","destination_internal","destination_outdoor","destination_public_point"]}};
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var files = [], times = {};
+  var LABELS = { startAt: 'شروع', entranceThresholdAt: 'عبور از آستانه ورودی', ticketQueueStartAt: 'شروع صف بلیت',
+    ticketControlCompleteAt: 'عبور از گیت بلیت', platformReadyAt: 'رسیدن به جای سوار شدن روی سکو',
+    alightedAt: 'پیاده شدن از قطار', exitThresholdAt: 'عبور از آستانه خروجی', trainArrivedAt: 'رسیدن قطار (جدا، اختیاری)', endAt: 'پایان' };
+  var WAIT_LABELS = { crossingWait: 'انتظار برای عبور از خیابان', ticketQueue: 'صف بلیت', ticketControl: 'خود کنترل بلیت',
+    elevatorWait: 'انتظار آسانسور', researcherPause: 'توقف خودتان برای عکس یا یادداشت' };
+  var NAMES = { 'H7-IN-OUTBOUND': 'هفت تیر: ورود تا سکوی سمت دانش آموز', 'DA-OUT-OUTBOUND': 'دانش آموز: از قطار تا خروجی شمالی',
+    'DA-IN-INBOUND': 'دانش آموز: ورود تا سکوی سمت هفت تیر', 'H7-OUT-INBOUND': 'هفت تیر: از قطار تا خروجی شمال شرقی',
+    'A-TO-H7': 'بیرون: نقطه A تا ورودی هفت تیر', 'H7-TO-A': 'بیرون: خروجی هفت تیر تا نقطه A',
+    'B-TO-DA': 'بیرون: نقطه B تا ورودی دانش آموز', 'DA-TO-B': 'بیرون: خروجی دانش آموز تا نقطه B' };
+  MISSIONS.missions.forEach(function (m) { var o = document.createElement('option'); o.value = m.missionId; o.textContent = m.missionId + ' — ' + NAMES[m.missionId]; $('mission').appendChild(o); });
+  function mission() { return MISSIONS.missions.filter(function (m) { return m.missionId === $('mission').value; })[0]; }
+  function eventKeys(m) {
+    if (m.kind === 'internal_access') return ['startAt', 'ticketQueueStartAt', 'ticketControlCompleteAt', 'platformReadyAt', 'trainArrivedAt'];
+    if (m.kind === 'internal_egress') return ['alightedAt', 'ticketQueueStartAt', 'ticketControlCompleteAt', 'endAt'];
+    return ['startAt', 'endAt'];
+  }
+  function render() {
+    var m = mission(); times = {};
+    $('accessBox').className = m.kind === 'internal_access' ? '' : 'hidden';
+    $('egressBox').className = m.kind === 'internal_egress' ? '' : 'hidden';
+    $('outdoorBox').className = m.kind === 'outdoor' ? '' : 'hidden';
+    $('coordBox').className = m.stationId === 'METRO-108' ? '' : 'hidden';
+    var BOUNDARY = { entrance_threshold: 'آستانه ورودی', exit_threshold: 'آستانه خروجی', platform_ready: 'روی سکو، آماده سوار شدن',
+      platform_alighting: 'پیاده شدن از قطار', public_point: 'نقطه بیرونی ' + (m.publicPoint ? (m.publicPoint.pointId === 'd1:point:A' ? 'A' : 'B') : '') };
+    $('missionHint').textContent = 'شروع: ' + BOUNDARY[m.start.type] + ' — پایان: ' + BOUNDARY[m.end.type] + ' — ورودی: ' + m.entrance.sourceName + (m.expectedSignCandidates ? ' — تابلو احتمالاً یکی از این ها: ' + m.expectedSignCandidates.join('، ') + ' (همان چیزی را بنویسید که می بینید)' : '');
+    var box = $('events'); box.innerHTML = '';
+    eventKeys(m).forEach(function (k) {
+      var row = document.createElement('div'); row.className = 'row';
+      var lab = document.createElement('label'); lab.textContent = LABELS[k]; lab.htmlFor = 'ev-' + k;
+      var inp = document.createElement('input'); inp.id = 'ev-' + k; inp.dir = 'ltr'; inp.placeholder = 'YYYY-MM-DDTHH:MM:SS+03:30';
+      var btn = document.createElement('button'); btn.type = 'button'; btn.textContent = 'الان';
+      btn.onclick = function () { inp.value = besrahTehranStamp(Date.now()); };
+      row.appendChild(inp); row.appendChild(btn); box.appendChild(lab); box.appendChild(row);
+    });
+    var waits = $('waits'); waits.innerHTML = '';
+    Object.keys(WAIT_LABELS).forEach(function (k) {
+      if (m.kind === 'outdoor' && (k === 'ticketQueue' || k === 'ticketControl')) return;
+      var lab = document.createElement('label'); lab.textContent = WAIT_LABELS[k]; lab.htmlFor = 'w-' + k;
+      var inp = document.createElement('input'); inp.id = 'w-' + k; inp.type = 'number'; inp.min = '0'; inp.inputMode = 'numeric';
+      waits.appendChild(lab); waits.appendChild(inp);
+    });
+  }
+  $('mission').onchange = render; render();
+  $('entranceMatch').onchange = function () { $('newEntranceBox').className = this.value === 'no' ? '' : 'hidden'; };
+  $('files').onchange = function () {
+    files = []; var list = $('fileList'); list.innerHTML = '';
+    Array.prototype.forEach.call(this.files, function (file, i) {
+      var entry = { fileName: file.name.replace(/[^A-Za-z0-9._-]/g, '_').replace(/^[^A-Za-z0-9]+/, 'f'), sha256: null, kind: 'photo_sign' };
+      files.push(entry);
+      var sel = document.createElement('select'); sel.id = 'kind-' + i;
+      [['photo_sign', 'تابلو'], ['photo_entrance', 'ورودی'], ['photo_branch', 'انشعاب مسیر'], ['sketch', 'طرح دستی'], ['operator_document', 'سند رسمی']].forEach(function (k) {
+        var o = document.createElement('option'); o.value = k[0]; o.textContent = k[1]; sel.appendChild(o); });
+      sel.onchange = function () { entry.kind = sel.value; };
+      var lab = document.createElement('label'); lab.textContent = entry.fileName + ' — نوع:'; lab.htmlFor = sel.id;
+      list.appendChild(lab); list.appendChild(sel);
+      if (window.crypto && crypto.subtle && file.arrayBuffer) {
+        file.arrayBuffer().then(function (buf) { return crypto.subtle.digest('SHA-256', buf); }).then(function (h) {
+          entry.sha256 = Array.prototype.map.call(new Uint8Array(h), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+        }).catch(function () { entry.sha256 = null; });
+      }
+    });
+  };
+  $('build').onclick = function () {
+    var m = mission(), ev = {}, du = {};
+    eventKeys(m).forEach(function (k) { ev[k] = $('ev-' + k).value; });
+    Object.keys(WAIT_LABELS).forEach(function (k) { var el = $('w-' + k); du[k] = el ? el.value : (m.kind === 'outdoor' ? '' : ''); });
+    if (m.kind === 'outdoor') { du.ticketQueue = ''; du.ticketControl = ''; }
+    var rnd = (window.crypto && crypto.getRandomValues) ? Array.prototype.map.call(crypto.getRandomValues(new Uint8Array(3)), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('') : String(Date.now() % 1000000);
+    var stamp = (ev.startAt || ev.alightedAt || besrahTehranStamp(Date.now())).replace(/[^0-9]/g, '').slice(0, 14);
+    var id = 'obs:' + m.missionId + '-' + stamp + '-' + rnd;
+    var answers = { observer: $('observer').value, consent: $('c1').checked, publicOnly: $('c2').checked, noPeople: $('c3').checked,
+      entranceMatch: $('entranceMatch').value, newEntrance: $('newEntrance').value, pathExists: $('pathExists').value,
+      entryAllowed: $('entryAllowed').value, exitAllowed: $('exitAllowed').value, hours: $('hours').value, sign: $('sign').value,
+      platformReached: $('platformReached').value, directionMatch: $('directionMatch').value, arrivedFrom: $('arrivedFrom').value,
+      standable: $('standable').value, transition: $('transition').value, levelStart: $('levelStart').value, levelEnd: $('levelEnd').value,
+      steps: $('steps').value, surface: $('surface').value, barriers: $('barriers').value, events: ev, durations: du,
+      files: files, rights: $('rights').value, contradictions: $('contradictions').value, unknowns: $('unknowns').value, notes: $('notes').value,
+      coordinate: m.stationId === 'METRO-108' ? { registryPoint: $('regPoint').value, osmStationPoint: $('osmPoint').value, note: $('coordNote').value || null } : null };
+    if (answers.coordinate && answers.coordinate.registryPoint === 'unknown' && answers.coordinate.osmStationPoint === 'unknown' && !answers.coordinate.note) answers.coordinate = null;
+    if (!answers.consent || !answers.publicOnly || !answers.noPeople) { $('status').textContent = 'سه مورد رضایت باید تأیید شود؛ بدون آن فایل ساخته نمی شود.'; return; }
+    var obs = besrahBuildObservation(answers, m, id);
+    var text = JSON.stringify(obs, null, 2) + '\n';
+    $('preview').textContent = text; $('preview').className = '';
+    var blob = new Blob([text], { type: 'application/json' }), a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = id.replace(/:/g, '_') + '.json'; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    $('status').textContent = 'فایل ساخته شد. آن را همراه عکس ها با همان نام برای ما بفرستید. اگر دانلود نشد، متن پایین را کپی کنید.';
+  };
+})();
+</script>
+</body>
+</html>

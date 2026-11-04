@@ -1,0 +1,4607 @@
+{
+ "label": "r3b-baseline",
+ "root": "/root/projects/besrah-r3net01-r3b",
+ "generatedBy": "scripts/net01/replay.mjs",
+ "deterministic": true,
+ "departures": [
+  {
+   "id": "S01",
+   "date": "2026-11-03",
+   "note": "Tuesday normal day; full-day Vakilabad departures",
+   "dayType": "normal",
+   "countA": 75,
+   "countB": 26,
+   "exactCollisions": 20,
+   "collisionsLe90": [
+    {
+     "a": "06:30:00",
+     "aService": "A",
+     "b": "06:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:00:00",
+     "aService": "A",
+     "b": "07:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:30:00",
+     "aService": "A",
+     "b": "07:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:00:00",
+     "aService": "A",
+     "b": "08:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:30:00",
+     "aService": "A",
+     "b": "08:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:00:00",
+     "aService": "A",
+     "b": "09:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:30:00",
+     "aService": "A",
+     "b": "09:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:00:00",
+     "aService": "A",
+     "b": "10:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:30:00",
+     "aService": "A",
+     "b": "10:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:00:00",
+     "aService": "A",
+     "b": "11:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:30:00",
+     "aService": "A",
+     "b": "11:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:00:00",
+     "aService": "A",
+     "b": "12:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:30:00",
+     "aService": "A",
+     "b": "12:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:00:00",
+     "aService": "A",
+     "b": "13:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:30:00",
+     "aService": "A",
+     "b": "13:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:00:00",
+     "aService": "A",
+     "b": "14:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:30:00",
+     "aService": "A",
+     "b": "14:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:00:00",
+     "aService": "A",
+     "b": "15:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:30:00",
+     "aService": "A",
+     "b": "15:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "17:30:00",
+     "aService": "A",
+     "b": "17:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    }
+   ],
+   "collisionsLe120": 20,
+   "morning": [
+    "06:00:00 A site_headway_assumed_phase",
+    "06:15:00 A site_headway_assumed_phase",
+    "06:30:00 A site_headway_assumed_phase",
+    "06:30:00 B site_headway_assumed_phase",
+    "06:45:00 A site_headway_assumed_phase",
+    "07:00:00 A site_headway_assumed_phase",
+    "07:00:00 B site_headway_assumed_phase",
+    "07:15:00 A site_headway_assumed_phase"
+   ],
+   "noon": [
+    "11:30:00 A site_headway_assumed_phase",
+    "11:30:00 B site_headway_assumed_phase",
+    "11:45:00 A site_headway_assumed_phase",
+    "12:00:00 A site_headway_assumed_phase",
+    "12:00:00 B site_headway_assumed_phase",
+    "12:15:00 A site_headway_assumed_phase",
+    "12:30:00 A site_headway_assumed_phase",
+    "12:30:00 B site_headway_assumed_phase",
+    "12:45:00 A site_headway_assumed_phase"
+   ],
+   "evening": [
+    "18:57:16 A site_headway_assumed_phase",
+    "19:00:00 B site_headway_assumed_phase",
+    "19:08:11 A site_headway_assumed_phase",
+    "19:19:05 A site_headway_assumed_phase",
+    "19:30:00 A site_headway_assumed_phase",
+    "19:40:00 A site_headway_assumed_phase",
+    "19:50:00 A site_headway_assumed_phase",
+    "20:00:00 A site_headway_assumed_phase",
+    "20:10:00 A site_headway_assumed_phase",
+    "20:20:00 A site_headway_assumed_phase",
+    "20:30:00 A site_headway_assumed_phase"
+   ],
+   "digest": "6ef12ed0ec20b5d2",
+   "all": [
+    [
+     "06:00:00",
+     "A"
+    ],
+    [
+     "06:15:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "B"
+    ],
+    [
+     "06:45:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "B"
+    ],
+    [
+     "07:15:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "B"
+    ],
+    [
+     "07:45:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "B"
+    ],
+    [
+     "08:15:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "B"
+    ],
+    [
+     "08:45:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "B"
+    ],
+    [
+     "09:15:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "B"
+    ],
+    [
+     "09:45:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "B"
+    ],
+    [
+     "10:15:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "B"
+    ],
+    [
+     "10:45:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "B"
+    ],
+    [
+     "11:15:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "B"
+    ],
+    [
+     "11:45:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "B"
+    ],
+    [
+     "12:15:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "B"
+    ],
+    [
+     "12:45:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "B"
+    ],
+    [
+     "13:15:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "B"
+    ],
+    [
+     "13:45:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "B"
+    ],
+    [
+     "14:15:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "B"
+    ],
+    [
+     "14:45:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "B"
+    ],
+    [
+     "15:15:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "B"
+    ],
+    [
+     "15:40:55",
+     "A"
+    ],
+    [
+     "15:51:49",
+     "A"
+    ],
+    [
+     "16:00:00",
+     "B"
+    ],
+    [
+     "16:02:44",
+     "A"
+    ],
+    [
+     "16:13:38",
+     "A"
+    ],
+    [
+     "16:24:33",
+     "A"
+    ],
+    [
+     "16:30:00",
+     "B"
+    ],
+    [
+     "16:35:27",
+     "A"
+    ],
+    [
+     "16:46:22",
+     "A"
+    ],
+    [
+     "16:57:16",
+     "A"
+    ],
+    [
+     "17:00:00",
+     "B"
+    ],
+    [
+     "17:08:11",
+     "A"
+    ],
+    [
+     "17:19:05",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "B"
+    ],
+    [
+     "17:40:55",
+     "A"
+    ],
+    [
+     "17:51:49",
+     "A"
+    ],
+    [
+     "18:00:00",
+     "B"
+    ],
+    [
+     "18:02:44",
+     "A"
+    ],
+    [
+     "18:13:38",
+     "A"
+    ],
+    [
+     "18:24:33",
+     "A"
+    ],
+    [
+     "18:30:00",
+     "B"
+    ],
+    [
+     "18:35:27",
+     "A"
+    ],
+    [
+     "18:46:22",
+     "A"
+    ],
+    [
+     "18:57:16",
+     "A"
+    ],
+    [
+     "19:00:00",
+     "B"
+    ],
+    [
+     "19:08:11",
+     "A"
+    ],
+    [
+     "19:19:05",
+     "A"
+    ],
+    [
+     "19:30:00",
+     "A"
+    ],
+    [
+     "19:40:00",
+     "A"
+    ],
+    [
+     "19:50:00",
+     "A"
+    ],
+    [
+     "20:00:00",
+     "A"
+    ],
+    [
+     "20:10:00",
+     "A"
+    ],
+    [
+     "20:20:00",
+     "A"
+    ],
+    [
+     "20:30:00",
+     "A"
+    ],
+    [
+     "20:40:00",
+     "A"
+    ],
+    [
+     "20:50:00",
+     "A"
+    ],
+    [
+     "21:00:00",
+     "A"
+    ],
+    [
+     "21:10:00",
+     "A"
+    ],
+    [
+     "21:20:00",
+     "A"
+    ],
+    [
+     "21:30:00",
+     "A"
+    ],
+    [
+     "21:40:00",
+     "A"
+    ],
+    [
+     "21:50:00",
+     "A"
+    ]
+   ]
+  },
+  {
+   "id": "S02",
+   "date": "2026-11-04",
+   "note": "Wednesday normal day (today in the owner timeline)",
+   "dayType": "normal",
+   "countA": 75,
+   "countB": 26,
+   "exactCollisions": 20,
+   "collisionsLe90": [
+    {
+     "a": "06:30:00",
+     "aService": "A",
+     "b": "06:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:00:00",
+     "aService": "A",
+     "b": "07:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:30:00",
+     "aService": "A",
+     "b": "07:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:00:00",
+     "aService": "A",
+     "b": "08:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:30:00",
+     "aService": "A",
+     "b": "08:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:00:00",
+     "aService": "A",
+     "b": "09:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:30:00",
+     "aService": "A",
+     "b": "09:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:00:00",
+     "aService": "A",
+     "b": "10:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:30:00",
+     "aService": "A",
+     "b": "10:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:00:00",
+     "aService": "A",
+     "b": "11:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:30:00",
+     "aService": "A",
+     "b": "11:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:00:00",
+     "aService": "A",
+     "b": "12:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:30:00",
+     "aService": "A",
+     "b": "12:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:00:00",
+     "aService": "A",
+     "b": "13:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:30:00",
+     "aService": "A",
+     "b": "13:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:00:00",
+     "aService": "A",
+     "b": "14:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:30:00",
+     "aService": "A",
+     "b": "14:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:00:00",
+     "aService": "A",
+     "b": "15:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:30:00",
+     "aService": "A",
+     "b": "15:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "17:30:00",
+     "aService": "A",
+     "b": "17:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    }
+   ],
+   "collisionsLe120": 20,
+   "morning": [
+    "06:00:00 A site_headway_assumed_phase",
+    "06:15:00 A site_headway_assumed_phase",
+    "06:30:00 A site_headway_assumed_phase",
+    "06:30:00 B site_headway_assumed_phase",
+    "06:45:00 A site_headway_assumed_phase",
+    "07:00:00 A site_headway_assumed_phase",
+    "07:00:00 B site_headway_assumed_phase",
+    "07:15:00 A site_headway_assumed_phase"
+   ],
+   "noon": [
+    "11:30:00 A site_headway_assumed_phase",
+    "11:30:00 B site_headway_assumed_phase",
+    "11:45:00 A site_headway_assumed_phase",
+    "12:00:00 A site_headway_assumed_phase",
+    "12:00:00 B site_headway_assumed_phase",
+    "12:15:00 A site_headway_assumed_phase",
+    "12:30:00 A site_headway_assumed_phase",
+    "12:30:00 B site_headway_assumed_phase",
+    "12:45:00 A site_headway_assumed_phase"
+   ],
+   "evening": [
+    "18:57:16 A site_headway_assumed_phase",
+    "19:00:00 B site_headway_assumed_phase",
+    "19:08:11 A site_headway_assumed_phase",
+    "19:19:05 A site_headway_assumed_phase",
+    "19:30:00 A site_headway_assumed_phase",
+    "19:40:00 A site_headway_assumed_phase",
+    "19:50:00 A site_headway_assumed_phase",
+    "20:00:00 A site_headway_assumed_phase",
+    "20:10:00 A site_headway_assumed_phase",
+    "20:20:00 A site_headway_assumed_phase",
+    "20:30:00 A site_headway_assumed_phase"
+   ],
+   "digest": "6ef12ed0ec20b5d2",
+   "all": [
+    [
+     "06:00:00",
+     "A"
+    ],
+    [
+     "06:15:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "B"
+    ],
+    [
+     "06:45:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "B"
+    ],
+    [
+     "07:15:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "B"
+    ],
+    [
+     "07:45:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "B"
+    ],
+    [
+     "08:15:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "B"
+    ],
+    [
+     "08:45:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "B"
+    ],
+    [
+     "09:15:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "B"
+    ],
+    [
+     "09:45:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "B"
+    ],
+    [
+     "10:15:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "B"
+    ],
+    [
+     "10:45:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "B"
+    ],
+    [
+     "11:15:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "B"
+    ],
+    [
+     "11:45:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "B"
+    ],
+    [
+     "12:15:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "B"
+    ],
+    [
+     "12:45:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "B"
+    ],
+    [
+     "13:15:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "B"
+    ],
+    [
+     "13:45:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "B"
+    ],
+    [
+     "14:15:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "B"
+    ],
+    [
+     "14:45:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "B"
+    ],
+    [
+     "15:15:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "B"
+    ],
+    [
+     "15:40:55",
+     "A"
+    ],
+    [
+     "15:51:49",
+     "A"
+    ],
+    [
+     "16:00:00",
+     "B"
+    ],
+    [
+     "16:02:44",
+     "A"
+    ],
+    [
+     "16:13:38",
+     "A"
+    ],
+    [
+     "16:24:33",
+     "A"
+    ],
+    [
+     "16:30:00",
+     "B"
+    ],
+    [
+     "16:35:27",
+     "A"
+    ],
+    [
+     "16:46:22",
+     "A"
+    ],
+    [
+     "16:57:16",
+     "A"
+    ],
+    [
+     "17:00:00",
+     "B"
+    ],
+    [
+     "17:08:11",
+     "A"
+    ],
+    [
+     "17:19:05",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "B"
+    ],
+    [
+     "17:40:55",
+     "A"
+    ],
+    [
+     "17:51:49",
+     "A"
+    ],
+    [
+     "18:00:00",
+     "B"
+    ],
+    [
+     "18:02:44",
+     "A"
+    ],
+    [
+     "18:13:38",
+     "A"
+    ],
+    [
+     "18:24:33",
+     "A"
+    ],
+    [
+     "18:30:00",
+     "B"
+    ],
+    [
+     "18:35:27",
+     "A"
+    ],
+    [
+     "18:46:22",
+     "A"
+    ],
+    [
+     "18:57:16",
+     "A"
+    ],
+    [
+     "19:00:00",
+     "B"
+    ],
+    [
+     "19:08:11",
+     "A"
+    ],
+    [
+     "19:19:05",
+     "A"
+    ],
+    [
+     "19:30:00",
+     "A"
+    ],
+    [
+     "19:40:00",
+     "A"
+    ],
+    [
+     "19:50:00",
+     "A"
+    ],
+    [
+     "20:00:00",
+     "A"
+    ],
+    [
+     "20:10:00",
+     "A"
+    ],
+    [
+     "20:20:00",
+     "A"
+    ],
+    [
+     "20:30:00",
+     "A"
+    ],
+    [
+     "20:40:00",
+     "A"
+    ],
+    [
+     "20:50:00",
+     "A"
+    ],
+    [
+     "21:00:00",
+     "A"
+    ],
+    [
+     "21:10:00",
+     "A"
+    ],
+    [
+     "21:20:00",
+     "A"
+    ],
+    [
+     "21:30:00",
+     "A"
+    ],
+    [
+     "21:40:00",
+     "A"
+    ],
+    [
+     "21:50:00",
+     "A"
+    ]
+   ]
+  },
+  {
+   "id": "S03",
+   "date": "2026-11-01",
+   "note": "Sunday normal day (field day for the crossing observation)",
+   "dayType": "normal",
+   "countA": 75,
+   "countB": 26,
+   "exactCollisions": 20,
+   "collisionsLe90": [
+    {
+     "a": "06:30:00",
+     "aService": "A",
+     "b": "06:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:00:00",
+     "aService": "A",
+     "b": "07:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:30:00",
+     "aService": "A",
+     "b": "07:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:00:00",
+     "aService": "A",
+     "b": "08:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:30:00",
+     "aService": "A",
+     "b": "08:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:00:00",
+     "aService": "A",
+     "b": "09:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:30:00",
+     "aService": "A",
+     "b": "09:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:00:00",
+     "aService": "A",
+     "b": "10:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:30:00",
+     "aService": "A",
+     "b": "10:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:00:00",
+     "aService": "A",
+     "b": "11:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:30:00",
+     "aService": "A",
+     "b": "11:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:00:00",
+     "aService": "A",
+     "b": "12:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:30:00",
+     "aService": "A",
+     "b": "12:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:00:00",
+     "aService": "A",
+     "b": "13:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:30:00",
+     "aService": "A",
+     "b": "13:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:00:00",
+     "aService": "A",
+     "b": "14:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:30:00",
+     "aService": "A",
+     "b": "14:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:00:00",
+     "aService": "A",
+     "b": "15:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:30:00",
+     "aService": "A",
+     "b": "15:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "17:30:00",
+     "aService": "A",
+     "b": "17:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    }
+   ],
+   "collisionsLe120": 20,
+   "morning": [
+    "06:00:00 A site_headway_assumed_phase",
+    "06:15:00 A site_headway_assumed_phase",
+    "06:30:00 A site_headway_assumed_phase",
+    "06:30:00 B site_headway_assumed_phase",
+    "06:45:00 A site_headway_assumed_phase",
+    "07:00:00 A site_headway_assumed_phase",
+    "07:00:00 B site_headway_assumed_phase",
+    "07:15:00 A site_headway_assumed_phase"
+   ],
+   "noon": [
+    "11:30:00 A site_headway_assumed_phase",
+    "11:30:00 B site_headway_assumed_phase",
+    "11:45:00 A site_headway_assumed_phase",
+    "12:00:00 A site_headway_assumed_phase",
+    "12:00:00 B site_headway_assumed_phase",
+    "12:15:00 A site_headway_assumed_phase",
+    "12:30:00 A site_headway_assumed_phase",
+    "12:30:00 B site_headway_assumed_phase",
+    "12:45:00 A site_headway_assumed_phase"
+   ],
+   "evening": [
+    "18:57:16 A site_headway_assumed_phase",
+    "19:00:00 B site_headway_assumed_phase",
+    "19:08:11 A site_headway_assumed_phase",
+    "19:19:05 A site_headway_assumed_phase",
+    "19:30:00 A site_headway_assumed_phase",
+    "19:40:00 A site_headway_assumed_phase",
+    "19:50:00 A site_headway_assumed_phase",
+    "20:00:00 A site_headway_assumed_phase",
+    "20:10:00 A site_headway_assumed_phase",
+    "20:20:00 A site_headway_assumed_phase",
+    "20:30:00 A site_headway_assumed_phase"
+   ],
+   "digest": "6ef12ed0ec20b5d2",
+   "all": [
+    [
+     "06:00:00",
+     "A"
+    ],
+    [
+     "06:15:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "B"
+    ],
+    [
+     "06:45:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "B"
+    ],
+    [
+     "07:15:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "B"
+    ],
+    [
+     "07:45:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "B"
+    ],
+    [
+     "08:15:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "B"
+    ],
+    [
+     "08:45:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "B"
+    ],
+    [
+     "09:15:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "B"
+    ],
+    [
+     "09:45:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "B"
+    ],
+    [
+     "10:15:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "B"
+    ],
+    [
+     "10:45:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "B"
+    ],
+    [
+     "11:15:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "B"
+    ],
+    [
+     "11:45:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "B"
+    ],
+    [
+     "12:15:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "B"
+    ],
+    [
+     "12:45:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "B"
+    ],
+    [
+     "13:15:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "B"
+    ],
+    [
+     "13:45:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "B"
+    ],
+    [
+     "14:15:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "B"
+    ],
+    [
+     "14:45:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "B"
+    ],
+    [
+     "15:15:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "B"
+    ],
+    [
+     "15:40:55",
+     "A"
+    ],
+    [
+     "15:51:49",
+     "A"
+    ],
+    [
+     "16:00:00",
+     "B"
+    ],
+    [
+     "16:02:44",
+     "A"
+    ],
+    [
+     "16:13:38",
+     "A"
+    ],
+    [
+     "16:24:33",
+     "A"
+    ],
+    [
+     "16:30:00",
+     "B"
+    ],
+    [
+     "16:35:27",
+     "A"
+    ],
+    [
+     "16:46:22",
+     "A"
+    ],
+    [
+     "16:57:16",
+     "A"
+    ],
+    [
+     "17:00:00",
+     "B"
+    ],
+    [
+     "17:08:11",
+     "A"
+    ],
+    [
+     "17:19:05",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "B"
+    ],
+    [
+     "17:40:55",
+     "A"
+    ],
+    [
+     "17:51:49",
+     "A"
+    ],
+    [
+     "18:00:00",
+     "B"
+    ],
+    [
+     "18:02:44",
+     "A"
+    ],
+    [
+     "18:13:38",
+     "A"
+    ],
+    [
+     "18:24:33",
+     "A"
+    ],
+    [
+     "18:30:00",
+     "B"
+    ],
+    [
+     "18:35:27",
+     "A"
+    ],
+    [
+     "18:46:22",
+     "A"
+    ],
+    [
+     "18:57:16",
+     "A"
+    ],
+    [
+     "19:00:00",
+     "B"
+    ],
+    [
+     "19:08:11",
+     "A"
+    ],
+    [
+     "19:19:05",
+     "A"
+    ],
+    [
+     "19:30:00",
+     "A"
+    ],
+    [
+     "19:40:00",
+     "A"
+    ],
+    [
+     "19:50:00",
+     "A"
+    ],
+    [
+     "20:00:00",
+     "A"
+    ],
+    [
+     "20:10:00",
+     "A"
+    ],
+    [
+     "20:20:00",
+     "A"
+    ],
+    [
+     "20:30:00",
+     "A"
+    ],
+    [
+     "20:40:00",
+     "A"
+    ],
+    [
+     "20:50:00",
+     "A"
+    ],
+    [
+     "21:00:00",
+     "A"
+    ],
+    [
+     "21:10:00",
+     "A"
+    ],
+    [
+     "21:20:00",
+     "A"
+    ],
+    [
+     "21:30:00",
+     "A"
+    ],
+    [
+     "21:40:00",
+     "A"
+    ],
+    [
+     "21:50:00",
+     "A"
+    ]
+   ]
+  },
+  {
+   "id": "S04",
+   "date": "2026-10-22",
+   "note": "Thursday (existing measured B phase)",
+   "dayType": "thursday",
+   "countA": 73,
+   "countB": 28,
+   "exactCollisions": 0,
+   "collisionsLe90": [
+    {
+     "a": "16:34:39",
+     "aService": "A",
+     "b": "16:35:17",
+     "bService": "B",
+     "deltaSeconds": 38,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "official_sheet_phase"
+    },
+    {
+     "a": "18:34:39",
+     "aService": "A",
+     "b": "18:35:17",
+     "bService": "B",
+     "deltaSeconds": 38,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "official_sheet_phase"
+    }
+   ],
+   "collisionsLe120": 2,
+   "morning": [
+    "06:00:17 B official_sheet_phase",
+    "06:10:06 A site_headway_assumed_phase",
+    "06:25:06 A site_headway_assumed_phase",
+    "06:35:17 B official_sheet_phase",
+    "06:40:06 A site_headway_assumed_phase",
+    "06:55:06 A site_headway_assumed_phase",
+    "07:05:17 B official_sheet_phase",
+    "07:10:06 A site_headway_assumed_phase"
+   ],
+   "noon": [
+    "11:35:17 B official_sheet_phase",
+    "11:40:06 A site_headway_assumed_phase",
+    "11:55:06 A site_headway_assumed_phase",
+    "12:05:17 B official_sheet_phase",
+    "12:10:06 A site_headway_assumed_phase",
+    "12:25:06 A site_headway_assumed_phase",
+    "12:35:17 B official_sheet_phase",
+    "12:40:06 A site_headway_assumed_phase"
+   ],
+   "evening": [
+    "18:56:28 A site_headway_assumed_phase",
+    "19:05:17 B official_sheet_phase",
+    "19:07:22 A site_headway_assumed_phase",
+    "19:18:17 A site_headway_assumed_phase",
+    "19:29:11 A site_headway_assumed_phase",
+    "19:35:17 B official_sheet_phase",
+    "19:44:11 A site_headway_assumed_phase",
+    "19:59:11 A site_headway_assumed_phase",
+    "20:14:11 A site_headway_assumed_phase",
+    "20:24:11 A site_headway_assumed_phase",
+    "20:34:11 A site_headway_assumed_phase"
+   ],
+   "digest": "55202a9b6e5d99fa",
+   "all": [
+    [
+     "06:00:17",
+     "B"
+    ],
+    [
+     "06:10:06",
+     "A"
+    ],
+    [
+     "06:25:06",
+     "A"
+    ],
+    [
+     "06:35:17",
+     "B"
+    ],
+    [
+     "06:40:06",
+     "A"
+    ],
+    [
+     "06:55:06",
+     "A"
+    ],
+    [
+     "07:05:17",
+     "B"
+    ],
+    [
+     "07:10:06",
+     "A"
+    ],
+    [
+     "07:25:06",
+     "A"
+    ],
+    [
+     "07:35:17",
+     "B"
+    ],
+    [
+     "07:40:06",
+     "A"
+    ],
+    [
+     "07:55:06",
+     "A"
+    ],
+    [
+     "08:05:17",
+     "B"
+    ],
+    [
+     "08:10:06",
+     "A"
+    ],
+    [
+     "08:25:06",
+     "A"
+    ],
+    [
+     "08:35:17",
+     "B"
+    ],
+    [
+     "08:40:06",
+     "A"
+    ],
+    [
+     "08:55:06",
+     "A"
+    ],
+    [
+     "09:05:17",
+     "B"
+    ],
+    [
+     "09:10:06",
+     "A"
+    ],
+    [
+     "09:25:06",
+     "A"
+    ],
+    [
+     "09:35:17",
+     "B"
+    ],
+    [
+     "09:40:06",
+     "A"
+    ],
+    [
+     "09:55:06",
+     "A"
+    ],
+    [
+     "10:05:17",
+     "B"
+    ],
+    [
+     "10:10:06",
+     "A"
+    ],
+    [
+     "10:25:06",
+     "A"
+    ],
+    [
+     "10:35:17",
+     "B"
+    ],
+    [
+     "10:40:06",
+     "A"
+    ],
+    [
+     "10:55:06",
+     "A"
+    ],
+    [
+     "11:05:17",
+     "B"
+    ],
+    [
+     "11:10:06",
+     "A"
+    ],
+    [
+     "11:25:06",
+     "A"
+    ],
+    [
+     "11:35:17",
+     "B"
+    ],
+    [
+     "11:40:06",
+     "A"
+    ],
+    [
+     "11:55:06",
+     "A"
+    ],
+    [
+     "12:05:17",
+     "B"
+    ],
+    [
+     "12:10:06",
+     "A"
+    ],
+    [
+     "12:25:06",
+     "A"
+    ],
+    [
+     "12:35:17",
+     "B"
+    ],
+    [
+     "12:40:06",
+     "A"
+    ],
+    [
+     "12:55:06",
+     "A"
+    ],
+    [
+     "13:05:17",
+     "B"
+    ],
+    [
+     "13:10:06",
+     "A"
+    ],
+    [
+     "13:25:06",
+     "A"
+    ],
+    [
+     "13:35:17",
+     "B"
+    ],
+    [
+     "13:40:06",
+     "A"
+    ],
+    [
+     "13:55:06",
+     "A"
+    ],
+    [
+     "14:05:17",
+     "B"
+    ],
+    [
+     "14:10:06",
+     "A"
+    ],
+    [
+     "14:25:06",
+     "A"
+    ],
+    [
+     "14:35:17",
+     "B"
+    ],
+    [
+     "14:40:06",
+     "A"
+    ],
+    [
+     "14:55:06",
+     "A"
+    ],
+    [
+     "15:05:17",
+     "B"
+    ],
+    [
+     "15:10:06",
+     "A"
+    ],
+    [
+     "15:25:06",
+     "A"
+    ],
+    [
+     "15:35:17",
+     "B"
+    ],
+    [
+     "15:40:06",
+     "A"
+    ],
+    [
+     "15:51:01",
+     "A"
+    ],
+    [
+     "16:01:55",
+     "A"
+    ],
+    [
+     "16:05:17",
+     "B"
+    ],
+    [
+     "16:12:50",
+     "A"
+    ],
+    [
+     "16:23:44",
+     "A"
+    ],
+    [
+     "16:34:39",
+     "A"
+    ],
+    [
+     "16:35:17",
+     "B"
+    ],
+    [
+     "16:45:33",
+     "A"
+    ],
+    [
+     "16:56:28",
+     "A"
+    ],
+    [
+     "17:05:17",
+     "B"
+    ],
+    [
+     "17:07:22",
+     "A"
+    ],
+    [
+     "17:18:17",
+     "A"
+    ],
+    [
+     "17:29:11",
+     "A"
+    ],
+    [
+     "17:35:17",
+     "B"
+    ],
+    [
+     "17:40:06",
+     "A"
+    ],
+    [
+     "17:51:01",
+     "A"
+    ],
+    [
+     "18:01:55",
+     "A"
+    ],
+    [
+     "18:05:17",
+     "B"
+    ],
+    [
+     "18:12:50",
+     "A"
+    ],
+    [
+     "18:23:44",
+     "A"
+    ],
+    [
+     "18:34:39",
+     "A"
+    ],
+    [
+     "18:35:17",
+     "B"
+    ],
+    [
+     "18:45:33",
+     "A"
+    ],
+    [
+     "18:56:28",
+     "A"
+    ],
+    [
+     "19:05:17",
+     "B"
+    ],
+    [
+     "19:07:22",
+     "A"
+    ],
+    [
+     "19:18:17",
+     "A"
+    ],
+    [
+     "19:29:11",
+     "A"
+    ],
+    [
+     "19:35:17",
+     "B"
+    ],
+    [
+     "19:44:11",
+     "A"
+    ],
+    [
+     "19:59:11",
+     "A"
+    ],
+    [
+     "20:14:11",
+     "A"
+    ],
+    [
+     "20:24:11",
+     "A"
+    ],
+    [
+     "20:34:11",
+     "A"
+    ],
+    [
+     "20:44:11",
+     "A"
+    ],
+    [
+     "20:54:11",
+     "A"
+    ],
+    [
+     "21:04:11",
+     "A"
+    ],
+    [
+     "21:14:11",
+     "A"
+    ],
+    [
+     "21:24:11",
+     "A"
+    ],
+    [
+     "21:34:11",
+     "A"
+    ],
+    [
+     "21:44:11",
+     "A"
+    ],
+    [
+     "21:54:11",
+     "A"
+    ]
+   ]
+  },
+  {
+   "id": "S05",
+   "date": "2026-10-16",
+   "note": "Friday (golden-tested)",
+   "dayType": "friday",
+   "countA": 38,
+   "countB": 39,
+   "exactCollisions": 0,
+   "collisionsLe90": [],
+   "collisionsLe120": 0,
+   "morning": [
+    "06:36:00 B measured_phase",
+    "07:00:00 B measured_phase",
+    "07:11:51 A measured_phase"
+   ],
+   "noon": [
+    "11:35:51 A measured_phase",
+    "11:48:00 B measured_phase",
+    "11:59:51 A measured_phase",
+    "12:12:00 B measured_phase",
+    "12:23:51 A measured_phase",
+    "12:36:00 B measured_phase",
+    "12:47:51 A measured_phase"
+   ],
+   "evening": [
+    "19:00:00 B measured_phase",
+    "19:11:51 A measured_phase",
+    "19:24:00 B measured_phase",
+    "19:35:51 A measured_phase",
+    "19:48:00 B measured_phase",
+    "19:59:51 A measured_phase",
+    "20:12:00 B measured_phase",
+    "20:23:51 A measured_phase"
+   ],
+   "digest": "7e820ae5aa623674",
+   "all": [
+    [
+     "06:36:00",
+     "B"
+    ],
+    [
+     "07:00:00",
+     "B"
+    ],
+    [
+     "07:11:51",
+     "A"
+    ],
+    [
+     "07:24:00",
+     "B"
+    ],
+    [
+     "07:35:51",
+     "A"
+    ],
+    [
+     "07:48:00",
+     "B"
+    ],
+    [
+     "07:59:51",
+     "A"
+    ],
+    [
+     "08:12:00",
+     "B"
+    ],
+    [
+     "08:23:51",
+     "A"
+    ],
+    [
+     "08:36:00",
+     "B"
+    ],
+    [
+     "08:47:51",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "B"
+    ],
+    [
+     "09:11:51",
+     "A"
+    ],
+    [
+     "09:24:00",
+     "B"
+    ],
+    [
+     "09:35:51",
+     "A"
+    ],
+    [
+     "09:48:00",
+     "B"
+    ],
+    [
+     "09:59:51",
+     "A"
+    ],
+    [
+     "10:12:00",
+     "B"
+    ],
+    [
+     "10:23:51",
+     "A"
+    ],
+    [
+     "10:36:00",
+     "B"
+    ],
+    [
+     "10:47:51",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "B"
+    ],
+    [
+     "11:11:51",
+     "A"
+    ],
+    [
+     "11:24:00",
+     "B"
+    ],
+    [
+     "11:35:51",
+     "A"
+    ],
+    [
+     "11:48:00",
+     "B"
+    ],
+    [
+     "11:59:51",
+     "A"
+    ],
+    [
+     "12:12:00",
+     "B"
+    ],
+    [
+     "12:23:51",
+     "A"
+    ],
+    [
+     "12:36:00",
+     "B"
+    ],
+    [
+     "12:47:51",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "B"
+    ],
+    [
+     "13:11:51",
+     "A"
+    ],
+    [
+     "13:24:00",
+     "B"
+    ],
+    [
+     "13:35:51",
+     "A"
+    ],
+    [
+     "13:48:00",
+     "B"
+    ],
+    [
+     "13:59:51",
+     "A"
+    ],
+    [
+     "14:12:00",
+     "B"
+    ],
+    [
+     "14:23:51",
+     "A"
+    ],
+    [
+     "14:36:00",
+     "B"
+    ],
+    [
+     "14:47:51",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "B"
+    ],
+    [
+     "15:11:51",
+     "A"
+    ],
+    [
+     "15:24:00",
+     "B"
+    ],
+    [
+     "15:35:51",
+     "A"
+    ],
+    [
+     "15:48:00",
+     "B"
+    ],
+    [
+     "15:59:51",
+     "A"
+    ],
+    [
+     "16:12:00",
+     "B"
+    ],
+    [
+     "16:23:51",
+     "A"
+    ],
+    [
+     "16:36:00",
+     "B"
+    ],
+    [
+     "16:47:51",
+     "A"
+    ],
+    [
+     "17:00:00",
+     "B"
+    ],
+    [
+     "17:11:51",
+     "A"
+    ],
+    [
+     "17:24:00",
+     "B"
+    ],
+    [
+     "17:35:51",
+     "A"
+    ],
+    [
+     "17:48:00",
+     "B"
+    ],
+    [
+     "17:59:51",
+     "A"
+    ],
+    [
+     "18:12:00",
+     "B"
+    ],
+    [
+     "18:23:51",
+     "A"
+    ],
+    [
+     "18:36:00",
+     "B"
+    ],
+    [
+     "18:47:51",
+     "A"
+    ],
+    [
+     "19:00:00",
+     "B"
+    ],
+    [
+     "19:11:51",
+     "A"
+    ],
+    [
+     "19:24:00",
+     "B"
+    ],
+    [
+     "19:35:51",
+     "A"
+    ],
+    [
+     "19:48:00",
+     "B"
+    ],
+    [
+     "19:59:51",
+     "A"
+    ],
+    [
+     "20:12:00",
+     "B"
+    ],
+    [
+     "20:23:51",
+     "A"
+    ],
+    [
+     "20:36:00",
+     "B"
+    ],
+    [
+     "20:47:51",
+     "A"
+    ],
+    [
+     "21:00:00",
+     "B"
+    ],
+    [
+     "21:11:51",
+     "A"
+    ],
+    [
+     "21:24:00",
+     "B"
+    ],
+    [
+     "21:35:51",
+     "A"
+    ],
+    [
+     "21:48:00",
+     "B"
+    ],
+    [
+     "21:59:51",
+     "A"
+    ]
+   ]
+  },
+  {
+   "id": "S06",
+   "date": "2026-11-07",
+   "note": "Saturday normal day",
+   "dayType": "normal",
+   "countA": 75,
+   "countB": 26,
+   "exactCollisions": 20,
+   "collisionsLe90": [
+    {
+     "a": "06:30:00",
+     "aService": "A",
+     "b": "06:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:00:00",
+     "aService": "A",
+     "b": "07:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "07:30:00",
+     "aService": "A",
+     "b": "07:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:00:00",
+     "aService": "A",
+     "b": "08:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "08:30:00",
+     "aService": "A",
+     "b": "08:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:00:00",
+     "aService": "A",
+     "b": "09:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "09:30:00",
+     "aService": "A",
+     "b": "09:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:00:00",
+     "aService": "A",
+     "b": "10:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "10:30:00",
+     "aService": "A",
+     "b": "10:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:00:00",
+     "aService": "A",
+     "b": "11:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "11:30:00",
+     "aService": "A",
+     "b": "11:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:00:00",
+     "aService": "A",
+     "b": "12:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "12:30:00",
+     "aService": "A",
+     "b": "12:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:00:00",
+     "aService": "A",
+     "b": "13:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "13:30:00",
+     "aService": "A",
+     "b": "13:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:00:00",
+     "aService": "A",
+     "b": "14:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "14:30:00",
+     "aService": "A",
+     "b": "14:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:00:00",
+     "aService": "A",
+     "b": "15:00:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "15:30:00",
+     "aService": "A",
+     "b": "15:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    },
+    {
+     "a": "17:30:00",
+     "aService": "A",
+     "b": "17:30:00",
+     "bService": "B",
+     "deltaSeconds": 0,
+     "aConfidence": "site_headway_assumed_phase",
+     "bConfidence": "site_headway_assumed_phase"
+    }
+   ],
+   "collisionsLe120": 20,
+   "morning": [
+    "06:00:00 A site_headway_assumed_phase",
+    "06:15:00 A site_headway_assumed_phase",
+    "06:30:00 A site_headway_assumed_phase",
+    "06:30:00 B site_headway_assumed_phase",
+    "06:45:00 A site_headway_assumed_phase",
+    "07:00:00 A site_headway_assumed_phase",
+    "07:00:00 B site_headway_assumed_phase",
+    "07:15:00 A site_headway_assumed_phase"
+   ],
+   "noon": [
+    "11:30:00 A site_headway_assumed_phase",
+    "11:30:00 B site_headway_assumed_phase",
+    "11:45:00 A site_headway_assumed_phase",
+    "12:00:00 A site_headway_assumed_phase",
+    "12:00:00 B site_headway_assumed_phase",
+    "12:15:00 A site_headway_assumed_phase",
+    "12:30:00 A site_headway_assumed_phase",
+    "12:30:00 B site_headway_assumed_phase",
+    "12:45:00 A site_headway_assumed_phase"
+   ],
+   "evening": [
+    "18:57:16 A site_headway_assumed_phase",
+    "19:00:00 B site_headway_assumed_phase",
+    "19:08:11 A site_headway_assumed_phase",
+    "19:19:05 A site_headway_assumed_phase",
+    "19:30:00 A site_headway_assumed_phase",
+    "19:40:00 A site_headway_assumed_phase",
+    "19:50:00 A site_headway_assumed_phase",
+    "20:00:00 A site_headway_assumed_phase",
+    "20:10:00 A site_headway_assumed_phase",
+    "20:20:00 A site_headway_assumed_phase",
+    "20:30:00 A site_headway_assumed_phase"
+   ],
+   "digest": "6ef12ed0ec20b5d2",
+   "all": [
+    [
+     "06:00:00",
+     "A"
+    ],
+    [
+     "06:15:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "A"
+    ],
+    [
+     "06:30:00",
+     "B"
+    ],
+    [
+     "06:45:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "A"
+    ],
+    [
+     "07:00:00",
+     "B"
+    ],
+    [
+     "07:15:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "A"
+    ],
+    [
+     "07:30:00",
+     "B"
+    ],
+    [
+     "07:45:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "A"
+    ],
+    [
+     "08:00:00",
+     "B"
+    ],
+    [
+     "08:15:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "A"
+    ],
+    [
+     "08:30:00",
+     "B"
+    ],
+    [
+     "08:45:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "A"
+    ],
+    [
+     "09:00:00",
+     "B"
+    ],
+    [
+     "09:15:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "A"
+    ],
+    [
+     "09:30:00",
+     "B"
+    ],
+    [
+     "09:45:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "A"
+    ],
+    [
+     "10:00:00",
+     "B"
+    ],
+    [
+     "10:15:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "A"
+    ],
+    [
+     "10:30:00",
+     "B"
+    ],
+    [
+     "10:45:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "A"
+    ],
+    [
+     "11:00:00",
+     "B"
+    ],
+    [
+     "11:15:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "A"
+    ],
+    [
+     "11:30:00",
+     "B"
+    ],
+    [
+     "11:45:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "A"
+    ],
+    [
+     "12:00:00",
+     "B"
+    ],
+    [
+     "12:15:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "A"
+    ],
+    [
+     "12:30:00",
+     "B"
+    ],
+    [
+     "12:45:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "A"
+    ],
+    [
+     "13:00:00",
+     "B"
+    ],
+    [
+     "13:15:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "A"
+    ],
+    [
+     "13:30:00",
+     "B"
+    ],
+    [
+     "13:45:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "A"
+    ],
+    [
+     "14:00:00",
+     "B"
+    ],
+    [
+     "14:15:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "A"
+    ],
+    [
+     "14:30:00",
+     "B"
+    ],
+    [
+     "14:45:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "A"
+    ],
+    [
+     "15:00:00",
+     "B"
+    ],
+    [
+     "15:15:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "A"
+    ],
+    [
+     "15:30:00",
+     "B"
+    ],
+    [
+     "15:40:55",
+     "A"
+    ],
+    [
+     "15:51:49",
+     "A"
+    ],
+    [
+     "16:00:00",
+     "B"
+    ],
+    [
+     "16:02:44",
+     "A"
+    ],
+    [
+     "16:13:38",
+     "A"
+    ],
+    [
+     "16:24:33",
+     "A"
+    ],
+    [
+     "16:30:00",
+     "B"
+    ],
+    [
+     "16:35:27",
+     "A"
+    ],
+    [
+     "16:46:22",
+     "A"
+    ],
+    [
+     "16:57:16",
+     "A"
+    ],
+    [
+     "17:00:00",
+     "B"
+    ],
+    [
+     "17:08:11",
+     "A"
+    ],
+    [
+     "17:19:05",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "A"
+    ],
+    [
+     "17:30:00",
+     "B"
+    ],
+    [
+     "17:40:55",
+     "A"
+    ],
+    [
+     "17:51:49",
+     "A"
+    ],
+    [
+     "18:00:00",
+     "B"
+    ],
+    [
+     "18:02:44",
+     "A"
+    ],
+    [
+     "18:13:38",
+     "A"
+    ],
+    [
+     "18:24:33",
+     "A"
+    ],
+    [
+     "18:30:00",
+     "B"
+    ],
+    [
+     "18:35:27",
+     "A"
+    ],
+    [
+     "18:46:22",
+     "A"
+    ],
+    [
+     "18:57:16",
+     "A"
+    ],
+    [
+     "19:00:00",
+     "B"
+    ],
+    [
+     "19:08:11",
+     "A"
+    ],
+    [
+     "19:19:05",
+     "A"
+    ],
+    [
+     "19:30:00",
+     "A"
+    ],
+    [
+     "19:40:00",
+     "A"
+    ],
+    [
+     "19:50:00",
+     "A"
+    ],
+    [
+     "20:00:00",
+     "A"
+    ],
+    [
+     "20:10:00",
+     "A"
+    ],
+    [
+     "20:20:00",
+     "A"
+    ],
+    [
+     "20:30:00",
+     "A"
+    ],
+    [
+     "20:40:00",
+     "A"
+    ],
+    [
+     "20:50:00",
+     "A"
+    ],
+    [
+     "21:00:00",
+     "A"
+    ],
+    [
+     "21:10:00",
+     "A"
+    ],
+    [
+     "21:20:00",
+     "A"
+    ],
+    [
+     "21:30:00",
+     "A"
+    ],
+    [
+     "21:40:00",
+     "A"
+    ],
+    [
+     "21:50:00",
+     "A"
+    ]
+   ]
+  }
+ ],
+ "boards": [
+  {
+   "date": "2026-11-03",
+   "station": "وکیل‌آباد",
+   "at": "05:58:00",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:00:00",
+     "etaMin": 2,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:15:00",
+     "etaMin": 17,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:30:00",
+     "etaMin": 32,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "06:30:00",
+     "etaMin": 32,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:45:00",
+     "etaMin": 47,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:00:00",
+     "etaMin": 62,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "07:00:00",
+     "etaMin": 62,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:15:00",
+     "etaMin": 77,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از غدیر",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:27:53",
+     "etaMin": 90,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:30:00",
+     "etaMin": 92,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "station": "وکیل‌آباد",
+   "at": "06:29:30",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:30:00",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "06:30:00",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:45:00",
+     "etaMin": 16,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:00:00",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "07:00:00",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:15:00",
+     "etaMin": 46,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از غدیر",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:27:53",
+     "etaMin": 59,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:30:00",
+     "etaMin": 61,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "07:30:00",
+     "etaMin": 61,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از غدیر",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:42:53",
+     "etaMin": 74,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "station": "وکیل‌آباد",
+   "at": "06:59:30",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:00:00",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "07:00:00",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:15:00",
+     "etaMin": 16,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از غدیر",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:27:53",
+     "etaMin": 29,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:30:00",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "07:30:00",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از غدیر",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:42:53",
+     "etaMin": 44,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:45:00",
+     "etaMin": 46,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از غدیر",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:57:53",
+     "etaMin": 59,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "08:00:00",
+     "etaMin": 61,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "station": "هفت‌تیر",
+   "at": "06:12:00",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:12:09",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:27:09",
+     "etaMin": 16,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:42:09",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "06:42:09",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "06:57:09",
+     "etaMin": 46,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:12:09",
+     "etaMin": 61,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "07:12:09",
+     "etaMin": 61,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:15:20",
+     "etaMin": 64,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "07:27:09",
+     "etaMin": 76,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "07:30:20",
+     "etaMin": 79,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "station": "هفت‌تیر",
+   "at": "10:12:00",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:12:09",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "10:12:09",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "10:15:20",
+     "etaMin": 4,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:27:09",
+     "etaMin": 16,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "10:30:20",
+     "etaMin": 19,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "10:39:21",
+     "etaMin": 28,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:42:09",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "10:42:09",
+     "etaMin": 31,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "10:45:20",
+     "etaMin": 34,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:57:09",
+     "etaMin": 46,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "station": "کوثر",
+   "at": "19:25:00",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "19:25:13",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "19:34:32",
+     "etaMin": 10,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "19:35:04",
+     "etaMin": 11,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "19:36:07",
+     "etaMin": 12,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "19:45:58",
+     "etaMin": 21,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "19:47:02",
+     "etaMin": 23,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "19:56:53",
+     "etaMin": 32,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "19:57:02",
+     "etaMin": 33,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "20:04:32",
+     "etaMin": 40,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "20:07:02",
+     "etaMin": 43,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "station": "دانش‌آموز",
+   "at": "20:00:00",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "20:00:10",
+     "etaMin": 1,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "20:03:48",
+     "etaMin": 4,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "20:07:49",
+     "etaMin": 8,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "20:11:04",
+     "etaMin": 12,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "20:13:48",
+     "etaMin": 14,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "20:21:59",
+     "etaMin": 22,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "20:23:48",
+     "etaMin": 24,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "20:32:53",
+     "etaMin": 33,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "20:33:48",
+     "etaMin": 34,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "20:37:49",
+     "etaMin": 38,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "station": "هفت‌تیر",
+   "at": "09:55:00",
+   "dayType": "normal",
+   "passes": [
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "09:57:09",
+     "etaMin": 3,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "10:00:20",
+     "etaMin": 6,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "10:09:21",
+     "etaMin": 15,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:12:09",
+     "etaMin": 18,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "10:12:09",
+     "etaMin": 18,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "10:15:20",
+     "etaMin": 21,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:27:09",
+     "etaMin": 33,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "10:30:20",
+     "etaMin": 36,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "10:39:21",
+     "etaMin": 45,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "10:42:09",
+     "etaMin": 48,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-10-22",
+   "station": "کوثر",
+   "at": "14:20:00",
+   "dayType": "thursday",
+   "passes": [
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "14:22:14",
+     "etaMin": 3,
+     "confidence": "official_sheet_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "14:23:14",
+     "etaMin": 4,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "14:27:03",
+     "etaMin": 8,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "14:38:14",
+     "etaMin": 19,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "14:42:03",
+     "etaMin": 23,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "14:43:46",
+     "etaMin": 24,
+     "confidence": "official_sheet_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "14:52:14",
+     "etaMin": 33,
+     "confidence": "official_sheet_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "14:53:14",
+     "etaMin": 34,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "غدیر",
+     "service": "A",
+     "dir": "out",
+     "arrive": "14:57:03",
+     "etaMin": 38,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "15:08:14",
+     "etaMin": 49,
+     "confidence": "site_headway_assumed_phase",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "station": "غدیر",
+   "at": "14:30:00",
+   "dayType": "friday",
+   "passes": [
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "14:35:35",
+     "etaMin": 6,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از وکیل‌آباد",
+     "service": "A",
+     "dir": "out",
+     "arrive": "14:40:28",
+     "etaMin": 11,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "14:47:50",
+     "etaMin": 18,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "14:52:37",
+     "etaMin": 23,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "14:59:35",
+     "etaMin": 30,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از وکیل‌آباد",
+     "service": "A",
+     "dir": "out",
+     "arrive": "15:04:28",
+     "etaMin": 35,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "A",
+     "dir": "back",
+     "arrive": "15:11:50",
+     "etaMin": 42,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "فرودگاه",
+     "service": "B",
+     "dir": "out",
+     "arrive": "15:16:37",
+     "etaMin": 47,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "وکیل‌آباد",
+     "service": "B",
+     "dir": "back",
+     "arrive": "15:23:35",
+     "etaMin": 54,
+     "confidence": "measured_phase",
+     "eventId": null
+    },
+    {
+     "toward": "ورودی از وکیل‌آباد",
+     "service": "A",
+     "dir": "out",
+     "arrive": "15:28:28",
+     "etaMin": 59,
+     "confidence": "measured_phase",
+     "eventId": null
+    }
+   ]
+  }
+ ],
+ "positions": [
+  {
+   "date": "2026-11-03",
+   "line": 1,
+   "at": "06:00:30",
+   "trains": [
+    {
+     "id": "A-out-0",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 0.138,
+     "state": "running",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "line": 1,
+   "at": "06:30:00",
+   "trains": [
+    {
+     "id": "A-out-0",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 16,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-out-1",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 7.8,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-out-2",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 0,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "B-out-0",
+     "service": "B",
+     "toward": "فرودگاه",
+     "pos": 0,
+     "state": "dwelling",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "line": 1,
+   "at": "07:00:00",
+   "trains": [
+    {
+     "id": "A-out-1",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 21,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-out-2",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 16,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "B-out-0",
+     "service": "B",
+     "toward": "فرودگاه",
+     "pos": 16,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-out-3",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 7.8,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-back-0",
+     "service": "A",
+     "toward": "وکیل‌آباد",
+     "pos": 14.753,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-out-4",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 0,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "B-out-1",
+     "service": "B",
+     "toward": "فرودگاه",
+     "pos": 0,
+     "state": "dwelling",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "line": 1,
+   "at": "19:31:30",
+   "trains": [
+    {
+     "id": "B-out-24",
+     "service": "B",
+     "toward": "فرودگاه",
+     "pos": 23,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-out-56",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 21,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-out-57",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 18,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "B-out-25",
+     "service": "B",
+     "toward": "فرودگاه",
+     "pos": 16.569,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-back-53",
+     "service": "A",
+     "toward": "وکیل‌آباد",
+     "pos": 4.329,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "B-back-23",
+     "service": "B",
+     "toward": "وکیل‌آباد",
+     "pos": 10.688,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-out-58",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 12.266,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-back-54",
+     "service": "A",
+     "toward": "وکیل‌آباد",
+     "pos": 11,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-out-59",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 6,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "A-back-55",
+     "service": "A",
+     "toward": "وکیل‌آباد",
+     "pos": 16.763,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "A-out-60",
+     "service": "A",
+     "toward": "غدیر",
+     "pos": 0.413,
+     "state": "running",
+     "eventId": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "line": 2,
+   "at": "10:00:00",
+   "trains": [
+    {
+     "id": "L2-out-22",
+     "service": null,
+     "toward": "شهید فکوری",
+     "pos": 8.263,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "L2-back-22",
+     "service": null,
+     "toward": "طبرسی",
+     "pos": 3.886,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "L2-out-23",
+     "service": null,
+     "toward": "شهید فکوری",
+     "pos": 4,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "L2-back-23",
+     "service": null,
+     "toward": "طبرسی",
+     "pos": 8.12,
+     "state": "running",
+     "eventId": null
+    },
+    {
+     "id": "L2-out-24",
+     "service": null,
+     "toward": "شهید فکوری",
+     "pos": 0,
+     "state": "dwelling",
+     "eventId": null
+    },
+    {
+     "id": "L2-back-24",
+     "service": null,
+     "toward": "طبرسی",
+     "pos": 12,
+     "state": "dwelling",
+     "eventId": null
+    }
+   ]
+  }
+ ]
+}

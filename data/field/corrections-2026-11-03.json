@@ -1,0 +1,17 @@
+{
+ "schemaVersion": 1,
+ "about": "Corrections/exclusions for the 2026-11-03 field files. Added beside (never into) data/field/corrections.json, which stays untouched. Source: owner package, corrections.json sha256 9a9f7d1bf8a868a785353a870b48d84141ca2aee4d5c8a7159cff47c93966a2e",
+ "corrections": [],
+ "excluded_rows": [
+  {
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+   "t": 1793722530998,
+   "why": "double tap 79 ms after t=1793722530919 (same Vakilabad arrival, headway 0)"
+  },
+  {
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+   "t": 1793723583115,
+   "why": "owner: forgot to log the arrival of the train he boarded, so arrive and depart were pressed together at ~20:03:03/20:03:10; this arrive row is not a real arrival (the depart row is real)"
+  }
+ ]
+}

@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "note": "U7 three domains: food search, trip planning, shopping (core+data+assets+Neshan env drop-in+Nginx POST fragment)",
+  "files": [
+    {
+      "group": "data",
+      "path": "data/food/food-index-v1.json.gz",
+      "candidateSha256": "6b70f17f5a4e824c744de1845616fedd13a30a2da8e989ba07ccc0814f54036b",
+      "preSha256": null
+    },
+    {
+      "group": "data",
+      "path": "data/shop/catalog-v1.json",
+      "candidateSha256": "75f6c1d4204b00c0d8b014d3b8a98c1838584fb156ab93c06c75ac2f4c4855e7",
+      "preSha256": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/food/routes.js",
+      "candidateSha256": "c08528b55a7a23aa0c33a13562f924ee1e881e07411625dc516270a58cfe44e3",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/food/search.js",
+      "candidateSha256": "133c8e79b7657b84a88b7fd1ffa49c029f4a959000da759fe4c61c922124cbce",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/journey-beta/index.js",
+      "candidateSha256": "6d5ea0657f524dc9e4bf2c0241d67c9b5612d6a7d67c181b3e192a8d9ef42be2",
+      "preSha256": "2dbff3a4345f74d73fb80c5fc52a206118e1e492a15f85506c50ac4c76addf49",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/miniapp.js",
+      "candidateSha256": "43353111ddc43c13b3c8f9dfb997d0c4d3920573cf052ec4a8050a6a519eab60",
+      "preSha256": "e2a60f82ec28b363a36b78584f6b28b6ade8ea342b01e2559ad93511a19ae45f",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/server.js",
+      "candidateSha256": "d19b524e22aa9caad1ec315452a07df9cf281bb1630c0cd1d6e501289f8b4672",
+      "preSha256": "9ab6c854aeb9ecc8711d5fb581bc80e2707372f60a23e661eec2f31e84197bd3",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/shop/search.js",
+      "candidateSha256": "b01725590d0ddb74890268066992f79c34e229ac873f4d84d61af15c69706586",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/trip/neshan.js",
+      "candidateSha256": "2954c8480f1dba1c9c9235a32f2ef32e96814c31293dccd8f9491abf8e1b5d4c",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/trip/plan.js",
+      "candidateSha256": "57011821f2c900fe44d3beb1ab9bb5191180ddd2fad365b4930596a2aeabfb9a",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/trip/routes.js",
+      "candidateSha256": "a464cc2bc6a6a047f19fc79c4fad008b7ae4a492cda96d73744b3a4250b836cc",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/api.js",
+      "candidateSha256": "b102ac133bc80dd1352049b6b5074693b72219126ad911be7848d345a826f525",
+      "preSha256": "dc5d91a53a796e626b2b6c9dca8e60dcf482c1a5bb8a534bf4b8e4f206475e76"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.css",
+      "candidateSha256": "2312f6d9f01a0b396c5f5ccc62fe3e3685ee976f98f429a2bb5d0d579de3880b",
+      "preSha256": "f556ad4e83f7f36c50fe478f3270b245f083336ec4ba6b3571803afe1fcff09a"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.js",
+      "candidateSha256": "1729da516938351b439bcffee4ee225042166fda2f11757bfa5b46f30b2d3363",
+      "preSha256": "a60a29f34b1a9520a298a9b05b783f71661771ad2e1eda06ff12625dfaa26ff8"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/assets/services/shop.svg",
+      "candidateSha256": "4c808d166d6fd05195dece61e4040979b47415b7aa3e30946244e7491414e215",
+      "preSha256": null
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/navigation.js",
+      "candidateSha256": "173e09db2c906ca58ecf3462ea959d840e8bd57b1a60c068983327b855cfacc6",
+      "preSha256": "c92477e54d62afc7634f7a31089182755b80daa044cd0ca239dfb9eef16bb05a"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/services.js",
+      "candidateSha256": "f9fec8fcc3d836e9cc7eb8be4351db9e71178d73c46f666db96df3daf28f135e",
+      "preSha256": "9553ba1597b49dbc7f4ea6cf73aedd6bd90b2d6a38ae977c810d00ade20469dd"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/food.js",
+      "candidateSha256": "1a09c0d275a8e4a0d5dd02ea2e8e55eb77fb1fb03f2afda24e4cd99460bce164",
+      "preSha256": "98238b6a85907fcc716fea3699ef86c776fb247eefe2754460d5fd753cfdd38d"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/shop.js",
+      "candidateSha256": "2b3c3925c26cb472b31303c21d62816cfa702bb21e74f0420ae544db6ac5a782",
+      "preSha256": null
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/trip.js",
+      "candidateSha256": "3e753339297729db4df72b67a40cd267d3b7f7c296d114df39fda1df45198bcd",
+      "preSha256": null
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

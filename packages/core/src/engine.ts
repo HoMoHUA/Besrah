@@ -9,7 +9,13 @@ import { DayType, dayTypeOf, tehranDay, tehranToEpoch } from './time.js';
  */
 
 export type Service = 'A' | 'B';
-export type Confidence = 'measured_phase' | 'official_sheet_phase' | 'site_headway_assumed_phase';
+/**
+ * Wire-level evidence class of one departure.
+ * `generalized_observation_phase` and `sheet_derived_phase` are emitted ONLY by the timetable overlay (never by the baseline
+ * generator): the first is a phase timed on a past service day and carried onto other days, the second is a printed-sheet
+ * time shifted by a derived offset. Neither is a live position or an operator guarantee.
+ */
+export type Confidence = 'measured_phase' | 'official_sheet_phase' | 'site_headway_assumed_phase' | 'generalized_observation_phase' | 'sheet_derived_phase';
 
 export interface Stop { idx: number; name: string; arrive: number; depart: number }
 export interface Train {
@@ -33,7 +39,17 @@ export interface DaySchedule {
   confidenceB: Confidence;
   /** departures from Vakilabad that are off the headway grid (seconds from midnight) */
   extra?: { A: number[]; B: number[] };
+  /**
+   * Explicit, provenance-carrying departures (seconds from midnight) that replace the headway grid for the service.
+   * Only a versioned timetable overlay (timetable-overlay.ts) produces this; the baseline generator never does.
+   */
+  fixed?: { A: FixedDeparture[]; B: FixedDeparture[] };
+  /** Tehran service days (YYYY-MM-DD) on which `measured_phase` departures were really timed; on any other day they are generalised. */
+  observedServiceDates?: readonly string[];
 }
+
+/** One explicit Vakilabad departure with the evidence class it rests on. `window` names the overlay window that produced it. */
+export interface FixedDeparture { s: number; confidence: Confidence; window: string }
 
 const hm = (s: string) => { const [h, m, sec = 0] = s.split(':').map(Number); return h * 3600 + m * 60 + sec; };
 const min = (m: number) => m * 60;
@@ -80,6 +96,8 @@ export function scheduleFor(dayType: DayType): DaySchedule {
 
 /** Vakilabad departures for one service: phase grid walked forward through the slots, no restart at slot edges. */
 export function vakilabadDepartures(day: string, sched: DaySchedule, service: Service): number[] {
+  const fixed = sched.fixed?.[service];
+  if (fixed) return [...new Set(fixed.map(f => tehranToEpoch(day, secToHms(f.s))))].sort((a, b) => a - b);
   const phase = service === 'A' ? sched.phaseA : sched.phaseB;
   const start = service === 'A' ? sched.startA : sched.startB;
   const slotAt = (t: number) => sched.slots.find(sl => t >= sl.fromS && t < sl.toS);
@@ -157,16 +175,31 @@ export function buildBackTrip(net: Network, service: Service, start: number, id:
   };
 }
 
-/** All trains for one Tehran day, with back-trips derived from out-trips. */
-export function dayTrains(net: Network, dayEpoch: number, dayType?: DayType): Train[] {
+/**
+ * All trains for one Tehran day, with back-trips derived from out-trips.
+ * `schedule` is an optional pre-built day schedule (a timetable overlay); without it the baseline generator is used unchanged.
+ */
+/**
+ * Overlay departures must not claim more than they know: a timed phase is an observation only on the day it was timed, and a printed
+ * sheet time shifted by a derived offset is not an operator-confirmed departure. Baseline schedules (no `fixed`) are left unchanged.
+ */
+export function publicConfidence(conf: Confidence, day: string, sched: DaySchedule): Confidence {
+  if (!sched.fixed) return conf;
+  if (conf === 'measured_phase') return sched.observedServiceDates?.includes(day) ? conf : 'generalized_observation_phase';
+  if (conf === 'official_sheet_phase') return 'sheet_derived_phase';
+  return conf;
+}
+
+export function dayTrains(net: Network, dayEpoch: number, dayType?: DayType, schedule?: DaySchedule): Train[] {
   const day = tehranDay(dayEpoch);
   const type = dayType ?? dayTypeOf(dayEpoch);
-  const sched = scheduleFor(type);
+  const sched = schedule ?? scheduleFor(type);
   const trains: Train[] = [];
   for (const svc of ['A', 'B'] as const) {
     const deps = vakilabadDepartures(day, sched, svc);
+    const fixedConfidence = new Map<number, Confidence>((sched.fixed?.[svc] ?? []).map(f => [tehranToEpoch(day, secToHms(f.s)), f.confidence]));
     deps.forEach((d, i) => {
-      const conf = svc === 'A' ? sched.confidenceA : sched.confidenceB;
+      const conf = publicConfidence(fixedConfidence.get(d) ?? (svc === 'A' ? sched.confidenceA : sched.confidenceB), day, sched);
       const out = buildOutTrip(net, svc, d, `${svc}-out-${i}`);
       out.confidence = conf;
       trains.push(out);

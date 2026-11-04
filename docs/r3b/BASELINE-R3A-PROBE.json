@@ -1,0 +1,433 @@
+{
+ "360x740": {
+  "viewport": {
+   "w": 360,
+   "h": 740,
+   "visualH": 740,
+   "scrollY": 0
+  },
+  "docHeight": 1988,
+  "overflowX": 0,
+  "nav": {
+   "top": 662,
+   "height": 68,
+   "position": "fixed"
+  },
+  "appHeader": {
+   "top": 10,
+   "bottom": 74,
+   "height": 64,
+   "left": 10,
+   "right": 350,
+   "width": 340
+  },
+  "metroHead": {
+   "top": 98,
+   "bottom": 180,
+   "height": 82,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "modelNote": {
+   "top": 198,
+   "bottom": 222,
+   "height": 24,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "access": {
+   "top": 246,
+   "bottom": 290,
+   "height": 44,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "rideTabs": {
+   "top": 314,
+   "bottom": 368,
+   "height": 54,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "journey": {
+   "top": 392,
+   "bottom": 1156,
+   "height": 763,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "from": {
+   "top": 632,
+   "bottom": 679,
+   "height": 48,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "to": {
+   "top": 721,
+   "bottom": 769,
+   "height": 48,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "swap": {
+   "top": 781,
+   "bottom": 825,
+   "height": 44,
+   "left": 179,
+   "right": 346,
+   "width": 167
+  },
+  "mode": {
+   "top": 867,
+   "bottom": 921,
+   "height": 54,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "time": null,
+  "cta": {
+   "top": 994,
+   "bottom": 1039,
+   "height": 46,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "board": {
+   "top": 1236,
+   "bottom": 1674,
+   "height": 438,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "trackerDetail": {
+   "top": 1692,
+   "bottom": 1744,
+   "height": 52,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "usableViewportHeight": 662,
+  "visibleAtScroll0": {
+   "from": false,
+   "to": false,
+   "cta": false,
+   "time": false
+  },
+  "scrollNeededForCta": 385,
+  "ctaTopFromViewportTop": 994,
+  "coveredByNav": [],
+  "interactiveCount": 42,
+  "aboveCta": 10,
+  "smallTargets": [],
+  "textBeforeCta": [
+   "مترو",
+   "مترو مشهد · خط ۱ و خط ۲",
+   "برآورد از برنامه حرکت؛ نه موقعیت زنده قطار",
+   "سفر، تابلو و مسیر با انتخاب مشترک",
+   "سفر با مترو",
+   "کرایه نامعلوم است؛ مسیر خیابانی و تعویض خط محاسبه نمی شود.",
+   "زمان ها به وقت تهران · Asia/Tehran است. «همین الان» یعنی آماده روی سکو، نه زمان خروج از خانه."
+  ],
+  "font": "AzarMehr"
+ },
+ "390x844": {
+  "viewport": {
+   "w": 390,
+   "h": 844,
+   "visualH": 844,
+   "scrollY": 0
+  },
+  "docHeight": 1874,
+  "overflowX": 0,
+  "nav": {
+   "top": 766,
+   "height": 68,
+   "position": "fixed"
+  },
+  "appHeader": {
+   "top": 10,
+   "bottom": 74,
+   "height": 64,
+   "left": 10,
+   "right": 380,
+   "width": 370
+  },
+  "metroHead": {
+   "top": 98,
+   "bottom": 180,
+   "height": 82,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "modelNote": {
+   "top": 198,
+   "bottom": 222,
+   "height": 24,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "access": {
+   "top": 246,
+   "bottom": 290,
+   "height": 44,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "rideTabs": {
+   "top": 314,
+   "bottom": 368,
+   "height": 54,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "journey": {
+   "top": 392,
+   "bottom": 1041,
+   "height": 649,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "from": {
+   "top": 607,
+   "bottom": 654,
+   "height": 48,
+   "left": 201,
+   "right": 374,
+   "width": 173
+  },
+  "to": {
+   "top": 607,
+   "bottom": 654,
+   "height": 48,
+   "left": 16,
+   "right": 189,
+   "width": 173
+  },
+  "swap": {
+   "top": 666,
+   "bottom": 710,
+   "height": 44,
+   "left": 207,
+   "right": 374,
+   "width": 167
+  },
+  "mode": {
+   "top": 752,
+   "bottom": 806,
+   "height": 54,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "time": null,
+  "cta": {
+   "top": 880,
+   "bottom": 925,
+   "height": 46,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "board": {
+   "top": 1121,
+   "bottom": 1559,
+   "height": 438,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "trackerDetail": {
+   "top": 1577,
+   "bottom": 1629,
+   "height": 52,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "usableViewportHeight": 766,
+  "visibleAtScroll0": {
+   "from": true,
+   "to": true,
+   "cta": false,
+   "time": false
+  },
+  "scrollNeededForCta": 167,
+  "ctaTopFromViewportTop": 880,
+  "coveredByNav": [
+   "journey-mode"
+  ],
+  "interactiveCount": 42,
+  "aboveCta": 10,
+  "smallTargets": [],
+  "textBeforeCta": [
+   "مترو",
+   "مترو مشهد · خط ۱ و خط ۲",
+   "برآورد از برنامه حرکت؛ نه موقعیت زنده قطار",
+   "سفر، تابلو و مسیر با انتخاب مشترک",
+   "سفر با مترو",
+   "کرایه نامعلوم است؛ مسیر خیابانی و تعویض خط محاسبه نمی شود.",
+   "زمان ها به وقت تهران · Asia/Tehran است. «همین الان» یعنی آماده روی سکو، نه زمان خروج از خانه."
+  ],
+  "font": "AzarMehr"
+ },
+ "320x568": {
+  "viewport": {
+   "w": 320,
+   "h": 568,
+   "visualH": 568,
+   "scrollY": 0
+  },
+  "docHeight": 2069,
+  "overflowX": 0,
+  "nav": {
+   "top": 490,
+   "height": 68,
+   "position": "fixed"
+  },
+  "appHeader": {
+   "top": 10,
+   "bottom": 74,
+   "height": 64,
+   "left": 10,
+   "right": 310,
+   "width": 300
+  },
+  "metroHead": {
+   "top": 98,
+   "bottom": 180,
+   "height": 82,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "modelNote": {
+   "top": 198,
+   "bottom": 222,
+   "height": 24,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "access": {
+   "top": 246,
+   "bottom": 320,
+   "height": 74,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "rideTabs": {
+   "top": 344,
+   "bottom": 398,
+   "height": 54,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "journey": {
+   "top": 422,
+   "bottom": 1211,
+   "height": 789,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "from": {
+   "top": 662,
+   "bottom": 709,
+   "height": 48,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "to": {
+   "top": 751,
+   "bottom": 799,
+   "height": 48,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "swap": {
+   "top": 811,
+   "bottom": 855,
+   "height": 44,
+   "left": 139,
+   "right": 306,
+   "width": 167
+  },
+  "mode": {
+   "top": 897,
+   "bottom": 951,
+   "height": 54,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "time": null,
+  "cta": {
+   "top": 1024,
+   "bottom": 1070,
+   "height": 46,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "board": {
+   "top": 1291,
+   "bottom": 1754,
+   "height": 463,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "trackerDetail": {
+   "top": 1772,
+   "bottom": 1824,
+   "height": 52,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "usableViewportHeight": 490,
+  "visibleAtScroll0": {
+   "from": false,
+   "to": false,
+   "cta": false,
+   "time": false
+  },
+  "scrollNeededForCta": 588,
+  "ctaTopFromViewportTop": 1024,
+  "coveredByNav": [],
+  "interactiveCount": 42,
+  "aboveCta": 9,
+  "smallTargets": [],
+  "textBeforeCta": [
+   "مترو",
+   "مترو مشهد · خط ۱ و خط ۲",
+   "برآورد از برنامه حرکت؛ نه موقعیت زنده قطار",
+   "سفر، تابلو و مسیر با انتخاب مشترک",
+   "سفر با مترو",
+   "کرایه نامعلوم است؛ مسیر خیابانی و تعویض خط محاسبه نمی شود.",
+   "زمان ها به وقت تهران · Asia/Tehran است. «همین الان» یعنی آماده روی سکو، نه زمان خروج از خانه."
+  ],
+  "font": "AzarMehr"
+ }
+}

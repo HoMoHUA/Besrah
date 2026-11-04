@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "note": "R3C U2 (R3-A/R3-B Mini App), planned over U1",
+  "files": [
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.css",
+      "candidateSha256": "a21ea4551bb99a77e4257c4ebd971e1133b11923a5db358d51fe23a153726ddc",
+      "preSha256": "e8eda45e639a995d786574ab4b5cb4f3d49ad38cbffdbe99dbd0dc3e14723cf7"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.js",
+      "candidateSha256": "a60a29f34b1a9520a298a9b05b783f71661771ad2e1eda06ff12625dfaa26ff8",
+      "preSha256": "65fb0affa2273245a81a22997da8b4d3a819317c691d3e22594232be299b865c"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/format.js",
+      "candidateSha256": "691a6779ac28889c89a041f5e168c3df7c80d47534754d321d896f659cb53c01",
+      "preSha256": "3a289e343bda9c5586d7f549982dccf672566d61ac9f4cdb006f758fd20f9721"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/planner.js",
+      "candidateSha256": "264b3fff9e7d395f034bccff398fe1c5552b1e132901b276e9b94e1348b91c63",
+      "preSha256": "30fe6f58f3550eb9ad605b66f75ea6db257a59904a706ccf72bd7e52bd19f090"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/station.js",
+      "candidateSha256": "f7203089d9b95f38ac8f7c80eb96ee145683cbc73f3207ef76c3ff5f2dee27aa",
+      "preSha256": "a0c5d696d7974de482dac8bf8339ef31c81c4b04d3282502faa9875a8f0c4f30"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/tracker.js",
+      "candidateSha256": "2d03e7280325228a40a080160d6d918c7bfebfd19173b14b87920f305fc88ade",
+      "preSha256": "5d237b34bab1ad279584b378f90b38d3af3d1a51f5abced91ad41434792eb5e0"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/metro.js",
+      "candidateSha256": "7485a5d5b5d45c497ccf240f2d8115cdc054775c9a8ece28fbb6ac2b6de2b371",
+      "preSha256": "425fd1b15859ca64af553139441bd2331312a832b9dfd905ddc65f1beb6de90b"
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/views/food.js",
+      "candidateSha256": "540b4630ea2c46dfc19b02859b1242b6d33ac1e6f07a1a284ddfbebc608b335c",
+      "productionSha256": "98238b6a85907fcc716fea3699ef86c776fb247eefe2754460d5fd753cfdd38d"
+    },
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

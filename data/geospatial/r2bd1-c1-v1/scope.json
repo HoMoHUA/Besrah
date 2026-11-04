@@ -1,0 +1,17 @@
+{
+  "version": "r2bd1-c1-v1",
+  "corridor": "C1",
+  "stationIds": [
+    "METRO-107",
+    "METRO-108"
+  ],
+  "bboxSouthWestNorthEast": [
+    36.3233889,
+    59.496774,
+    36.33047,
+    59.5109444
+  ],
+  "scopeNote": "Small envelope buffered around registry centers for acquisition only; centers never treated as entrances or snapped connectors. Full child way nodes may extend beyond bbox. No transit route relations or city-wide network requested.",
+  "crs": "EPSG:4326",
+  "stationRegistrySha256": "b77dfaa099f9cfaf69c248ceec35e3aa514029a088bcf93afbda0bcd3ae9a7ba"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "note": "R3C U6 3s refresh + line chips",
+  "files": [
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/board.js",
+      "candidateSha256": "ac88c56e592fdaf9b2f67839aa1702776b7537c975d6ed2dec54f48ab9de1b56",
+      "preSha256": "a021ce12093169fbe9ec680e8bc3e77172b1db2da5b5fcc41e53542acb6ecc9c"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/tracker.js",
+      "candidateSha256": "1c773f92cebedb2d15a008e0ca587d984a13e4f2d7d91d4a205c0323aa07c3b8",
+      "preSha256": "867fb4d1250fc7d9a55fac8b3f13356279cd21c3418bc521e389bd1e73ebd226"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/metro.js",
+      "candidateSha256": "57c56e060882d8a354b6292b9099fb8ac69f098e943b535634ecdfcdfa4e7390",
+      "preSha256": "2aedc9d88d16fe1e0feb419d0310cdc7e8b9156c21587451b99560c622b06205"
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/views/food.js",
+      "candidateSha256": "540b4630ea2c46dfc19b02859b1242b6d33ac1e6f07a1a284ddfbebc608b335c",
+      "productionSha256": "98238b6a85907fcc716fea3699ef86c776fb247eefe2754460d5fd753cfdd38d"
+    },
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

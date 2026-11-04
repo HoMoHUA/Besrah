@@ -1,0 +1,158 @@
+{
+ "request": "GET /api/food/search?q=چلو کباب&maxPrice=250000&lat=36.306&lon=59.582&sort=price&limit=3",
+ "response": {
+  "total": 112,
+  "offset": 0,
+  "limit": 3,
+  "vendors": [
+   {
+    "id": "t:2w7r12",
+    "provider": "tapsifood",
+    "name": "کترینگ تره فرنگی",
+    "branch": null,
+    "category": "رستوران (خط کسب و کار ۱۵)",
+    "address": null,
+    "lat": 36.3255,
+    "lon": 59.4997,
+    "distanceM": 7686,
+    "rating": null,
+    "commentCount": null,
+    "minOrderToman": 250000,
+    "minOrderState": "known",
+    "openSnapshot": {
+     "value": "open",
+     "capturedAt": "2026-10-31T07:51:16.000Z",
+     "note": "وضعیت باز یا بسته فقط در زمان ثبت دادهٔ فروشگاه دیده شده است؛ وضعیت فعلی را در پلتفرم سفارش ببینید."
+    },
+    "capturedAt": "2026-10-31T07:51:16.000Z",
+    "orderUrl": "https://tapsi.food/vendor/2w7r12",
+    "orderCode": "2w7r12",
+    "matchedCount": 1,
+    "matched": [
+     {
+      "name": "گوجه کبابی (یک سیخ)",
+      "variation": "گوجه کبابی (یک سیخ)",
+      "category": "چلو کباب",
+      "priceToman": 85000,
+      "finalPriceToman": 85000,
+      "discounted": false,
+      "priceState": "known"
+     }
+    ],
+    "cheapestMatchedToman": 85000
+   },
+   {
+    "id": "t:2yoxk8",
+    "provider": "tapsifood",
+    "name": "کترینگ بیابانی",
+    "branch": null,
+    "category": "رستوران (خط کسب و کار ۱۵)",
+    "address": null,
+    "lat": 36.3254,
+    "lon": 59.6423,
+    "distanceM": 5817,
+    "rating": null,
+    "commentCount": null,
+    "minOrderToman": 100000,
+    "minOrderState": "known",
+    "openSnapshot": {
+     "value": "open",
+     "capturedAt": "2026-10-31T07:51:13.000Z",
+     "note": "وضعیت باز یا بسته فقط در زمان ثبت دادهٔ فروشگاه دیده شده است؛ وضعیت فعلی را در پلتفرم سفارش ببینید."
+    },
+    "capturedAt": "2026-10-31T07:51:13.000Z",
+    "orderUrl": "https://tapsi.food/vendor/2yoxk8",
+    "orderCode": "2yoxk8",
+    "matchedCount": 4,
+    "matched": [
+     {
+      "name": "چلو کره",
+      "variation": "چلو کره",
+      "category": "چلو کباب",
+      "priceToman": 110000,
+      "finalPriceToman": 95700,
+      "discounted": true,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب تک سیخ",
+      "variation": "چلو کباب تک سیخ",
+      "category": "چلو کباب",
+      "priceToman": 220000,
+      "finalPriceToman": 191400,
+      "discounted": true,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب کوبیده",
+      "variation": "معمولی (80 گرم)",
+      "category": "چلو کباب",
+      "priceToman": 270000,
+      "finalPriceToman": 234900,
+      "discounted": true,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو جوجه کباب",
+      "variation": "معمولی (150 تا 160 گرم)",
+      "category": "چلو کباب",
+      "priceToman": 270000,
+      "finalPriceToman": 234900,
+      "discounted": true,
+      "priceState": "known"
+     }
+    ],
+    "cheapestMatchedToman": 95700
+   },
+   {
+    "id": "t:5zl1g9",
+    "provider": "tapsifood",
+    "name": "مجموعه غذایی رزماری",
+    "branch": null,
+    "category": "رستوران (خط کسب و کار ۱۵)",
+    "address": null,
+    "lat": 36.3475,
+    "lon": 59.5846,
+    "distanceM": 4620,
+    "rating": null,
+    "commentCount": null,
+    "minOrderToman": 250000,
+    "minOrderState": "known",
+    "openSnapshot": {
+     "value": "open",
+     "capturedAt": "2026-10-31T07:44:46.000Z",
+     "note": "وضعیت باز یا بسته فقط در زمان ثبت دادهٔ فروشگاه دیده شده است؛ وضعیت فعلی را در پلتفرم سفارش ببینید."
+    },
+    "capturedAt": "2026-10-31T07:44:46.000Z",
+    "orderUrl": "https://tapsi.food/vendor/5zl1g9",
+    "orderCode": "5zl1g9",
+    "matchedCount": 1,
+    "matched": [
+     {
+      "name": "چلو ساده",
+      "variation": "چلو ساده",
+      "category": "چلو کباب",
+      "priceToman": 99000,
+      "finalPriceToman": 99000,
+      "discounted": false,
+      "priceState": "known"
+     }
+    ],
+    "cheapestMatchedToman": 99000
+   }
+  ],
+  "unknownPriceExcluded": 0,
+  "snapshot": {
+   "capturedFrom": "2026-10-31T07:35:42.000Z",
+   "capturedTo": "2026-10-31T11:32:37.000Z",
+   "ageHours": 96,
+   "stale": true
+  },
+  "notes": [
+   "این داده حدود 96 ساعت پیش ثبت شده و قدیمی است.",
+   "قیمت ها و منو آخرین مشاهدهٔ ثبت شده از فروشگاه ها هستند، نه قیمت لحظه ای؛ پیش از سفارش در پلتفرم اصلی تأیید کنید.",
+   "هزینهٔ ارسال، کارمزد، تخفیف روز و محدودهٔ ارسال به موقعیت شما در این فهرست نیست؛ مجموع پرداخت از اینجا محاسبه نمی شود.",
+   "قلم های زیر ۵۰٬۰۰۰ تومان (افزودنی ها و جانبی ها) در جست وجوی غذا نمایش داده نمی شوند؛ منوی کامل در صفحهٔ فروشگاه هست."
+  ]
+ }
+}

@@ -1,0 +1,198 @@
+{
+  "verificationVersion": 1,
+  "generatedAt": "2026-11-02T16:20:21.501640+00:00",
+  "base": "a04d19d5ffff0ee6563bd7dc1f179af0c386bd16",
+  "branch": "feature/r2b-data-readiness",
+  "scope": "R2b Stage 1, existing-data audit only",
+  "stage1Gate": "blocked",
+  "stage2Started": false,
+  "newAtoBPlanner": false,
+  "cityDataDownloaded": false,
+  "dependenciesChanged": false,
+  "testEnvironment": "Existing lockfile installed offline with lifecycle scripts disabled; no new dependency declarations.",
+  "commands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 5.87
+    },
+    {
+      "name": "core",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 38.254
+    },
+    {
+      "name": "miniapp-data-n8n",
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "/root/projects/besrah-r2b/apps/miniapp/api.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/async.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/bus-data.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/food.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/format.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/hero.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/icons.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/location.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/logic.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/navigation.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/route.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/search.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/service-assets.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/service-store.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/services.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/store.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/superapp.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/tg.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/theme.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/tracker-layout.test.mjs",
+        "/root/projects/besrah-r2b/apps/miniapp/tracker.test.mjs",
+        "/root/projects/besrah-r2b/tests/data/bus-app-data.test.mjs",
+        "/root/projects/besrah-r2b/tests/data/bus-catalog-integrity.test.mjs",
+        "/root/projects/besrah-r2b/tests/data/bus-guide-integrity.test.mjs",
+        "/root/projects/besrah-r2b/tests/data/network-data.test.mjs",
+        "/root/projects/besrah-r2b/tests/n8n/normalize.test.mjs",
+        "/root/projects/besrah-r2b/tests/n8n/render.test.mjs",
+        "/root/projects/besrah-r2b/tests/n8n/workflow.test.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 33.114
+    },
+    {
+      "name": "release",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/release",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.727
+    },
+    {
+      "name": "bus-python",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/data",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.983
+    },
+    {
+      "name": "bus-check",
+      "command": [
+        "python3",
+        "scripts/build_bus_app_data.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.416
+    },
+    {
+      "name": "build-existing",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.406
+    }
+  ],
+  "tests": {
+    "suites": {
+      "core": 374,
+      "miniapp-data-n8n": 198,
+      "release": 12,
+      "bus-python": 17
+    },
+    "total": 601,
+    "newR2bAlgorithmTests": 0,
+    "note": "Existing R0/R1/R2a source is unchanged. This is a readiness audit, not an A-to-B implementation."
+  },
+  "newR2bEtaBenchmarks": false,
+  "newFieldEtaAccuracyClaims": false,
+  "protectedState": {
+    "main": {
+      "files": 4888,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true,
+      "headIdentical": true,
+      "statusIdentical": true,
+      "indexIdentical": true
+    },
+    "r1": {
+      "files": 3627,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true,
+      "headIdentical": true,
+      "statusIdentical": true
+    },
+    "r2a": {
+      "files": 3660,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true,
+      "headIdentical": true,
+      "statusIdentical": true
+    },
+    "production": {
+      "files": 2179,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true
+    }
+  },
+  "auditReproduction": {
+    "privateScript": "/var/backups/besrah/r2b-20261102T160006Z/audit-readiness.py",
+    "sha256": "a8e2afdf736e5eeaa288a9e05e845e57f2f50447eea5dacf98f98ba7a85ded35",
+    "sourcePayloadSha256": "073fa2799315256eb9a7c163564860acc9226045ce2d5a9430099acbbf335181",
+    "sourcePayloadBytes": 12115531
+  },
+  "independentAudits": 2,
+  "noEligibleCorridorEstablished": true,
+  "deployment": false,
+  "publicApiChanges": false,
+  "uiChanges": false,
+  "personalMemoryWrites": false,
+  "caveat": "601 existing regression tests and a successful build do not validate A-to-B walking data or ETA. No composed routing algorithm, field observation or A-to-B performance measurement was created."
+}

@@ -1,0 +1,25 @@
+{
+  "processes": [
+    {
+      "pid": 739655,
+      "role": "baseline",
+      "status": {
+        "VmHWM": "94700 kB",
+        "VmRSS": "93288 kB",
+        "Threads": "7"
+      }
+    },
+    {
+      "pid": 739685,
+      "role": "unified",
+      "status": {
+        "VmHWM": "113024 kB",
+        "VmRSS": "110828 kB",
+        "Threads": "7"
+      }
+    }
+  ],
+  "sameWorkload": false,
+  "enforced192MiBCgroup": false,
+  "note": "Server-process samples, not a lifetime capacity proof; engines and limits unchanged. Browser request/lifecycle evidence is separate."
+}

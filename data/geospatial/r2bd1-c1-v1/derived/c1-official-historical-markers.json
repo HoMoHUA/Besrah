@@ -1,0 +1,78 @@
+[
+  {
+    "raw_marker": {
+      "Address": null,
+      "AutoPan": true,
+      "Bouncy": false,
+      "Clickable": true,
+      "Draggable": false,
+      "DragCrossMove": false,
+      "IconAnchor": {
+        "X": 8,
+        "Y": 16
+      },
+      "IconSize": {
+        "Height": 16,
+        "Width": 16
+      },
+      "IconUrl": null,
+      "InfoWindowAnchor": {
+        "X": 0,
+        "Y": 0
+      },
+      "Latitude": 36.32766,
+      "Longitude": 59.50034,
+      "MaxZoom": null,
+      "MinZoom": null,
+      "OpenInfoBehaviour": 0,
+      "ShadowSize": {
+        "Height": 16,
+        "Width": 16
+      },
+      "ShadowUrl": null,
+      "Text": "<div class='ParnianMapPointInfo'><div class=\"ExternalClassB51ABEBFA736489B8AACECAD656E489E\"><p>​ایستگاه هفت تير​</p></div><div/>",
+      "Title": "ایستگاه هفت تير"
+    },
+    "source_byte_character_offset": 64236,
+    "source_body": "19-archive-station-map-capture.body",
+    "scope": "Historical station marker only; not entrance, platform or current verification"
+  },
+  {
+    "raw_marker": {
+      "Address": null,
+      "AutoPan": true,
+      "Bouncy": false,
+      "Clickable": true,
+      "Draggable": false,
+      "DragCrossMove": false,
+      "IconAnchor": {
+        "X": 8,
+        "Y": 16
+      },
+      "IconSize": {
+        "Height": 16,
+        "Width": 16
+      },
+      "IconUrl": null,
+      "InfoWindowAnchor": {
+        "X": 0,
+        "Y": 0
+      },
+      "Latitude": 36.325173,
+      "Longitude": 59.508977,
+      "MaxZoom": null,
+      "MinZoom": null,
+      "OpenInfoBehaviour": 0,
+      "ShadowSize": {
+        "Height": 16,
+        "Width": 16
+      },
+      "ShadowUrl": null,
+      "Text": "<div class='ParnianMapPointInfo'><div class=\"ExternalClassA9658838ADBE47A8B22C621B00612C31\"><p>ایستگاه دانش آموز​</p></div><div/>",
+      "Title": "ایستگاه دانش آموز"
+    },
+    "source_byte_character_offset": 80594,
+    "source_body": "19-archive-station-map-capture.body",
+    "scope": "Historical station marker only; not entrance, platform or current verification"
+  }
+]

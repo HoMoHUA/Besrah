@@ -1,0 +1,25 @@
+{
+ "changed": [
+  "/srv/besrah/apps/miniapp/app.css",
+  "/srv/besrah/apps/miniapp/app.js",
+  "/srv/besrah/apps/miniapp/format.js",
+  "/srv/besrah/apps/miniapp/ui/planner.js",
+  "/srv/besrah/apps/miniapp/ui/station.js",
+  "/srv/besrah/apps/miniapp/ui/tracker.js",
+  "/srv/besrah/apps/miniapp/views/metro.js",
+  "/srv/besrah/packages/core/dist/engine.js",
+  "/srv/besrah/packages/core/dist/journey-beta/index.js",
+  "/srv/besrah/packages/core/dist/journey-beta/journey.js",
+  "/srv/besrah/packages/core/dist/journey-beta/source.js",
+  "/srv/besrah/packages/core/dist/server.js",
+  "/srv/besrah/packages/core/dist/service.js",
+  "/srv/besrah/packages/core/dist/transit-journey/model-source.js"
+ ],
+ "added": [
+  "/srv/besrah/data/official/kowsar_airport_poster_2026-11-03.json",
+  "/srv/besrah/data/timetable/normal-day-overlay-v1.json",
+  "/srv/besrah/packages/core/dist/timetable-overlay.js",
+  "/srv/besrah/packages/core/dist/timetable-registry.js"
+ ],
+ "removed": []
+}

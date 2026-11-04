@@ -1,0 +1,369 @@
+{
+ "meta": {
+  "definition": "Vakilabad (line 1) depart rows from ALL 7 CSVs (3 old from git HEAD, 4 new), de-duplicated by epoch t. same-direction = identical `dir` field of the CSV.",
+  "dir_field_caveat": "dir=غدیر/فرودگاه is what the owner typed; whether he saw the destination or read the board is only stated for board texts. 19:55:03 dir=غدیر is inferred per candidate docs."
+ },
+ "vakilabad_departures_all": [
+  {
+   "date": "2026-10-16",
+   "tehran": "13:59:51",
+   "t_ms": 1792146591683,
+   "dir": "غدیر",
+   "dwell_s_logged": "",
+   "file": "2026-10-16_line1_vakilabad-ghadir-vakilabad.csv"
+  },
+  {
+   "date": "2026-10-22",
+   "tehran": "14:25:06",
+   "t_ms": 1792666506328,
+   "dir": "غدیر",
+   "dwell_s_logged": "118",
+   "file": "2026-10-22_line1_thursday_kowsar-vakilabad-ghadir.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:15:29",
+   "t_ms": 1793720729120,
+   "dir": "غدیر",
+   "dwell_s_logged": "38",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:22:52",
+   "t_ms": 1793721172610,
+   "dir": "غدیر",
+   "dwell_s_logged": "95",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:32:22",
+   "t_ms": 1793721742090,
+   "dir": "فرودگاه",
+   "dwell_s_logged": "41",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:39:15",
+   "t_ms": 1793722155103,
+   "dir": "غدیر",
+   "dwell_s_logged": "64",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:46:58",
+   "t_ms": 1793722618851,
+   "dir": "غدیر",
+   "dwell_s_logged": "88",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:55:03",
+   "t_ms": 1793723103351,
+   "dir": "غدیر",
+   "dwell_s_logged": "66",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "20:03:10",
+   "t_ms": 1793723590948,
+   "dir": "غدیر",
+   "dwell_s_logged": "8",
+   "file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  }
+ ],
+ "consecutive_same_direction_pairs": [
+  {
+   "date": "2026-11-03",
+   "dir": "غدیر",
+   "from_tehran": "19:15:29",
+   "to_tehran": "19:22:52",
+   "gap_s": 443.49,
+   "gap_mm_ss": "7:23",
+   "other_direction_departures_in_between": [],
+   "note": ""
+  },
+  {
+   "date": "2026-11-03",
+   "dir": "غدیر",
+   "from_tehran": "19:22:52",
+   "to_tehran": "19:39:15",
+   "gap_s": 982.493,
+   "gap_mm_ss": "16:22",
+   "other_direction_departures_in_between": [
+    "19:32:22 فرودگاه"
+   ],
+   "note": "spans another service departure; this is NOT the headway of that service alone"
+  },
+  {
+   "date": "2026-11-03",
+   "dir": "غدیر",
+   "from_tehran": "19:39:15",
+   "to_tehran": "19:46:58",
+   "gap_s": 463.748,
+   "gap_mm_ss": "7:44",
+   "other_direction_departures_in_between": [],
+   "note": ""
+  },
+  {
+   "date": "2026-11-03",
+   "dir": "غدیر",
+   "from_tehran": "19:46:58",
+   "to_tehran": "19:55:03",
+   "gap_s": 484.5,
+   "gap_mm_ss": "8:04",
+   "other_direction_departures_in_between": [],
+   "note": ""
+  },
+  {
+   "date": "2026-11-03",
+   "dir": "غدیر",
+   "from_tehran": "19:55:03",
+   "to_tehran": "20:03:10",
+   "gap_s": 487.597,
+   "gap_mm_ss": "8:08",
+   "other_direction_departures_in_between": [],
+   "note": ""
+  }
+ ],
+ "consecutive_any_direction_pairs": [
+  {
+   "date": "2026-11-03",
+   "from_tehran": "19:15:29",
+   "to_tehran": "19:22:52",
+   "from_dir": "غدیر",
+   "to_dir": "غدیر",
+   "gap_s": 443.49,
+   "gap_mm_ss": "7:23",
+   "from_t": 1793720729120,
+   "to_t": 1793721172610,
+   "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "from_tehran": "19:22:52",
+   "to_tehran": "19:32:22",
+   "from_dir": "غدیر",
+   "to_dir": "فرودگاه",
+   "gap_s": 569.48,
+   "gap_mm_ss": "9:29",
+   "from_t": 1793721172610,
+   "to_t": 1793721742090,
+   "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "from_tehran": "19:32:22",
+   "to_tehran": "19:39:15",
+   "from_dir": "فرودگاه",
+   "to_dir": "غدیر",
+   "gap_s": 413.013,
+   "gap_mm_ss": "6:53",
+   "from_t": 1793721742090,
+   "to_t": 1793722155103,
+   "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "from_tehran": "19:39:15",
+   "to_tehran": "19:46:58",
+   "from_dir": "غدیر",
+   "to_dir": "غدیر",
+   "gap_s": 463.748,
+   "gap_mm_ss": "7:44",
+   "from_t": 1793722155103,
+   "to_t": 1793722618851,
+   "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "from_tehran": "19:46:58",
+   "to_tehran": "19:55:03",
+   "from_dir": "غدیر",
+   "to_dir": "غدیر",
+   "gap_s": 484.5,
+   "gap_mm_ss": "8:04",
+   "from_t": 1793722618851,
+   "to_t": 1793723103351,
+   "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  },
+  {
+   "date": "2026-11-03",
+   "from_tehran": "19:55:03",
+   "to_tehran": "20:03:10",
+   "from_dir": "غدیر",
+   "to_dir": "غدیر",
+   "gap_s": 487.597,
+   "gap_mm_ss": "8:08",
+   "from_t": 1793723103351,
+   "to_t": 1793723590948,
+   "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+  }
+ ],
+ "min_observed_same_direction_gap": {
+  "date": "2026-11-03",
+  "dir": "غدیر",
+  "from_tehran": "19:15:29",
+  "to_tehran": "19:22:52",
+  "gap_s": 443.49,
+  "gap_mm_ss": "7:23",
+  "other_direction_departures_in_between": [],
+  "note": ""
+ },
+ "min_observed_any_direction_gap": {
+  "date": "2026-11-03",
+  "from_tehran": "19:32:22",
+  "to_tehran": "19:39:15",
+  "from_dir": "فرودگاه",
+  "to_dir": "غدیر",
+  "gap_s": 413.013,
+  "gap_mm_ss": "6:53",
+  "from_t": 1793721742090,
+  "to_t": 1793722155103,
+  "source_file": "2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv"
+ },
+ "sample_sizes": {
+  "vakilabad_departures_total": 9,
+  "same_direction_pairs": 5,
+  "pairs_not_spanning_another_service": 4,
+  "days_with_>=2_departures": 1
+ },
+ "vakilabad_platform_arrivals_all_days": [
+  {
+   "date": "2026-10-22",
+   "tehran": "14:23:07",
+   "logged_headway_s": "",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:14:50",
+   "logged_headway_s": "",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:21:17",
+   "logged_headway_s": "387",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:31:40",
+   "logged_headway_s": "623",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:38:10",
+   "logged_headway_s": "390",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:45:30",
+   "logged_headway_s": "440",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:45:30",
+   "logged_headway_s": "0",
+   "excluded": true
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "19:53:57",
+   "logged_headway_s": "507",
+   "excluded": false
+  },
+  {
+   "date": "2026-11-03",
+   "tehran": "20:03:03",
+   "logged_headway_s": "545",
+   "excluded": true
+  }
+ ],
+ "observed_windows_at_vakilabad_platform": [
+  {
+   "date": "2026-10-16 (Friday)",
+   "window": "13:59:51 - 13:59:51 (log starts with the depart row; no arrival logged; observer presence before 13:59:51 unknown)",
+   "departures": [
+    "13:59:51"
+   ],
+   "continuous_coverage_s": 0
+  },
+  {
+   "date": "2026-10-22 (Thursday)",
+   "window": "14:23:07 - 14:25:06 (arrive -> depart of the one departure)",
+   "departures": [
+    "14:25:06"
+   ],
+   "continuous_coverage_s": 118
+  },
+  {
+   "date": "2026-11-03 (Tuesday)",
+   "window": "19:14:50 - 20:03:10 (own-train arrival -> boarding the 20:03:10 train)",
+   "departures": [
+    "19:15:29",
+    "19:22:52",
+    "19:32:22",
+    "19:39:15",
+    "19:46:58",
+    "19:55:03",
+    "20:03:10"
+   ],
+   "continuous_coverage_s": 2900,
+   "continuity_caveat": "owner-at-platform continuity is assumed from the unbroken chain of logged arrive headways (387,623,390,440,507 = consecutive differences) and cannot be verified; a missed train between rows would not be visible."
+  }
+ ],
+ "ZERO_observation_of_vakilabad_departures": "every other time of every day. Concretely: Tuesday before 19:14:50 and after 20:03:10 (incl. all of 06:00-19:14 and 20:03:10-22:00+); Sat/Sun/Mon/Wed: no Vakilabad row in any CSV; Thursday except 14:23:07-14:25:06; Friday except the instant 13:59:51.",
+ "no_extrapolation": "the only observed minimum same-direction gap is on Tuesday evening; nothing is said about morning, midday, or after 20:03:10, or other weekdays.",
+ "board_announcements_not_observations": [
+  {
+   "date": "2026-10-22",
+   "logged_at": "14:25:06",
+   "text": "board showed 10 min; 14:25 غدیر, 14:35 فرودگاه, 14:45 غدیر, 14:55 غدیر",
+   "status": "announcement, only 14:25 observed"
+  },
+  {
+   "date": "2026-11-03",
+   "logged_at": "19:21:17",
+   "text": "19:23 غدیر, 19:31 فرودگاه, 19:39 غدیر, 19:47 غدیر",
+   "status": "announcement; 19:23/19:31/19:39/19:47 each followed by an observed departure within -8..+82 s"
+  },
+  {
+   "date": "2026-11-03",
+   "logged_at": "20:03:03",
+   "text": "20:11, 20:19, 20:27",
+   "status": "announcement ONLY; no Vakilabad departure observed after 20:03:10 (candidate docs say grid \"seen 19:15-20:27\" / board 19:23-20:27; observed departures end 20:03:10)"
+  }
+ ],
+ "A_service_and_B_phase_observation": {
+  "A_direct_vakilabad_departures (dir=غدیر)": [
+   "2026-10-16 Fri 13:59:51",
+   "2026-10-22 Thu 14:25:06",
+   "2026-11-03 Tue 19:15:29, 19:22:52, 19:39:15, 19:46:58, 19:55:03 (destination inferred, not seen), 20:03:10"
+  ],
+  "B_direct_vakilabad_departures (dir=فرودگاه)": [
+   "2026-11-03 Tue 19:32:22 only (n=1); Tue 19:14:50 note says the previous unlogged train was the airport train"
+  ],
+  "A_or_B_indirect_sightings_not_at_vakilabad": [
+   "Tue 18:51:53-18:52:12 Kowsar Ghadir-bound",
+   "Tue 18:57:41 Daneshamouz, 19:01:09 Sadaf, 19:05:47 Nemayeshgah (Ghadir-or-airport-bound, unknown which)",
+   "Sun 2026-11-01 20:09:38 Daneshamouz Ghadir-bound train just left (n=1)",
+   "Tue 20:09:13 / 20:13:02 / 20:16:03 / 20:17:21 Vakilabad-bound trains (return legs)"
+  ],
+  "A_phase_observed_windows_at_Vakilabad": [
+   "Tue 2026-11-03 19:15:29-20:03:10",
+   "Fri 2026-10-16 13:59:51 (single instant)",
+   "Thu 2026-10-22 14:25:06 (single instant, window 14:23:07-14:25:06)"
+  ],
+  "A_phase_NOT_observed": "all other times on all days; in particular Sat/Mon/Wed any time, Sun any Vakilabad departure, Tue 06:00-19:14:50 and after 20:03:10, normal-day mornings/midday (11:55-19:14), and the 10->8 min switch time"
+ }
+}

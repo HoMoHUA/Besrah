@@ -1,0 +1,40 @@
+{
+ "off_visitor": {
+  "unified": false,
+  "legacySearchVisible": true,
+  "plannerVisible": false,
+  "tracker": true,
+  "list": true,
+  "optInButton": false,
+  "tabsMetroBus": 2,
+  "overflow": 0
+ },
+ "on_not_opted": {
+  "unified": false,
+  "legacySearchVisible": true,
+  "optInButton": true,
+  "optInText": "ورود اختیاری به سفر آزمایشی",
+  "tracker": true,
+  "list": true,
+  "storage": [
+   "besrah.beta.bucket"
+  ]
+ },
+ "opted_in": {
+  "unified": true,
+  "legacySearchVisible": false,
+  "optOut": true
+ },
+ "after_opt_out": {
+  "unified": false,
+  "legacySearchVisible": true,
+  "tracker": true,
+  "list": true,
+  "optIn": true
+ },
+ "bus_tab": {
+  "title": "اتوبوس · Besrah",
+  "busView": true,
+  "metroHidden": true
+ }
+}

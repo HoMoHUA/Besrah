@@ -1,0 +1,319 @@
+{
+ "request": "GET /api/food/vendor?id=t:2w7r12",
+ "response": {
+  "id": "t:2w7r12",
+  "provider": "tapsifood",
+  "name": "کترینگ تره فرنگی",
+  "branch": null,
+  "category": "رستوران (خط کسب و کار ۱۵)",
+  "address": null,
+  "lat": 36.3255,
+  "lon": 59.4997,
+  "distanceM": 7686,
+  "rating": null,
+  "commentCount": null,
+  "minOrderToman": 250000,
+  "minOrderState": "known",
+  "openSnapshot": {
+   "value": "open",
+   "capturedAt": "2026-10-31T07:51:16.000Z",
+   "note": "وضعیت باز یا بسته فقط در زمان ثبت دادهٔ فروشگاه دیده شده است؛ وضعیت فعلی را در پلتفرم سفارش ببینید."
+  },
+  "capturedAt": "2026-10-31T07:51:16.000Z",
+  "orderUrl": "https://tapsi.food/vendor/2w7r12",
+  "orderCode": "2w7r12",
+  "menu": [
+   {
+    "category": "چلو کباب",
+    "items": [
+     {
+      "name": "چلو کباب لقمه",
+      "variation": "چلو کباب لقمه",
+      "category": "چلو کباب",
+      "priceToman": 1150000,
+      "finalPriceToman": 1150000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب کوبیده معمولی",
+      "variation": "چلو کباب کوبیده معمولی",
+      "category": "چلو کباب",
+      "priceToman": 770000,
+      "finalPriceToman": 770000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو جوجه کباب بدون استخوان سینه",
+      "variation": "چلو جوجه کباب بدون استخوان سینه",
+      "category": "چلو کباب",
+      "priceToman": 750000,
+      "finalPriceToman": 750000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب وزیری",
+      "variation": "چلو کباب وزیری",
+      "category": "چلو کباب",
+      "priceToman": 960000,
+      "finalPriceToman": 960000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب وزیری",
+      "variation": "خوراک کباب وزیری",
+      "category": "چلو کباب",
+      "priceToman": 715000,
+      "finalPriceToman": 715000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب سلطانی",
+      "variation": "چلو کباب سلطانی",
+      "category": "چلو کباب",
+      "priceToman": 1980000,
+      "finalPriceToman": 1980000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب سلطانی",
+      "variation": "خوراک کباب سلطانی",
+      "category": "چلو کباب",
+      "priceToman": 1500000,
+      "finalPriceToman": 1500000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو پاچین زعفرانی کبابی",
+      "variation": "چلو پاچین زعفرانی کبابی",
+      "category": "چلو کباب",
+      "priceToman": 750000,
+      "finalPriceToman": 750000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو جوجه با استخوان",
+      "variation": "چلو جوجه با استخوان",
+      "category": "چلو کباب",
+      "priceToman": 950000,
+      "finalPriceToman": 950000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک جوجه با استخوان",
+      "variation": "خوراک جوجه با استخوان",
+      "category": "چلو کباب",
+      "priceToman": 700000,
+      "finalPriceToman": 700000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب میکس",
+      "variation": "خوراک کباب میکس",
+      "category": "چلو کباب",
+      "priceToman": 550000,
+      "finalPriceToman": 550000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب برگ",
+      "variation": "چلو کباب برگ",
+      "category": "چلو کباب",
+      "priceToman": 1500000,
+      "finalPriceToman": 1500000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب برگ",
+      "variation": "خوراک کباب برگ",
+      "category": "چلو کباب",
+      "priceToman": 1250000,
+      "finalPriceToman": 1250000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب بختیاری",
+      "variation": "چلو کباب بختیاری",
+      "category": "چلو کباب",
+      "priceToman": 1300000,
+      "finalPriceToman": 1300000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب بختیاری",
+      "variation": "خوراک کباب بختیاری",
+      "category": "چلو کباب",
+      "priceToman": 1050000,
+      "finalPriceToman": 1050000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "گوجه کبابی (یک سیخ)",
+      "variation": "گوجه کبابی (یک سیخ)",
+      "category": "چلو کباب",
+      "priceToman": 85000,
+      "finalPriceToman": 85000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو کباب بلغاری",
+      "variation": "چلو کباب بلغاری",
+      "category": "چلو کباب",
+      "priceToman": 480000,
+      "finalPriceToman": 480000,
+      "discounted": false,
+      "priceState": "known"
+     }
+    ]
+   },
+   {
+    "category": "غذای ایرانی",
+    "items": [
+     {
+      "name": "چلو ساده",
+      "variation": "چلو ساده",
+      "category": "غذای ایرانی",
+      "priceToman": 300000,
+      "finalPriceToman": 300000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب کوبیده",
+      "variation": "خوراک کباب کوبیده",
+      "category": "غذای ایرانی",
+      "priceToman": 220000,
+      "finalPriceToman": 220000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک کباب لقمه",
+      "variation": "خوراک کباب لقمه",
+      "category": "غذای ایرانی",
+      "priceToman": 900000,
+      "finalPriceToman": 900000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک جوجه کباب",
+      "variation": "خوراک جوجه کباب",
+      "category": "غذای ایرانی",
+      "priceToman": 500000,
+      "finalPriceToman": 500000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "زرشک پلو با ران مرغ سرخ شده",
+      "variation": "زرشک پلو با ران مرغ سرخ شده",
+      "category": "غذای ایرانی",
+      "priceToman": 650000,
+      "finalPriceToman": 650000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "استامبولی با گوشت",
+      "variation": "استامبولی با گوشت",
+      "category": "غذای ایرانی",
+      "priceToman": 700000,
+      "finalPriceToman": 700000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "چلو ران مرغ سرخ شده",
+      "variation": "چلو ران مرغ سرخ شده",
+      "category": "غذای ایرانی",
+      "priceToman": 750000,
+      "finalPriceToman": 750000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "استامبولی بدون گوشت",
+      "variation": "استامبولی بدون گوشت",
+      "category": "غذای ایرانی",
+      "priceToman": 450000,
+      "finalPriceToman": 450000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "سبزی پلو با ماهی",
+      "variation": "سبزی پلو با ماهی",
+      "category": "غذای ایرانی",
+      "priceToman": 900000,
+      "finalPriceToman": 900000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "آلبالو پلو",
+      "variation": "آلبالو پلو",
+      "category": "غذای ایرانی",
+      "priceToman": 825000,
+      "finalPriceToman": 825000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "زرشک پلو با ران مرغ ربی",
+      "variation": "زرشک پلو با ران مرغ ربی",
+      "category": "غذای ایرانی",
+      "priceToman": 730000,
+      "finalPriceToman": 730000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "خوراک ران مرغ ربی",
+      "variation": "خوراک ران مرغ ربی",
+      "category": "غذای ایرانی",
+      "priceToman": 450000,
+      "finalPriceToman": 450000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "سبزی پلو با ماهی قزل الا",
+      "variation": "سبزی پلو با ماهی قزل الا",
+      "category": "غذای ایرانی",
+      "priceToman": 900000,
+      "finalPriceToman": 900000,
+      "discounted": false,
+      "priceState": "known"
+     },
+     {
+      "name": "پلو ماهی قزل الا",
+      "variation": "پلو ماهی قزل الا",
+      "category": "غذای ایرانی",
+      "priceToman": 900000,
+      "finalPriceToman": 900000,
+      "discounted": false,
+      "priceState": "known"
+     }
+    ]
+   }
+  ],
+  "itemCount": 95,
+  "truncated": false
+ }
+}

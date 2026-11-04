@@ -1,0 +1,255 @@
+{
+  "modelOnly": true,
+  "dataVersion": "sha256:51ce05b4c0b67e221bde84573497ea16c56fb6802410886ef7ef2bbf0a50a009",
+  "examples": [
+    {
+      "id": "friday-line1-ghadir",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:friday-line1-ghadir",
+        "decisionPermission": "granted",
+        "line": 1,
+        "originId": "METRO-101",
+        "destinationId": "METRO-122",
+        "readyAt": "2026-10-16T14:00:00+03:30",
+        "calendar": {
+          "mode": "strict"
+        }
+      },
+      "status": "ok",
+      "candidates": 6,
+      "selected": [
+        {
+          "tripId": "2026-10-16:L1:out:B:1c11b88d995b0a1e4ea685e9a66859e9ab26129a53ddab9e8141c6050ba995de",
+          "sourceTrainId": "B-out-19",
+          "serviceDate": "2026-10-16",
+          "line": 1,
+          "service": "B",
+          "direction": "out",
+          "departure": "2026-10-16T14:12:00.000+03:30",
+          "arrival": "2026-10-16T14:52:37.800+03:30",
+          "waitingSeconds": 720,
+          "inVehicleSeconds": 2437.8000004291534,
+          "confidence": "measured_phase"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "friday-line1-airport",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:friday-line1-airport",
+        "decisionPermission": "granted",
+        "line": 1,
+        "originId": "METRO-101",
+        "destinationId": "METRO-124",
+        "readyAt": "2026-10-16T14:00:00+03:30",
+        "calendar": {
+          "mode": "strict"
+        }
+      },
+      "status": "ok",
+      "candidates": 3,
+      "selected": [
+        {
+          "tripId": "2026-10-16:L1:out:B:1c11b88d995b0a1e4ea685e9a66859e9ab26129a53ddab9e8141c6050ba995de",
+          "sourceTrainId": "B-out-19",
+          "serviceDate": "2026-10-16",
+          "line": 1,
+          "service": "B",
+          "direction": "out",
+          "departure": "2026-10-16T14:12:00.000+03:30",
+          "arrival": "2026-10-16T15:02:35.800+03:30",
+          "waitingSeconds": 720,
+          "inVehicleSeconds": 3035.8000004291534,
+          "confidence": "measured_phase"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "friday-line2",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:friday-line2",
+        "decisionPermission": "granted",
+        "line": 2,
+        "originId": "METRO-201",
+        "destinationId": "METRO-213",
+        "readyAt": "2026-10-16T14:00:00+03:30",
+        "calendar": {
+          "mode": "strict"
+        }
+      },
+      "status": "ok",
+      "candidates": 8,
+      "selected": [
+        {
+          "tripId": "2026-10-16:L2:out:-:860fb00eb017b4e5144ec0caa8a65064cc863fe3fdb432852e09a69e42581eb6",
+          "sourceTrainId": "L2-out-35",
+          "serviceDate": "2026-10-16",
+          "line": 2,
+          "service": null,
+          "direction": "out",
+          "departure": "2026-10-16T14:00:00.000+03:30",
+          "arrival": "2026-10-16T14:29:32.300+03:30",
+          "waitingSeconds": 0,
+          "inVehicleSeconds": 1772.2999999523163,
+          "confidence": "site_headway_assumed_phase"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "friday-line2-reverse",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:friday-line2-reverse",
+        "decisionPermission": "granted",
+        "line": 2,
+        "originId": "METRO-213",
+        "destinationId": "METRO-201",
+        "readyAt": "2026-10-16T14:00:00+03:30",
+        "calendar": {
+          "mode": "strict"
+        }
+      },
+      "status": "ok",
+      "candidates": 8,
+      "selected": [
+        {
+          "tripId": "2026-10-16:L2:back:-:17fc507b7c30eafa09f842a99f4c507c154996a61a8fed04b797ed22874897e7",
+          "sourceTrainId": "L2-back-35",
+          "serviceDate": "2026-10-16",
+          "line": 2,
+          "service": null,
+          "direction": "back",
+          "departure": "2026-10-16T14:00:00.000+03:30",
+          "arrival": "2026-10-16T14:29:46.300+03:30",
+          "waitingSeconds": 0,
+          "inVehicleSeconds": 1786.2999999523163,
+          "confidence": "site_headway_assumed_phase"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "thursday-explicit-weekday-model",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:thursday-explicit-weekday-model",
+        "decisionPermission": "granted",
+        "line": 1,
+        "originId": "METRO-101",
+        "destinationId": "METRO-122",
+        "readyAt": "2026-10-22T14:00:00+03:30",
+        "calendar": {
+          "mode": "weekday_baseline"
+        }
+      },
+      "status": "partial",
+      "candidates": 8,
+      "selected": [
+        {
+          "tripId": "2026-10-22:L1:out:B:b9f7769d8b1911484e855fb6ec940beccb54b294e92dd6d320cea800adc1d9a3",
+          "sourceTrainId": "B-out-16",
+          "serviceDate": "2026-10-22",
+          "line": 1,
+          "service": "B",
+          "direction": "out",
+          "departure": "2026-10-22T14:05:17.000+03:30",
+          "arrival": "2026-10-22T14:47:12.000+03:30",
+          "waitingSeconds": 317,
+          "inVehicleSeconds": 2515,
+          "confidence": "official_sheet_phase"
+        }
+      ],
+      "issues": [
+        {
+          "code": "holidays_unverified_weekday_baseline"
+        }
+      ]
+    },
+    {
+      "id": "normal-explicit-weekday-model",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:normal-explicit-weekday-model",
+        "decisionPermission": "granted",
+        "line": 2,
+        "originId": "METRO-201",
+        "destinationId": "METRO-213",
+        "readyAt": "2026-10-19T14:00:00+03:30",
+        "calendar": {
+          "mode": "weekday_baseline"
+        }
+      },
+      "status": "partial",
+      "candidates": 10,
+      "selected": [
+        {
+          "tripId": "2026-10-19:L2:out:-:40173387b9921e40055bd1f00a7c43d9e13be914b01142c5970ee56e40e16a7f",
+          "sourceTrainId": "L2-out-48",
+          "serviceDate": "2026-10-19",
+          "line": 2,
+          "service": null,
+          "direction": "out",
+          "departure": "2026-10-19T14:00:00.000+03:30",
+          "arrival": "2026-10-19T14:29:32.300+03:30",
+          "waitingSeconds": 0,
+          "inVehicleSeconds": 1772.2999999523163,
+          "confidence": "site_headway_assumed_phase"
+        }
+      ],
+      "issues": [
+        {
+          "code": "holidays_unverified_weekday_baseline"
+        }
+      ]
+    },
+    {
+      "id": "unknown-calendar",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:unknown-calendar",
+        "decisionPermission": "granted",
+        "line": 1,
+        "originId": "METRO-101",
+        "destinationId": "METRO-122",
+        "readyAt": "2026-10-19T14:00:00+03:30",
+        "calendar": {
+          "mode": "strict"
+        }
+      },
+      "status": "insufficient_data",
+      "candidates": 0,
+      "selected": [],
+      "issues": [
+        {
+          "code": "calendar_unknown"
+        }
+      ]
+    },
+    {
+      "id": "late-friday-end-of-service",
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "r2a:late-friday-end-of-service",
+        "decisionPermission": "granted",
+        "line": 1,
+        "originId": "METRO-101",
+        "destinationId": "METRO-122",
+        "readyAt": "2026-10-16T23:59:00+03:30",
+        "calendar": {
+          "mode": "strict"
+        },
+        "searchSeconds": 30
+      },
+      "status": "no_feasible_option",
+      "candidates": 0,
+      "selected": [],
+      "issues": []
+    }
+  ]
+}

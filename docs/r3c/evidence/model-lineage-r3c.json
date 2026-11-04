@@ -1,0 +1,551 @@
+{
+ "schema": "net01-model-lineage/1",
+ "serviceDate": "2026-11-04",
+ "overlayId": "net01-normal-day-v1",
+ "overlayDigest": "7efaa20c17c394e6a5b55563334f86ae46fa963ad68ebedac9b2c16c2905ac64",
+ "identityVersion": "net01-normal-day-v1:7efaa20c17c3",
+ "trainCounts": {
+  "baseline": {
+   "outTrips": 101,
+   "A": 75,
+   "B": 26,
+   "allTrips": 202
+  },
+  "overlay": {
+   "outTrips": 110,
+   "A": 78,
+   "B": 32,
+   "allTrips": 220
+  }
+ },
+ "baselineExactCollisions": {
+  "count": 20,
+  "rows": [
+   {
+    "time": "06:30:00",
+    "A": "A-out-2",
+    "B": "B-out-0",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "07:00:00",
+    "A": "A-out-4",
+    "B": "B-out-1",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "07:30:00",
+    "A": "A-out-6",
+    "B": "B-out-2",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "08:00:00",
+    "A": "A-out-8",
+    "B": "B-out-3",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "08:30:00",
+    "A": "A-out-10",
+    "B": "B-out-4",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "09:00:00",
+    "A": "A-out-12",
+    "B": "B-out-5",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "09:30:00",
+    "A": "A-out-14",
+    "B": "B-out-6",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "10:00:00",
+    "A": "A-out-16",
+    "B": "B-out-7",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "10:30:00",
+    "A": "A-out-18",
+    "B": "B-out-8",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "11:00:00",
+    "A": "A-out-20",
+    "B": "B-out-9",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "11:30:00",
+    "A": "A-out-22",
+    "B": "B-out-10",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "12:00:00",
+    "A": "A-out-24",
+    "B": "B-out-11",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "12:30:00",
+    "A": "A-out-26",
+    "B": "B-out-12",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "13:00:00",
+    "A": "A-out-28",
+    "B": "B-out-13",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "13:30:00",
+    "A": "A-out-30",
+    "B": "B-out-14",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "14:00:00",
+    "A": "A-out-32",
+    "B": "B-out-15",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "14:30:00",
+    "A": "A-out-34",
+    "B": "B-out-16",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "15:00:00",
+    "A": "A-out-36",
+    "B": "B-out-17",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "15:30:00",
+    "A": "A-out-38",
+    "B": "B-out-18",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   },
+   {
+    "time": "17:30:00",
+    "A": "A-out-49",
+    "B": "B-out-22",
+    "confidences": [
+     "site_headway_assumed_phase",
+     "site_headway_assumed_phase"
+    ]
+   }
+  ]
+ },
+ "overlayExactCollisions": 0,
+ "overlayAnomaliesWithin90s": 0,
+ "minAbSeparationSeconds": 160,
+ "absorbedSlots": {
+  "count": 20,
+  "rule": "single 8-minute slot sequence: a grid slot within the guard of a documented B departure is that B train, not a second train",
+  "rows": [
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "11:55:00",
+    "documentedB": "11:54:00",
+    "deltaSeconds": -60
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "12:19:00",
+    "documentedB": "12:19:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "12:43:00",
+    "documentedB": "12:43:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "13:07:00",
+    "documentedB": "13:07:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "13:31:00",
+    "documentedB": "13:31:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "13:55:00",
+    "documentedB": "13:54:00",
+    "deltaSeconds": -60
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "14:19:00",
+    "documentedB": "14:19:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "14:43:00",
+    "documentedB": "14:43:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "15:07:00",
+    "documentedB": "15:07:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "15:31:00",
+    "documentedB": "15:31:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "15:55:00",
+    "documentedB": "15:55:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "16:19:00",
+    "documentedB": "16:19:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "16:43:00",
+    "documentedB": "16:43:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "17:07:00",
+    "documentedB": "17:07:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "17:31:00",
+    "documentedB": "17:31:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "17:55:00",
+    "documentedB": "17:55:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "18:19:00",
+    "documentedB": "18:19:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "18:43:00",
+    "documentedB": "18:43:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-midday-8min-extrapolated",
+    "gridSlot": "19:07:00",
+    "documentedB": "19:07:00",
+    "deltaSeconds": 0
+   },
+   {
+    "window": "A-evening-8min-observed-timed",
+    "gridSlot": "19:31:00",
+    "documentedB": "19:31:00",
+    "deltaSeconds": 0
+   }
+  ]
+ },
+ "phaseDecisions": [],
+ "windows": [
+  {
+   "windowId": "A-am-site-15min-assumed",
+   "coverage": "site_headway_assumed",
+   "confidence": "site_headway_assumed_phase",
+   "count": 24
+  },
+  {
+   "windowId": "A-midday-8min-extrapolated",
+   "coverage": "extrapolated",
+   "confidence": "site_headway_assumed_phase",
+   "count": 36
+  },
+  {
+   "windowId": "A-evening-8min-observed-timed",
+   "coverage": "field_observed_timed",
+   "confidence": "measured_phase",
+   "count": 6
+  },
+  {
+   "windowId": "A-evening-8min-board-displayed-extrapolated",
+   "coverage": "extrapolated",
+   "confidence": "site_headway_assumed_phase",
+   "count": 3
+  },
+  {
+   "windowId": "A-late-site-10min-assumed",
+   "coverage": "site_headway_assumed",
+   "confidence": "site_headway_assumed_phase",
+   "count": 9
+  }
+ ],
+ "perHour": {
+  "baseline": {
+   "10": {
+    "A": 4,
+    "B": 2
+   },
+   "11": {
+    "A": 4,
+    "B": 2
+   },
+   "12": {
+    "A": 4,
+    "B": 2
+   },
+   "13": {
+    "A": 4,
+    "B": 2
+   },
+   "14": {
+    "A": 4,
+    "B": 2
+   },
+   "15": {
+    "A": 5,
+    "B": 2
+   },
+   "16": {
+    "A": 6,
+    "B": 2
+   },
+   "17": {
+    "A": 5,
+    "B": 2
+   },
+   "18": {
+    "A": 6,
+    "B": 2
+   },
+   "19": {
+    "A": 5,
+    "B": 1
+   },
+   "20": {
+    "A": 6,
+    "B": 0
+   },
+   "21": {
+    "A": 6,
+    "B": 0
+   },
+   "06": {
+    "A": 4,
+    "B": 1
+   },
+   "07": {
+    "A": 4,
+    "B": 2
+   },
+   "08": {
+    "A": 4,
+    "B": 2
+   },
+   "09": {
+    "A": 4,
+    "B": 2
+   }
+  },
+  "overlay": {
+   "10": {
+    "A": 4,
+    "B": 2
+   },
+   "11": {
+    "A": 4,
+    "B": 2
+   },
+   "12": {
+    "A": 6,
+    "B": 2
+   },
+   "13": {
+    "A": 4,
+    "B": 3
+   },
+   "14": {
+    "A": 6,
+    "B": 2
+   },
+   "15": {
+    "A": 4,
+    "B": 3
+   },
+   "16": {
+    "A": 6,
+    "B": 2
+   },
+   "17": {
+    "A": 4,
+    "B": 3
+   },
+   "18": {
+    "A": 6,
+    "B": 2
+   },
+   "19": {
+    "A": 5,
+    "B": 2
+   },
+   "20": {
+    "A": 7,
+    "B": 0
+   },
+   "21": {
+    "A": 6,
+    "B": 0
+   },
+   "06": {
+    "A": 4,
+    "B": 2
+   },
+   "07": {
+    "A": 4,
+    "B": 3
+   },
+   "08": {
+    "A": 4,
+    "B": 2
+   },
+   "09": {
+    "A": 4,
+    "B": 2
+   }
+  }
+ },
+ "firstLast": {
+  "baseline": {
+   "first": "06:00:00",
+   "last": "21:50:00"
+  },
+  "overlay": {
+   "first": "06:00:00",
+   "last": "21:57:00"
+  }
+ },
+ "bFromSheet": {
+  "runtimeSource": "data/official/kowsar_airport_poster_2026-11-03.json",
+  "sha256": "49ba32c9f71291f73200a85f4c3b95cb0b3361956b53ee8ef0858d339ff35358",
+  "offsetSecondsDerived": 1080,
+  "rows": [
+   "06:00:00",
+   "06:29:00",
+   "07:00:00",
+   "07:24:00",
+   "07:56:00",
+   "08:25:00",
+   "08:55:00",
+   "09:24:00",
+   "09:55:00",
+   "10:25:00",
+   "10:55:00",
+   "11:25:00",
+   "11:54:00",
+   "12:19:00",
+   "12:43:00",
+   "13:07:00",
+   "13:31:00",
+   "13:54:00",
+   "14:19:00",
+   "14:43:00",
+   "15:07:00",
+   "15:31:00",
+   "15:55:00",
+   "16:19:00",
+   "16:43:00",
+   "17:07:00",
+   "17:31:00",
+   "17:55:00",
+   "18:19:00",
+   "18:43:00",
+   "19:07:00",
+   "19:31:00"
+  ]
+ }
+}

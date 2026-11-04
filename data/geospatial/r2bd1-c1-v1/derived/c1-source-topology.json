@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "r2bd1-c1-v1",
+  "sourceId": "overpass-de-c1-01",
+  "sourceSha256": "c47f70328055f52924f04be961494e34dbd5abd0f2e7d632095642046baf969b",
+  "sourceSnapshotAt": "2026-11-02T20:09:06Z",
+  "sourceRetrievedAt": "2026-11-02T20:10:35.078836+00:00",
+  "crs": "EPSG:4326",
+  "coordinateAccuracyMeters": null,
+  "counts": {
+    "elements": 951,
+    "types": {
+      "node": 745,
+      "relation": 2,
+      "way": 204
+    },
+    "highwayWays": 198,
+    "entrances": 6,
+    "railwayPlatformWays": 2
+  },
+  "tagCounts": {
+    "highway": {
+      "bus_stop": 16,
+      "crossing": 8,
+      "cycleway": 1,
+      "footway": 41,
+      "path": 1,
+      "pedestrian": 3,
+      "residential": 80,
+      "secondary": 25,
+      "secondary_link": 2,
+      "service": 6,
+      "steps": 10,
+      "tertiary": 8,
+      "tertiary_link": 1,
+      "traffic_signals": 2,
+      "trunk": 5,
+      "trunk_link": 15,
+      "turning_circle": 1
+    },
+    "foot": {
+      "yes": 1
+    },
+    "foot:conditional": {},
+    "access": {
+      "destination": 2
+    },
+    "access:conditional": {},
+    "barrier": {
+      "block": 1,
+      "fence": 1,
+      "gate": 1,
+      "wall": 2
+    },
+    "sidewalk": {
+      "both": 35,
+      "right": 8
+    },
+    "crossing": {},
+    "crossing:signals": {},
+    "surface": {
+      "asphalt": 94,
+      "metal": 3,
+      "paving_stones": 2
+    },
+    "smoothness": {},
+    "lit": {
+      "yes": 14
+    },
+    "wheelchair": {
+      "yes": 1
+    },
+    "level": {
+      "3": 1
+    },
+    "layer": {
+      "-1": 5,
+      "1": 3,
+      "2": 2
+    },
+    "bridge": {
+      "yes": 5
+    },
+    "tunnel": {
+      "yes": 3
+    },
+    "indoor": {},
+    "opening_hours": {
+      "08:00-22:00": 1,
+      "24/7": 1
+    },
+    "oneway:foot": {},
+    "incline": {
+      "up": 8
+    },
+    "ramp": {
+      "no": 2
+    },
+    "width": {
+      "1.5": 1
+    },
+    "step_count": {},
+    "railway": {
+      "platform": 2,
+      "station": 2,
+      "stop": 4,
+      "subway_entrance": 6
+    },
+    "public_transport": {
+      "platform": 10,
+      "station": 2,
+      "stop_area": 2,
+      "stop_position": 20
+    },
+    "name": {
+      "آموزش": 3,
+      "استاد معین ۵": 1,
+      "ایستگاه حافظ": 1,
+      "ایستگاه دانش آموز": 2,
+      "ایستگاه دانش آموز ۱۱": 1,
+      "ایستگاه دانش آموز ۱۲": 1,
+      "ایستگاه دانش آموز ۳": 1,
+      "ایستگاه دانشجو": 2,
+      "ایستگاه دانشجو ۸": 2,
+      "ایستگاه شهید صیاد شیرازی": 1,
+      "ایستگاه صدف": 1,
+      "ایستگاه فرهنگ ۲۲": 1,
+      "ایستگاه مترو دانش آموز": 4,
+      "ایستگاه مترو هفت تیر": 4,
+      "ایستگاه میدان دانش آموز": 2,
+      "ایستگاه هفت تیر": 2,
+      "ایستگاه هفت تیر ۵": 2,
+      "ایستگاه هفت تیر ۶": 1,
+      "ایستگاه هنرستان": 2,
+      "ایستگاه پارک گلها": 2,
+      "بزرگراه وکیل آباد": 5,
+      "بلوار هنرستان": 3,
+      "بلوار هنرستان 6": 1,
+      "بولوار دانش آموز": 4,
+      "بولوار دانشجو": 6,
+      "بولوار فرهنگ": 4,
+      "بولوار هفت تیر": 5,
+      "بیمارستان دامپزشکی آفتاب": 1,
+      "جنوب شرقی": 1,
+      "جنوب غربی": 1,
+      "جنوبی": 1,
+      "دانشجو ۹": 1,
+      "زیرگذر دانش آموز": 1,
+      "زیرگذر هفت تیر": 2,
+      "سامانیه ۱": 1,
+      "شمال شرقی": 1,
+      "شمال غربی": 1,
+      "شمالی": 1,
+      "صارمی ۳۷": 1,
+      "فروشگاه پخش قهوه دونچی": 1,
+      "قائم مقام فراهانی": 1,
+      "مرکز بهداشت شماره ۱": 1,
+      "مسجد فاطمه الزهرا": 1,
+      "میثاق": 2,
+      "میثاق ۱": 1,
+      "میثاق ۱/۲": 1,
+      "میثاق ۱/۴": 1,
+      "میدان دانش آموز": 6,
+      "هفت تیر": 1,
+      "هفت تیر ۱": 1,
+      "هفت تیر ۲": 2,
+      "هفت تیر ۳": 2,
+      "هفت تیر ۳/۲": 1,
+      "هفت تیر ۴": 2,
+      "هفت تیر ۶": 1,
+      "هنرستان ۲": 1,
+      "وکیل آباد ۲۲": 1,
+      "وکیل آباد ۳۵": 2,
+      "وکیل آباد۲۹": 1,
+      "وکیل آباد۳۱": 1,
+      "پرورش": 1,
+      "پل هفت تیر": 2,
+      "کوچه دانش آموز ۱": 1,
+      "کوچه دانش آموز ۱۰": 1,
+      "کوچه دانش آموز ۱۱": 1,
+      "کوچه دانش آموز ۱۲": 1,
+      "کوچه دانش آموز ۲": 1,
+      "کوچه دانش آموز ۳": 1,
+      "کوچه دانش آموز ۴": 1,
+      "کوچه دانش آموز ۵": 1,
+      "کوچه دانش آموز ۶": 1,
+      "کوچه دانش آموز ۷": 1,
+      "کوچه دانش آموز ۸": 1,
+      "کوچه دانش آموز ۹": 1,
+      "کوچه دانشجو ۱": 1,
+      "کوچه دانشجو ۲": 1,
+      "کوچه دانشجو ۳": 1,
+      "کوچه دانشجو ۴": 1,
+      "کوچه دانشجو ۵": 1,
+      "کوچه دانشجو ۶": 1,
+      "کوچه دانشجو ۸": 1,
+      "کوچه قائم مقام فراهانی ۱": 1,
+      "کوچه قائم مقام فراهانی ۳": 1,
+      "کوچه ۱۰ آموزش": 1,
+      "کوچه ۲ آموزش": 1,
+      "کوچه ۴ آموزش": 1,
+      "کوچه ۶ آموزش": 1,
+      "کوچه ۸ آموزش": 1,
+      "گلستان": 2,
+      "گلستان ۱": 1,
+      "گلشن": 1,
+      "گلشن - هفت تیر ۸": 1,
+      "گلشن غربی": 1,
+      "گلشن غربی - هفت تیر ۵": 1,
+      "گلشن ۱": 1,
+      "گلشن ۲": 1,
+      "گلشن ۴": 1,
+      "گلشن ۶/۴": 1,
+      "۲۰ وکیل آباد": 1,
+      "۲۴ وکیل آباد": 1,
+      "۲۶ وکیل آباد": 1
+    },
+    "ref": {
+      "1040": 1,
+      "1041": 1,
+      "1042": 1,
+      "1044": 1,
+      "1045": 1,
+      "1046": 1,
+      "1298": 1,
+      "1299": 1,
+      "1384": 1,
+      "1385": 1,
+      "1885": 1,
+      "1907": 1,
+      "1909": 1,
+      "1910": 1,
+      "5115": 1,
+      "5217": 1
+    }
+  },
+  "entrancesByStation": {
+    "METRO-107": [
+      "osm:node:1030590026",
+      "osm:node:1030590103",
+      "osm:node:1999516718",
+      "osm:node:1999516717"
+    ],
+    "METRO-108": [
+      "osm:node:1030590123",
+      "osm:node:1030590063"
+    ]
+  },
+  "entrances": [
+    {
+      "id": "osm:node:1030590026",
+      "entranceId": "osm:node:1030590026",
+      "stationId": "METRO-107",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 6,
+      "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+      "observedAt": null,
+      "lat": 36.3278665,
+      "lon": 59.5011025,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "sourceTags": {
+        "name": "شمال شرقی",
+        "name:en": "Northeast",
+        "railway": "subway_entrance"
+      },
+      "stopAreaId": "osm:relation:3156528",
+      "memberRole": "",
+      "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+      "assurance": "public_source_claim",
+      "fieldVerification": "unverified",
+      "directionalPlatformId": null,
+      "connectedHighwayWayIds": [
+        "osm:way:88807904",
+        "osm:way:531913241"
+      ],
+      "physicalAccessStatus": "undetermined"
+    },
+    {
+      "id": "osm:node:1030590063",
+      "entranceId": "osm:node:1030590063",
+      "stationId": "METRO-108",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 5,
+      "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+      "observedAt": null,
+      "lat": 36.3246418,
+      "lon": 59.5092179,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "sourceTags": {
+        "name": "جنوبی",
+        "name:en": "South",
+        "railway": "subway_entrance"
+      },
+      "stopAreaId": "osm:relation:3156522",
+      "memberRole": "",
+      "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+      "assurance": "public_source_claim",
+      "fieldVerification": "unverified",
+      "directionalPlatformId": null,
+      "connectedHighwayWayIds": [
+        "osm:way:163269413",
+        "osm:way:531913235"
+      ],
+      "physicalAccessStatus": "undetermined"
+    },
+    {
+      "id": "osm:node:1030590103",
+      "entranceId": "osm:node:1030590103",
+      "stationId": "METRO-107",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 5,
+      "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+      "observedAt": null,
+      "lat": 36.3272289,
+      "lon": 59.500901,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "sourceTags": {
+        "name": "جنوب شرقی",
+        "name:en": "Southeast",
+        "railway": "subway_entrance"
+      },
+      "stopAreaId": "osm:relation:3156528",
+      "memberRole": "",
+      "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+      "assurance": "public_source_claim",
+      "fieldVerification": "unverified",
+      "directionalPlatformId": null,
+      "connectedHighwayWayIds": [
+        "osm:way:88807946",
+        "osm:way:531913240"
+      ],
+      "physicalAccessStatus": "undetermined"
+    },
+    {
+      "id": "osm:node:1030590123",
+      "entranceId": "osm:node:1030590123",
+      "stationId": "METRO-108",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 5,
+      "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+      "observedAt": null,
+      "lat": 36.3252162,
+      "lon": 59.5095125,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "sourceTags": {
+        "name": "شمالی",
+        "name:en": "North",
+        "railway": "subway_entrance"
+      },
+      "stopAreaId": "osm:relation:3156522",
+      "memberRole": "",
+      "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+      "assurance": "public_source_claim",
+      "fieldVerification": "unverified",
+      "directionalPlatformId": null,
+      "connectedHighwayWayIds": [
+        "osm:way:163269462",
+        "osm:way:531913236"
+      ],
+      "physicalAccessStatus": "undetermined"
+    },
+    {
+      "id": "osm:node:1999516717",
+      "entranceId": "osm:node:1999516717",
+      "stationId": "METRO-107",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 4,
+      "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+      "observedAt": null,
+      "lat": 36.3275829,
+      "lon": 59.4997933,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "sourceTags": {
+        "name": "جنوب غربی",
+        "name:en": "Southwest",
+        "railway": "subway_entrance"
+      },
+      "stopAreaId": "osm:relation:3156528",
+      "memberRole": "",
+      "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+      "assurance": "public_source_claim",
+      "fieldVerification": "unverified",
+      "directionalPlatformId": null,
+      "connectedHighwayWayIds": [
+        "osm:way:189308669",
+        "osm:way:531913237"
+      ],
+      "physicalAccessStatus": "undetermined"
+    },
+    {
+      "id": "osm:node:1999516718",
+      "entranceId": "osm:node:1999516718",
+      "stationId": "METRO-107",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 4,
+      "sourceLastEditedAt": "2026-08-29T12:42:45Z",
+      "observedAt": null,
+      "lat": 36.3281758,
+      "lon": 59.5000237,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "sourceTags": {
+        "name": "شمال غربی",
+        "name:en": "Northwest",
+        "railway": "subway_entrance"
+      },
+      "stopAreaId": "osm:relation:3156528",
+      "memberRole": "",
+      "stationAssociation": "Reviewed name correlation to registry plus explicit OSM stop_area membership; not operator validation",
+      "assurance": "public_source_claim",
+      "fieldVerification": "unverified",
+      "directionalPlatformId": null,
+      "connectedHighwayWayIds": [
+        "osm:way:189308670",
+        "osm:way:531913239"
+      ],
+      "physicalAccessStatus": "undetermined"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "osm:way:618773155",
+      "platformId": "osm:way:618773155",
+      "stationId": "METRO-108",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 3,
+      "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+      "direction": null,
+      "level": null,
+      "sourceTags": {
+        "covered": "yes",
+        "light_rail": "yes",
+        "public_transport": "platform",
+        "railway": "platform"
+      },
+      "nodeIds": [
+        "osm:node:5848352591",
+        "osm:node:5848352590",
+        "osm:node:5848352589",
+        "osm:node:5848352588",
+        "osm:node:5848352587",
+        "osm:node:5848352586",
+        "osm:node:5848352591"
+      ],
+      "sharedHighwayNodeIds": [],
+      "assurance": "public_source_claim_not_physical_connection"
+    },
+    {
+      "id": "osm:way:618773156",
+      "platformId": "osm:way:618773156",
+      "stationId": "METRO-108",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 3,
+      "sourceLastEditedAt": "2026-08-31T08:12:44Z",
+      "direction": null,
+      "level": null,
+      "sourceTags": {
+        "covered": "yes",
+        "light_rail": "yes",
+        "public_transport": "platform",
+        "railway": "platform"
+      },
+      "nodeIds": [
+        "osm:node:5848352595",
+        "osm:node:5848352594",
+        "osm:node:5848352585",
+        "osm:node:5848352284",
+        "osm:node:5848352593",
+        "osm:node:5848352592",
+        "osm:node:5848352595"
+      ],
+      "sharedHighwayNodeIds": [],
+      "assurance": "public_source_claim_not_physical_connection"
+    }
+  ],
+  "publicPoints": [
+    {
+      "id": "d1:point:A",
+      "stationId": "METRO-107",
+      "sourceNodeId": "osm:node:7033302509",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 2,
+      "sourceLastEditedAt": "2021-08-20T10:19:54Z",
+      "observedAt": null,
+      "lat": 36.3279221,
+      "lon": 59.5011058,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "fieldVerification": "unverified",
+      "assurance": "public_source_geometry_not_field_survey",
+      "boundary": "Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913241; proposed standing start/end, not a station center or private address",
+      "standingSpaceVerified": false
+    },
+    {
+      "id": "d1:point:B",
+      "stationId": "METRO-108",
+      "sourceNodeId": "osm:node:5162609067",
+      "sourceId": "overpass-de-c1-01",
+      "sourceVersion": 2,
+      "sourceLastEditedAt": "2021-08-20T10:33:22Z",
+      "observedAt": null,
+      "lat": 36.3253283,
+      "lon": 59.5095642,
+      "crs": "EPSG:4326",
+      "accuracyMeters": null,
+      "fieldVerification": "unverified",
+      "assurance": "public_source_geometry_not_field_survey",
+      "boundary": "Exact mapped shared node of osm:way:752623414 (foot=yes) and osm:way:531913236; proposed standing start/end, not a station center or private address",
+      "standingSpaceVerified": false
+    }
+  ],
+  "outdoorCandidates": [
+    {
+      "id": "d1:outdoor:METRO-107",
+      "pointId": "d1:point:A",
+      "entranceId": "osm:node:1030590026",
+      "sourceWayId": "osm:way:531913241",
+      "sourceId": "overpass-de-c1-01",
+      "stationId": "METRO-107",
+      "nodeIds": [
+        "osm:node:7033302509",
+        "osm:node:1030590026"
+      ],
+      "sourceTags": {
+        "highway": "footway"
+      },
+      "lengthMeters2DFromSourceGeometry": 6.19,
+      "lengthMethod": "Spherical polyline from exact source node coordinates, mean radius6371008.8m; approximate geometry length, unknown source positional error. Not an air-distance walk proxy.",
+      "mappedTopology": "pass",
+      "physicalPassability": "undetermined",
+      "permittedDirections": "unknown",
+      "barrier": "unknown",
+      "surface": null,
+      "levels": [
+        null,
+        null
+      ],
+      "timing": {
+        "seconds": null,
+        "method": null,
+        "sourceIds": []
+      }
+    },
+    {
+      "id": "d1:outdoor:METRO-108",
+      "pointId": "d1:point:B",
+      "entranceId": "osm:node:1030590123",
+      "sourceWayId": "osm:way:531913236",
+      "sourceId": "overpass-de-c1-01",
+      "stationId": "METRO-108",
+      "nodeIds": [
+        "osm:node:5162609067",
+        "osm:node:1030590123"
+      ],
+      "sourceTags": {
+        "highway": "footway"
+      },
+      "lengthMeters2DFromSourceGeometry": 13.298,
+      "lengthMethod": "Spherical polyline from exact source node coordinates, mean radius6371008.8m; approximate geometry length, unknown source positional error. Not an air-distance walk proxy.",
+      "mappedTopology": "pass",
+      "physicalPassability": "undetermined",
+      "permittedDirections": "unknown",
+      "barrier": "unknown",
+      "surface": null,
+      "levels": [
+        null,
+        null
+      ],
+      "timing": {
+        "seconds": null,
+        "method": null,
+        "sourceIds": []
+      }
+    }
+  ],
+  "registryDisagreements": [
+    {
+      "stationId": "METRO-107",
+      "registryLat": 36.32747,
+      "registryLon": 59.500774,
+      "osmStationNodeId": "osm:node:5162609074",
+      "osmLat": 36.3277382,
+      "osmLon": 59.5004042,
+      "separationMeters2D": 44.574,
+      "interpretation": "Different source positions/possibly roles; not proof either source is wrong. Baseline unchanged; not snapped."
+    },
+    {
+      "stationId": "METRO-108",
+      "registryLat": 36.3263889,
+      "registryLon": 59.5069444,
+      "osmStationNodeId": "osm:node:5162609068",
+      "osmLat": 36.3251818,
+      "osmLon": 59.5086023,
+      "separationMeters2D": 200.188,
+      "interpretation": "Different source positions/possibly roles; not proof either source is wrong. Baseline unchanged; not snapped."
+    }
+  ],
+  "railPlatformDefinitionMissingFor": [
+    "METRO-107"
+  ],
+  "artificialConnectorsCreated": false,
+  "physicalPassabilityCertified": false,
+  "importantDistinctions": [
+    "OSM source last-edit timestamps are not field observation times.",
+    "Stop-area membership groups objects, but does not assert a walkable connection or directional platform access.",
+    "A station underpass may only cross a road; its existence is not evidence of a platform branch.",
+    "No source coordinate is silently substituted into network.json.",
+    "Fresh download does not make an old or unobserved feature physically verified."
+  ]
+}

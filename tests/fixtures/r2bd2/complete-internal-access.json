@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "isTemplateNotObservation": false,
+  "observationId": "obs:SYN-H7-IN-001",
+  "observedAt": "2000-01-01T10:00:00+03:30",
+  "timezone": "+03:30",
+  "stationId": "METRO-107",
+  "entranceId": "osm:node:1030590026",
+  "platformId": null,
+  "directionDestinationText": "SYNTHETIC SIGN TEXT",
+  "fromPointId": "osm:node:1030590026",
+  "toPointId": "platform:METRO-107:toward:METRO-108",
+  "publicAreaOnly": true,
+  "sourceEvidenceFiles": [
+    {
+      "fileName": "syn-sign.jpg",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "kind": "photo_sign",
+      "containsPeopleOrTickets": false,
+      "rights": "synthetic fixture, no real media"
+    }
+  ],
+  "pathNodes": [],
+  "segments": [
+    "threshold",
+    "stairs down",
+    "ticket gate",
+    "platform"
+  ],
+  "entranceRules": {
+    "entryAllowed": "yes",
+    "exitAllowed": "yes",
+    "openingHours": null,
+    "sourceId": "field:obs:SYN-H7-IN-001"
+  },
+  "surface": null,
+  "barriers": null,
+  "levels": [
+    "street",
+    "platform"
+  ],
+  "transition": "stairs",
+  "events": {
+    "startAt": "2000-01-01T10:00:00+03:30",
+    "entranceThresholdAt": "2000-01-01T10:00:00+03:30",
+    "ticketQueueStartAt": "2000-01-01T10:00:40+03:30",
+    "ticketControlCompleteAt": "2000-01-01T10:01:00+03:30",
+    "platformReadyAt": "2000-01-01T10:02:00+03:30",
+    "alightedAt": null,
+    "exitThresholdAt": null,
+    "trainArrivedAt": "2000-01-01T10:05:00+03:30",
+    "endAt": "2000-01-01T10:02:00+03:30"
+  },
+  "durationsSeconds": {
+    "crossingWait": 0,
+    "ticketQueue": 12,
+    "ticketControl": 8,
+    "elevatorWait": 0,
+    "researcherPause": 10,
+    "walking": null,
+    "steps": null
+  },
+  "pathLengthMeters": null,
+  "lengthMethod": null,
+  "coordinateCapture": {
+    "crs": null,
+    "method": null,
+    "accuracyMeters": null,
+    "lat": null,
+    "lon": null
+  },
+  "contradictions": [],
+  "unknowns": [],
+  "notes": "SYNTHETIC FIXTURE - not a field observation",
+  "synthetic": true,
+  "missionId": "H7-IN-OUTBOUND",
+  "sourceId": "field:obs:SYN-H7-IN-001",
+  "observerCode": "SYN-OBS-1",
+  "consent": {
+    "recordingConsent": true,
+    "publicAreaOnly": true,
+    "noPeopleOrTicketsInMedia": true
+  },
+  "entranceMatchesCandidate": "yes",
+  "pathExists": "yes",
+  "platformReached": "yes",
+  "platformDirectionMatchesMission": "yes",
+  "arrivedFromStationText": null,
+  "boundaryStandable": null,
+  "evidenceLevel": "documented",
+  "verification": null,
+  "coordinateCheck": null
+}

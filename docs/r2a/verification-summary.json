@@ -1,0 +1,1104 @@
+{
+  "verificationVersion": 1,
+  "generatedAt": "2026-11-02T14:35:19+00:00",
+  "base": "50dd9eea95509ae922a278495a9abb687fcb0988",
+  "branch": "feature/r2a-transit-station-planner",
+  "modelOnly": true,
+  "deployment": false,
+  "inputFiles": {
+    "packages/core/src/transit-journey/calendar.ts": "e54a08d871294605236dd1f2caeaed3d822daedd6b176ab3889899bc79051d4e",
+    "packages/core/src/transit-journey/contracts.ts": "d6f22733fab37728bc0d89b97ca5e2da86e15271c6b7b0075cd9676824870259",
+    "packages/core/src/transit-journey/index.ts": "bb13b3c6ca2a72c7aa1a3642384e088f10e4d8e68bffd4d77943f5ab047884c6",
+    "packages/core/src/transit-journey/model-source.ts": "bc309c93bc9f8ca146ecd63c847f1c63749f37232fb2e113a7685ff316a53b4e",
+    "packages/core/src/transit-journey/normalize.ts": "a629630d954a71ab94c7ea6be876e5e4c12877e3bf0e4d9eab58aba18a1f0c7f",
+    "packages/core/src/transit-journey/planner.ts": "b3f23b36ed1f5a42212579b5e4076a94ba58a7b35a54e65fb41146c790efd123",
+    "packages/core/src/transit-journey/registry.ts": "680d4210b08b88238814c177d80050918a7fc2a958c938f7dee65b64b6796a6e",
+    "packages/core/src/transit-journey/validation.ts": "85728378ebf364dd4b590ee5153d17ab59c2078a6ffb2c51b909d596f5654e94",
+    "packages/core/tests/transit-journey/calendar.test.ts": "7c063877a91c2204a20d9968bcc57ab29af0ba511d9bef53bbc961461322b8ac",
+    "packages/core/tests/transit-journey/cli.test.ts": "ad476caa356d497a7fc4d6e9e9dd37984d95294cbc1ca8990243fae3e82acc45",
+    "packages/core/tests/transit-journey/helpers.ts": "78fd6c310b7b859d2bbb6f644b39df6fd44ffdb0ae8d3d3bfa717d824bf2c6dc",
+    "packages/core/tests/transit-journey/integration.test.ts": "2da25fc189f90a3961437625af1f804d90f13f1f09bd87ff9585b16dffb0950b",
+    "packages/core/tests/transit-journey/model-source.test.ts": "7c829bdcba72fbd3716fd1669c16713ee3c08909d5a45fdbb8ac35f179e451ff",
+    "packages/core/tests/transit-journey/normalize.test.ts": "35dc4d290a9ef9e8bdd1ff4857d645ca5c3dad7b2d8193374f333e3bab8247f7",
+    "packages/core/tests/transit-journey/oracle.test.ts": "a702a5b8cc305be1dee293b6ee1fd6afba44f45cb4f646790bed126b5b9528e0",
+    "packages/core/tests/transit-journey/planner.test.ts": "96a39910f6e0da7a48f6ab68d3c8ae1a002a2b4af09d8a0ed7e8d26ab4e452a9",
+    "packages/core/tests/transit-journey/registry.test.ts": "0eeddb2be15982558b311496fb3c8d96066810ae6bca36f26847a496cb728e36",
+    "scripts/demo-transit-journey.mjs": "48bde5cbe913f17033a6e23b405556bde593f2204b7259eddee4e5a2f43b4cef",
+    "scripts/benchmark-transit-journey.mjs": "b2d8d5a3242805fa942357e21da2e2ef33d132ec09cba1167095e6b162db2ee7",
+    "scripts/benchmark-transit-capacity.mjs": "c203580164d977f75764d49b8a69a313ca9ae916d33cbf7a24f76bc5d728dff3"
+  },
+  "inputsSha256": "73fcce8e636dc95051fc9f28d4a25360ee7999eba3274cc9ba60ac30cab24086",
+  "tests": {
+    "suites": {
+      "core": 374,
+      "miniapp-data-n8n": 198,
+      "release": 12,
+      "bus-python": 17
+    },
+    "total": 601,
+    "transitTests": {
+      "normalize.test.ts": 50,
+      "oracle.test.ts": 15,
+      "integration.test.ts": 16,
+      "model-source.test.ts": 31,
+      "cli.test.ts": 4,
+      "planner.test.ts": 18,
+      "calendar.test.ts": 10,
+      "registry.test.ts": 1
+    },
+    "transitTotal": 145
+  },
+  "commands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 6.092
+    },
+    {
+      "name": "core",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 37.461
+    },
+    {
+      "name": "miniapp-data-n8n",
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "/root/projects/besrah-r2a/apps/miniapp/api.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/async.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/bus-data.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/food.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/format.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/hero.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/icons.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/location.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/logic.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/navigation.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/route.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/search.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/service-assets.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/service-store.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/services.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/store.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/superapp.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/tg.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/theme.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/tracker-layout.test.mjs",
+        "/root/projects/besrah-r2a/apps/miniapp/tracker.test.mjs",
+        "/root/projects/besrah-r2a/tests/data/bus-app-data.test.mjs",
+        "/root/projects/besrah-r2a/tests/data/bus-catalog-integrity.test.mjs",
+        "/root/projects/besrah-r2a/tests/data/bus-guide-integrity.test.mjs",
+        "/root/projects/besrah-r2a/tests/data/network-data.test.mjs",
+        "/root/projects/besrah-r2a/tests/n8n/normalize.test.mjs",
+        "/root/projects/besrah-r2a/tests/n8n/render.test.mjs",
+        "/root/projects/besrah-r2a/tests/n8n/workflow.test.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 32.214
+    },
+    {
+      "name": "release",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/release",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.78
+    },
+    {
+      "name": "bus-python",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/data",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.534
+    },
+    {
+      "name": "bus-check",
+      "command": [
+        "python3",
+        "scripts/build_bus_app_data.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.417
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.512
+    }
+  ],
+  "oracleGeneratedQueries": 5184,
+  "realBenchmark": {
+    "schemaVersion": 1,
+    "benchmark": "compiled-transit-journey",
+    "modelOnly": true,
+    "runtime": {
+      "node": "v22.23.4",
+      "platform": "linux",
+      "arch": "x64",
+      "pid": 387386,
+      "execArgv": [
+        "--expose-gc"
+      ]
+    },
+    "config": {
+      "iterations": 20,
+      "concurrency": 4,
+      "fixedDate": "2026-10-16",
+      "fixedAt": "2026-10-16T14:00:00+03:30",
+      "cacheEntries": 2,
+      "retainedSourceInstances": 1,
+      "apiConcurrency": 1,
+      "plannerConcurrency": 4,
+      "compiledIndex": "/root/projects/besrah-r2a/packages/core/dist/transit-journey/index.js"
+    },
+    "sourceVersion": "sha256:51ce05b4c0b67e221bde84573497ea16c56fb6802410886ef7ef2bbf0a50a009",
+    "elapsedMs": 2978.88716,
+    "compiledImportMs": 24.881927999999988,
+    "coldSourceInitialization": {
+      "firstCallMs": 8.982798000000003,
+      "allCallsMs": {
+        "count": 20,
+        "min": 3.151283000000035,
+        "median": 3.551009999999991,
+        "p95": 4.974691999999976,
+        "max": 8.982798000000003,
+        "mean": 3.9972332500000034
+      },
+      "subsequentCallsMs": {
+        "count": 19,
+        "min": 3.151283000000035,
+        "median": 3.551009999999991,
+        "p95": 4.974691999999976,
+        "max": 4.974691999999976,
+        "mean": 3.7348351052631616
+      }
+    },
+    "normalization": [
+      {
+        "line": 1,
+        "trips": 154,
+        "firstCallMs": 32.75910699999997,
+        "allCallsMs": {
+          "count": 20,
+          "min": 14.175967000000014,
+          "median": 16.80577599999998,
+          "p95": 27.946146999999996,
+          "max": 32.75910699999997,
+          "mean": 19.095272749999992
+        },
+        "subsequentCallsMs": {
+          "count": 19,
+          "min": 14.175967000000014,
+          "median": 16.80577599999998,
+          "p95": 27.946146999999996,
+          "max": 27.946146999999996,
+          "mean": 18.37612357894736
+        }
+      },
+      {
+        "line": 2,
+        "trips": 152,
+        "firstCallMs": 14.726167000000032,
+        "allCallsMs": {
+          "count": 20,
+          "min": 10.368138000000044,
+          "median": 11.195263999999952,
+          "p95": 16.770198999999934,
+          "max": 18.160960000000046,
+          "mean": 12.648374050000001
+        },
+        "subsequentCallsMs": {
+          "count": 19,
+          "min": 10.368138000000044,
+          "median": 11.195263999999952,
+          "p95": 18.160960000000046,
+          "max": 18.160960000000046,
+          "mean": 12.53901652631579
+        }
+      }
+    ],
+    "coldDayGenerationAndNormalizationMs": {
+      "count": 20,
+      "min": 11.279001000000108,
+      "median": 15.759459000000106,
+      "p95": 21.127286000000026,
+      "max": 26.73080499999992,
+      "mean": 16.092706949999986
+    },
+    "coldPlan": {
+      "wallMs": {
+        "count": 20,
+        "min": 14.918978000000152,
+        "median": 19.423360000000002,
+        "p95": 32.2608459999999,
+        "max": 33.3512639999999,
+        "mean": 20.86630655
+      },
+      "diagnosticsMs": {
+        "source": {
+          "count": 20,
+          "min": 11.353550999999925,
+          "median": 15.807569000000058,
+          "p95": 23.622973,
+          "max": 27.055802000000085,
+          "mean": 16.07577789999999
+        },
+        "extraction": {
+          "count": 20,
+          "min": 0.5587849999999435,
+          "median": 0.7109490000000278,
+          "p95": 2.3341550000000097,
+          "max": 2.5760969999998906,
+          "mean": 1.0046481999999628
+        },
+        "decision": {
+          "count": 20,
+          "min": 0.6673470000000634,
+          "median": 1.4399419999999736,
+          "p95": 3.456884000000173,
+          "max": 5.333904000000075,
+          "mean": 1.7040403500000252
+        },
+        "total": {
+          "count": 20,
+          "min": 14.909028999999919,
+          "median": 19.41028499999993,
+          "p95": 31.613174999999956,
+          "max": 33.33544400000005,
+          "mean": 20.810935949999998
+        }
+      },
+      "candidateCount": {
+        "count": 20,
+        "min": 3,
+        "median": 3,
+        "p95": 8,
+        "max": 8,
+        "mean": 5.5
+      },
+      "statuses": {
+        "ok": 20
+      }
+    },
+    "warmPlan": {
+      "wallMs": {
+        "count": 20,
+        "min": 2.7362970000001496,
+        "median": 3.149108999999953,
+        "p95": 3.8021799999999075,
+        "max": 4.011700999999903,
+        "mean": 3.267712300000028
+      },
+      "diagnosticsMs": {
+        "source": {
+          "count": 20,
+          "min": 0.07304599999997663,
+          "median": 0.14258700000004865,
+          "p95": 0.8393100000000686,
+          "max": 0.9593740000000253,
+          "mean": 0.3408917499999916
+        },
+        "extraction": {
+          "count": 20,
+          "min": 0.4148849999999129,
+          "median": 0.585014000000001,
+          "p95": 0.7940340000000106,
+          "max": 0.8641860000000179,
+          "mean": 0.593972250000047
+        },
+        "decision": {
+          "count": 20,
+          "min": 0.4348930000001019,
+          "median": 0.6103210000001127,
+          "p95": 1.7657619999999952,
+          "max": 2.0033359999999902,
+          "mean": 0.943532800000014
+        },
+        "total": {
+          "count": 20,
+          "min": 2.728110999999899,
+          "median": 3.1392699999998968,
+          "p95": 3.794304999999895,
+          "max": 4.001422000000048,
+          "mean": 3.258074799999997
+        }
+      },
+      "candidateCount": {
+        "count": 20,
+        "min": 3,
+        "median": 3,
+        "p95": 8,
+        "max": 8,
+        "mean": 5.5
+      },
+      "statuses": {
+        "ok": 20
+      },
+      "cacheBefore": {
+        "entries": 2,
+        "maxEntries": 2,
+        "hits": 0,
+        "misses": 2,
+        "evictions": 0
+      },
+      "cacheAfter": {
+        "entries": 2,
+        "maxEntries": 2,
+        "hits": 20,
+        "misses": 2,
+        "evictions": 0
+      }
+    },
+    "concurrentPlanner": {
+      "wallMs": {
+        "count": 20,
+        "min": 8.026387999999997,
+        "median": 12.048569000000043,
+        "p95": 12.892127000000073,
+        "max": 12.90263600000003,
+        "mean": 11.702743100000044
+      },
+      "diagnosticsMs": {
+        "source": {
+          "count": 20,
+          "min": 1.044554000000062,
+          "median": 4.195254999999861,
+          "p95": 8.153367000000117,
+          "max": 8.970243999999866,
+          "mean": 4.396066699999949
+        },
+        "extraction": {
+          "count": 20,
+          "min": 1.715257000000065,
+          "median": 4.354362999999921,
+          "p95": 9.000519999999824,
+          "max": 9.43422099999998,
+          "mean": 5.0470930000000065
+        },
+        "decision": {
+          "count": 20,
+          "min": 0.4109280000000126,
+          "median": 0.967830000000049,
+          "p95": 1.740774999999985,
+          "max": 1.756543999999849,
+          "mean": 0.8588696000000141
+        },
+        "total": {
+          "count": 20,
+          "min": 8.020256999999901,
+          "median": 12.04060400000003,
+          "p95": 12.88443200000006,
+          "max": 12.894121000000041,
+          "mean": 11.694637150000005
+        }
+      },
+      "candidateCount": {
+        "count": 20,
+        "min": 3,
+        "median": 3,
+        "p95": 8,
+        "max": 8,
+        "mean": 5.5
+      },
+      "statuses": {
+        "ok": 20
+      },
+      "elapsedMs": 63.14536700000008,
+      "completed": 20,
+      "plansPerSecond": 316.7294918089553
+    },
+    "cacheChurn": {
+      "fixedSteps": 8,
+      "bounded": true,
+      "snapshots": [
+        {
+          "key": [
+            1,
+            "2026-10-16",
+            "friday"
+          ],
+          "elapsedMs": 16.990310999999792,
+          "entries": 1,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 1,
+          "evictions": 0
+        },
+        {
+          "key": [
+            2,
+            "2026-10-16",
+            "friday"
+          ],
+          "elapsedMs": 12.094175999999834,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 2,
+          "evictions": 0
+        },
+        {
+          "key": [
+            1,
+            "2026-10-22",
+            "thursday"
+          ],
+          "elapsedMs": 25.344443000000183,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 3,
+          "evictions": 1
+        },
+        {
+          "key": [
+            2,
+            "2026-10-19",
+            "normal"
+          ],
+          "elapsedMs": 21.80122500000016,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 4,
+          "evictions": 2
+        },
+        {
+          "key": [
+            1,
+            "2026-10-16",
+            "friday"
+          ],
+          "elapsedMs": 37.48921199999995,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 5,
+          "evictions": 3
+        },
+        {
+          "key": [
+            2,
+            "2026-10-16",
+            "friday"
+          ],
+          "elapsedMs": 11.922595000000001,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 6,
+          "evictions": 4
+        },
+        {
+          "key": [
+            1,
+            "2026-10-22",
+            "thursday"
+          ],
+          "elapsedMs": 22.498530000000073,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 7,
+          "evictions": 5
+        },
+        {
+          "key": [
+            2,
+            "2026-10-19",
+            "normal"
+          ],
+          "elapsedMs": 13.480697999999848,
+          "entries": 2,
+          "maxEntries": 2,
+          "hits": 0,
+          "misses": 8,
+          "evictions": 6
+        }
+      ]
+    },
+    "cacheAtEnd": {
+      "entries": 2,
+      "maxEntries": 2,
+      "hits": 2,
+      "misses": 2,
+      "evictions": 0
+    },
+    "isolatedApi": {
+      "serverFactory": "buildServer",
+      "host": "127.0.0.1",
+      "port": 39975,
+      "route": "/app/api/trains?line=1&at=2026-10-16T14%3A00%3A00%2B03%3A30",
+      "serverInitializationMs": 343.2513610000001,
+      "apiWarmupMs": 6.596776000000318,
+      "baseline": {
+        "elapsedMs": 63.158090999999786,
+        "apiRequests": 20,
+        "apiLatencyMs": {
+          "count": 20,
+          "min": 1.815806000000066,
+          "median": 2.5331770000002507,
+          "p95": 5.0998460000000705,
+          "max": 5.5274460000000545,
+          "mean": 2.981441600000062
+        },
+        "cachePolicy": "retained shared cache",
+        "apiRequestsCompletedWhilePlannerActive": 0,
+        "apiRequestsPerSecondOverPhase": 316.66568262805896,
+        "planner": {
+          "wallMs": {
+            "count": 0,
+            "min": null,
+            "median": null,
+            "p95": null,
+            "max": null,
+            "mean": null
+          },
+          "diagnosticsMs": {
+            "source": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "p95": null,
+              "max": null,
+              "mean": null
+            },
+            "extraction": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "p95": null,
+              "max": null,
+              "mean": null
+            },
+            "decision": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "p95": null,
+              "max": null,
+              "mean": null
+            },
+            "total": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "p95": null,
+              "max": null,
+              "mean": null
+            }
+          },
+          "candidateCount": {
+            "count": 0,
+            "min": null,
+            "median": null,
+            "p95": null,
+            "max": null,
+            "mean": null
+          },
+          "statuses": {},
+          "completed": 0
+        },
+        "heartbeat": {
+          "intervalMs": 5,
+          "latenessMs": {
+            "count": 11,
+            "min": 0,
+            "median": 0.21845799999982773,
+            "p95": 2.3747910000001866,
+            "max": 2.3747910000001866,
+            "mean": 0.6887013636363587
+          }
+        },
+        "eventLoopDelayMs": {
+          "count": 11,
+          "min": 4.36224,
+          "mean": 5.247906909090909,
+          "p95": 5.693439,
+          "max": 7.372799
+        }
+      },
+      "withConcurrentPlanner": {
+        "elapsedMs": 126.03896299999997,
+        "apiRequests": 20,
+        "apiLatencyMs": {
+          "count": 20,
+          "min": 1.7857699999999568,
+          "median": 4.1871900000001006,
+          "p95": 14.747848000000431,
+          "max": 14.993656000000101,
+          "mean": 6.137343750000037
+        },
+        "cachePolicy": "retained shared cache",
+        "apiRequestsCompletedWhilePlannerActive": 10,
+        "apiRequestsPerSecondOverPhase": 158.68108975158742,
+        "planner": {
+          "wallMs": {
+            "count": 20,
+            "min": 13.695568999999978,
+            "median": 19.712670999999773,
+            "p95": 21.273891000000276,
+            "max": 22.392443000000185,
+            "mean": 19.333723750000058
+          },
+          "diagnosticsMs": {
+            "source": {
+              "count": 20,
+              "min": 3.738651000000118,
+              "median": 6.671276000000034,
+              "p95": 12.32475599999998,
+              "max": 12.553313000000344,
+              "mean": 7.590438400000039
+            },
+            "extraction": {
+              "count": 20,
+              "min": 4.38353700000016,
+              "median": 8.299869999999828,
+              "p95": 14.700929999999971,
+              "max": 15.764368999999988,
+              "mean": 9.215069100000004
+            },
+            "decision": {
+              "count": 20,
+              "min": 0.5138710000001083,
+              "median": 1.0141259999995782,
+              "p95": 1.6204900000002453,
+              "max": 1.9961119999998118,
+              "mean": 1.0132877499999722
+            },
+            "total": {
+              "count": 20,
+              "min": 13.689397999999983,
+              "median": 19.702721999999994,
+              "p95": 21.260616000000027,
+              "max": 22.383686000000125,
+              "mean": 19.32318244999999
+            }
+          },
+          "candidateCount": {
+            "count": 20,
+            "min": 3,
+            "median": 3,
+            "p95": 8,
+            "max": 8,
+            "mean": 5.5
+          },
+          "statuses": {
+            "ok": 20
+          },
+          "completed": 20
+        },
+        "heartbeat": {
+          "intervalMs": 5,
+          "latenessMs": {
+            "count": 15,
+            "min": 0,
+            "median": 2.758118000000195,
+            "p95": 8.620800000000145,
+            "max": 8.620800000000145,
+            "mean": 3.1559932000000117
+          }
+        },
+        "eventLoopDelayMs": {
+          "count": 14,
+          "min": 4.714496,
+          "mean": 8.135241142857142,
+          "p95": 13.041663,
+          "max": 13.656063
+        }
+      },
+      "withCachePressure": {
+        "elapsedMs": 303.60404400000016,
+        "apiRequests": 20,
+        "apiLatencyMs": {
+          "count": 20,
+          "min": 1.792381999999634,
+          "median": 5.280553999999938,
+          "p95": 48.604857000000266,
+          "max": 57.5109809999999,
+          "mean": 15.019297299999971
+        },
+        "cachePolicy": "shared cache cleared before each submitted plan; concurrent duplicate keys may still hit",
+        "apiRequestsCompletedWhilePlannerActive": 10,
+        "apiRequestsPerSecondOverPhase": 65.87527536359163,
+        "planner": {
+          "wallMs": {
+            "count": 20,
+            "min": 44.09962200000018,
+            "median": 51.21734199999992,
+            "p95": 70.52369399999998,
+            "max": 70.888015,
+            "mean": 54.728381000000034
+          },
+          "diagnosticsMs": {
+            "source": {
+              "count": 20,
+              "min": 32.529969000000165,
+              "median": 39.629313999999795,
+              "p95": 51.828805999999986,
+              "max": 56.14509700000008,
+              "mean": 41.61086279999997
+            },
+            "extraction": {
+              "count": 20,
+              "min": 4.9784099999997125,
+              "median": 8.836553999999978,
+              "p95": 18.58478299999979,
+              "max": 21.550948999999946,
+              "mean": 10.235619849999944
+            },
+            "decision": {
+              "count": 20,
+              "min": 0.47732300000006944,
+              "median": 1.011109999999917,
+              "p95": 1.6775069999998777,
+              "max": 3.0526190000000497,
+              "mean": 1.0916451999999708
+            },
+            "total": {
+              "count": 20,
+              "min": 44.09263999999985,
+              "median": 51.209687999999915,
+              "p95": 70.50890699999991,
+              "max": 70.87784599999986,
+              "mean": 54.71912374999997
+            }
+          },
+          "candidateCount": {
+            "count": 20,
+            "min": 3,
+            "median": 3,
+            "p95": 8,
+            "max": 8,
+            "mean": 5.5
+          },
+          "statuses": {
+            "ok": 20
+          },
+          "completed": 20
+        },
+        "heartbeat": {
+          "intervalMs": 5,
+          "latenessMs": {
+            "count": 20,
+            "min": 0,
+            "median": 2.5413910000002033,
+            "p95": 35.653268000000025,
+            "max": 36.58242599999994,
+            "mean": 10.146862850000025
+          }
+        },
+        "eventLoopDelayMs": {
+          "count": 19,
+          "min": 4.3008,
+          "mean": 13.711252210526316,
+          "p95": 37.191679,
+          "max": 41.746431
+        }
+      },
+      "serverClosed": true,
+      "foodProviderCalls": 0
+    },
+    "memory": {
+      "unit": "bytes",
+      "sampledMaxRssBytes": 112992256,
+      "maxRssBytes": 112992256,
+      "maxRssReported": 110344,
+      "maxRssReportedUnit": "KiB"
+    },
+    "resourceUsage": {
+      "initial": {
+        "userCPUTime": 152502,
+        "systemCPUTime": 29455,
+        "maxRSS": 57176,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 4306,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 35,
+        "involuntaryContextSwitches": 17
+      },
+      "final": {
+        "userCPUTime": 3607764,
+        "systemCPUTime": 255049,
+        "maxRSS": 110344,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 22867,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 2515,
+        "involuntaryContextSwitches": 469
+      },
+      "delta": {
+        "userCPUTime": 3455262,
+        "systemCPUTime": 225594,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 18561,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 2480,
+        "involuntaryContextSwitches": 452
+      },
+      "cpuTimeUnit": "microseconds",
+      "maxRssIsLifetimeHighWater": true
+    },
+    "gc": {
+      "count": 846,
+      "durationMs": 365.84530307352543,
+      "maxDurationMs": 13.370390996336937,
+      "byKind": {
+        "1": {
+          "count": 829,
+          "durationMs": 328.436237052083
+        },
+        "4": {
+          "count": 9,
+          "durationMs": 33.42864002287388
+        },
+        "8": {
+          "count": 8,
+          "durationMs": 3.980425998568535
+        }
+      },
+      "forcedCollections": 1,
+      "exposed": true
+    },
+    "caveats": [
+      "Measurements are local process samples, not an SLO, allocation bound, load-capacity guarantee, or proof of compliance with a 192 MiB cgroup limit. This script does not alter/enforce resource limits or restart production.",
+      "Cold source initialization reads and fingerprints local runtime bytes; only the first constructor/import is first-use in this process. OS filesystem caches, compiled-module caches, JIT and GC are not reset.",
+      "Cold plans clear the retained source snapshot cache, excluding source construction/import. Warm plans retain both line snapshots. Internal source/extraction timings include asynchronous yields and contention, not just CPU time.",
+      "Standalone normalization excludes fixture generation and model loading; it uses real raw compiled-engine days. firstCallMs is first measured call per line, not a fresh-process or guaranteed JIT-cold measurement.",
+      "Each configurable phase uses 1..100 iterations; the separate fixed cache correctness probe uses eight sequential reads across four keys. Only one source is retained; discarded constructor results are left to normal GC.",
+      "Concurrency is bounded asynchronous planner work on one Node event loop, not CPU-parallel workers. The API client shares that loop, so end-to-end latency includes client/server scheduling and loopback HTTP overhead.",
+      "The same unchanged ephemeral loopback server is warmed before sequential baseline/contention phases. Its construction includes existing model/catalogue reads; only health and fixed-date active Metro routes are requested. No production URLs or food HTTP calls are used.",
+      "Small runs may have no heartbeat/delay samples or no HTTP completions during active planner work; null statistics and the overlap count disclose this rather than imply isolation or responsiveness.",
+      "No forced GC occurs within timed workloads. If --expose-gc is supplied, one explicit collection is recorded after them; GC observations exclude events before observer registration and may be delivered asynchronously.",
+      "RSS/heap snapshots and 10 ms sampling can miss short peaks; Linux resourceUsage.maxRSS is a process-lifetime kernel high-water mark, including imports/server/benchmark overhead. Heap deltas are not per-operation allocations.",
+      "Fingerprints use the executed compiled runtime bytes and network data, so compiled and TypeScript-source fingerprints intentionally differ. Fixed-date timetable results are modeled service, not live observations or a claim about current service."
+    ]
+  },
+  "realBenchmarkCgroup": {
+    "exitCode": 0,
+    "elapsedSeconds": 3.1774330560001545,
+    "cgroupBefore": {
+      "memory.max": "201326592",
+      "memory.swap.max": "0",
+      "memory.peak": "6103040",
+      "memory.current": "6103040",
+      "memory.events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "cgroupAfter": {
+      "memory.max": "201326592",
+      "memory.swap.max": "0",
+      "memory.peak": "63438848",
+      "memory.current": "6524928",
+      "memory.events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "scope": "isolated benchmark including Python supervisor, not production",
+    "includesSupervisingPythonMemory": true
+  },
+  "capacity": {
+    "synthetic": true,
+    "notice": "512 artificial trips using real station registry; timings are not city facts. Capacity probe, not a production SLO.",
+    "iterations": 10,
+    "shape": {
+      "trips": 512,
+      "stopsPerTrip": 24,
+      "candidates": 64,
+      "windowSeconds": 21600,
+      "sourceEvidencePerMetric": 1,
+      "totalEvidencePerMetric": 3
+    },
+    "normalizationMs": {
+      "count": 10,
+      "p50": 55.013900000000035,
+      "p95": 86.36313100000001,
+      "max": 86.36313100000001
+    },
+    "planMs": {
+      "count": 10,
+      "p50": 28.865116000000057,
+      "p95": 80.10963800000002,
+      "max": 80.10963800000002
+    },
+    "lastTimingsMs": {
+      "source": 0.051366000000143686,
+      "extraction": 17.0340920000001,
+      "decision": 11.943903999999975,
+      "total": 30.649953000000096
+    },
+    "decisionStats": {
+      "candidateCount": 64,
+      "constraintChecks": 0,
+      "pairComparisons": 2016
+    },
+    "outputStatus": "partial",
+    "memory": {
+      "rss": 83464192,
+      "heapTotal": 18980864,
+      "heapUsed": 16311304,
+      "external": 2015059,
+      "arrayBuffers": 24811
+    },
+    "maxRssBytes": 83464192,
+    "eventLoop": {
+      "maxHeartbeatLateMs": 140.528095,
+      "delayCount": 51,
+      "maxMs": 73.662463,
+      "p95Ms": 56.426495
+    },
+    "caveat": "Event-loop probe includes synchronous normalization and planner; benchmark itself intentionally holds raw and normalized snapshots. This is not a memory ceiling or production capacity guarantee."
+  },
+  "capacityCgroup": {
+    "exitCode": 0,
+    "elapsedSeconds": 1.1227093300112756,
+    "cgroupBefore": {
+      "memory.max": "201326592",
+      "memory.swap.max": "0",
+      "memory.peak": "6094848",
+      "memory.current": "6094848",
+      "memory.events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "cgroupAfter": {
+      "memory.max": "201326592",
+      "memory.swap.max": "0",
+      "memory.peak": "38944768",
+      "memory.current": "6160384",
+      "memory.events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "scope": "isolated benchmark including Python supervisor, not production",
+    "includesSupervisingPythonMemory": true
+  },
+  "protectedState": {
+    "main": {
+      "files": 4888,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true,
+      "indexIdentical": true,
+      "statusIdentical": true
+    },
+    "r1": {
+      "files": 3627,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true
+    },
+    "production": {
+      "files": 2179,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true
+    }
+  },
+  "caveat": "Local model and synthetic samples. Cgroup pass covers only executed workloads, not lifetime production SLO, total system RAM usage, future calendars or live service.",
+  "sourceCommit": "26ef374a5b198179e4850c5bc48e9730f6f26455",
+  "independentReview": {
+    "passed": true,
+    "mode": "static re-review of original findings; parent verifies runtime and subsequent capacity/zero-run checks",
+    "blockingSecurityFindings": 0,
+    "blockingLogicFindings": 0,
+    "findingsResolved": [
+      "preserve source-provided lineage",
+      "line1 segment endpoint validation",
+      "effective Thursday run provenance",
+      "ineligible truncation status"
+    ]
+  }
+}

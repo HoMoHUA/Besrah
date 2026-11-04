@@ -1,0 +1,402 @@
+{
+ "360x740": {
+  "viewport": {
+   "w": 360,
+   "h": 740,
+   "visualH": 740,
+   "scrollY": 0
+  },
+  "docHeight": 1139,
+  "overflowX": 0,
+  "nav": {
+   "top": 662,
+   "height": 68,
+   "position": "fixed"
+  },
+  "appHeader": {
+   "top": 10,
+   "bottom": 74,
+   "height": 64,
+   "left": 10,
+   "right": 350,
+   "width": 340
+  },
+  "metroHead": {
+   "top": 84,
+   "bottom": 128,
+   "height": 44,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "modelNote": {
+   "top": 136,
+   "bottom": 156,
+   "height": 20,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "access": {
+   "top": 84,
+   "bottom": 128,
+   "height": 44,
+   "left": 14,
+   "right": 142,
+   "width": 128
+  },
+  "rideTabs": {
+   "top": 168,
+   "bottom": 216,
+   "height": 48,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "journey": {
+   "top": 228,
+   "bottom": 505,
+   "height": 276,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "from": {
+   "top": 278,
+   "bottom": 330,
+   "height": 52,
+   "left": 206,
+   "right": 346,
+   "width": 140
+  },
+  "to": {
+   "top": 278,
+   "bottom": 330,
+   "height": 52,
+   "left": 14,
+   "right": 154,
+   "width": 140
+  },
+  "swap": {
+   "top": 284,
+   "bottom": 324,
+   "height": 40,
+   "left": 160,
+   "right": 200,
+   "width": 40
+  },
+  "mode": {
+   "top": 370,
+   "bottom": 410,
+   "height": 40,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "time": null,
+  "cta": {
+   "top": 447,
+   "bottom": 495,
+   "height": 48,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "board": {
+   "top": 577,
+   "bottom": 968,
+   "height": 391,
+   "left": 14,
+   "right": 346,
+   "width": 332
+  },
+  "trackerDetail": null,
+  "usableViewportHeight": 662,
+  "visibleAtScroll0": {
+   "from": true,
+   "to": true,
+   "cta": true,
+   "time": true
+  },
+  "scrollNeededForCta": 0,
+  "ctaTopFromViewportTop": 447,
+  "coveredByNav": [],
+  "interactiveCount": 16,
+  "aboveCta": 12,
+  "smallTargets": [],
+  "textBeforeCta": [
+   "مترو",
+   "برآورد از برنامه حرکت؛ نه موقعیت زنده قطار",
+   "به وقت تهران · زمان آماده بودن روی سکو، نه خروج از خانه"
+  ],
+  "font": "AzarMehr"
+ },
+ "390x844": {
+  "viewport": {
+   "w": 390,
+   "h": 844,
+   "visualH": 844,
+   "scrollY": 0
+  },
+  "docHeight": 1139,
+  "overflowX": 0,
+  "nav": {
+   "top": 766,
+   "height": 68,
+   "position": "fixed"
+  },
+  "appHeader": {
+   "top": 10,
+   "bottom": 74,
+   "height": 64,
+   "left": 10,
+   "right": 380,
+   "width": 370
+  },
+  "metroHead": {
+   "top": 84,
+   "bottom": 128,
+   "height": 44,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "modelNote": {
+   "top": 136,
+   "bottom": 156,
+   "height": 20,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "access": {
+   "top": 84,
+   "bottom": 128,
+   "height": 44,
+   "left": 16,
+   "right": 144,
+   "width": 128
+  },
+  "rideTabs": {
+   "top": 168,
+   "bottom": 216,
+   "height": 48,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "journey": {
+   "top": 228,
+   "bottom": 505,
+   "height": 276,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "from": {
+   "top": 278,
+   "bottom": 330,
+   "height": 52,
+   "left": 221,
+   "right": 374,
+   "width": 153
+  },
+  "to": {
+   "top": 278,
+   "bottom": 330,
+   "height": 52,
+   "left": 16,
+   "right": 169,
+   "width": 153
+  },
+  "swap": {
+   "top": 284,
+   "bottom": 324,
+   "height": 40,
+   "left": 175,
+   "right": 215,
+   "width": 40
+  },
+  "mode": {
+   "top": 370,
+   "bottom": 410,
+   "height": 40,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "time": null,
+  "cta": {
+   "top": 447,
+   "bottom": 495,
+   "height": 48,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "board": {
+   "top": 577,
+   "bottom": 968,
+   "height": 391,
+   "left": 16,
+   "right": 374,
+   "width": 358
+  },
+  "trackerDetail": null,
+  "usableViewportHeight": 766,
+  "visibleAtScroll0": {
+   "from": true,
+   "to": true,
+   "cta": true,
+   "time": true
+  },
+  "scrollNeededForCta": 0,
+  "ctaTopFromViewportTop": 447,
+  "coveredByNav": [],
+  "interactiveCount": 16,
+  "aboveCta": 12,
+  "smallTargets": [],
+  "textBeforeCta": [
+   "مترو",
+   "برآورد از برنامه حرکت؛ نه موقعیت زنده قطار",
+   "به وقت تهران · زمان آماده بودن روی سکو، نه خروج از خانه"
+  ],
+  "font": "AzarMehr"
+ },
+ "320x568": {
+  "viewport": {
+   "w": 320,
+   "h": 568,
+   "visualH": 568,
+   "scrollY": 0
+  },
+  "docHeight": 1139,
+  "overflowX": 0,
+  "nav": {
+   "top": 490,
+   "height": 68,
+   "position": "fixed"
+  },
+  "appHeader": {
+   "top": 10,
+   "bottom": 74,
+   "height": 64,
+   "left": 10,
+   "right": 310,
+   "width": 300
+  },
+  "metroHead": {
+   "top": 84,
+   "bottom": 128,
+   "height": 44,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "modelNote": {
+   "top": 136,
+   "bottom": 156,
+   "height": 20,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "access": {
+   "top": 84,
+   "bottom": 128,
+   "height": 44,
+   "left": 14,
+   "right": 142,
+   "width": 128
+  },
+  "rideTabs": {
+   "top": 168,
+   "bottom": 216,
+   "height": 48,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "journey": {
+   "top": 228,
+   "bottom": 505,
+   "height": 276,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "from": {
+   "top": 278,
+   "bottom": 330,
+   "height": 52,
+   "left": 186,
+   "right": 306,
+   "width": 120
+  },
+  "to": {
+   "top": 278,
+   "bottom": 330,
+   "height": 52,
+   "left": 14,
+   "right": 134,
+   "width": 120
+  },
+  "swap": {
+   "top": 284,
+   "bottom": 324,
+   "height": 40,
+   "left": 140,
+   "right": 180,
+   "width": 40
+  },
+  "mode": {
+   "top": 370,
+   "bottom": 410,
+   "height": 40,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "time": null,
+  "cta": {
+   "top": 447,
+   "bottom": 495,
+   "height": 48,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "board": {
+   "top": 577,
+   "bottom": 968,
+   "height": 391,
+   "left": 14,
+   "right": 306,
+   "width": 292
+  },
+  "trackerDetail": null,
+  "usableViewportHeight": 490,
+  "visibleAtScroll0": {
+   "from": true,
+   "to": true,
+   "cta": false,
+   "time": true
+  },
+  "scrollNeededForCta": 13,
+  "ctaTopFromViewportTop": 447,
+  "coveredByNav": [
+   "metro-tab-board",
+   "metro-tab-tracker",
+   "metro-tab-stations"
+  ],
+  "interactiveCount": 16,
+  "aboveCta": 12,
+  "smallTargets": [],
+  "textBeforeCta": [
+   "مترو",
+   "برآورد از برنامه حرکت؛ نه موقعیت زنده قطار",
+   "به وقت تهران · زمان آماده بودن روی سکو، نه خروج از خانه"
+  ],
+  "font": "AzarMehr"
+ }
+}

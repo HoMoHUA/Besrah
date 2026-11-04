@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "phase": "R2b-D1",
+  "baseR2b": "9a1d300846aaa60be5e24acef6c35478197cbaf3",
+  "testsActuallyRun": {
+    "new-evidence": 35,
+    "r0-bus-python": 17,
+    "r0-release": 12,
+    "miniapp-data-n8n": 198
+  },
+  "newTests": 35,
+  "freshTotal": 262,
+  "freshFailures": 0,
+  "priorFullSuite": {
+    "tests": 601,
+    "rerunForD1": false,
+    "reason": "Product TypeScript/runtime/data inputs unchanged; focused new tooling tests, existing data/UI/release regressions and both-direction actual R2a replay instead. No dependency installation."
+  },
+  "replay": {
+    "platformOnly": true,
+    "date": "2026-10-16",
+    "directions": 2,
+    "journeysPerDirection": 10,
+    "canonicalByteDeterministic": true,
+    "runtimePerformanceCountersExplicitlyExcluded": true,
+    "rawOriginalArchived": "/var/backups/besrah/r2bd1-resume-20261102T200724Z/r2a-c1-raw-execution.json"
+  },
+  "offlineDerivativesByteIdentical": true,
+  "protectedState": {
+    "main": {
+      "files": 4888,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "headIdentical": true,
+      "statusIdentical": true,
+      "indexIdentical": true,
+      "identical": true
+    },
+    "r1": {
+      "files": 3627,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "headIdentical": true,
+      "statusIdentical": true,
+      "indexIdentical": true,
+      "identical": true
+    },
+    "r2a": {
+      "files": 3660,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "headIdentical": true,
+      "statusIdentical": true,
+      "indexIdentical": true,
+      "identical": true
+    },
+    "r2b": {
+      "files": 3664,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "headIdentical": true,
+      "statusIdentical": true,
+      "indexIdentical": true,
+      "identical": true
+    },
+    "production": {
+      "files": 2179,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "identical": true
+    }
+  },
+  "gate": "BLOCKED",
+  "eligibleDirectionCount": 0,
+  "productSourceChanged": false,
+  "dependenciesInstalled": false,
+  "plannerImplemented": false,
+  "fullAtoBDurationComputed": false,
+  "fieldEtaAccuracyClaimed": false,
+  "productionChanged": false,
+  "ownerDirectiveSha256": "dc6cd212160f09dae1b8639b2219c00d451dd74c8bce4a8627a08e9266be8c61",
+  "checkpoint": "/var/backups/besrah/r2bd1-resume-20261102T200724Z"
+}

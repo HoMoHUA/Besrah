@@ -1,0 +1,3 @@
+# Raw response bytes are immutable evidence, not line-normalized source.
+*.body binary
+*.headers binary

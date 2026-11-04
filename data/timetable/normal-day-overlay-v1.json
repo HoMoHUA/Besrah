@@ -1,0 +1,151 @@
+{
+ "schemaVersion": 1,
+ "overlayId": "net01-normal-day-v1",
+ "appliesTo": "normal",
+ "line": 1,
+ "sources": [
+  {
+   "id": "kowsar-sheet",
+   "kind": "official_document_transcription",
+   "role": "runtime",
+   "path": "data/official/kowsar_airport_poster_2026-11-03.json",
+   "sha256": "49ba32c9f71291f73200a85f4c3b95cb0b3361956b53ee8ef0858d339ff35358"
+  },
+  {
+   "id": "kowsar-sheet-photo",
+   "kind": "official_document_photo",
+   "role": "provenance",
+   "path": "data/official/kowsar_airport_poster_2026-11-03.png",
+   "sha256": "7ea5185ab42ae3c109909f73a392c742ab7baa864140f5c31e02b399edba3238"
+  },
+  {
+   "id": "tuesday-log",
+   "kind": "field_observed",
+   "role": "provenance",
+   "path": "data/field/2026-11-03_line1_tuesday_kowsar-vakilabad-kowsar.csv",
+   "sha256": "8fe94317787b20a017d667824e96dff1b50fbc43933ef96224a5b4dbfae87c4c"
+  },
+  {
+   "id": "sunday-log",
+   "kind": "field_observed",
+   "role": "provenance",
+   "path": "data/field/2026-11-01_line1_palestine-sadaf-toward-vakilabad_sunday.csv",
+   "sha256": "9f28a5ff5c35fd9160980429759ddf1060df06752954ee8f1fbbc174dbe81d53"
+  },
+  {
+   "id": "field-corrections",
+   "kind": "field_corrections",
+   "role": "provenance",
+   "path": "data/field/corrections-2026-11-03.json",
+   "sha256": "dfb52154e8937b5f5111b8732a81b23b6645b445188983da42830e2d1ec870c4"
+  }
+ ],
+ "serviceDay": {
+  "startS": 21600,
+  "endS": 79200
+ },
+ "observedServiceDates": [
+  "2026-11-03"
+ ],
+ "guardS": 90,
+ "B": {
+  "sourceId": "kowsar-sheet",
+  "column": "sat_to_wed",
+  "presenceToVakilabadOffsetS": 1080,
+  "offsetQuality": "derived",
+  "confidence": "official_sheet_phase"
+ },
+ "A": {
+  "windows": [
+   {
+    "id": "A-am-site-15min-assumed",
+    "fromS": 21600,
+    "toS": 42900,
+    "gridS": 900,
+    "phase": {
+     "fixedS": 380
+    },
+    "coverage": "site_headway_assumed",
+    "confidence": "site_headway_assumed_phase",
+    "absorbIntoDocumentedB": false,
+    "evidence": [
+     "site headway 15 min (official website figure); the phase was never measured",
+     "phase 380 s (06:06:20 + k*15 min) chosen offline by scripts/net01/phase_search.mjs over ALL stations and BOTH directions, not only at Vakilabad: A/B passes within 120 s fall from 154 to 44 and the smallest gap rises from 6 s to 76 s (guarded by tests/net01/phase-search.test.ts)",
+     "an assumed phase is a modelling choice that reduces artefacts; it is not evidence about the real timetable"
+    ]
+   },
+   {
+    "id": "A-midday-8min-extrapolated",
+    "fromS": 42900,
+    "toS": 69300,
+    "gridS": 480,
+    "phase": {
+     "fixedS": 180
+    },
+    "coverage": "extrapolated",
+    "confidence": "site_headway_assumed_phase",
+    "absorbIntoDocumentedB": true,
+    "evidence": [
+     "structure observed on 2026-11-03 19:07-20:27 (8 min grid, every third train to the airport)",
+     "documented B slots of the printed sheet fall on the same grid from 12:19 to 19:31",
+     "NOT observed between 11:55 and 19:15: extrapolation"
+    ]
+   },
+   {
+    "id": "A-evening-8min-observed-timed",
+    "fromS": 69300,
+    "toS": 72180,
+    "gridS": 480,
+    "phase": {
+     "fixedS": 180
+    },
+    "coverage": "field_observed_timed",
+    "confidence": "measured_phase",
+    "absorbIntoDocumentedB": true,
+    "toInclusive": true,
+    "evidence": [
+     "tuesday-log: A departed Vakilabad 19:15:29, 19:22:52, 19:39:15, 19:46:58, 19:55:03, 20:03:10 (timed)",
+     "B departed 19:32:22; sheet minus offset gives 19:31:00"
+    ]
+   },
+   {
+    "id": "A-evening-8min-board-displayed-extrapolated",
+    "fromS": 72181,
+    "toS": 73620,
+    "gridS": 480,
+    "phase": {
+     "fixedS": 180
+    },
+    "coverage": "extrapolated",
+    "confidence": "site_headway_assumed_phase",
+    "absorbIntoDocumentedB": true,
+    "toInclusive": true,
+    "evidence": [
+     "tuesday-log: the Vakilabad board DISPLAYED 20:11, 20:19, 20:27; no departure was timed after 20:03:10, so these are not observed departures",
+     "kept on the observed 8 min grid as the most plausible continuation; labelled extrapolated, never measured"
+    ]
+   },
+   {
+    "id": "A-late-site-10min-assumed",
+    "fromS": 73621,
+    "toS": 79200,
+    "gridS": 600,
+    "phase": {
+     "fixedS": 420
+    },
+    "coverage": "site_headway_assumed",
+    "confidence": "site_headway_assumed_phase",
+    "absorbIntoDocumentedB": false,
+    "evidence": [
+     "site headway 10 min after the evening grid; no observation after 20:27"
+    ]
+   }
+  ]
+ },
+ "notes": [
+  "Printed sheet times are presence times at Kowsar of airport-dispatched trains. Vakilabad departure = sheet time minus 18 min is a DERIVED offset (one observed pair: sheet 19:49, board 19:31, actual 19:32:22).",
+  "Thursday and Friday keep the baseline generator; the sheet columns for those days agree with the baseline B phases.",
+  "Absorbed slots are recorded in the build report, never silently dropped.",
+  "No window may claim measured confidence without observed coverage."
+ ]
+}

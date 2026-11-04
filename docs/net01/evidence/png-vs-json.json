@@ -1,0 +1,792 @@
+{
+ "method": {
+  "png": "data/official/kowsar_airport_poster_2026-11-03.png",
+  "png_sha256": "7ea5185ab42ae3c109909f73a392c742ab7baa864140f5c31e02b399edba3238",
+  "size_px": [
+   1086,
+   1448
+  ],
+  "procedure": "PIL crop of each column into 4 pieces of 8 rows (rows 1-8, 9-16, 17-24, 25-32), LANCZOS 2x upscale, one vision call per crop; transcription typed by me from what the vision view showed, the crop prompts did not contain the JSON values, but I had already read the JSON earlier in this session, so my reading is not blind; comparison done afterwards in code. Crops stored in /root/.hermes/cache/scratch/net01-audit/crops/.",
+  "limitations": [
+   "vision reading by a model, no OCR engine and no second independent reader; Persian digits ۳/۴ and ۰/۱ were checked at 2x and looked unambiguous but this is not a proof",
+   "crops 2-4 of each column include a clipped sliver of the previous row at the top; slivers were not read as cells",
+   "one extra whole-image view (no crop) was used first to locate columns/rows; it also showed all cells legibly and gave the same reading, but it is not counted as a crop view"
+  ],
+  "crops_viewed": [
+   "crops/sat_to_wed_rows01-08.png",
+   "crops/sat_to_wed_rows09-16.png",
+   "crops/sat_to_wed_rows17-24.png",
+   "crops/sat_to_wed_rows25-32.png",
+   "crops/thursday_rows01-08.png",
+   "crops/thursday_rows09-16.png",
+   "crops/thursday_rows17-24.png",
+   "crops/thursday_rows25-32.png",
+   "crops/friday_rows01-08.png",
+   "crops/friday_rows09-16.png",
+   "crops/friday_rows17-24.png",
+   "crops/friday_rows25-32.png"
+  ],
+  "n_crops_viewed": 12
+ },
+ "sheet_visible_text": {
+  "title": "ساعات حضور قطار اعزام فرودگاه در ایستگاه کوثر",
+  "column_headers_right_to_left": [
+   "روزهای شنبه تا چهارشنبه",
+   "پنج شنبه ها",
+   "جمعه ها"
+  ],
+  "not_visible_on_sheet": [
+   "issuing organisation/logo",
+   "date or validity period",
+   "whether a time is arrival, departure or a presence window (the title says حضور = presence)",
+   "that the trains are \"B\" or that Vakilabad is involved",
+   "any 18-minute offset"
+  ],
+  "image_properties": "no EXIF/text metadata in PNG; rectangular sheet with no perspective distortion on a grey surface; whether it is a photo, a scan or a re-render cannot be told from the file (poster json calls it a photo transcription)"
+ },
+ "columns": {
+  "sat_to_wed": {
+   "png_cells_read": 32,
+   "png_blank_rows": [],
+   "json_count": 32,
+   "matches": 32,
+   "mismatches": [],
+   "png_transcription_by_crop": {
+    "crops/sat_to_wed_rows01-08.png": [
+     "6:18",
+     "6:47",
+     "7:18",
+     "7:42",
+     "8:14",
+     "8:43",
+     "9:13",
+     "9:42"
+    ],
+    "crops/sat_to_wed_rows09-16.png": [
+     "10:13",
+     "10:43",
+     "11:13",
+     "11:43",
+     "12:12",
+     "12:37",
+     "13:01",
+     "13:25"
+    ],
+    "crops/sat_to_wed_rows17-24.png": [
+     "13:49",
+     "14:12",
+     "14:37",
+     "15:01",
+     "15:25",
+     "15:49",
+     "16:13",
+     "16:37"
+    ],
+    "crops/sat_to_wed_rows25-32.png": [
+     "17:01",
+     "17:25",
+     "17:49",
+     "18:13",
+     "18:37",
+     "19:01",
+     "19:25",
+     "19:49"
+    ]
+   },
+   "row_by_row": [
+    {
+     "row": 1,
+     "png": "6:18",
+     "json": "6:18",
+     "match": true
+    },
+    {
+     "row": 2,
+     "png": "6:47",
+     "json": "6:47",
+     "match": true
+    },
+    {
+     "row": 3,
+     "png": "7:18",
+     "json": "7:18",
+     "match": true
+    },
+    {
+     "row": 4,
+     "png": "7:42",
+     "json": "7:42",
+     "match": true
+    },
+    {
+     "row": 5,
+     "png": "8:14",
+     "json": "8:14",
+     "match": true
+    },
+    {
+     "row": 6,
+     "png": "8:43",
+     "json": "8:43",
+     "match": true
+    },
+    {
+     "row": 7,
+     "png": "9:13",
+     "json": "9:13",
+     "match": true
+    },
+    {
+     "row": 8,
+     "png": "9:42",
+     "json": "9:42",
+     "match": true
+    },
+    {
+     "row": 9,
+     "png": "10:13",
+     "json": "10:13",
+     "match": true
+    },
+    {
+     "row": 10,
+     "png": "10:43",
+     "json": "10:43",
+     "match": true
+    },
+    {
+     "row": 11,
+     "png": "11:13",
+     "json": "11:13",
+     "match": true
+    },
+    {
+     "row": 12,
+     "png": "11:43",
+     "json": "11:43",
+     "match": true
+    },
+    {
+     "row": 13,
+     "png": "12:12",
+     "json": "12:12",
+     "match": true
+    },
+    {
+     "row": 14,
+     "png": "12:37",
+     "json": "12:37",
+     "match": true
+    },
+    {
+     "row": 15,
+     "png": "13:01",
+     "json": "13:01",
+     "match": true
+    },
+    {
+     "row": 16,
+     "png": "13:25",
+     "json": "13:25",
+     "match": true
+    },
+    {
+     "row": 17,
+     "png": "13:49",
+     "json": "13:49",
+     "match": true
+    },
+    {
+     "row": 18,
+     "png": "14:12",
+     "json": "14:12",
+     "match": true
+    },
+    {
+     "row": 19,
+     "png": "14:37",
+     "json": "14:37",
+     "match": true
+    },
+    {
+     "row": 20,
+     "png": "15:01",
+     "json": "15:01",
+     "match": true
+    },
+    {
+     "row": 21,
+     "png": "15:25",
+     "json": "15:25",
+     "match": true
+    },
+    {
+     "row": 22,
+     "png": "15:49",
+     "json": "15:49",
+     "match": true
+    },
+    {
+     "row": 23,
+     "png": "16:13",
+     "json": "16:13",
+     "match": true
+    },
+    {
+     "row": 24,
+     "png": "16:37",
+     "json": "16:37",
+     "match": true
+    },
+    {
+     "row": 25,
+     "png": "17:01",
+     "json": "17:01",
+     "match": true
+    },
+    {
+     "row": 26,
+     "png": "17:25",
+     "json": "17:25",
+     "match": true
+    },
+    {
+     "row": 27,
+     "png": "17:49",
+     "json": "17:49",
+     "match": true
+    },
+    {
+     "row": 28,
+     "png": "18:13",
+     "json": "18:13",
+     "match": true
+    },
+    {
+     "row": 29,
+     "png": "18:37",
+     "json": "18:37",
+     "match": true
+    },
+    {
+     "row": 30,
+     "png": "19:01",
+     "json": "19:01",
+     "match": true
+    },
+    {
+     "row": 31,
+     "png": "19:25",
+     "json": "19:25",
+     "match": true
+    },
+    {
+     "row": 32,
+     "png": "19:49",
+     "json": "19:49",
+     "match": true
+    }
+   ]
+  },
+  "thursday": {
+   "png_cells_read": 28,
+   "png_blank_rows": [
+    29,
+    30,
+    31,
+    32
+   ],
+   "json_count": 28,
+   "matches": 32,
+   "mismatches": [],
+   "png_transcription_by_crop": {
+    "crops/thursday_rows01-08.png": [
+     "6:18",
+     "6:53",
+     "7:23",
+     "7:53",
+     "8:23",
+     "8:53",
+     "9:23",
+     "9:53"
+    ],
+    "crops/thursday_rows09-16.png": [
+     "10:23",
+     "10:53",
+     "11:23",
+     "11:53",
+     "12:23",
+     "12:53",
+     "13:23",
+     "13:53"
+    ],
+    "crops/thursday_rows17-24.png": [
+     "14:23",
+     "14:53",
+     "15:23",
+     "15:53",
+     "16:23",
+     "16:53",
+     "17:23",
+     "17:53"
+    ],
+    "crops/thursday_rows25-32.png": [
+     "18:23",
+     "18:53",
+     "19:23",
+     "19:53",
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "row_by_row": [
+    {
+     "row": 1,
+     "png": "6:18",
+     "json": "6:18",
+     "match": true
+    },
+    {
+     "row": 2,
+     "png": "6:53",
+     "json": "6:53",
+     "match": true
+    },
+    {
+     "row": 3,
+     "png": "7:23",
+     "json": "7:23",
+     "match": true
+    },
+    {
+     "row": 4,
+     "png": "7:53",
+     "json": "7:53",
+     "match": true
+    },
+    {
+     "row": 5,
+     "png": "8:23",
+     "json": "8:23",
+     "match": true
+    },
+    {
+     "row": 6,
+     "png": "8:53",
+     "json": "8:53",
+     "match": true
+    },
+    {
+     "row": 7,
+     "png": "9:23",
+     "json": "9:23",
+     "match": true
+    },
+    {
+     "row": 8,
+     "png": "9:53",
+     "json": "9:53",
+     "match": true
+    },
+    {
+     "row": 9,
+     "png": "10:23",
+     "json": "10:23",
+     "match": true
+    },
+    {
+     "row": 10,
+     "png": "10:53",
+     "json": "10:53",
+     "match": true
+    },
+    {
+     "row": 11,
+     "png": "11:23",
+     "json": "11:23",
+     "match": true
+    },
+    {
+     "row": 12,
+     "png": "11:53",
+     "json": "11:53",
+     "match": true
+    },
+    {
+     "row": 13,
+     "png": "12:23",
+     "json": "12:23",
+     "match": true
+    },
+    {
+     "row": 14,
+     "png": "12:53",
+     "json": "12:53",
+     "match": true
+    },
+    {
+     "row": 15,
+     "png": "13:23",
+     "json": "13:23",
+     "match": true
+    },
+    {
+     "row": 16,
+     "png": "13:53",
+     "json": "13:53",
+     "match": true
+    },
+    {
+     "row": 17,
+     "png": "14:23",
+     "json": "14:23",
+     "match": true
+    },
+    {
+     "row": 18,
+     "png": "14:53",
+     "json": "14:53",
+     "match": true
+    },
+    {
+     "row": 19,
+     "png": "15:23",
+     "json": "15:23",
+     "match": true
+    },
+    {
+     "row": 20,
+     "png": "15:53",
+     "json": "15:53",
+     "match": true
+    },
+    {
+     "row": 21,
+     "png": "16:23",
+     "json": "16:23",
+     "match": true
+    },
+    {
+     "row": 22,
+     "png": "16:53",
+     "json": "16:53",
+     "match": true
+    },
+    {
+     "row": 23,
+     "png": "17:23",
+     "json": "17:23",
+     "match": true
+    },
+    {
+     "row": 24,
+     "png": "17:53",
+     "json": "17:53",
+     "match": true
+    },
+    {
+     "row": 25,
+     "png": "18:23",
+     "json": "18:23",
+     "match": true
+    },
+    {
+     "row": 26,
+     "png": "18:53",
+     "json": "18:53",
+     "match": true
+    },
+    {
+     "row": 27,
+     "png": "19:23",
+     "json": "19:23",
+     "match": true
+    },
+    {
+     "row": 28,
+     "png": "19:53",
+     "json": "19:53",
+     "match": true
+    },
+    {
+     "row": 29,
+     "png": null,
+     "json": null,
+     "match": true
+    },
+    {
+     "row": 30,
+     "png": null,
+     "json": null,
+     "match": true
+    },
+    {
+     "row": 31,
+     "png": null,
+     "json": null,
+     "match": true
+    },
+    {
+     "row": 32,
+     "png": null,
+     "json": null,
+     "match": true
+    }
+   ]
+  },
+  "friday": {
+   "png_cells_read": 32,
+   "png_blank_rows": [],
+   "json_count": 32,
+   "matches": 32,
+   "mismatches": [],
+   "png_transcription_by_crop": {
+    "crops/friday_rows01-08.png": [
+     "7:18",
+     "7:42",
+     "8:06",
+     "8:30",
+     "8:54",
+     "9:18",
+     "9:42",
+     "10:06"
+    ],
+    "crops/friday_rows09-16.png": [
+     "10:30",
+     "10:54",
+     "11:18",
+     "11:42",
+     "12:06",
+     "12:30",
+     "12:54",
+     "13:18"
+    ],
+    "crops/friday_rows17-24.png": [
+     "13:42",
+     "14:06",
+     "14:30",
+     "14:54",
+     "15:18",
+     "15:42",
+     "16:06",
+     "16:30"
+    ],
+    "crops/friday_rows25-32.png": [
+     "16:54",
+     "17:18",
+     "17:42",
+     "18:06",
+     "18:30",
+     "18:54",
+     "19:18",
+     "19:42"
+    ]
+   },
+   "row_by_row": [
+    {
+     "row": 1,
+     "png": "7:18",
+     "json": "7:18",
+     "match": true
+    },
+    {
+     "row": 2,
+     "png": "7:42",
+     "json": "7:42",
+     "match": true
+    },
+    {
+     "row": 3,
+     "png": "8:06",
+     "json": "8:06",
+     "match": true
+    },
+    {
+     "row": 4,
+     "png": "8:30",
+     "json": "8:30",
+     "match": true
+    },
+    {
+     "row": 5,
+     "png": "8:54",
+     "json": "8:54",
+     "match": true
+    },
+    {
+     "row": 6,
+     "png": "9:18",
+     "json": "9:18",
+     "match": true
+    },
+    {
+     "row": 7,
+     "png": "9:42",
+     "json": "9:42",
+     "match": true
+    },
+    {
+     "row": 8,
+     "png": "10:06",
+     "json": "10:06",
+     "match": true
+    },
+    {
+     "row": 9,
+     "png": "10:30",
+     "json": "10:30",
+     "match": true
+    },
+    {
+     "row": 10,
+     "png": "10:54",
+     "json": "10:54",
+     "match": true
+    },
+    {
+     "row": 11,
+     "png": "11:18",
+     "json": "11:18",
+     "match": true
+    },
+    {
+     "row": 12,
+     "png": "11:42",
+     "json": "11:42",
+     "match": true
+    },
+    {
+     "row": 13,
+     "png": "12:06",
+     "json": "12:06",
+     "match": true
+    },
+    {
+     "row": 14,
+     "png": "12:30",
+     "json": "12:30",
+     "match": true
+    },
+    {
+     "row": 15,
+     "png": "12:54",
+     "json": "12:54",
+     "match": true
+    },
+    {
+     "row": 16,
+     "png": "13:18",
+     "json": "13:18",
+     "match": true
+    },
+    {
+     "row": 17,
+     "png": "13:42",
+     "json": "13:42",
+     "match": true
+    },
+    {
+     "row": 18,
+     "png": "14:06",
+     "json": "14:06",
+     "match": true
+    },
+    {
+     "row": 19,
+     "png": "14:30",
+     "json": "14:30",
+     "match": true
+    },
+    {
+     "row": 20,
+     "png": "14:54",
+     "json": "14:54",
+     "match": true
+    },
+    {
+     "row": 21,
+     "png": "15:18",
+     "json": "15:18",
+     "match": true
+    },
+    {
+     "row": 22,
+     "png": "15:42",
+     "json": "15:42",
+     "match": true
+    },
+    {
+     "row": 23,
+     "png": "16:06",
+     "json": "16:06",
+     "match": true
+    },
+    {
+     "row": 24,
+     "png": "16:30",
+     "json": "16:30",
+     "match": true
+    },
+    {
+     "row": 25,
+     "png": "16:54",
+     "json": "16:54",
+     "match": true
+    },
+    {
+     "row": 26,
+     "png": "17:18",
+     "json": "17:18",
+     "match": true
+    },
+    {
+     "row": 27,
+     "png": "17:42",
+     "json": "17:42",
+     "match": true
+    },
+    {
+     "row": 28,
+     "png": "18:06",
+     "json": "18:06",
+     "match": true
+    },
+    {
+     "row": 29,
+     "png": "18:30",
+     "json": "18:30",
+     "match": true
+    },
+    {
+     "row": 30,
+     "png": "18:54",
+     "json": "18:54",
+     "match": true
+    },
+    {
+     "row": 31,
+     "png": "19:18",
+     "json": "19:18",
+     "match": true
+    },
+    {
+     "row": 32,
+     "png": "19:42",
+     "json": "19:42",
+     "match": true
+    }
+   ]
+  }
+ },
+ "summary": {
+  "total_png_time_cells_read": 92,
+  "total_json_cells": 92,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "unreadable_cells": 0,
+  "unreadable_list": [],
+  "verdict": "all 92 printed cells I could read equal the JSON; Thursday rows 29-32 are blank in the print and absent in the JSON (28 rows); no cell was unreadable. This confirms transcription fidelity of JSON vs PNG only, not that the PNG is an official or current sheet."
+ }
+}

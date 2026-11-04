@@ -1,0 +1,1396 @@
+{
+  "fixtureVersion": 1,
+  "synthetic": true,
+  "notice": "R1 TEST DATA ONLY. NEVER publish through MINIAPP_ASSETS or provider results.",
+  "scenarios": [
+    {
+      "id": "hard-gates",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Budget violation is excluded; missing price is undetermined.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "budget",
+              "metric": "totalCostToman",
+              "operator": "lte",
+              "bound": 500
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:over-budget",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — over-budget",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 900,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 500,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:unquoted",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — unquoted",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "unknown",
+                "unit": "toman",
+                "reason": "synthetic missing quote"
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 300,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anonymous-question",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Anonymous trade-off with an effective optional question.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": []
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "local-preference",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Explicit local cost priority affects selection.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": []
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "memory": {
+          "schemaVersion": 1,
+          "revision": 1,
+          "preferences": [
+            {
+              "schemaVersion": 1,
+              "id": "fixture:cost-preference",
+              "version": 1,
+              "domain": "transit",
+              "scope": "device",
+              "kind": "objective_order",
+              "value": [
+                "totalCostToman",
+                "durationSeconds"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "source": "synthetic-user-statement"
+              },
+              "confirmedByUser": true,
+              "updatedAt": "2026-11-02T09:00:00Z",
+              "consent": {
+                "store": "granted",
+                "use": "granted"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "request-override",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "This request favors time without saving or mutating memory.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": [],
+          "requestPreferences": [
+            {
+              "schemaVersion": 1,
+              "id": "fixture:this-request-time",
+              "version": 1,
+              "domain": "transit",
+              "scope": "request",
+              "kind": "objective_order",
+              "value": [
+                "durationSeconds",
+                "totalCostToman"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "source": "synthetic-user-statement"
+              },
+              "confirmedByUser": true,
+              "updatedAt": "2026-11-02T09:00:00Z",
+              "consent": {
+                "store": "denied",
+                "use": "granted"
+              },
+              "requestId": "fixture:request"
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "memory": {
+          "schemaVersion": 1,
+          "revision": 1,
+          "preferences": [
+            {
+              "schemaVersion": 1,
+              "id": "fixture:cost-preference",
+              "version": 1,
+              "domain": "transit",
+              "scope": "device",
+              "kind": "objective_order",
+              "value": [
+                "totalCostToman",
+                "durationSeconds"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "source": "synthetic-user-statement"
+              },
+              "confirmedByUser": true,
+              "updatedAt": "2026-11-02T09:00:00Z",
+              "consent": {
+                "store": "granted",
+                "use": "granted"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "multiple-labels",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "One nondominated option can carry both cost and time labels.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": []
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:best",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — best",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:dominated",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — dominated",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "no-feasible",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "No fixture option satisfies the hard budget.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "budget",
+              "metric": "totalCostToman",
+              "operator": "lte",
+              "bound": 0
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "stale-evidence",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Expired costs cannot satisfy a budget or win comparison.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "budget",
+              "metric": "totalCostToman",
+              "operator": "lte",
+              "bound": 500
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "stale",
+                "unit": "toman",
+                "reason": "synthetic expired quote"
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "stale",
+                "unit": "toman",
+                "reason": "synthetic expired quote"
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "non-equivalent",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Two equivalence groups cannot be crowned against each other.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": []
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:different-task-equivalence",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "preference-conflict",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Equally current conflicting priorities do not select an arbitrary winner.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": []
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 1200,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "known",
+                "unit": "seconds",
+                "value": 600,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "memory": {
+          "schemaVersion": 1,
+          "revision": 2,
+          "preferences": [
+            {
+              "schemaVersion": 1,
+              "id": "fixture:cost-conflict",
+              "version": 1,
+              "domain": "transit",
+              "scope": "device",
+              "kind": "objective_order",
+              "value": [
+                "totalCostToman",
+                "durationSeconds"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "source": "synthetic-user-statement"
+              },
+              "confirmedByUser": true,
+              "updatedAt": "2026-11-02T09:00:00Z",
+              "consent": {
+                "store": "granted",
+                "use": "granted"
+              }
+            },
+            {
+              "schemaVersion": 1,
+              "id": "fixture:time-conflict",
+              "version": 1,
+              "domain": "transit",
+              "scope": "device",
+              "kind": "objective_order",
+              "value": [
+                "durationSeconds",
+                "totalCostToman"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "source": "synthetic-user-statement"
+              },
+              "confirmedByUser": true,
+              "updatedAt": "2026-11-02T09:00:00Z",
+              "consent": {
+                "store": "granted",
+                "use": "granted"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "overlapping-estimates",
+      "notice": "SYNTHETIC FIXTURE: not provider data, fares or an actual route.",
+      "description": "Overlapping intervals cannot prove a faster option.",
+      "input": {
+        "schemaVersion": 1,
+        "context": {
+          "schemaVersion": 1,
+          "requestId": "fixture:request",
+          "taskId": "fixture:trip",
+          "domain": "transit",
+          "at": "2026-11-02T10:00:00Z",
+          "decisionPermission": "granted",
+          "objectives": [
+            {
+              "metric": "totalCostToman",
+              "direction": "min"
+            },
+            {
+              "metric": "durationSeconds",
+              "direction": "min"
+            }
+          ],
+          "constraints": []
+        },
+        "candidates": [
+          {
+            "schemaVersion": 1,
+            "id": "fixture:economical",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — economical",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 100,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "estimated",
+                "unit": "seconds",
+                "interval": {
+                  "min": 500,
+                  "max": 900
+                },
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ],
+                "assumptions": [
+                  "synthetic timetable uncertainty"
+                ]
+              }
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "fixture:quick",
+            "providerId": "fixture:synthetic",
+            "domain": "transit",
+            "taskId": "fixture:trip",
+            "equivalenceKey": "fixture:same-origin-destination",
+            "title": "SYNTHETIC TEST — quick",
+            "availability": "available",
+            "metrics": {
+              "totalCostToman": {
+                "state": "known",
+                "unit": "toman",
+                "value": 400,
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ]
+              },
+              "durationSeconds": {
+                "state": "estimated",
+                "unit": "seconds",
+                "interval": {
+                  "min": 600,
+                  "max": 1000
+                },
+                "evidence": [
+                  {
+                    "id": "fixture:quote-v1",
+                    "sourceId": "fixture:synthetic-only",
+                    "kind": "fixture",
+                    "dataVersion": "r1-synthetic-v1",
+                    "live": false,
+                    "observedAt": "2026-11-02T09:00:00Z",
+                    "validUntil": "2026-11-02T11:00:00Z"
+                  }
+                ],
+                "assumptions": [
+                  "synthetic timetable uncertainty"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

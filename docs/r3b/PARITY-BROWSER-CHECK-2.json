@@ -1,0 +1,36 @@
+{
+ "fav_saved": true,
+ "picker_shortcuts": [
+  "×",
+  "هفت‌تیر",
+  "ایستگاه های من"
+ ],
+ "favourites_route": {
+  "title": "ایستگاه های من · Besrah",
+  "hasFavStation": true
+ },
+ "sheet": {
+  "open": true,
+  "name": "هفت‌تیر",
+  "boardGroups": 3,
+  "buttons": [
+   "حذف از علاقه مندی ها",
+   "بستن",
+   "از این ایستگاه سفر بساز",
+   "تازه سازی",
+   "صیاد شیرازی",
+   "صدف",
+   "دانش‌آموز",
+   "سیدرضی"
+  ]
+ },
+ "sheet_cta_clicked": true,
+ "after_sheet_cta": {
+  "title": "مترو · Besrah",
+  "sheetOpen": false,
+  "fromLabel": "مبدأ هفت‌تیر",
+  "toLabel": "مقصد انتخاب ایستگاه",
+  "boardTitle": "حرکت های هفت‌تیر · زمان فعلی",
+  "boardDefaultTab": "حرکت های ایستگاه"
+ }
+}

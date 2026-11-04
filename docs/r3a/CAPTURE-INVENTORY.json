@@ -1,0 +1,200 @@
+[
+  {
+    "file": "screenshots/after-1440-dark-full.png",
+    "bytes": 445089,
+    "sha256": "9749593926c261d8546450c9f240b5215db8daacc77b4e1a8098a971650739bd",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-1440-dark-no-preference.png",
+    "bytes": 115557,
+    "sha256": "795687c0e97699ce416d103d9d1ed6170f2bf1560d43987d67922c191c7897a1",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-1440-dark-reduce.png",
+    "bytes": 110129,
+    "sha256": "8a997af5e3104be6acd0165274e56d59d6f78e3ab06dab470fc9971328402e94",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-1440-light-full.png",
+    "bytes": 454718,
+    "sha256": "e81b29238116a99eadb8216cb88830b5e96d90c7197012b99f720bf37cd4fc31",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-1440-light-no-preference.png",
+    "bytes": 113838,
+    "sha256": "dbb1bc3a076362ba6b7ba502a04c986e9a7794bc6727107a285ff9dfcc97dd08",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-1440-light-reduce.png",
+    "bytes": 114244,
+    "sha256": "be66ab1f1b2660068f772afa4c42b1dffe54724b66982183212b8a8001bfd639",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-320-dark-no-preference.png",
+    "bytes": 81622,
+    "sha256": "b18f8b8936f6844edffaaa208181a12bd3a5acd38ac2c3e0a826509e7060e54d",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-320-dark-reduce.png",
+    "bytes": 79568,
+    "sha256": "729fe016cc8398fa2ed3db6ab93689201e6ae3ffea079d2d84bad4684500e69b",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-320-dark-text125.png",
+    "bytes": 77509,
+    "sha256": "23ac03af0082824034156e5bf916bbc42f6dab44de8bb1f0a3c8ad403d35ab59",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-320-light-no-preference.png",
+    "bytes": 78236,
+    "sha256": "f8200d2cb8b086237d9b1ff439ee085cc7c1868da761637e175fc6a56c29a1a6",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-320-light-reduce.png",
+    "bytes": 78230,
+    "sha256": "03c5934a618fc13e81ba488e08049aa7904b8022c72491caa8a804005ee8b92c",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-360-dark-no-preference.png",
+    "bytes": 88175,
+    "sha256": "b29d0b35dd86027869fdf1d8d2ffb762cb1e2944b62bfc83a929810b994f27ac",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-360-dark-reduce.png",
+    "bytes": 85374,
+    "sha256": "632b2ad8eb128873222841fca43c546a26c7788baed5f9fac7fb6d52f84c6dca",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-360-light-no-preference.png",
+    "bytes": 88010,
+    "sha256": "e150d896bf3bef81b39f77bbcd1f19866693608663a7387c89268c48b5e82fc5",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-360-light-reduce.png",
+    "bytes": 84786,
+    "sha256": "07a3c7b0cd3c4fda12dbff54ea28bf552a94830810953e27d84e40fb61babc38",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-390-dark-board.png",
+    "bytes": 106913,
+    "sha256": "e97e31700414eb21895ba6602fe5e78e522b089fb1764bf75e22b36db572f93f",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-390-dark-full.png",
+    "bytes": 396191,
+    "sha256": "edaa847d42becff2c0e6899de7113687f0d975b2a81f6a7e4b066ed3431b2de7",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-390-dark-no-preference.png",
+    "bytes": 99567,
+    "sha256": "9119c828b1fc8610f29a54122936811ceb982ea1e323e0e091b74933f761325c",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-390-dark-reduce.png",
+    "bytes": 96230,
+    "sha256": "d36c7178ab0a39b2039a7b1c999fb4c63d4ddbe83621035be69b39120cf46aa0",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-390-dark-results.png",
+    "bytes": 115860,
+    "sha256": "38c0fd1a7605e8f37733d0f34b1853d7af9fb77de59173cf298911ea5f97686d",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-390-dark-tracker.png",
+    "bytes": 65099,
+    "sha256": "aae658a1d0753f5789ab9be4fd0939c5e3609a04f68501cc74d8caeff97591b3",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-390-light-board.png",
+    "bytes": 108534,
+    "sha256": "96236d565d28f2d8b8a7ab5130491aba7b045d4b3e0807793c1bebe48384e28a",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-390-light-full.png",
+    "bytes": 398808,
+    "sha256": "ed4e845ce08b6b0dd39da8ab9646aa9a53e8b1ba6900a011f49a668ec9fd26e2",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-390-light-no-preference.png",
+    "bytes": 96271,
+    "sha256": "172cf41f267ed6ed96fdcaf4205accd895120b70d9056476ab538943f903e1cb",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/after-390-light-reduce.png",
+    "bytes": 97221,
+    "sha256": "1617b8347cd0cac93ae183ff51a44fde4eea96caf9f321167b47180c3d1815c4",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-390-light-results.png",
+    "bytes": 117125,
+    "sha256": "e1d7ef60bc4e6e9ec0ee51bba73a012b6a6bceb775f7506ae516c128e2d9dd98",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-768-dark-no-preference.png",
+    "bytes": 108041,
+    "sha256": "046f849f7f7131e9e80b01ca9d8abbcfaf4a284d4323aff08f2f4b64c5427013",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-768-dark-reduce.png",
+    "bytes": 104735,
+    "sha256": "6c4b176a9e3d35840971b6677d470dfdd507e697cf9eda57c7b868778592c3b0",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-768-light-no-preference.png",
+    "bytes": 110622,
+    "sha256": "3d39dbcf36100fde727e530f39a48aad3375da3d853bef2971c272cb736a21ad",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/after-768-light-reduce.png",
+    "bytes": 107720,
+    "sha256": "a2e887d06470ba586c01e30dcd16285f551980ef22c32676be6994459676b9e9",
+    "visualStatus": "captured_not_individually_vision_reviewed"
+  },
+  {
+    "file": "screenshots/before-390-dark.png",
+    "bytes": 77804,
+    "sha256": "80af31e8140440dea459729cb9d4a3fed2b0732afd18fcd98c1a0e2a53873ff4",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/before-390-light-full.png",
+    "bytes": 358886,
+    "sha256": "58c7be54d808f4d5f856d5825ec7c0b5be667c74f1751c3de25e864584d69186",
+    "visualStatus": "seen"
+  },
+  {
+    "file": "screenshots/before-390-light.png",
+    "bytes": 79067,
+    "sha256": "89850704561e3e3ca5da1b5abb30684595ce4db8f737cdd8dc9b948516c4a1cc",
+    "visualStatus": "seen"
+  }
+]

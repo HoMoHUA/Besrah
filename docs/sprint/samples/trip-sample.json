@@ -1,0 +1,120 @@
+{
+ "request": "POST /app/api/trip {from:{lat:36.3079,lon:59.5971},to:{lat:36.2569,lon:59.6203}}",
+ "response": {
+  "schemaVersion": 1,
+  "status": "ok",
+  "reason": "ok",
+  "readyAt": "2026-11-04 16:47",
+  "readyEpoch": 1793798258,
+  "origin": {
+   "lat": 36.3079,
+   "lon": 59.5971
+  },
+  "destination": {
+   "lat": 36.2569,
+   "lon": 59.6203
+  },
+  "options": [
+   {
+    "id": "car",
+    "kind": "car",
+    "title": "با خودرو",
+    "leaveAt": "16:47",
+    "leaveEpoch": 1793798258,
+    "arriveAt": "17:09",
+    "arriveEpoch": 1793799599,
+    "totalS": 1341,
+    "legs": [
+     {
+      "type": "car",
+      "durationS": 1341,
+      "distanceM": 9341,
+      "basis": "routed",
+      "traffic": "provider_traffic"
+     }
+    ],
+    "ifMissed": null,
+    "notes": [
+     "زمان را مسیریاب با داده ترافیک خود اعلام کرده است؛ زنده بودن آن تضمین نمی شود. پارک و هزینه در آن نیست."
+    ]
+   },
+   {
+    "id": "m:METRO-117:METRO-122:1:ev1_d3ba4287dc00b58dd95f",
+    "kind": "metro",
+    "title": "مترو از شریعتی به غدیر",
+    "leaveAt": "16:54",
+    "leaveEpoch": 1793798675,
+    "arriveAt": "17:41",
+    "arriveEpoch": 1793801504,
+    "totalS": 2829,
+    "legs": [
+     {
+      "type": "walk",
+      "from": "مبدأ",
+      "to": "ایستگاه شریعتی",
+      "durationS": 1914,
+      "distanceM": 2480,
+      "basis": "routed",
+      "straightLineM": 2122
+     },
+     {
+      "type": "station_access",
+      "durationS": 180,
+      "basis": "assumption"
+     },
+     {
+      "type": "metro",
+      "line": 1,
+      "service": "A",
+      "toward": "غدیر",
+      "from": "شریعتی",
+      "to": "غدیر",
+      "departAt": "17:29",
+      "arriveAt": "17:39",
+      "durationS": 608,
+      "basis": "model",
+      "confidence": "site_headway_assumed_phase",
+      "eventId": "ev1_d3ba4287dc00b58dd95f"
+     },
+     {
+      "type": "station_egress",
+      "durationS": 120,
+      "basis": "assumption"
+     },
+     {
+      "type": "walk",
+      "from": "ایستگاه غدیر",
+      "to": "مقصد",
+      "durationS": 7,
+      "distanceM": 12,
+      "basis": "routed",
+      "straightLineM": 12
+     }
+    ],
+    "ifMissed": {
+     "departAt": "17:37",
+     "arriveAt": "17:49"
+    },
+    "notes": [
+     "برنامهٔ این روز در مدل تخمینی است و تعطیلی رسمی بررسی نشده."
+    ]
+   }
+  ],
+  "assumptions": {
+   "stationAccessS": 180,
+   "stationEgressS": 120,
+   "note": "ورود به سکو و خروج از ایستگاه فرض ثابت اند، اندازه گیری نشده اند."
+  },
+  "routing": {
+   "provider": "neshan",
+   "walk": "routed",
+   "car": "routed",
+   "trafficLabel": "ترافیک را مسیریاب برای خودرو لحاظ می کند؛ برای مترو و پیاده بی اثر است."
+  },
+  "disclaimers": [
+   "زمان مترو از مدل برنامهٔ قطار می آید، نه موقعیت زنده؛ پیاده روی و خودرو را سرویس مسیریابی اندازه گرفته است.",
+   "ورود از در ایستگاه تا سکو و خروج از آن، دو زمان فرضی و ثابت اند و در جزئیات با برچسب «فرض» آمده اند.",
+   "هزینه، موجودی خودرو و زمان رسیدن اتوبوس یا تاکسی در این نتیجه نیست."
+  ]
+ }
+}

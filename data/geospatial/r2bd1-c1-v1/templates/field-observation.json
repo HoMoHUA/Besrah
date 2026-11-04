@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "isTemplateNotObservation": true,
+  "observationId": null,
+  "observedAt": null,
+  "timezone": null,
+  "stationId": null,
+  "entranceId": null,
+  "platformId": null,
+  "directionDestinationText": null,
+  "fromPointId": null,
+  "toPointId": null,
+  "publicAreaOnly": null,
+  "sourceEvidenceFiles": [],
+  "pathNodes": [],
+  "segments": [],
+  "entranceRules": {
+    "entryAllowed": null,
+    "exitAllowed": null,
+    "openingHours": null,
+    "sourceId": null
+  },
+  "surface": null,
+  "barriers": null,
+  "levels": null,
+  "transition": null,
+  "events": {
+    "startAt": null,
+    "entranceThresholdAt": null,
+    "ticketQueueStartAt": null,
+    "ticketControlCompleteAt": null,
+    "platformReadyAt": null,
+    "exitThresholdAt": null,
+    "endAt": null
+  },
+  "durationsSeconds": {
+    "walking": null,
+    "steps": null,
+    "crossingWait": null,
+    "ticketQueue": null,
+    "ticketControl": null,
+    "elevatorWait": null,
+    "researcherPause": null
+  },
+  "pathLengthMeters": null,
+  "lengthMethod": null,
+  "coordinateCapture": {
+    "crs": null,
+    "method": null,
+    "accuracyMeters": null
+  },
+  "contradictions": [],
+  "unknowns": [],
+  "notes": null
+}

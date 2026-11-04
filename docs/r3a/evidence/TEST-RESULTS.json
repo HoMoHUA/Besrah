@@ -1,0 +1,28 @@
+{
+  "testedCodeHead": "4349656e9dc50a0d8b1b24f2c8da2037bcc9772f",
+  "exitCodes": {
+    "tsc": 0,
+    "core": 0,
+    "build": 0,
+    "miniapp": 0,
+    "n8n": 0,
+    "data": 0,
+    "release": 0,
+    "runner": 0,
+    "http": 0
+  },
+  "tests": {
+    "core": 506,
+    "miniapp": 166,
+    "n8n": 21,
+    "pythonData": 167,
+    "pythonRelease": 20,
+    "previewRunner": 3,
+    "realHttpAcceptance": 8
+  },
+  "totalTests": 891,
+  "newUnifiedUiTests": 14,
+  "phoneQa": "AWAITING_HUMAN",
+  "ios": "NOT_TESTED",
+  "productionWrites": false
+}

@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "overlay_id": "bus-ui-corrections-v1",
+  "base_guide_manifest_sha256": "e6f7114eb2f76c1d137bac42e4ec0af35bf40bca608bd4697ebce9187b1d8c2c",
+  "preserved_ui_sha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea",
+  "preserved_ui_semantics_sha256": "9b7512e1d2c085814b6398d7ce2b5e345154ee2fbfd4440a39e20d70958ffe99",
+  "appended_names": [
+    "انتهای شهرک شهید باهنر",
+    "شهرک شهید رجایی",
+    "میدان عدالت",
+    "بلوار معلم",
+    "بلوار سید رضی",
+    "میدان امام علی",
+    "چهارراه مخابرات",
+    "چهارراه امامیه",
+    "انتهای امامیه",
+    "پایانه الهیه",
+    "الهیه ۷",
+    "بزرگراه هاشمی رفسنجانی",
+    "چهارراه حسابی",
+    "دانشگاه آزاد",
+    "انتهای سید رضی",
+    "چهارراه معلم",
+    "چهارراه آزادشهر",
+    "چهارراه شهید فرامرز عباسی",
+    "چهارراه مهدی",
+    "درمانگاه شهید شوریده",
+    "تقاطع خیام",
+    "میدان شهدا",
+    "پایانه فردوسی",
+    "بلوار حر",
+    "پایانه شهید بسکابادی",
+    "میدان بوعلی",
+    "بلوار خیام شمالی",
+    "میدان خیام",
+    "خیابان فدک",
+    "خیابان کشاورز",
+    "شهرک نوید",
+    "پایانه شهید جوان",
+    "خیابان ارغوان",
+    "شهرک بهارستان (طالقانی)",
+    "آبادگران",
+    "خیابان چشمه پونه"
+  ],
+  "ref_corrections": [
+    {
+      "from": "38.1",
+      "to": "38/1",
+      "variant_ids": [
+        12916882
+      ],
+      "evidence": {
+        "kind": "owner_request",
+        "official_verification": false
+      }
+    },
+    {
+      "from": "800",
+      "to": "801",
+      "variant_ids": [
+        5658288,
+        13090062
+      ],
+      "evidence": {
+        "kind": "owner_request",
+        "official_verification": false
+      }
+    }
+  ],
+  "added_lines": [
+    {
+      "r": "129",
+      "v": [
+        {
+          "i": 129001,
+          "f": "پایانه شهید جوان",
+          "t": "چشمه پونه (آبادگران)",
+          "d": 0,
+          "s": [
+            1720,
+            1721,
+            1722,
+            1723,
+            1724
+          ]
+        },
+        {
+          "i": 129002,
+          "f": "چشمه پونه (آبادگران)",
+          "t": "پایانه شهید جوان",
+          "d": 0,
+          "s": [
+            1724,
+            1723,
+            1722,
+            1721,
+            1720
+          ]
+        }
+      ],
+      "provenance": {
+        "route_existence": "owner_specified",
+        "areas_status": "owner_specified",
+        "areas": [
+          "پایانه شهید جوان",
+          "ارغوان",
+          "بهارستان",
+          "آبادگران",
+          "چشمه پونه"
+        ],
+        "endpoints_status": "assistant_entered_unverified",
+        "stop_sequence_status": "assistant_entered_unverified",
+        "official_verification": false,
+        "source": "preserved_existing_ui_not_official_source",
+        "headway_announcement": {
+          "minutes": 10,
+          "kind": "owner_reported_announcement",
+          "time_specific_schedule": false,
+          "operationally_verified": false
+        }
+      }
+    },
+    {
+      "r": "830",
+      "v": [
+        {
+          "i": 830001,
+          "f": "انتهای شهرک شهید باهنر",
+          "t": "انتهای امامیه",
+          "d": 0,
+          "s": [
+            1689,
+            1690,
+            1691,
+            0,
+            1,
+            358,
+            355,
+            275,
+            348,
+            1692,
+            1693,
+            1694,
+            1695,
+            1696,
+            1697
+          ]
+        },
+        {
+          "i": 830002,
+          "f": "انتهای امامیه",
+          "t": "انتهای شهرک شهید باهنر",
+          "d": 0,
+          "s": [
+            1697,
+            1696,
+            1695,
+            1694,
+            1693,
+            1692,
+            348,
+            275,
+            355,
+            358,
+            1,
+            0,
+            1691,
+            1690,
+            1689
+          ]
+        }
+      ],
+      "provenance": {
+        "route_existence": "owner_specified",
+        "areas_status": "not_independently_verified",
+        "areas": [],
+        "endpoints_status": "assistant_entered_unverified",
+        "stop_sequence_status": "assistant_entered_unverified",
+        "official_verification": false,
+        "source": "preserved_existing_ui_not_official_source"
+      }
+    },
+    {
+      "r": "832",
+      "v": [
+        {
+          "i": 832001,
+          "f": "پایانه الهیه",
+          "t": "حرم مطهر - شیرازی",
+          "d": 0,
+          "s": [
+            1698,
+            1699,
+            1700,
+            1697,
+            1701,
+            1696,
+            1702,
+            1695,
+            1703,
+            1704,
+            1705,
+            348,
+            1706,
+            1707,
+            1708,
+            1709,
+            275,
+            355,
+            358,
+            1710,
+            1,
+            0
+          ]
+        },
+        {
+          "i": 832002,
+          "f": "حرم مطهر - شیرازی",
+          "t": "پایانه الهیه",
+          "d": 0,
+          "s": [
+            0,
+            1,
+            1710,
+            358,
+            355,
+            275,
+            1709,
+            1708,
+            1707,
+            1706,
+            348,
+            1705,
+            1704,
+            1703,
+            1695,
+            1702,
+            1696,
+            1701,
+            1697,
+            1700,
+            1699,
+            1698
+          ]
+        }
+      ],
+      "provenance": {
+        "route_existence": "owner_specified",
+        "areas_status": "not_independently_verified",
+        "areas": [],
+        "endpoints_status": "assistant_entered_unverified",
+        "stop_sequence_status": "assistant_entered_unverified",
+        "official_verification": false,
+        "source": "preserved_existing_ui_not_official_source"
+      }
+    },
+    {
+      "r": "833",
+      "v": [
+        {
+          "i": 833001,
+          "f": "پایانه فردوسی",
+          "t": "پایانه شهید بسکابادی",
+          "d": 0,
+          "s": [
+            1711,
+            275,
+            355,
+            358,
+            1710,
+            1,
+            0,
+            1691,
+            1690,
+            1712,
+            1713
+          ]
+        },
+        {
+          "i": 833002,
+          "f": "پایانه شهید بسکابادی",
+          "t": "پایانه فردوسی",
+          "d": 0,
+          "s": [
+            1713,
+            1712,
+            1690,
+            1691,
+            0,
+            1,
+            1710,
+            358,
+            355,
+            275,
+            1711
+          ]
+        }
+      ],
+      "provenance": {
+        "route_existence": "owner_specified",
+        "areas_status": "not_independently_verified",
+        "areas": [],
+        "endpoints_status": "assistant_entered_unverified",
+        "stop_sequence_status": "assistant_entered_unverified",
+        "official_verification": false,
+        "source": "preserved_existing_ui_not_official_source"
+      }
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "verificationVersion": 1,
+  "generatedAt": "2026-11-02T11:22:25+00:00",
+  "runtime": {
+    "node": "v22.23.4",
+    "npm": "10.9.9"
+  },
+  "base": "4083d0cdfd80062f91b1d7a2f78b506233669064",
+  "branch": "feature/r1-intelligence-foundation",
+  "inputsSha256": "ad2f8c1c3f399e817966b5ca82e895dd74c97fe4c4752075b203c336e72f3610",
+  "inputFiles": {
+    "packages/core/src/intelligence/compare.ts": "a2a6304bc07183fd0879d428c6ff7da8d9f064e56f8de01171d2f43e2e1fdfb2",
+    "packages/core/src/intelligence/constraints.ts": "217e1f126f22917e7f2e389de7459949ad1b690922b2b2fad7e9341cc4fc8fff",
+    "packages/core/src/intelligence/contracts.ts": "327e192f299fde050b0732a6a477d179ade81671f8e41fbed70b042286d4e737",
+    "packages/core/src/intelligence/decision.ts": "8bd549720eee709b33b753cdf81d9946194b75081ca21240b2b89dfa3807aeae",
+    "packages/core/src/intelligence/explain.ts": "42d83173391ae74a1137534b6e8b6720fdde8418b25bafd32783b9528dca34b1",
+    "packages/core/src/intelligence/index.ts": "c9ca904aec6df5c6991027b213136f438c63acc762651e6ab7867769386e3b7f",
+    "packages/core/src/intelligence/memory.ts": "467309780d92d36f48c108392ba93c96283e7cf3b7660397b903b2b5c3e72977",
+    "packages/core/src/intelligence/metrics.ts": "33fd14bb4f1dfe6cc4ab95bec7b2b9b5bfcd6937f1355d27de17691f881435b0",
+    "packages/core/src/intelligence/preferences.ts": "6fdeb41e8d69efa8c5f3433e91c349b99a4b1e6abe0367fe0955311162b62ffa",
+    "packages/core/src/intelligence/questions.ts": "af98b7014f63ca49fcf4c216631134679e534e1fcbeb55b9f42b2f378fb0acdf",
+    "packages/core/src/intelligence/validation.ts": "01fce73afa0767925af3454212999b9a8852588522e36e90dc458740d9d9539a",
+    "packages/core/tests/intelligence/compare.test.ts": "fdaac35d626b98eea3b443687a15cf80d204ce3eafc949c6a10458491c95f9ff",
+    "packages/core/tests/intelligence/constraints.test.ts": "6e3e344c29dc40f3d4e61d553c2ccaf5be09f24908e4ad348427d5ecf585e253",
+    "packages/core/tests/intelligence/decision.test.ts": "f6daadeaad9737a3c869ebc23acccf467770543e3030c34f18de6229cbb003fc",
+    "packages/core/tests/intelligence/explain.test.ts": "480f70e18b12d7ec2c83183b919a065e6f9398882bd5881910950a3518147114",
+    "packages/core/tests/intelligence/fixtures.test.ts": "36123ed3e206608677d61a01778434724feb5b86b1775dc35b9761ee1f69dcaf",
+    "packages/core/tests/intelligence/helpers.ts": "ee862836189ab0fc4a88b917e506dd94a649e32d7543e400cbdbafa0877318f6",
+    "packages/core/tests/intelligence/memory.test.ts": "d89fa3e326f861abf50cef329e298b6307f19510100f967217d06ff402c69b34",
+    "packages/core/tests/intelligence/metrics.test.ts": "b3d2afb030ea1e4926bc8b263cae9d2347cc7b1d34c7fb9c5899ac4b0e497e20",
+    "packages/core/tests/intelligence/preferences.test.ts": "de7bea7faad8a31f729ca17d5d5d43d355b14ede112aa2ae88c4842a80aa8c2f",
+    "packages/core/tests/intelligence/questions.test.ts": "6f597fea757dc78a0b2be2c8c4558bdf51b2a42d233fec695b0814415a04744b",
+    "packages/core/tests/intelligence/validation.test.ts": "03bba38f338b4e63a175424e08651f676fe25eef2ad918785567d2c21612abb4",
+    "packages/core/fixtures/intelligence/scenarios.json": "899abcab565bc68858b4f0fbbeefa3293e35f1aa66df9e162ab4aa7c58c699a9",
+    "scripts/demo-intelligence.mjs": "18cbaa58db5ab502d7a702ed1aa826dbb88bd83f6e80af96305757804e8d2409"
+  },
+  "tests": {
+    "suites": {
+      "core": 229,
+      "miniapp-data-n8n": 198,
+      "release": 12,
+      "bus-python": 17
+    },
+    "total": 456
+  },
+  "intelligenceTests": {
+    "files": {
+      "validation.test.ts": 28,
+      "decision.test.ts": 9,
+      "fixtures.test.ts": 3,
+      "questions.test.ts": 14,
+      "memory.test.ts": 17,
+      "preferences.test.ts": 31,
+      "compare.test.ts": 22,
+      "explain.test.ts": 7,
+      "constraints.test.ts": 17,
+      "metrics.test.ts": 3
+    },
+    "total": 151
+  },
+  "commands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 5.276
+    },
+    {
+      "name": "core",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 15.27
+    },
+    {
+      "name": "miniapp-data-n8n",
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "/root/projects/besrah-r1/apps/miniapp/api.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/async.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/bus-data.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/food.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/format.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/hero.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/icons.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/location.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/logic.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/navigation.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/route.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/search.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/service-assets.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/service-store.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/services.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/store.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/superapp.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/tg.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/theme.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/tracker-layout.test.mjs",
+        "/root/projects/besrah-r1/apps/miniapp/tracker.test.mjs",
+        "/root/projects/besrah-r1/tests/data/bus-app-data.test.mjs",
+        "/root/projects/besrah-r1/tests/data/bus-catalog-integrity.test.mjs",
+        "/root/projects/besrah-r1/tests/data/bus-guide-integrity.test.mjs",
+        "/root/projects/besrah-r1/tests/data/network-data.test.mjs",
+        "/root/projects/besrah-r1/tests/n8n/normalize.test.mjs",
+        "/root/projects/besrah-r1/tests/n8n/render.test.mjs",
+        "/root/projects/besrah-r1/tests/n8n/workflow.test.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 32.702
+    },
+    {
+      "name": "release",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/release",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.881
+    },
+    {
+      "name": "bus-python",
+      "command": [
+        "python3",
+        "-W",
+        "error::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/data",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 5.386
+    },
+    {
+      "name": "bus-check",
+      "command": [
+        "python3",
+        "scripts/build_bus_app_data.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.417
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "packages/core",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 3.997
+    }
+  ],
+  "benchmark": {
+    "synthetic": true,
+    "iterations": 100,
+    "candidateCount": 128,
+    "p50Ms": 15.425759999999855,
+    "p95Ms": 23.092228999999975,
+    "maxMs": 28.39676800000001,
+    "heapUsedBeforeBytes": 7444792,
+    "heapUsedAfterBytes": 20195496,
+    "rssAfterBytes": 99631104,
+    "counters": {
+      "candidateCount": 128,
+      "constraintChecks": 0,
+      "pairComparisons": 8128
+    },
+    "caveat": "Local process sample, not an SLO or peak-allocation guarantee. V8 GC affects memory; no provider latency is measured."
+  },
+  "capacity": {
+    "synthetic": true,
+    "caveat": "Local synthetic capacity samples, not exhaustive path coverage, an SLO, or a strict allocation ceiling.",
+    "results": [
+      {
+        "name": "anonymous-six-objective-equal-frontier",
+        "synthetic": true,
+        "iterations": 10,
+        "candidates": 128,
+        "objectives": 6,
+        "constraints": 16,
+        "evidencePerMetric": 8,
+        "memoryPreferences": 0,
+        "requestPreferences": 0,
+        "p50Ms": 244.16022999999996,
+        "p95Ms": 272.5140859999999,
+        "maxMs": 272.5140859999999,
+        "heapUsedBeforeBytes": 14351496,
+        "heapUsedAfterBytes": 21218824,
+        "rssAfterBytes": 104144896,
+        "processMaxRssKiB": 101704,
+        "counters": {
+          "candidateCount": 128,
+          "constraintChecks": 2048,
+          "pairComparisons": 8128
+        },
+        "options": 128,
+        "question": false
+      },
+      {
+        "name": "full-preference-capacity",
+        "synthetic": true,
+        "iterations": 10,
+        "candidates": 128,
+        "objectives": 6,
+        "constraints": 16,
+        "evidencePerMetric": 8,
+        "memoryPreferences": 64,
+        "requestPreferences": 64,
+        "p50Ms": 179.79142899999988,
+        "p95Ms": 198.44750400000066,
+        "maxMs": 198.44750400000066,
+        "heapUsedBeforeBytes": 29492264,
+        "heapUsedAfterBytes": 33595520,
+        "rssAfterBytes": 120131584,
+        "processMaxRssKiB": 117316,
+        "counters": {
+          "candidateCount": 128,
+          "constraintChecks": 2048,
+          "pairComparisons": 8128
+        },
+        "options": 128,
+        "question": false
+      }
+    ]
+  },
+  "protectedState": {
+    "main": {
+      "inventoriedFiles": 4888,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "allInventoriedFilesIdentical": true,
+      "statusIdentical": true,
+      "head": "3b3dbd323f73545dba355b1b285d5b1f1b9912be",
+      "indexSha256": "57a42d7e95aebb5af66b19551adc83b639949555e36b80f5de59bb79ca0759c0",
+      "indexIdentical": true
+    },
+    "production": {
+      "inventoriedFiles": 2179,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "allInventoriedFilesIdentical": true
+    }
+  },
+  "deployment": false,
+  "caveat": "Local synthetic verification, not a build-to-production attestation, performance SLO, peak allocation guarantee, or provider verification.",
+  "sourceCommit": "d5b792377c97e7d14af92b84fdae7c78b1b7e8f3",
+  "independentReview": {
+    "passed": true,
+    "mode": "static re-review after regression fixes; parent owns runtime verification",
+    "blockingSecurityFindings": 0,
+    "blockingLogicFindings": 0,
+    "originalFindingsAddressed": [
+      "discriminator accessor before validation",
+      "sparse array acceptance",
+      "hidden and symbol property validation bypass",
+      "categorical Pareto claims with incomplete competitors"
+    ]
+  }
+}

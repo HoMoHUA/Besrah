@@ -20,14 +20,16 @@ export function epochToTehranHms(epoch: number): string {
   return `${pad(p.hour)}:${pad(p.minute)}:${pad(p.second)}`;
 }
 
+// Constructing an Intl.DateTimeFormat is expensive and it is stateless once built: create it once.
+const TEHRAN_FORMAT = new Intl.DateTimeFormat('en-US', {
+  timeZone: TEHRAN_TZ,
+  year: 'numeric', month: '2-digit', day: '2-digit',
+  hour: '2-digit', minute: '2-digit', second: '2-digit',
+  weekday: 'short', hourCycle: 'h23',
+});
+
 export function tehranParts(epoch: number) {
-  const fmt = new Intl.DateTimeFormat('en-US', {
-    timeZone: TEHRAN_TZ,
-    year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', second: '2-digit',
-    weekday: 'short', hourCycle: 'h23',
-  });
-  const parts = Object.fromEntries(fmt.formatToParts(new Date(epoch * 1000)).map(p => [p.type, p.value]));
+  const parts = Object.fromEntries(TEHRAN_FORMAT.formatToParts(new Date(epoch * 1000)).map(p => [p.type, p.value]));
   return {
     year: Number(parts.year), month: Number(parts.month), day: Number(parts.day),
     hour: Number(parts.hour), minute: Number(parts.minute), second: Number(parts.second),
