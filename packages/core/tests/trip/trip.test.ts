@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { buildServer } from '../../src/server.js';
 import { createNeshan, neshanOptionsFromEnv, RouterError, noRouter, type LatLon, type RouteMode, type Router } from '../../src/trip/neshan.js';
 import { loadStationGeo } from '../../src/trip/routes.js';
+import { parseCoordinates } from '../../src/trip/coords.js';
 import { ACCESS_S, EGRESS_S, hhmm, planTrip, pickDistinct, type MetroAnswer, type MetroPlanner, type StationGeo } from '../../src/trip/plan.js';
 
 const NOW_MS = Date.parse('2026-11-04T09:00:00Z');
@@ -143,6 +144,14 @@ describe('planTrip arithmetic', () => {
     for (const leg of o.legs) if (leg.type === 'walk') { expect(leg.durationS).toBeNull(); expect(leg.basis).toBe('unknown'); expect(leg.straightLineM).toBeGreaterThan(0); }
   });
 
+  it('without a router, two cards never repeat the same train from the same boarding station', async () => {
+    const st: StationGeo[] = [...ST, { id: 'S4', name: 'نزدیک مقصد', lat: 36.300, lon: 59.603, lines: [1] }];
+    const r = await planTrip(home, work, NOW, { stations: st, router: noRouter, metro: trains([300, 900]), nowSec: NOW });
+    const boards = r.options.map(o => o.legs.find(l => l.type === 'metro')).map(m => (m && m.type === 'metro' ? m.from : ''));
+    expect(new Set(boards).size).toBe(boards.length);
+    expect(r.options).toHaveLength(1);
+  });
+
   it('a short trip is walk-only; routes the router cannot measure stay out', async () => {
     const near: LatLon = { lat: 36.3, lon: 59.5005 };
     const r = await planTrip(home, near, NOW, { stations: ST, router: fakeRouter(120, 60), metro: trains([100]), nowSec: NOW });
@@ -169,6 +178,87 @@ describe('planTrip arithmetic', () => {
     expect(pickDistinct([c('a', 'metro', 10, 'S1>S2'), c('b', 'metro', 11, 'S1>S3'), c('d', 'metro', 12, 'S4>S2')]).map(o => o.id)).toEqual(['a', 'd']);
     expect(pickDistinct([c('a', 'metro', 10, 'S1>S2'), c('b', 'metro', 5000, 'S4>S2')]).map(o => o.id)).toEqual(['a']);
     expect(pickDistinct([])).toEqual([]);
+    expect(pickDistinct([c('a', 'metro', 10, 'S1>S2'), c('c', 'car', 30, 'car')]).map(o => o.choice)).toEqual(['earliest', 'other_mode']);
+    expect(pickDistinct([c('a', 'metro', 10, 'S1>S2'), c('d', 'metro', 12, 'S4>S2')]).map(o => o.choice)).toEqual(['earliest', 'other_station']);
+  });
+
+  it('legs add up to the door-to-door total: the leave time slides to the train, so no hidden platform wait is left over', async () => {
+    for (const departs of [[720], [1500, 2100], [480]]) {
+      const o = (await planTrip(home, work, NOW, { stations: ST, router: fakeRouter(300, null), metro: trains(departs), nowSec: NOW })).options[0]!;
+      const sum = o.legs.reduce((acc, l) => acc + ('durationS' in l && typeof l.durationS === 'number' ? l.durationS : 0), 0);
+      expect(sum).toBe(o.totalS);
+    }
+  });
+});
+
+describe('coordinate input', () => {
+  it('reads plain pairs, Persian digits, swapped pairs and common map links', () => {
+    expect(parseCoordinates('36.29421, 59.59678')).toEqual({ kind: 'point', point: { lat: 36.29421, lon: 59.59678 }, swapped: false });
+    expect(parseCoordinates('۳۶٫۲۹۴۲۱، ۵۹٫۵۹۶۷۸')).toMatchObject({ kind: 'point', point: { lat: 36.29421, lon: 59.59678 } });
+    expect(parseCoordinates('59.59678 36.29421')).toEqual({ kind: 'point', point: { lat: 36.29421, lon: 59.59678 }, swapped: true });
+    expect(parseCoordinates('https://www.google.com/maps/@36.2942,59.5967,15z')).toMatchObject({ kind: 'point', point: { lat: 36.2942, lon: 59.5967 } });
+    expect(parseCoordinates('geo:36.2942,59.5967?z=16')).toMatchObject({ kind: 'point' });
+    expect(parseCoordinates('https://maps.google.com/?q=36.2942,59.5967')).toMatchObject({ kind: 'point' });
+    expect(parseCoordinates('https://www.openstreetmap.org/#map=17/36.29421/59.59678')).toMatchObject({ kind: 'point', point: { lat: 36.29421, lon: 59.59678 } });
+  });
+
+  it('treats ordinary names as names and rejects vague or impossible numbers instead of guessing', () => {
+    expect(parseCoordinates('دانشگاه فردوسی')).toEqual({ kind: 'none' });
+    expect(parseCoordinates('بلوار وکیل آباد ۲۵')).toEqual({ kind: 'none' });
+    expect(parseCoordinates('36, 59')).toEqual({ kind: 'invalid' });
+    expect(parseCoordinates('36.3, 59.6')).toEqual({ kind: 'invalid' });
+    expect(parseCoordinates('136.29421, 259.59678')).toEqual({ kind: 'invalid' });
+  });
+});
+
+describe('places: input without multi-result search', () => {
+  const stations = loadStationGeo();
+  const post = (app: ReturnType<typeof buildServer>, payload: unknown) =>
+    app.inject({ method: 'POST', url: '/app/api/places', payload: JSON.stringify(payload), headers: { 'content-type': 'application/json' } });
+  const counting = (outcome: Awaited<ReturnType<NonNullable<Router['geocodeDetailed']>>>) => {
+    const calls: string[] = [];
+    const router: Router = { ...noRouter, configured: true, geocodeDetailed: async (a: string) => { calls.push(a); return outcome; } };
+    return { router, calls };
+  };
+
+  it('a pasted coordinate or map link becomes an exact point, offline, with the nearest station named', async () => {
+    const { router, calls } = counting({ status: 'no_match' });
+    const app = buildServer({ now: () => NOW_MS, trip: { router, stations, metro: null } });
+    const res = (await post(app, { q: 'https://www.google.com/maps/@36.29421,59.59678,16z?entry=ttu&g_ep=EgoyMDI1MTAyOS4wIKXMDSoASAFQAw%3D%3D' })).json();
+    expect(res.coordinates).toBe('ok'); expect(res.geocoder).toBe('skipped');
+    expect(res.places).toHaveLength(1);
+    expect(res.places[0]).toMatchObject({ kind: 'coordinates', precision: 'coordinates', source: 'user_input', lat: 36.29421, lon: 59.59678 });
+    expect(res.places[0].nearStation.distanceM).toBeGreaterThan(0);
+    expect(calls).toHaveLength(0);
+    const outside = (await post(app, { q: '35.69970, 51.33800' })).json();
+    expect(outside).toMatchObject({ coordinates: 'outside_coverage', places: [] });
+    expect((await post(app, { q: '36.3, 59.6' })).json()).toMatchObject({ coordinates: 'invalid', places: [] });
+    await app.close();
+  });
+
+  it.each([
+    [{ status: 'no_match' } as const, 'no_match'],
+    [{ status: 'failed', code: 'unauthorized' } as const, 'not_enabled'],
+    [{ status: 'failed', code: 'timeout' } as const, 'unavailable'],
+    [{ status: 'ok', point: { lat: 35.7, lon: 51.4 } } as const, 'outside_coverage'],
+  ])('reports why an address has no point (%o -> %s) and never invents one', async (outcome, state) => {
+    const { router } = counting(outcome);
+    const app = buildServer({ now: () => NOW_MS, trip: { router, stations, metro: null } });
+    const res = (await post(app, { q: 'کوچهٔ ناشناخته' })).json();
+    expect(res.geocoder).toBe(state);
+    expect(res.places.some((p: { kind: string }) => p.kind === 'address')).toBe(false);
+    await app.close();
+  });
+
+  it('the adapter separates a no-match answer from a failure and remembers a 485 denial', async () => {
+    let calls = 0;
+    const none = createNeshan({ geocodingKey: KEY, now: () => NOW_MS, fetch: (async () => json({ status: 'NO_RESULT' })) as typeof fetch });
+    expect(await none.geocodeDetailed!('مشهد x')).toEqual({ status: 'no_match' });
+    const denied = createNeshan({ geocodingKey: KEY, now: () => NOW_MS, fetch: (async () => { calls++; return json({ status: 'ERROR', code: 485 }); }) as typeof fetch });
+    expect(await denied.geocodeDetailed!('مشهد x')).toEqual({ status: 'failed', code: 'unauthorized' });
+    expect(await denied.geocodeDetailed!('مشهد x')).toEqual({ status: 'failed', code: 'unauthorized' });
+    expect(calls).toBe(1);
+    expect(await createNeshan({}).geocodeDetailed!('x')).toEqual({ status: 'failed', code: 'unavailable' });
   });
 });
 
@@ -213,8 +303,10 @@ describe('routes', () => {
     const res = (await post(app, '/app/api/places', { q: 'وکیل آباد' })).json();
     expect(res.places[0]).toMatchObject({ kind: 'station', precision: 'station' });
     expect(res.places[0].name).toContain('وکیل');
-    expect(res.geocoder).toBe('unavailable');
+    expect(res.geocoder).toBe('not_configured');
+    expect(res.places[0].lines).toEqual(expect.arrayContaining([1]));
     expect((await post(app, '/app/api/places', { q: 'a' })).statusCode).toBe(400);
+    expect((await post(app, '/app/api/places', { q: 'x'.repeat(61) })).statusCode).toBe(400);
     expect((await post(app, '/app/api/places', { q: 'x', z: 1 })).statusCode).toBe(400);
     await app.close();
   });
