@@ -90,6 +90,13 @@ export interface FoodSearchResult {
 
 const iso = (s: number | null) => (s === null ? null : new Date(s * 1000).toISOString());
 const STALE_HOURS = 48;
+const faDigits = (n: number): string => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]!);
+/** Snapshot age for people: hours up to three days, then whole days. An unknown capture time is said to be unknown. */
+export function ageNote(ageHours: number | null): string {
+  if (ageHours === null) return 'زمان ثبت این داده معلوم نیست؛ آن را قدیمی در نظر بگیرید.';
+  const age = ageHours < 72 ? `${faDigits(ageHours)} ساعت` : `${faDigits(Math.round(ageHours / 24))} روز`;
+  return `این داده حدود ${age} پیش ثبت شده و قدیمی است.`;
+}
 
 function vendorDto(v: RawVendor, matched: RawItem[], total: number, near: FoodQuery['near']): FoodVendorDto {
   const open = v.o === null ? 'unknown' : v.o ? 'open' : 'closed';
@@ -169,7 +176,7 @@ export function searchFood(index: FoodIndex, query: FoodQuery, nowMs = Date.now(
     'قیمت ها و منو آخرین مشاهدهٔ ثبت شده از فروشگاه ها هستند، نه قیمت لحظه ای؛ پیش از سفارش در پلتفرم اصلی تأیید کنید.',
     'هزینهٔ ارسال، کارمزد، تخفیف روز و محدودهٔ ارسال به موقعیت شما در این فهرست نیست؛ مجموع پرداخت از اینجا محاسبه نمی شود.',
   ];
-  if (stale) notes.unshift(`این داده حدود ${ageHours ?? '?'} ساعت پیش ثبت شده و قدیمی است.`);
+  if (stale) notes.unshift(ageNote(ageHours));
   if (priced && unknownExcluded) notes.push(`${unknownExcluded} قلم بدون قیمت معلوم از نتیجهٔ بودجه کنار گذاشته شد؛ نبود قیمت به معنای صفر تومان نیست.`);
   return { total: hits.length, offset, limit, vendors: page, unknownPriceExcluded: unknownExcluded,
     snapshot: { capturedFrom: iso(index.capturedFrom), capturedTo: iso(index.capturedTo), ageHours, stale }, notes };
