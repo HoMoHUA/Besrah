@@ -57,3 +57,7 @@ Operator reaction error ~ +-5 s per timestamp.
 
 ## Known gaps (collect more field data before trusting)
 Weekday/Thursday run times; return-direction Shariati->Vakilabad; Line 2 Tabarsi..Shariati (legacy only); Line 3 stations; extension Ghadir->Airport (derived only, ~9.5 min one way); buses (only approximate headways ever).
+
+## Cloud handoff — Besrah Opus
+
+For a Claude Code cloud task, read the full root `OPUS55-CLOUD-MISSION.md` before making changes. If the submitted start message says to execute that mission, begin the documented inspect → implement → test → commit loop immediately, without requesting an additional project briefing. Follow this repository's existing commands, permission rules and security policies. Do not deploy or merge without owner authorization.
