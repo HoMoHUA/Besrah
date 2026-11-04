@@ -33,3 +33,9 @@ research/bus-static/proxy-*.html
 research/bus-static-additional/*.html
 research/bus-static-additional/*.txt
 research/bus-static-additional/*.pdf
+
+# Intentionally withheld production / third-party dataset exports (public repo)
+# These files are not currently tracked. Do not add regenerated copies to GitHub.
+data/food/food-index-v1.json.gz
+data/shop/catalog-v1.json
+research/vendors.sqlite

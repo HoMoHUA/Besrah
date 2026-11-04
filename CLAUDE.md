@@ -1,3 +1,27 @@
+# ACTIVE — Besrah / بِسراه cloud handoff (2026-11-04)
+
+> **CURRENT INSTRUCTIONS — read before the historical brief below.** This repository is the three-domain **Besrah** product, not an unfinished Mashhad-Waze Phase 0 prototype. The old brief is preserved below as historical background and is **not an implementation plan, current status report, or authoritative UI/architecture specification**.
+
+**For Claude Code Cloud and Opus:** Read and execute [`OPUS55-CLOUD-MISSION.md`](OPUS55-CLOUD-MISSION.md) in full. Start by verifying the checked-out HEAD, code and test inventory; then implement the highest-value unblocked task, test it, commit it on a **new feature branch**, push and open a PR if permissions permit. Do **not** request another project briefing. No direct commits to `main`, merges, production deploys, credential changes or destructive operations without explicit owner authorization.
+
+**Current product:** Persian RTL, **HM7 / AzarMehr** (self-hosted) design system. Three connected services: **Transit** (place-to-place routing, metro schedule estimates, board and tracker, bus guide), **Besfood** (food/vendor search) and **Shopping** (limited sourced-offer comparison). The Intelligence Core must distinguish observed, estimated, stale and unknown facts. The product is not student-exclusive. The UI may show at most **two distinct end-to-end travel recommendations**. Never present metro schedules as live GPS, or stale prices as live prices.
+
+**Authoritative reading order for current implementation:**
+1. `OPUS55-CLOUD-MISSION.md` — active autonomous mission, scope and safe operating rules.
+2. `docs/sprint/HANDOFF-FINAL.md` and `docs/sprint/DECISIONS-AND-BACKLOG.md` — last reported U7/U8 state and next steps.
+3. `docs/sprint/ARCHITECTURE-AND-API.md`, `docs/sprint/DATA-SOURCES-AND-LICENSES.md`, `docs/sprint/USER-FLOWS-AND-OWNER-QA.md` — architecture, data rights, real user flows.
+4. The **actual files, latest Git HEAD and executed tests** supersede any dated report. `main` is a sanitized source export, not the live VPS worktree or the deployment SHA.
+
+**Current known constraints:** Reported U7 was deployed 2026-11-04; U8 food-ranking code is in the GitHub tree but **was not deployed at handoff** (verify again before acting). The public repository intentionally excludes `data/food/food-index-v1.json.gz`, `data/shop/catalog-v1.json`, and the private `research/vendors.sqlite`. Tests that require those datasets may skip; never claim production-data end-to-end verification based on a skip or fabricate replacement data. No real provider keys, Telegram secrets, location logs or owner account tokens belong in cloud changes. Live Neshan Search entitlement was unresolved; use safe fallbacks and avoid unauthorized external data access.
+
+**Local test commands:** `cd packages/core && npm ci && npm test && npm run typecheck && npm run build`. Mini App and Python test commands are in the actual repository scripts and sprint handoff; do not infer scripts from this old brief. Current `main` is not branch-protected and has no CI workflow as of 2026-11-04: **PR review and tests are procedural requirements**, not an automatic GitHub enforcement claim.
+
+---
+
+## ARCHIVED — historical Mashhad-Waze notes from 2026-10-29 (non-authoritative)
+
+The section below is retained for source/data history only. Ignore its former current-state claims (27 tests, transit routing postponed, Line 2 unsupported, Vazirmatn as the active UI font, initial setup/`git init`) when planning new work. Do not run old n8n migration steps or deploy anything solely because they appear below.
+
 # Mashhad-Waze — project brief for Claude Code
 
 ## Mission
