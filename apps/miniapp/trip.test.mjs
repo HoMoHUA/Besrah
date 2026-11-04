@@ -201,4 +201,69 @@ test('without a decision block (older server) the cards render exactly as before
   await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی'); await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
   await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
   assert.doesNotMatch(text(view), /کدام برایتان مهم تر است/); assert.match(text(view), /۱۶:۵۴/);
+
+// --- place input without multi-result search, and the A→B result presentation ---
+const stationsState = { get: () => ({ stations: [
+  { id: 'METRO-101', name: 'وکیل‌آباد', lat: 36.3461444, lon: 59.4422694, lines: [1] },
+  { id: 'METRO-110', name: 'غدیر', lat: 36.25683, lon: 59.6202, lines: [1] },
+  { id: 'METRO-201', name: 'طبرسی', lat: 36.33, lon: 59.65, lines: [2] },
+  { id: 'BAD', name: 'بی مختصات', lat: null, lon: null, lines: [1] },
+], order: ['وکیل‌آباد', 'غدیر'], order2: ['طبرسی'] }) };
+function setupWithStations(t, handler) {
+  installFoodDom(t, {});
+  const requests = [];
+  const api = createApi({ fetch: async (url, init) => {
+    requests.push({ url, body: init?.body ? JSON.parse(init.body) : null });
+    const out = handler ? await handler(url) : null;
+    if (out) return out;
+    if (url === 'api/trip') return new Response(JSON.stringify(reply()));
+    throw new Error('unexpected request ' + url);
+  } });
+  const view = createTripView({ api, state: stationsState, actions: { go() {} } });
+  return { view, requests };
+}
+const select = (view, label) => findAll(view.el, n => n.tagName === 'select' && n.getAttribute('aria-label') === `${label}: انتخاب ایستگاه از فهرست`)[0];
+
+test('stations can be chosen from a list grouped by line, with no search request at all', async t => {
+  const { view, requests } = setupWithStations(t);
+  view.onShow();
+  const from = select(view, 'مبدأ');
+  const groups = from.children.filter(n => n.tagName === 'optgroup');
+  assert.deepEqual(groups.map(g => g.getAttribute('label')), ['خط ۱', 'خط ۲']);
+  assert.equal(findAll(from, n => n.tagName === 'option').some(o => o.textContent === 'بی مختصات'), false);
+  await from.dispatch('change', '1:وکیل‌آباد'); await flushView();
+  await select(view, 'مقصد').dispatch('change', '1:غدیر'); await flushView();
+  assert.equal(requests.length, 0);
+  assert.match(text(view), /ایستگاه وکیل‌آباد/);
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  assert.deepEqual(requests[0].body, { from: { lat: 36.3461444, lon: 59.4422694 }, to: { lat: 36.25683, lon: 59.6202 } });
+});
+
+test('a pasted coordinate is shown as an exact entered point; invalid coordinates and a disabled geocoder are explained', async t => {
+  const answers = [
+    { schemaVersion: 1, geocoder: 'skipped', coordinates: 'ok', places: [{ kind: 'coordinates', name: 'نقطهٔ واردشده', lat: 36.29421, lon: 59.59678, precision: 'coordinates', source: 'user_input', nearStation: { name: 'غدیر', distanceM: 4400 } }] },
+    { schemaVersion: 1, geocoder: 'skipped', coordinates: 'invalid', places: [] },
+    { schemaVersion: 1, geocoder: 'not_enabled', coordinates: 'none', places: [] },
+  ];
+  const { view } = setupWithStations(t, url => (url === 'api/places' ? new Response(JSON.stringify(answers.shift())) : null));
+  await pickInput(view, 'مبدأ').dispatch('input', '36.29421, 59.59678'); await wait(450); await flushView();
+  assert.match(text(view), /مختصات واردشده \(دقیق\)؛ نزدیک ترین ایستگاه: غدیر/);
+  await pickInput(view, 'مبدأ').dispatch('input', '36.3, 59.6'); await wait(450); await flushView();
+  assert.match(text(view), /مختصات معتبری نیستند/);
+  await pickInput(view, 'مبدأ').dispatch('input', 'کوچه'); await wait(450); await flushView();
+  assert.match(text(view), /برای کلید فعلی فعال نیست/);
+});
+
+test('cards say why each option is shown, the order of steps, how much is assumed and how much later the second arrives', async t => {
+  const car = { id: 'car', kind: 'car', title: 'با خودرو', choice: 'other_mode', leaveAt: '16:54', leaveEpoch: 1, arriveAt: '17:50', arriveEpoch: 2 + 540, totalS: 3360,
+    legs: [{ type: 'car', durationS: 3360, distanceM: 11000, basis: 'routed', traffic: 'provider_traffic' }], ifMissed: null, notes: [] };
+  const { view } = setupWithStations(t, url => (url === 'api/trip' ? new Response(JSON.stringify(reply({ options: [metroOption({ choice: 'earliest' }), car] }))) : null));
+  view.onShow();
+  await select(view, 'مبدأ').dispatch('change', '1:وکیل‌آباد'); await select(view, 'مقصد').dispatch('change', '1:غدیر'); await flushView();
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  const out = text(view);
+  assert.match(out, /زودترین رسیدن/); assert.match(out, /گزینهٔ دیگر: روش دیگر/);
+  assert.match(out, /پیاده ۳۲ دقیقه ← مترو خط ۱ ۱۰ دقیقه ← پیاده ۱ دقیقه/);
+  assert.match(out, /منشأ زمان کل: .*اندازه گیری مسیریاب، .*مدل برنامهٔ قطار، ۵ دقیقه فرض/);
+  assert.match(out, /۹ دقیقه دیرتر از گزینهٔ اول می رسد/);
 });
