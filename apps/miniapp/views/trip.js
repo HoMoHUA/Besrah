@@ -13,6 +13,8 @@ const REASONS = {
   walk_legs_unavailable: 'مدت پیاده روی تا ایستگاه اندازه گیری نشد؛ زمان رسیدن به مقصد نامعلوم است.',
   metro_unavailable_for_this_trip: 'برای این سفر قطار مناسبی در مدل پیدا نشد؛ فقط گزینهٔ بدون مترو نمایش داده می شود.',
   no_supported_option: 'برای این دو نقطه گزینهٔ قابل اتکایی نداریم.', no_candidate: 'برای این دو نقطه گزینهٔ قابل اتکایی نداریم.',
+  walk_limit_excluded_metro: 'مسیرهای مترو بیشتر از سقف پیاده روی شما (در پروفایل) پیاده روی داشتند و کنار گذاشته شدند.',
+  walk_limit_excluded_all: 'هیچ مسیری با سقف پیاده روی شما پیدا نشد. سقف را در پروفایل بالاتر ببرید.',
   metro_unavailable: 'مدل مترو اکنون در دسترس نیست.', metro_disabled: 'مدل مترو اکنون در دسترس نیست.',
 };
 
@@ -45,8 +47,8 @@ function legRow(leg) {
 }
 
 export function createTripView(ctx) {
-  const { actions, api } = ctx;
-  const S = { from: null, to: null, time: '', result: null, status: 'idle', locating: 'idle', pick: { from: { q: '', status: 'idle', places: [] }, to: { q: '', status: 'idle', places: [] } } };
+  const { actions, api, store } = ctx;
+  const S = { gps: true, from: null, to: null, time: '', result: null, status: 'idle', locating: 'idle', pick: { from: { q: '', status: 'idle', places: [] }, to: { q: '', status: 'idle', places: [] } } };
   let timers = { from: 0, to: 0 }, controllers = { from: null, to: null }, tripController = null;
   const el = h('div', { class: 'view view--trip', dataset: { view: 'trip' } });
   const form = h('div', { class: 'tp-form' }), out = h('div', { class: 'tp-out', 'aria-live': 'polite' });
@@ -74,25 +76,34 @@ export function createTripView(ctx) {
   }
   function choose(key, place) {
     S[key] = { lat: place.lat, lon: place.lon, name: place.name, precision: place.precision };
+    if (key === 'from') S.gps = false;
     S.pick[key] = { q: '', status: 'idle', places: [] }; inputs[key].value = '';
     drawPick(key); drawChosen(); S.result = null; S.status = 'idle'; drawOut(); drawSubmit();
   }
   function drawChosen() {
     for (const key of ['from', 'to']) {
       const v = S[key];
+      if (key === 'from' && !v && S.gps) {
+        // Default origin: where the user is. It is only read when they press the search button (an explicit tap).
+        chosen[key].replaceChildren(h('span', { text: 'موقعیت فعلی من' }), h('i', { class: 'tp-chosen__tag', text: 'هنگام جست وجو دریافت می شود' }),
+          h('button', { type: 'button', class: 'tp-link', onClick: () => { S.gps = false; drawChosen(); drawSubmit(); drawOrigin(); inputs.from?.focus?.(); } }, 'مبدأ دیگر'));
+        continue;
+      }
       chosen[key].replaceChildren(...nodes(v ? [h('span', { text: v.name }), v.precision === 'gps' ? h('i', { class: 'tp-chosen__tag', text: 'موقعیت دقیق شما' }) : v.precision === 'geocoded' ? h('i', { class: 'tp-chosen__tag', text: 'نقطه تقریبی' }) : null,
-        h('button', { type: 'button', class: 'tp-clear', 'aria-label': 'پاک کردن', onClick: () => { S[key] = null; S.result = null; S.status = 'idle'; drawChosen(); drawOut(); drawSubmit(); } }, '×')] : [h('span', { class: 'tp-chosen__empty', text: 'انتخاب نشده' })]));
+        h('button', { type: 'button', class: 'tp-clear', 'aria-label': 'پاک کردن', onClick: () => { S[key] = null; if (key === 'from') S.gps = true; S.result = null; S.status = 'idle'; drawChosen(); drawOut(); drawSubmit(); drawOrigin(); } }, '×')] : [h('span', { class: 'tp-chosen__empty', text: 'انتخاب نشده' })]));
     }
   }
 
   async function locate() {
-    if (S.locating === 'locating') return;
+    if (S.locating === 'locating') return false;
     S.locating = 'locating'; drawLocate();
+    let ok = false;
     try {
       const c = await resolveUserCoords(globalThis.window?.Telegram?.WebApp);
-      S.from = { lat: Math.round(c.latitude * 1e5) / 1e5, lon: Math.round(c.longitude * 1e5) / 1e5, name: 'موقعیت من', precision: 'gps' }; S.locating = 'ok';
+      S.from = { lat: Math.round(c.latitude * 1e5) / 1e5, lon: Math.round(c.longitude * 1e5) / 1e5, name: 'موقعیت من', precision: 'gps' }; S.locating = 'ok'; ok = true;
     } catch { S.locating = 'denied'; }
-    S.result = null; S.status = 'idle'; drawChosen(); drawLocate(); drawOut(); drawSubmit();
+    S.result = null; S.status = 'idle'; drawChosen(); drawLocate(); drawOut(); drawSubmit(); drawOrigin();
+    return ok;
   }
   const locateNote = h('p', { class: 'fd-note', role: 'status' });
   const locateBtn = h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: locate }, 'موقعیت من');
@@ -106,14 +117,20 @@ export function createTripView(ctx) {
   const timeInput = h('input', { class: 'fd-input tp-time', type: 'time', 'aria-label': 'ساعت حرکت (خالی یعنی اکنون)' });
   timeInput.addEventListener('input', () => { S.time = timeInput.value; });
   const submit = h('button', { type: 'button', class: 'cm-btn tp-submit', onClick: () => plan() }, 'مسیر را پیدا کن');
-  function drawSubmit() { submit.disabled = !(S.from && S.to) || S.status === 'loading'; submit.textContent = S.status === 'loading' ? 'در حال محاسبه…' : 'مسیر را پیدا کن'; }
+  function drawSubmit() { submit.disabled = !(S.to && (S.from || S.gps)) || S.status === 'loading'; submit.textContent = S.status === 'loading' ? 'در حال محاسبه…' : 'مسیر را پیدا کن'; }
 
   async function plan() {
-    if (!(S.from && S.to)) return;
+    if (!(S.to && (S.from || S.gps))) return;
+    if (!S.from) {
+      // One tap on the search button is the explicit request for the current position.
+      S.status = 'loading'; drawOut(); drawSubmit();
+      const ok = await locate();
+      if (!ok) { S.gps = false; S.status = 'needorigin'; drawChosen(); drawOrigin(); drawOut(); drawSubmit(); inputs.from?.focus?.(); return; }
+    }
     tripController?.abort(); tripController = new AbortController(); const mine = tripController;
     S.status = 'loading'; S.result = null; drawOut(); drawSubmit();
     try {
-      const payload = { from: { lat: S.from.lat, lon: S.from.lon }, to: { lat: S.to.lat, lon: S.to.lon }, ...(S.time ? { time: S.time } : {}) };
+      const payload = { from: { lat: S.from.lat, lon: S.from.lon }, to: { lat: S.to.lat, lon: S.to.lon }, ...(S.time ? { time: S.time } : {}), ...(store?.prefs?.().transitMaxWalkMin ? { maxWalkMin: store.prefs().transitMaxWalkMin } : {}), ...(store?.prefs?.().transitPriority ? { priority: store.prefs().transitPriority } : {}) };
       const result = await api.trip(payload, mine.signal);
       if (mine !== tripController) return;
       S.result = result; S.status = 'ok';
@@ -124,10 +141,12 @@ export function createTripView(ctx) {
     drawOut(); drawSubmit();
   }
 
-  function optionCard(o) {
+  function optionCard(o, decision) {
     const known = o.arriveAt !== null;
+    const verdict = decision?.byOption?.[o.id];
     return h('article', { class: ['tp-card', 'cm-card', `tp-card--${o.kind}`], dataset: { kind: o.kind } },
       h('header', { class: 'tp-card__head' }, h('h3', { text: o.title }), h('span', { class: 'cm-badge', text: KIND[o.kind] })),
+      verdict?.labels?.length ? h('p', { class: 'tp-labels' }, verdict.labels.map(l => h('span', { class: 'tp-label', text: l }))) : null,
       known ? h('p', { class: 'tp-times' },
         h('span', null, h('small', { text: 'خروج تا' }), h('b', { text: clock(o.leaveAt) })), h('i', { 'aria-hidden': 'true', text: '←' }),
         h('span', null, h('small', { text: 'رسیدن' }), h('b', { text: clock(o.arriveAt) })),
@@ -136,11 +155,22 @@ export function createTripView(ctx) {
       o.platformDepartures ? h('p', { class: 'fd-note', text: `قطارهای بعدی روی سکوی مبدأ: ${o.platformDepartures.map(d => clock(d.departAt)).join('، ')}` }) : null,
       h('ul', { class: 'tp-legs' }, o.legs.map(legRow)),
       o.ifMissed ? h('p', { class: 'fd-note', text: `اگر این قطار را از دست بدهید: قطار بعدی ${clock(o.ifMissed.departAt)}${o.ifMissed.arriveAt ? `، رسیدن ${clock(o.ifMissed.arriveAt)}` : ''}.` }) : null,
+      verdict?.claims?.length ? h('ul', { class: 'fd-notes tp-why' }, verdict.claims.map(t => h('li', { text: t }))) : null,
       o.notes.length ? h('ul', { class: 'fd-notes' }, o.notes.map(t => h('li', { text: t }))) : null);
   }
 
+  // The Core asks at most one question, only when two options are a real trade-off. The answer is a stated preference the user can change in Profile.
+  function questionBlock(decision) {
+    const q = decision?.question;
+    if (!q?.answers?.length || !store?.setPrefs) return null;
+    return h('section', { class: 'tp-question', 'aria-label': 'یک پرسش کوتاه' },
+      h('b', { text: q.prompt }),
+      h('div', { class: 'fd-row' }, q.answers.map(a => h('button', { type: 'button', class: 'cm-btn cm-btn--ghost cm-btn--sm', onClick: () => { store.setPrefs({ ...store.prefs(), transitPriority: a.priority }); plan(); } }, a.label))),
+      h('p', { class: 'fd-note', text: 'پاسخ شما فقط روی همین دستگاه ذخیره می شود و در پروفایل قابل تغییر است.' }));
+  }
   function drawOut() {
     if (S.status === 'loading') { out.replaceChildren(h('div', { class: 'fd-skeleton', 'aria-busy': 'true', 'aria-label': 'در حال محاسبه' }, [0, 1].map(() => h('div', { class: 'cm-skel fd-skeleton__card' })))); return; }
+    if (S.status === 'needorigin') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'موقعیت شما در دسترس نبود. مبدأ را از بالا جست وجو کنید یا نام یک ایستگاه بنویسید.' }))); return; }
     if (S.status === 'outside') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'مسیریابی فقط برای محدودهٔ مشهد است.' }))); return; }
     if (S.status === 'busy') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'درخواست ها زیاد است؛ چند ثانیه بعد دوباره تلاش کنید.' }), h('button', { type: 'button', class: 'cm-btn', onClick: () => plan() }, 'تلاش دوباره'))); return; }
     if (S.status === 'error') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'مسیر محاسبه نشد؛ اتصال را بررسی کنید.' }), h('button', { type: 'button', class: 'cm-btn', onClick: () => plan() }, 'تلاش دوباره'))); return; }
@@ -148,20 +178,26 @@ export function createTripView(ctx) {
     if (!r) { out.replaceChildren(); return; }
     out.replaceChildren(...nodes(
       r.status !== 'ok' ? h('p', { class: 'tp-status', role: 'status', text: REASONS[r.reason] ?? 'نتیجه ناقص است.' }) : null,
-      r.options.length ? r.options.map(optionCard) : h('div', { class: 'empty-state' }, h('p', { text: REASONS[r.reason] ?? 'گزینه ای پیدا نشد.' })),
+      r.options.length ? r.options.map(o => optionCard(o, r.decision)) : h('div', { class: 'empty-state' }, h('p', { text: REASONS[r.reason] ?? 'گزینه ای پیدا نشد.' })),
+      questionBlock(r.decision),
+      r.decision?.notes?.length ? h('ul', { class: 'fd-notes' }, r.decision.notes.map(t => h('li', { text: t }))) : null,
       h('ul', { class: 'fd-notes' }, [...(r.disclaimers ?? []), r.routing?.trafficLabel].filter(Boolean).map(t => h('li', { text: t })))));
   }
 
+  let originControls = null;
+  function drawOrigin() { if (originControls) originControls.hidden = Boolean(S.gps && !S.from); }
   const pickerBlock = (key, label, extra) => {
     const input = h('input', { class: 'fd-input', type: 'search', enterkeyhint: 'search', autocomplete: 'off', placeholder: `${label}: نام ایستگاه یا نشانی`, 'aria-label': label });
     input.addEventListener('input', () => { S.pick[key].q = input.value; clearTimeout(timers[key]); timers[key] = setTimeout(() => search(key), DEBOUNCE_MS); });
     inputs[key] = input;
-    return h('section', { class: 'tp-pick', 'aria-label': label }, h('h2', { text: label }), chosen[key], input, extra ?? null, lists[key]);
+    const controls = h('div', { class: 'tp-controls' }, input, extra ?? null, lists[key]);
+    if (key === 'from') originControls = controls;
+    return h('section', { class: 'tp-pick', 'aria-label': label }, h('h2', { text: label }), chosen[key], controls);
   };
 
   form.append(
     pickerBlock('from', 'مبدأ', h('div', { class: 'fd-row' }, locateBtn)), locateNote,
-    h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'tp-swap'], 'aria-label': 'جابه جایی مبدأ و مقصد', onClick: () => { [S.from, S.to] = [S.to, S.from]; S.result = null; S.status = 'idle'; drawChosen(); drawOut(); drawSubmit(); } }, '⇅ جابه جایی'),
+    h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'tp-swap'], 'aria-label': 'جابه جایی مبدأ و مقصد', onClick: () => { [S.from, S.to] = [S.to, S.from]; S.result = null; S.status = 'idle'; drawChosen(); drawOut(); drawSubmit(); drawOrigin(); } }, '⇅ جابه جایی'),
     pickerBlock('to', 'مقصد'),
     h('label', { class: 'tp-when' }, h('span', { text: 'ساعت حرکت (خالی یعنی اکنون)' }), timeInput),
     submit,
@@ -170,8 +206,8 @@ export function createTripView(ctx) {
   el.append(
     h('header', { class: 'metro-head' },
       h('button', { type: 'button', class: 'btn-back', onClick: () => actions.go('services'), 'aria-label': 'بازگشت' }, '←'),
-      h('div', null, h('h1', null, 'رهیاب'), h('p', null, 'مسیر مکان به مکان با مترو، خودرو یا پیاده؛ هر زمان با منشأ و میزان قطعیتش'))),
+      h('div', null, h('h1', null, 'مسیر مکان به مکان'), h('p', null, 'با مترو، خودرو یا پیاده؛ هر زمان با منشأ و میزان قطعیتش'))),
     form, out);
-  drawChosen(); drawLocate(); drawSubmit(); drawOut(); ['from', 'to'].forEach(drawPick);
-  return { el, onHide() { tripController?.abort(); for (const k of ['from', 'to']) { controllers[k]?.abort(); clearTimeout(timers[k]); } } };
+  drawChosen(); drawLocate(); drawSubmit(); drawOut(); ['from', 'to'].forEach(drawPick); drawOrigin();
+  return { el, onShow(options) { if (options?.focus === 'to') inputs.to?.focus?.(); }, onHide() { tripController?.abort(); for (const k of ['from', 'to']) { controllers[k]?.abort(); clearTimeout(timers[k]); } } };
 }

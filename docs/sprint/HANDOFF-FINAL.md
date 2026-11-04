@@ -1,7 +1,7 @@
 # HANDOFF-FINAL | سه دامنه، ۲۰۲۶-۱۱-۰۴
 
 **commit کد U7:** `48efb70`؛ HEAD شاخه (شامل U8 و مستندات): نگاه کنید `git rev-parse --short HEAD`. شاخه: `feature/three-domain` در `/root/projects/besrah-3d`. مبنای زنده: `a8cb909`.
-**استقرار:** **U7 DEPLOYED** در ۲۰۲۶-۱۱-۰۴ (گزارش: `U7-DEPLOY-REPORT.md`). U8 (رتبه بندی غذا، یک فایل dist) آماده است و منتظر `PRODUCTION_DEPLOY_GO U8` است (`plan-u8-food-ranking.json`).
+**استقرار:** **U10 DEPLOYED** (۱۱-۰۴؛ `U10-DEPLOY-REPORT.md`) بالای **U9 DEPLOYED** (۱۱-۰۴؛ `U9-DEPLOY-REPORT.md`؛ شامل U8) بالای **U7 DEPLOYED** در ۲۰۲۶-۱۱-۰۴ (گزارش: `U7-DEPLOY-REPORT.md`). U8 داخل U9 رفت (`plan-u8-food-ranking.json` منسوخ است).
 **آدرس زنده:** `https://besrah.arklyn.ir/`؛ پیش نمایش لوپ بک: `http://127.0.0.1:18941/app/`.
 
 ## وضعیت هر قابلیت

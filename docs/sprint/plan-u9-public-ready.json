@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "note": "U9: fresh home, Besrah tabs, Bespay, new icons, honest About, allowlist + food ranking (U8)",
+  "files": [
+    {
+      "group": "dist",
+      "path": "packages/core/dist/food/search.js",
+      "candidateSha256": "def1d43c0687c93814b1182a50a999c6c769a2bf0246d39e2bf7a09fcb7ec2de",
+      "preSha256": "133c8e79b7657b84a88b7fd1ffa49c029f4a959000da759fe4c61c922124cbce",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/miniapp.js",
+      "candidateSha256": "9f9a2a0fd09f3d649aad4c7f3c0ff8eca3e005ef26512c973ff743f159fc1b71",
+      "preSha256": "43353111ddc43c13b3c8f9dfb997d0c4d3920573cf052ec4a8050a6a519eab60",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.css",
+      "candidateSha256": "f3d4f7a8e544118cc11f280e23961ea6e44263e2cafbd86029b9bcbaa10b4818",
+      "preSha256": "2312f6d9f01a0b396c5f5ccc62fe3e3685ee976f98f429a2bb5d0d579de3880b"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.js",
+      "candidateSha256": "aade6cbcf9a65a44370541a40bb806a3cf9f7d0f44f2730f390dfafecb80c8df",
+      "preSha256": "1729da516938351b439bcffee4ee225042166fda2f11757bfa5b46f30b2d3363"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/assets/services/besrah.svg",
+      "candidateSha256": "5023f0f61db9ee224163169ee5f1e1494b6e34df02cb814ffe2307ce393d19dd",
+      "preSha256": "95b9368ff1c59c34ddba2c42d5c15778e14a9fee1d6df0c62e7aab53577e5a69"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/assets/services/food.svg",
+      "candidateSha256": "8361f5d42a36038c10292162fb2beea753f100c9b9da0262146e4cb8825c0e34",
+      "preSha256": "b1064fd3c7d82587d1b0c1b54adbfeeec887c3d6db434fd4004570e3d0c84f9a"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/assets/services/pay.svg",
+      "candidateSha256": "dc67002eceeb45a7a8a223919c99109f40949f321e3294a544d5562e326b907f",
+      "preSha256": "19b024f86e447d9503a8bd3aa471a04e9d6f1de14b16205f23bc62e05a247abe"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/index.html",
+      "candidateSha256": "ca8b6ecc1657da5e3e7f8081c3883e58b414102d6e654695228b0c9ffc930528",
+      "preSha256": "09be9d558476547f1f0adef417d0ca98625f6184e3a636b86b36d3cf3c4a970a"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/manifest.webmanifest",
+      "candidateSha256": "22376c58ad0df0126d0a6352256dea7cbcb4ff93fb46fd8c62580db6cc0e500e",
+      "preSha256": "69cbf39b991b3b450a7aca30918cedc53b6a65e710fd89281c6a93465386effb"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/navigation.js",
+      "candidateSha256": "ed47734369d6c15989a456b87981a4b2e8da74d347cef32eacde860e798fa02f",
+      "preSha256": "173e09db2c906ca58ecf3462ea959d840e8bd57b1a60c068983327b855cfacc6"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/services.js",
+      "candidateSha256": "ffd1349ae0352af3e9edd73cff9817e334e00461520208be8116c6d821efaabc",
+      "preSha256": "f9fec8fcc3d836e9cc7eb8be4351db9e71178d73c46f666db96df3daf28f135e"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/ui/segmented.js",
+      "candidateSha256": "412c19f2de509c0b642db02970fbbbe126d94f1241a84ff2f229b142620dcbf3",
+      "preSha256": null
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/about.js",
+      "candidateSha256": "c458d485d80f5eae94ab511930c7b4d32f8730da7505e99ee533ae9ea708eee4",
+      "preSha256": "ee9bf948a733ccf31711b498c213c938d2f0a364b96d4ded3f4796650379a7b1"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/home.js",
+      "candidateSha256": "f99131a4e46e488fdfb7872988a7e20f793614b700a977252de65d6533551641",
+      "preSha256": "dc029c1b4a0099f2ad47077755c6cb2eb958f7626561c2185ab6fce28480d96e"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/shop.js",
+      "candidateSha256": "4039c045f3707f93bce8b2fca5d40c2e552d03a24107132f1976d7aea84d64cb",
+      "preSha256": "2b3c3925c26cb472b31303c21d62816cfa702bb21e74f0420ae544db6ac5a782"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/trip.js",
+      "candidateSha256": "0fe2d9309d804dddaa62726ed4ee684289c6b36e60458bd0fa01cbcb3d9a79fa",
+      "preSha256": "3e753339297729db4df72b67a40cd267d3b7f7c296d114df39fda1df45198bcd"
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

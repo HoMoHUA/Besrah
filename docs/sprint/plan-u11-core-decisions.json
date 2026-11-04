@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "note": "U11: Core decides trip options and shop offers; stated priority, walking limit, profile budgets",
+  "files": [
+    {
+      "group": "dist",
+      "path": "packages/core/dist/account/store.js",
+      "candidateSha256": "9f9b6905240cefd5e7bf4bf5514c44bfd5be31e72193c4a21dda921fabf9dd77",
+      "preSha256": "a7f87a973dc54db59810b3b10651b3954e2c0df03a4bd4e173314eb7b1149dd7",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/decision/shop.js",
+      "candidateSha256": "31059febd72bc6a8feb266dcb27eae99c4e20d5558bf994447e7f53e47b1f748",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/decision/trip.js",
+      "candidateSha256": "54379d22a0f19e401d52bff4f8a9ba7b8369862090ea008d1eed0d752e73263c",
+      "preSha256": null,
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": null
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/shop/search.js",
+      "candidateSha256": "00cce8df42c8f8fb08dfe403664723f8cecbc6d9d45363005f9184b4f258ff7c",
+      "preSha256": "b01725590d0ddb74890268066992f79c34e229ac873f4d84d61af15c69706586",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "dist",
+      "path": "packages/core/dist/trip/routes.js",
+      "candidateSha256": "137bd69a415cae172946832d750d1b17f75e8b8882d020987d5444092d19520a",
+      "preSha256": "cee3df7bfb415c1ead535c07153f34122c846285f97d87c7a150012662559e75",
+      "identicalToApprovedBaseBuild": false,
+      "productionEqualsApprovedBaseBuild": true
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/app.css",
+      "candidateSha256": "9f1a389a70ce156901a33e81578502207f9baaac01adc941df7780e576feafdd",
+      "preSha256": "2e5df17e5d1b5507e3df8083bf48a3c426e826b2ca976a78d635364011999c70"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/store.js",
+      "candidateSha256": "4bf2714ca73391e53f752babfde0c2fa15650e9e144bafb12fddb26d634b7989",
+      "preSha256": "33e7963db30238bdbaf0e696f680d93a70f785556bbbdadbc464fa9272b78e82"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/food.js",
+      "candidateSha256": "8df3afd4875aa74d2090da2c88a4a3354ed3356af538470af116f0c2c2d7fa8f",
+      "preSha256": "600d85160cb7835f6edf0dbf499eee03ce6adbe0aec9287a179ff42d3c722060"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/profile.js",
+      "candidateSha256": "3163aa52b5fc6e02691cd05f51f24cc0d3b398237403b2ed1b2ea52d8cea7283",
+      "preSha256": "b29b4c56dc502a2a52cbf8343ea3af4d00b3dd6fde1a2c8253072d1343c59f3a"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/shop.js",
+      "candidateSha256": "3aabbbc89be15367ef87bb4ff672818087e4d6251af35e751d971f84ef8eefb6",
+      "preSha256": "4039c045f3707f93bce8b2fca5d40c2e552d03a24107132f1976d7aea84d64cb"
+    },
+    {
+      "group": "assets",
+      "path": "apps/miniapp/views/trip.js",
+      "candidateSha256": "0a0be4e179b8dc2cf3855e4d23fe4c28b4fa4733f5b617bcf086feb6d026bf98",
+      "preSha256": "ec9ee26044abd41917572279ec9deb71e0db7760ceff6517fcfc6a2092b88c3a"
+    }
+  ],
+  "excludedDrift": [
+    {
+      "path": "apps/miniapp/assets/bus-guide.json",
+      "candidateSha256": "2049e4981765ff182dbb2b7a84b272c61f311988db2f1565e3d0a54d379d0f98",
+      "productionSha256": "e5dd1801130297925262d48770a03e43a6aa927895e48ddac61a80185fc06eea"
+    }
+  ]
+}

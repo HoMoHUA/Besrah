@@ -16,6 +16,3 @@
 - قیمت و موجودی «لحظه ای» یا «ارزان ترین بازار» ادعا نمی شود.
 - افزودن کالا: ویرایش `data/shop/manifest-v1.json` و اجرای `python3 scripts/shop/import_offers.py --out data/shop/catalog-v1.json`.
 - افزودن/به روزرسانی غذا: `python3 scripts/food/build_food_index.py` (خروجی تعیین پذیر است).
-
-## ملاحظهٔ مخزن عمومی
-در این مخزن عمومی، دو فایل داده **عمداً نیست**: `data/food/food-index-v1.json.gz` (اسنپ شات انبوه منو و قیمت فروشندگان) و `data/shop/catalog-v1.json` (خروجی importer). آزمون هایی که به آن ها وابسته اند در نبودشان skip می شوند و مسیرهای `/app/api/food/*` و `/app/api/shop/*` بدون فایل 503 می دهند و بقیهٔ برنامه کار می کند. بازتولید: `scripts/shop/import_offers.py` (فهرست `data/shop/manifest-v1.json` موجود است)؛ ایندکس غذا فقط از `research/vendors.sqlite` خصوصی مالک ساخته می شود.

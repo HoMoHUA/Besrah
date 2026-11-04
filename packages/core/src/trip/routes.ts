@@ -8,6 +8,7 @@ import { clientKey, createGate, createWindowLimiter } from '../journey-beta/limi
 import type { JourneyBetaHandle } from '../journey-beta/index.js';
 import { type LatLon, type Router, noRouter } from './neshan.js';
 import { planTrip, type MetroPlanner, type StationGeo } from './plan.js';
+import { decideTrip, TRIP_PRIORITIES, type TripPriority } from '../decision/trip.js';
 
 export const MASHHAD = { latMin: 35.9, latMax: 36.7, lonMin: 59.0, lonMax: 60.2 };
 export interface TripRoutesOptions { router?: Router; stations?: readonly StationGeo[]; metro?: JourneyBetaHandle | MetroPlanner | null; now?: () => number; limiterClock?: () => number }
@@ -45,8 +46,10 @@ export function registerTrip(app: FastifyInstance, opts: TripRoutesOptions = {})
   app.post('/app/api/trip', { bodyLimit: 1024 }, async (req, reply) => {
     if (!guard(req, reply)) return reply;
     const body = req.body;
-    if (!body || typeof body !== 'object' || !exactKeys(body, ['from', 'to', 'time'])) return bad(reply, 'body');
-    const { from: f, to: t, time } = body as Record<string, unknown>;
+    if (!body || typeof body !== 'object' || !exactKeys(body, ['from', 'to', 'time', 'maxWalkMin', 'priority'])) return bad(reply, 'body');
+    const { from: f, to: t, time, maxWalkMin, priority } = body as Record<string, unknown>;
+    if (priority !== undefined && !(TRIP_PRIORITIES as readonly unknown[]).includes(priority)) return bad(reply, 'priority');
+    if (maxWalkMin !== undefined && (typeof maxWalkMin !== 'number' || !Number.isInteger(maxWalkMin) || maxWalkMin < 3 || maxWalkMin > 40)) return bad(reply, 'maxWalkMin');
     const origin = point(f), destination = point(t);
     if (!origin) return bad(reply, 'from');
     if (!destination) return bad(reply, 'to');
@@ -61,8 +64,12 @@ export function registerTrip(app: FastifyInstance, opts: TripRoutesOptions = {})
     }
     if (!gate.tryEnter()) return head(reply).code(429).header('Retry-After', '2').send({ error: 'busy' });
     try {
-      const result = await planTrip(origin, destination, Math.max(readyEpoch, nowSec), { stations: geo(), router, metro, nowSec });
-      return head(reply).send(result);
+      const maxWalkS = typeof maxWalkMin === 'number' ? maxWalkMin * 60 : null;
+      const result = await planTrip(origin, destination, Math.max(readyEpoch, nowSec), { stations: geo(), router, metro, nowSec, ...(maxWalkS ? { maxWalkS } : {}) });
+      // The Intelligence Core compares the options the planner produced; the user's stated priority is the only preference it sees.
+      const decision = decideTrip(result, { priority: (priority as TripPriority | undefined) ?? null, maxWalkS, nowSec, requestId: `trip-${nowSec}` });
+      const options = decision.preferred ? [...result.options].sort((x, y) => Number(y.id === decision.preferred) - Number(x.id === decision.preferred)) : result.options;
+      return head(reply).send({ ...result, options, decision });
     } catch { return head(reply).code(503).send({ error: 'trip_unavailable' }); }
     finally { gate.leave(); }
   });

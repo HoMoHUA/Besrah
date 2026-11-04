@@ -53,7 +53,7 @@ const DISCLAIMERS = [
 interface Pair { o: StationGeo; d: StationGeo; line: 1 | 2; straight: number }
 interface Candidate { option: TripOption; arrive: number; pairKey: string }
 
-export interface TripDeps { stations: readonly StationGeo[]; router: Router; metro: MetroPlanner | null; nowSec: number }
+export interface TripDeps { stations: readonly StationGeo[]; router: Router; metro: MetroPlanner | null; nowSec: number; /** The user's own limit for each walking leg to/from a station, in seconds (a stated preference, never inferred). */ maxWalkS?: number }
 
 function shortlist(origin: LatLon, destination: LatLon, stations: readonly StationGeo[]): Pair[] {
   const near = (p: LatLon) => stations.map(s => ({ s, m: haversineM(p, s) })).filter(x => x.m <= MAX_STATION_WALK_M).sort((a, b) => a.m - b.m).slice(0, NEAREST_PER_SIDE);
@@ -85,10 +85,11 @@ export async function planTrip(origin: LatLon, destination: LatLon, readyEpoch: 
 
   const candidates: Candidate[] = [];
   const unrouted: TripOption[] = [];
-  let metroProblem: string | null = null;
+  let metroProblem: string | null = null, excludedByWalk = 0;
   await Promise.all(pairs.map(async p => {
     const wa = await walkTo.get(p.o.id)!, wb = await walkFrom.get(p.d.id)!;
     const walkA = wa?.durationS ?? null, walkB = wb?.durationS ?? null;
+    if (deps.maxWalkS && ((walkA ?? 0) > deps.maxWalkS || (walkB ?? 0) > deps.maxWalkS)) { excludedByWalk++; return; }
     const ready = walkA === null ? readyEpoch : readyEpoch + walkA + ACCESS_S;
     let answer: MetroAnswer;
     try { answer = await deps.metro!(p.line, p.o.id, p.d.id, ready); } catch { metroProblem = 'metro_unavailable'; return; }
@@ -135,9 +136,12 @@ export async function planTrip(origin: LatLon, destination: LatLon, readyEpoch: 
   let status: TripResult['status'] = 'ok', reason = 'ok';
   if (!chosen.length && unrouted.length) {
     chosen = unrouted.slice(0, 2); status = 'partial'; reason = router.configured ? 'walk_legs_unavailable' : 'router_not_configured';
+  } else if (!chosen.length && excludedByWalk) {
+    status = 'unavailable'; reason = 'walk_limit_excluded_all';
   } else if (!chosen.length) {
     status = 'unavailable'; reason = metroProblem ?? (pairs.length ? 'no_candidate' : 'no_supported_option');
-  } else if (pairs.length && !metroOptions && metroProblem) { status = 'partial'; reason = 'metro_unavailable_for_this_trip'; }
+  } else if (pairs.length && !metroOptions && excludedByWalk && !metroProblem) { status = 'partial'; reason = 'walk_limit_excluded_metro'; }
+  else if (pairs.length && !metroOptions && metroProblem) { status = 'partial'; reason = 'metro_unavailable_for_this_trip'; }
   if (!router.configured && status === 'ok') status = 'partial';
 
   return { schemaVersion: 1, status, reason, readyAt: `${tehranDay(readyEpoch)} ${hhmm(readyEpoch)}`, readyEpoch, origin, destination, options: chosen,

@@ -92,13 +92,19 @@ Stop and deliver a thorough handoff when (i) an approved milestone set is comple
 
 ---
 
-## Verified corrections (appended by Hermes on publish, 2026-11-04)
+## Verified corrections (maintained by Hermes; last refreshed 2026-11-05)
 
-The text above is the owner's file, unchanged (sha256 of the original: `d2d931cd5e83558acf77c356e87ec2713aa9986a72d54df1c2e36d6c1a29ebd3`). Facts checked against the repository and Production when this was published:
+The text above is the owner's file, unchanged (sha256 of the original: `d2d931cd5e83558acf77c356e87ec2713aa9986a72d54df1c2e36d6c1a29ebd3`). The sections below override it wherever they differ. Read `docs/product/BESRAH-MASTER-SPEC.md` (the owner's master product spec of 2026-11-05) and `docs/product/{DECISION-REGISTER,FEATURE-MATRIX,PRIVACY-DATA-MAP}.md` before choosing work.
 
-- **Code lineage:** U7 (live) is code commit `48efb70`. This public branch carries the clean source snapshot of `9b760e1` of the private working branch `feature/three-domain`, squashed into one commit on top of the old public `main` (`446679f`). Full history of those commits is not in this repository.
-- **U8 is in this tree but NOT deployed.** The ranking fix for `چلو کباب` (dishes named for the query outrank category-only items; no price floor) is committed here (`packages/core/src/food/search.ts` and its test) and waits for the owner's `PRODUCTION_DEPLOY_GO U8`. Do not re-implement it.
-- **Bulk datasets are intentionally absent from this public repo:** `data/food/food-index-v1.json.gz` and `data/shop/catalog-v1.json`. Related tests skip when the files are missing; the endpoints answer 503 and the rest of the app is unaffected. `data/shop/manifest-v1.json` and the importer `scripts/shop/import_offers.py` are present. Do not commit rebuilt copies of those two files.
-- **Infrastructure details** (VPS host, SSH port) were replaced by placeholders in three docs of this snapshot. `research/` was already public before this publish; do not add to it.
-- **Test baseline of this snapshot:** Core 622 passed / 6 skipped (the data-dependent ones), Mini App 219 / 219, `tests/shop` python 7 / 7. Production live URL: `https://besrah.arklyn.ir/`.
-- Read first: `docs/sprint/HANDOFF-FINAL.md`, `NEXT-AGENT-START.md`, `DECISIONS-AND-BACKLOG.md`, `ARCHITECTURE-AND-API.md`, `USER-FLOWS-AND-OWNER-QA.md`. `docs/PROJECT-VISION.md` and `docs/STATE-2026-11-04.md` do not exist.
+**Baseline of this tree**
+- Production runs **U10** (destination-first home, home suggestions, Profile tab, optional Telegram account). This tree also contains **U11** (Intelligence Core decides trip options and shop offers; stated priority / walking limit / profile budgets). U11 is **not deployed** (waits for the owner's `PRODUCTION_DEPLOY_GO U11`). Do not re-implement anything listed as DONE in `docs/product/FEATURE-MATRIX.md`.
+- Already done, do not redo: default current-position origin with manual fallback (`apps/miniapp/views/trip.js`), place search without Neshan Search (stations + single-result geocoding), two-option trip cards, food ranking (U8: dishes named for the query outrank category-only items; no price floor), Bespay (shop comparison) with unresolved/quarantined offers, Profile tab, optional Telegram login (Ed25519 initData check, no bot secret), consent-gated preference sync, export/delete, Core wiring for trips (`packages/core/src/decision/trip.ts`) and shop offers (`decision/shop.ts`).
+- **Not done / open work** (pick from here, see the master spec phases 3-5): Core for Besfood is a deliberate non-goal until the Core contract gets a version bump (decision D11); server-side history and saved places (blocked on the owner's retention decision); phone/e-mail/Bale login (needs providers); bus ETA and line 1<->2 transfer (need data); map-tap picker (needs a web-maps key); real-device Telegram QA (owner).
+
+**Rules that changed since the original text**
+- Bulk datasets are intentionally absent from this public repo: `data/food/food-index-v1.json.gz` and `data/shop/catalog-v1.json` (see `.gitignore`). Tests that need them skip. Never commit regenerated copies. `data/shop/manifest-v1.json` and `scripts/shop/import_offers.py` are present.
+- Infrastructure details (VPS host, SSH port) are placeholders in docs; `research/` was public before and must not grow.
+- Account data is limited to the numeric Telegram id, consents, synced preferences and hashed sessions (`docs/product/PRIVACY-DATA-MAP.md`). Do not add history, names, phone numbers or coordinates to storage.
+- Never change the Intelligence Core contract (`SCHEMA_VERSION = 1`) without a version bump and migration.
+
+**Test baseline of this snapshot** (all run serially): Core 673 passed (a few data-dependent tests skip here), Mini App 245/245, `tests/shop` python 7/7, HTTP parity 8/8 against the deployed baseline.

@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 import type { FastifyInstance, FastifyReply } from 'fastify';
 import { normalizeFa } from '../food/search.js';
+import { decideShop } from '../decision/shop.js';
 
 export const SHOP_CATALOG_URL = new URL('../../../../data/shop/catalog-v1.json', import.meta.url);
 const STALE_HOURS = 48;
@@ -54,7 +55,8 @@ export function shopProduct(catalog: ShopCatalog, id: string, nowMs: number) {
   const resolved = offers.filter(o => o.state === 'resolved').map(o => o.priceToman!);
   const spread = resolved.length >= 2 ? { minToman: Math.min(...resolved), maxToman: Math.max(...resolved), ratio: Math.round((Math.max(...resolved) / Math.min(...resolved)) * 100) / 100 } : null;
   const ageHours = Math.max(0, Math.round((nowMs - Date.parse(p.observedAt)) / 3_600_000));
-  return { ...productDto(p), variantBasis: p.variantBasis, offers: offers.map(offerDto), spread, snapshot: { observedAt: p.observedAt, ageHours, stale: ageHours > STALE_HOURS }, notes: NOTES };
+  const decision = decideShop({ productId: p.canonicalProductId, observedAt: p.observedAt, nowSec: Math.floor(nowMs / 1000), offers: offers.map(o => ({ seller: o.seller, state: o.state, priceToman: o.priceToman })) });
+  return { ...productDto(p), variantBasis: p.variantBasis, offers: offers.map(offerDto), spread, snapshot: { observedAt: p.observedAt, ageHours, stale: ageHours > STALE_HOURS }, decision, notes: NOTES };
 }
 
 export interface ShopRoutesOptions { catalog?: ShopCatalog | null; loader?: () => ShopCatalog; now?: () => number }

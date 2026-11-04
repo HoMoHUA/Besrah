@@ -68,13 +68,41 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       throw new ApiError('network');
     } finally { guard.dispose(); }
     if (!response.ok) {
-      const failure = new ApiError(response.status === 422 ? 'outside_coverage' : response.status === 429 ? 'rate_limited' : 'server');
-      failure.status = response.status; throw failure;
+      const failure = new ApiError(response.status === 422 ? 'outside_coverage' : response.status === 429 ? 'rate_limited' : response.status === 401 ? 'unauthenticated' : response.status === 403 ? 'forbidden' : response.status === 409 ? 'conflict' : 'server');
+      failure.status = response.status;
+      try { const body = await response.json(); if (typeof body?.error === 'string') failure.reason = body.error; if (Number.isInteger(body?.version)) failure.version = body.version; } catch { /* no body */ }
+      throw failure;
     }
     try { return await response.json(); } catch { throw new ApiError('server'); }
   }
   return {
     // Door-to-door planning and place search are POST so coordinates and text never appear in a URL or an access log.
+    // Accounts are optional: every call can fail and the app keeps working as a guest.
+    async accountSession(signal) {
+      const data = await get('api/account/session', signal);
+      if (typeof data?.authenticated !== 'boolean') throw new ApiError('server');
+      return data;
+    },
+    async accountTelegram(initData, signal) {
+      const data = await post('api/account/telegram', { initData }, signal);
+      if (data?.authenticated !== true) throw new ApiError('server');
+      return data;
+    },
+    async accountLogout(signal) { return post('api/account/logout', {}, signal); },
+    async accountConsent(purpose, granted, signal) { return post('api/account/consents', { purpose, granted }, signal); },
+    async accountPreferences(signal) {
+      const data = await get('api/account/preferences', signal);
+      if (!Number.isInteger(data?.version) || typeof data?.values !== 'object') throw new ApiError('server');
+      return data;
+    },
+    async accountSavePreferences(expectedVersion, values, signal) { return post('api/account/preferences', { expectedVersion, values }, signal); },
+    async accountExport(signal) { return post('api/account/export', {}, signal); },
+    async accountDelete(signal) { return post('api/account/delete', { confirm: 'DELETE' }, signal); },
+    async homeSuggestions(point, signal) {
+      const data = await post('api/recommendations/home', point ? { lat: point.lat, lon: point.lon } : {}, signal);
+      if (data?.schemaVersion !== 1 || !Array.isArray(data.cards) || data.cards.length > 2) throw new ApiError('server');
+      return data;
+    },
     async places(q, signal) {
       const data = await post('api/places', { q }, signal);
       if (data?.schemaVersion !== 1 || !Array.isArray(data.places) || data.places.length > 6 || data.places.some(p => !p || typeof p.name !== 'string' || !Number.isFinite(p.lat) || !Number.isFinite(p.lon))) throw new ApiError('server');

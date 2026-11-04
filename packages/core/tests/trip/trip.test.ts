@@ -158,6 +158,25 @@ describe('planTrip arithmetic', () => {
     expect(broken.status).toBe('partial'); expect(broken.reason).toBe('metro_unavailable_for_this_trip');
   });
 
+  it('a stated walking limit removes metro options that exceed it, says so, and still returns the car', async () => {
+    const withLimit = await planTrip(home, work, NOW, { stations: ST, router: fakeRouter(900, 800), metro: trains([1500]), nowSec: NOW, maxWalkS: 600 });
+    expect(withLimit.options.map(o => o.kind)).toEqual(['car']);
+    expect(withLimit.status).toBe('partial'); expect(withLimit.reason).toBe('walk_limit_excluded_metro');
+    const roomy = await planTrip(home, work, NOW, { stations: ST, router: fakeRouter(900, 800), metro: trains([1500]), nowSec: NOW, maxWalkS: 1200 });
+    expect(roomy.options.map(o => o.kind).sort()).toEqual(['car', 'metro']);
+    const noCar = await planTrip(home, work, NOW, { stations: ST, router: fakeRouter(900, null), metro: trains([1500]), nowSec: NOW, maxWalkS: 600 });
+    expect(noCar.status).toBe('unavailable'); expect(noCar.reason).toBe('walk_limit_excluded_all'); expect(noCar.options).toEqual([]);
+  });
+
+  it('the route accepts maxWalkMin only as an integer 3..40', async () => {
+    const app = buildServer({ now: () => NOW_MS, trip: { router: noRouter, stations: loadStationGeo(), metro: null } });
+    const post = (b: unknown) => app.inject({ method: 'POST', url: '/app/api/trip', payload: JSON.stringify(b), headers: { 'content-type': 'application/json' } });
+    const base = { from: { lat: 36.346, lon: 59.442 }, to: { lat: 36.257, lon: 59.62 } };
+    expect((await post({ ...base, maxWalkMin: 10 })).statusCode).toBe(200);
+    for (const bad of [2, 41, 10.5, '10', null]) expect((await post({ ...base, maxWalkMin: bad })).statusCode).toBe(400);
+    await app.close();
+  });
+
   it('everything unavailable is reported as unavailable, not as an empty success', async () => {
     const r = await planTrip(home, work, NOW, { stations: ST, router: fakeRouter(300, null), metro: trains([]), nowSec: NOW });
     expect(r.status).toBe('unavailable'); expect(r.options).toEqual([]);

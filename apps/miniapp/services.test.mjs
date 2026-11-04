@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { SERVICES, homeLayout, isLive, filterServices } from './services.js';
 
 test('Besrah is one transport service; food and pay are visibly unavailable siblings', () => {
-  assert.deepEqual(SERVICES.map(s => s.id), ['besrah', 'food', 'trip', 'shop', 'pay']);
-  assert.deepEqual(SERVICES.filter(isLive).map(s => s.id), ['besrah', 'food', 'trip', 'shop']);
+  assert.deepEqual(SERVICES.map(s => s.id), ['besrah', 'food', 'pay']);
+  assert.deepEqual(SERVICES.filter(isLive).map(s => s.id), ['besrah', 'food', 'pay']);
   const besrah = SERVICES[0];
   assert.equal(besrah.title, 'بسراه');
   assert.deepEqual(besrah.action, { type: 'view', view: 'metro' });
@@ -18,8 +18,8 @@ test('Besrah is one transport service; food and pay are visibly unavailable sibl
 
 test('home lays out every product once, not only products marked live', () => {
   const layout = homeLayout();
-  assert.deepEqual(layout.primary.map(s => s.id), ['besrah', 'food', 'trip']);
-  assert.deepEqual(layout.secondary.map(s => s.id), ['shop', 'pay']);
+  assert.deepEqual(layout.primary.map(s => s.id), ['besrah', 'food', 'pay']);
+  assert.deepEqual(layout.secondary.map(s => s.id), []);
   assert.equal(layout.moreCount, 0);
   assert.deepEqual([...layout.primary, ...layout.secondary, ...layout.more], SERVICES);
   const more = [...SERVICES, ...Array.from({ length: 5 }, (_, i) => ({ id: 'extra' + i }))];

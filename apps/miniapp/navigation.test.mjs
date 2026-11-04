@@ -3,12 +3,13 @@ import assert from 'node:assert/strict';
 import { NAV_VIEWS, createNavigation, activeNav } from './navigation.js';
 
 test('global navigation contains no station-specific tabs', () => {
-  assert.deepEqual(NAV_VIEWS, ['home', 'saved', 'services', 'settings', 'about']);
+  assert.deepEqual(NAV_VIEWS, ['home', 'saved', 'services', 'settings', 'profile']);
   assert.equal(activeNav('metro'), 'services');
   assert.equal(activeNav('bus'), 'services');
   assert.equal(activeNav('food'), 'services');
   assert.equal(activeNav('trip'), 'services');
   assert.equal(activeNav('shop'), 'services');
+  assert.equal(activeNav('about'), 'profile');
   assert.equal(activeNav('favourites'), 'services');
 });
 

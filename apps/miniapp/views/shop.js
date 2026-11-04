@@ -1,4 +1,4 @@
-// Besshop: compare prices of a small curated set of real products across the sellers listed on the product page.
+// Bespay: compare prices of a small curated set of real products across the sellers listed on the product page.
 // Prices are what the page declared at the observation time; never live, never "cheapest on the market". Stock, shipping and
 // warranty/colour differences stay unknown, and a seller with several different prices is shown unresolved instead of guessed.
 import { h } from '../ui/dom.js';
@@ -23,8 +23,8 @@ export function priceRange(p) {
 }
 
 export function createShopView(ctx) {
-  const { actions, api } = ctx;
-  const S = { q: '', budget: null, sort: 'relevance', status: 'idle', products: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null };
+  const { actions, api, store } = ctx;
+  const S = { fromProfile: false, q: '', budget: null, sort: 'relevance', status: 'idle', products: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null };
   let timer = 0, controller = null;
   const el = h('div', { class: 'view view--shop', dataset: { view: 'shop' } });
   const body = h('div', { class: 'fd-body' });
@@ -62,7 +62,8 @@ export function createShopView(ctx) {
 
   function controls() {
     return h('div', { class: 'fd-controls' },
-      h('div', { class: 'fd-row', role: 'group', 'aria-label': 'سقف قیمت' }, BUDGETS.map(b => chip(budgetLabel(b), S.budget === b, () => { S.budget = b; run(true); }))),
+      S.fromProfile && S.budget !== null ? h('p', { class: 'fd-note', text: 'این سقف را خودتان در پروفایل گذاشته اید؛ همین جا می توانید عوضش کنید.' }) : null,
+      h('div', { class: 'fd-row', role: 'group', 'aria-label': 'سقف قیمت' }, BUDGETS.map(b => chip(budgetLabel(b), S.budget === b, () => { S.budget = b; S.fromProfile = false; run(true); }))),
       h('div', { class: 'fd-row', role: 'group', 'aria-label': 'مرتب سازی' }, [['relevance', 'مرتبط ترین'], ['price', 'کمترین قیمت ثبت شده']].map(([k, label]) => chip(label, S.sort === k, () => { S.sort = k; run(true); }))),
       h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; run(true); } }, q))));
   }
@@ -84,11 +85,13 @@ export function createShopView(ctx) {
       h('ul', { class: 'fd-notes' }, S.notes.map(t => h('li', { text: t }))));
   }
 
-  function offerRow(o) {
+  function offerRow(o, decision) {
+    const verdict = decision?.bySeller?.[o.seller];
     const price = o.state === 'resolved' ? h('b', { class: 'sh-offer__price', text: toman(o.priceToman) })
       : o.state === 'unresolved' ? h('span', { class: 'sh-offer__price sh-offer__price--unknown', text: `چند قیمت متفاوت (${o.priceCandidatesToman.map(toman).join('، ')})؛ تنوع نامشخص` })
       : h('span', { class: 'sh-offer__price sh-offer__price--unknown', text: 'قیمت غیرعادی؛ کنار گذاشته شد' });
     return h('li', { class: ['sh-offer', `is-${o.state}`] },
+      verdict?.labels?.length ? h('p', { class: 'tp-labels' }, verdict.labels.map(l => h('span', { class: 'tp-label', text: l }))) : null,
       h('div', { class: 'sh-offer__main' }, h('b', { text: o.seller }), h('span', { class: 'fd-card__sub', text: `${o.merchant} · موجودی و ارسال نامعلوم` })), price,
       o.spreadWarning ? h('span', { class: 'fd-card__sub', text: 'فاصلهٔ قیمت زیاد است؛ تنوع کالا را بررسی کنید.' }) : null,
       h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => openLink(o.url) }, `مشاهده در ${o.merchant}`));
@@ -103,7 +106,8 @@ export function createShopView(ctx) {
       h('header', { class: 'fd-detail__head' }, h('h2', { text: p.title }), h('p', { class: 'fd-card__sub', text: [p.brand, p.category].filter(Boolean).join(' · ') })),
       h('p', { class: ['fd-snapshot', p.snapshot.stale && 'is-stale'], text: `قیمت ها در ${dayLabel(p.snapshot.observedAt)} از صفحهٔ محصول ثبت شده اند${p.snapshot.stale ? ' و قدیمی اند' : ''}؛ لحظه ای نیستند.` }),
       p.spread ? h('p', { class: 'fd-card__meta' }, h('span', { text: `کمترین ثبت شده ${toman(p.spread.minToman)}` }), h('span', { text: `بیشترین ${toman(p.spread.maxToman)}` }), p.spread.ratio >= 1.1 ? h('span', { text: `${faDigits(p.spread.ratio).replace('.', '٫')} برابر` }) : null) : null,
-      h('ul', { class: 'sh-offers' }, p.offers.map(offerRow)),
+      h('ul', { class: 'sh-offers' }, p.offers.map(o => offerRow(o, p.decision))),
+      p.decision?.notes?.length ? h('ul', { class: 'fd-notes' }, p.decision.notes.map(t => h('li', { text: t }))) : null,
       h('p', { class: 'fd-note', text: 'رنگ و گارانتی فروشندگان با هم مقایسه نشده؛ پیش از خرید در صفحهٔ فروشنده تأیید کنید.' }),
       h('ul', { class: 'fd-notes' }, p.notes.map(t => h('li', { text: t }))));
   }
@@ -112,9 +116,17 @@ export function createShopView(ctx) {
 
   el.append(h('header', { class: 'metro-head' },
     h('button', { type: 'button', class: 'btn-back', onClick: () => actions.go('services'), 'aria-label': 'بازگشت' }, '←'),
-    h('div', null, h('h1', null, 'بسخرید'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
+    h('div', null, h('h1', null, 'بسپی'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
+    h('div', { class: 'pay-soon', role: 'note' }, h('b', { text: 'پرداخت و کیف پول' }), h('span', { class: 'cm-badge', text: 'به زودی' }), h('p', { text: 'پرداخت درون برنامه هنوز ساخته نشده و زمانی برایش اعلام نشده است. فعلاً قیمت ها را مقایسه کنید و خرید را در فروشگاه انجام دهید.' })),
     searchBox, body);
   draw();
   let started = false;
-  return { el, onShow() { if (!started) { started = true; run(true); } }, onHide() { controller?.abort(); clearTimeout(timer); } };
+  return { el, onShow() {
+    if (started) return;
+    started = true;
+    // A budget the user stated in Profile is the starting point of the first search; it is announced and never inferred.
+    const stated = store?.prefs?.().shopBudgetToman;
+    if (stated && BUDGETS.includes(stated)) { S.budget = stated; S.fromProfile = true; }
+    run(true);
+  }, onHide() { controller?.abort(); clearTimeout(timer); } };
 }

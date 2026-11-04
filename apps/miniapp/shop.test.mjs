@@ -10,7 +10,7 @@ const product = (id, title, over = {}) => ({ id, title, brand: 'برند', categ
 const list = (products, over = {}) => ({ total: products.length, offset: 0, limit: 10, products, snapshot: { observedFrom: OBS, observedTo: OBS, ageHours: 60, stale: true }, notes: ['قیمت ها لحظه ای نیستند.'], ...over });
 const offer = (seller, state, price, over = {}) => ({ seller, merchant: 'تکنولایف', state, priceToman: price, priceCandidatesToman: [], reason: null, spreadWarning: false, matchState: 'listing_declared', variantUnresolved: ['رنگ'], stock: 'unknown', availabilityDeclared: 'InStock', shipping: 'unknown', url: 'https://www.technolife.com/product-1/', ...over });
 
-function setup(t, handler) {
+function setup(t, handler, prefs) {
   installFoodDom(t);
   const requests = [];
   const api = createApi({ fetch: async url => {
@@ -22,7 +22,7 @@ function setup(t, handler) {
       spread: { minToman: 1000000, maxToman: 1400000, ratio: 1.4 }, snapshot: { observedAt: OBS, ageHours: 60, stale: true }, variantBasis: 'x', notes: ['ارزان ترین بودن در بازار ادعا نمی شود.'] }));
     throw new Error('unexpected ' + url);
   } });
-  const view = createShopView({ api, state: {}, actions: { go() {} } });
+  const view = createShopView({ api, state: {}, store: prefs ? { prefs: () => prefs } : undefined, actions: { go() {} } });
   return { view, requests };
 }
 const text = v => v.el.textContent;
@@ -77,4 +77,31 @@ test('errors and an unavailable catalog show retry; empty results explain the sm
   assert.match(text(view), /فهرست کالا اکنون در دسترس نیست/);
   mode = 'empty'; await button(view.el, 'تلاش دوباره').dispatch('click'); await flushView();
   assert.match(text(view), /چند کالای منتخب/);
+});
+
+test('the Core label is shown on the cheapest resolved offer with its own sentence, and the caveat about colour, warranty and shipping', async t => {
+  const decision = { status: 'ok', notes: ['رنگ، گارانتی، ارسال و موجودی مقایسه نشده؛ برچسب فقط میان پیشنهادهای قیمت دار همین صفحه است.'],
+    bySeller: { 'الف': { labels: ['کم هزینه ترین پیشنهاد ثبت شده'], claims: ['x'] }, 'ب': { labels: [], claims: [] }, 'ج': { labels: [], claims: [] } } };
+  const { view } = setup(t, url => (url.startsWith('api/shop/product') ? new Response(JSON.stringify({ ...product('tl:1', 'هدفون سونی'), decision, offers: [offer('الف', 'resolved', 1000000), offer('ب', 'unresolved', null, { priceCandidatesToman: [1100000, 1200000] }), offer('ج', 'quarantined', null)],
+    spread: null, snapshot: { observedAt: OBS, ageHours: 5, stale: false }, variantBasis: 'x', notes: [] })) : null));
+  view.onShow(); await flushView();
+  await button(view.el, 'مقایسهٔ فروشندگان').dispatch('click'); await flushView();
+  const out = text(view);
+  assert.equal((out.match(/کم هزینه ترین پیشنهاد ثبت شده/g) ?? []).length, 1);
+  assert.match(out, /رنگ، گارانتی، ارسال و موجودی مقایسه نشده/);
+  assert.doesNotMatch(out, /ارزان ترین بازار/);
+});
+
+test('a shopping budget stated in Profile starts the first search and is announced', async t => {
+  const { view, requests } = setup(t, null, { shopBudgetToman: 2000000 });
+  view.onShow(); await flushView();
+  assert.match(requests[0], /maxPrice=2000000/); assert.match(text(view), /این سقف را خودتان در پروفایل گذاشته اید/);
+  await button(view.el, 'بدون سقف').dispatch('click'); await flushView();
+  assert.doesNotMatch(requests.at(-1), /maxPrice/); assert.doesNotMatch(text(view), /در پروفایل گذاشته اید/);
+});
+
+test('with no stated shopping budget nothing is inferred', async t => {
+  const { view, requests } = setup(t, null, {});
+  view.onShow(); await flushView();
+  assert.doesNotMatch(requests[0], /maxPrice/);
 });

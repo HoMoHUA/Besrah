@@ -4,6 +4,9 @@ import { createService } from './service.js';
 import { readFileSync } from 'node:fs';
 import { fetchTapsifoodStatus } from './food-status.js';
 import { registerFood, type FoodRoutesOptions } from './food/routes.js';
+import { openAccountStore } from './account/store.js';
+import { registerAccount, type AccountRoutesOptions } from './account/routes.js';
+import { registerHomeRecommendations } from './home/recommendations.js';
 import { registerShop, type ShopRoutesOptions } from './shop/search.js';
 import { createNeshan, neshanOptionsFromEnv } from './trip/neshan.js';
 import { registerTrip, type TripRoutesOptions } from './trip/routes.js';
@@ -11,7 +14,7 @@ import { registerJourneyBeta, type JourneyBetaConfig } from './journey-beta/inde
 import type { TimetableSource } from './transit-journey/contracts.js';
 import { createTimetableModel, type TimetableModel } from './timetable-overlay.js';
 
-export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof fetch; journeyBeta?: Partial<JourneyBetaConfig>; journeySource?: TimetableSource; limiterClock?: () => number; food?: FoodRoutesOptions; trip?: TripRoutesOptions; shop?: ShopRoutesOptions; timetable?: TimetableModel } = {}) {
+export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof fetch; journeyBeta?: Partial<JourneyBetaConfig>; journeySource?: TimetableSource; limiterClock?: () => number; food?: FoodRoutesOptions; trip?: TripRoutesOptions; account?: AccountRoutesOptions; shop?: ShopRoutesOptions; timetable?: TimetableModel } = {}) {
   // Product wiring: the validated overlay (or, on any problem, the baseline generator) serves board, tracker and journey alike.
   const timetable = opts.timetable ?? createTimetableModel();
   const svc = createService(undefined, undefined, timetable);
@@ -57,6 +60,12 @@ export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof
 
   registerFood(app, { now, ...opts.food });
   registerShop(app, { now, ...opts.shop });
+  // Guest-first accounts: enabled only when BESRAH_ACCOUNT_DB points at a writable file; otherwise the app stays guest-only.
+  const accountDb = process.env.BESRAH_ACCOUNT_DB?.trim();
+  registerAccount(app, { now, limiterClock: opts.limiterClock, ...(accountDb ? { open: () => openAccountStore(accountDb) } : {}),
+    ...(process.env.BESRAH_TELEGRAM_BOT_ID ? { botId: process.env.BESRAH_TELEGRAM_BOT_ID } : {}),
+    allowedOrigins: (process.env.BESRAH_ALLOWED_ORIGINS ?? '').split(',').map(x => x.trim()).filter(Boolean), ...opts.account });
+  registerHomeRecommendations(app, { now, limiterClock: opts.limiterClock });
 
   app.get<{ Querystring: { station?: string; at?: string; limit?: string; line?: string } }>('/v1/next', nextHandler);
   app.get<{ Querystring: { station?: string; at?: string; limit?: string; line?: string } }>('/app/api/next', nextHandler);

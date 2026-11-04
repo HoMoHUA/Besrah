@@ -26,7 +26,7 @@ function setup(t, options, handler) {
     if (url.startsWith('api/food-status')) return new Response(JSON.stringify({ status: 'unknown', observedAt: null }));
     throw new Error('unexpected request: ' + url);
   } });
-  const view = createFoodView({ api, state: {}, actions: { go() {} } });
+  const view = createFoodView({ api, state: {}, store: options?.prefs ? { prefs: () => options.prefs } : undefined, actions: { go() {} } });
   return { view, requests };
 }
 const text = view => view.el.textContent;
@@ -153,4 +153,19 @@ test('SnappFood vendors say live status is unavailable instead of offering a che
   assert.match(text(view), /بررسی زندهٔ وضعیت برای اسنپ فود در دسترس نیست/);
   assert.match(text(view), /منو در دادهٔ ثبت شده خالی است/);
   assert.match(text(view), /سفارش در اسنپ فود/);
+});
+
+test('a food budget stated in Profile starts the first search and is announced; changing the chip drops the announcement', async t => {
+  const { view, requests } = setup(t, { prefs: { foodBudgetToman: 150000 } });
+  view.onShow(); await flushView();
+  assert.match(search(requests)[0].url, /maxPrice=150000/);
+  assert.match(text(view), /این سقف را خودتان در پروفایل گذاشته اید/);
+  await button(view.el, 'بدون سقف').dispatch('click'); await flushView();
+  assert.doesNotMatch(search(requests).at(-1).url, /maxPrice/); assert.doesNotMatch(text(view), /در پروفایل گذاشته اید/);
+});
+
+test('no stated budget means no budget: nothing is inferred', async t => {
+  const { view, requests } = setup(t, { prefs: {} });
+  view.onShow(); await flushView();
+  assert.doesNotMatch(search(requests)[0].url, /maxPrice/);
 });

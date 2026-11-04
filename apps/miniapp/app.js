@@ -15,6 +15,7 @@ import { createStationSheet } from './ui/station.js';
 import { $, h, icon, reducedMotion } from './ui/dom.js';
 import { bridgeHaptics, init, lensTabs, morph, setToastHost, toast } from './ui/hm7.js';
 import { createAboutView } from './views/about.js';
+import { createProfileView } from './views/profile.js';
 import { createFavouritesView } from './views/favourites.js';
 import { createHomeView } from './views/home.js';
 import { createServicesView, roadmapList } from './views/services.js';
@@ -23,12 +24,13 @@ import { createBusView } from './views/bus.js';
 import { createFoodView } from './views/food.js';
 import { createTripView } from './views/trip.js';
 import { createShopView } from './views/shop.js';
+import { segmented, TRANSPORT_TABS } from './ui/segmented.js';
 import { createSettingsView } from './views/settings.js';
 import { createSavedView } from './views/saved.js';
 import { isLive } from './services.js';
 import { isSupported, lineLabel } from './format.js';
 
-const TITLES = { home: 'خانه', metro: 'مترو', bus: 'اتوبوس', food: 'بسفود', trip: 'رهیاب', shop: 'بسخرید', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', about: 'درباره' };
+const TITLES = { home: 'خانه', metro: 'بسراه', bus: 'اتوبوس', food: 'بسفود', trip: 'مسیر مکان به مکان', shop: 'بسپی', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', profile: 'پروفایل', about: 'درباره' };
 const navigation = createNavigation();
 try { history.replaceState({ besrahRoute: 'home', besrahIndex: 0 }, ''); } catch { /* embedded browser */ }
 
@@ -142,6 +144,13 @@ function go(view, options = {}) {
   try { history.pushState({ besrahRoute: view, besrahIndex: navigation.index() }, ''); } catch { /* route stack still works */ }
   showRoute(view, options);
 }
+// Tabs of one service replace the history entry (no stacking), so Back still leaves the service.
+function swap(view) {
+  if (!ROUTES.includes(view) || view === navigation.current()) return;
+  navigation.replace(view);
+  try { history.replaceState({ besrahRoute: view, besrahIndex: navigation.index() }, ''); } catch { /* route stack still works */ }
+  showRoute(view);
+}
 function updateBack() { tg.setBack(sheet.isOpen || state.get().view !== 'home' ? onBack : null); }
 function onBack() {
   if (sheet.isOpen) { sheet.close(); return; }
@@ -238,7 +247,7 @@ const reload = () => loadStations();
 const combinedOrder = () => { const { order, order2 } = state.get(); return [...order, ...order2.filter(n => !order.includes(n))]; };
 
 const actions = {
-  go, back: onBack, openStation, locate, openRoadmap, reload, unsupported, setTheme,
+  go, swap, back: onBack, openStation, locate, openRoadmap, reload, unsupported, setTheme,
   locateStation: locate,
   async metroModeChanged(active) {
     // Unified quick actions need station identity, not two extra summary boards.
@@ -278,6 +287,11 @@ views.saved = createSavedView(ctx);
 views.services = createServicesView(ctx);
 views.favourites = createFavouritesView(ctx);
 views.about = createAboutView(ctx);
+views.profile = createProfileView(ctx);
+// Besrah is one service with two tabs; both views get the same switcher under their header.
+for (const id of ['metro', 'trip']) {
+  views[id].el.querySelector('.metro-head')?.after(segmented({ tabs: TRANSPORT_TABS, active: id, label: 'بخش های بسراه', onSelect: tab => actions.swap(tab) }));
+}
 
 /* ── header: search + menu ── */
 const search = createServiceSearch({
@@ -285,7 +299,7 @@ const search = createServiceSearch({
   onPick: actions.serviceAction,
 });
 
-rotatePlaceholder({ input: $('#q'), phrases: ['جست وجو', 'مترو مشهد', 'خط های اتوبوس', 'سفارش غذا بسفود', 'بسپی، به زودی'] });
+rotatePlaceholder({ input: $('#q'), phrases: ['جست وجو', 'مترو مشهد', 'خط های اتوبوس', 'مسیر مکان به مکان', 'سفارش غذا بسفود', 'مقایسه قیمت کالا'] });
 
 let menuApi = null;
 function paintMenu() {
@@ -299,12 +313,14 @@ function paintMenu() {
     item('تیره', () => setTheme('dark'), { role: 'menuitemradio', checked: String(pref === 'dark'), icon: 'moon' }),
     h('hr', { class: 'cm-divider', role: 'separator' }),
     item('تنظیمات', () => go('settings'), { icon: 'gearshape' }),
+    item('پروفایل', () => go('profile'), { icon: 'person_crop_circle_fill' }),
     item('درباره و حریم خصوصی', () => go('about'), { icon: 'info_circle' }));
   content.querySelectorAll('[aria-checked="true"]').forEach(b => b.setAttribute('aria-selected', 'true'));
 }
 
 /* ── start ── */
 panel.append(views.home.el);
+views.home.onShow?.();
 panel.setAttribute('aria-label', TITLES.home);
 paintMenu();
 init(document);

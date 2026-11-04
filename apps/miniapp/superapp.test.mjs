@@ -13,7 +13,7 @@ test('metro owns discovery, route lists, station favourites and its confidence e
 });
 test('global tab order matches the route contract and contains no station tab', () => {
   const html = source('index.html');
-  assert.deepEqual([...html.matchAll(/data-view="([^"]+)"/g)].map(m => m[1]), ['home','saved','services','settings','about']);
+  assert.deepEqual([...html.matchAll(/data-view="([^"]+)"/g)].map(m => m[1]), ['home','saved','services','settings','profile']);
   assert.ok(html.includes('سرویس ها'));
   assert.ok(!html.includes('placeholder="جست وجوی ایستگاه ها"'));
 });

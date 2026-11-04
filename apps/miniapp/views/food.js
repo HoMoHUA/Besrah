@@ -41,8 +41,8 @@ function priceLine(item) {
 }
 
 export function createFoodView(ctx) {
-  const { actions, api } = ctx;
-  const S = { q: '', source: 'all', budget: null, sort: 'relevance', near: null, nearState: 'idle', status: 'idle', vendors: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null };
+  const { actions, api, store } = ctx;
+  const S = { fromProfile: false, q: '', source: 'all', budget: null, sort: 'relevance', near: null, nearState: 'idle', status: 'idle', vendors: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null };
   let timer = 0, controller = null;
   const statusMemo = new Map();
   const el = h('div', { class: 'view view--food', dataset: { view: 'food' } });
@@ -110,8 +110,9 @@ export function createFoodView(ctx) {
     return h('div', { class: 'fd-controls' },
       h('div', { class: 'fd-row', role: 'group', 'aria-label': 'پلتفرم' },
         [['all', 'همه'], ['snappfood', 'اسنپ فود'], ['tapsifood', 'تپسی فود']].map(([k, label]) => chip(label, S.source === k, () => { S.source = k; run(true); }))),
+      S.fromProfile && S.budget !== null ? h('p', { class: 'fd-note', text: 'این سقف را خودتان در پروفایل گذاشته اید؛ همین جا می توانید عوضش کنید.' }) : null,
       h('div', { class: 'fd-row', role: 'group', 'aria-label': 'سقف قیمت هر قلم' },
-        BUDGETS.map(b => chip(b === null ? 'بدون سقف' : `تا ${fa((b / 1000).toLocaleString('en-US'))} هزار`, S.budget === b, () => { S.budget = b; run(true); }))),
+        BUDGETS.map(b => chip(b === null ? 'بدون سقف' : `تا ${fa((b / 1000).toLocaleString('en-US'))} هزار`, S.budget === b, () => { S.budget = b; S.fromProfile = false; run(true); }))),
       h('div', { class: 'fd-row', role: 'group', 'aria-label': 'مرتب سازی' },
         SORTS.filter(([k]) => k !== 'distance' || S.near).map(([k, label]) => chip(label, S.sort === k, () => { S.sort = k; run(true); })),
         h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'fd-locate'], disabled: S.nearState === 'locating' ? 'true' : null, onClick: locate },
@@ -213,7 +214,18 @@ export function createFoodView(ctx) {
   let started = false;
   return {
     el,
-    onShow() { if (!started) { started = true; run(true); } },
+    onShow(options) {
+      // A home suggestion can open the search with a preset; a location preset still needs the user's tap on that card, so it asks here.
+      if (options?.q && options.q !== S.q) { S.q = options.q; input.value = options.q; started = true; run(true); }
+      if (options?.near && S.nearState !== 'locating') { started = true; locate(); return; }
+      if (!started) {
+        started = true;
+        // A budget the user stated in Profile is the starting point of the first search (and is said out loud); it is never inferred.
+        const stated = store?.prefs?.().foodBudgetToman;
+        if (stated && BUDGETS.includes(stated) && S.budget === null) { S.budget = stated; S.fromProfile = true; }
+        run(true);
+      }
+    },
     onHide() { controller?.abort(); clearTimeout(timer); },
   };
 }

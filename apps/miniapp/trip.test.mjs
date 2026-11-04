@@ -28,7 +28,7 @@ function setup(t, options, handler) {
     if (url === 'api/trip') return new Response(JSON.stringify(reply()));
     throw new Error('unexpected request ' + url);
   } });
-  const view = createTripView({ api, state: {}, actions: { go() {} } });
+  const view = createTripView({ api, state: {}, store: options?.prefs ? { prefs: () => options.prefs, setPrefs: v => { options.prefs = v; options.saved?.push(v); } } : undefined, actions: { go() {} } });
   return { view, requests };
 }
 const text = v => v.el.textContent;
@@ -124,4 +124,81 @@ test('outside coverage, rate limit, server error and an unavailable result each 
 test('the map picker is honestly absent', async t => {
   const { view } = setup(t);
   assert.match(text(view), /انتخاب نقطه روی نقشه هنوز در دسترس نیست/);
+});
+
+test('default origin is the current position: nothing is read on load, one tap on search reads it once and plans', async t => {
+  let calls = 0;
+  const { view, requests } = setup(t, { browser: ok => { calls++; ok({ coords: gps }); } });
+  await flushView();
+  assert.match(text(view), /موقعیت فعلی من/); assert.match(text(view), /هنگام جست وجو دریافت می شود/);
+  assert.equal(button(view.el, 'مسیر را پیدا کن').disabled, true, 'a destination is still missing');
+  await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
+  assert.equal(calls, 0, 'choosing the destination does not read the position');
+  assert.equal(button(view.el, 'مسیر را پیدا کن').disabled, false, 'destination alone is enough');
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  assert.equal(calls, 1);
+  const trip = requests.find(r => r.url === 'api/trip');
+  assert.deepEqual(trip.body, { from: { lat: 36.30791, lon: 59.59711 }, to: { lat: 36.25683, lon: 59.6202 } });
+  for (const r of requests) assert.doesNotMatch(r.url, /36\.3|59\./);
+});
+
+test('a denied position never blocks the user: no request is made, the origin search appears with a clear message', async t => {
+  const { view, requests } = setup(t, { browser: (_ok, fail) => fail({ code: 1 }) });
+  await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  assert.equal(requests.filter(r => r.url === 'api/trip').length, 0);
+  assert.match(text(view), /موقعیت شما در دسترس نبود/); assert.match(text(view), /دسترسی به موقعیت داده نشد/);
+  assert.doesNotMatch(text(view), /هنگام جست وجو دریافت می شود/);
+  await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی');
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  assert.equal(requests.filter(r => r.url === 'api/trip').length, 1);
+});
+
+test('"another origin" switches to search without reading the position, and clearing it returns to the default', async t => {
+  let calls = 0;
+  const { view } = setup(t, { browser: ok => { calls++; ok({ coords: gps }); } });
+  await button(view.el, 'مبدأ دیگر').dispatch('click'); await flushView();
+  assert.match(text(view), /انتخاب نشده/); assert.equal(calls, 0);
+  await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی');
+  await findAll(view.el, n => n.tagName === 'button' && n.getAttribute('aria-label') === 'پاک کردن')[0].dispatch('click'); await flushView();
+  assert.match(text(view), /موقعیت فعلی من/);
+});
+
+test('opening from the home card focuses the destination field', t => {
+  const { view } = setup(t);
+  let focused = 0;
+  findAll(view.el, n => n.tagName === 'input' && n.getAttribute('aria-label') === 'مقصد')[0].focus = () => { focused++; };
+  view.onShow({ focus: 'to' }); view.onShow({});
+  assert.equal(focused, 1);
+});
+
+test('a stated walking limit from the profile is sent with the trip request, and nothing else is inferred', async t => {
+  const { view, requests } = setup(t, { prefs: { transitMaxWalkMin: 10, foodBudgetToman: 100000 } });
+  await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی'); await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  assert.equal(requests.find(r => r.url === 'api/trip').body.maxWalkMin, 10);
+  assert.deepEqual(Object.keys(requests.find(r => r.url === 'api/trip').body).sort(), ['from', 'maxWalkMin', 'to']);
+});
+
+test('the Core verdict is shown with its own words, one question appears for a real trade-off, and answering stores a stated priority and re-plans', async t => {
+  const saved = [];
+  const decision = { schemaVersion: 1, status: 'ok', reason: 'x', priority: null, preferred: null, notes: ['برای بعضی گزینه ها داده کافی نبود.'],
+    byOption: { m: { labels: ['سریع ترین'], claims: ['در میان گزینه های هم ارز و واجد شرایط ارائه شده، سریع ترین است.'], preferred: false } },
+    question: { prompt: 'کدام برایتان مهم تر است؟', answers: [{ id: 'a', label: 'زمان سفر کمتر، سپس زمان پیاده روی کمتر', priority: 'time' }, { id: 'b', label: 'زمان پیاده روی کمتر، سپس زمان سفر کمتر', priority: 'walk' }] } };
+  const { view, requests } = setup(t, { prefs: {}, saved }, url => (url === 'api/trip' ? new Response(JSON.stringify(reply({ decision }))) : null));
+  await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی'); await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  const out = text(view);
+  assert.match(out, /سریع ترین/); assert.match(out, /هم ارز و واجد شرایط/); assert.match(out, /کدام برایتان مهم تر است/); assert.match(out, /داده کافی نبود/);
+  await button(view.el, 'زمان پیاده روی کمتر، سپس زمان سفر کمتر').dispatch('click'); await flushView();
+  assert.deepEqual(saved, [{ transitPriority: 'walk' }]);
+  const trips = requests.filter(r => r.url === 'api/trip');
+  assert.equal(trips.length, 2); assert.equal(trips[1].body.priority, 'walk');
+});
+
+test('without a decision block (older server) the cards render exactly as before', async t => {
+  const { view } = setup(t, { prefs: {} });
+  await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی'); await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  assert.doesNotMatch(text(view), /کدام برایتان مهم تر است/); assert.match(text(view), /۱۶:۵۴/);
 });
