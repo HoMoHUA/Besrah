@@ -32,6 +32,12 @@ describe('searchShop', () => {
     expect(r.find(p => p.id === 'tl:2')?.priceState).toBe('single_offer');
     expect(r.find(p => p.id === 'tl:3')).toMatchObject({ priceState: 'unresolved', minToman: null });
   });
+  it('says whether the sellers come from one marketplace page or several, so one page is never sold as the whole market', () => {
+    for (const p of searchShop(c, {}, NOW).products) {
+      expect(p.merchants.length).toBeGreaterThan(0);
+      expect(p.comparisonScope).toBe(p.merchants.length > 1 ? 'multi_marketplace' : 'single_marketplace');
+    }
+  });
   it('a budget keeps only products with a resolved price at or under it; unresolved never pass', () => {
     expect(searchShop(c, { maxPrice: 700_000 }, NOW).products.map(p => p.id)).toEqual(['tl:2', 'tl:4']);
     expect(searchShop(c, { maxPrice: 5_000_000 }, NOW).products.map(p => p.id)).not.toContain('tl:3');
