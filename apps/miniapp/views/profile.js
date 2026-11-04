@@ -4,6 +4,7 @@
 import { h, icon } from '../ui/dom.js';
 import { fa } from '../format.js';
 import { sanitizePrefs } from '../store.js';
+import { createReminders } from '../reminders.js';
 
 const WALK = [5, 10, 15, 20, 30];
 const PRIORITY = [['time', 'زمان رسیدن'], ['walk', 'پیاده روی کمتر'], ['balanced', 'هر دو'], ['cost', 'هزینه']];
@@ -13,6 +14,8 @@ const budgetLabel = b => (b === null ? 'بدون سقف' : `تا ${fa((b / 1000)
 
 export function createProfileView(ctx) {
   const { api, store, actions } = ctx;
+  let reminders = null;
+  try { reminders = createReminders(); } catch { /* storage unavailable */ }
   const S = { phase: 'loading', session: null, busy: false, message: '', exportText: '', confirmDelete: false, prefsVersion: 0 };
   const el = h('div', { class: 'view view--profile', dataset: { view: 'profile' } });
   const body = h('div', { class: 'pf-body' });
@@ -135,10 +138,22 @@ export function createProfileView(ctx) {
         h('span', {}, h('strong', { text: 'درباره، منبع داده و حریم خصوصی' }), h('span', { text: 'هر عدد با منشأش؛ چه چیزی کجا می رود.' })), icon('chevron_left')));
   }
 
+  function reminderCard() {
+    if (!reminders?.hasReminder()) return null;
+    const status = reminders.status();
+    return card('pf-reminder', 'یادآوری مترو', note(status === 'pending' ? 'ثبت یادآوری هنوز تأیید نشده است؛ می‌توانید آن را لغو کنید.' : status === 'cancelling' ? 'لغو هنوز تأیید نشده است؛ دوباره تلاش کنید.' : 'لغو یادآوری این دستگاه.'),
+      h('button', {type:'button', class:'cm-btn', disabled:S.busy ? 'true' : null, onClick: async () => {
+        if (S.busy) return; S.busy = true; draw();
+        try { await reminders.remove(); S.message = 'یادآوری لغو شد.'; }
+        catch { S.message = 'لغو انجام نشد؛ اتصال را بررسی و دوباره تلاش کنید.'; }
+        S.busy = false; draw();
+      }}, 'لغو یادآوری'));
+  }
+
   function draw() {
-    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), prefsCard(), privacyCard()].filter(Boolean));
+    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), reminderCard(), prefsCard(), privacyCard()].filter(Boolean));
   }
   el.append(h('header', { class: 'view__head' }, h('p', { class: 'eyebrow', text: 'PROFILE' }), h('h1', { class: 'view__title', text: 'پروفایل' }), h('p', { class: 'view__sub', text: 'ترجیحات و حساب شما؛ همه چیز اختیاری است.' })), body);
   draw();
-  return { el, onShow() { S.message = ''; S.confirmDelete = false; refresh(); } };
+  return { el, onShow() { S.message = ''; S.confirmDelete = false; draw(); refresh(); } };
 }

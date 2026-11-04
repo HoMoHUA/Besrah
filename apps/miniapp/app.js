@@ -5,6 +5,7 @@ import { createSequencer } from './async.js';
 import { nearestStation, requestPosition } from './logic.js';
 import { createState } from './state.js';
 import { createStore } from './store.js';
+import { createReminders } from './reminders.js';
 import { createTelegram } from './tg.js';
 import { createSheetHost } from './ui/sheet.js';
 import { createServiceSearch } from './ui/service-search.js';
@@ -38,6 +39,7 @@ const tg = createTelegram(window);
 tg.start();
 
 const safeStorage = (() => { try { return window.localStorage; } catch { return undefined; } })();
+if (safeStorage) void createReminders({ storage: safeStorage }).recover().catch(() => {});
 const store = createStore(safeStorage);
 const serviceStore = createServiceStore(safeStorage);
 const api = createApi();

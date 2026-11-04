@@ -1,4 +1,5 @@
 // Optional, same-line beta inside Metro. No new route, location request or travel persistence.
+import { createReminders } from '../reminders.js';
 import { createSequencer } from '../async.js';
 import { h, icon } from './dom.js';
 import { createSearchBox } from './searchbox.js';
@@ -201,6 +202,8 @@ function inputControl(id, label, type, value, change, attrs = {}) {
 
 export function createPlanner({ api, state, controller: supplied, storage, search, now, timers, embedded = false, onRetry = () => {}, stationStore = null, shortcuts = null }) {
   const controller = supplied ?? createPlannerController({ api, state, storage, search, now, timers });
+  const reminders = storage ? createReminders({ storage, now: () => controller.now() }) : null;
+  let remindersReady = false, remindersStarted = false, reminderMessage = '', reminderBusy = false;
   const root = h('section', { class: embedded ? 'journey journey--embedded' : 'journey cm-card', ...(embedded ? { 'aria-label': 'سفر با مترو' } : { 'aria-labelledby': 'journey-title' }) });
   const resultHost = h('div', { class: 'journey-result-host' });
   // A single persistent combobox serves both endpoints. No query or trip history is written.
@@ -366,8 +369,15 @@ export function createPlanner({ api, state, controller: supplied, storage, searc
         h('dl', { class: 'journey-times' }, h('div', {}, h('dt', { text: 'حرکت تخمینی' }), h('dd', { text: view.depart }), dates && para(dateLabel(option.departDate, controller.now()))),
           h('div', {}, h('dt', { text: 'رسیدن تخمینی' }), h('dd', { text: view.arrive }), dates && para(dateLabel(option.arriveDate, controller.now())))),
         para(`انتظار مدل: ${view.wait} · داخل قطار: ${view.inVehicle}`, 'journey-muted'),
-        view.derived && para(DERIVED_NOTE, 'journey-warning')));
+        view.derived && para(DERIVED_NOTE, 'journey-warning'),
+        remindersReady && !s.expired && option.eventId && option.departEpoch * 1000 >= controller.now() + 360000 && action('یادآوری این قطار، ۵ دقیقه پیش از حرکت', () => {
+          if (reminderBusy) return;
+          const task = reminders.schedule(response.request, option);
+          reminderBusy = true; reminderMessage = 'در حال ثبت یادآوری…'; render();
+          task.then(() => { reminderMessage = 'یادآوری ثبت شد؛ زمان حرکت برآورد مدل است و ارسال اعلان تضمین نمی شود.'; }, () => { reminderMessage = reminders.hasReminder() ? 'وضعیت ثبت مشخص نیست؛ هنگام بازگشت دوباره بررسی می‌شود. می‌توانید یادآوری را لغو کنید.' : 'ثبت یادآوری ممکن نشد؛ اجازه اعلان و اتصال را بررسی کنید.'; }).finally(() => { reminderBusy = false; render(); });
+        }, { disabled: reminderBusy || reminders.hasReminder() })));
     }
+    if (remindersReady && response.options?.some(o => o.eventId && o.departEpoch * 1000 >= controller.now() + 360000)) box.append(para('یادآوری اختیاری است. با انتخاب یک قطار، نشانی اشتراک اعلان تا زمان یادآوری روی سرور نگهداری می شود؛ متن اعلان جزئیات سفر ندارد. تا تأیید ثبت، اطلاعات اشتراک و سفر برای تلاش دوباره در همین دستگاه ذخیره می‌شود؛ پس از تأیید فقط کد لغو و زمان انقضا می‌ماند. پاک‌سازی محلی هنگام استفاده بعدی انجام می‌شود. امکان لغو در همین دستگاه وجود دارد.', 'journey-muted'));
     box.append(cards, ...(embedded ? [fresh, again, ...calendarWarning] : []), feedbackForm(s));
     return box;
   }
@@ -428,6 +438,15 @@ export function createPlanner({ api, state, controller: supplied, storage, searc
     controls.append(submitButton);
     resultHost.replaceChildren(results(s));
     root.append(controls, resultHost);
+    if (reminders?.hasReminder()) {
+      const status = reminders.status();
+      root.append(para(status === 'pending' ? 'ثبت یادآوری هنوز تأیید نشده است. برای انتخاب قطار دیگر، ابتدا یادآوری قبلی را لغو کنید.' : status === 'cancelling' ? 'لغو یادآوری هنوز تأیید نشده است؛ دوباره تلاش کنید.' : 'برای انتخاب قطار دیگر، ابتدا یادآوری قبلی را لغو کنید.', 'journey-muted'));
+      root.append(action('لغو یادآوری و لغو اشتراک اعلان', () => {
+        reminderBusy = true; render();
+        reminders.remove().then(() => { reminderMessage = 'درخواست لغو یادآوری انجام شد.'; }, () => { reminderMessage = 'لغو تأیید نشد؛ دوباره تلاش کنید.'; }).finally(() => { reminderBusy = false; render(); });
+      }, { disabled: reminderBusy }));
+    }
+    if (reminderMessage) root.append(h('p', { role: 'status', class: 'journey-muted', text: reminderMessage }));
     // The answer arrives below the CTA: bring it into view above the fixed nav once, when a request just finished.
     if (embedded && wasPlanning && s.busy !== 'plan' && (s.response || s.error)) {
       const target = resultHost.querySelector('.journey-summary, .journey-status'), vh = globalThis.visualViewport?.height ?? globalThis.innerHeight;
@@ -449,6 +468,9 @@ export function createPlanner({ api, state, controller: supplied, storage, searc
     picker?.refresh(); render();
   });
   render();
-  return { el: root, controller, onShow: () => controller.load(), onHide: () => { picker?.close(); if (pickerHost) setPicker(false); controller.hide(); },
+  return { el: root, controller, onShow: () => {
+    if (reminders && !remindersStarted) { remindersStarted = true; void reminders.prepare().then(ready => { remindersReady = ready; render(); }); }
+    return controller.load();
+  }, onHide: () => { picker?.close(); if (pickerHost) setPicker(false); controller.hide(); },
     refreshShortcuts() { if (embedded && !pickerHost.hidden) paintShortcuts(); }, choose };
 }

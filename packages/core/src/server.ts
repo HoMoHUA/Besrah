@@ -10,6 +10,7 @@ import { registerHomeRecommendations } from './home/recommendations.js';
 import { registerShop, type ShopRoutesOptions } from './shop/search.js';
 import { createNeshan, neshanOptionsFromEnv } from './trip/neshan.js';
 import { registerTrip, type TripRoutesOptions } from './trip/routes.js';
+import { registerWebPush } from './webpush/index.js';
 import { registerJourneyBeta, type JourneyBetaConfig } from './journey-beta/index.js';
 import type { TimetableSource } from './transit-journey/contracts.js';
 import { createTimetableModel, type TimetableModel } from './timetable-overlay.js';
@@ -102,6 +103,7 @@ export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof
 
   // Controlled beta: reads BESRAH_JOURNEY_* from the environment, default OFF. Registered before the static allowlist.
   const journey = registerJourneyBeta(app, { now, config: opts.journeyBeta, source: opts.journeySource, limiterClock: opts.limiterClock, timetable });
+  registerWebPush(app, { now, metro: journey });
   // Door-to-door planning: routing via a server-side key (absent key = honest 'unavailable'), metro legs via the beta engine.
   registerTrip(app, { now, limiterClock: opts.limiterClock, router: createNeshan(neshanOptionsFromEnv()), metro: journey, ...opts.trip });
 
