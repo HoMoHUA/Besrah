@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { gunzipSync } from 'node:zlib';
+import { assessVertical, FOOD_VERTICAL_LABELS, isMealVertical, verticalMatches, type FoodVertical, type FoodVerticalFilter, type VerticalAssessment } from './verticals.js';
 
 export const FOOD_INDEX_URL = new URL('../../../../data/food/food-index-v1.json.gz', import.meta.url);
 
@@ -25,7 +26,7 @@ export function normalizeFa(input: string): string {
 }
 
 export interface FoodVendorRef { id: string }
-interface IndexedVendor { raw: RawVendor; vText: string; iText: string[]; iName: string[]; iSide: boolean[] }
+interface IndexedVendor { raw: RawVendor; vText: string; iText: string[]; iName: string[]; iSide: boolean[]; assessment: VerticalAssessment }
 export interface FoodIndex {
   readonly vendors: ReadonlyArray<IndexedVendor>;
   readonly byId: ReadonlyMap<string, IndexedVendor>;
@@ -42,7 +43,8 @@ export function parseFoodIndex(bytes: Buffer): FoodIndex {
   if (raw.v !== 1 || !Array.isArray(raw.vendors)) throw new Error('unsupported food index');
   const vendors = raw.vendors.map<IndexedVendor>(v => ({ raw: v, vText: normalizeFa(`${v.n} ${v.b} ${v.t}`), iText: v.i.map(it => normalizeFa(`${it[0]} ${it[1]} ${it[4]}`)),
     iName: v.i.map(it => normalizeFa(`${it[0]} ${it[1]}`)),
-    iSide: v.i.map(it => SIDE_WORDS.test(normalizeFa(it[4])) || SIDE_START.test(normalizeFa(it[0]))) }));
+    iSide: v.i.map(it => SIDE_WORDS.test(normalizeFa(it[4])) || SIDE_START.test(normalizeFa(it[0]))),
+    assessment: assessVertical(v.t, v.n, v.i.map(it => it[4])) }));
   return { vendors, byId: new Map(vendors.map(v => [v.raw.id, v])), capturedFrom: raw.capturedFrom, capturedTo: raw.capturedTo, itemCount: vendors.reduce((t, v) => t + v.raw.i.length, 0) };
 }
 export function loadFoodIndex(path: URL | string = FOOD_INDEX_URL): FoodIndex {
@@ -71,10 +73,10 @@ export function distanceM(aLat: number, aLon: number, bLat: number, bLon: number
 export interface FoodQuery {
   q?: string; source?: 's' | 't' | null; maxPrice?: number | null; minPrice?: number | null;
   near?: { lat: number; lon: number } | null; radiusM?: number | null; sort?: 'relevance' | 'price' | 'distance' | 'rating';
-  limit?: number; offset?: number;
+  limit?: number; offset?: number; vertical?: FoodVerticalFilter | null;
 }
 export interface FoodVendorDto {
-  id: string; provider: 'snappfood' | 'tapsifood'; name: string; branch: string | null; category: string; address: string | null;
+  id: string; provider: 'snappfood' | 'tapsifood'; name: string; branch: string | null; category: string; vertical: FoodVertical; verticalLabel: string; verticalBasis: VerticalAssessment['basis']; address: string | null;
   lat: number; lon: number; distanceM: number | null; rating: number | null; commentCount: number | null;
   minOrderToman: number | null; minOrderState: 'known' | 'unknown';
   openSnapshot: { value: 'open' | 'closed' | 'unknown'; capturedAt: string | null; note: string };
@@ -93,9 +95,10 @@ const STALE_HOURS = 48;
 
 function vendorDto(v: RawVendor, matched: RawItem[], total: number, near: FoodQuery['near']): FoodVendorDto {
   const open = v.o === null ? 'unknown' : v.o ? 'open' : 'closed';
+  const classification = assessVertical(v.t, v.n, v.i.map(item => item[4]));
   const prices = matched.map(finalPrice).filter((p): p is number => p !== null);
   return {
-    id: v.id, provider: v.s === 's' ? 'snappfood' : 'tapsifood', name: v.n, branch: v.b || null, category: v.t, address: v.a || null, lat: v.la, lon: v.lo,
+    id: v.id, provider: v.s === 's' ? 'snappfood' : 'tapsifood', name: v.n, branch: v.b || null, category: v.t, vertical: classification.vertical, verticalLabel: FOOD_VERTICAL_LABELS[classification.vertical], verticalBasis: classification.basis, address: v.a || null, lat: v.la, lon: v.lo,
     distanceM: near ? Math.round(distanceM(near.lat, near.lon, v.la, v.lo)) : null, rating: v.r, commentCount: v.cc,
     minOrderToman: v.m, minOrderState: v.m === null ? 'unknown' : 'known',
     openSnapshot: { value: open, capturedAt: iso(v.cap), note: 'وضعیت باز یا بسته فقط در زمان ثبت دادهٔ فروشگاه دیده شده است؛ وضعیت فعلی را در پلتفرم سفارش ببینید.' },
@@ -115,6 +118,7 @@ export function searchFood(index: FoodIndex, query: FoodQuery, nowMs = Date.now(
   const hits: Array<{ v: IndexedVendor; items: RawItem[]; score: number; dist: number | null; cheapest: number | null; full: boolean }> = [];
   for (const v of index.vendors) {
     if (query.source && v.raw.s !== query.source) continue;
+    if (!verticalMatches(v.assessment.vertical, query.vertical)) continue;
     let dist: number | null = null;
     if (near) { dist = distanceM(near.lat, near.lon, v.raw.la, v.raw.lo); if (radius && dist > radius) continue; }
     // a token must appear either in the item (name, variation, menu category) or in the vendor (name, branch, category)
@@ -123,7 +127,7 @@ export function searchFood(index: FoodIndex, query: FoodQuery, nowMs = Date.now(
     // (a pizzeria's "pepperoni pastry" is not a pepperoni pizza).
     const items: RawItem[] = [], viaVendor: RawItem[] = [], named: RawItem[] = []; let best = 0, bestVia = 0, bestNamed = 0;
     for (let k = 0; k < v.raw.i.length; k++) {
-      if (v.iSide[k] && !askedForSide) continue;
+      if (isMealVertical(v.assessment.vertical) && v.iSide[k] && !askedForSide) continue;
       const text = v.iText[k];
       let inItem = 0, ok = true;
       for (const t of tokens) { if (text.includes(t)) inItem++; else if (!vendorHits.includes(t)) { ok = false; break; } }
