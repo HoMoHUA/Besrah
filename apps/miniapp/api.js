@@ -178,7 +178,7 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     // Food search and vendor menus come from this app's own server (stored snapshot); every parameter is optional and allow-listed.
     async foodSearch(query = {}, signal) {
       const params = new URLSearchParams();
-      for (const key of ['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset']) if (query[key] !== undefined && query[key] !== null && query[key] !== '') params.set(key, String(query[key]));
+      for (const key of ['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset', 'vertical']) if (query[key] !== undefined && query[key] !== null && query[key] !== '') params.set(key, String(query[key]));
       const data = await get('api/food/search?' + params, signal);
       if (!Array.isArray(data?.vendors) || !Number.isInteger(data.total) || !data.snapshot || typeof data.snapshot !== 'object') throw new ApiError('server');
       return data;
