@@ -198,7 +198,7 @@ export function createFoodView(ctx) {
           'aria-pressed': String(Boolean(store?.isSavedChoice?.('food',v.id))),
           onClick: () => { store.toggleSavedChoice('food', {id:v.id,title:v.name,vertical:v.vertical}); draw(); } },
           store?.isSavedChoice?.('food',v.id) ? 'حذف از ذخیره‌ها' : 'ذخیره فروشگاه') : null,
-        h('button', { type: 'button', class: ['cm-btn'], onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl, v.vertical) }, `سفارش در ${PROVIDERS[v.provider]}`)));
+        h('button', { type: 'button', class: ['cm-btn'], onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl, v.vertical) }, `${v.vertical && !['restaurant','fast_food','cafe'].includes(v.vertical) ? 'مشاهدهٔ محصولات در' : 'سفارش در'} ${PROVIDERS[v.provider]}`)));
   }
 
   function results() {
@@ -253,7 +253,7 @@ export function createFoodView(ctx) {
         h('span', { text: v.minOrderState === 'known' ? `حداقل سفارش ${toman(v.minOrderToman)}` : 'حداقل سفارش نامشخص' })),
       h('p', { class: 'fd-snapshot', text: `منو و قیمت ها آخرین ثبت: ${dayLabel(v.capturedAt)}. هزینهٔ ارسال، تخفیف روز و محدودهٔ ارسال را در پلتفرم ببینید.` }),
       statusPanel(v),
-      h('button', { type: 'button', class: 'cm-btn fd-order', onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl, v.vertical) }, `سفارش در ${PROVIDERS[v.provider]}`),
+      h('button', { type: 'button', class: 'cm-btn fd-order', onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl, v.vertical) }, `${v.vertical && !['restaurant','fast_food','cafe'].includes(v.vertical) ? 'مشاهدهٔ محصولات در' : 'سفارش در'} ${PROVIDERS[v.provider]}`),
       v.itemCount ? filter : null,
       groups.length ? groups.map(g => h('section', { class: 'fd-menu' }, h('h3', { text: g.category }), h('ul', { class: 'fd-items' }, g.items.map(it => h('li', { class: 'fd-item' }, h('span', { class: 'fd-item__name', text: it.name + (it.variation && it.variation !== it.name ? ` · ${it.variation}` : '') }), priceLine(it))))))
         : h('div', { class: 'empty-state' }, h('p', { text: v.itemCount ? 'موردی با این نام در منو نیست.' : 'منو در دادهٔ ثبت شده خالی است؛ منو را در پلتفرم ببینید.' })),
