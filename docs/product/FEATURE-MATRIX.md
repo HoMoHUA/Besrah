@@ -24,7 +24,8 @@
 | Mobile/email/Google/Bale login or multi-provider account linking | Not complete | Provider credentials, legal/privacy review |
 | Intelligence Core for trip / shopping / food | Code built; food via PR #1 | Not fully deployed/verified with private Production data |
 | Cross-channel memory/behavioral learning and lifecycle automation | Not complete | Requires explicit consent design + instrumentation |
-| Weekly/monthly food subscription + authorized automatic ordering | Not complete | Needs seller/provider authorization and checkout flow |
+| Explicit weekly food-category planning | Phase 3–5 code; PR pending | Device-local, manually selected only; searches provider listings |
+| Monthly subscription + authorized automatic ordering | Not complete | Needs seller/provider authorization and checkout flow |
 | Optional Web Push metro reminder | Code built | VAPID, HTTPS, real WebView and device confirmation required |
 | Internal wallet/Bespay | Not built | Separate regulated/payment-provider integration |
 | CI Core/MiniApp/Node/Python | GitHub Actions running after PR #1 | Private archives and VPS integrations explicitly not reproducible in public CI |
