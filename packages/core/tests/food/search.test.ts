@@ -130,8 +130,12 @@ describe.skipIf(!existsSync(FOOD_INDEX_URL))('the committed Mashhad snapshot', (
     expect(r.total).toBeGreaterThan(0);
     for (const v of r.vendors) for (const it of v.matched) expect(it.finalPriceToman!).toBeLessThanOrEqual(150000);
   });
-  it('no grocery or herbalist is listed as a restaurant', () => {
-    for (const v of idx.vendors) expect(v.raw.n).not.toMatch(/هایپر|عطاری|قصابی|سوپر|گیاهان|دارویی|پروتئین|روغنکده/);
+  it('vendor types remain explicit; retail vendors are not mislabeled as restaurants', () => {
+    for (const v of idx.vendors) {
+      expect(v.assessment.vertical).toMatch(/^(restaurant|fast_food|cafe|sweets|bakery|flowers|grocery|produce|protein|nuts|other)$/);
+      if (/هایپر|عطاری|قصابی|سوپرمارکت|گلفروشی/.test(v.raw.t))
+        expect(v.assessment.vertical).not.toBe('restaurant');
+    }
   });
 });
 
