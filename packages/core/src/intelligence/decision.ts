@@ -48,6 +48,7 @@ export function evaluateDecision(value: unknown): DecisionResult {
     // Reuse request-local bounds for labels; never reparse evidence per option/peer pair.
     const labelBounds = new Map(peers.map(peer => [peer.id, {
       totalCostToman: metricBounds(peer.metrics.totalCostToman, context.at),
+      listedItemPriceToman: metricBounds(peer.metrics.listedItemPriceToman, context.at),
       durationSeconds: metricBounds(peer.metrics.durationSeconds, context.at),
     }]));
     for (const candidate of chosen) {
