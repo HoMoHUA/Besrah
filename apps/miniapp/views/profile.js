@@ -10,6 +10,11 @@ const WALK = [5, 10, 15, 20, 30];
 const PRIORITY = [['time', 'زمان رسیدن'], ['walk', 'پیاده روی کمتر'], ['balanced', 'هر دو'], ['cost', 'هزینه']];
 const FOOD = [null, 100000, 150000, 250000, 400000];
 const SHOP = [null, 500000, 1000000, 2000000, 5000000];
+const FOOD_VERTICALS = [
+  ['restaurant','غذای ایرانی'],['fast_food','فست‌فود'],['cafe','کافه'],
+  ['sweets','شیرینی و دسر'],['bakery','نانوایی'],['flowers','گل و هدیه'],
+  ['grocery','سوپرمارکت'],['produce','میوه و سبزی'],['protein','پروتئین'],['nuts','آجیل'],['other','سایر']
+];
 const budgetLabel = b => (b === null ? 'بدون سقف' : `تا ${fa((b / 1000).toLocaleString('en-US'))} هزار`);
 
 export function createProfileView(ctx) {
@@ -116,6 +121,14 @@ export function createProfileView(ctx) {
         h('div', { class: 'fd-row' }, FOOD.map(b => chip(budgetLabel(b), (p.foodBudgetToman ?? null) === b, () => setPref('foodBudgetToman', b))))),
       h('div', { role: 'group', 'aria-label': 'سقف قیمت کالا' }, h('p', { class: 'pf-label', text: 'سقف قیمت کالا در بسپی' }),
         h('div', { class: 'fd-row' }, SHOP.map(b => chip(b === null ? 'بدون سقف' : b >= 1000000 ? `تا ${fa(b / 1000000)} میلیون` : `تا ${fa(b / 1000)} هزار`, (p.shopBudgetToman ?? null) === b, () => setPref('shopBudgetToman', b))))),
+      h('div', { role: 'group', 'aria-label': 'دسته‌های مورد علاقه' },
+        h('p', { class: 'pf-label', text: 'دسته‌های مورد علاقهٔ من (حداکثر ۴ مورد)' }),
+        h('div', { class: 'fd-row' }, FOOD_VERTICALS.map(([id, label]) => chip(label, (p.foodPreferredVerticals ?? []).includes(id), () => {
+          const selected = p.foodPreferredVerticals ?? [];
+          if (!selected.includes(id) && selected.length >= 4) { S.message = 'حداکثر چهار دسته را انتخاب کنید؛ ابتدا یک دسته را بردارید.'; draw(); return; }
+          return setPref('foodPreferredVerticals', selected.includes(id) ? selected.filter(v => v !== id) : [...selected, id]);
+        }))),
+        note('فقط انتخاب صریح شما ذخیره می‌شود. این موارد در نمایش دسته‌ها و پیشنهادهای مناسب همان ساعت اثر دارند؛ سابقهٔ مرور یا سفارش جمع‌آوری نمی‌شود.')),
       note('سقف پیاده روی و اولویت سفر همین حالا در مسیر مکان به مکان اعمال می شوند (هسته تصمیم گیری گزینه ها را با آن می سنجد). «هزینه» فعلاً اثری ندارد چون نرخ مسیرها را نداریم. سقف قیمت غذا و کالا نقطهٔ شروع جست وجوی بسفود و بسپی است.'));
   }
 
