@@ -6,7 +6,7 @@
 |---|---|---|
 | Destination-first home, optional GPS as origin, manual fallback | Implemented | U7/U10 historically deployed; current phone QA required |
 | Home time + (optional) location recommendations | Implemented | Needs real Android 10 QA |
-| Explicit home need: coffee, sweets, gifts/flowers, everyday grocery | Phase 3–5 code; PR pending | Not deployed; no invented special occasions |
+| Explicit home need: coffee, sweets, gifts/flowers, everyday grocery | Merged in PR #2 (907b0c3), not deployed | Not deployed; no invented special occasions |
 | Up to two end-to-end transit options and Neshan walking/car legs | Implemented | Only tested scope; not bus/metro/taxi optimization |
 | Metro timetable model, board, tracker and station favorites | Implemented | Schedules are models, never live GPS |
 | Interline transfer and verified internal station geometry | Not complete | Requires field geometry and real timings |
@@ -16,15 +16,15 @@
 | Food price comparisons through Intelligence Core | Implemented, scope limited to fresh equivalent menu items on one page | Snapshot older than TTL yields no “lowest” label; delivery cost unknown |
 | Food preference categories and budget in profile | Implemented and opt-in | Consent required to sync cross-device |
 | Saved marketplace merchants/products | On-device only | Source ready, not server-synced; user can remove |
-| Saved tab integrates services + marketplace references | Phase 3–5 code; PR pending | Needs real device QA |
+| Saved tab integrates services + marketplace references | Merged in PR #2 (907b0c3), not deployed | Needs real device QA |
 | Shopping curated offer comparison and source timestamps | Implemented on small catalog | Private catalog not included in public GitHub |
-| Shopping offer variant verification and truthful listed-price label | Phase 3–5 code; PR pending | Existing source may have no fully verified variants; no claim of best final cost |
+| Shopping offer variant verification and truthful listed-price label | Merged in PR #2 (907b0c3), not deployed | Existing source may have no fully verified variants; no claim of best final cost |
 | Multi-source fresh shopping price and stock tracking | Not complete | Requires legitimate provider feeds + variant identity |
 | Telegram Mini App profile, login, consent, export, deletion | Code built; reported U10 deployed | Real Android Telegram login QA outstanding |
 | Mobile/email/Google/Bale login or multi-provider account linking | Not complete | Provider credentials, legal/privacy review |
 | Intelligence Core for trip / shopping / food | Code built; food via PR #1 | Not fully deployed/verified with private Production data |
 | Cross-channel memory/behavioral learning and lifecycle automation | Not complete | Requires explicit consent design + instrumentation |
-| Explicit weekly food-category planning | Phase 3–5 code; PR pending | Device-local, manually selected only; searches provider listings |
+| Explicit weekly food-category planning | Merged in PR #2 (907b0c3), not deployed | Device-local, manually selected only; searches provider listings |
 | Monthly subscription + authorized automatic ordering | Not complete | Needs seller/provider authorization and checkout flow |
 | Optional Web Push metro reminder | Code built | VAPID, HTTPS, real WebView and device confirmation required |
 | Internal wallet/Bespay | Not built | Separate regulated/payment-provider integration |
