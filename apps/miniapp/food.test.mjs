@@ -138,7 +138,7 @@ test('the vendor page lists the menu with unknown prices marked, a platform orde
   assert.match(text(view), /قیمت نامشخص/);
   assert.match(text(view), /سفارش در تپسی فود/);
   await button(view.el, 'بررسی وضعیت').dispatch('click'); await flushView();
-  assert.match(byClass(view.el, 'food-card__status').textContent, /وضعیت سفارش در محدودهٔ رستوران: نامشخص/);
+  assert.match(byClass(view.el, 'food-card__status').textContent, /وضعیت ثبت‌شدهٔ این فروشگاه: نامشخص/);
   assert.doesNotMatch(byClass(view.el, 'food-card__status').textContent, /زمان بررسی/);
   assert.deepEqual(requests.filter(r => r.url.startsWith('api/food-status')).map(r => r.url), ['api/food-status?vendor=aaa']);
   await findAll(view.el, n => n.tagName === 'button' && n.getAttribute('aria-label') === 'بازگشت به نتایج')[0].dispatch('click'); await flushView();
