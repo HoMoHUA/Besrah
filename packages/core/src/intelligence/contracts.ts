@@ -2,7 +2,7 @@
 export const SCHEMA_VERSION = 1 as const;
 export const LIMITS = Object.freeze({ candidates: 128, objectives: 6, constraints: 16, preferences: 64, evidencePerMetric: 8, text: 512 });
 export type Domain = 'transit' | 'food' | 'shopping';
-export const METRIC_UNITS = Object.freeze({ totalCostToman: 'toman', durationSeconds: 'seconds', walkingSeconds: 'seconds', transfers: 'count', quality: 'score_0_100', arrivalEpochSeconds: 'epoch_seconds' } as const);
+export const METRIC_UNITS = Object.freeze({ totalCostToman: 'toman', listedItemPriceToman: 'toman', distanceMeters: 'meters', durationSeconds: 'seconds', walkingSeconds: 'seconds', transfers: 'count', quality: 'score_0_100', arrivalEpochSeconds: 'epoch_seconds' } as const);
 export type MetricKey = keyof typeof METRIC_UNITS;
 export type Unit = typeof METRIC_UNITS[MetricKey];
 export interface Evidence {
@@ -79,7 +79,7 @@ export interface ComparisonGroup {
   comparisonComplete: boolean;
   pairComparisons: number;
 }
-export type OptionLabel = 'fastest' | 'lowest_cost' | 'preference_match' | 'pareto_option';
+export type OptionLabel = 'fastest' | 'lowest_cost' | 'lowest_listed_item_price' | 'preference_match' | 'pareto_option';
 export interface Claim { code: string; text: string; refs: MetricRef[] }
 export interface Explanation { candidateId: string; claims: Claim[] }
 export interface UsefulQuestion {
