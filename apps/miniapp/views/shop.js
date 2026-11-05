@@ -120,8 +120,8 @@ export function createShopView(ctx) {
 
   el.append(h('header', { class: 'metro-head' },
     h('button', { type: 'button', class: 'btn-back', onClick: () => actions.go('services'), 'aria-label': 'بازگشت' }, '←'),
-    h('div', null, h('h1', null, 'بسپی'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
-    h('div', { class: 'pay-soon', role: 'note' }, h('b', { text: 'پرداخت و کیف پول' }), h('span', { class: 'cm-badge', text: 'به زودی' }), h('p', { text: 'پرداخت درون برنامه هنوز ساخته نشده و زمانی برایش اعلام نشده است. فعلاً قیمت ها را مقایسه کنید و خرید را در فروشگاه انجام دهید.' })),
+    h('div', null, h('h1', null, 'بسخرید'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
+    h('div', { class: 'pay-soon', role: 'note' }, h('b', { text: 'بسپی · پرداخت و کیف پول' }), h('span', { class: 'cm-badge', text: 'به زودی' }), h('p', { text: 'پرداخت درون برنامه هنوز ساخته نشده و زمانی برایش اعلام نشده است. فعلاً قیمت ها را مقایسه کنید و خرید را در فروشگاه انجام دهید.' })),
     searchBox, body);
   draw();
   let started = false;
