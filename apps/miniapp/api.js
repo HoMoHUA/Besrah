@@ -98,8 +98,9 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     async accountSavePreferences(expectedVersion, values, signal) { return post('api/account/preferences', { expectedVersion, values }, signal); },
     async accountExport(signal) { return post('api/account/export', {}, signal); },
     async accountDelete(signal) { return post('api/account/delete', { confirm: 'DELETE' }, signal); },
-    async homeSuggestions(point, signal) {
-      const data = await post('api/recommendations/home', point ? { lat: point.lat, lon: point.lon } : {}, signal);
+    async homeSuggestions(point, signal, preferredVerticals = []) {
+      const payload = { ...(point ? { lat: point.lat, lon: point.lon } : {}), ...(preferredVerticals.length ? { preferredVerticals } : {}) };
+      const data = await post('api/recommendations/home', payload, signal);
       if (data?.schemaVersion !== 1 || !Array.isArray(data.cards) || data.cards.length > 2) throw new ApiError('server');
       return data;
     },
