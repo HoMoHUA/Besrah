@@ -80,15 +80,15 @@ test('errors and an unavailable catalog show retry; empty results explain the sm
 });
 
 test('the Core label is shown on the cheapest resolved offer with its own sentence, and the caveat about colour, warranty and shipping', async t => {
-  const decision = { status: 'ok', notes: ['رنگ، گارانتی، ارسال و موجودی مقایسه نشده؛ برچسب فقط میان پیشنهادهای قیمت دار همین صفحه است.'],
-    bySeller: { 'الف': { labels: ['کم هزینه ترین پیشنهاد ثبت شده'], claims: ['x'] }, 'ب': { labels: [], claims: [] }, 'ج': { labels: [], claims: [] } } };
+  const decision = { status: 'ok', notes: ['برچسب فقط برای کالاهای دارای واریانت تأییدشده و قیمت تازه در همین فهرست است؛ ارسال، گارانتی و موجودی بررسی نشده‌اند.'],
+    bySeller: { 'الف': { labels: ['کمترین قیمت ثبت‌شدهٔ کالا در همین فهرست'], claims: ['x'] }, 'ب': { labels: [], claims: [] }, 'ج': { labels: [], claims: [] } } };
   const { view } = setup(t, url => (url.startsWith('api/shop/product') ? new Response(JSON.stringify({ ...product('tl:1', 'هدفون سونی'), decision, offers: [offer('الف', 'resolved', 1000000), offer('ب', 'unresolved', null, { priceCandidatesToman: [1100000, 1200000] }), offer('ج', 'quarantined', null)],
     spread: null, snapshot: { observedAt: OBS, ageHours: 5, stale: false }, variantBasis: 'x', notes: [] })) : null));
   view.onShow(); await flushView();
   await button(view.el, 'مقایسهٔ فروشندگان').dispatch('click'); await flushView();
   const out = text(view);
-  assert.equal((out.match(/کم هزینه ترین پیشنهاد ثبت شده/g) ?? []).length, 1);
-  assert.match(out, /رنگ، گارانتی، ارسال و موجودی مقایسه نشده/);
+  assert.equal((out.match(/کمترین قیمت ثبت‌شدهٔ کالا در همین فهرست/g) ?? []).length, 1);
+  assert.match(out, /ارسال، گارانتی و موجودی بررسی نشده‌اند/);
   assert.doesNotMatch(out, /ارزان ترین بازار/);
 });
 
