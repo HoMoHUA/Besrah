@@ -18,7 +18,7 @@ const RULES: ReadonlyArray<[FoodVertical,RegExp]> = [
   ['grocery',/سوپرمارکت|سوپر مارکت|هایپر|خواربار|فروشگاه زنجیره ای|کالای اساسی|خرید روزانه|سوپر|grocery|supermarket|hypermarket/],
   ['sweets',/شیرینی|قنادی|کیک|بستنی|دسر|دونات|ژلاتو|کوکی|شکلات فروشی|باقلوا|pastry|confectionery|dessert|ice cream|cake|sweets/],
   ['bakery',/نانوایی|نانوائی|نان فانتزی|نان سنتی|نان داغ|نانوا|bakery|bread/],
-  ['cafe',/کافه|کافی شاپ|قهوه|آبمیوه|آب میوه|اسموتی/],
+  ['cafe',/کافه|کافی شاپ|قهوه|ابمیوه|اب میوه|اسموتی|cafe|coffee|juice bar|beverage/],
   ['fast_food',/فست فود|فستفود|پیتزا|ساندویچ|برگر|سوخاری|fast food|pizza|burger|sandwich/],
   ['restaurant',/رستوران|غذای ایرانی|چلو|کباب|غذاخوری|دیزی|آشپزخانه|کترینگ|تهیه غذا|غذای خانگی|طباخی|restaurant|catering/],
 ];
