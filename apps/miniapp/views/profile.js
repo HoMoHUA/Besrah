@@ -159,7 +159,7 @@ export function createProfileView(ctx) {
         h('div', { class: 'fd-row' }, chip('روشن', synced(), () => { if (!synced()) toggleSync(); }), chip('خاموش', !synced(), () => { if (synced()) toggleSync(); })),
         note('با خاموش کردن، نسخهٔ همگام شده از سرور پاک می شود و نسخهٔ این دستگاه می ماند.')) : null,
       h('div', { class: 'fd-actions' },
-        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { store.clearRecents(); store.setPrefs({}); store.clearSavedChoices?.(); S.message = 'ایستگاه های اخیر و ترجیحات این دستگاه پاک شد.'; draw(); } }, 'پاک کردن داده های این دستگاه'),
+        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { store.clearRecents(); store.setPrefs({}); store.clearSavedChoices?.(); store.clearMealPlan?.(); S.message = 'ایستگاه های اخیر و ترجیحات این دستگاه پاک شد.'; draw(); } }, 'پاک کردن داده های این دستگاه'),
         S.phase === 'user' ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], disabled: S.busy ? 'true' : null, onClick: exportData }, 'دریافت داده های حساب') : null,
         S.phase === 'user' ? h('button', { type: 'button', class: ['cm-btn', S.confirmDelete ? 'pf-danger' : 'cm-btn--ghost'], disabled: S.busy ? 'true' : null, onClick: deleteAccount }, S.confirmDelete ? 'برای حذف دوباره لمس کنید' : 'حذف حساب') : null),
       S.exportText ? h('pre', { class: 'pf-export', tabindex: '0', 'aria-label': 'داده های حساب' }, S.exportText) : null,
