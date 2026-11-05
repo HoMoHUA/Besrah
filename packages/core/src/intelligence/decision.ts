@@ -53,7 +53,7 @@ export function evaluateDecision(value: unknown): DecisionResult {
     for (const candidate of chosen) {
       const labels: OptionLabel[] = group.comparisonComplete ? ['pareto_option'] : [];
       if (result.preference.order) labels.push('preference_match');
-      if (group.comparisonComplete) for (const [metric, label] of [['totalCostToman', 'lowest_cost'], ['durationSeconds', 'fastest']] as const) {
+      if (group.comparisonComplete) for (const [metric, label] of [['totalCostToman', 'lowest_cost'], ['listedItemPriceToman', 'lowest_listed_item_price'], ['durationSeconds', 'fastest']] as const) {
         if (!context.objectives.some(o => o.metric === metric && o.direction === 'min')) continue;
         const bound = labelBounds.get(candidate.id)![metric];
         if (bound && peers.every(other => {
