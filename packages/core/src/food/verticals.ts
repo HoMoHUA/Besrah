@@ -11,16 +11,16 @@ export const FOOD_VERTICAL_LABELS: Record<FoodVertical,string> = {
 const fold=(value:unknown):string=>String(value??'').toLowerCase().replace(/[يى]/g,'ی').replace(/ك/g,'ک').replace(/[أإآ]/g,'ا')
   .replace(/[\u200c\u200f\u064b-\u065f]/g,' ').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
 const RULES: ReadonlyArray<[FoodVertical,RegExp]> = [
-  ['flowers',/گل فروشی|گلفروشی|گل و گیاه|گل و هدیه|دسته گل|باکس گل|گیاه زینتی|شاخه گل|فلوریست/],
-  ['nuts',/اجیل|خشکبار|عطاری|ادویه|گیاهان دارویی|مغزیجات/],
-  ['produce',/میوه|سبزی|تره بار|صیفی/],
-  ['protein',/قصابی|پروتئین|گوشت فروشی|مرغ فروشی|ماهی فروشی/],
-  ['grocery',/سوپرمارکت|سوپر مارکت|هایپر|خواربار|فروشگاه زنجیره ای|کالای اساسی|خرید روزانه|سوپر/],
-  ['sweets',/شیرینی|قنادی|کیک|بستنی|دسر|دونات|ژلاتو|کوکی|شکلات فروشی|باقلوا/],
-  ['bakery',/نانوایی|نانوائی|نان فانتزی|نان سنتی|نان داغ|نانوا/],
+  ['flowers',/گل فروشی|گلفروشی|گل و گیاه|گل و هدیه|دسته گل|باکس گل|گیاه زینتی|شاخه گل|فلوریست|florist|flower shop|flowers?/],
+  ['nuts',/اجیل|خشکبار|عطاری|ادویه|گیاهان دارویی|مغزیجات|nuts|dried fruit|herbal/],
+  ['produce',/میوه|سبزی|تره بار|صیفی|produce|greengrocer|fruit|vegetable/],
+  ['protein',/قصابی|پروتئین|گوشت فروشی|مرغ فروشی|ماهی فروشی|butcher|protein|fish market/],
+  ['grocery',/سوپرمارکت|سوپر مارکت|هایپر|خواربار|فروشگاه زنجیره ای|کالای اساسی|خرید روزانه|سوپر|grocery|supermarket|hypermarket/],
+  ['sweets',/شیرینی|قنادی|کیک|بستنی|دسر|دونات|ژلاتو|کوکی|شکلات فروشی|باقلوا|pastry|confectionery|dessert|ice cream|cake|sweets/],
+  ['bakery',/نانوایی|نانوائی|نان فانتزی|نان سنتی|نان داغ|نانوا|bakery|bread/],
   ['cafe',/کافه|کافی شاپ|قهوه|آبمیوه|آب میوه|اسموتی/],
-  ['fast_food',/فست فود|فستفود|پیتزا|ساندویچ|برگر|سوخاری/],
-  ['restaurant',/رستوران|غذای ایرانی|چلو|کباب|غذاخوری|دیزی|آشپزخانه|کترینگ|تهیه غذا|غذای خانگی|طباخی/],
+  ['fast_food',/فست فود|فستفود|پیتزا|ساندویچ|برگر|سوخاری|fast food|pizza|burger|sandwich/],
+  ['restaurant',/رستوران|غذای ایرانی|چلو|کباب|غذاخوری|دیزی|آشپزخانه|کترینگ|تهیه غذا|غذای خانگی|طباخی|restaurant|catering/],
 ];
 const classify=(text:string):FoodVertical|null=>RULES.find(([,rx])=>rx.test(text))?.[0]??null;
 export interface VerticalAssessment {vertical:FoodVertical;basis:'provider_category'|'vendor_name'|'menu_majority'|'unclassified'}
