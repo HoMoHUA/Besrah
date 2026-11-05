@@ -22,7 +22,7 @@ test('home shows exactly the three services, a destination-first card, and each 
   assert.deepEqual(calls, [['service', 'besrah'], ['service', 'food'], ['service', 'pay'], ['go', 'trip', { focus: 'to' }], ['hero', 'locate'], ['go', 'saved', undefined], ['go', 'services', undefined]]);
   const text = view.el.textContent;
   assert.match(text, /کجا می روید/); assert.match(text, /از موقعیت فعلی شما/); assert.match(text, /هر عدد با منشأش می آید/);
-  assert.doesNotMatch(text, /رهیاب|بسخرید|مبدأ\n?مقصد/);
+  assert.match(text, /بسخرید/); assert.doesNotMatch(text, /رهیاب|مبدأ\n?مقصد/);
 });
 
 test('segmented tabs select once, ignore the active tab and move with the arrow keys', t => {

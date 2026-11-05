@@ -194,6 +194,16 @@ describe('home recommendations', () => {
     const clockWithGiftOnly = homeRecommendations(NOW, stations, null, ['flowers']);
     expect(clockWithGiftOnly.cards[0]!.cta).toMatchObject({ type: 'food', vertical: 'restaurant' });
   });
+  it('explicit gift/coffee/sweets/grocery intent overrides time, not invented private occasions', () => {
+    for (const [intent, vertical] of [['gift','flowers'],['coffee','cafe'],['sweets','sweets'],['essentials','grocery']] as const) {
+      const r = homeRecommendations(NOW, stations, null, [], intent);
+      expect(r.cards).toHaveLength(1);
+      expect(r.cards[0]!.cta).toEqual({ type:'food', vertical });
+      expect(r.cards[0]!.evidence.kind).toBe('user_intent');
+      expect(r.cards[0]!.why).toContain('خودتان');
+      expect(r.note).not.toMatch(/تولد|مناسبت خاص/);
+    }
+  });
   it('a point far from every station yields no transit card', () => {
     expect(homeRecommendations(NOW, stations, { lat: 36.6, lon: 60.1 }).cards.map(c => c.kind)).toEqual(['food']);
   });
@@ -207,6 +217,10 @@ describe('home recommendations', () => {
     expect((await post({ lat: 'x', lon: 1 })).statusCode).toBe(400);
     expect((await post({ lat: 36.3 })).statusCode).toBe(400);
     expect((await post({ lat: 36.3, lon: 59.6, extra: 1 })).statusCode).toBe(400);
+    expect((await post({ intent: 'birthdate_from_contacts' })).statusCode).toBe(400);
+    const flower = await post({ intent: 'gift' });
+    expect(flower.statusCode).toBe(200);
+    expect(flower.json().cards[0].cta).toMatchObject({type:'food',vertical:'flowers'});
     expect((await post({}, 'text/plain')).statusCode).toBe(415);
     await app.close();
   });
