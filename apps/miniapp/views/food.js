@@ -151,6 +151,10 @@ export function createFoodView(ctx) {
       v.matchedCount > v.matched.length ? h('p', { class: 'fd-card__sub', text: `و ${fa(v.matchedCount - v.matched.length)} قلم دیگر در منو` }) : null,
       h('div', { class: 'fd-actions' },
         h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => openVendor(v.id) }, 'منو و جزئیات'),
+        store?.toggleSavedChoice ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'],
+          'aria-pressed': String(Boolean(store?.isSavedChoice?.('food',v.id))),
+          onClick: () => { store.toggleSavedChoice('food', {id:v.id,title:v.name,vertical:v.vertical}); draw(); } },
+          store?.isSavedChoice?.('food',v.id) ? 'حذف از ذخیره‌ها' : 'ذخیره فروشگاه') : null,
         h('button', { type: 'button', class: ['cm-btn'], onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl) }, `سفارش در ${PROVIDERS[v.provider]}`)));
   }
 
