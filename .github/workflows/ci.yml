@@ -65,5 +65,11 @@ jobs:
         env:
           TMPDIR: /home/runner/besrah-ci-tmp
       - run: python -m unittest discover -s tests/shop -p 'test_*.py'
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
       - run: python -m unittest discover -s tests/data -p 'test_*.py'
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
       - run: python -m unittest discover -s tests/release -p 'test_*.py'
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
