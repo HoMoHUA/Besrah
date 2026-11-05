@@ -4,7 +4,7 @@ import { groupKey, preferredCandidates } from './compare.js';
 import { metricBounds } from './metrics.js';
 
 const names: Record<MetricKey, string> = {
-  totalCostToman: 'هزینه', durationSeconds: 'زمان سفر', walkingSeconds: 'زمان پیاده روی',
+  totalCostToman: 'هزینه', listedItemPriceToman: 'قیمت ثبت‌شدهٔ قلم', distanceMeters: 'فاصلهٔ هوایی', durationSeconds: 'زمان سفر', walkingSeconds: 'زمان پیاده روی',
   transfers: 'تعداد تعویض', quality: 'کیفیت', arrivalEpochSeconds: 'زمان رسیدن',
 };
 
