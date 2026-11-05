@@ -3,6 +3,7 @@
 import type { FastifyInstance, FastifyReply } from 'fastify';
 import { foodVendorDetail, loadFoodIndex, searchFood, type FoodIndex, type FoodQuery } from './search.js';
 import { FOOD_VERTICALS, type FoodVerticalFilter } from './verticals.js';
+import { decideFoodResults } from './decision.js';
 
 const MASHHAD = { latMin: 35.9, latMax: 36.7, lonMin: 59.0, lonMax: 60.2 };
 const SEARCH_KEYS = new Set(['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset', 'vertical']);
@@ -61,7 +62,7 @@ export function registerFood(app: FastifyInstance, opts: FoodRoutesOptions = {})
     const result = searchFood(idx, { q: text, source, maxPrice: maxPrice ?? null, minPrice: minPrice ?? null, near: where.near, radiusM: radiusKm != null ? radiusKm * 1000 : null,
       sort: sort as FoodQuery['sort'], limit: limit ?? undefined, offset: offset ?? undefined, vertical: vertical as FoodVerticalFilter | undefined }, opts.now?.() ?? Date.now());
     if (where.note) result.notes.push(where.note);
-    return head(reply).send(result);
+    return head(reply).send({ ...result, decision: decideFoodResults(result.vendors, opts.now?.() ?? Date.now()) });
   });
 
   app.get<{ Querystring: Query }>('/app/api/food/vendor', async (req, reply) => {
