@@ -26,7 +26,11 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run typecheck
       - run: npm run build
+      - name: Prepare strictly private temporary directory for feedback integrity tests
+        run: mkdir -p /home/runner/besrah-ci-tmp && chmod 700 /home/runner/besrah-ci-tmp
       - run: npm test -- --reporter=dot
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
       - name: Record unavailable private datasets
         run: |
           test ! -e ../../data/food/food-index-v1.json.gz
@@ -55,7 +59,11 @@ jobs:
       - name: Build Core before release preview tests
         working-directory: packages/core
         run: npm ci --no-audit --no-fund && npm run build
+      - name: Prepare strictly private temporary directory for data builder tests
+        run: mkdir -p /home/runner/besrah-ci-tmp && chmod 700 /home/runner/besrah-ci-tmp
       - run: node --test tests/data/*.test.mjs tests/n8n/*.test.mjs tests/release/*.test.mjs
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
       - run: python -m unittest discover -s tests/shop -p 'test_*.py'
       - run: python -m unittest discover -s tests/data -p 'test_*.py'
       - run: python -m unittest discover -s tests/release -p 'test_*.py'
