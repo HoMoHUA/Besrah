@@ -25,11 +25,13 @@ export const distanceLabel = meters => (meters < 1000 ? `${fa(Math.max(50, Math.
 const round3 = n => Math.round(n * 1000) / 1000;
 
 // Native app first on mobile, web link as the fallback.
-function openPlatformVendor(provider, code, webUrl) {
+function openPlatformVendor(provider, code, webUrl, vertical) {
   if (typeof window === 'undefined') return;
   const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   const open = url => (window.Telegram?.WebApp?.openLink ? window.Telegram.WebApp.openLink(url) : window.open(url, '_blank', 'noopener,noreferrer'));
-  if (!mobile) { window.open(webUrl, '_blank', 'noopener,noreferrer'); return; }
+  // Legacy app links explicitly target restaurant screens. Other marketplace types
+  // (flowers, pastries, grocery, café) must use the stored real provider URL.
+  if (!mobile || !['restaurant', 'fast_food'].includes(vertical)) { open(webUrl); return; }
   if (/Android/i.test(navigator.userAgent) && provider === 'snappfood') {
     window.location.href = `intent://restaurant/${code}#Intent;scheme=snappfood;package=com.zoodfood.android;S.browser_fallback_url=${encodeURIComponent(webUrl)};end`;
     return;
@@ -150,12 +152,12 @@ export function createFoodView(ctx) {
       v.matched.length ? h('ul', { class: 'fd-items' }, v.matched.map(it => h('li', { class: 'fd-item' }, h('span', { class: 'fd-item__name', text: it.name + (it.variation && it.variation !== it.name ? ` · ${it.variation}` : '') }), priceLine(it)))) : h('p', { class: 'fd-card__sub', text: 'منو در دادهٔ ثبت شده خالی است.' }),
       v.matchedCount > v.matched.length ? h('p', { class: 'fd-card__sub', text: `و ${fa(v.matchedCount - v.matched.length)} قلم دیگر در منو` }) : null,
       h('div', { class: 'fd-actions' },
-        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => openVendor(v.id) }, 'منو و جزئیات'),
+        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => openVendor(v.id) }, v.vertical && !['restaurant','fast_food','cafe'].includes(v.vertical) ? 'محصولات و جزئیات' : 'منو و جزئیات'),
         store?.toggleSavedChoice ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'],
           'aria-pressed': String(Boolean(store?.isSavedChoice?.('food',v.id))),
           onClick: () => { store.toggleSavedChoice('food', {id:v.id,title:v.name,vertical:v.vertical}); draw(); } },
           store?.isSavedChoice?.('food',v.id) ? 'حذف از ذخیره‌ها' : 'ذخیره فروشگاه') : null,
-        h('button', { type: 'button', class: ['cm-btn'], onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl) }, `سفارش در ${PROVIDERS[v.provider]}`)));
+        h('button', { type: 'button', class: ['cm-btn'], onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl, v.vertical) }, `سفارش در ${PROVIDERS[v.provider]}`)));
   }
 
   function results() {
@@ -183,7 +185,7 @@ export function createFoodView(ctx) {
       const fresh = item?.observedAt && Date.now() - Date.parse(item.observedAt) < 60_000;
       const labels = { open: 'باز', closed: 'بسته', out_of_coverage: 'خارج از محدودهٔ پوشش', unknown: 'نامشخص' };
       panel.replaceChildren(
-        h('p', null, `وضعیت سفارش در محدودهٔ رستوران: ${fresh ? labels[item.status] : 'نامشخص'}`),
+        h('p', null, `وضعیت ثبت‌شدهٔ این فروشگاه: ${fresh ? labels[item.status] : 'نامشخص'}`),
         h('p', null, 'این وضعیت برای موقعیت شما یا امکان ارسال به شما نیست.'),
         h('button', { type: 'button', class: 'cm-btn cm-btn--ghost cm-btn--sm', disabled: item?.loading ? 'true' : null, onClick: async () => {
           statusMemo.set(v.orderCode, { loading: true }); draw1();
@@ -205,7 +207,7 @@ export function createFoodView(ctx) {
     const filter = h('input', { class: 'fd-input', type: 'search', placeholder: 'جست وجو در منوی این فروشگاه', 'aria-label': 'جست وجو در منو', value: d.filter });
     filter.addEventListener('input', () => { d.filter = filter.value; const caret = filter.value.length; draw(); const next = body.querySelector('.fd-detail .fd-input'); next?.focus?.(); next?.setSelectionRange?.(caret, caret); });
     return h('div', { class: 'fd-detail' }, back,
-      h('header', { class: 'fd-detail__head' }, h('h2', { text: v.name + (v.branch ? ` · ${v.branch}` : '') }), h('p', { class: 'fd-card__sub', text: `${v.category} · ${PROVIDERS[v.provider]}` }), v.address ? h('p', { class: 'fd-card__sub', text: v.address }) : null),
+      h('header', { class: 'fd-detail__head' }, h('h2', { text: v.name + (v.branch ? ` · ${v.branch}` : '') }), h('p', { class: 'fd-card__sub', text: `${v.verticalLabel || v.category} · ${PROVIDERS[v.provider]}` }), v.address ? h('p', { class: 'fd-card__sub', text: v.address }) : null),
       h('p', { class: 'fd-card__meta' }, v.rating ? h('span', { text: `امتیاز ${fa(v.rating)}` }) : null, v.distanceM != null ? h('span', { text: distanceLabel(v.distanceM) }) : null,
         h('span', { text: v.minOrderState === 'known' ? `حداقل سفارش ${toman(v.minOrderToman)}` : 'حداقل سفارش نامشخص' })),
       h('p', { class: 'fd-snapshot', text: `منو و قیمت ها آخرین ثبت: ${dayLabel(v.capturedAt)}. هزینهٔ ارسال، تخفیف روز و محدودهٔ ارسال را در پلتفرم ببینید.` }),
