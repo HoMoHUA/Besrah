@@ -56,7 +56,13 @@ export function createFoodView(ctx) {
   const el = h('div', { class: 'view view--food', dataset: { view: 'food' } });
   const body = h('div', { class: 'fd-body' });
   const input = h('input', { class: 'fd-input', type: 'search', inputmode: 'search', enterkeyhint: 'search', autocomplete: 'off', placeholder: 'چه می خواهید؟ مثلاً چلو کباب', 'aria-label': 'جست وجوی غذا', maxlength: '60' });
-  input.addEventListener('input', () => { S.q = input.value; schedule(); });
+  input.addEventListener('input', () => {
+    S.q = input.value;
+    // An explicit free-text query is stronger than a default preferred vertical.
+    // Keep the user's manually chosen vertical filter untouched.
+    if (S.fromVerticalProfile && S.q.trim()) { S.vertical = 'all'; S.fromVerticalProfile = false; }
+    schedule();
+  });
   input.addEventListener('keydown', e => { if (e.key === 'Enter') run(true); });
 
   const params = (offset = 0) => ({
@@ -133,7 +139,7 @@ export function createFoodView(ctx) {
           S.nearState === 'locating' ? 'در حال دریافت موقعیت…' : S.near ? 'به روزرسانی موقعیت من' : 'نزدیک من')),
       S.nearState === 'denied' ? h('p', { class: 'fd-note', role: 'status', text: 'دسترسی به موقعیت داده نشد. جست وجو بدون فاصله ادامه دارد.' }) : null,
       S.nearState === 'ok' ? h('p', { class: 'fd-note', text: 'موقعیت شما فقط برای مرتب سازی همین جست وجو به سرور بسراه فرستاده می شود (با دقت حدود ۱۰۰ متر) و ذخیره نمی شود.' }) : null,
-      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; run(true); } }, q))));
+      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; if (S.fromVerticalProfile) { S.vertical = 'all'; S.fromVerticalProfile = false; } run(true); } }, q))));
   }
 
   function vendorCard(v) {
@@ -237,7 +243,7 @@ export function createFoodView(ctx) {
     onShow(options) {
       // A home suggestion can open the search with a preset; a location preset still needs the user's tap on that card, so it asks here.
       let changed = false;
-      if (options?.q && options.q !== S.q) { S.q = options.q; input.value = options.q; changed = true; }
+      if (options?.q && options.q !== S.q) { S.q = options.q; input.value = options.q; if (S.fromVerticalProfile && !options.vertical) { S.vertical = 'all'; S.fromVerticalProfile = false; } changed = true; }
       if (options?.vertical && VERTICALS.some(([id]) => id === options.vertical) && options.vertical !== S.vertical) {
         S.vertical = options.vertical; S.fromVerticalProfile = false; changed = true;
       }
