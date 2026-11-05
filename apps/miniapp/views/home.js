@@ -6,11 +6,18 @@ import { serviceLogo } from '../ui/service-card.js';
 import { resolveUserCoords } from '../logic.js';
 
 const REFRESH_MS = 60_000;
+const INTENTS = [
+  ['now', 'همین حالا'],
+  ['coffee', 'کافه'],
+  ['sweets', 'شیرینی'],
+  ['gift', 'گل و هدیه'],
+  ['essentials', 'خرید روزمره'],
+];
 
 export function createHomeView({ actions, api, store }) {
   const root = h('div', { class: 'view view--home' });
   const { primary } = homeLayout();
-  let suggestions = { status: 'idle', cards: [], locationUsed: false, note: '' }, lastAt = 0, controller = null, locating = false;
+  let suggestions = { status: 'idle', cards: [], locationUsed: false, note: '' }, lastAt = 0, controller = null, locating = false, chosenIntent = 'now', lastPoint = null;
 
   const tile = service => h('button', {
     type: 'button', class: ['sv-tile', !isLive(service) && 'is-planned'], dataset: { service: service.id },
@@ -24,10 +31,11 @@ export function createHomeView({ actions, api, store }) {
   const art = h('img', { class: 'rt-card__art', src: 'assets/hero-brand.svg', alt: '', width: 480, height: 220 });
 
   async function load(point) {
+    lastPoint = point;
     controller?.abort(); controller = new AbortController(); const mine = controller;
     suggestions = { ...suggestions, status: suggestions.cards.length ? 'ok' : 'loading' }; drawSuggestions();
     try {
-      const data = await api.homeSuggestions(point, mine.signal, store?.prefs?.().foodPreferredVerticals ?? []);
+      const data = await api.homeSuggestions(point, mine.signal, store?.prefs?.().foodPreferredVerticals ?? [], chosenIntent);
       if (mine !== controller) return;
       suggestions = { status: 'ok', cards: data.cards, locationUsed: data.locationUsed, note: data.note }; lastAt = Date.now();
     } catch (error) { if (mine !== controller || error?.kind === 'aborted') return; suggestions = { status: 'error', cards: [], locationUsed: false, note: '' }; }
@@ -56,6 +64,11 @@ export function createHomeView({ actions, api, store }) {
     if (s.status === 'loading') { sugHost.replaceChildren(h('div', { class: 'cm-skel sg-skeleton', 'aria-busy': 'true' })); return; }
     sugHost.replaceChildren(...[
       h('div', { class: 'section-head' }, h('h2', { text: 'پیشنهاد حالا' })),
+      h('div', { class: 'sg-intents fd-row', role: 'group', 'aria-label': 'موضوع پیشنهاد' },
+        INTENTS.map(([id, label]) => h('button', {
+          type: 'button', class: ['cm-chip','fd-chip'], 'aria-pressed': String(chosenIntent === id),
+          onClick: () => { if (chosenIntent !== id) { chosenIntent = id; load(lastPoint); } },
+        }, label))),
       ...s.cards.map(cardEl),
       !s.locationUsed ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'sg-locate'], onClick: withPosition }, 'ایستگاه نزدیک من را هم نشان بده') : null,
       h('p', { class: 'fd-note', text: s.note }),
