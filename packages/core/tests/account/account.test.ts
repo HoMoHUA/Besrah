@@ -184,8 +184,15 @@ describe('home recommendations', () => {
     const r = homeRecommendations(NOW, stations, { lat: 36.2912, lon: 59.5856 });
     expect(r.cards[0]).toMatchObject({ id: 'transit.nearest', cta: { type: 'station', station: 'شریعتی' }, evidence: { kind: 'straight_line' } });
     expect(r.cards[0]!.detail).toMatch(/فاصلهٔ هوایی/); expect(r.cards[0]!.detail).toMatch(/زمان پیاده روی را مسیریاب حساب می کند/);
-    expect(r.cards[1]!.cta).toEqual({ type: 'food', sort: 'distance' });
+    expect(r.cards[1]!.cta).toEqual({ type: 'food', vertical: 'restaurant', sort: 'distance' });
     expect(r.cards.length).toBeLessThanOrEqual(2);
+  });
+  it('context uses explicit preferences only in suitable times; does not invent gift occasions', () => {
+    const clockAtNoon = homeRecommendations(NOW, stations, null, ['flowers', 'fast_food']);
+    expect(clockAtNoon.cards[0]!.cta).toMatchObject({ type: 'food', vertical: 'fast_food' });
+    expect(clockAtNoon.cards[0]!.why).toContain('پروفایل');
+    const clockWithGiftOnly = homeRecommendations(NOW, stations, null, ['flowers']);
+    expect(clockWithGiftOnly.cards[0]!.cta).toMatchObject({ type: 'food', vertical: 'restaurant' });
   });
   it('a point far from every station yields no transit card', () => {
     expect(homeRecommendations(NOW, stations, { lat: 36.6, lon: 60.1 }).cards.map(c => c.kind)).toEqual(['food']);
