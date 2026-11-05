@@ -173,8 +173,8 @@ export function createFoodView(ctx) {
           S.nearState === 'locating' ? 'در حال دریافت موقعیت…' : S.near ? 'به روزرسانی موقعیت من' : 'نزدیک من')),
       S.nearState === 'denied' ? h('p', { class: 'fd-note', role: 'status', text: 'دسترسی به موقعیت داده نشد. جست وجو بدون فاصله ادامه دارد.' }) : null,
       S.nearState === 'ok' ? h('p', { class: 'fd-note', text: 'موقعیت شما فقط برای مرتب سازی همین جست وجو به سرور بسراه فرستاده می شود (با دقت حدود ۱۰۰ متر) و ذخیره نمی شود.' }) : null,
-      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; if (S.fromVerticalProfile) { S.vertical = 'all'; S.fromVerticalProfile = false; } run(true); } }, q)))),
-      weeklyPlan();
+      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; if (S.fromVerticalProfile) { S.vertical = 'all'; S.fromVerticalProfile = false; } run(true); } }, q))),
+      weeklyPlan());
   }
 
   function vendorCard(v) {
