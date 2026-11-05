@@ -14,6 +14,10 @@ const VERTICALS = [
   ['protein','پروتئین'],['nuts','آجیل و خشکبار'],['other','سایر']
 ];
 const PROVIDERS = { snappfood: 'اسنپ فود', tapsifood: 'تپسی فود' };
+const WEEK_DAYS = ['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];
+const MEALS = [['breakfast','صبحانه'],['lunch','ناهار'],['snack','میان‌وعده'],['dinner','شام']];
+const PLAN_VERTICALS = [['restaurant','غذای ایرانی'],['fast_food','فست‌فود'],
+  ['cafe','کافه'],['sweets','شیرینی'],['bakery','نانوایی'],['grocery','مواد اولیه']];
 const DEBOUNCE_MS = 350;
 
 export const toman = value => `${Number(value).toLocaleString('fa-IR')} تومان`;
@@ -50,7 +54,7 @@ function priceLine(item) {
 
 export function createFoodView(ctx) {
   const { actions, api, store } = ctx;
-  const S = { fromProfile: false, fromVerticalProfile: false, vertical: 'all', decision: null, q: '', source: 'all', budget: null, sort: 'relevance', near: null, nearState: 'idle', status: 'idle', vendors: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null };
+  const S = { fromProfile: false, fromVerticalProfile: false, vertical: 'all', decision: null, q: '', source: 'all', budget: null, sort: 'relevance', near: null, nearState: 'idle', status: 'idle', vendors: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null, planOpen: false, planDay: 0, planSlot: 'lunch', planVertical: 'restaurant' };
   let timer = 0, controller = null;
   const statusMemo = new Map();
   const el = h('div', { class: 'view view--food', dataset: { view: 'food' } });
@@ -121,6 +125,36 @@ export function createFoodView(ctx) {
     return h('button', { type: 'button', class: ['cm-chip', 'fd-chip', extra], 'aria-pressed': String(pressed), onClick }, label);
   }
 
+  function weeklyPlan() {
+    if (!store?.mealPlan || !store?.setMealPlanEntry) return null;
+    const entries = store.mealPlan();
+    return h('section', { class:'cm-card fd-week-plan', 'aria-label':'برنامه هفتگی غذا' },
+      h('button', {type:'button',class:['cm-btn','cm-btn--ghost','cm-btn--sm'],
+        'aria-expanded':String(S.planOpen),onClick:()=>{S.planOpen=!S.planOpen;draw();}},
+        S.planOpen ? 'بستن برنامهٔ هفتگی من' : 'برنامهٔ هفتگی من'),
+      S.planOpen ? h('div', {class:'fd-week-plan__body'},
+        h('p', {class:'fd-note',text:'این فقط برنامهٔ انتخاب دسته غذاست، نه سفارش یا اشتراک خودکار. خودتان روز و وعده را انتخاب می‌کنید؛ هیچ موقعیت یا تاریخچه‌ای ثبت نمی‌شود.'}),
+        h('div', {class:'fd-row',role:'group','aria-label':'روز هفته'},
+          WEEK_DAYS.map((name,day)=>chip(name,S.planDay===day,()=>{S.planDay=day;draw();}))),
+        h('div', {class:'fd-row',role:'group','aria-label':'وعده'},
+          MEALS.map(([id,label])=>chip(label,S.planSlot===id,()=>{S.planSlot=id;draw();}))),
+        h('div', {class:'fd-row',role:'group','aria-label':'نوع غذا برای وعده'},
+          PLAN_VERTICALS.map(([id,label])=>chip(label,S.planVertical===id,()=>{S.planVertical=id;draw();}))),
+        h('button', {type:'button',class:'cm-btn',onClick:()=>{
+          store.setMealPlanEntry({day:S.planDay,slot:S.planSlot,vertical:S.planVertical});draw();
+        }}, 'ثبت انتخاب در برنامه'),
+        entries.length ? h('ul', {class:'fd-notes'},
+          entries.map(entry=>h('li', {class:'fd-week-plan__entry'},
+            h('span',{text:`${WEEK_DAYS[entry.day]} · ${MEALS.find(m=>m[0]===entry.slot)?.[1] ?? 'وعده'} · ${PLAN_VERTICALS.find(v=>v[0]===entry.vertical)?.[1] ?? 'دسته'}`}),
+            h('button', {type:'button',class:['cm-btn','cm-btn--sm'],onClick:()=>{
+              S.q='';input.value='';S.vertical=entry.vertical;S.fromVerticalProfile=false;S.planOpen=false;run(true);
+            }},'جست‌وجوی گزینه‌ها'),
+            h('button', {type:'button',class:['cm-btn','cm-btn--ghost','cm-btn--sm'],
+              onClick:()=>{store.removeMealPlanEntry(entry.day,entry.slot);draw();}},'حذف')
+          ))) : h('p', {class:'fd-note',text:'هنوز وعده‌ای برای هفته انتخاب نشده است.'})
+      ) : null);
+  }
+
   function controls() {
     return h('div', { class: 'fd-controls' },
       h('div', { class: 'fd-row fd-verticals', role: 'group', 'aria-label': 'نوع فروشگاه' },
@@ -139,7 +173,8 @@ export function createFoodView(ctx) {
           S.nearState === 'locating' ? 'در حال دریافت موقعیت…' : S.near ? 'به روزرسانی موقعیت من' : 'نزدیک من')),
       S.nearState === 'denied' ? h('p', { class: 'fd-note', role: 'status', text: 'دسترسی به موقعیت داده نشد. جست وجو بدون فاصله ادامه دارد.' }) : null,
       S.nearState === 'ok' ? h('p', { class: 'fd-note', text: 'موقعیت شما فقط برای مرتب سازی همین جست وجو به سرور بسراه فرستاده می شود (با دقت حدود ۱۰۰ متر) و ذخیره نمی شود.' }) : null,
-      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; if (S.fromVerticalProfile) { S.vertical = 'all'; S.fromVerticalProfile = false; } run(true); } }, q))));
+      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; if (S.fromVerticalProfile) { S.vertical = 'all'; S.fromVerticalProfile = false; } run(true); } }, q)))),
+      weeklyPlan();
   }
 
   function vendorCard(v) {
