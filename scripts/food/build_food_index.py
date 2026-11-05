@@ -9,7 +9,7 @@ What is fixed on the way (all found in the 2026-10-31 audit and re-checked on th
   * `fetched_at` in the database is the export time; the real capture time is the mtime of the raw provider file.
   * a price of 0 or NULL is *unknown*, never 0 toman.
   * `in_mashhad_bbox` is unusable (always 0); the Mashhad box is recomputed from the coordinates.
-  * non-restaurant vendors (supermarket, produce, herbalist, butcher, hyper) are left out by name/category.
+  * all marketplace verticals are retained (food, cafe, sweets, flowers, groceries and other services).
   * the open flag is a snapshot, kept as `o` with its capture time; it is never presented as "open now".
 Usage: build_food_index.py [--db PATH] [--research DIR] [--out DIR]
 """
@@ -19,11 +19,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BBOX = (36.10, 36.50, 59.30, 59.90)            # Mashhad, with margin
-EXCLUDE_NAME = re.compile(r"هایپر|میوه\s*فروشی|سبزی|سوپر|عطاری|قصابی|قصاب|داروخانه|لبنیات|گیاهان|دارویی|پروتئین|پروتئینی|آجیل|خشکبار|بذر|ادویه|گوشت\s*باکس|کالا|روغنکده|گل\s*فروشی|گلفروشی|^گل\s")
-# a shop whose menu is mostly groceries is not a restaurant even when its name does not say so
-GROCERY_CATEGORY = re.compile(r"کالابرگ|لبنیات|میوه|سبزی|خشکبار|دانه|ادویه|مغزیجات|گیاه|عطاری|پروتئین|تنقلات|کنسرو|روغن|برنج|حبوبات|شوینده|بهداشتی")
-EXCLUDE_CATEGORY = re.compile(r"سوپرمارکت|داروخانه|عطاری|میوه")
-KEEP_BEVERAGE = re.compile(r"آبمیوه|آب میوه")
 
 
 def captured_at(research: Path, raw_file: str):
@@ -50,12 +45,8 @@ def build(db_path: Path, research: Path):
             dropped["no_coordinates"] += 1; continue
         if not (BBOX[0] <= lat <= BBOX[1] and BBOX[2] <= lon <= BBOX[3]):
             dropped["outside_mashhad"] += 1; continue
-        if (EXCLUDE_NAME.search(name) and not KEEP_BEVERAGE.search(name)) or EXCLUDE_CATEGORY.search(v["category"] or ""):
-            dropped["non_restaurant"] += 1; continue
         cap = captured_at(research, v["raw_file"]) if v["raw_file"] else None
         items = items_by_vendor.get((v["source"], v["vendor_code"]), [])
-        if items and sum(1 for i in items if GROCERY_CATEGORY.search(i[4])) / len(items) >= 0.6:
-            dropped["non_restaurant"] += 1; continue
         if cap:
             cap_min = cap if cap_min is None else min(cap_min, cap); cap_max = cap if cap_max is None else max(cap_max, cap)
         mo = v["min_order_toman"]
@@ -94,7 +85,7 @@ def main():
         "capturedFrom": datetime.fromtimestamp(cap_min, timezone.utc).isoformat() if cap_min else None,
         "capturedTo": datetime.fromtimestamp(cap_max, timezone.utc).isoformat() if cap_max else None,
         "rules": ["price 0/NULL -> unknown (null)", "capture time = mtime of the raw provider file, not the export time",
-                  "Mashhad box recomputed from coordinates", "non-restaurant vendors excluded by name, category and by a menu that is mostly groceries",
+                  "Mashhad box recomputed from coordinates", "all marketplace verticals retained; category filtering happens in Core",
                   "open flag kept as a snapshot with its capture time", "descriptions are not indexed"],
         "source": "research/vendors.sqlite (SnappFood and TapsiFood vendor-detail pages, public marketplace data, private research archive not committed)",
     }

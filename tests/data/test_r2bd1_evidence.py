@@ -5,6 +5,7 @@ import importlib.util
 import json
 import math
 import tempfile
+import os
 from pathlib import Path
 import unittest
 
@@ -108,7 +109,7 @@ class SourceArtifactTests(unittest.TestCase):
     def setUp(self):
         self.module = validator(self)
         self.assertTrue(callable(getattr(self.module, "verify_source", None)), "verify_source missing")
-        self.temp = tempfile.TemporaryDirectory(dir="/root/.hermes/cache/scratch")
+        self.temp = tempfile.TemporaryDirectory(dir=os.environ.get('TMPDIR', '/root/.hermes/cache/scratch'))
         self.addCleanup(self.temp.cleanup)
         self.package = Path(self.temp.name)
         self.payload = {"osm3s": {"timestamp_osm_base": "2026-11-02T00:00:00Z"},

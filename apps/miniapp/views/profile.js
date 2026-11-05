@@ -10,6 +10,11 @@ const WALK = [5, 10, 15, 20, 30];
 const PRIORITY = [['time', 'زمان رسیدن'], ['walk', 'پیاده روی کمتر'], ['balanced', 'هر دو'], ['cost', 'هزینه']];
 const FOOD = [null, 100000, 150000, 250000, 400000];
 const SHOP = [null, 500000, 1000000, 2000000, 5000000];
+const FOOD_VERTICALS = [
+  ['restaurant','غذای ایرانی'],['fast_food','فست‌فود'],['cafe','کافه'],
+  ['sweets','شیرینی و دسر'],['bakery','نانوایی'],['flowers','گل و هدیه'],
+  ['grocery','سوپرمارکت'],['produce','میوه و سبزی'],['protein','پروتئین'],['nuts','آجیل'],['other','سایر']
+];
 const budgetLabel = b => (b === null ? 'بدون سقف' : `تا ${fa((b / 1000).toLocaleString('en-US'))} هزار`);
 
 export function createProfileView(ctx) {
@@ -116,7 +121,32 @@ export function createProfileView(ctx) {
         h('div', { class: 'fd-row' }, FOOD.map(b => chip(budgetLabel(b), (p.foodBudgetToman ?? null) === b, () => setPref('foodBudgetToman', b))))),
       h('div', { role: 'group', 'aria-label': 'سقف قیمت کالا' }, h('p', { class: 'pf-label', text: 'سقف قیمت کالا در بسپی' }),
         h('div', { class: 'fd-row' }, SHOP.map(b => chip(b === null ? 'بدون سقف' : b >= 1000000 ? `تا ${fa(b / 1000000)} میلیون` : `تا ${fa(b / 1000)} هزار`, (p.shopBudgetToman ?? null) === b, () => setPref('shopBudgetToman', b))))),
+      h('div', { role: 'group', 'aria-label': 'دسته‌های مورد علاقه' },
+        h('p', { class: 'pf-label', text: 'دسته‌های مورد علاقهٔ من (حداکثر ۴ مورد)' }),
+        h('div', { class: 'fd-row' }, FOOD_VERTICALS.map(([id, label]) => chip(label, (p.foodPreferredVerticals ?? []).includes(id), () => {
+          const selected = p.foodPreferredVerticals ?? [];
+          if (!selected.includes(id) && selected.length >= 4) { S.message = 'حداکثر چهار دسته را انتخاب کنید؛ ابتدا یک دسته را بردارید.'; draw(); return; }
+          return setPref('foodPreferredVerticals', selected.includes(id) ? selected.filter(v => v !== id) : [...selected, id]);
+        }))),
+        note('فقط انتخاب صریح شما ذخیره می‌شود. این موارد در نمایش دسته‌ها و پیشنهادهای مناسب همان ساعت اثر دارند؛ سابقهٔ مرور یا سفارش جمع‌آوری نمی‌شود.')),
       note('سقف پیاده روی و اولویت سفر همین حالا در مسیر مکان به مکان اعمال می شوند (هسته تصمیم گیری گزینه ها را با آن می سنجد). «هزینه» فعلاً اثری ندارد چون نرخ مسیرها را نداریم. سقف قیمت غذا و کالا نقطهٔ شروع جست وجوی بسفود و بسپی است.'));
+  }
+
+  function savedCard() {
+    const items = store?.savedChoices?.() ?? [];
+    return card('pf-saved', 'ذخیره‌های من',
+      note('فقط مواردی که خودتان با دکمهٔ ذخیره انتخاب کرده‌اید، روی همین دستگاه نگه داشته می‌شوند. ذخیرهٔ خودکار تاریخچه وجود ندارد.'),
+      items.length ? h('div', { class: 'fd-results' }, items.map(item => h('div', { class: 'cm-card about-card' },
+        h('p', { class: 'pf-label', text: item.title }),
+        h('p', { class: 'fd-note', text: item.kind === 'food' ? 'فروشگاه در بسفود' : 'کالا در بسپی' }),
+        h('div', { class: 'fd-actions' },
+          h('button', { type:'button', class:['cm-btn','cm-btn--ghost','cm-btn--sm'],
+            onClick:()=>actions.go(item.kind === 'food' ? 'food' : 'shop', { q:item.title, ...(item.vertical ? {vertical:item.vertical} : {}) }) }, 'پیدا کردن'),
+          h('button', { type:'button', class:['cm-btn','cm-btn--ghost','cm-btn--sm'],
+            onClick:()=>{store.removeSavedChoice?.(item.kind,item.id);draw();} }, 'حذف'))))) :
+        note('هنوز فروشگاه یا کالایی ذخیره نکرده‌اید. در بسفود و بسپی می‌توانید یک مورد را ذخیره کنید.'),
+      items.length ? h('button', {type:'button',class:['cm-btn','cm-btn--ghost','cm-btn--sm'],
+        onClick:()=>{store.clearSavedChoices?.();draw();}}, 'پاک کردن تمام ذخیره‌ها') : null);
   }
 
   function privacyCard() {
@@ -129,7 +159,7 @@ export function createProfileView(ctx) {
         h('div', { class: 'fd-row' }, chip('روشن', synced(), () => { if (!synced()) toggleSync(); }), chip('خاموش', !synced(), () => { if (synced()) toggleSync(); })),
         note('با خاموش کردن، نسخهٔ همگام شده از سرور پاک می شود و نسخهٔ این دستگاه می ماند.')) : null,
       h('div', { class: 'fd-actions' },
-        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { store.clearRecents(); store.setPrefs({}); S.message = 'ایستگاه های اخیر و ترجیحات این دستگاه پاک شد.'; draw(); } }, 'پاک کردن داده های این دستگاه'),
+        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { store.clearRecents(); store.setPrefs({}); store.clearSavedChoices?.(); S.message = 'ایستگاه های اخیر و ترجیحات این دستگاه پاک شد.'; draw(); } }, 'پاک کردن داده های این دستگاه'),
         S.phase === 'user' ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], disabled: S.busy ? 'true' : null, onClick: exportData }, 'دریافت داده های حساب') : null,
         S.phase === 'user' ? h('button', { type: 'button', class: ['cm-btn', S.confirmDelete ? 'pf-danger' : 'cm-btn--ghost'], disabled: S.busy ? 'true' : null, onClick: deleteAccount }, S.confirmDelete ? 'برای حذف دوباره لمس کنید' : 'حذف حساب') : null),
       S.exportText ? h('pre', { class: 'pf-export', tabindex: '0', 'aria-label': 'داده های حساب' }, S.exportText) : null,
@@ -151,7 +181,7 @@ export function createProfileView(ctx) {
   }
 
   function draw() {
-    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), reminderCard(), prefsCard(), privacyCard()].filter(Boolean));
+    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), reminderCard(), prefsCard(), savedCard(), privacyCard()].filter(Boolean));
   }
   el.append(h('header', { class: 'view__head' }, h('p', { class: 'eyebrow', text: 'PROFILE' }), h('h1', { class: 'view__title', text: 'پروفایل' }), h('p', { class: 'view__sub', text: 'ترجیحات و حساب شما؛ همه چیز اختیاری است.' })), body);
   draw();

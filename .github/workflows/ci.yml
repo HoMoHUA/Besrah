@@ -1,0 +1,75 @@
+name: Besrah checks
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, 'chatgpt/**', 'opus55/**']
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: packages/core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: packages/core/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Prepare strictly private temporary directory for feedback integrity tests
+        run: mkdir -p /home/runner/besrah-ci-tmp && chmod 700 /home/runner/besrah-ci-tmp
+      - run: npm test -- --reporter=dot
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
+      - name: Record unavailable private datasets
+        run: |
+          test ! -e ../../data/food/food-index-v1.json.gz
+          test ! -e ../../data/shop/catalog-v1.json
+          echo "Private bulk data is intentionally absent. Data-dependent tests may skip, but fixtures must pass."
+  miniapp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test apps/miniapp/*.test.mjs
+  integrations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build Core before release preview tests
+        working-directory: packages/core
+        run: npm ci --no-audit --no-fund && npm run build
+      - name: Prepare strictly private temporary directory for data builder tests
+        run: mkdir -p /home/runner/besrah-ci-tmp && chmod 700 /home/runner/besrah-ci-tmp
+      - run: node --test tests/data/*.test.mjs tests/n8n/*.test.mjs tests/release/*.test.mjs
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
+      - run: python -m unittest discover -s tests/shop -p 'test_*.py'
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
+      - run: python -m unittest discover -s tests/data -p 'test_*.py'
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp
+      - run: python -m unittest discover -s tests/release -p 'test_*.py'
+        env:
+          TMPDIR: /home/runner/besrah-ci-tmp

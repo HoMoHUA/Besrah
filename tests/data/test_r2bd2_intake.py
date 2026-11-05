@@ -4,6 +4,7 @@ import datetime as dt
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -208,7 +209,7 @@ class ObservationTests(unittest.TestCase):
 class GateAndIngestTests(unittest.TestCase):
     def setUp(self):
         self.registry, self.missions = intake.load_missions(PACKAGE / 'missions.json')
-        self.temp = tempfile.TemporaryDirectory(dir='/root/.hermes/cache/scratch')
+        self.temp = tempfile.TemporaryDirectory(dir=os.environ.get('TMPDIR', '/root/.hermes/cache/scratch'))
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.package = self.root / 'package'

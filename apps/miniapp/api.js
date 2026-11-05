@@ -98,8 +98,9 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     async accountSavePreferences(expectedVersion, values, signal) { return post('api/account/preferences', { expectedVersion, values }, signal); },
     async accountExport(signal) { return post('api/account/export', {}, signal); },
     async accountDelete(signal) { return post('api/account/delete', { confirm: 'DELETE' }, signal); },
-    async homeSuggestions(point, signal) {
-      const data = await post('api/recommendations/home', point ? { lat: point.lat, lon: point.lon } : {}, signal);
+    async homeSuggestions(point, signal, preferredVerticals = []) {
+      const payload = { ...(point ? { lat: point.lat, lon: point.lon } : {}), ...(preferredVerticals.length ? { preferredVerticals } : {}) };
+      const data = await post('api/recommendations/home', payload, signal);
       if (data?.schemaVersion !== 1 || !Array.isArray(data.cards) || data.cards.length > 2) throw new ApiError('server');
       return data;
     },
@@ -178,7 +179,7 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     // Food search and vendor menus come from this app's own server (stored snapshot); every parameter is optional and allow-listed.
     async foodSearch(query = {}, signal) {
       const params = new URLSearchParams();
-      for (const key of ['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset']) if (query[key] !== undefined && query[key] !== null && query[key] !== '') params.set(key, String(query[key]));
+      for (const key of ['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset', 'vertical']) if (query[key] !== undefined && query[key] !== null && query[key] !== '') params.set(key, String(query[key]));
       const data = await get('api/food/search?' + params, signal);
       if (!Array.isArray(data?.vendors) || !Number.isInteger(data.total) || !data.snapshot || typeof data.snapshot !== 'object') throw new ApiError('server');
       return data;

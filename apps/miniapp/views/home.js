@@ -27,7 +27,7 @@ export function createHomeView({ actions, api, store }) {
     controller?.abort(); controller = new AbortController(); const mine = controller;
     suggestions = { ...suggestions, status: suggestions.cards.length ? 'ok' : 'loading' }; drawSuggestions();
     try {
-      const data = await api.homeSuggestions(point, mine.signal);
+      const data = await api.homeSuggestions(point, mine.signal, store?.prefs?.().foodPreferredVerticals ?? []);
       if (mine !== controller) return;
       suggestions = { status: 'ok', cards: data.cards, locationUsed: data.locationUsed, note: data.note }; lastAt = Date.now();
     } catch (error) { if (mine !== controller || error?.kind === 'aborted') return; suggestions = { status: 'error', cards: [], locationUsed: false, note: '' }; }
@@ -41,7 +41,7 @@ export function createHomeView({ actions, api, store }) {
   }
   function open(card) {
     if (card.cta.type === 'station') actions.openStation(card.cta.station);
-    else actions.go('food', { ...(card.cta.q ? { q: card.cta.q } : {}), ...(card.cta.sort === 'distance' ? { near: true } : {}) });
+    else actions.go('food', { ...(card.cta.q ? { q: card.cta.q } : {}), ...(card.cta.vertical ? { vertical: card.cta.vertical } : {}), ...(card.cta.sort === 'distance' ? { near: true } : {}) });
   }
   function cardEl(card) {
     return h('button', { type: 'button', class: ['sg-card', `sg-card--${card.kind}`], dataset: { id: card.id }, onClick: () => open(card) },

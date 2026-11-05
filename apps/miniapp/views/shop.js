@@ -73,7 +73,11 @@ export function createShopView(ctx) {
       h('header', { class: 'fd-card__head' }, h('div', { class: 'fd-card__title' }, h('h3', { text: p.title }), h('p', { class: 'fd-card__sub', text: [p.brand, p.category].filter(Boolean).join(' · ') })),
         h('span', { class: 'cm-badge', text: p.priceState === 'compared' ? `${fa(p.resolvedOffers)} فروشنده` : p.priceState === 'single_offer' ? 'یک فروشنده' : 'قیمت نامعلوم' })),
       h('p', { class: 'fd-card__meta' }, priceRange(p), h('span', { text: `ثبت ${dayLabel(p.observedAt)}` })),
-      h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn', onClick: () => openProduct(p.id) }, 'مقایسهٔ فروشندگان')));
+      h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn', onClick: () => openProduct(p.id) }, 'مقایسهٔ فروشندگان'),
+        store?.toggleSavedChoice ? h('button', {type:'button',class:['cm-btn','cm-btn--ghost','cm-btn--sm'],
+          'aria-pressed':String(Boolean(store?.isSavedChoice?.('shop',p.id))),
+          onClick:()=>{store.toggleSavedChoice('shop',{id:p.id,title:p.title});draw();}},
+          store?.isSavedChoice?.('shop',p.id) ? 'حذف از ذخیره‌ها' : 'ذخیره کالا') : null));
   }
 
   function results() {
@@ -121,8 +125,10 @@ export function createShopView(ctx) {
     searchBox, body);
   draw();
   let started = false;
-  return { el, onShow() {
-    if (started) return;
+  return { el, onShow(options) {
+    let changed = false;
+    if (options?.q && options.q !== S.q) { S.q = options.q; input.value = options.q; changed = true; }
+    if (started) { if (changed) run(true); return; }
     started = true;
     // A budget the user stated in Profile is the starting point of the first search; it is announced and never inferred.
     const stated = store?.prefs?.().shopBudgetToman;

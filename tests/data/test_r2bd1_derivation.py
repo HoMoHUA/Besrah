@@ -1,5 +1,6 @@
 """Offline regressions for targeted C1 snapshot derivation, not routing."""
 import importlib.util
+import json
 from pathlib import Path
 import unittest
 
@@ -28,6 +29,11 @@ class DerivationTests(unittest.TestCase):
         self.assertFalse(result['artificialConnectorsCreated'])
         self.assertFalse(result['physicalPassabilityCertified'])
     def test_real_gate_remains_blocked_in_both_directions_without_invented_internal_edges(self):
+        # The public GitHub export intentionally omits third-party raw evidence archived
+        # privately on the VPS. A skip is mandatory here, never a forged replacement.
+        sources = json.loads((PACKAGE / 'external-sources.json').read_text())
+        if any(not Path(src['privateRawArchivePath']).is_file() for src in sources):
+            self.skipTest('private original research archives are not in the public checkout')
         script = ROOT / 'scripts/r2bd1/build_evidence.py'
         self.assertTrue(script.exists(), 'Evidence Gate builder is not implemented')
         import sys

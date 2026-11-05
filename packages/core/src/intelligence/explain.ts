@@ -4,6 +4,8 @@ import { metricBounds } from './metrics.js';
 
 const metricNames: Record<MetricKey, string> = {
   totalCostToman: 'هزینه',
+  listedItemPriceToman: 'قیمت ثبت‌شدهٔ قلم (بدون ارسال)',
+  distanceMeters: 'فاصلهٔ هوایی',
   durationSeconds: 'زمان سفر',
   walkingSeconds: 'زمان پیاده روی',
   transfers: 'تعداد تعویض',
@@ -11,11 +13,12 @@ const metricNames: Record<MetricKey, string> = {
   arrivalEpochSeconds: 'زمان رسیدن',
 };
 const unitNames = {
-  toman: 'تومان', seconds: 'ثانیه', count: 'بار', score_0_100: 'امتیاز', epoch_seconds: 'ثانیه از مبدأ یونیکس',
+  toman: 'تومان', meters: 'متر', seconds: 'ثانیه', count: 'بار', score_0_100: 'امتیاز', epoch_seconds: 'ثانیه از مبدأ یونیکس',
 } as const;
 const labelTexts: Record<OptionLabel, string> = {
   fastest: 'سریع ترین است',
   lowest_cost: 'کم هزینه ترین است',
+  lowest_listed_item_price: 'کمترین قیمت قلم ثبت‌شده در میان همین گزینه‌های هم‌نام و قابل مقایسه است',
   preference_match: 'با اولویت انتخابی هماهنگ است',
   pareto_option: 'گزینه ای نامغلوب است',
 };
@@ -43,7 +46,7 @@ export function explainCandidate(candidate: Candidate, at: string, labels: Optio
     claims.push({ code: `metric:${key}`, text: `${metricNames[key]}${bounds.estimated ? ' (برآورد)' : ''}: ${value} ${unitNames[metric.unit]}.`, refs: [ref] });
   }
   for (const label of new Set(labels)) {
-    const refs = usableRefs.filter(ref => label === 'fastest' ? ref.metric === 'durationSeconds' : label === 'lowest_cost' ? ref.metric === 'totalCostToman' : true);
+    const refs = usableRefs.filter(ref => label === 'fastest' ? ref.metric === 'durationSeconds' : label === 'lowest_cost' ? ref.metric === 'totalCostToman' : label === 'lowest_listed_item_price' ? ref.metric === 'listedItemPriceToman' : true);
     if (!refs.length) continue;
     claims.push({ code: `label:${label}`, text: `در میان گزینه های هم ارز و واجد شرایط ارائه شده، ${labelTexts[label]}.`, refs });
   }

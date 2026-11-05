@@ -2,9 +2,11 @@
 // file answers 503 for food and never touches transit or startup.
 import type { FastifyInstance, FastifyReply } from 'fastify';
 import { foodVendorDetail, loadFoodIndex, searchFood, type FoodIndex, type FoodQuery } from './search.js';
+import { FOOD_VERTICALS, type FoodVerticalFilter } from './verticals.js';
+import { decideFoodResults } from './decision.js';
 
 const MASHHAD = { latMin: 35.9, latMax: 36.7, lonMin: 59.0, lonMax: 60.2 };
-const SEARCH_KEYS = new Set(['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset']);
+const SEARCH_KEYS = new Set(['q', 'source', 'maxPrice', 'minPrice', 'lat', 'lon', 'radiusKm', 'sort', 'limit', 'offset', 'vertical']);
 const VENDOR_KEYS = new Set(['id', 'lat', 'lon']);
 const SOURCES: Record<string, 's' | 't'> = { snappfood: 's', tapsifood: 't' };
 const SORTS = new Set(['relevance', 'price', 'distance', 'rating']);
@@ -48,6 +50,8 @@ export function registerFood(app: FastifyInstance, opts: FoodRoutesOptions = {})
     for (const [name, v, lo, hi] of [['maxPrice', maxPrice, 1000, 100_000_000], ['minPrice', minPrice, 0, 100_000_000], ['radiusKm', radiusKm, 0.1, 30], ['limit', limit, 1, 20], ['offset', offset, 0, 400]] as const) {
       if (v === null || (v !== undefined && (v < lo || v > hi))) return bad(reply, name);
     }
+    const vertical = q.vertical === undefined ? undefined : String(q.vertical);
+    if (vertical !== undefined && vertical !== 'all' && vertical !== 'meals' && !FOOD_VERTICALS.includes(vertical as typeof FOOD_VERTICALS[number])) return bad(reply, 'vertical');
     const sort = q.sort === undefined ? undefined : String(q.sort);
     if (sort !== undefined && !SORTS.has(sort)) return bad(reply, 'sort');
     const where = place(q);
@@ -56,9 +60,9 @@ export function registerFood(app: FastifyInstance, opts: FoodRoutesOptions = {})
     const idx = get();
     if (!idx) return unavailable(reply);
     const result = searchFood(idx, { q: text, source, maxPrice: maxPrice ?? null, minPrice: minPrice ?? null, near: where.near, radiusM: radiusKm != null ? radiusKm * 1000 : null,
-      sort: sort as FoodQuery['sort'], limit: limit ?? undefined, offset: offset ?? undefined }, opts.now?.() ?? Date.now());
+      sort: sort as FoodQuery['sort'], limit: limit ?? undefined, offset: offset ?? undefined, vertical: vertical as FoodVerticalFilter | undefined }, opts.now?.() ?? Date.now());
     if (where.note) result.notes.push(where.note);
-    return head(reply).send(result);
+    return head(reply).send({ ...result, decision: decideFoodResults(result.vendors, opts.now?.() ?? Date.now()) });
   });
 
   app.get<{ Querystring: Query }>('/app/api/food/vendor', async (req, reply) => {

@@ -54,7 +54,7 @@ export function timestamp(value: unknown): number {
 function unique(values: string[], message = 'duplicate identifiers'): void { if (new Set(values).size !== values.length) fail(message); }
 function metricKey(value: unknown): MetricKey { choice(value, Object.keys(METRIC_UNITS)); return value as MetricKey; }
 function metricNumber(value: unknown, key: MetricKey): void {
-  const n = number(value, key === 'totalCostToman' || key === 'transfers');
+  const n = number(value, key === 'totalCostToman' || key === 'listedItemPriceToman' || key === 'transfers');
   if (key === 'quality' && n > 100) fail('quality unit is score_0_100');
 }
 function evidence(value: unknown): void {

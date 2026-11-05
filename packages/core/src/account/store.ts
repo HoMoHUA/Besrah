@@ -1,6 +1,7 @@
 // Account storage on node:sqlite (built in, no new dependency). One small file, versioned schema, no personal data beyond the
 // provider subject id: no phone, no e-mail, no name, no coordinates, no history. Sessions store only a hash of the token.
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
+import { FOOD_VERTICALS, type FoodVertical } from '../food/verticals.js';
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
@@ -11,8 +12,8 @@ export const CONSENT_VERSION = 1;
 export const SESSION_TTL_SEC = 14 * 86400;
 export const MAX_SESSIONS = 8;
 
-export interface Preferences { transitMaxWalkMin?: number; transitPriority?: 'time' | 'walk' | 'cost' | 'balanced'; foodBudgetToman?: number; shopBudgetToman?: number }
-export const PREFERENCE_KEYS = ['transitMaxWalkMin', 'transitPriority', 'foodBudgetToman', 'shopBudgetToman'] as const;
+export interface Preferences { transitMaxWalkMin?: number; transitPriority?: 'time' | 'walk' | 'cost' | 'balanced'; foodBudgetToman?: number; shopBudgetToman?: number; foodPreferredVerticals?: FoodVertical[] }
+export const PREFERENCE_KEYS = ['transitMaxWalkMin', 'transitPriority', 'foodBudgetToman', 'shopBudgetToman', 'foodPreferredVerticals'] as const;
 
 /** Strict, whitelisted validation. Unknown keys and out-of-range values are rejected, never clamped silently. */
 export function validatePreferences(input: unknown): { ok: true; value: Preferences } | { ok: false; field: string } {
@@ -24,6 +25,15 @@ export function validatePreferences(input: unknown): { ok: true; value: Preferen
   if (v.transitPriority !== undefined) { if (v.transitPriority !== 'time' && v.transitPriority !== 'walk' && v.transitPriority !== 'cost' && v.transitPriority !== 'balanced') return { ok: false, field: 'transitPriority' }; out.transitPriority = v.transitPriority; }
   if (v.foodBudgetToman !== undefined) { if (!int(v.foodBudgetToman, 20_000, 5_000_000)) return { ok: false, field: 'foodBudgetToman' }; out.foodBudgetToman = v.foodBudgetToman as number; }
   if (v.shopBudgetToman !== undefined) { if (!int(v.shopBudgetToman, 50_000, 1_000_000_000)) return { ok: false, field: 'shopBudgetToman' }; out.shopBudgetToman = v.shopBudgetToman as number; }
+  // Only categories explicitly chosen by the user may be stored or synced.
+  // No order history, merchant identity or location is inferred or persisted.
+  if (v.foodPreferredVerticals !== undefined) {
+    const a = v.foodPreferredVerticals;
+    if (!Array.isArray(a) || a.length > 4 || new Set(a).size !== a.length ||
+        a.some(x => typeof x !== 'string' || !FOOD_VERTICALS.includes(x as FoodVertical)))
+      return { ok: false, field: 'foodPreferredVerticals' };
+    out.foodPreferredVerticals = [...a] as FoodVertical[];
+  }
   return { ok: true, value: out };
 }
 
