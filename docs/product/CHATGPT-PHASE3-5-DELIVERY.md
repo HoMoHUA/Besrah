@@ -1,6 +1,6 @@
 # Besrah implementation — contextual discovery, shopping evidence and unified saves (Phase 3–5 slice)
 
-**Base:** main after PR #1 `2a29a42`. **No Production deployment.** All changes isolated in branch `chatgpt/phase3-5-context-shopping-saved`.
+**Base:** main after PR #1 `2a29a42`. **No Production deployment.** Implementation merged into GitHub `main` as PR #2, commit `907b0c3`. Production release and private index rebuild are still outstanding.
 
 ## Implemented
 
@@ -12,7 +12,7 @@
 
 ## Automated checks
 
-GitHub Actions `.github/workflows/ci.yml` checks Core typecheck/build/tests, Mini App JS tests and Python/Node integration suites. Check PR's latest **head SHA**, not a previous successful run. Fixture-based evaluation is not end-to-end Production QA.
+GitHub Actions `.github/workflows/ci.yml` checks Core typecheck/build/tests, Mini App JS tests and Python/Node integration suites. PR #2 head passed all three jobs (Core / Mini App / integrations), and the merged `main` must also pass before any release. Fixture-based evaluation is not end-to-end Production QA.
 
 ## Deployment gating
 
