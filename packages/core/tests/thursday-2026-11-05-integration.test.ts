@@ -15,6 +15,19 @@ const at = (time: string) => tehranToEpoch(day, time);
 const toS = (epoch: number) => epoch - mid;
 
 describe('Thursday 2026-11-05 evidence integrated without replacing other day types', () => {
+  it('carries EVERY measured run and dwell from the supplied Nov 5 field evidence into the Thursday model', () => {
+    const evidence = JSON.parse(readFileSync(THURSDAY_FIELD_URL, 'utf8'));
+    const raw = JSON.parse(readFileSync(new URL('../../../data/network.json', import.meta.url), 'utf8'));
+    const block = raw.lines['1']['thursday_2026-11-05'];
+    expect(Object.keys(block.run_forward_s)).toHaveLength(23);
+    expect(Array.from({length: 23}, (_, i) => block.run_forward_s[String(i)])).toEqual(evidence.runs.forward);
+    expect(block.run_backward_s).toEqual(evidence.runs.backward);
+    expect(block.dwell_s).toEqual(evidence.runs.dwell);
+    expect(block.layover_s.airport_arrive_to_depart).toBe(evidence.runs.layover.airport);
+    expect(block.layover_s.ghadir_A_arrive_to_depart_s).toBe(evidence.runs.layover.ghadirA);
+    expect(block.layover_s.ghadir_pass_B_dwell_mean).toBe(evidence.runs.layover.ghadirPassB);
+  });
+
   it('uses the Nov 5 measured segment and layover overrides only on Thursday', () => {
     const normal = forDay(loadNetwork(), 'normal');
     const fri = forDay(loadNetwork(), 'friday');
