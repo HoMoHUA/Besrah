@@ -12,7 +12,7 @@
     "topology": "data/geospatial/r2bd1-c1-v1/derived/c1-source-topology.json",
     "topologySha256": "5d6f372179925c49c87c18dd1a6c5c0747b0d27c2c8f584c5bd0b5a2e1ac6fc3",
     "network": "data/network.json",
-    "networkSha256": "560a365085ab12f32f375519f1e64e69e9de3c0af7b4765fca56d2f149a2a50b"
+    "networkSha256": "22886d4e19325df5fbc65aa830de2e131e0accaacaec7c2502af7df7246a74e8"
   },
   "isObservation": false,
   "missions": [
