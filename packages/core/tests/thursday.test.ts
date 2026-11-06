@@ -35,12 +35,15 @@ describe('Thursday 2026-10-22', () => {
     expect(misses).toEqual([]);
   });
 
-  it('replay of the observed train: Vakilabad 14:25:06 -> Seyed Razi 14:40:14 (±10 s, uses the same numbers)', () => {
+  it('Oct 22 historical observation differs from the now-applied Nov 5 Thursday segment model (without fabricating a match)', () => {
     const tr = trains.find(t => t.id.startsWith('A-out') && t.start === at('14:25:06'))!;
     expect(tr).toBeTruthy();
     const sr = tr.stops.find(s => s.idx === 8)!;
     console.log('Thursday replay Seyed Razi', hmsOf(sr.arrive));
-    expect(Math.abs(sr.arrive - at('14:40:14'))).toBeLessThanOrEqual(10);
+    // Oct 22 remains an independent historical measurement; the effective Thursday
+    // segment data now comes from Nov 5. Do not claim replay accuracy for both days.
+    expect(Math.abs(sr.arrive - at('14:40:14'))).toBeGreaterThan(10);
+    expect(Math.abs(sr.arrive - at('14:40:14'))).toBeLessThanOrEqual(60);
   });
 
   it('airport departures on Thursday vs sheet (informational: layover 687 s is a Friday value)', () => {
