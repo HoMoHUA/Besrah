@@ -47,7 +47,8 @@ export function parseShopV2Catalog(text: string): ShopV2Catalog {
       !Array.isArray(item.offers) || item.offers.length > MAX_OFFERS_PER_PRODUCT) throw new Error('invalid_shop_v2_product');
     seen.add(item.canonicalId);
     for (const key of identityKeys) if (!str(item.identity[key])) throw new Error('invalid_shop_v2_identity');
-    const identity = Object.fromEntries(identityKeys.map(k => [k, item.identity![k]])) as Identity;
+    const identityRaw = item.identity as Record<string, unknown>;
+    const identity = Object.fromEntries(identityKeys.map(k => [k, identityRaw[k] as string])) as Identity;
     const offers = item.offers.map((offer: unknown): ShopV2Offer => {
       if (!isObject(offer) || !str(offer.sourceId, 64) || !str(offer.sourceProductId, 80) ||
         !str(offer.merchantId, 64) || !str(offer.merchant) || !str(offer.title) ||
