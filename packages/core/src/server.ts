@@ -8,6 +8,7 @@ import { openAccountStore } from './account/store.js';
 import { registerAccount, type AccountRoutesOptions } from './account/routes.js';
 import { registerHomeRecommendations } from './home/recommendations.js';
 import { registerShop, type ShopRoutesOptions } from './shop/search.js';
+import { registerShopV2, loadShopV2Catalog, type ShopV2RoutesOptions } from './shop/v2.js';
 import { createNeshan, neshanOptionsFromEnv } from './trip/neshan.js';
 import { registerTrip, type TripRoutesOptions } from './trip/routes.js';
 import { registerWebPush } from './webpush/index.js';
@@ -15,7 +16,7 @@ import { registerJourneyBeta, type JourneyBetaConfig } from './journey-beta/inde
 import type { TimetableSource } from './transit-journey/contracts.js';
 import { createTimetableModel, type TimetableModel } from './timetable-overlay.js';
 
-export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof fetch; journeyBeta?: Partial<JourneyBetaConfig>; journeySource?: TimetableSource; limiterClock?: () => number; food?: FoodRoutesOptions; trip?: TripRoutesOptions; account?: AccountRoutesOptions; shop?: ShopRoutesOptions; timetable?: TimetableModel } = {}) {
+export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof fetch; journeyBeta?: Partial<JourneyBetaConfig>; journeySource?: TimetableSource; limiterClock?: () => number; food?: FoodRoutesOptions; trip?: TripRoutesOptions; account?: AccountRoutesOptions; shop?: ShopRoutesOptions; shopV2?: ShopV2RoutesOptions; timetable?: TimetableModel } = {}) {
   // Product wiring: the validated overlay (or, on any problem, the baseline generator) serves board, tracker and journey alike.
   const timetable = opts.timetable ?? createTimetableModel();
   const svc = createService(undefined, undefined, timetable);
@@ -61,6 +62,14 @@ export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof
 
   registerFood(app, { now, ...opts.food });
   registerShop(app, { now, ...opts.shop });
+  // V2 is a separate opt-in service: NEVER swap v1 catalog or alter legacy routes.
+  // No source is read at startup unless enabled. Missing/invalid staging data yields 503 only for V2.
+  const v2Enabled = process.env.BESRAH_SHOP_V2_ENABLED === '1';
+  const v2Path = process.env.BESRAH_SHOP_V2_CATALOG_PATH?.trim();
+  if (opts.shopV2 || v2Enabled) registerShopV2(app, { now,
+    ...(v2Enabled && v2Path ? { loader: () => loadShopV2Catalog(v2Path) } : {}),
+    ...opts.shopV2
+  });
   // Guest-first accounts: enabled only when BESRAH_ACCOUNT_DB points at a writable file; otherwise the app stays guest-only.
   const accountDb = process.env.BESRAH_ACCOUNT_DB?.trim();
   registerAccount(app, { now, limiterClock: opts.limiterClock, ...(accountDb ? { open: () => openAccountStore(accountDb) } : {}),
