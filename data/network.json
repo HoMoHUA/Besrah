@@ -1270,7 +1270,58 @@
         "Station list and order between پایانه مسافری/شهدا and باب الجواد: not in site JSON, not in data",
         "Run times, dwell and layovers: none measured",
         "Route ambiguity: the site lists both پایانه مسافری↔باب الجواد (alternating with Basij) and شهدا↔باب الجواد"
-      ]
+      ],
+      "stations_owner_stated_2026-11-05": {
+        "quality": "owner_stated (not measured; order from owner, not a route map)",
+        "order_terminal_to_shohada": [
+          {
+            "name": "پایانه مسافری (امام رضا)",
+            "status": "open",
+            "interchange": null
+          },
+          {
+            "name": "میدان ۱۵ خرداد",
+            "status": "not_open"
+          },
+          {
+            "name": "بسیج",
+            "status": "open",
+            "interchange": "line 1"
+          },
+          {
+            "name": "چهارراه دانش",
+            "status": "not_open"
+          },
+          {
+            "name": "باب الجواد (حرم مطهر)",
+            "status": "open",
+            "interchange": null
+          },
+          {
+            "name": "شارستان",
+            "status": "not_open"
+          },
+          {
+            "name": "شهدا",
+            "status": "open",
+            "interchange": "line 2"
+          }
+        ],
+        "note": "Owner statement: four open stations and three not-yet-open; the 24-station planned line is not interchangeable with the open portion."
+      },
+      "services_owner_stated_2026-11-05": {
+        "quality": "owner_stated",
+        "service_1": "Shohada <-> Bab al-Jawad (one train pair, returns to its origin)",
+        "service_2": "Terminal <-> Bab al-Jawad (passes Bassij)",
+        "note": "These are distinct services and must not be treated as a continuous single through-route. Conflicting public schedule statements remain unresolved."
+      },
+      "services_from_paper_2026-11-05": {
+        "quality": "photo_transcription + owner_stated (not measured)",
+        "service_S": "Shohada <-> Bab al-Jawad: 15-minute board intervals 06:07-21:52 (normal); the trains do not extend to Bassij.",
+        "service_T": "Terminal <-> Bab al-Jawad stops at Bassij; from Bab al-Jawad departures alternate to Bassij and terminal (~45 min each destination; 15/30 combined).",
+        "boards": "data/official/line3_board_bab_aljavad_2026-11-05.json and data/official/line3_bassij_board_2026-11-05.json",
+        "site_status": "Old official_site data kept as received, but the paper board is prioritized for documentary review (owner). Engine integration intentionally disabled until the conflicting boards are reconciled."
+      }
     }
   },
   "derived": {
@@ -1404,6 +1455,11 @@
     {
       "id": "thursday-2026-11-05-model-validation",
       "q": "Only two A departure sightings and one B extension journey. Thursday all-day 10-minute lattice and layovers are extrapolations; board earlier on 2026-11-05 conflicts. Confirm with further observations.",
+      "status": "open"
+    },
+    {
+      "id": "line3-board-bassij-consistency",
+      "q": "Nov 5 paper departures from Bassij and Bab al-Jawad need timetable reconciliation; holiday Shohada board unavailable; do not enable line 3 trip engine.",
       "status": "open"
     }
   ]
