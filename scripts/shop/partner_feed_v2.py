@@ -197,6 +197,7 @@ def crosswalk_lookup(crosswalk: dict, offers: list[dict], at: datetime) -> dict[
             ensure(isinstance(ref, dict) and set(ref) == {"sourceId", "sourceProductId"}, "malformed_crosswalk_ref")
             key = (ref["sourceId"], ref["sourceProductId"])
             ensure(key in by_ref, "unresolved_crosswalk_ref")
+            ensure(key not in lookup, "crosswalk_ref_reused")
             ensure(identity_key(by_ref[key]["identity"]) == identity_key(expected_identity), "variant_identity_mismatch")
             lookup[key] = gid
     return lookup
