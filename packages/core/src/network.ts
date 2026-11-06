@@ -18,7 +18,7 @@ export interface Network {
   dwell: number[];               // dwell at station i (seconds), passenger stop
   dwellQuality: string[];
   layover: { vakilabad: number; ghadirA: number; airport: number; ghadirPassB: number };
-  thursday?: { runF: Record<number, number>; runB: Record<number, number>; dwell: Record<string, number> };
+  thursday?: { runF: Record<number, number>; runB: Record<number, number>; dwell: Record<string, number>; layover: Partial<Network['layover']> };
   base: { runF: number[]; runB: number[]; dwell: number[] };
 }
 
@@ -58,11 +58,22 @@ export function loadNetwork(path: URL | string = NETWORK_PATH): Network {
     else { dwell.push(20); dwellQuality.push('default_assumed'); }
   });
 
-  const th = line['thursday_2026-10-22'];
-  const thursday = th ? {
-    runF: Object.fromEntries(Object.entries(th.run_forward_s).map(([k, v]) => [Number(k), v as number])),
-    runB: Object.fromEntries(Object.entries(th.run_backward_s).map(([k, v]) => [Number(k), v as number])),
-    dwell: th.dwell_s as Record<string, number>,
+  // Preserve the original Thursday block. New, individually measured Nov 5 segments
+  // supersede older measurements ONLY on Thursdays; missing segments retain their fallback.
+  const blocks = [line['thursday_2026-10-22'], line['thursday_2026-11-05']].filter(Boolean);
+  const thursday = blocks.length ? {
+    runF: Object.assign({}, ...blocks.map((b: any) => b.run_forward_s ?? {})) as Record<number, number>,
+    runB: Object.assign({}, ...blocks.map((b: any) => b.run_backward_s ?? {})) as Record<number, number>,
+    dwell: Object.assign({}, ...blocks.map((b: any) => b.dwell_s ?? {})) as Record<string, number>,
+    layover: blocks.reduce((acc: Partial<Network['layover']>, b: any) => {
+      const l = b.layover_s;
+      if (!l) return acc;
+      return { ...acc,
+        ...(l.airport_arrive_to_depart != null ? { airport: l.airport_arrive_to_depart } : {}),
+        ...(l.ghadir_pass_B_dwell_mean != null ? { ghadirPassB: l.ghadir_pass_B_dwell_mean } : {}),
+        ...(l.ghadir_A_arrive_to_depart_s != null ? { ghadirA: l.ghadir_A_arrive_to_depart_s } : {}),
+      };
+    }, {}),
   } : undefined;
 
   return {
@@ -78,7 +89,7 @@ export function loadNetwork(path: URL | string = NETWORK_PATH): Network {
 }
 
 /** Day-specific view of the network. Thursday: measured segments override, other run times scale by the measured Thursday/Friday ratio. */
-export const THURSDAY_RUN_FACTOR = 1.073; // Vakilabad->Seyed Razi: 794 s (Thu) / 740 s (Fri), 8 segments, one train
+export const THURSDAY_RUN_FACTOR = 1.005; // owner field measurements 2026-11-05: forward 1.002, backward 1.011; still estimated where unmeasured
 
 export function forDay(net: Network, dayType: 'friday' | 'thursday' | 'normal'): Network {
   if (dayType !== 'thursday' || !net.thursday) return net;
@@ -88,5 +99,5 @@ export function forDay(net: Network, dayType: 'friday' | 'thursday' | 'normal'):
     const name = net.stationsOrder[i];
     return net.thursday!.dwell[name] ?? v;
   });
-  return { ...net, runF, runB, dwell };
+  return { ...net, runF, runB, dwell, layover: { ...net.layover, ...net.thursday.layover } };
 }

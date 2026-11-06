@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { setImmediate as onImmediate } from 'node:timers';
 import { InputError } from '../../src/intelligence/validation.js';
 import { dayTrains } from '../../src/engine.js';
-import { forDay, loadNetwork, NETWORK_PATH } from '../../src/network.js';
+import { forDay, loadNetwork, NETWORK_PATH, THURSDAY_RUN_FACTOR } from '../../src/network.js';
 import { loadLine2, line2DayTrains } from '../../src/line2.js';
 import { tehranToEpoch } from '../../src/time.js';
 import { createModelSource } from '../../src/transit-journey/model-source.js';
@@ -20,13 +20,10 @@ function networkCopy(content: string): string {
   const path = join(directory, 'network.json'); writeFileSync(path, content); return path;
 }
 const date = '2026-10-22', midnight = tehranToEpoch(date, '00:00:00');
-const thursdayQuality = [
-  ...Array(8).fill('forward:thursday_measured_override;backward:thursday_measured_override;baseline:measured_2026-10-16+symmetric_assumed'),
-  'forward:scaled_1.073;backward:thursday_measured_override;baseline:measured_2026-10-16+symmetric_assumed',
-  ...Array(9).fill('forward:scaled_1.073;backward:scaled_1.073;baseline:measured_2026-10-16+symmetric_assumed'),
-  ...Array(3).fill('forward:scaled_1.073;backward:scaled_1.073;baseline:measured_2026-10-16'),
-  ...Array(2).fill('forward:scaled_1.073;backward:scaled_1.073;baseline:derived+symmetric_assumed'),
-];
+// Nov 5 provides all 23 forward segments and reverse 0-8 plus 18-22.
+const measuredReverse = new Set([...Array.from({length: 9}, (_,i) => i),18,19,20,21,22]);
+const thursdayQuality = loadNetwork().runQuality.map((baseline, i) =>
+  `forward:thursday_measured_override;backward:${measuredReverse.has(i) ? 'thursday_measured_override' : `scaled_${THURSDAY_RUN_FACTOR}`};baseline:${baseline}`);
 
 describe('bounded immutable source and cache', () => {
   it('exposes frozen model evidence with the actual fingerprint and no invented observation timestamps', () => {
@@ -175,14 +172,16 @@ describe('real model timetable source', () => {
 
   it('attributes Thursday provenance to applied directional overrides, not matching run values', async () => {
     const changed = JSON.parse(readFileSync(NETWORK_PATH, 'utf8'));
-    const line = changed.lines['1'], thursday = line['thursday_2026-10-22'];
-    thursday.run_forward_s['0'] = null;
-    thursday.run_backward_s['9'] = line.segments[9].run_s_forward;
+    const line = changed.lines['1'], oldThursday = line['thursday_2026-10-22'];
+    const newThursday = line['thursday_2026-11-05'];
+    delete oldThursday.run_forward_s['0'];
+    delete newThursday.run_forward_s['0'];
+    newThursday.run_backward_s['9'] = line.segments[9].run_s_forward;
     const source = createModelSource(networkCopy(JSON.stringify(changed)));
     const day = await source.getDay(1, date, 'thursday');
     const expected = [...thursdayQuality];
-    expected[0] = 'forward:scaled_1.073;backward:thursday_measured_override;baseline:measured_2026-10-16+symmetric_assumed';
-    expected[9] = 'forward:scaled_1.073;backward:thursday_measured_override;baseline:measured_2026-10-16+symmetric_assumed';
+    expected[0] = `forward:scaled_${THURSDAY_RUN_FACTOR};backward:thursday_measured_override;baseline:${loadNetwork().runQuality[0]}`;
+    expected[9] = `forward:thursday_measured_override;backward:thursday_measured_override;baseline:${loadNetwork().runQuality[9]}`;
     expect(day.runQuality).toEqual(expected);
     expect(day.complete).toBe(true);
   });
@@ -190,20 +189,23 @@ describe('real model timetable source', () => {
   it('retains baseline provenance on Thursday when no Thursday model overrides exist', async () => {
     const changed = JSON.parse(readFileSync(NETWORK_PATH, 'utf8'));
     delete changed.lines['1']['thursday_2026-10-22'];
+    delete changed.lines['1']['thursday_2026-11-05'];
     const path = networkCopy(JSON.stringify(changed)), source = createModelSource(path);
     const day = await source.getDay(1, date, 'thursday');
     expect(day.runQuality).toEqual(loadNetwork(path).runQuality);
     expect(day.complete).toBe(true);
   });
 
-  it('applies Thursday network overrides rather than only Thursday departure phases', async () => {
+  it('applies new measured Thursday segment times without claiming replay of an older Thursday', async () => {
     const source = createModelSource();
     const day = await source.getDay(1, date, 'thursday');
     const observed = day.trips.find(t => t.service === 'A' && t.direction === 'out' && t.stops[0].depart === tehranToEpoch(date, '14:25:06'))!;
     expect(observed).toBeDefined();
-    expect(Math.abs(observed.stops[8].arrive - tehranToEpoch(date, '14:40:14'))).toBeLessThanOrEqual(10);
-    const baseline = dayTrains(loadNetwork(), midnight, 'thursday').find(t => t.id === observed.sourceTrainId)!;
-    expect(observed.stops[8].arrive).not.toBe(baseline.stops[8].arrive);
+    expect(observed.stops[1].arrive - observed.stops[0].depart).toBe(223);
+    // The Oct 22 ride remains independently measured, but its 232s first run is
+    // not the newly selected Nov 5 Thursday segment 223s.
+    expect(observed.stops[1].arrive - observed.stops[0].depart).not.toBe(loadNetwork().runF[0]);
+    expect(day.complete).toBe(true);
   });
 
   it('fingerprints exact network bytes and the executed engine/network/line2/time module bytes', () => {

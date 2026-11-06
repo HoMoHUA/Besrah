@@ -125,11 +125,13 @@ describe('[modeled] net01 overlay: canonical normal-day timetable', () => {
     expect(again.identityVersion).toBe(overlay.identityVersion);
     expect(again.report).toEqual(overlay.report);
   });
-  it('Thursday, Friday and the baseline generator for them are untouched', () => {
-    for (const [date, type] of [[THURSDAY, 'thursday'], [FRIDAY, 'friday']] as const) {
-      expect(overlay.scheduleFor(type)).toEqual(scheduleFor(type));
-      expect(trainsOf(overlay, date, type)).toEqual(trainsOf(baseline, date, type));
-    }
+  it('Friday and the normal-day BASELINE remain unchanged; Thursday is updated by its separate field evidence', () => {
+    expect(overlay.scheduleFor('friday')).toEqual(scheduleFor('friday'));
+    expect(trainsOf(overlay, FRIDAY, 'friday')).toEqual(trainsOf(baseline, FRIDAY, 'friday'));
+    const thu = overlay.scheduleFor('thursday');
+    expect(thu.fixed?.A.length).toBeGreaterThan(30);
+    expect(thu.fixed?.B.length).toBeGreaterThan(20);
+    expect(thu).not.toEqual(baseline.scheduleFor('thursday'));
     expect(vakilabadDepartures(TUESDAY, scheduleFor('normal'), 'A')).toHaveLength(75);
   });
   it('[field_observed] Sunday crossing: the model puts an A train near Danesh-amooz within 60 s of the logged arrival', () => {

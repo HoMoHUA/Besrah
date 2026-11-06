@@ -9,6 +9,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { scheduleFor, type Confidence, type DaySchedule, type FixedDeparture } from './engine.js';
 import type { DayType } from './time.js';
+import { loadThursdayModel } from './thursday-field.js';
 
 export const OVERLAY_SCHEMA_VERSION = 1;
 export const REPO_ROOT = new URL('../../../', import.meta.url);
@@ -227,11 +228,21 @@ export function createTimetableModel(options: TimetableOptions = {}): TimetableM
     }
     const sheet = JSON.parse(sourceBytes.get(overlay.B.sourceId)!.toString('utf8'));
     const { schedule, report } = buildNormalDay(overlay, parseSheetColumn(sheet, overlay.B.column));
+    // Thursday is independently validated. A failed/missing Thursday evidence file
+    // must not break the correctly measured normal-day timetable or Friday.
+    let thursdaySchedule: DaySchedule | null = null;
+    try {
+      const thu = loadThursdayModel();
+      thursdaySchedule = thu.schedule;
+      parts.push(...thu.sourceBytes);
+    } catch {
+      warn('Thursday Nov 5 evidence missing or invalid; retaining prior Thursday model');
+    }
     const digest = sha256(Buffer.concat(parts.map(p => Buffer.from(sha256(p)))));
     const status: TimetableStatus = Object.freeze({ state: 'applied', overlayId: overlay.overlayId, digest, reason: null });
     return Object.freeze({
       identityVersion: `${overlay.overlayId}:${digest.slice(0, 12)}`, status, report: Object.freeze(report), overlay,
-      scheduleFor: (dayType: DayType) => (dayType === 'normal' ? schedule : scheduleFor(dayType)),
+      scheduleFor: (dayType: DayType) => (dayType === 'normal' ? schedule : dayType === 'thursday' && thursdaySchedule ? thursdaySchedule : scheduleFor(dayType)),
       fingerprintParts: () => parts,
     });
   } catch (error) {
