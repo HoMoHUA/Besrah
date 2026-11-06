@@ -38,6 +38,7 @@ describe('Shop V2 evidence-scoped catalog',()=>{
     expect(p.comparable).toBe(false);
     expect(p.lowestListedPriceToman).toBeNull();
     expect(p.offers.every(x=>!x.lowestWithinVerifiedGroup)).toBe(true);
+    expect(p.offers.every(x=>x.status==='stale')).toBe(true);
   });
   it('rejects single merchant, unknown price, unsafe links and invalid variants',()=>{
     expect(shopV2Product(parseShopV2Catalog(fixture({offers:[offer('a',1500000),offer('a',1400000,{sourceProductId:'other'})]})),
