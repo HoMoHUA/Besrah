@@ -16,7 +16,7 @@ const sec = (time: string) => {
   if (s >= 86400) throw new Error('Thursday time out of bounds');
   return s;
 };
-const assert = (ok: unknown, text: string): asserts ok => { if (!ok) throw new Error('Thursday evidence: ' + text); };
+function assert(ok: unknown, text: string): asserts ok { if (!ok) throw new Error('Thursday evidence: ' + text); }
 export interface ThursdayModel { schedule: DaySchedule; fingerprint: string; sourceBytes: Buffer[]; }
 
 export function buildThursdayModel(evidence: unknown, sheet: unknown, sourceBytes: Buffer[] = []): ThursdayModel {
