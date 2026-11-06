@@ -116,12 +116,15 @@ def reconcile(base, updates, *, verified_updates=False):
 
         for field in FIELDS:
             prev, value = original.get(field), candidate.get(field)
-            if not _positive(value):
+            # is_open=0 means a recorded CLOSED state, not an absent value.
+            value_present = value is not None if field == "o" else _positive(value)
+            prev_present = prev is not None if field == "o" else _positive(prev)
+            if not value_present:
                 continue
             if field == "lk" and not _safe_link(value):
                 summary["unsafeCandidateLinksIgnored"] += 1
                 continue
-            if not _positive(prev):
+            if not prev_present:
                 original[field] = value
                 summary["missingMetadataFilled"] += 1
             elif newer and prev != value:
