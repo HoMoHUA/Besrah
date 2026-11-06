@@ -442,7 +442,7 @@
           "run_s_forward": 68,
           "run_s_backward": null,
           "legacy_estimate_s": 120,
-          "dist_km_straight": 1.0,
+          "dist_km_straight": 1,
           "quality": "measured_2026-10-16"
         },
         {
@@ -637,9 +637,9 @@
           ]
         },
         "پارک ملت": {
-          "median_s": 42.0,
+          "median_s": 42,
           "obs_s": [
-            42.0
+            42
           ]
         },
         "آزادی": {
@@ -661,9 +661,9 @@
           ]
         },
         "طالقانی": {
-          "median_s": 32.0,
+          "median_s": 32,
           "obs_s": [
-            32.0
+            32
           ]
         },
         "قائم": {
@@ -696,7 +696,7 @@
           "median_s": 12.7,
           "obs_s": [
             13.4,
-            12.0
+            12
           ]
         },
         "پروین اعتصامی": {
@@ -762,15 +762,15 @@
           "7": 69
         },
         "run_backward_s": {
-          "8": 81,
-          "7": 75,
-          "6": 72,
-          "5": 71,
-          "4": 74,
-          "3": 85,
-          "2": 87,
+          "0": 417,
           "1": 87,
-          "0": 417
+          "2": 87,
+          "3": 85,
+          "4": 74,
+          "5": 71,
+          "6": 72,
+          "7": 75,
+          "8": 81
         },
         "dwell_s": {
           "کوثر": 20,
@@ -795,6 +795,96 @@
         "not_covered": "train ends at Seyed Razi; Ghadir/Airport not observed on Thursday",
         "vakilabad_board": "14:25 غدیر، 14:35 فرودگاه، 14:45 غدیر، 14:55 غدیر (sign shows headway 10)",
         "date_persian": "1405/07/30 (پنجشنبه)"
+      },
+      "thursday_2026-11-05": {
+        "source": "2026-11-05 owner and friend train observations in hermes-update-2026-11-05.zip; source hashes recorded in data/timetable/thursday-2026-11-05-field-v1.json",
+        "quality": "measured_single_train_per_segment; not a general Thursday timetable",
+        "note": "Measured segment timings on two Thursday journeys. More recent segments override 2026-10-22 for Thursdays only. Missing reverse segments remain model-derived; do not claim live or universal accuracy.",
+        "run_forward_s": {
+          "0": 223,
+          "1": 82,
+          "2": 86,
+          "3": 87,
+          "4": 74,
+          "5": 68,
+          "6": 76,
+          "7": 71,
+          "8": 79,
+          "9": 75,
+          "10": 113,
+          "11": 88,
+          "12": 99,
+          "13": 84,
+          "14": 79,
+          "15": 77,
+          "16": 102,
+          "17": 83,
+          "18": 74,
+          "19": 64,
+          "20": 170,
+          "21": 316,
+          "22": 179
+        },
+        "run_backward_s": {
+          "0": 415,
+          "1": 85,
+          "2": 90,
+          "3": 85,
+          "4": 70,
+          "5": 66,
+          "6": 72,
+          "7": 82,
+          "8": 75,
+          "18": 70,
+          "19": 65,
+          "20": 136,
+          "21": 371,
+          "22": 185
+        },
+        "dwell_s": {
+          "کوهستان پارک": 15,
+          "نمایشگاه": 30,
+          "اقبال لاهوری": 29,
+          "صیاد شیرازی": 25,
+          "صدف": 18,
+          "هفت‌تیر": 30,
+          "دانش‌آموز": 19,
+          "سیدرضی": 23,
+          "کوثر": 23,
+          "پارک ملت": 47,
+          "آزادی": 17,
+          "خیام": 29,
+          "فلسطین": 37,
+          "طالقانی": 30,
+          "قائم": 25,
+          "شریعتی": 41,
+          "امام خمینی": 17,
+          "بسیج": 23,
+          "هفده شهریور": 20,
+          "پروین اعتصامی": 13,
+          "بوستان ریحانه": 19
+        },
+        "layover_s": {
+          "airport_arrive_to_depart": 907,
+          "ghadir_pass_B_dwell_mean": 33,
+          "ghadir_pass_B_dwell_obs": [
+            38,
+            28
+          ],
+          "bustan_dwell_obs": [
+            18,
+            20
+          ],
+          "ghadir_A_arrive_to_depart_s": 216,
+          "ghadir_A_note": "2026-11-05 owner observed 17:36:26 -> 17:40:02; do not infer a standing operator rule"
+        },
+        "vakilabad_turnaround_s_observed": 143,
+        "a_phase_observations": [
+          "14:25:06 (2026-10-22)",
+          "16:55:17 (2026-11-05)"
+        ],
+        "a_phase_note": "Both are compatible within 11s with the candidate lattice, but this does NOT verify the entire Thursday timetable.",
+        "board_2026_11_05": "13:55 airport, 14:03 Ghadir, 14:11 Ghadir, 14:19 airport; this conflicts with simple lattice 3h later; keep uncertainty explicit"
       }
     },
     "2": {
@@ -951,7 +1041,7 @@
           ]
         },
         "شهید فکوری": {
-          "median_s": 43.0,
+          "median_s": 43,
           "obs_s": [
             20.2,
             65.8
@@ -1189,7 +1279,7 @@
         "A_shuttle": {
           "headway_min": 24,
           "cycle_min": 95.98,
-          "trainsets": 4.0
+          "trainsets": 4
         },
         "B_airport": {
           "headway_min": 24,
@@ -1251,7 +1341,17 @@
         "symmetric trip times both directions"
       ],
       "confidence": "medium-low",
-      "legacy_estimate_s": 480
+      "legacy_estimate_s": 480,
+      "measured_thursday_2026-11-05": {
+        "quality": "measured_single_train (friend log), Thursdays only",
+        "ghadir_to_bustan_forward_s": 316,
+        "bustan_to_airport_forward_s": 179,
+        "airport_to_bustan_back_s": 185,
+        "bustan_to_ghadir_back_s": 371,
+        "total_ghadir_to_airport_forward_s": 495,
+        "total_airport_to_ghadir_back_s": 556,
+        "note": "One measured Thursday train; Friday and normal-day extension estimates remain unchanged."
+      }
     },
     "legacy_vs_measured": {
       "line1_legacy_total_vakilabad_to_ghadir_s_including_delays": 2757,
@@ -1299,6 +1399,11 @@
     {
       "id": "line3-stations",
       "q": "Line 3 station list and order (only terminals and interchanges known).",
+      "status": "open"
+    },
+    {
+      "id": "thursday-2026-11-05-model-validation",
+      "q": "Only two A departure sightings and one B extension journey. Thursday all-day 10-minute lattice and layovers are extrapolations; board earlier on 2026-11-05 conflicts. Confirm with further observations.",
       "status": "open"
     }
   ]
