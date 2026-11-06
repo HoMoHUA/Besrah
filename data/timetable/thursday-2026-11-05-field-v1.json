@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "overlayId": "metro-line1-thursday-field-2026-11-05-v1",
+  "line": 1,
+  "dayType": "thursday",
+  "observedServiceDates": [
+    "2026-11-05"
+  ],
+  "provenance": {
+    "ownerCsv": {
+      "path": "data/field/2026-11-05_line1_thursday_kowsar-vakilabad.csv",
+      "sha256": "74e54490f99f8597205c146b478636ccd9f8acb27bb3b4b9b2af96e81fccf356"
+    },
+    "friendCsv": {
+      "path": "data/field/2026-11-05_line1_thursday_friend_imam-khomeini-airport-parvin.csv",
+      "sha256": "9361cb0e4c3972a3fbcc5e2a6374d4d74e239363557c4da8bfabeffb33d3e3c4"
+    },
+    "corrections": {
+      "path": "data/field/corrections.json",
+      "sha256": "0b61ed017e168c2ac46b2983260990bd5932ea5f2b66c2656c5d7d9bc160a66a"
+    },
+    "newNetwork": {
+      "path": "data/network.json (owner 2026-11-05 archive only)",
+      "sha256": "3ee31c18ceb9ff7fcb934a52737e3a6c18d5370b13c283f8b40fd1c84552fd1e"
+    },
+    "kowsarSheet": {
+      "path": "data/official/kowsar_airport_poster_2026-11-03.json",
+      "quality": "photo_transcription"
+    },
+    "quality": "measured_single_train_per_segment; extrapolated on other Thursdays",
+    "notes": [
+      "Raw CSVs and corrections are in owner-supplied hermes-update-2026-11-05.zip; not synthetic.",
+      "The 2026-11-05 board cited from earlier hours conflicts with the modeled phase; keep the phase as a hypothesis."
+    ]
+  },
+  "schedule": {
+    "mode": "single_physical_departure_sequence",
+    "latticeStart": "06:15:17",
+    "latticeStopExclusive": "22:00:00",
+    "gridSeconds": 600,
+    "phaseSeconds": 17,
+    "B": {
+      "source": "kowsar_airport_poster_2026-11-03.json",
+      "column": "thursday",
+      "presenceToVakilabadOffsetSeconds": 1080,
+      "phaseCorrectionSeconds": 17,
+      "absorbWithinSeconds": 60
+    },
+    "uncertainty": "The per-slot A/B alternation is modelled from one Thursday and a photographed sheet, not a live train feed."
+  },
+  "runs": {
+    "forward": [
+      223,
+      82,
+      86,
+      87,
+      74,
+      68,
+      76,
+      71,
+      79,
+      75,
+      113,
+      88,
+      99,
+      84,
+      79,
+      77,
+      102,
+      83,
+      74,
+      64,
+      170,
+      316,
+      179
+    ],
+    "backward": {
+      "0": 415,
+      "1": 85,
+      "2": 90,
+      "3": 85,
+      "4": 70,
+      "5": 66,
+      "6": 72,
+      "7": 82,
+      "8": 75,
+      "18": 70,
+      "19": 65,
+      "20": 136,
+      "21": 371,
+      "22": 185
+    },
+    "dwell": {
+      "کوهستان پارک": 15,
+      "نمایشگاه": 30,
+      "اقبال لاهوری": 29,
+      "صیاد شیرازی": 25,
+      "صدف": 18,
+      "هفت‌تیر": 30,
+      "دانش‌آموز": 19,
+      "سیدرضی": 23,
+      "کوثر": 23,
+      "پارک ملت": 47,
+      "آزادی": 17,
+      "خیام": 29,
+      "فلسطین": 37,
+      "طالقانی": 30,
+      "قائم": 25,
+      "شریعتی": 41,
+      "امام خمینی": 17,
+      "بسیج": 23,
+      "هفده شهریور": 20,
+      "پروین اعتصامی": 13,
+      "بوستان ریحانه": 19
+    },
+    "layover": {
+      "airport": 907,
+      "ghadirA": 216,
+      "ghadirPassB": 33
+    },
+    "unmeasuredRunFactor": 1.005
+  },
+  "openQuestions": [
+    "Airport layover 907s is one train observation, not a standing operator rule.",
+    "Thursday A phase extrapolated to all trains from two observed departures.",
+    "Thursday A Ghadir layover 216s differs from Friday 442s and definitions may differ.",
+    "Line3 paper board vs Bassij board not reconciled; keep line3 out of engine.",
+    "Backwards 0-8 and 18-22 measured only, other runs extrapolated."
+  ]
+}
