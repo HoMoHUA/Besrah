@@ -54,6 +54,21 @@ Crosswalk groups must have `canonicalId` and a matching exact identity; `verific
 
 A candidate is generated only with equivalent identity in both snapshots, fresh current data, multiple independent merchants, strictly lower listed price and the user's stated thresholds. `deliveryStatus:not_sent` is not a user notification. No account or location information is recorded by these scripts.
 
+## Optional read-only Core gateway (separate from V1)
+
+`packages/core/src/shop/v2.ts` provides a bounded catalog parser and versioned read-only routes. The API is **disabled by default**. Do not activate it with fixture/test data.
+
+To enable only after real owner-authorized seller snapshots are independently audited:
+
+```bash
+BESRAH_SHOP_V2_ENABLED=1
+BESRAH_SHOP_V2_CATALOG_PATH=/absolute/private/path/shop-v2-staged.json
+```
+
+Then `GET /app/api/shop/v2/search?q=...&maxPrice=...&limit=...` and `GET /app/api/shop/v2/product?id=besrah:...` become available. Unknown/corrupt V2 file yields **503 only for V2**; legacy V1 and transit continue unaffected. The UI is not switched to V2 in this PR.
+
+The runtime recomputes fresh comparable listings on **every request**, using actual observation/valid-until fields and distinct sellers. It discards precomputed 'cheapest' flags in the staging file if the dataset has aged. Prices remain snapshot prices; shipping, actual inventory and final order cost are never asserted. All outputs use `Cache-Control: no-store`, HTTPS links, a strict catalog size limit and bounded queries. The V2 response does not expose private license references or include an automatic watchlist.
+
 ## Integration gate
 
 Before wiring the module to the production API or Telegram app:
