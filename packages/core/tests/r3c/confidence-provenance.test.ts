@@ -44,14 +44,19 @@ describe('[modeled] evidence labels carried on other service days', () => {
 });
 
 describe('[modeled] scope: no label change outside the overlay', () => {
-  it('Thursday, Friday and the baseline fallback keep the original classes byte for byte', () => {
+  it('Thursday field evidence has separate provenance; Friday and normal baseline remain unaffected', () => {
     const baseline = createBaselineTimetable();
-    for (const [type, date] of [['thursday', '2026-10-22'], ['friday', '2026-10-16'], ['normal', LATER_TUESDAY]] as const) {
-      const a = dayTrains(forDay(net, type), tehranToEpoch(date, '00:00:00'), type, overlay.scheduleFor(type));
-      const b = dayTrains(forDay(net, type), tehranToEpoch(date, '00:00:00'), type, baseline.scheduleFor(type));
-      if (type !== 'normal') expect(a.map(t => [t.id, t.start, t.confidence])).toEqual(b.map(t => [t.id, t.start, t.confidence]));
-      else expect(new Set(b.map(t => t.confidence))).toEqual(new Set(['site_headway_assumed_phase']));
-    }
+    const date = '2026-11-05';
+    const th = dayTrains(forDay(net, 'thursday'), tehranToEpoch(date, '00:00:00'), 'thursday', overlay.scheduleFor('thursday'));
+    expect(th.some(t => t.confidence === 'sheet_derived_phase')).toBe(true);
+    expect(th.some(t => t.confidence === 'generalized_observation_phase')).toBe(true);
+    expect(th.some(t => t.confidence === 'measured_phase')).toBe(true);
+    const friday = '2026-10-16';
+    const a = dayTrains(forDay(net, 'friday'), tehranToEpoch(friday, '00:00:00'), 'friday', overlay.scheduleFor('friday'));
+    const b = dayTrains(forDay(net, 'friday'), tehranToEpoch(friday, '00:00:00'), 'friday', baseline.scheduleFor('friday'));
+    expect(a.map(t => [t.id, t.start, t.confidence])).toEqual(b.map(t => [t.id, t.start, t.confidence]));
+    const old = dayTrains(forDay(net, 'normal'), tehranToEpoch(LATER_TUESDAY,'00:00:00'),'normal',baseline.scheduleFor('normal'));
+    expect(new Set(old.map(t => t.confidence))).toEqual(new Set(['site_headway_assumed_phase']));
   });
   it('publicConfidence is the identity for schedules without explicit departures', () => {
     const plain: DaySchedule = scheduleFor('friday');
