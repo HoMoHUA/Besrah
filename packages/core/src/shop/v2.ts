@@ -117,7 +117,8 @@ export function shopV2Product(c: ShopV2Catalog, id: string, nowMs: number) {
     checkoutTotalKnown:false, generatedAt:c.generatedAt,
     offers:p.offers.map(o => ({
       sourceId:o.sourceId, sourceProductId:o.sourceProductId, merchant:o.merchant,
-      priceToman:o.priceToman, stock:o.stock, status:o.status,
+      priceToman:o.priceToman, stock:o.stock,
+      status:o.status === 'candidate' && !price.offers.includes(o) ? 'stale' : o.status,
       observedAt:o.observedAt, validUntil:o.validUntil, sourceUrl:o.sourceUrl,
       eligibleForComparison:price.comparable && eligibleMerchants.has(o.merchantId) && price.offers.includes(o),
       lowestWithinVerifiedGroup:price.comparable && price.offers.includes(o) && o.priceToman === price.lowest,
