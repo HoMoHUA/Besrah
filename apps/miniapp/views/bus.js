@@ -1,20 +1,67 @@
 // Static bus guide: lines, ordered stops and stop-to-line lookup from a reviewed offline OSM projection.
 // It never claims live positions or arrival times, and nothing the user types is stored or sent.
 import { buildIndex, loopVariant, searchLines, searchStops } from '../bus-data.js';
+import { findBusConnections } from '../bus-paths.js';
+import { BUS_ARRIVAL_SOURCES, busHandoffNote, openBusSource } from '../bus-sources.js';
 import { createRideTabs } from '../ui/ride-tabs.js';
 import { h, icon } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 
-const SOURCE_NOTE = 'اطلاعات خطوط از نقشه مشارکتی OpenStreetMap آمده و با سازمان اتوبوسرانی تطبیق داده نشده است؛ ممکن است خطی جا افتاده یا مسیری عوض شده باشد. زمان رسیدن اتوبوس هنوز در دسترس نیست.';
+const SOURCE_NOTE = 'مسیرهای این راهنما از OpenStreetMap هستند و با بهره‌بردار تطبیق داده نشده‌اند. زمان رسیدن اتوبوس از داده این برنامه در دسترس نیست؛ فقط منبع بیرونی می‌تواند آن را تأیید کند.';
 
 export function createBusView(ctx) {
   const { actions, api, sheet } = ctx;
   let status = 'idle', index = null, query = '';
+  let routeFrom = '', routeTo = '';
   const root = h('div', { class: 'view view--bus' });
   const input = h('input', { id: 'bus-q', type: 'text', inputmode: 'search', autocomplete: 'off', spellcheck: 'false', 'aria-label': 'جست وجوی خط یا ایستگاه اتوبوس', placeholder: 'شماره خط، مبدا یا نام ایستگاه' });
   const clear = h('button', { type: 'button', class: 'search-clear cm-icon-btn', hidden: true, 'aria-label': 'پاک کردن جست وجو' }, icon('xmark_circle_fill'));
   const results = h('div', { class: 'bus-results', 'aria-live': 'polite' });
   const dateText = () => (index?.meta?.osm_base ?? '').slice(0, 10);
+  const fromInput = h('input', { id: 'bus-route-from', type: 'text', autocomplete: 'off', spellcheck: 'false', placeholder: 'نام دقیق ایستگاه مبدأ', 'aria-label': 'ایستگاه مبدأ اتوبوس' });
+  const toInput = h('input', { id: 'bus-route-to', type: 'text', autocomplete: 'off', spellcheck: 'false', placeholder: 'نام دقیق ایستگاه مقصد', 'aria-label': 'ایستگاه مقصد اتوبوس' });
+  const routeSuggestions = h('div', { class: 'bus-route-suggestions', 'aria-live': 'polite' });
+  const routeResults = h('div', { class: 'bus-route-results', 'aria-live': 'polite' });
+  const routeIntro = h('p', { class: 'bus-note', text: 'مسیرهای ممکن با توجه به ترتیب ایستگاه‌های ثبت‌شده پیدا می‌شوند. زمان رسیدن، هزینه، تأیید فعالیت خط و امکان تعویض واقعی نامعلوم است.' });
+
+  function pickStop(name, target) {
+    if (target === 'from') { routeFrom = name; fromInput.value = name; } else { routeTo = name; toInput.value = name; }
+    routeSuggestions.replaceChildren();
+    renderRoutes();
+  }
+  function suggest(field) {
+    if (!index) return;
+    const term = field === 'from' ? fromInput.value : toInput.value;
+    const matches = searchStops(index, term, 6);
+    routeSuggestions.replaceChildren(...matches.map(stop => h('button', { type: 'button', class: 'cm-chip',
+      onClick: () => pickStop(stop.name, field), text: stop.name })));
+  }
+  function renderRoutes() {
+    if (!index) return routeResults.replaceChildren(h('p', { class: 'bus-note', text: 'ابتدا فهرست خطوط را دریافت کنید.' }));
+    const found = findBusConnections(index, routeFrom, routeTo);
+    if (!routeFrom || !routeTo) return routeResults.replaceChildren(h('p', { class: 'bus-note', text: 'ایستگاه مبدأ و مقصد را انتخاب کنید.' }));
+    if (!found.length) return routeResults.replaceChildren(h('p', { class: 'bus-note', text: 'در ترتیب ایستگاه‌های فعلی، اتصال مستقیمی یا با یک تعویض پیدا نشد. این به معنی نبود خط واقعی نیست؛ نام دقیق و مسیر رسمی را بررسی کنید.' }));
+    routeResults.replaceChildren(...found.map((route, i) => h('div', { class: 'cm-card' },
+      h('strong', { text: `گزینه ${i + 1} • ${route.type === 'direct' ? 'بدون تعویض' : 'یک تعویض احتمالی'}` }),
+      ...route.legs.map(l => h('p', { class: 'bus-note', text: `خط ${l.label}، ${l.from} ← ${l.to}، ${l.stopCount} توقف ثبت‌شده` })),
+      h('p', { class: 'bus-note', text: route.warning }),
+      h('p', { class: 'bus-note', text: 'زمان سفر و زمان انتظار قابل محاسبه نیست؛ این گزینه‌ها بر اساس زمان رتبه‌بندی نشده‌اند.' }))));
+  }
+  const officialLinks = name => h('div', { class: 'bus-source-links' }, 
+    h('p', { class: 'bus-note', text: busHandoffNote(name) }),
+    ...BUS_ARRIVAL_SOURCES.map(src => h('button', { type: 'button', class: 'cm-btn cm-btn--sm',
+      onClick: () => openBusSource(src.id), text: `بررسی در ${src.title}` })));
+  const routePanel = h('section', { class: 'cm-card bus-route-panel', 'aria-labelledby': 'bus-route-title' }, 
+    h('h2', { id: 'bus-route-title', class: 'about-card__title', text: 'اتصال بین دو ایستگاه اتوبوس' }),
+    routeIntro,
+    h('div', { class: 'bus-route-fields' },
+      h('label', { for: 'bus-route-from', text: 'مبدأ' }), fromInput,
+      h('label', { for: 'bus-route-to', text: 'مقصد' }), toInput),
+    routeSuggestions,
+    h('button', { type: 'button', class: 'cm-btn cm-btn--sm', onClick: () => { routeFrom = fromInput.value.trim(); routeTo = toInput.value.trim(); routeSuggestions.replaceChildren(); renderRoutes(); }, text: 'یافتن مسیرهای ممکن' }),
+    routeResults);
+  fromInput.addEventListener('input', () => { routeFrom = fromInput.value.trim(); suggest('from'); });
+  toInput.addEventListener('input', () => { routeTo = toInput.value.trim(); suggest('to'); });
 
   const lineButton = line => {
     const first = line.variants[0];
@@ -49,7 +96,7 @@ export function createBusView(ctx) {
     if (status === 'loading' || status === 'ready') return;
     status = 'loading'; paint();
     try { index = buildIndex(await api.busGuide()); status = 'ready'; } catch { status = 'error'; }
-    paint();
+    paint(); if (status === 'ready') renderRoutes();
   }
 
   /* sheets: a stop opens its lines; a line opens its ordered stops. Content swaps in place when a sheet is already open. */
@@ -90,8 +137,13 @@ export function createBusView(ctx) {
 
   function showStop(stop) {
     present(h('div', { class: 'station bus-sheet' }, sheetHead(stop.name, `${stop.refs.length} خط عبوری ثبت شده`),
-      h('div', { class: 'station__scroll' }, ...stop.refs.map(ref => lineButton(index.byRef.get(ref))),
-        h('p', { class: 'bus-note', text: 'این فهرست از داده منبع است و زمان رسیدن اتوبوس را نشان نمی دهد.' }))));
+      h('div', { class: 'station__scroll' },
+        h('div', { class: 'cm-chips' },
+          h('button', { type: 'button', class: 'cm-chip', onClick: () => { pickStop(stop.name, 'from'); sheet.close(); }, text: 'انتخاب مبدأ' }),
+          h('button', { type: 'button', class: 'cm-chip', onClick: () => { pickStop(stop.name, 'to'); sheet.close(); }, text: 'انتخاب مقصد' })),
+        ...stop.refs.map(ref => lineButton(index.byRef.get(ref))),
+        officialLinks(stop.name),
+        h('p', { class: 'bus-note', text: 'این فهرست از داده منبع است و زمان رسیدن اتوبوس را نشان نمی‌دهد.' }))));
   }
 
   input.addEventListener('input', () => { query = input.value; paint(); });
@@ -102,11 +154,12 @@ export function createBusView(ctx) {
       h('img', { src: 'assets/services/caravan.svg', alt: '', width: 60, height: 60 }),
       h('div', {}, h('h1', { text: 'اتوبوس' }), h('p', { text: 'خط ها و ایستگاه های مشهد' }))),
     createRideTabs('bus', actions),
+    routePanel,
     h('label', { class: 'cm-search cm-inset bus-search', for: 'bus-q' }, icon('magnifyingglass'), input, clear),
     results,
     h('section', { class: 'cm-card about-card', 'aria-labelledby': 'bus-method-title' },
       h('h2', { id: 'bus-method-title', class: 'about-card__title', text: 'درباره اطلاعات اتوبوس' }),
-      h('p', { text: SOURCE_NOTE }),
+      h('p', { text: SOURCE_NOTE }), officialLinks(''),
       h('p', { dir: 'ltr', text: `© OpenStreetMap contributors · ODbL-1.0${dateText() ? ' · ' + dateText() : ''}` })));
   paint();
   return { el: root, mount() { init(root); }, onShow() { load(); }, onHide() {} };

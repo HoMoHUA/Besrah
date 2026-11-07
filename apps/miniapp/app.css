@@ -897,3 +897,24 @@ a, button { text-decoration: none !important; }
 .tp-why { margin: 0; }
 .tp-question { display: grid; gap: 8px; padding: 12px 14px; border-radius: 18px; border: 1px dashed var(--accent); background: var(--surface-2); }
 .tp-question b { font: 800 14px var(--font-sans); color: var(--ink); }
+
+/* Bus candidate paths: HM7 visual hierarchy; NO displayed ETA without licensed feed. */
+.bus-route-panel { display: grid; gap: 12px; }
+.bus-route-fields { display: grid; grid-template-columns: minmax(0,1fr); gap: 6px; }
+.bus-route-fields label { color: var(--muted); font: 700 12px var(--font-sans); }
+.bus-route-fields input {
+  display: block; width: 100%; min-width: 0; box-sizing: border-box;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  border-radius: 12px; padding: 11px 13px; font: 600 14px var(--font-sans);
+  outline-offset: 3px; text-align: start;
+}
+.bus-route-fields input:focus-visible { outline: 2px solid var(--accent, #a6b85e); }
+.bus-route-suggestions { display: flex; flex-wrap: wrap; gap: 6px; }
+.bus-route-suggestions:empty, .bus-route-results:empty { display: none; }
+.bus-route-results { display: grid; gap: 8px; }
+.bus-route-results > .cm-card { display: grid; gap: 5px; background: var(--surface); }
+.bus-route-results strong { font: 800 13px var(--font-sans); }
+.bus-route-results .bus-note { margin: 0; }
+.bus-source-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-block: 8px; }
+.bus-source-links .bus-note { flex: 1 1 100%; margin: 0; }
+.bus-source-links .cm-btn { min-height: 40px; flex: 1 1 auto; }
