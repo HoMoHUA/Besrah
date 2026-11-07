@@ -9,6 +9,7 @@
 | Explicit home need: coffee, sweets, gifts/flowers, everyday grocery | Merged in PR #2 (907b0c3), not deployed | Not deployed; no invented special occasions |
 | Up to two end-to-end transit options and Neshan walking/car legs | Implemented | Only tested scope; not bus/metro/taxi optimization |
 | Metro timetable model, board, tracker and station favorites | Implemented | Schedules are models, never live GPS |
+| Bus stop-to-stop candidate discovery (direct or one possible transfer) | New source code: direction-aware OSM stop-order suggestions, time/wait/fare UNKNOWN | Requires OSM route & physical transfer verification, real-phone QA; **no authoritative bus ETA API connected** |
 | Interline transfer and verified internal station geometry | Not complete | Requires field geometry and real timings |
 | Neshan multi-result search / direct map picker | Not complete | Search entitlement (485) and web map key unresolved |
 | Food search over SnappFood/TapsiFood snapshots | Implemented | Private production data; snapshot not live |
