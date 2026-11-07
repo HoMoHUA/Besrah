@@ -20,8 +20,8 @@ export function createBusView(ctx) {
   const dateText = () => (index?.meta?.osm_base ?? '').slice(0, 10);
   const fromInput = h('input', { id: 'bus-route-from', type: 'text', autocomplete: 'off', spellcheck: 'false', placeholder: 'نام دقیق ایستگاه مبدأ', 'aria-label': 'ایستگاه مبدأ اتوبوس' });
   const toInput = h('input', { id: 'bus-route-to', type: 'text', autocomplete: 'off', spellcheck: 'false', placeholder: 'نام دقیق ایستگاه مقصد', 'aria-label': 'ایستگاه مقصد اتوبوس' });
-  const routeSuggestions = h('div', { class: 'bus-notes', 'aria-live': 'polite' });
-  const routeResults = h('div', { class: 'bus-notes', 'aria-live': 'polite' });
+  const routeSuggestions = h('div', { class: 'bus-route-suggestions', 'aria-live': 'polite' });
+  const routeResults = h('div', { class: 'bus-route-results', 'aria-live': 'polite' });
   const routeIntro = h('p', { class: 'bus-note', text: 'مسیرهای ممکن با توجه به ترتیب ایستگاه‌های ثبت‌شده پیدا می‌شوند. زمان رسیدن، هزینه، تأیید فعالیت خط و امکان تعویض واقعی نامعلوم است.' });
 
   function pickStop(name, target) {
@@ -47,14 +47,14 @@ export function createBusView(ctx) {
       h('p', { class: 'bus-note', text: route.warning }),
       h('p', { class: 'bus-note', text: 'زمان سفر و زمان انتظار قابل محاسبه نیست؛ این گزینه‌ها بر اساس زمان رتبه‌بندی نشده‌اند.' }))));
   }
-  const officialLinks = name => h('div', { class: 'bus-notes' },
+  const officialLinks = name => h('div', { class: 'bus-source-links' }, 
     h('p', { class: 'bus-note', text: busHandoffNote(name) }),
     ...BUS_ARRIVAL_SOURCES.map(src => h('button', { type: 'button', class: 'cm-btn cm-btn--sm',
       onClick: () => openBusSource(src.id), text: `بررسی در ${src.title}` })));
-  const routePanel = h('section', { class: 'cm-card', 'aria-labelledby': 'bus-route-title' },
+  const routePanel = h('section', { class: 'cm-card bus-route-panel', 'aria-labelledby': 'bus-route-title' }, 
     h('h2', { id: 'bus-route-title', class: 'about-card__title', text: 'اتصال بین دو ایستگاه اتوبوس' }),
     routeIntro,
-    h('div', { class: 'bus-notes' },
+    h('div', { class: 'bus-route-fields' },
       h('label', { for: 'bus-route-from', text: 'مبدأ' }), fromInput,
       h('label', { for: 'bus-route-to', text: 'مقصد' }), toInput),
     routeSuggestions,
