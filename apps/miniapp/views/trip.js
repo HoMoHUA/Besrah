@@ -20,11 +20,11 @@ const REASONS = {
 
 // Why a typed place has no address result. Only real states from the server; nothing is guessed.
 export const GEOCODER_EMPTY = {
-  no_match: 'این نشانی پیدا نشد؛ نام خیابان یا محله را دقیق تر بنویسید، ایستگاه را از فهرست انتخاب کنید یا مختصات نقطه را بچسبانید.',
+  no_match: 'این نشانی پیدا نشد؛ نام خیابان یا محله را دقیق تر بنویسید، ایستگاه را از فهرست انتخاب کنید یا پیوند اشتراک نقطه از برنامهٔ نقشه را بچسبانید.',
   outside_coverage: 'نشانی پیدا شده بیرون از محدودهٔ مشهد بود و استفاده نشد.',
-  not_enabled: 'جست وجوی نشانی برای کلید فعلی فعال نیست؛ ایستگاه را از فهرست انتخاب کنید، موقعیت خودتان را بدهید یا مختصات را بچسبانید.',
+  not_enabled: 'جست وجوی نشانی برای کلید فعلی فعال نیست؛ ایستگاه را از فهرست انتخاب کنید، موقعیت خودتان را بدهید یا پیوند اشتراک نقطه را بچسبانید.',
   unavailable: 'جست وجوی نشانی اکنون پاسخ نداد؛ کمی بعد دوباره تلاش کنید یا ایستگاه را از فهرست انتخاب کنید.',
-  not_configured: 'جست وجوی نشانی فعال نیست و فقط نام ایستگاه ها جست وجو می شود؛ می توانید مختصات نقطه را هم بچسبانید.',
+  not_configured: 'جست وجوی نشانی فعال نیست و فقط نام ایستگاه ها جست وجو می شود؛ می توانید پیوند اشتراک نقطه از برنامهٔ نقشه را هم بچسبانید.',
   skipped: 'مکانی پیدا نشد؛ نام دقیق تری بنویسید.',
   ok: 'مکانی پیدا نشد؛ نام دقیق تری بنویسید.',
 };
@@ -33,6 +33,7 @@ export const COORDINATE_ERRORS = {
   outside_coverage: 'این مختصات بیرون از محدودهٔ مشهد است.',
 };
 const PRECISION = { geocoded: 'نشانی (نقطهٔ تقریبی)', station: 'ایستگاه مترو', coordinates: 'مختصات واردشده (دقیق)' };
+const TAXI_NOTE = 'این مدت حرکت خودرو به گزارش مسیریاب است؛ زمان رسیدن تاکسی اینترنتی و کرایه نامعلوم است و از اینجا محاسبه نمی شود.';
 const CHOICE = { earliest: 'زودترین رسیدن', other_mode: 'گزینهٔ دیگر: روش دیگر', other_station: 'گزینهٔ دیگر: ایستگاه سوار شدن دیگر' };
 
 export const durationLabel = seconds => {
@@ -208,6 +209,14 @@ export function createTripView(ctx) {
     drawOut(); drawSubmit();
   }
 
+  // The next real step for an option. Only in-app destinations that exist; no invented provider deep links.
+  function optionActions(o) {
+    const ride = o.legs.find(l => l.type === 'metro');
+    if (!ride?.from || typeof actions?.openStation !== 'function') return null;
+    return h('div', { class: 'fd-actions' },
+      h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => actions.openStation(ride.from) }, `تابلوی حرکت ایستگاه ${ride.from}`));
+  }
+
   function optionCard(o, decision, i = 0, all = [o]) {
     const known = o.arriveAt !== null;
     const verdict = decision?.byOption?.[o.id];
@@ -228,7 +237,9 @@ export function createTripView(ctx) {
       h('ul', { class: 'tp-legs' }, o.legs.map(legRow)),
       o.ifMissed ? h('p', { class: 'fd-note', text: `اگر این قطار را از دست بدهید: قطار بعدی ${clock(o.ifMissed.departAt)}${o.ifMissed.arriveAt ? `، رسیدن ${clock(o.ifMissed.arriveAt)}` : ''}.` }) : null,
       verdict?.claims?.length ? h('ul', { class: 'fd-notes tp-why' }, verdict.claims.map(t => h('li', { text: t }))) : null,
-      o.notes.length ? h('ul', { class: 'fd-notes' }, o.notes.map(t => h('li', { text: t }))) : null);
+      o.kind === 'car' ? h('p', { class: 'tp-sure', text: TAXI_NOTE }) : null,
+      o.notes.length ? h('ul', { class: 'fd-notes' }, o.notes.map(t => h('li', { text: t }))) : null,
+      optionActions(o));
   }
 
   // The Core asks at most one question, only when two options are a real trade-off. The answer is a stated preference the user can change in Profile.
@@ -242,7 +253,7 @@ export function createTripView(ctx) {
   }
   function drawOut() {
     if (S.status === 'loading') { out.replaceChildren(h('div', { class: 'fd-skeleton', 'aria-busy': 'true', 'aria-label': 'در حال محاسبه' }, [0, 1].map(() => h('div', { class: 'cm-skel fd-skeleton__card' })))); return; }
-    if (S.status === 'needorigin') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'موقعیت شما در دسترس نبود. مبدأ را از بالا جست وجو کنید یا نام یک ایستگاه بنویسید.' }))); return; }
+    if (S.status === 'needorigin') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'موقعیت شما در دسترس نبود. مبدأ را جست وجو کنید یا ایستگاه را از فهرست بالا انتخاب کنید.' }))); return; }
     if (S.status === 'outside') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'مسیریابی فقط برای محدودهٔ مشهد است.' }))); return; }
     if (S.status === 'busy') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'درخواست ها زیاد است؛ چند ثانیه بعد دوباره تلاش کنید.' }), h('button', { type: 'button', class: 'cm-btn', onClick: () => plan() }, 'تلاش دوباره'))); return; }
     if (S.status === 'error') { out.replaceChildren(h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'مسیر محاسبه نشد؛ اتصال را بررسی کنید.' }), h('button', { type: 'button', class: 'cm-btn', onClick: () => plan() }, 'تلاش دوباره'))); return; }
@@ -259,7 +270,7 @@ export function createTripView(ctx) {
   let originControls = null;
   function drawOrigin() { if (originControls) originControls.hidden = Boolean(S.gps && !S.from); }
   const pickerBlock = (key, label, extra) => {
-    const input = h('input', { class: 'fd-input', type: 'search', enterkeyhint: 'search', autocomplete: 'off', placeholder: `${label}: ایستگاه، نشانی یا مختصات`, 'aria-label': label });
+    const input = h('input', { class: 'fd-input', type: 'search', enterkeyhint: 'search', autocomplete: 'off', placeholder: `${label}: نام ایستگاه یا نشانی`, 'aria-label': label });
     input.addEventListener('input', () => { S.pick[key].q = input.value; clearTimeout(timers[key]); timers[key] = setTimeout(() => search(key), DEBOUNCE_MS); });
     inputs[key] = input;
     const select = h('select', { class: ['fd-input', 'tp-station'], 'aria-label': `${label}: انتخاب ایستگاه از فهرست` });
@@ -276,7 +287,7 @@ export function createTripView(ctx) {
     pickerBlock('to', 'مقصد'),
     h('label', { class: 'tp-when' }, h('span', { text: 'ساعت حرکت (خالی یعنی اکنون)' }), timeInput),
     submit,
-    h('p', { class: 'fd-note', text: 'انتخاب نقطه روی نقشه هنوز در دسترس نیست. می توانید ایستگاه را از فهرست انتخاب کنید، موقعیت خودتان را بدهید، یا مختصات یا پیوند اشتراک یک نقطه از برنامهٔ نقشه را در کادر بچسبانید.' }));
+    h('p', { class: 'fd-note', text: 'انتخاب نقطه روی نقشه هنوز در دسترس نیست. ایستگاه را از فهرست انتخاب کنید، موقعیت خودتان را بدهید، یا پیوند اشتراک یک نقطه را از برنامهٔ نقشه در کادر بچسبانید.' }));
 
   el.append(
     h('header', { class: 'metro-head' },

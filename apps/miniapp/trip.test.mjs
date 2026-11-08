@@ -268,3 +268,19 @@ test('cards say why each option is shown, the order of steps, how much is assume
   assert.match(out, /منشأ زمان کل: .*اندازه گیری مسیریاب، .*مدل برنامهٔ قطار، ۵ دقیقه فرض/);
   assert.match(out, /۹ دقیقه دیرتر از گزینهٔ اول می رسد/);
 });
+
+test('every metro option offers its boarding station board; a car option says it is not a taxi time or fare', async t => {
+  const opened = [];
+  installFoodDom(t, {});
+  const car = { id: 'car', kind: 'car', title: 'با خودرو', choice: 'other_mode', leaveAt: '16:54', leaveEpoch: 1, arriveAt: '17:50', arriveEpoch: 542, totalS: 3360,
+    legs: [{ type: 'car', durationS: 3360, distanceM: 11000, basis: 'routed', traffic: 'provider_traffic' }], ifMissed: null, notes: [] };
+  const api = createApi({ fetch: async url => (url === 'api/trip' ? new Response(JSON.stringify(reply({ options: [metroOption({ choice: 'earliest' }), car] }))) : new Response('{}', { status: 500 })) });
+  const view = createTripView({ api, state: stationsState, actions: { go() {}, openStation: name => opened.push(name) } });
+  view.onShow();
+  await select(view, 'مبدأ').dispatch('change', '1:وکیل‌آباد'); await select(view, 'مقصد').dispatch('change', '1:غدیر'); await flushView();
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  await button(view.el, 'تابلوی حرکت ایستگاه شریعتی').dispatch('click');
+  assert.deepEqual(opened, ['شریعتی']);
+  assert.match(text(view), /زمان رسیدن تاکسی اینترنتی و کرایه نامعلوم است/);
+  assert.equal(findAll(view.el, n => n.tagName === 'button' && /تابلوی حرکت/.test(n.textContent)).length, 1);
+});
