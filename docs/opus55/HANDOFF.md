@@ -9,13 +9,8 @@
 - `food/search.ts`: `ageNote()`.
 No new dependencies. No new served files (asset allowlist unchanged).
 
-## Applying the work (push was blocked)
-Files: `opus55-transit-place-input.bundle` and `patches/*.patch` (session outputs).
-```
-git fetch /path/opus55-transit-place-input.bundle opus55/transit-place-input:opus55/transit-place-input
-git push -u origin opus55/transit-place-input
-```
-or `git am patches/*.patch` on a branch from `a53dbaf`.
+## Delivery
+Branch `opus55/transit-place-input` is on HoMoHUA/Besrah, rebased on `main` @ `f1fe833`, with a PR against `main`. The earlier bundle/patches (based on `a53dbaf`) are obsolete.
 
 ## Setup / test
 - `cd packages/core && npm ci && TMPDIR=$(mktemp -d) npx vitest run --maxWorkers=1 --no-file-parallelism` (`mktemp -d` gives 0700).
@@ -30,6 +25,6 @@ Nothing was deployed. Deploying needs a new `PRODUCTION_DEPLOY_GO` (RELEASE-RUNB
 - The station picker lists stations from `api/stations` order arrays; stations without coordinates are hidden.
 
 ## Next actions
-1. Owner: give the cloud session push access, or push the bundle.
+1. Owner: review and merge the PR; re-check the trip screen on a phone.
 2. D: one shared evidence-chip component; then bus+metro transfer design notes (needs measured Shariati transfer time) and validated live data (none available).
 3. Shopping: a human picks more SKUs into `data/shop/manifest-v1.json`; run the importer on an allowed host (never commit `catalog-v1.json`).

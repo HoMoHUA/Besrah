@@ -201,6 +201,7 @@ test('without a decision block (older server) the cards render exactly as before
   await choose(view, 'مبدأ', 'فردوسی', 'دانشگاه فردوسی'); await choose(view, 'مقصد', 'غدیر', 'ایستگاه غدیر');
   await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
   assert.doesNotMatch(text(view), /کدام برایتان مهم تر است/); assert.match(text(view), /۱۶:۵۴/);
+});
 
 // --- place input without multi-result search, and the A→B result presentation ---
 const stationsState = { get: () => ({ stations: [
