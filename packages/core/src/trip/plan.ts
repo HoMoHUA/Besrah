@@ -25,7 +25,10 @@ export type Leg =
 export interface TripOption {
   id: string; kind: 'metro' | 'car' | 'walk'; title: string;
   leaveAt: string | null; leaveEpoch: number | null; arriveAt: string | null; arriveEpoch: number | null; totalS: number | null;
-  legs: Leg[]; ifMissed: { departAt: string; arriveAt: string | null } | null; notes: string[];
+  legs: Leg[];
+  /** Why this option is on screen: the earliest arrival, or a whole-trip alternative (another mode, another boarding station). */
+  choice?: 'earliest' | 'other_mode' | 'other_station';
+  ifMissed: { departAt: string; arriveAt: string | null } | null; notes: string[];
   /** Metro option without a routed walk: only the platform times are known, never the arrival. */
   platformDepartures?: Array<{ departAt: string; arriveAtStation: string }>;
 }
@@ -135,7 +138,8 @@ export async function planTrip(origin: LatLon, destination: LatLon, readyEpoch: 
   let chosen = options;
   let status: TripResult['status'] = 'ok', reason = 'ok';
   if (!chosen.length && unrouted.length) {
-    chosen = unrouted.slice(0, 2); status = 'partial'; reason = router.configured ? 'walk_legs_unavailable' : 'router_not_configured';
+    const rank = new Map(pairs.map((p, i) => [`m:${p.o.id}:${p.d.id}:${p.line}`, i]));
+    chosen = distinctUnrouted([...unrouted].sort((a, b) => (rank.get(a.id) ?? 99) - (rank.get(b.id) ?? 99))); status = 'partial'; reason = router.configured ? 'walk_legs_unavailable' : 'router_not_configured';
   } else if (!chosen.length && excludedByWalk) {
     status = 'unavailable'; reason = 'walk_limit_excluded_all';
   } else if (!chosen.length) {
@@ -157,6 +161,15 @@ export function pickDistinct(all: Candidate[]): TripOption[] {
   if (!first) return [];
   const second = sorted.find(c => c !== first && c.option.kind !== first.option.kind)
     ?? sorted.find(c => c !== first && c.option.kind === 'metro' && boarding(c) !== boarding(first) && c.arrive - first.arrive <= 20 * 60);
-  return [first.option, ...(second ? [second.option] : [])];
+  const label = (o: TripOption, choice: NonNullable<TripOption['choice']>): TripOption => ({ ...o, choice });
+  return [label(first.option, 'earliest'), ...(second ? [label(second.option, second.option.kind !== first.option.kind ? 'other_mode' : 'other_station')] : [])];
+}
+/** Without measured walks the cards differ only by stations: keep a second card only if it boards elsewhere, so the same
+ *  train from the same platform is never shown twice. `unrouted` arrives in shortlist order (shortest straight-line first). */
+export function distinctUnrouted(unrouted: readonly TripOption[]): TripOption[] {
+  const board = (o: TripOption) => { const m = o.legs.find(l => l.type === 'metro'); return m && m.type === 'metro' ? `${m.line}:${m.from}` : o.id; };
+  const out: TripOption[] = [];
+  for (const o of unrouted) if (!out.some(x => board(x) === board(o))) out.push(o);
+  return out.slice(0, 2);
 }
 const boarding = (c: Candidate): string => c.pairKey.split('>')[0] ?? '';

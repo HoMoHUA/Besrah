@@ -99,6 +99,15 @@ describe('searchFood on a small fixture', () => {
     expect(r.notes[0]).toMatch(/قدیمی/);
     expect(searchFood(idx, { q: 'کباب' }, Date.parse('2026-10-31T12:00:00Z')).snapshot.stale).toBe(false);
   });
+  it('says the snapshot age in days with Persian digits, and an unknown capture time as unknown, never "?"', () => {
+    expect(searchFood(idx, { q: 'کباب' }, NOW).notes[0]).toBe('این داده حدود ۴ روز پیش ثبت شده و قدیمی است.');
+    expect(searchFood(idx, { q: 'کباب' }, Date.parse('2026-11-02T13:00:00Z')).notes[0]).toBe('این داده حدود ۵۱ ساعت پیش ثبت شده و قدیمی است.');
+    const unknown = parseFoodIndex(gzipSync(Buffer.from(JSON.stringify({ v: 1, capturedFrom: null, capturedTo: null, vendors: [] }))));
+    const r = searchFood(unknown, {}, NOW);
+    expect(r.snapshot).toMatchObject({ ageHours: null, stale: true });
+    expect(r.notes[0]).toBe('زمان ثبت این داده معلوم نیست؛ آن را قدیمی در نظر بگیرید.');
+    expect(r.notes.join(' ')).not.toContain('?');
+  });
   it('vendor detail groups the menu by category and does not invent fields', () => {
     const d = foodVendorDetail(idx, 's:aaa')!;
     expect(d.menu.map(g => g.category)).toEqual(['پیتزا', 'نوشیدنی']);

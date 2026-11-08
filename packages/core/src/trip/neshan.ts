@@ -12,8 +12,12 @@ export interface Router {
   readonly configured: boolean;
   route(mode: RouteMode, from: LatLon, to: LatLon): Promise<RouteLeg>;
   geocode(address: string): Promise<LatLon | null>;
+  /** Same single-result geocode, but says why there is no point: no match, or the service failed / is not enabled. */
+  geocodeDetailed?(address: string): Promise<GeocodeOutcome>;
   stats(): { calls: number; day: string; cap: number; lastFailure: RouterFailure | null };
 }
+
+export type GeocodeOutcome = { status: 'ok'; point: LatLon } | { status: 'no_match' } | { status: 'failed'; code: RouterFailure };
 
 export interface NeshanOptions {
   directionKey?: string | undefined; geocodingKey?: string | undefined;
@@ -66,6 +70,23 @@ export function createNeshan(options: NeshanOptions = {}): Router {
 
   const remember = (code: RouterFailure): never => { lastFailure = code; throw new RouterError(code); };
 
+  const geocodeDetailed = async (address: string): Promise<GeocodeOutcome> => {
+    if (!options.geocodingKey) return { status: 'failed', code: 'unavailable' };
+    if (now() < geocodingDeniedUntil) return { status: 'failed', code: 'unauthorized' };
+    try {
+      const body = await call(`/v6/geocoding?address=${encodeURIComponent(address.slice(0, 120))}`, options.geocodingKey) as { status?: string; location?: { x?: unknown; y?: unknown } };
+      // Neshan answers an address it cannot place with a non-OK status (e.g. NO_RESULT) and no location.
+      if (body?.status !== 'OK') return { status: 'no_match' };
+      if (typeof body.location?.x !== 'number' || typeof body.location?.y !== 'number' || !Number.isFinite(body.location.x) || !Number.isFinite(body.location.y)) { lastFailure = 'bad_response'; return { status: 'failed', code: 'bad_response' }; }
+      return { status: 'ok', point: { lat: body.location.y, lon: body.location.x } };
+    } catch (error) {
+      const code = error instanceof RouterError ? error.code : 'unavailable';
+      if (code === 'unauthorized') geocodingDeniedUntil = now() + 3_600_000;
+      lastFailure = code;
+      return { status: 'failed', code };
+    }
+  };
+
   return {
     configured: Boolean(options.directionKey),
     async route(mode, from, to) {
@@ -89,17 +110,10 @@ export function createNeshan(options: NeshanOptions = {}): Router {
       cache.set(id, { at: now(), leg: out });
       return out;
     },
+    geocodeDetailed,
     async geocode(address) {
-      if (!options.geocodingKey || now() < geocodingDeniedUntil) return null;
-      try {
-        const body = await call(`/v6/geocoding?address=${encodeURIComponent(address.slice(0, 120))}`, options.geocodingKey) as { status?: string; location?: { x?: unknown; y?: unknown } };
-        if (body?.status !== 'OK' || typeof body.location?.x !== 'number' || typeof body.location?.y !== 'number') return null;
-        return { lat: body.location.y, lon: body.location.x };
-      } catch (error) {
-        if (error instanceof RouterError && error.code === 'unauthorized') geocodingDeniedUntil = now() + 3_600_000;
-        lastFailure = error instanceof RouterError ? error.code : 'unavailable';
-        return null;
-      }
+      const out = await geocodeDetailed(address);
+      return out.status === 'ok' ? out.point : null;
     },
     stats: () => ({ calls, day, cap, lastFailure }),
   };

@@ -35,7 +35,13 @@ const offerDto = (o: RawOffer) => ({ seller: o.seller, merchant: o.merchant, sta
   variantUnresolved: o.variantUnresolved, stock: o.stock, availabilityDeclared: o.availabilityDeclared, shipping: o.shipping, url: o.url });
 const productDto = (p: RawProduct) => ({ id: p.canonicalProductId, title: p.title, brand: p.brand, category: p.category, observedAt: p.observedAt,
   source: { kind: p.source.kind, url: p.source.url }, minToman: p.summary.minToman, maxToman: p.summary.maxToman, resolvedOffers: p.summary.resolved, offerCount: p.offers.length,
-  priceState: p.summary.resolved === 0 ? 'unresolved' : p.summary.resolved === 1 ? 'single_offer' : 'compared' });
+  priceState: p.summary.resolved === 0 ? 'unresolved' : p.summary.resolved === 1 ? 'single_offer' : 'compared',
+  // Several sellers on ONE marketplace page are not a market-wide comparison; the client must be able to say which it is.
+  ...scopeOf(p) });
+const scopeOf = (p: RawProduct) => {
+  const merchants = [...new Set(p.offers.map(o => o.merchant).filter(Boolean))].sort();
+  return { merchants, comparisonScope: merchants.length > 1 ? 'multi_marketplace' as const : 'single_marketplace' as const };
+};
 
 export function searchShop(catalog: ShopCatalog, query: ShopQuery, nowMs: number) {
   const tokens = normalizeFa(query.q ?? '').split(' ').filter(Boolean);
