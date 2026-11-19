@@ -21,6 +21,20 @@ ROOT = Path(__file__).resolve().parents[2]
 BBOX = (36.10, 36.50, 59.30, 59.90)            # Mashhad, with margin
 
 
+# The database stores the provider's own open-state text ("Open"/"Close" from TapsiFood, "باز"/"بسته" from
+# SnappFood, "OutOfCoverage" when the vendor did not deliver to the capture point). A non-empty string is NOT
+# "open": only a recognised state maps to 1/0, everything else (out of coverage, empty, unknown) stays None.
+OPEN_STATES = {"open": 1, "باز": 1, "1": 1, "true": 1, "close": 0, "closed": 0, "بسته": 0, "0": 0, "false": 0}
+
+
+def open_flag(value):
+    if value is None or isinstance(value, bool):
+        return None if value is None else int(value)
+    if isinstance(value, (int, float)):
+        return 1 if value == 1 else 0 if value == 0 else None
+    return OPEN_STATES.get(str(value).strip().lower())
+
+
 def captured_at(research: Path, raw_file: str):
     p = research / raw_file
     return int(p.stat().st_mtime) if p.is_file() else None
@@ -55,7 +69,7 @@ def build(db_path: Path, research: Path):
             "s": "s" if v["source"] == "snappfood" else "t", "c": v["vendor_code"], "n": name, "b": (v["branch"] or "").strip(),
             "t": (v["category"] or "").strip(), "la": round(lat, 5), "lo": round(lon, 5), "a": (v["address"] or "").strip(),
             "m": mo if mo and mo > 0 else None, "r": v["rating"] if v["rating"] else None, "cc": v["comment_count"] or None,
-            "o": None if v["is_open"] is None else int(bool(v["is_open"])), "cap": cap, "lk": v["link"], "i": items,
+            "o": open_flag(v["is_open"]), "cap": cap, "lk": v["link"], "i": items,
         }
         vendors.append(rec)
         s = per_source.setdefault(rec["s"], {"vendors": 0, "items": 0, "priceUnknown": 0, "capMin": None, "capMax": None})

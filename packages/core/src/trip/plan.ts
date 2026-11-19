@@ -1,6 +1,7 @@
 // Door-to-door trip planner between two real points. Pure given its dependencies (router, metro planner, station geometry).
 // Rules: a leg is `routed` (a router measured it), `model` (the metro timetable model) or `assumption` (a fixed, disclosed constant).
 // A leg nobody measured stays `unknown`; straight-line distance is never presented as a duration or an ETA.
+import { optionFare, type Fare } from './fares.js';
 import { epochToTehranHms, tehranDay } from '../time.js';
 import { RouterError, type LatLon, type RouteLeg, type Router } from './neshan.js';
 
@@ -31,6 +32,8 @@ export interface TripOption {
   ifMissed: { departAt: string; arriveAt: string | null } | null; notes: string[];
   /** Metro option without a routed walk: only the platform times are known, never the arrival. */
   platformDepartures?: Array<{ departAt: string; arriveAtStation: string }>;
+  /** Additive (2026-11-19): what the trip costs, or why that is unknown. See `fares.ts`. */
+  fare?: Fare;
 }
 export interface TripResult {
   schemaVersion: 1; status: 'ok' | 'partial' | 'unavailable'; reason: string; readyAt: string; readyEpoch: number;
@@ -148,7 +151,7 @@ export async function planTrip(origin: LatLon, destination: LatLon, readyEpoch: 
   else if (pairs.length && !metroOptions && metroProblem) { status = 'partial'; reason = 'metro_unavailable_for_this_trip'; }
   if (!router.configured && status === 'ok') status = 'partial';
 
-  return { schemaVersion: 1, status, reason, readyAt: `${tehranDay(readyEpoch)} ${hhmm(readyEpoch)}`, readyEpoch, origin, destination, options: chosen,
+  return { schemaVersion: 1, status, reason, readyAt: `${tehranDay(readyEpoch)} ${hhmm(readyEpoch)}`, readyEpoch, origin, destination, options: chosen.map(o => ({ ...o, fare: optionFare(o.legs) })),
     assumptions: { stationAccessS: ACCESS_S, stationEgressS: EGRESS_S, note: 'ورود به سکو و خروج از ایستگاه فرض ثابت اند، اندازه گیری نشده اند.' },
     routing: { provider: router.configured ? 'neshan' : null, walk: router.configured ? 'routed' : 'unavailable', car: car ? 'routed' : 'unavailable', trafficLabel: 'ترافیک را مسیریاب برای خودرو لحاظ می کند؛ برای مترو و پیاده بی اثر است.' },
     disclaimers: DISCLAIMERS };
