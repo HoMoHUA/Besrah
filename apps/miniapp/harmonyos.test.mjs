@@ -60,8 +60,9 @@ test('active trip lines: next step and arrival from the plan, said as estimates'
 test('home shows the trip card only while a trip is active, and "end trip" removes it', async t => {
   installFoodDom(t);
   globalThis.fetch = () => Promise.reject(new Error('offline artwork'));
-  const store = createStore(memory());
-  store.startActiveTrip(TRIP, Math.floor(Date.now() / 1000) - 10);
+  const store = createStore(memory()), now = Math.floor(Date.now() / 1000);
+  // Times relative to the real clock: the card expires by design, so a fixed date would make this test fail later in the day.
+  assert.equal(store.startActiveTrip({ ...TRIP, leaveEpoch: now + 300, arriveEpoch: now + 2400 }, now - 10), true);
   const opened = [];
   const view = createHomeView({ api: { homeSuggestions: async () => ({ cards: [], locationUsed: false, note: '' }) },
     store: { ...store, suggestLocation: () => false, prefs: () => ({}) }, actions: { go() {}, openStation: s => opened.push(s), serviceAction() {}, heroAction() {} } });
