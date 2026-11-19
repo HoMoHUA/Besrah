@@ -6,6 +6,21 @@ import { serviceLogo } from '../ui/service-card.js';
 import { resolveUserCoords } from '../logic.js';
 
 const REFRESH_MS = 60_000;
+const hhmmTehran = sec => new Date(sec * 1000).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Tehran' });
+const faNum = n => Number(n).toLocaleString('fa-IR');
+const faDigits = v => String(v).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+
+// "Trip in progress" (HarmonyOS Live View pattern): the trip the user started, its next step and planned arrival.
+// Times are the plan's estimates (metro timetable model, router durations), never live vehicle positions.
+export function activeTripLines(trip, nowSec) {
+  const toLeave = Math.round((trip.leaveEpoch - nowSec) / 60), toArrive = Math.round((trip.arriveEpoch - nowSec) / 60);
+  const lines = [];
+  if (toLeave > 0) lines.push(`حرکت از مبدأ: ساعت ${hhmmTehran(trip.leaveEpoch)} (${faNum(toLeave)} دقیقه دیگر)`);
+  else if (toArrive > 0) lines.push('در راه هستید.');
+  if (trip.ride) lines.push(`مترو خط ${faNum(trip.ride.line)}${trip.ride.toward ? ` به سمت ${trip.ride.toward}` : ''}: سوار شدن ساعت ${faDigits(trip.ride.departAt)} از ایستگاه ${trip.ride.from}، پیاده شدن ${trip.ride.to}`);
+  lines.push(toArrive > 0 ? `رسیدن حدود ساعت ${hhmmTehran(trip.arriveEpoch)} (${faNum(toArrive)} دقیقه دیگر)` : `زمان رسیدن برنامه ریزی شده (${hhmmTehran(trip.arriveEpoch)}) گذشته است.`);
+  return lines;
+}
 const INTENTS = [
   ['now', 'همین حالا'],
   ['coffee', 'کافه'],
@@ -28,6 +43,20 @@ export function createHomeView({ actions, api, store }) {
   const shortcut = (label, ico, onClick) => h('button', { type: 'button', class: 'sc-chip', onClick }, h('span', { class: 'sc-chip__ico' }, icon(ico)), h('span', { text: label }));
 
   const sugHost = h('section', { class: 'sg-host', 'aria-label': 'پیشنهادهای حالا', 'aria-live': 'polite' });
+  const liveHost = h('section', { class: 'lv-host', 'aria-label': 'سفر در جریان', 'aria-live': 'polite' });
+  let liveTimer = null;
+  function drawLive() {
+    const trip = store?.activeTrip?.();
+    if (!trip) { liveHost.replaceChildren(); liveHost.hidden = true; return; }
+    liveHost.hidden = false;
+    liveHost.replaceChildren(h('div', { class: 'cm-card lv-card' },
+      h('div', { class: 'lv-card__head' }, h('span', { class: 'lv-card__dot', 'aria-hidden': 'true' }), h('b', { text: 'سفر در جریان' }), h('span', { class: 'lv-card__title', text: trip.title })),
+      h('ul', { class: 'lv-card__lines' }, activeTripLines(trip, Math.floor(Date.now() / 1000)).map(t => h('li', { text: t }))),
+      h('p', { class: 'fd-note', text: 'زمان ها برآورد برنامهٔ سفرند، نه موقعیت زندهٔ قطار یا خودرو. این کارت فقط روی همین دستگاه است و خودش پایان می یابد.' }),
+      h('div', { class: 'fd-actions' },
+        trip.ride && typeof actions.openStation === 'function' ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => actions.openStation(trip.ride.from) }, `تابلوی ایستگاه ${trip.ride.from}`) : null,
+        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => { store.endActiveTrip?.(); drawLive(); } }, 'پایان سفر'))));
+  }
   const art = h('img', { class: 'rt-card__art', src: 'assets/hero-brand.svg', alt: '', width: 480, height: 220 });
 
   async function load(point) {
@@ -87,6 +116,7 @@ export function createHomeView({ actions, api, store }) {
 
   root.append(
     h('div', { class: 'home-greeting' }, h('div', {}, h('p', { class: 'eyebrow', text: 'بِسراه · مشهد' }), h('h1', { text: 'امروز، کجا می روید؟' }))),
+    liveHost,
     h('button', { type: 'button', class: 'rt-card', 'aria-label': 'مقصد را انتخاب کنید؛ مبدأ موقعیت فعلی شماست', onClick: () => actions.go('trip', { focus: 'to' }) },
       art,
       h('span', { class: 'rt-card__kicker', text: 'مسیر مکان به مکان' }),
@@ -121,9 +151,12 @@ export function createHomeView({ actions, api, store }) {
     // Position is requested at load only if the user turned that on in Profile; otherwise the clock-only suggestion appears
     // and the position is asked for solely by tapping the button.
     onShow() {
+      drawLive(); clearInterval(liveTimer); liveTimer = null;
+      // Refresh only while a trip is running; never keep a timer alive for nothing (and never hold a test process open).
+      if (store?.activeTrip?.()) { liveTimer = setInterval(() => { drawLive(); if (!store.activeTrip?.()) { clearInterval(liveTimer); liveTimer = null; } }, 30_000); liveTimer?.unref?.(); }
       if (suggestions.status === 'loading' || (Date.now() - lastAt < REFRESH_MS && suggestions.status === 'ok')) return;
       if (store?.suggestLocation?.()) withPosition(); else load(null);
     },
-    onHide() { controller?.abort(); },
+    onHide() { controller?.abort(); clearInterval(liveTimer); liveTimer = null; },
   };
 }

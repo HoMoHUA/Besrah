@@ -883,6 +883,14 @@ a, button { text-decoration: none !important; }
 .sg-card__why { font: 700 12px/1.7 var(--font-sans); color: var(--accent); }
 .sg-card__detail { font: 600 11.5px/1.8 var(--font-sans); color: var(--muted); overflow-wrap: anywhere; }
 .sg-locate { justify-self: start; }
+.lv-host[hidden] { display: none; }
+.lv-card { display: grid; gap: 8px; padding: 14px 16px; border-radius: var(--radius-20); border: 1px solid var(--accent-soft, var(--line)); }
+.lv-card__head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font: 800 14px/1.7 var(--font-sans); }
+.lv-card__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft, transparent); }
+.lv-card__title { color: var(--muted); font-weight: 700; font-size: 12.5px; }
+.lv-card__lines { display: grid; gap: 4px; margin: 0; padding-inline-start: 18px; font: 600 13px/1.8 var(--font-sans); color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) { .lv-card__dot { animation: lv-pulse 2s ease-in-out infinite; } }
+@keyframes lv-pulse { 50% { opacity: .45; } }
 .bus-live__title { margin: 4px 0 0; font: 800 15px/1.7 var(--font-sans); }
 .bus-live__list li { color: var(--muted); }
 .bus-live__list li.is-live { color: var(--ink); font-weight: 700; }

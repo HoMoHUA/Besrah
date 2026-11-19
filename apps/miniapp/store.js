@@ -1,7 +1,7 @@
 // Device-local preferences. Only station NAMES and display preferences are kept — never coordinates.
 // The storage object is injected so the module is testable and survives blocked/full storage.
 export const KEYS = Object.freeze({
-  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1',
+  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1', activeTrip: 'besrah:active-trip:v1',
 });
 const MAX_NAME = 64;
 const THEMES = ['auto', 'light', 'dark'];
@@ -27,6 +27,22 @@ const MAX_SAVED = 24;
 // id (never a place, query or coordinate) and an expiry are kept; nothing is sent to the server.
 export const DISMISS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const MAX_DISMISSED = 16;
+// "Trip in progress" (Live View pattern): one trip the user explicitly started. Only public station names, line numbers and
+// times are kept, never coordinates or typed addresses; it ends by itself 15 minutes after the planned arrival, after 8 hours
+// at most, or when the user ends it.
+export const ACTIVE_TRIP_MAX_S = 8 * 3600, ACTIVE_TRIP_AFTER_ARRIVAL_S = 15 * 60;
+const HHMM = /^([01][0-9]|2[0-3]):[0-5][0-9]$/;
+export function sanitizeActiveTrip(t) {
+  if (!t || typeof t !== 'object') return null;
+  const int = v => Number.isSafeInteger(v) ? v : null;
+  const leaveEpoch = int(t.leaveEpoch), arriveEpoch = int(t.arriveEpoch), startedAt = int(t.startedAt);
+  if (leaveEpoch === null || arriveEpoch === null || startedAt === null || arriveEpoch < leaveEpoch || arriveEpoch - startedAt > ACTIVE_TRIP_MAX_S) return null;
+  if (!['metro', 'car', 'walk'].includes(t.kind) || !isName(t.title)) return null;
+  const ride = t.ride && typeof t.ride === 'object' && isName(t.ride.from) && isName(t.ride.to) && [1, 2].includes(t.ride.line) && HHMM.test(t.ride.departAt) && HHMM.test(t.ride.arriveAt)
+    ? { line: t.ride.line, from: t.ride.from, to: t.ride.to, toward: isName(t.ride.toward) ? t.ride.toward : null, departAt: t.ride.departAt, arriveAt: t.ride.arriveAt } : null;
+  const endsAt = Math.min(arriveEpoch + ACTIVE_TRIP_AFTER_ARRIVAL_S, startedAt + ACTIVE_TRIP_MAX_S);
+  return { kind: t.kind, title: t.title, leaveEpoch, arriveEpoch, startedAt, endsAt, ride };
+}
 const isSuggestionId = v => typeof v === 'string' && /^(transit|food)(\.[a-z_]{1,24}){1,2}$/.test(v);
 // Only explicitly tapped food vendors / product references. No GPS, history, phone or order details.
 export function sanitizeSavedChoice(input) {
@@ -68,6 +84,7 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     savedChoices: [],
     mealPlan: [],
     dismissed: {},
+    activeTrip: null,
   };
   try { state.prefs = sanitizePrefs(JSON.parse(read(KEYS.prefs))); } catch { state.prefs = {}; }
   state.suggestLocation = read(KEYS.suggest) === '1';
@@ -102,6 +119,7 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
       }
     }
   } catch { /* corrupt storage is ignored */ }
+  try { state.activeTrip = sanitizeActiveTrip(JSON.parse(read(KEYS.activeTrip))); } catch { state.activeTrip = null; }
   try { const last = JSON.parse(read(KEYS.last)); if (isName(last)) state.last = last; } catch { /* ignore */ }
   { const theme = read(KEYS.theme); if (THEMES.includes(theme)) state.theme = theme; }
 
@@ -114,6 +132,7 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     else if (key === 'choices') write(KEYS.choices, JSON.stringify(state.savedChoices));
     else if (key === 'mealPlan') write(KEYS.mealPlan, JSON.stringify(state.mealPlan));
     else if (key === 'dismissed') write(KEYS.dismissed, JSON.stringify(state.dismissed));
+    else if (key === 'activeTrip') write(KEYS.activeTrip, JSON.stringify(state.activeTrip));
     else if (key === 'prefs') write(KEYS.prefs, JSON.stringify(state.prefs));
     else if (key === 'suggest') write(KEYS.suggest, state.suggestLocation ? '1' : '0');
     emit(key);
@@ -161,6 +180,16 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
       const next = Object.fromEntries(live.filter(([key]) => key !== id).slice(-(MAX_DISMISSED - 1)));
       next[id] = now + DISMISS_TTL_MS; state.dismissed = next; save('dismissed'); return true;
     },
+    activeTrip(nowSec = Math.floor(Date.now() / 1000)) {
+      if (state.activeTrip && nowSec >= state.activeTrip.endsAt) { state.activeTrip = null; save('activeTrip'); }
+      return state.activeTrip ? { ...state.activeTrip, ride: state.activeTrip.ride ? { ...state.activeTrip.ride } : null } : null;
+    },
+    startActiveTrip(trip, nowSec = Math.floor(Date.now() / 1000)) {
+      const safe = sanitizeActiveTrip({ ...trip, startedAt: nowSec });
+      if (!safe || nowSec >= safe.endsAt) return false;
+      state.activeTrip = safe; save('activeTrip'); return true;
+    },
+    endActiveTrip() { if (state.activeTrip) { state.activeTrip = null; save('activeTrip'); } },
     clearDismissed() { if (Object.keys(state.dismissed).length) { state.dismissed = {}; save('dismissed'); } },
     prefs: () => ({ ...state.prefs }),
     setPrefs(values) { state.prefs = sanitizePrefs(values); save('prefs'); },

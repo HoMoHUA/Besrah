@@ -86,7 +86,7 @@ test('without any geolocation support the explicit action fails locally and the 
   const { view } = setup(t);
   view.onShow(); await flushView();
   await button(view.el, 'نزدیک من').dispatch('click'); await flushView();
-  assert.match(text(view), /دسترسی به موقعیت داده نشد/);
+  assert.match(text(view), /موقعیت در دسترس نیست/);
   assert.match(text(view), /پیتزا شمال/);
 });
 

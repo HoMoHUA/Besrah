@@ -11,7 +11,7 @@ import { init } from '../ui/hm7.js';
 const SOURCE_NOTE = 'مسیرهای این راهنما از OpenStreetMap هستند و با بهره‌بردار تطبیق داده نشده‌اند. زمان رسیدن زنده فقط در بخش «زمان رسیدن زنده» و از سامانهٔ شهرداری مشهد می‌آید.';
 const fa = n => Number(n).toLocaleString('fa-IR');
 // Identifiers (line and stop numbers) in Persian digits, without thousands separators.
-const faId = v => String(v).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const faId = v => String(v).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]).replace(/\./g, '٫');
 // One line per arrival. Minutes only for a live, provider-backed estimate.
 export function arrivalText(a) {
   const to = a.destination ? ` به ${a.destination}` : '', line = faId(a.line);
