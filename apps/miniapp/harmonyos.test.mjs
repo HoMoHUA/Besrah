@@ -75,3 +75,18 @@ test('home shows the trip card only while a trip is active, and "end trip" remov
   assert.doesNotMatch(view.el.textContent, /سفر در جریان/);
   view.onHide();
 });
+
+test('inside the Android app the started trip also drives the native notification; in a browser nothing happens', () => {
+  const calls = [], had = 'window' in globalThis, prev = globalThis.window;
+  try {
+    globalThis.window = { BesrahNative: { startTrip: json => { calls.push(['start', JSON.parse(json)]); return true; }, endTrip: () => calls.push(['end']) } };
+    const store = createStore(memory()), now = Math.floor(Date.now() / 1000);
+    assert.equal(store.startActiveTrip({ ...TRIP, leaveEpoch: now + 300, arriveEpoch: now + 2400 }, now), true);
+    assert.equal(calls[0][0], 'start');
+    assert.deepEqual(Object.keys(calls[0][1]).sort(), ['arriveEpoch', 'endsAt', 'kind', 'leaveEpoch', 'ride', 'startedAt', 'title']);
+    store.endActiveTrip();
+    assert.deepEqual(calls.at(-1), ['end']);
+    globalThis.window = {};
+    assert.equal(createStore(memory()).startActiveTrip({ ...TRIP, leaveEpoch: now + 300, arriveEpoch: now + 2400 }, now), true, 'no bridge: web only');
+  } finally { if (had) globalThis.window = prev; else delete globalThis.window; }
+});

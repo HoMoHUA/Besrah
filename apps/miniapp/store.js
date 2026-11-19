@@ -43,6 +43,16 @@ export function sanitizeActiveTrip(t) {
   const endsAt = Math.min(arriveEpoch + ACTIVE_TRIP_AFTER_ARRIVAL_S, startedAt + ACTIVE_TRIP_MAX_S);
   return { kind: t.kind, title: t.title, leaveEpoch, arriveEpoch, startedAt, endsAt, ride };
 }
+// Inside the Besrah Android app, the same trip also becomes a real ongoing notification with a countdown (and the
+// HarmonyOS 4.x status-bar capsule where the phone allows it). In a browser or Telegram this does nothing.
+export function nativeTrip(action, trip) {
+  try {
+    const bridge = globalThis.window?.BesrahNative;
+    if (!bridge) return false;
+    if (action === 'start') return Boolean(bridge.startTrip(JSON.stringify(trip)));
+    bridge.endTrip(); return true;
+  } catch { return false; }
+}
 const isSuggestionId = v => typeof v === 'string' && /^(transit|food)(\.[a-z_]{1,24}){1,2}$/.test(v);
 // Only explicitly tapped food vendors / product references. No GPS, history, phone or order details.
 export function sanitizeSavedChoice(input) {
@@ -187,9 +197,11 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     startActiveTrip(trip, nowSec = Math.floor(Date.now() / 1000)) {
       const safe = sanitizeActiveTrip({ ...trip, startedAt: nowSec });
       if (!safe || nowSec >= safe.endsAt) return false;
-      state.activeTrip = safe; save('activeTrip'); return true;
+      state.activeTrip = safe; save('activeTrip');
+      nativeTrip('start', safe);
+      return true;
     },
-    endActiveTrip() { if (state.activeTrip) { state.activeTrip = null; save('activeTrip'); } },
+    endActiveTrip() { if (state.activeTrip) { state.activeTrip = null; save('activeTrip'); } nativeTrip('end'); },
     clearDismissed() { if (Object.keys(state.dismissed).length) { state.dismissed = {}; save('dismissed'); } },
     prefs: () => ({ ...state.prefs }),
     setPrefs(values) { state.prefs = sanitizePrefs(values); save('prefs'); },

@@ -4,6 +4,7 @@ import { homeLayout, isLive } from '../services.js';
 import { h, icon } from '../ui/dom.js';
 import { serviceLogo } from '../ui/service-card.js';
 import { resolveUserCoords } from '../logic.js';
+import { nativeTrip } from '../store.js';
 
 const REFRESH_MS = 60_000;
 const hhmmTehran = sec => new Date(sec * 1000).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Tehran' });
@@ -44,10 +45,16 @@ export function createHomeView({ actions, api, store }) {
 
   const sugHost = h('section', { class: 'sg-host', 'aria-label': 'پیشنهادهای حالا', 'aria-live': 'polite' });
   const liveHost = h('section', { class: 'lv-host', 'aria-label': 'سفر در جریان', 'aria-live': 'polite' });
-  let liveTimer = null;
+  let liveTimer = null, livePhase = null;
   function drawLive() {
     const trip = store?.activeTrip?.();
-    if (!trip) { liveHost.replaceChildren(); liveHost.hidden = true; return; }
+    if (!trip) { liveHost.replaceChildren(); liveHost.hidden = true; if (livePhase) nativeTrip('end'); livePhase = null; return; }
+    // When the trip moves from "before leaving" to "on the way", refresh the app notification's countdown target.
+    // Ended from the app notification ("پایان سفر" there): end it here too.
+    try { if (livePhase && globalThis.window?.BesrahNative?.tripActive?.() === false) { store.endActiveTrip?.(); drawLive(); return; } } catch { /* no bridge */ }
+    const phase = Math.floor(Date.now() / 1000) < trip.leaveEpoch ? 'leave' : 'arrive';
+    if (livePhase && livePhase !== phase) nativeTrip('start', trip);
+    livePhase = phase;
     liveHost.hidden = false;
     liveHost.replaceChildren(h('div', { class: 'cm-card lv-card' },
       h('div', { class: 'lv-card__head' }, h('span', { class: 'lv-card__dot', 'aria-hidden': 'true' }), h('b', { text: 'سفر در جریان' }), h('span', { class: 'lv-card__title', text: trip.title })),
