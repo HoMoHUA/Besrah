@@ -6,6 +6,7 @@
 |---|---|---|
 | Destination-first home, optional GPS as origin, manual fallback | Implemented | U7/U10 historically deployed; current phone QA required |
 | Home time + (optional) location recommendations | Implemented | Needs real Android 10 QA |
+| Home suggestion "not useful" (hide for 7 days, device-only) | Implemented on branch `claude/plan-review-and-home-dismiss-2026-11-19`, not merged | Needs review, merge and real-phone QA; stores only a short card id and expiry |
 | Explicit home need: coffee, sweets, gifts/flowers, everyday grocery | Merged in PR #2 (907b0c3), not deployed | Not deployed; no invented special occasions |
 | Up to two end-to-end transit options and Neshan walking/car legs | Implemented | Only tested scope; not bus/metro/taxi optimization |
 | Metro timetable model, board, tracker and station favorites | Implemented | Schedules are models, never live GPS |
@@ -35,4 +36,4 @@
 
 A feature is **complete for users** only after code, tests, real source data, accessible UI, real-device QA, production release, rollback and observed operation. An uploaded doc, a green fixture test, or a GitHub merge alone does not meet this definition.
 
-See `BESRAH-MASTER-SPEC.md`, `CHATGPT-PHASE0-2-DELIVERY.md`, `CHATGPT-PHASE3-5-DELIVERY.md` and `docs/sprint/HANDOFF-FINAL.md`.
+See `MASTER-PLAN-REVIEW-2026-11-19.md` for the verified baseline, flaws found in the master spec and the corrected phase plan. See `BESRAH-MASTER-SPEC.md`, `CHATGPT-PHASE0-2-DELIVERY.md`, `CHATGPT-PHASE3-5-DELIVERY.md` and `docs/sprint/HANDOFF-FINAL.md`.

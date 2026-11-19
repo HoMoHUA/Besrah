@@ -1,7 +1,7 @@
 // Device-local preferences. Only station NAMES and display preferences are kept — never coordinates.
 // The storage object is injected so the module is testable and survives blocked/full storage.
 export const KEYS = Object.freeze({
-  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1',
+  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1',
 });
 const MAX_NAME = 64;
 const THEMES = ['auto', 'light', 'dark'];
@@ -22,6 +22,11 @@ export function sanitizePrefs(input) {
 }
 const isName = v => typeof v === 'string' && v.length > 0 && v.length <= MAX_NAME;
 const MAX_SAVED = 24;
+// "Not useful" on a home suggestion hides that suggestion id on this device for a while, then it may come back. Only a short
+// id (never a place, query or coordinate) and an expiry are kept; nothing is sent to the server.
+export const DISMISS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const MAX_DISMISSED = 16;
+const isSuggestionId = v => typeof v === 'string' && /^(transit|food)(\.[a-z_]{1,24}){1,2}$/.test(v);
 // Only explicitly tapped food vendors / product references. No GPS, history, phone or order details.
 export function sanitizeSavedChoice(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return null;
@@ -61,6 +66,7 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     suggestLocation: false,
     savedChoices: [],
     mealPlan: [],
+    dismissed: {},
   };
   try { state.prefs = sanitizePrefs(JSON.parse(read(KEYS.prefs))); } catch { state.prefs = {}; }
   state.suggestLocation = read(KEYS.suggest) === '1';
@@ -87,6 +93,14 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
       state.mealPlan = [...entries.values()];
     }
   } catch { /* invalid/corrupt local plan is ignored */ }
+  try {
+    const raw = JSON.parse(read(KEYS.dismissed)), now = Date.now();
+    if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+      for (const [id, until] of Object.entries(raw).slice(0, MAX_DISMISSED)) {
+        if (isSuggestionId(id) && Number.isFinite(until) && until > now && until <= now + DISMISS_TTL_MS) state.dismissed[id] = until;
+      }
+    }
+  } catch { /* corrupt storage is ignored */ }
   try { const last = JSON.parse(read(KEYS.last)); if (isName(last)) state.last = last; } catch { /* ignore */ }
   { const theme = read(KEYS.theme); if (THEMES.includes(theme)) state.theme = theme; }
 
@@ -98,6 +112,7 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     else if (key === 'theme') write(KEYS.theme, state.theme);
     else if (key === 'choices') write(KEYS.choices, JSON.stringify(state.savedChoices));
     else if (key === 'mealPlan') write(KEYS.mealPlan, JSON.stringify(state.mealPlan));
+    else if (key === 'dismissed') write(KEYS.dismissed, JSON.stringify(state.dismissed));
     else if (key === 'prefs') write(KEYS.prefs, JSON.stringify(state.prefs));
     else if (key === 'suggest') write(KEYS.suggest, state.suggestLocation ? '1' : '0');
     emit(key);
@@ -138,6 +153,14 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
       if(next.length!==state.savedChoices.length){state.savedChoices=next;save('choices');}
     },
     clearSavedChoices() { state.savedChoices=[]; save('choices'); },
+    dismissedSuggestions(now = Date.now()) { return Object.keys(state.dismissed).filter(id => state.dismissed[id] > now); },
+    dismissSuggestion(id, now = Date.now()) {
+      if (!isSuggestionId(id)) return false;
+      const live = Object.entries(state.dismissed).filter(([, until]) => until > now);
+      const next = Object.fromEntries(live.filter(([key]) => key !== id).slice(-(MAX_DISMISSED - 1)));
+      next[id] = now + DISMISS_TTL_MS; state.dismissed = next; save('dismissed'); return true;
+    },
+    clearDismissed() { if (Object.keys(state.dismissed).length) { state.dismissed = {}; save('dismissed'); } },
     prefs: () => ({ ...state.prefs }),
     setPrefs(values) { state.prefs = sanitizePrefs(values); save('prefs'); },
     suggestLocation: () => state.suggestLocation,

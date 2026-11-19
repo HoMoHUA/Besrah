@@ -52,15 +52,22 @@ export function createHomeView({ actions, api, store }) {
     else actions.go('food', { ...(card.cta.q ? { q: card.cta.q } : {}), ...(card.cta.vertical ? { vertical: card.cta.vertical } : {}), ...(card.cta.sort === 'distance' ? { near: true } : {}) });
   }
   function cardEl(card) {
-    return h('button', { type: 'button', class: ['sg-card', `sg-card--${card.kind}`], dataset: { id: card.id }, onClick: () => open(card) },
+    const open_ = h('button', { type: 'button', class: ['sg-card', `sg-card--${card.kind}`], dataset: { id: card.id }, onClick: () => open(card) },
       h('span', { class: 'sg-card__ico' }, icon(card.kind === 'transit' ? 'tram_fill' : 'bag_fill')),
       h('span', { class: 'sg-card__body' }, h('b', { text: card.title }), h('span', { class: 'sg-card__why', text: card.why }), h('span', { class: 'sg-card__detail', text: card.detail })),
       icon('chevron_left'));
+    // Without a store that can remember it (older callers), the card stays a plain button.
+    if (typeof store?.dismissSuggestion !== 'function') return open_;
+    return h('div', { class: 'sg-item' }, open_,
+      h('button', { type: 'button', class: 'sg-dismiss', dataset: { dismiss: card.id }, 'aria-label': `این پیشنهاد به دردم نخورد: ${card.title}`,
+        onClick: () => { store.dismissSuggestion(card.id); drawSuggestions(); } }, 'به دردم نخورد'));
   }
+  const hiddenIds = () => new Set(store?.dismissedSuggestions?.() ?? []);
   function drawSuggestions() {
     const s = suggestions;
     if (s.status === 'error' || (s.status === 'idle')) { sugHost.replaceChildren(); sugHost.hidden = true; return; }
     sugHost.hidden = false;
+    const gone = hiddenIds(), visible = s.cards.filter(c => !gone.has(c.id)), hidden = s.cards.length - visible.length;
     if (s.status === 'loading') { sugHost.replaceChildren(h('div', { class: 'cm-skel sg-skeleton', 'aria-busy': 'true' })); return; }
     sugHost.replaceChildren(...[
       h('div', { class: 'section-head' }, h('h2', { text: 'پیشنهاد حالا' })),
@@ -69,7 +76,10 @@ export function createHomeView({ actions, api, store }) {
           type: 'button', class: ['cm-chip','fd-chip'], 'aria-pressed': String(chosenIntent === id),
           onClick: () => { if (chosenIntent !== id) { chosenIntent = id; load(lastPoint); } },
         }, label))),
-      ...s.cards.map(cardEl),
+      ...visible.map(cardEl),
+      hidden > 0 ? h('div', { class: 'sg-hidden' },
+        h('span', { text: visible.length ? `${hidden} پیشنهاد را پنهان کرده اید.` : 'پیشنهادهای این زمان را پنهان کرده اید؛ تا یک هفته دوباره نشان داده نمی شوند.' }),
+        h('button', { type: 'button', class: 'sg-restore', onClick: () => { store.clearDismissed?.(); drawSuggestions(); } }, 'نمایش دوباره')) : null,
       !s.locationUsed ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'sg-locate'], onClick: withPosition }, 'ایستگاه نزدیک من را هم نشان بده') : null,
       h('p', { class: 'fd-note', text: s.note }),
     ].filter(Boolean));

@@ -16,6 +16,8 @@ const allowedAttributes = new Set([
   'cx', 'cy', 'r', 'rx', 'ry', 'points', 'transform', 'offset', 'stop-color',
   'stop-opacity', 'gradientUnits', 'gradientTransform', 'preserveAspectRatio',
 ]);
+// Hosts differ: some only ship `python3`. Use whichever answers, so a missing alias is not reported as ill-formed artwork.
+const PYTHON = spawnSync('python3', ['-V']).status === 0 ? 'python3' : 'python';
 const parseXml = `
 import json, sys, xml.etree.ElementTree as ET
 root = ET.fromstring(sys.stdin.read())
@@ -25,7 +27,7 @@ print(json.dumps([{'tag': e.tag, 'attrs': dict(e.attrib), 'text': e.text or ''} 
 function validateSvg(source, viewBox) {
   assert.ok(Buffer.byteLength(source, 'utf8') < 12 * 1024, 'SVG must stay below 12KB');
   assert.doesNotMatch(source, /<!|<\?|[\u0000-\u0008\u000b\u000c\u000e-\u001f]/, 'no declarations, entities, comments or control characters');
-  const parsed = spawnSync('python', ['-c', parseXml], { input: source, encoding: 'utf8' });
+  const parsed = spawnSync(PYTHON, ['-c', parseXml], { input: source, encoding: 'utf8' });
   assert.equal(parsed.status, 0, `SVG must be well-formed XML: ${parsed.stderr}`);
   const elements = JSON.parse(parsed.stdout);
   assert.equal(elements[0].tag, '{http://www.w3.org/2000/svg}svg');
