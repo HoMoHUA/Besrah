@@ -5,6 +5,7 @@
 import { evaluateDecision } from '../intelligence/index.js';
 import type { Candidate, Evidence, HardConstraint, NumericMetric, Objective, OptionLabel, Preference } from '../intelligence/index.js';
 import type { Leg, TripOption, TripResult } from '../trip/plan.js';
+import { optionFare } from '../trip/fares.js';
 
 export type TripPriority = 'time' | 'walk' | 'balanced' | 'cost';
 export const TRIP_PRIORITIES: readonly TripPriority[] = ['time', 'walk', 'balanced', 'cost'];
@@ -17,7 +18,7 @@ export interface TripDecision {
   notes: string[];
 }
 
-const LABEL_FA: Partial<Record<OptionLabel, string>> = { fastest: 'سریع ترین', preference_match: 'هماهنگ با اولویت شما' };
+const LABEL_FA: Partial<Record<OptionLabel, string>> = { fastest: 'سریع ترین', lowest_cost: 'کم هزینه ترین', preference_match: 'هماهنگ با اولویت شما' };
 const iso = (sec: number) => new Date(sec * 1000).toISOString();
 
 function evidence(option: TripOption, nowSec: number, kind: 'provider' | 'derived', source: string): Evidence {
@@ -46,8 +47,24 @@ export function tripCandidate(option: TripOption, readyEpoch: number, nowSec: nu
     : walk === null ? { state: 'unknown', unit: 'seconds', reason: 'walking_time_not_measured' }
       : { state: 'known', unit: 'seconds', value: walk, evidence: ev('router', 'provider') };
   return { schemaVersion: 1, id: option.id, providerId: option.kind === 'metro' ? 'metro' : option.kind, domain: 'transit', taskId, equivalenceKey: 'trip', title: option.title, availability: 'available',
-    // Cost is deliberately absent: no fare source exists, and Core treats a missing metric as unknown.
-    metrics: { durationSeconds: duration, walkingSeconds: walking, totalCostToman: { state: 'unknown', unit: 'toman', reason: 'no_fare_source' } } };
+    metrics: { durationSeconds: duration, walkingSeconds: walking, totalCostToman: costMetric(option, nowSec) } };
+}
+
+/** Walking is free; a metro ride is the owner-reported flat fare; a car leg has no fare source and stays unknown (never 0). */
+export function costMetric(option: TripOption, nowSec: number): NumericMetric {
+  const fare = option.fare ?? optionFare(option.legs);
+  if (fare.state === 'unknown') return { state: 'unknown', unit: 'toman', reason: fare.reason };
+  if (fare.basis === 'walking') return { state: 'known', unit: 'toman', value: 0, evidence: [{ id: `${option.id}:walking`, sourceId: 'walking_is_free', kind: 'derived', dataVersion: 'fares-v1', live: false, retrievedAt: iso(nowSec), method: 'no_paid_leg' }] };
+  return { state: 'known', unit: 'toman', value: fare.toman, evidence: [{ id: `${option.id}:${fare.source}`, sourceId: fare.source ?? 'fare', kind: 'user', dataVersion: `fares-v1:${fare.statedAt}`, live: false, retrievedAt: iso(nowSec), method: 'flat_fare_per_ride' }] };
+}
+
+/** Honest one-line summary of what is and is not priced among these options. */
+export function costNote(options: readonly TripOption[]): string {
+  const fares = options.map(o => o.fare ?? optionFare(o.legs));
+  const metro = fares.some(f => f.state === 'known' && f.basis === 'flat_fare'), car = fares.some(f => f.state === 'unknown');
+  if (metro && car) return 'کرایهٔ مترو ۳٬۰۰۰ تومان است (نرخ ثابت، گزارش مالک)، ولی هزینهٔ خودرو و تاکسی را نداریم.';
+  if (car) return 'هزینهٔ خودرو و تاکسی را نداریم.';
+  return 'کرایهٔ مترو ۳٬۰۰۰ تومان است (نرخ ثابت، گزارش مالک) و پیاده روی هزینه ندارد.';
 }
 
 export function decideTrip(trip: TripResult, opts: { priority?: TripPriority | null; maxWalkS?: number | null; nowSec: number; requestId: string }): TripDecision {
@@ -56,12 +73,17 @@ export function decideTrip(trip: TripResult, opts: { priority?: TripPriority | n
   if (trip.options.length === 0) return empty('skipped', 'no_options');
   // A superlative needs something to be compared with: a lone option gets no label, no preference badge and no question.
   if (trip.options.length === 1) return { ...empty('ok', 'single_option'), byOption: { [trip.options[0]!.id]: { labels: [], claims: [], preferred: false } },
-    notes: priority === 'cost' ? ['هزینهٔ مسیرها در دسترس نیست (نرخ مترو و تاکسی از منبع معتبر نداریم).'] : [] };
+    notes: priority === 'cost' ? [costNote(trip.options)] : [] };
   const notes: string[] = [];
-  if (priority === 'cost') notes.push('هزینهٔ مسیرها در دسترس نیست (نرخ مترو و تاکسی از منبع معتبر نداریم)؛ بر اساس زمان رسیدن مقایسه شد.');
   const taskId = `trip:${opts.requestId}`, at = iso(opts.nowSec);
   const candidates = trip.options.map(o => tripCandidate(o, trip.readyEpoch, opts.nowSec, taskId));
-  const objectives: Objective[] = [{ metric: 'durationSeconds', direction: 'min' }, { metric: 'walkingSeconds', direction: 'min' }];
+  // Cost becomes an objective only when every option has a known cost; otherwise an unknown car cost would be
+  // treated as "incomplete" and the car option would drop out of the comparison instead of being compared on time.
+  const costComparable = priority === 'cost' && candidates.every(c => c.metrics.totalCostToman?.state === 'known');
+  if (priority === 'cost') notes.push(costComparable ? 'مقایسه بر اساس کرایه و سپس زمان رسیدن.' : `${costNote(trip.options)} بر اساس زمان رسیدن مقایسه شد.`);
+  const objectives: Objective[] = costComparable
+    ? [{ metric: 'totalCostToman', direction: 'min' }, { metric: 'durationSeconds', direction: 'min' }, { metric: 'walkingSeconds', direction: 'min' }]
+    : [{ metric: 'durationSeconds', direction: 'min' }, { metric: 'walkingSeconds', direction: 'min' }];
   const constraints: HardConstraint[] = [];
   // The user's own stated limit becomes a hard constraint on measured walking (unknown walking stays undetermined, never "satisfied").
   if (opts.maxWalkS) constraints.push({ id: 'max-walk', metric: 'walkingSeconds', operator: 'lte', bound: opts.maxWalkS });

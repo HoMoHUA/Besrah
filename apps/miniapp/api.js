@@ -98,6 +98,14 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     async accountSavePreferences(expectedVersion, values, signal) { return post('api/account/preferences', { expectedVersion, values }, signal); },
     async accountExport(signal) { return post('api/account/export', {}, signal); },
     async accountDelete(signal) { return post('api/account/delete', { confirm: 'DELETE' }, signal); },
+    // Profile code (D17): `describe` stores nothing; the account copy needs the separate `profile_code` consent.
+    async profileDescribe(values, signal) {
+      const data = await post('api/profile/describe', { values }, signal);
+      if (typeof data?.code !== 'string' || !Array.isArray(data?.positions)) throw new ApiError('server');
+      return data;
+    },
+    async accountProfile(signal) { return get('api/account/profile', signal); },
+    async accountSaveProfile(values, signal) { return post('api/account/profile', { values }, signal); },
     async homeSuggestions(point, signal, preferredVerticals = [], intent = 'now') {
       const payload = { ...(point ? { lat: point.lat, lon: point.lon } : {}), ...(preferredVerticals.length ? { preferredVerticals } : {}), ...(intent !== 'now' ? { intent } : {}) };
       const data = await post('api/recommendations/home', payload, signal);

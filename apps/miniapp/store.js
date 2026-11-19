@@ -12,6 +12,7 @@ export function sanitizePrefs(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return out;
   for (const [key, [lo, hi]] of Object.entries(PREF_RANGES)) { const v = input[key]; if (Number.isInteger(v) && v >= lo && v <= hi) out[key] = v; }
   if (['time', 'walk', 'cost', 'balanced'].includes(input.transitPriority)) out.transitPriority = input.transitPriority;
+  if (['price', 'quality', 'installment', 'balanced'].includes(input.shopPriority)) out.shopPriority = input.shopPriority;
   // Keep in sync with the backend's explicit category whitelist; never infer from browsing.
   const FOOD_VERTICALS = ['restaurant','fast_food','cafe','sweets','bakery','flowers','grocery','produce','protein','nuts','other'];
   const favorites = input.foodPreferredVerticals;

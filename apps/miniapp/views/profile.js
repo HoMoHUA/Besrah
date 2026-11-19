@@ -10,6 +10,7 @@ const WALK = [5, 10, 15, 20, 30];
 const PRIORITY = [['time', 'زمان رسیدن'], ['walk', 'پیاده روی کمتر'], ['balanced', 'هر دو'], ['cost', 'هزینه']];
 const FOOD = [null, 100000, 150000, 250000, 400000];
 const SHOP = [null, 500000, 1000000, 2000000, 5000000];
+const SHOP_PRIORITY = [['price', 'کمترین قیمت'], ['quality', 'کیفیت و برند'], ['installment', 'اقساطی'], ['balanced', 'متعادل']];
 const FOOD_VERTICALS = [
   ['restaurant','غذای ایرانی'],['fast_food','فست‌فود'],['cafe','کافه'],
   ['sweets','شیرینی و دسر'],['bakery','نانوایی'],['flowers','گل و هدیه'],
@@ -21,11 +22,12 @@ export function createProfileView(ctx) {
   const { api, store, actions } = ctx;
   let reminders = null;
   try { reminders = createReminders(); } catch { /* storage unavailable */ }
-  const S = { phase: 'loading', session: null, busy: false, message: '', exportText: '', confirmDelete: false, prefsVersion: 0 };
+  const S = { phase: 'loading', session: null, busy: false, message: '', exportText: '', confirmDelete: false, prefsVersion: 0, code: null, codeError: false };
   const el = h('div', { class: 'view view--profile', dataset: { view: 'profile' } });
   const body = h('div', { class: 'pf-body' });
   const tgInitData = () => { try { return globalThis.window?.Telegram?.WebApp?.initData || ''; } catch { return ''; } };
   const synced = () => S.session?.authenticated && S.session.consents?.sync_preferences?.status === 'granted';
+  const codeStored = () => S.session?.authenticated && S.session.consents?.profile_code?.status === 'granted';
 
   async function refresh() {
     try {
@@ -34,6 +36,26 @@ export function createProfileView(ctx) {
       if (synced()) await pullPrefs();
     } catch { S.phase = 'unavailable'; S.session = null; }
     draw();
+    await refreshCode(); draw();
+  }
+
+  // The profile code is computed by the server from the preferences on THIS device (nothing stored by that call). With the
+  // separate consent, only the 4-character code is saved on the account.
+  async function refreshCode() {
+    try { S.code = await api.profileDescribe(store.prefs()); S.codeError = false; }
+    catch { S.codeError = true; }
+    if (codeStored()) { try { await api.accountSaveProfile(store.prefs()); } catch { /* the device copy stays correct */ } }
+  }
+  async function toggleCodeStorage() {
+    if (!S.session?.authenticated || S.busy) return;
+    const grant = !codeStored(); S.busy = true; draw();
+    try {
+      await api.accountConsent('profile_code', grant);
+      S.session = await api.accountSession();
+      if (grant) await api.accountSaveProfile(store.prefs());
+      S.message = grant ? 'تیپ شما روی حساب ذخیره شد؛ فقط همان کد چهار حرفی.' : 'تیپ از حساب پاک شد.';
+    } catch { S.message = 'تغییر ذخیرهٔ تیپ انجام نشد.'; }
+    S.busy = false; draw();
   }
 
   async function pullPrefs() {
@@ -51,7 +73,7 @@ export function createProfileView(ctx) {
   }
   const setPref = async (key, value) => {
     const next = { ...store.prefs() }; if (value === null || value === undefined) delete next[key]; else next[key] = value;
-    store.setPrefs(next); draw(); await pushPrefs(); draw();
+    store.setPrefs(next); draw(); await pushPrefs(); await refreshCode(); draw();
   };
 
   async function login() {
@@ -121,6 +143,8 @@ export function createProfileView(ctx) {
         h('div', { class: 'fd-row' }, FOOD.map(b => chip(budgetLabel(b), (p.foodBudgetToman ?? null) === b, () => setPref('foodBudgetToman', b))))),
       h('div', { role: 'group', 'aria-label': 'سقف قیمت کالا' }, h('p', { class: 'pf-label', text: 'سقف قیمت کالا در بسپی' }),
         h('div', { class: 'fd-row' }, SHOP.map(b => chip(b === null ? 'بدون سقف' : b >= 1000000 ? `تا ${fa(b / 1000000)} میلیون` : `تا ${fa(b / 1000)} هزار`, (p.shopBudgetToman ?? null) === b, () => setPref('shopBudgetToman', b))))),
+      h('div', { role: 'group', 'aria-label': 'اولویت خرید' }, h('p', { class: 'pf-label', text: 'در خرید کدام مهم تر است؟' }),
+        h('div', { class: 'fd-row' }, SHOP_PRIORITY.map(([id, label]) => chip(label, p.shopPriority === id, () => setPref('shopPriority', p.shopPriority === id ? null : id))))),
       h('div', { role: 'group', 'aria-label': 'دسته‌های مورد علاقه' },
         h('p', { class: 'pf-label', text: 'دسته‌های مورد علاقهٔ من (حداکثر ۴ مورد)' }),
         h('div', { class: 'fd-row' }, FOOD_VERTICALS.map(([id, label]) => chip(label, (p.foodPreferredVerticals ?? []).includes(id), () => {
@@ -129,7 +153,22 @@ export function createProfileView(ctx) {
           return setPref('foodPreferredVerticals', selected.includes(id) ? selected.filter(v => v !== id) : [...selected, id]);
         }))),
         note('فقط انتخاب صریح شما ذخیره می‌شود. این موارد در نمایش دسته‌ها و پیشنهادهای مناسب همان ساعت اثر دارند؛ سابقهٔ مرور یا سفارش جمع‌آوری نمی‌شود.')),
-      note('سقف پیاده روی و اولویت سفر همین حالا در مسیر مکان به مکان اعمال می شوند (هسته تصمیم گیری گزینه ها را با آن می سنجد). «هزینه» فعلاً اثری ندارد چون نرخ مسیرها را نداریم. سقف قیمت غذا و کالا نقطهٔ شروع جست وجوی بسفود و بسپی است.'));
+      note('سقف پیاده روی و اولویت سفر همین حالا در مسیر مکان به مکان اعمال می شوند (هسته تصمیم گیری گزینه ها را با آن می سنجد). با «هزینه»، اگر هزینهٔ همهٔ گزینه ها معلوم باشد بر اساس کرایه مقایسه می شود (مترو ۳٬۰۰۰ تومان)؛ هزینهٔ خودرو و تاکسی را نداریم. سقف قیمت غذا و کالا نقطهٔ شروع جست وجوی بسفود و بسپی است. اولویت خرید فعلاً فقط در تیپ شما ثبت می شود.'));
+  }
+
+  function codeCard() {
+    if (S.codeError && !S.code) return card('pf-code', 'تیپ بسراه', note('تیپ شما الان محاسبه نشد؛ ترجیحات روی دستگاه سالم است.'));
+    if (!S.code) return card('pf-code', 'تیپ بسراه', h('div', { class: 'cm-skel fd-skeleton__card' }));
+    const missing = S.code.positions.filter(x => x.source !== 'stated').length;
+    return card('pf-code', 'تیپ بسراه',
+      h('p', { class: 'pf-code', dir: 'ltr', 'aria-label': `کد تیپ: ${S.code.code.split('').join(' ')}` }, S.code.code),
+      h('ul', { class: 'fd-notes pf-code__list' }, S.code.positions.map(x => h('li', { class: x.source === 'stated' ? '' : 'is-unstated' },
+        h('b', { dir: 'ltr', text: x.symbol }), ' ', x.meaning))),
+      note(missing ? `${fa(missing)} بخش هنوز اعلام نشده است؛ با انتخاب در «ترجیحات من» کامل می شود.` : 'همهٔ بخش ها از انتخاب های خود شما آمده است.'),
+      note('این کد فقط از انتخاب های صریح شما ساخته می شود؛ از مرور، سفارش یا موقعیت چیزی حدس زده نمی شود.'),
+      S.phase === 'user' ? h('div', { role: 'group', 'aria-label': 'ذخیرهٔ تیپ در حساب' }, h('p', { class: 'pf-label', text: 'ذخیرهٔ تیپ در حساب' }),
+        h('div', { class: 'fd-row' }, chip('روشن', codeStored(), () => { if (!codeStored()) toggleCodeStorage(); }), chip('خاموش', !codeStored(), () => { if (codeStored()) toggleCodeStorage(); })),
+        note('روشن: فقط همین کد چهار حرفی روی سرور می ماند، نه خود ترجیحات. خاموش: از سرور پاک می شود.')) : null);
   }
 
   function savedCard() {
@@ -181,7 +220,7 @@ export function createProfileView(ctx) {
   }
 
   function draw() {
-    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), reminderCard(), prefsCard(), savedCard(), privacyCard()].filter(Boolean));
+    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), reminderCard(), codeCard(), prefsCard(), savedCard(), privacyCard()].filter(Boolean));
   }
   el.append(h('header', { class: 'view__head' }, h('p', { class: 'eyebrow', text: 'PROFILE' }), h('h1', { class: 'view__title', text: 'پروفایل' }), h('p', { class: 'view__sub', text: 'ترجیحات و حساب شما؛ همه چیز اختیاری است.' })), body);
   draw();
