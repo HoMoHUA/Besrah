@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Long-press the launcher icon: posts one test live notification (works before the site update ships). -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="test_live"
+        android:enabled="true"
+        android:icon="@drawable/ic_stat_trip"
+        android:shortcutShortLabel="@string/shortcut_test_short"
+        android:shortcutLongLabel="@string/shortcut_test_long">
+        <intent
+            android:action="ir.arklyn.besrah.TEST_LIVE"
+            android:targetPackage="ir.arklyn.besrah"
+            android:targetClass="ir.arklyn.besrah.MainActivity" />
+    </shortcut>
+</shortcuts>

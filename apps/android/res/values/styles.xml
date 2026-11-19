@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BesrahTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#061C1D</item>
+        <item name="android:navigationBarColor">#061C1D</item>
+        <item name="android:windowBackground">@color/bg</item>
+    </style>
+    <color name="bg">#061C1D</color>
+    <color name="brand">#0E5A57</color>
+</resources>
