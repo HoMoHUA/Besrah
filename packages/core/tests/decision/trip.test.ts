@@ -23,11 +23,12 @@ describe('candidates', () => {
     expect(walkingSeconds([walk(600), metro(), walk(420)])).toBe(1020);
     expect(walkingSeconds([walk(600), walk(null)])).toBeNull();
   });
-  it('unknown arrival or walking stays unknown, car walking is an estimate with its caveat, and cost is always unknown', () => {
+  it('unknown arrival or walking stays unknown, car walking is an estimate with its caveat, metro costs the flat fare and car cost is unknown', () => {
     const c = tripCandidate(opt('x', 'metro', null, [walk(null), metro()]), NOW, NOW, 't');
     expect(c.metrics.durationSeconds).toMatchObject({ state: 'unknown' });
     expect(c.metrics.walkingSeconds).toMatchObject({ state: 'unknown' });
-    expect(c.metrics.totalCostToman).toMatchObject({ state: 'unknown', reason: 'no_fare_source' });
+    expect(c.metrics.totalCostToman).toMatchObject({ state: 'known', value: 3000 });
+    expect(tripCandidate(car, NOW, NOW, 't').metrics.totalCostToman).toMatchObject({ state: 'unknown', reason: 'car_cost_unknown' });
     const k = tripCandidate(car, NOW, NOW, 't');
     expect(k.metrics.walkingSeconds).toMatchObject({ state: 'estimated', value: 0 });
     expect(JSON.stringify(k.metrics.walkingSeconds)).toMatch(/not included/);
@@ -63,9 +64,9 @@ describe('decideTrip with the real Core', () => {
     const d = decide(trip([car, fastTrain]), 'balanced');
     expect(d.question).toBeNull(); expect(d.preferred).toBeNull();
   });
-  it('cost priority is honoured honestly: no fare data, so the note says the comparison used arrival time', () => {
+  it('cost priority is honoured honestly: the car has no fare, so the note says the comparison used arrival time', () => {
     const d = decide(trip([car, fastTrain]), 'cost');
-    expect(d.notes.join(' ')).toMatch(/هزینهٔ مسیرها در دسترس نیست/);
+    expect(d.notes.join(' ')).toMatch(/هزینهٔ خودرو و تاکسی را نداریم. بر اساس زمان رسیدن مقایسه شد/);
     expect(d.preferred).toBeNull();
   });
   it('a dominating option gets the Core "fastest" label and the Core explanation text', () => {
@@ -127,5 +128,33 @@ describe('POST /app/api/trip carries the decision', () => {
     expect(body.status).toBe('partial');
     expect(JSON.stringify(body.decision)).not.toMatch(/سریع ترین/);
     await app.close();
+  });
+});
+
+describe('fares in the decision (owner-reported flat metro fare, 2026-11-19)', () => {
+  const walkOnly = opt('walk', 'walk', 2700, [walk(2700)]);
+  it('walking is free (known 0) and the metro fare carries its owner-reported evidence', () => {
+    expect(tripCandidate(walkOnly, NOW, NOW, 't').metrics.totalCostToman).toMatchObject({ state: 'known', value: 0 });
+    const m = tripCandidate(fastTrain, NOW, NOW, 't').metrics.totalCostToman;
+    expect(m).toMatchObject({ state: 'known', value: 3000 });
+    expect(JSON.stringify(m)).toMatch(/owner_reported_flat_fare/);
+  });
+  it('priority "cost" with every cost known compares by fare first and labels the cheaper option', () => {
+    const d = decide(trip([fastTrain, walkOnly]), 'cost');
+    expect(d.notes.join(' ')).toMatch(/کرایه و سپس زمان/);
+    expect(d.byOption['walk']!.labels).toContain('کم هزینه ترین');
+    expect(d.byOption['m:fast']!.labels).not.toContain('کم هزینه ترین');
+  });
+  it('priority "cost" with an unknown car cost never calls anything cheapest and falls back to time, saying why', () => {
+    const d = decide(trip([car, fastTrain]), 'cost');
+    expect(Object.values(d.byOption).flatMap(o => o.labels)).not.toContain('کم هزینه ترین');
+    expect(d.notes.join(' ')).toMatch(/هزینهٔ خودرو و تاکسی را نداریم/);
+    expect(d.notes.join(' ')).toMatch(/زمان رسیدن/);
+    expect(Object.keys(d.byOption).sort()).toEqual(['car', 'm:fast']);
+  });
+  it('a lone option with priority "cost" gets the honest cost note and no label', () => {
+    const d = decide(trip([car]), 'cost');
+    expect(d.notes).toEqual(['هزینهٔ خودرو و تاکسی را نداریم.']);
+    expect(d.byOption['car']!.labels).toEqual([]);
   });
 });

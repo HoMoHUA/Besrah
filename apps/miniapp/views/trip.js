@@ -33,6 +33,13 @@ export const COORDINATE_ERRORS = {
   outside_coverage: 'این مختصات بیرون از محدودهٔ مشهد است.',
 };
 const PRECISION = { geocoded: 'نشانی (نقطهٔ تقریبی)', station: 'ایستگاه مترو', coordinates: 'مختصات واردشده (دقیق)' };
+// The fare as the server reports it. A missing or unknown fare is said to be unknown, never shown as free.
+export function fareLine(fare) {
+  if (!fare || fare.state !== 'known' || !Number.isSafeInteger(fare.toman) || fare.toman < 0) return 'کرایه: نامعلوم';
+  if (fare.basis === 'walking') return 'کرایه: ندارد (پیاده)';
+  const toman = fare.toman.toLocaleString('fa-IR');
+  return `کرایه: ${toman} تومان${fare.rides > 1 ? ` (${fare.rides.toLocaleString('fa-IR')} سفر مترو)` : ''} · نرخ ثابت مترو، گزارش مالک`;
+}
 const TAXI_NOTE = 'این مدت حرکت خودرو به گزارش مسیریاب است؛ زمان رسیدن تاکسی اینترنتی و کرایه نامعلوم است و از اینجا محاسبه نمی شود.';
 const CHOICE = { earliest: 'زودترین رسیدن', other_mode: 'گزینهٔ دیگر: روش دیگر', other_station: 'گزینهٔ دیگر: ایستگاه سوار شدن دیگر' };
 
@@ -237,6 +244,7 @@ export function createTripView(ctx) {
       h('ul', { class: 'tp-legs' }, o.legs.map(legRow)),
       o.ifMissed ? h('p', { class: 'fd-note', text: `اگر این قطار را از دست بدهید: قطار بعدی ${clock(o.ifMissed.departAt)}${o.ifMissed.arriveAt ? `، رسیدن ${clock(o.ifMissed.arriveAt)}` : ''}.` }) : null,
       verdict?.claims?.length ? h('ul', { class: 'fd-notes tp-why' }, verdict.claims.map(t => h('li', { text: t }))) : null,
+      'fare' in o ? h('p', { class: 'tp-fare', text: fareLine(o.fare) }) : null,
       o.kind === 'car' ? h('p', { class: 'tp-sure', text: TAXI_NOTE }) : null,
       o.notes.length ? h('ul', { class: 'fd-notes' }, o.notes.map(t => h('li', { text: t }))) : null,
       optionActions(o));

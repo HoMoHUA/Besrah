@@ -284,3 +284,13 @@ test('every metro option offers its boarding station board; a car option says it
   assert.match(text(view), /زمان رسیدن تاکسی اینترنتی و کرایه نامعلوم است/);
   assert.equal(findAll(view.el, n => n.tagName === 'button' && /تابلوی حرکت/.test(n.textContent)).length, 1);
 });
+
+test('fare line: the flat metro fare, free walking, and unknown (never free) for a car or a missing fare', async () => {
+  const { fareLine } = await import('./views/trip.js');
+  assert.match(fareLine({ state: 'known', toman: 3000, basis: 'flat_fare', rides: 1, quality: 'owner_reported' }), /کرایه: ۳٬۰۰۰ تومان · نرخ ثابت مترو، گزارش مالک/);
+  assert.match(fareLine({ state: 'known', toman: 6000, basis: 'flat_fare', rides: 2 }), /۲ سفر مترو/);
+  assert.equal(fareLine({ state: 'known', toman: 0, basis: 'walking', rides: 0 }), 'کرایه: ندارد (پیاده)');
+  for (const bad of [{ state: 'unknown', reason: 'car_cost_unknown' }, undefined, null, { state: 'known', toman: -1 }, { state: 'known', toman: 1.5 }, { state: 'known' }]) {
+    assert.equal(fareLine(bad), 'کرایه: نامعلوم');
+  }
+});
