@@ -1,5 +1,6 @@
-// Static bus guide: lines, ordered stops and stop-to-line lookup from a reviewed offline OSM projection.
-// It never claims live positions or arrival times, and nothing the user types is stored or sent.
+// Bus: the static guide (lines, ordered stops, stop-to-line lookup from a reviewed offline OSM projection) plus live arrivals
+// at an official stop from the Mashhad municipal geoportal. A number of minutes is shown only when the provider backs it with
+// a fresh bus position; everything else is said to be unknown. Stop search text is sent (POST) only to find the stop.
 import { buildIndex, loopVariant, searchLines, searchStops } from '../bus-data.js';
 import { findBusConnections } from '../bus-paths.js';
 import { BUS_ARRIVAL_SOURCES, busHandoffNote, openBusSource } from '../bus-sources.js';
@@ -7,7 +8,19 @@ import { createRideTabs } from '../ui/ride-tabs.js';
 import { h, icon } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 
-const SOURCE_NOTE = 'مسیرهای این راهنما از OpenStreetMap هستند و با بهره‌بردار تطبیق داده نشده‌اند. زمان رسیدن اتوبوس از داده این برنامه در دسترس نیست؛ فقط منبع بیرونی می‌تواند آن را تأیید کند.';
+const SOURCE_NOTE = 'مسیرهای این راهنما از OpenStreetMap هستند و با بهره‌بردار تطبیق داده نشده‌اند. زمان رسیدن زنده فقط در بخش «زمان رسیدن زنده» و از سامانهٔ شهرداری مشهد می‌آید.';
+const fa = n => Number(n).toLocaleString('fa-IR');
+// Identifiers (line and stop numbers) in Persian digits, without thousands separators.
+const faId = v => String(v).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+// One line per arrival. Minutes only for a live, provider-backed estimate.
+export function arrivalText(a) {
+  const to = a.destination ? ` به ${a.destination}` : '', line = faId(a.line);
+  if (a.state === 'live' && Number.isInteger(a.etaMin)) return `خط ${line}${to}: ${a.etaMin <= 0 ? 'در حال رسیدن' : `${fa(a.etaMin)} دقیقه`}`;
+  if (a.state === 'no_bus') return `خط ${line}${to}: اتوبوسی در راه نیست`;
+  if (a.state === 'stale') return `خط ${line}${to}: زمان نامعلوم (موقعیت اتوبوس قدیمی است)`;
+  return `خط ${line}${to}: زمان نامعلوم`;
+}
+const ageText = a => (a.bus && Number.isInteger(a.bus.ageS) ? (a.bus.ageS < 60 ? 'موقعیت چند ثانیه پیش' : `موقعیت ${fa(Math.round(a.bus.ageS / 60))} دقیقه پیش`) : '');
 
 export function createBusView(ctx) {
   const { actions, api, sheet } = ctx;
@@ -23,6 +36,53 @@ export function createBusView(ctx) {
   const routeSuggestions = h('div', { class: 'bus-route-suggestions', 'aria-live': 'polite' });
   const routeResults = h('div', { class: 'bus-route-results', 'aria-live': 'polite' });
   const routeIntro = h('p', { class: 'bus-note', text: 'مسیرهای ممکن با توجه به ترتیب ایستگاه‌های ثبت‌شده پیدا می‌شوند. زمان رسیدن، هزینه، تأیید فعالیت خط و امکان تعویض واقعی نامعلوم است.' });
+
+  // ── live arrivals at an official stop ──
+  const live = { q: '', stops: [], status: 'idle', station: null, data: null, timer: null, ctrl: null };
+  const liveInput = h('input', { id: 'bus-live-q', type: 'text', autocomplete: 'off', spellcheck: 'false', placeholder: 'نام ایستگاه یا شمارهٔ آن', 'aria-label': 'ایستگاه برای زمان رسیدن زنده' });
+  const liveOut = h('div', { class: 'bus-live__out', 'aria-live': 'polite' });
+  async function liveSearch() {
+    const q = live.q.trim();
+    if (q.length < 2 && !/^\d+$/.test(q)) { live.stops = []; live.status = 'idle'; drawLive(); return; }
+    live.ctrl?.abort(); live.ctrl = new AbortController(); const mine = live.ctrl;
+    live.status = 'searching'; drawLive();
+    try { const r = await api.busStops(q, mine.signal); if (mine !== live.ctrl) return; live.stops = r.stops; live.status = r.stops.length ? 'picked' : 'nostop'; }
+    catch (e) { if (mine !== live.ctrl || e?.kind === 'aborted') return; live.stops = []; live.status = /^\d{1,6}$/.test(q) ? 'number' : 'searcherror'; }
+    drawLive();
+  }
+  async function liveLoad(station) {
+    live.station = station; live.status = 'loading'; live.data = null; drawLive();
+    try { live.data = await api.busEta(station.number); live.status = 'eta'; }
+    catch (e) { live.status = e?.kind === 'rate_limited' ? 'busy' : 'etaerror'; }
+    drawLive();
+  }
+  function drawLive() {
+    const note = text => h('p', { class: 'bus-note', text });
+    const stopButton = s => h('button', { type: 'button', class: ['cm-chip', 'bus-live__stop'], onClick: () => liveLoad(s) }, `${s.name} · ${faId(s.number)}`);
+    const kids = [];
+    if (live.status === 'searching') kids.push(h('div', { class: 'cm-skel fd-skeleton__card', 'aria-busy': 'true' }));
+    if (live.status === 'nostop') kids.push(note('ایستگاهی با این نام در فهرست شهرداری پیدا نشد؛ نام کوتاه‌تر یا شمارهٔ ایستگاه را بنویسید.'));
+    if (live.status === 'searcherror') kids.push(note('جست‌وجوی ایستگاه الان در دسترس نیست؛ اگر شمارهٔ ایستگاه را می‌دانید، آن را بنویسید.'));
+    if (live.status === 'number') kids.push(h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => liveLoad({ number: Number(live.q.trim()), name: `ایستگاه ${faId(live.q.trim())}` }) }, `زمان رسیدن ایستگاه ${faId(live.q.trim())}`));
+    if (live.stops.length && ['picked', 'loading', 'eta', 'etaerror', 'busy'].includes(live.status)) kids.push(h('div', { class: 'cm-chips' }, live.stops.map(stopButton)));
+    if (live.status === 'loading') kids.push(h('div', { class: 'cm-skel fd-skeleton__card', 'aria-busy': 'true' }));
+    if (live.status === 'busy') kids.push(note('درخواست‌ها زیاد است؛ چند ثانیه بعد دوباره امتحان کنید.'));
+    if (live.status === 'etaerror') kids.push(note('سامانهٔ شهرداری الان جواب نداد؛ زمان رسیدن نامعلوم است.'), h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => liveLoad(live.station) }, 'تلاش دوباره'));
+    if (live.status === 'eta' && live.data) {
+      const rows = live.data.arrivals;
+      kids.push(h('h3', { class: 'bus-live__title', text: live.station.name }),
+        rows.length ? h('ul', { class: 'fd-notes bus-live__list' }, rows.map(a => h('li', { class: a.state === 'live' ? 'is-live' : '' }, h('span', { text: arrivalText(a) }), ageText(a) ? h('small', { text: ` · ${ageText(a)}` }) : null)))
+          : note('سامانهٔ شهرداری برای این ایستگاه خطی گزارش نکرد.'),
+        note(`منبع: سامانهٔ شهرداری مشهد، دریافت ${new Date(live.data.retrievedAt).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Tehran' })}. زمان‌ها برآورد خود سامانه‌اند.`),
+        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => liveLoad(live.station) }, 'به‌روزرسانی'));
+    }
+    liveOut.replaceChildren(...kids);
+  }
+  liveInput.addEventListener('input', () => { live.q = liveInput.value; clearTimeout(live.timer); live.timer = setTimeout(liveSearch, 300); });
+  const livePanel = h('section', { class: 'cm-card about-card bus-live', 'aria-labelledby': 'bus-live-title' },
+    h('h2', { id: 'bus-live-title', class: 'about-card__title', text: 'زمان رسیدن زنده' }),
+    h('label', { class: 'cm-search cm-inset', for: 'bus-live-q' }, icon('magnifyingglass'), liveInput),
+    liveOut);
 
   function pickStop(name, target) {
     if (target === 'from') { routeFrom = name; fromInput.value = name; } else { routeTo = name; toInput.value = name; }
@@ -154,6 +214,7 @@ export function createBusView(ctx) {
       h('img', { src: 'assets/services/caravan.svg', alt: '', width: 60, height: 60 }),
       h('div', {}, h('h1', { text: 'اتوبوس' }), h('p', { text: 'خط ها و ایستگاه های مشهد' }))),
     createRideTabs('bus', actions),
+    livePanel,
     routePanel,
     h('label', { class: 'cm-search cm-inset bus-search', for: 'bus-q' }, icon('magnifyingglass'), input, clear),
     results,

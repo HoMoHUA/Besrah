@@ -37,7 +37,7 @@ test('bus view finds direct and one-transfer possibilities, without showing fabr
   await button(x.view.el,'یافتن مسیرهای ممکن').dispatch('click');
   assert.match(x.view.el.textContent,/یک تعویض احتمالی/);
   assert.match(x.view.el.textContent,/زمان سفر و زمان انتظار قابل محاسبه نیست/);
-  assert.match(x.view.el.textContent,/زمان رسیدن اتوبوس از داده این برنامه در دسترس نیست/);
+  assert.match(x.view.el.textContent,/زمان رسیدن زنده فقط در بخش «زمان رسیدن زنده» و از سامانهٔ شهرداری مشهد می‌آید/);
 });
 
 test('bus source handoff is explicit and takes the user only to reviewed public landing page', async t => {
