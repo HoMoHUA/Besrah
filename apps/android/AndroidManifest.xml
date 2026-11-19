@@ -38,6 +38,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="besrah.arklyn.ir" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
 
         <receiver android:name=".TripActionReceiver" android:exported="false" />

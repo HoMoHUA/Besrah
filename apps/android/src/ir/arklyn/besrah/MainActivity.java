@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import android.webkit.GeolocationPermissions;
@@ -136,6 +137,7 @@ public class MainActivity extends Activity {
         Uri start = getIntent() != null ? getIntent().getData() : null;
         web.loadUrl(isOurs(start) ? start.toString() : HOME);
         web.postDelayed(this::hideSplash, 12000);   // never leave the preloader up for ever
+        handleShortcut(getIntent());
     }
 
     boolean hasLocation() {
@@ -144,6 +146,32 @@ public class MainActivity extends Activity {
     }
 
     /** Asked only when the user starts a trip (the moment a notification is actually needed). */
+    static final String ACTION_TEST_LIVE = "ir.arklyn.besrah.TEST_LIVE";
+    private boolean pendingLiveTest = false;
+
+    boolean canNotify() {
+        return Build.VERSION.SDK_INT < 33 || checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    /** Launcher shortcut and Settings button: post the test live notification, asking for permission first if needed. */
+    void runLiveTest() {
+        if (!canNotify()) {
+            pendingLiveTest = true;
+            requestPermissions(new String[] { Manifest.permission.POST_NOTIFICATIONS }, REQ_NOTIFY);
+            return;
+        }
+        if (TripNotifier.showTest(this)) {
+            Toast.makeText(this, "اعلان آزمایشی فرستاده شد؛ نوار وضعیت را نگاه کنید.", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "اعلان‌های بِسراه خاموش است؛ در تنظیمات روشنش کنید.", Toast.LENGTH_LONG).show();
+            openNotificationSettings();
+        }
+    }
+
+    private void handleShortcut(Intent intent) {
+        if (intent != null && ACTION_TEST_LIVE.equals(intent.getAction())) runLiveTest();
+    }
+
     void ensureNotificationPermission() {
         if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[] { Manifest.permission.POST_NOTIFICATIONS }, REQ_NOTIFY);
@@ -156,11 +184,17 @@ public class MainActivity extends Activity {
             pendingGeo.invoke(pendingGeoOrigin, hasLocation(), false);
             pendingGeo = null; pendingGeoOrigin = null;
         }
+        if (code == REQ_NOTIFY && pendingLiveTest) {
+            pendingLiveTest = false;
+            if (canNotify()) runLiveTest();
+            else { Toast.makeText(this, "بدون اجازهٔ اعلان، اعلان زنده نشان داده نمی‌شود.", Toast.LENGTH_LONG).show(); openNotificationSettings(); }
+        }
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        handleShortcut(intent);
         Uri uri = intent.getData();
         if (isOurs(uri)) web.loadUrl(uri.toString());
     }

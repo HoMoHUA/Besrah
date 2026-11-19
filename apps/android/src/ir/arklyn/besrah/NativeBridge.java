@@ -43,12 +43,9 @@ final class NativeBridge {
     @JavascriptInterface
     public boolean testLiveNotification() {
         if (!fromOurPage()) return false;
-        activity.runOnUiThread(activity::ensureNotificationPermission);
-        long now = System.currentTimeMillis() / 1000;
-        try {
-            JSONObject t = new JSONObject().put("title", "آزمایش اعلان زندهٔ بِسراه").put("leaveEpoch", now + 60).put("arriveEpoch", now + 120).put("startedAt", now);
-            return TripNotifier.show(activity, Trip.fromJson(t));
-        } catch (Exception e) { return false; }
+        if (activity.canNotify()) return TripNotifier.showTest(activity);
+        activity.runOnUiThread(activity::runLiveTest);   // asks for permission, then posts the test on its own
+        return false;
     }
 
     @JavascriptInterface

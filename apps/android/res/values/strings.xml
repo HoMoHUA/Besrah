@@ -2,8 +2,10 @@
 <resources>
     <string name="app_name">بِسراه</string>
     <string name="channel_trip">سفر در جریان</string>
-    <string name="channel_trip_desc">زمان حرکت و رسیدن سفری که خودتان شروع کرده اید؛ برآورد برنامه، نه موقعیت زنده.</string>
+    <string name="channel_trip_desc">زمان حرکت و رسیدن سفری که خودتان شروع کرده‌اید؛ برآورد برنامه، نه موقعیت زنده.</string>
     <string name="trip_end">پایان سفر</string>
     <string name="offline">اتصال برقرار نیست. دوباره تلاش کنید.</string>
     <string name="retry">تلاش دوباره</string>
+    <string name="shortcut_test_short">اعلان آزمایشی</string>
+    <string name="shortcut_test_long">ارسال اعلان زندهٔ آزمایشی</string>
 </resources>

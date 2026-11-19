@@ -117,6 +117,16 @@ final class TripNotifier {
     }
 
     /** Whether our trip notification is still on screen (the user may have ended it from the notification). */
+    /** Two-minute test countdown, so the phone lists Besrah under its notification and Live view settings. */
+    static boolean showTest(Context c) {
+        long now = System.currentTimeMillis() / 1000;
+        try {
+            org.json.JSONObject t = new org.json.JSONObject().put("title", "آزمایش اعلان زندهٔ بِسراه")
+                .put("leaveEpoch", now + 60).put("arriveEpoch", now + 120).put("startedAt", now);
+            return show(c, Trip.fromJson(t));
+        } catch (Exception e) { return false; }
+    }
+
     static boolean isActive(Context c) {
         NotificationManager nm = c.getSystemService(NotificationManager.class);
         if (nm == null) return false;
