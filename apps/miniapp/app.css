@@ -883,6 +883,9 @@ a, button { text-decoration: none !important; }
 .sg-card__why { font: 700 12px/1.7 var(--font-sans); color: var(--accent); }
 .sg-card__detail { font: 600 11.5px/1.8 var(--font-sans); color: var(--muted); overflow-wrap: anywhere; }
 .sg-locate { justify-self: start; }
+.about-card .pf-code, .pf-code { margin: 4px 0 2px; font: 800 30px/1.3 var(--font-mono, ui-monospace, monospace); letter-spacing: .22em; color: var(--accent); text-align: center; unicode-bidi: isolate; }
+.pf-code__list li.is-unstated { color: var(--muted); }
+.pf-code__list b { font-family: var(--font-mono, ui-monospace, monospace); color: var(--ink); }
 .tp-fare { margin: 0; font: 700 12px/1.8 var(--font-sans); color: var(--ink); }
 .sg-item { display: grid; gap: 2px; }
 .sg-dismiss, .sg-restore { justify-self: end; min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: var(--muted); font: 700 12px/1.6 var(--font-sans); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
