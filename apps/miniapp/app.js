@@ -321,8 +321,13 @@ function paintMenu() {
 }
 
 /* ── start ── */
+// Offline shell (same worker as metro reminders): registered after load so it never delays the first screen.
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('reminder-sw.js', { scope: './' }).catch(() => {}); }, { once: true });
+}
 panel.append(views.home.el);
 views.home.onShow?.();
+requestAnimationFrame(() => { const boot = document.getElementById('boot'); if (!boot) return; boot.classList.add('is-done'); setTimeout(() => boot.remove(), 400); });
 panel.setAttribute('aria-label', TITLES.home);
 paintMenu();
 init(document);

@@ -21,6 +21,8 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
   ['/app/', 'index.html'],
   ['/app/manifest.webmanifest', 'manifest.webmanifest'],
   ['/app/reminder-sw.js', 'reminder-sw.js'],
+  ['/app/offline.html', 'offline.html'],
+  ['/app/offline.css', 'offline.css'],
   ['/app/reminders.js', 'reminders.js'],
   ['/app/theme-boot.js', 'theme-boot.js'],
   ['/app/skin.css', 'skin.css'],

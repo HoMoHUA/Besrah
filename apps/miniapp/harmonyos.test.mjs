@@ -90,3 +90,23 @@ test('inside the Android app the started trip also drives the native notificatio
     assert.equal(createStore(memory()).startActiveTrip({ ...TRIP, leaveEpoch: now + 300, arriveEpoch: now + 2400 }, now), true, 'no bridge: web only');
   } finally { if (had) globalThis.window = prev; else delete globalThis.window; }
 });
+
+test('settings: the live-notification test card appears only inside the Android app and drives the native bridge', async t => {
+  installFoodDom(t);
+  const { liveNotificationCard } = await import('./views/settings.js');
+  assert.equal(liveNotificationCard(undefined), null);
+  assert.equal(liveNotificationCard({ version: () => '0.1.0' }), null);   // older APK without the test hook
+  const calls = [];
+  const bridge = { liveNotifications: () => false, testLiveNotification: () => { calls.push('test'); return true; }, openNotificationSettings: () => calls.push('settings') };
+  const card = liveNotificationCard(bridge);
+  assert.ok(card);
+  const status = findAll(card, n => n.attributes?.role === 'status' || n.getAttribute?.('role') === 'status')[0];
+  assert.match(status.textContent, /اعلان آزمایشی بفرستید/);
+  await button(card, 'ارسال اعلان آزمایشی').dispatch('click');
+  assert.match(status.textContent, /فرستاده شد/);
+  await button(card, 'تنظیمات اعلان').dispatch('click');
+  assert.deepEqual(calls, ['test', 'settings']);
+  bridge.testLiveNotification = () => { throw new Error('denied'); };
+  await button(card, 'ارسال اعلان آزمایشی').dispatch('click');
+  assert.match(status.textContent, /فرستاده نشد/);
+});

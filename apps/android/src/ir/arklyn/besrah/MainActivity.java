@@ -8,6 +8,17 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebResourceError;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -27,6 +38,29 @@ public class MainActivity extends Activity {
 
     private WebView web;
     volatile String currentUrl = null;
+    private LinearLayout splash;
+
+    void hideSplash() {
+        if (splash == null || splash.getVisibility() == View.GONE) return;
+        splash.animate().alpha(0f).setDuration(250).withEndAction(() -> splash.setVisibility(View.GONE)).start();
+    }
+
+    /** Bundled page for a first launch without network (later launches use the site's own offline shell). */
+    void showOffline() {
+        try (InputStream in = getAssets().open("offline.html")) {
+            String html = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+            web.loadDataWithBaseURL(HOME, html, "text/html", "utf-8", HOME);
+        } catch (Exception e) { /* keep the splash */ }
+        hideSplash();
+    }
+
+    void openNotificationSettings() {
+        try {
+            startActivity(new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName()));
+        } catch (Exception e) {
+            startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName())));
+        }
+    }
     private GeolocationPermissions.Callback pendingGeo;
     private String pendingGeoOrigin;
 
@@ -38,7 +72,25 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle state) {
         super.onCreate(state);
         web = new WebView(this);
-        setContentView(web);
+        web.setBackgroundColor(0xFF061C1D);
+        // Native preloader in the app's own colours, shown until the first Besrah page has painted.
+        splash = new LinearLayout(this);
+        splash.setOrientation(LinearLayout.VERTICAL);
+        splash.setGravity(Gravity.CENTER);
+        splash.setBackgroundColor(0xFF061C1D);
+        ImageView logo = new ImageView(this);
+        logo.setImageResource(R.mipmap.ic_launcher);
+        int px = (int) (88 * getResources().getDisplayMetrics().density);
+        splash.addView(logo, new LinearLayout.LayoutParams(px, px));
+        ProgressBar bar = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
+        bar.setIndeterminate(true);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams((int) (96 * getResources().getDisplayMetrics().density), ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp.topMargin = (int) (20 * getResources().getDisplayMetrics().density);
+        splash.addView(bar, lp);
+        FrameLayout root = new FrameLayout(this);
+        root.addView(web, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        root.addView(splash, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        setContentView(root);
 
         WebSettings s = web.getSettings();
         s.setJavaScriptEnabled(true);
@@ -55,6 +107,13 @@ public class MainActivity extends Activity {
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) { currentUrl = url; }
             @Override
             public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) { currentUrl = url; }
+            @Override
+            public void onPageCommitVisible(WebView view, String url) { hideSplash(); }
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                // Only a failed main page counts (the site's service worker already serves its cached shell when it can).
+                if (request.isForMainFrame()) showOffline();
+            }
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
@@ -76,6 +135,7 @@ public class MainActivity extends Activity {
 
         Uri start = getIntent() != null ? getIntent().getData() : null;
         web.loadUrl(isOurs(start) ? start.toString() : HOME);
+        web.postDelayed(this::hideSplash, 12000);   // never leave the preloader up for ever
     }
 
     boolean hasLocation() {

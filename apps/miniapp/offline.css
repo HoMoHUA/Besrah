@@ -1,0 +1,8 @@
+/* Offline page and boot preloader share the app's tokens (skin.css); no inline styles (CSP: style-src 'self'). */
+.off { margin: 0; min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; background: var(--bg, #061C1D); color: var(--ink, #EAF4F1); font-family: var(--font-sans, Tahoma, sans-serif); }
+.off__card { display: grid; justify-items: center; gap: 12px; max-width: 360px; padding: 28px 24px; text-align: center; }
+.off__logo { border-radius: 22px; }
+.off__title { margin: 4px 0 0; font-size: 20px; font-weight: 800; }
+.off__text { margin: 0; font-size: 14px; line-height: 1.9; color: var(--muted, #9DB3AE); }
+.off__btn { display: inline-grid; place-items: center; min-height: 44px; padding: 0 24px; border-radius: 22px; background: var(--accent, #C8F06A); color: var(--on-accent, #061C1D); font-weight: 800; text-decoration: none; }
+.off__note { margin: 4px 0 0; font-size: 12px; color: var(--muted, #9DB3AE); }

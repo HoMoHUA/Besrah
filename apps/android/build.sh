@@ -7,7 +7,7 @@ HERE="$(cd "$(dirname "$0")" && pwd)"; OUT="${OUT:-$HERE/build}"
 KEYSTORE="${KEYSTORE:-$HOME/.besrah-android/debug.keystore}"; KS_PASS="${KS_PASS:-}"
 rm -rf "$OUT"; mkdir -p "$OUT"/{res,gen,classes,dex}
 "$BT/aapt2" compile --dir "$HERE/res" -o "$OUT/res/compiled.zip"
-"$BT/aapt2" link -I "$JAR" --manifest "$HERE/AndroidManifest.xml" -o "$OUT/base.apk" --java "$OUT/gen" "$OUT/res/compiled.zip" --min-sdk-version 26 --target-sdk-version 34
+"$BT/aapt2" link -I "$JAR" --manifest "$HERE/AndroidManifest.xml" -A "$HERE/assets" -o "$OUT/base.apk" --java "$OUT/gen" "$OUT/res/compiled.zip" --min-sdk-version 26 --target-sdk-version 34
 javac -source 17 -target 17 -Xlint:-options -encoding UTF-8 -classpath "$JAR" -d "$OUT/classes" $(find "$HERE/src" "$OUT/gen" -name '*.java')
 "$BT/d8" --lib "$JAR" --min-api 26 --output "$OUT/dex" $(find "$OUT/classes" -name '*.class')
 cp "$OUT/base.apk" "$OUT/unsigned.apk"
