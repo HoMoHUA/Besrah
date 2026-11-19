@@ -1,7 +1,7 @@
 // Besfood: real food search over the stored vendor/menu snapshot, with vendor menus and a hand-off to the platform.
 // Location is only ever read after an explicit tap, rounded to ~100 m and sent only to this app's own server to sort one search.
 import { h } from '../ui/dom.js';
-import { resolveUserCoords } from '../logic.js';
+import { canOpenLocationSettings, locationAdvice, openLocationSettings, resolveUserCoords } from '../logic.js';
 import { fa } from '../format.js';
 
 const BUDGETS = [null, 100000, 150000, 250000, 400000];
@@ -102,7 +102,7 @@ export function createFoodView(ctx) {
     try {
       const c = await resolveUserCoords(globalThis.window?.Telegram?.WebApp);
       S.near = { lat: c.latitude, lon: c.longitude }; S.nearState = 'ok'; S.sort = S.sort === 'relevance' && !S.q.trim() ? 'distance' : S.sort;
-    } catch { S.near = null; S.nearState = 'denied'; if (S.sort === 'distance') S.sort = 'relevance'; }
+    } catch (error) { S.near = null; S.nearState = ['denied', 'timeout'].includes(error?.kind) ? error.kind : 'unavailable'; if (S.nearState === 'denied') S.denials = (S.denials ?? 0) + 1; if (S.sort === 'distance') S.sort = 'relevance'; }
     run(true);
   }
 
@@ -171,7 +171,9 @@ export function createFoodView(ctx) {
         SORTS.filter(([k]) => k !== 'distance' || S.near).map(([k, label]) => chip(label, S.sort === k, () => { S.sort = k; run(true); })),
         h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'fd-locate'], disabled: S.nearState === 'locating' ? 'true' : null, onClick: locate },
           S.nearState === 'locating' ? 'در حال دریافت موقعیت…' : S.near ? 'به روزرسانی موقعیت من' : 'نزدیک من')),
-      S.nearState === 'denied' ? h('p', { class: 'fd-note', role: 'status', text: 'دسترسی به موقعیت داده نشد. جست وجو بدون فاصله ادامه دارد.' }) : null,
+      ['denied', 'timeout', 'unavailable'].includes(S.nearState) ? h('p', { class: 'fd-note', role: 'status', text: `${locationAdvice(S.nearState, { repeated: (S.denials ?? 0) > 1, inTelegram: Boolean(globalThis.window?.Telegram?.WebApp?.initData) })} جست وجو بدون فاصله ادامه دارد.` }) : null,
+      S.nearState === 'denied' && (S.denials ?? 0) > 1 && canOpenLocationSettings(globalThis.window?.Telegram?.WebApp)
+        ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => openLocationSettings(globalThis.window?.Telegram?.WebApp) }, 'باز کردن تنظیمات موقعیت') : null,
       S.nearState === 'ok' ? h('p', { class: 'fd-note', text: 'موقعیت شما فقط برای مرتب سازی همین جست وجو به سرور بسراه فرستاده می شود (با دقت حدود ۱۰۰ متر) و ذخیره نمی شود.' }) : null,
       h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; if (S.fromVerticalProfile) { S.vertical = 'all'; S.fromVerticalProfile = false; } run(true); } }, q))),
       weeklyPlan());

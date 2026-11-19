@@ -294,3 +294,21 @@ test('fare line: the flat metro fare, free walking, and unknown (never free) for
     assert.equal(fareLine(bad), 'کرایه: نامعلوم');
   }
 });
+
+test('"start this trip" saves the plan summary on the device and goes home; it is offered only with known times', async t => {
+  installFoodDom(t, {});
+  const now = Math.floor(Date.now() / 1000), started = [], went = [];
+  const option = metroOption({ choice: 'earliest', leaveEpoch: now + 300, arriveEpoch: now + 2400 });
+  const api = createApi({ fetch: async url => (url === 'api/trip' ? new Response(JSON.stringify(reply({ options: [option] }))) : new Response('{}', { status: 500 })) });
+  const store = { prefs: () => ({}), startActiveTrip: trip => { started.push(trip); return true; } };
+  const view = createTripView({ api, state: stationsState, store, actions: { go: v => went.push(v), openStation() {} } });
+  view.onShow();
+  await select(view, 'مبدأ').dispatch('change', '1:وکیل‌آباد'); await select(view, 'مقصد').dispatch('change', '1:غدیر'); await flushView();
+  await button(view.el, 'مسیر را پیدا کن').dispatch('click'); await flushView();
+  await button(view.el, 'شروع این سفر').dispatch('click');
+  assert.equal(started.length, 1);
+  assert.deepEqual(Object.keys(started[0]).sort(), ['arriveEpoch', 'kind', 'leaveEpoch', 'ride', 'title']);
+  assert.equal(started[0].ride.from, 'شریعتی');
+  assert.doesNotMatch(JSON.stringify(started[0]), /lat|lon/);
+  assert.deepEqual(went, ['home']);
+});

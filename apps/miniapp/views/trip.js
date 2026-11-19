@@ -2,7 +2,7 @@
 // service, the two station-entry constants are labelled assumptions. A leg nobody measured is shown as unknown, never as a number.
 // Location is read only after an explicit tap and goes only to this app's server (which asks the routing service for the route).
 import { h } from '../ui/dom.js';
-import { resolveUserCoords } from '../logic.js';
+import { canOpenLocationSettings, locationAdvice, openLocationSettings, resolveUserCoords } from '../logic.js';
 import { fa } from '../format.js';
 
 const DEBOUNCE_MS = 400;
@@ -176,17 +176,22 @@ export function createTripView(ctx) {
     try {
       const c = await resolveUserCoords(globalThis.window?.Telegram?.WebApp);
       S.from = { lat: Math.round(c.latitude * 1e5) / 1e5, lon: Math.round(c.longitude * 1e5) / 1e5, name: 'موقعیت من', precision: 'gps' }; S.locating = 'ok'; ok = true;
-    } catch { S.locating = 'denied'; }
+    } catch (error) { S.locating = ['denied', 'timeout'].includes(error?.kind) ? error.kind : 'unavailable'; if (S.locating === 'denied') S.denials = (S.denials ?? 0) + 1; }
     S.result = null; S.status = 'idle'; drawChosen(); drawLocate(); drawOut(); drawSubmit(); drawOrigin();
     return ok;
   }
+  const tg = () => globalThis.window?.Telegram?.WebApp;
   const locateNote = h('p', { class: 'fd-note', role: 'status' });
   const locateBtn = h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: locate }, 'موقعیت من');
+  // Shown only after a second refusal, and only where Telegram can open its own location settings.
+  const settingsBtn = h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], hidden: true, onClick: () => openLocationSettings(tg()) }, 'باز کردن تنظیمات موقعیت');
   function drawLocate() {
     locateBtn.textContent = S.locating === 'locating' ? 'در حال دریافت موقعیت…' : 'موقعیت من';
     locateBtn.disabled = S.locating === 'locating';
-    locateNote.textContent = S.locating === 'denied' ? 'دسترسی به موقعیت داده نشد؛ مبدأ را جست وجو کنید.'
+    const repeated = (S.denials ?? 0) > 1;
+    locateNote.textContent = ['denied', 'timeout', 'unavailable'].includes(S.locating) ? `${locationAdvice(S.locating, { repeated, inTelegram: Boolean(tg()?.initData) })} مبدأ را جست وجو کنید.`
       : S.locating === 'ok' ? 'موقعیت دقیق شما فقط برای محاسبهٔ همین مسیر به سرور بسراه و سرویس مسیریابی نشان فرستاده می شود و ذخیره نمی شود.' : '';
+    settingsBtn.hidden = !(S.locating === 'denied' && repeated && canOpenLocationSettings(tg()));
   }
 
   const timeInput = h('input', { class: 'fd-input tp-time', type: 'time', 'aria-label': 'ساعت حرکت (خالی یعنی اکنون)' });
@@ -217,11 +222,21 @@ export function createTripView(ctx) {
   }
 
   // The next real step for an option. Only in-app destinations that exist; no invented provider deep links.
+  // "Start this trip" keeps a small, self-expiring summary on this device for the home screen (Live View pattern):
+  // station names, line and times only; no coordinates or typed places.
+  function startTrip(o) {
+    const ride = o.legs.find(l => l.type === 'metro');
+    const ok = store?.startActiveTrip?.({ kind: o.kind, title: o.title, leaveEpoch: o.leaveEpoch, arriveEpoch: o.arriveEpoch,
+      ride: ride ? { line: ride.line, from: ride.from, to: ride.to, toward: ride.toward, departAt: ride.departAt, arriveAt: ride.arriveAt } : null });
+    if (ok) actions?.go?.('home');
+  }
   function optionActions(o) {
     const ride = o.legs.find(l => l.type === 'metro');
-    if (!ride?.from || typeof actions?.openStation !== 'function') return null;
-    return h('div', { class: 'fd-actions' },
-      h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => actions.openStation(ride.from) }, `تابلوی حرکت ایستگاه ${ride.from}`));
+    const board = ride?.from && typeof actions?.openStation === 'function'
+      ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: () => actions.openStation(ride.from) }, `تابلوی حرکت ایستگاه ${ride.from}`) : null;
+    const start = typeof store?.startActiveTrip === 'function' && Number.isSafeInteger(o.leaveEpoch) && Number.isSafeInteger(o.arriveEpoch)
+      ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--sm'], onClick: () => startTrip(o) }, 'شروع این سفر') : null;
+    return board || start ? h('div', { class: 'fd-actions' }, start, board) : null;
   }
 
   function optionCard(o, decision, i = 0, all = [o]) {
@@ -290,7 +305,7 @@ export function createTripView(ctx) {
   };
 
   form.append(
-    pickerBlock('from', 'مبدأ', h('div', { class: 'fd-row' }, locateBtn)), locateNote,
+    pickerBlock('from', 'مبدأ', h('div', { class: 'fd-row' }, locateBtn)), locateNote, settingsBtn,
     h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'tp-swap'], 'aria-label': 'جابه جایی مبدأ و مقصد', onClick: () => { [S.from, S.to] = [S.to, S.from]; S.result = null; S.status = 'idle'; drawChosen(); drawOut(); drawSubmit(); drawOrigin(); } }, '⇅ جابه جایی'),
     pickerBlock('to', 'مقصد'),
     h('label', { class: 'tp-when' }, h('span', { text: 'ساعت حرکت (خالی یعنی اکنون)' }), timeInput),

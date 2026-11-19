@@ -59,24 +59,27 @@ export async function resolveUserCoords(tgApp, timeoutMs = 10000) {
   return requestPosition(tgApp, geo, timeoutMs);
 }
 
-// Permission is requested only when the UI explicitly calls this helper.
-// Prefer Telegram's native location flow in supported Mini App clients.
+// Permission is requested only when the UI explicitly calls this helper (HarmonyOS privacy rule: never before the user
+// reaches the feature). Prefer Telegram's native location flow in supported Mini App clients.
+// The rejection carries `kind`: 'denied' (the user or the platform refused), 'timeout', or 'unavailable' (off / no fix).
+// The message stays 'location_unavailable' for every kind, so older callers keep working.
 export function requestPosition(webApp, browserGeolocation, timeoutMs = 12000) {
   return new Promise((resolve, reject) => {
     let settled = false;
-    const finish = coordinates => {
+    const finish = (coordinates, kind = 'unavailable') => {
       if (settled) return;
       settled = true;
       clearTimeout(timer);
       if (Number.isFinite(coordinates?.latitude) && Number.isFinite(coordinates?.longitude)) {
         resolve({ latitude: coordinates.latitude, longitude: coordinates.longitude });
-      } else reject(new Error('location_unavailable'));
+      } else { const error = new Error('location_unavailable'); error.kind = kind; reject(error); }
     };
-    const timer = setTimeout(() => finish(null), timeoutMs);
+    const timer = setTimeout(() => finish(null, 'timeout'), timeoutMs);
     const fromBrowser = () => {
       if (!browserGeolocation?.getCurrentPosition) return finish(null);
       try {
-        browserGeolocation.getCurrentPosition(position => finish(position.coords), () => finish(null),
+        browserGeolocation.getCurrentPosition(position => finish(position.coords),
+          error => finish(null, error?.code === 1 ? 'denied' : error?.code === 3 ? 'timeout' : 'unavailable'),
           { enableHighAccuracy: false, timeout: timeoutMs, maximumAge: 60000 });
       } catch { finish(null); }
     };
@@ -86,11 +89,30 @@ export function requestPosition(webApp, browserGeolocation, timeoutMs = 12000) {
     if (!nativeSupported) return fromBrowser();
     const fromNative = () => {
       if (!manager.isLocationAvailable) return fromBrowser();
-      try { manager.getLocation(finish); } catch { finish(null); }
+      try { manager.getLocation(data => finish(data, manager.isAccessRequested && !manager.isAccessGranted ? 'denied' : 'unavailable')); } catch { finish(null); }
     };
     try {
       if (manager.isInited) fromNative();
       else manager.init(fromNative);
     } catch { fromBrowser(); }
   });
+}
+
+// After a refusal: no repeated prompts. When the user reaches the feature again, say how to turn location back on and,
+// inside Telegram, offer its own settings screen (HarmonyOS privacy guide: "direct the user to the Settings page").
+export function canOpenLocationSettings(webApp) {
+  try { return Boolean(webApp?.isVersionAtLeast?.('8.0') && typeof webApp?.LocationManager?.openSettings === 'function'); } catch { return false; }
+}
+export function openLocationSettings(webApp) {
+  if (!canOpenLocationSettings(webApp)) return false;
+  try { webApp.LocationManager.openSettings(); return true; } catch { return false; }
+}
+export function locationAdvice(kind, { repeated = false, inTelegram = false } = {}) {
+  if (kind === 'denied') {
+    if (!repeated) return 'دسترسی به موقعیت داده نشد؛ بدون آن هم می‌توانید ادامه دهید.';
+    return inTelegram ? 'دسترسی به موقعیت خاموش است. برای استفاده، آن را در تنظیمات همین برنامه در تلگرام روشن کنید.'
+      : 'دسترسی به موقعیت برای این سایت خاموش است. آن را از تنظیمات مرورگر (نماد قفل کنار نشانی) روشن کنید.';
+  }
+  if (kind === 'timeout') return 'موقعیت به‌موقع پیدا نشد؛ کمی بعد دوباره امتحان کنید یا دستی انتخاب کنید.';
+  return 'موقعیت در دسترس نیست؛ مکان‌یاب دستگاه را روشن کنید یا دستی انتخاب کنید.';
 }
