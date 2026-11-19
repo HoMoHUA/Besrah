@@ -30,3 +30,23 @@ test('every file reachable by relative imports from app.js is in the allowlist',
   assert.deepEqual(missing, [], `not served by the core (404 in production): ${missing.join(', ')}`);
   assert.ok(seen.size > 15);
 });
+
+test('the service worker precaches every module app.js reaches and every page resource, and only served files', () => {
+  const sw = readFileSync(join(root, 'reminder-sw.js'), 'utf8');
+  const list = sw.slice(sw.indexOf('const SHELL = ['), sw.indexOf('];', sw.indexOf('const SHELL = [')));
+  const shell = new Set([...list.matchAll(/'([^']+)'/g)].map(m => m[1]));
+  const reachable = new Set(), queue = ['app.js'];
+  while (queue.length) {
+    const file = queue.pop();
+    if (reachable.has(file)) continue;
+    reachable.add(file);
+    if (file.endsWith('.js') && served.has(file)) queue.push(...importsOf(file));
+  }
+  const page = readFileSync(join(root, 'index.html'), 'utf8');
+  for (const m of page.matchAll(/(?:href|src)="([^"#:]+)"/g)) reachable.add(normalize(m[1]));
+  const notPrecached = [...reachable].filter(f => !shell.has(f));
+  assert.deepEqual(notPrecached, [], `offline start would stop at the preloader: ${notPrecached.join(', ')}`);
+  const unknown = [...shell].filter(f => f !== './' && !served.has(f));
+  assert.deepEqual(unknown, [], `precached but not served: ${unknown.join(', ')}`);
+  assert.ok(!shell.has('assets/food-catalog.json'), 'the 6 MB food catalogue is fetched on demand, not precached');
+});

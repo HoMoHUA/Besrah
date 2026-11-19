@@ -5,7 +5,7 @@ import vm from 'node:vm';
 
 const source = await readFile(new URL('./reminder-sw.js', import.meta.url), 'utf8');
 
-function worker({ fetchImpl } = {}) {
+function worker({ fetchImpl, timers = { setTimeout, clearTimeout } } = {}) {
   const handlers = {}, shown = [], store = new Map(), deleted = [];
   // Like the real Cache API, relative keys resolve against the worker's location (the app root).
   const abs = key => new URL(typeof key === 'string' ? key : key.url, 'https://besrah.arklyn.ir/').href;
@@ -22,7 +22,7 @@ function worker({ fetchImpl } = {}) {
     skipWaiting: async () => {},
   };
   const caches = { open: async () => cache, keys: async () => ['besrah-shell-v0', 'besrah-shell-v1', 'other'], delete: async k => { deleted.push(k); return true; } };
-  vm.runInNewContext(source, { self, caches, fetch: fetchImpl ?? (async () => { throw new Error('offline'); }), Response, URL, setTimeout, clearTimeout, Promise });
+  vm.runInNewContext(source, { self, caches, fetch: fetchImpl ?? (async () => { throw new Error('offline'); }), Response, URL, setTimeout: timers.setTimeout, clearTimeout: timers.clearTimeout, Promise });
   const dispatch = (url, { method = 'GET', mode = 'cors' } = {}) => {
     let responded = null;
     handlers.fetch({ request: { url, method, mode }, respondWith: p => { responded = p; } });
@@ -69,4 +69,21 @@ test('offline: shell files come from the cache; a navigation falls back to the a
   assert.equal(await fallback.text(), 'shell:offline.html');
   const missing = await w.dispatch('https://besrah.arklyn.ir/views/unknown.js');
   assert.equal(missing.status, 503);
+});
+
+// The 4 s limit is simulated by a timer that fires at once, while the network answers 30 ms later.
+const instantLimit = { setTimeout: fn => { queueMicrotask(fn); return 0; }, clearTimeout: () => {} };
+const slowFetch = async () => { await new Promise(r => setTimeout(r, 30)); return new Response('fresh'); };
+
+test('slow network without a cached copy: keep waiting for the network (never a 503 while online)', async () => {
+  const w = worker({ fetchImpl: slowFetch, timers: instantLimit });
+  const res = await w.dispatch('https://besrah.arklyn.ir/ui/tracker.js');
+  assert.equal(res.status, 200);
+  assert.equal(await res.text(), 'fresh');
+});
+
+test('slow network with a cached copy: the cached copy is served after the limit', async () => {
+  const w = worker({ fetchImpl: slowFetch, timers: instantLimit });
+  let work; w.handlers.install({ waitUntil: p => { work = p; } }); await work;
+  assert.equal(await (await w.dispatch('https://besrah.arklyn.ir/app.js')).text(), 'shell:app.js');
 });
