@@ -1,19 +1,22 @@
 // Account storage on node:sqlite (built in, no new dependency). One small file, versioned schema, no personal data beyond the
 // provider subject id: no phone, no e-mail, no name, no coordinates, no history. Sessions store only a hash of the token.
+// Schema 2 (2026-11-19) adds `profile` (only the derived profile code, see profile/code.ts); it is created on open, additively.
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 import { FOOD_VERTICALS, type FoodVertical } from '../food/verticals.js';
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
+import { encodeProfile, PROFILE_CODE_PATTERN, PROFILE_CODE_VERSION, SHOP_PRIORITIES, type ShopPriority } from '../profile/code.js';
 
-export const CONSENT_PURPOSES = ['sync_preferences', 'saved_places', 'history', 'notifications'] as const;
+// `profile_code` (D17): store only the derived 4-character profile code on the server, not the preferences it came from.
+export const CONSENT_PURPOSES = ['sync_preferences', 'saved_places', 'history', 'notifications', 'profile_code'] as const;
 export type ConsentPurpose = typeof CONSENT_PURPOSES[number];
 export const CONSENT_VERSION = 1;
 export const SESSION_TTL_SEC = 14 * 86400;
 export const MAX_SESSIONS = 8;
 
-export interface Preferences { transitMaxWalkMin?: number; transitPriority?: 'time' | 'walk' | 'cost' | 'balanced'; foodBudgetToman?: number; shopBudgetToman?: number; foodPreferredVerticals?: FoodVertical[] }
-export const PREFERENCE_KEYS = ['transitMaxWalkMin', 'transitPriority', 'foodBudgetToman', 'shopBudgetToman', 'foodPreferredVerticals'] as const;
+export interface Preferences { transitMaxWalkMin?: number; transitPriority?: 'time' | 'walk' | 'cost' | 'balanced'; foodBudgetToman?: number; shopBudgetToman?: number; foodPreferredVerticals?: FoodVertical[]; shopPriority?: ShopPriority }
+export const PREFERENCE_KEYS = ['transitMaxWalkMin', 'transitPriority', 'foodBudgetToman', 'shopBudgetToman', 'foodPreferredVerticals', 'shopPriority'] as const;
 
 /** Strict, whitelisted validation. Unknown keys and out-of-range values are rejected, never clamped silently. */
 export function validatePreferences(input: unknown): { ok: true; value: Preferences } | { ok: false; field: string } {
@@ -34,12 +37,14 @@ export function validatePreferences(input: unknown): { ok: true; value: Preferen
       return { ok: false, field: 'foodPreferredVerticals' };
     out.foodPreferredVerticals = [...a] as FoodVertical[];
   }
+  if (v.shopPriority !== undefined) { if (!(SHOP_PRIORITIES as readonly unknown[]).includes(v.shopPriority)) return { ok: false, field: 'shopPriority' }; out.shopPriority = v.shopPriority as ShopPriority; }
   return { ok: true, value: out };
 }
 
 const hashToken = (token: string): string => createHash('sha256').update(token).digest('hex');
 
 export interface ConsentState { status: 'granted' | 'revoked'; version: number; updatedAt: number }
+export interface StoredProfile { code: string; codeVersion: number; updatedAt: number }
 export interface AccountStore {
   loginTelegram(telegramId: string, nowSec: number): { accountId: string; created: boolean };
   createSession(accountId: string, nowSec: number): { token: string; expiresAt: number };
@@ -51,6 +56,10 @@ export interface AccountStore {
   getPreferences(accountId: string): { version: number; values: Preferences };
   putPreferences(accountId: string, expectedVersion: number, values: Preferences, nowSec: number): { ok: true; version: number } | { ok: false; reason: 'version_conflict'; version: number };
   clearPreferences(accountId: string): void;
+  getProfile(accountId: string): StoredProfile | null;
+  /** Derives the code from the given (already validated) preferences and stores only the code. */
+  putProfile(accountId: string, values: Preferences, nowSec: number): StoredProfile;
+  clearProfile(accountId: string): void;
   exportAll(accountId: string, nowSec: number): unknown;
   deleteAccount(accountId: string): void;
   close(): void;
@@ -67,7 +76,8 @@ export function openAccountStore(path: string): AccountStore {
     CREATE INDEX IF NOT EXISTS session_account ON session(account_id);
     CREATE TABLE IF NOT EXISTS consent(account_id TEXT NOT NULL REFERENCES account(id) ON DELETE CASCADE, purpose TEXT NOT NULL, status TEXT NOT NULL, version INTEGER NOT NULL, updated_at INTEGER NOT NULL, PRIMARY KEY(account_id, purpose));
     CREATE TABLE IF NOT EXISTS pref(account_id TEXT PRIMARY KEY REFERENCES account(id) ON DELETE CASCADE, version INTEGER NOT NULL, json TEXT NOT NULL, updated_at INTEGER NOT NULL);
-    INSERT OR IGNORE INTO meta(k, v) VALUES('schema', '1');`);
+    CREATE TABLE IF NOT EXISTS profile(account_id TEXT PRIMARY KEY REFERENCES account(id) ON DELETE CASCADE, code TEXT NOT NULL, code_version INTEGER NOT NULL, updated_at INTEGER NOT NULL);
+    INSERT INTO meta(k, v) VALUES('schema', '2') ON CONFLICT(k) DO UPDATE SET v = '2' WHERE CAST(v AS INTEGER) < 2;`);
   const q = {
     findIdentity: db.prepare('SELECT account_id AS accountId FROM identity WHERE provider = ? AND subject = ?'),
     insertAccount: db.prepare('INSERT INTO account(id, created_at) VALUES(?, ?)'),
@@ -84,6 +94,9 @@ export function openAccountStore(path: string): AccountStore {
     getPref: db.prepare('SELECT version, json FROM pref WHERE account_id = ?'),
     upsertPref: db.prepare('INSERT INTO pref(account_id, version, json, updated_at) VALUES(?, ?, ?, ?) ON CONFLICT(account_id) DO UPDATE SET version = excluded.version, json = excluded.json, updated_at = excluded.updated_at'),
     delPref: db.prepare('DELETE FROM pref WHERE account_id = ?'),
+    getProfile: db.prepare('SELECT code, code_version AS codeVersion, updated_at AS updatedAt FROM profile WHERE account_id = ?'),
+    upsertProfile: db.prepare('INSERT INTO profile(account_id, code, code_version, updated_at) VALUES(?, ?, ?, ?) ON CONFLICT(account_id) DO UPDATE SET code = excluded.code, code_version = excluded.code_version, updated_at = excluded.updated_at'),
+    delProfile: db.prepare('DELETE FROM profile WHERE account_id = ?'),
     account: db.prepare('SELECT created_at AS createdAt FROM account WHERE id = ?'),
     identities: db.prepare('SELECT provider, linked_at AS linkedAt FROM identity WHERE account_id = ?'),
     delAccount: db.prepare('DELETE FROM account WHERE id = ?'),
@@ -125,6 +138,7 @@ export function openAccountStore(path: string): AccountStore {
         q.upsertConsent.run(accountId, purpose, granted ? 'granted' : 'revoked', CONSENT_VERSION, nowSec);
         // Revoking sync deletes what sync stored: the consent is the only reason that data exists.
         if (!granted && purpose === 'sync_preferences') q.delPref.run(accountId);
+        if (!granted && purpose === 'profile_code') q.delProfile.run(accountId);
         return { status: granted ? 'granted' : 'revoked', version: CONSENT_VERSION, updatedAt: nowSec } as ConsentState;
       });
     },
@@ -139,10 +153,20 @@ export function openAccountStore(path: string): AccountStore {
       return { ok: true as const, version: current + 1 };
     }),
     clearPreferences: accountId => { q.delPref.run(accountId); },
+    getProfile(accountId) {
+      const row = q.getProfile.get(accountId) as StoredProfile | undefined;
+      return row && PROFILE_CODE_PATTERN.test(row.code) ? { code: row.code, codeVersion: row.codeVersion, updatedAt: row.updatedAt } : null;
+    },
+    putProfile(accountId, values, nowSec) {
+      const { code } = encodeProfile(values);
+      q.upsertProfile.run(accountId, code, PROFILE_CODE_VERSION, nowSec);
+      return { code, codeVersion: PROFILE_CODE_VERSION, updatedAt: nowSec };
+    },
+    clearProfile: accountId => { q.delProfile.run(accountId); },
     exportAll(accountId, nowSec) {
       const account = q.account.get(accountId) as { createdAt: number } | undefined;
       return { schemaVersion: 1, exportedAt: nowSec, account: account ? { createdAt: account.createdAt } : null,
-        identities: q.identities.all(accountId), consents: store.consents(accountId), preferences: store.getPreferences(accountId) };
+        identities: q.identities.all(accountId), consents: store.consents(accountId), preferences: store.getPreferences(accountId), profile: store.getProfile(accountId) };
     },
     deleteAccount: accountId => { q.delAccount.run(accountId); },
     close: () => { db.close(); },

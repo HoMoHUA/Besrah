@@ -5,6 +5,7 @@ import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { clientKey, createWindowLimiter } from '../journey-beta/limits.js';
 import { CONSENT_PURPOSES, CONSENT_VERSION, validatePreferences, type AccountStore, type ConsentPurpose } from './store.js';
 import { verifyTelegramInitData, TELEGRAM_PUBLIC_KEY_PROD } from './telegram.js';
+import { describeProfileCode, encodeProfile } from '../profile/code.js';
 
 export const SESSION_COOKIE = 'bsr_session';
 export interface AccountRoutesOptions {
@@ -128,7 +129,43 @@ export function registerAccount(app: FastifyInstance, opts: AccountRoutesOptions
     const v = validatePreferences(b.values);
     if (!v.ok) return reply.code(400).send({ error: 'bad_request', field: v.field });
     const result = get()!.putPreferences(session.accountId, b.expectedVersion, v.value, Math.floor(now() / 1000));
+    // With its own consent, the derived profile code follows the synced preferences.
+    if (result.ok && profileAllowed(session.accountId)) get()!.putProfile(session.accountId, v.value, Math.floor(now() / 1000));
     return result.ok ? { version: result.version, values: v.value } : reply.code(409).send({ error: 'version_conflict', version: result.version });
+  });
+
+  // Profile code (D17). `describe` is stateless and works for guests: it only turns the stated preferences in the body into
+  // the code and its meaning; nothing is stored or logged. The account endpoints store ONLY the code, and only with the
+  // separate `profile_code` consent; revoking that consent deletes it.
+  const profileAllowed = (accountId: string) => get()!.consents(accountId).profile_code?.status === 'granted';
+  const profileView = (p: { code: string; codeVersion: number; updatedAt: number } | null) =>
+    ({ profile: p ? { ...p, positions: describeProfileCode(p.code) } : null });
+
+  app.post('/app/api/profile/describe', { bodyLimit: 1024 }, async (req, reply) => {
+    if (!guard(req, reply, true)) return reply;
+    const b = req.body as { values?: unknown } | null;
+    if (!b || typeof b !== 'object' || !hasOnly(b, ['values'])) return reply.code(400).send({ error: 'bad_request', field: 'body' });
+    const v = validatePreferences(b.values);
+    if (!v.ok) return reply.code(400).send({ error: 'bad_request', field: v.field });
+    return encodeProfile(v.value);
+  });
+
+  app.get('/app/api/account/profile', async (req, reply) => {
+    if (!guard(req, reply, false)) return reply;
+    const session = sessionOf(req); if (!session) return unauth(reply);
+    if (!profileAllowed(session.accountId)) return reply.code(403).send({ error: 'consent_required', purpose: 'profile_code' });
+    return profileView(get()!.getProfile(session.accountId));
+  });
+
+  app.post('/app/api/account/profile', { bodyLimit: 1024 }, async (req, reply) => {
+    if (!guard(req, reply, true)) return reply;
+    const session = sessionOf(req); if (!session) return unauth(reply);
+    if (!profileAllowed(session.accountId)) return reply.code(403).send({ error: 'consent_required', purpose: 'profile_code' });
+    const b = req.body as { values?: unknown } | null;
+    if (!b || typeof b !== 'object' || !hasOnly(b, ['values'])) return reply.code(400).send({ error: 'bad_request', field: 'body' });
+    const v = validatePreferences(b.values);
+    if (!v.ok) return reply.code(400).send({ error: 'bad_request', field: v.field });
+    return profileView(get()!.putProfile(session.accountId, v.value, Math.floor(now() / 1000)));
   });
 
   app.post('/app/api/account/export', { bodyLimit: 64 }, async (req, reply) => {
