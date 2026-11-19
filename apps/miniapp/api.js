@@ -166,6 +166,17 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       if (!Array.isArray(data?.order) || !Array.isArray(data?.trains)) throw new ApiError('server');
       return data;
     },
+    // Live arrivals from the municipal geoportal (through this app's server). Stop search is POST: typed text stays out of URLs.
+    async busStops(q, signal) {
+      const data = await post('api/bus/stops', { q }, signal);
+      if (!Array.isArray(data?.stops)) throw new ApiError('server');
+      return data;
+    },
+    async busEta(station, signal) {
+      const data = await get('api/bus/eta?station=' + encodeURIComponent(String(station)), signal);
+      if (data?.status !== 'ok' || !Array.isArray(data?.arrivals)) throw new ApiError('server');
+      return data;
+    },
     async busGuide(signal) {
       const data = await get('assets/bus-guide.json', signal);
       if (data?.v !== 1 || !Array.isArray(data?.n) || !Array.isArray(data?.l)) throw new ApiError('server');
