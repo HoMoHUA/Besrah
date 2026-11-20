@@ -5,7 +5,7 @@ import { buildIndex, loopVariant, searchLines, searchStops } from '../bus-data.j
 import { findBusConnections } from '../bus-paths.js';
 import { BUS_ARRIVAL_SOURCES, busHandoffNote, openBusSource } from '../bus-sources.js';
 import { createRideTabs } from '../ui/ride-tabs.js';
-import { h, icon } from '../ui/dom.js';
+import { h, icon, backButton } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 
 const SOURCE_NOTE = 'مسیرهای این راهنما از OpenStreetMap هستند و با بهره‌بردار تطبیق داده نشده‌اند. زمان رسیدن زنده فقط در بخش «زمان رسیدن زنده» و از سامانهٔ شهرداری مشهد می‌آید.';
@@ -210,7 +210,7 @@ export function createBusView(ctx) {
   clear.addEventListener('click', () => { input.value = ''; query = ''; paint(); input.focus(); });
   root.append(
     h('header', { class: 'metro-head' },
-      h('button', { type: 'button', class: 'cm-icon-btn', 'aria-label': 'بازگشت از اتوبوس', onClick: () => actions.back() }, icon('arrow_right')),
+      backButton('بازگشت از اتوبوس', () => actions.back()),
       h('img', { src: 'assets/services/caravan.svg', alt: '', width: 60, height: 60 }),
       h('div', {}, h('h1', { text: 'اتوبوس' }), h('p', { text: 'خط ها و ایستگاه های مشهد' }))),
     createRideTabs('bus', actions),

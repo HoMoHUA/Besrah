@@ -8,7 +8,7 @@ import { createPlanner } from '../ui/planner.js';
 import { createBoard } from '../ui/board.js';
 import { createSequencer } from '../async.js';
 import { asOfLabel, dayTypeLabel } from '../format.js';
-import { h, icon } from '../ui/dom.js';
+import { h, icon, backButton } from '../ui/dom.js';
 import { init } from '../ui/hm7.js';
 
 const BOARD_REFRESH_MS = 3000;
@@ -66,7 +66,7 @@ export function createMetroView(ctx) {
     h('p', { text: 'خط ۱ قطارهای جداگانه به سمت غدیر و فرودگاه دارد؛ قطار برگشت به سمت وکیل آباد می رود. مقصد قطار را بررسی کنید. دقت داده و نکته های هر ایستگاه در تابلوی آن آمده است.' }));
   const methodDetail = h('details', { class: 'metro-method-detail metro-detail' }, h('summary', { text: 'منبع زمان ها و محدودیت داده' }));
   root.append(h('header', { class: 'metro-head' },
-    h('button', { type: 'button', class: 'cm-icon-btn', 'aria-label': 'بازگشت از مترو', onClick: () => actions.back() }, icon('arrow_right')),
+    backButton('بازگشت از مترو', () => actions.back()),
     h('img', { src: 'assets/services/rail.svg', alt: '', width: 36, height: 36 }),
     h('h1', { text: 'مترو' }), access),
     h('p', { class: 'metro-model-note', text: 'برآورد از برنامه حرکت؛ نه موقعیت زنده قطار' }), optinNote,

@@ -1,7 +1,7 @@
 // Rahyab: door-to-door trip between two real places. Metro legs come from the timetable model, walk and car legs from a routing
 // service, the two station-entry constants are labelled assumptions. A leg nobody measured is shown as unknown, never as a number.
 // Location is read only after an explicit tap and goes only to this app's server (which asks the routing service for the route).
-import { h } from '../ui/dom.js';
+import { h, backButton } from '../ui/dom.js';
 import { canOpenLocationSettings, locationAdvice, openLocationSettings, resolveUserCoords } from '../logic.js';
 import { fa } from '../format.js';
 
@@ -314,7 +314,7 @@ export function createTripView(ctx) {
 
   el.append(
     h('header', { class: 'metro-head' },
-      h('button', { type: 'button', class: 'btn-back', onClick: () => actions.go('services'), 'aria-label': 'بازگشت' }, '←'),
+      backButton('بازگشت', () => actions.back()),
       h('div', null, h('h1', null, 'مسیر مکان به مکان'), h('p', null, 'با مترو، خودرو یا پیاده؛ هر زمان با منشأ و میزان قطعیتش'))),
     form, out);
   drawChosen(); drawLocate(); drawSubmit(); drawOut(); ['from', 'to'].forEach(drawPick); drawOrigin();

@@ -1,7 +1,7 @@
 // Bespay: compare prices of a small curated set of real products across the sellers listed on the product page.
 // Prices are what the page declared at the observation time; never live, never "cheapest on the market". Stock, shipping and
 // warranty/colour differences stay unknown, and a seller with several different prices is shown unresolved instead of guessed.
-import { h } from '../ui/dom.js';
+import { h, backButton, backLink } from '../ui/dom.js';
 import { fa } from '../format.js';
 
 const BUDGETS = [null, 500000, 1000000, 2000000, 5000000];
@@ -71,9 +71,9 @@ export function createShopView(ctx) {
   function controls() {
     return h('div', { class: 'fd-controls' },
       S.fromProfile && S.budget !== null ? h('p', { class: 'fd-note', text: 'این سقف را خودتان در پروفایل گذاشته اید؛ همین جا می توانید عوضش کنید.' }) : null,
-      h('div', { class: 'fd-row', role: 'group', 'aria-label': 'سقف قیمت' }, BUDGETS.map(b => chip(budgetLabel(b), S.budget === b, () => { S.budget = b; S.fromProfile = false; run(true); }))),
-      h('div', { class: 'fd-row', role: 'group', 'aria-label': 'مرتب سازی' }, [['relevance', 'مرتبط ترین'], ['price', 'کمترین قیمت ثبت شده']].map(([k, label]) => chip(label, S.sort === k, () => { S.sort = k; run(true); }))),
-      h('div', { class: 'fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; run(true); } }, q))));
+      h('div', { class: 'fd-scroll', role: 'group', 'aria-label': 'سقف قیمت' }, BUDGETS.map(b => chip(budgetLabel(b), S.budget === b, () => { S.budget = b; S.fromProfile = false; run(true); }))),
+      h('div', { class: 'fd-scroll', role: 'group', 'aria-label': 'مرتب سازی' }, [['relevance', 'مرتبط ترین'], ['price', 'کمترین قیمت ثبت شده']].map(([k, label]) => chip(label, S.sort === k, () => { S.sort = k; run(true); }))),
+      h('div', { class: 'fd-scroll fd-quick', role: 'group', 'aria-label': 'پیشنهاد جست وجو' }, QUICK.map(q => h('button', { type: 'button', class: 'fd-quick__item', onClick: () => { S.q = q; input.value = q; run(true); } }, q))));
   }
 
   function productCard(p) {
@@ -118,7 +118,7 @@ export function createShopView(ctx) {
   }
 
   function detailView() {
-    const d = S.detail, back = h('button', { type: 'button', class: 'btn-back', 'aria-label': 'بازگشت به نتایج', onClick: () => { S.detail = null; draw(); } }, '←');
+    const d = S.detail, back = backLink('بازگشت به نتایج', () => { S.detail = null; draw(); });
     if (d.status === 'loading') return h('div', { class: 'fd-detail' }, back, h('div', { class: 'cm-skel fd-skeleton__card' }));
     if (d.status === 'error') return h('div', { class: 'fd-detail' }, back, h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'جزئیات این کالا دریافت نشد.' }), h('button', { type: 'button', class: 'cm-btn', onClick: () => openProduct(d.id) }, 'تلاش دوباره')));
     const p = d.data;
@@ -137,7 +137,7 @@ export function createShopView(ctx) {
   function draw() { searchBox.hidden = Boolean(S.detail); body.replaceChildren(...(S.detail ? [detailView()] : [controls(), results()])); }
 
   el.append(h('header', { class: 'metro-head' },
-    h('button', { type: 'button', class: 'btn-back', onClick: () => actions.go('services'), 'aria-label': 'بازگشت' }, '←'),
+    backButton('بازگشت', () => actions.back()),
     h('div', null, h('h1', null, 'بسخرید'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
     h('div', { class: 'pay-soon', role: 'note' }, h('b', { text: 'بسپی · پرداخت و کیف پول' }), h('span', { class: 'cm-badge', text: 'به زودی' }), h('p', { text: 'پرداخت درون برنامه هنوز ساخته نشده و زمانی برایش اعلام نشده است. فعلاً قیمت ها را مقایسه کنید و خرید را در فروشگاه انجام دهید.' })),
     searchBox, body);

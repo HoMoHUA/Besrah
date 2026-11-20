@@ -51,3 +51,12 @@ export function trapFocus(container) {
 }
 
 export const reducedMotion = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+// One back control for every page and detail panel: a 44px round button with the RTL back arrow (points right).
+export function backButton(label, onClick) {
+  return h('button', { type: 'button', class: 'cm-icon-btn view-back', 'aria-label': label, onClick }, icon('arrow_right'));
+}
+// Inside a page (detail -> results) the way back is a labelled link, so it never looks like a second page-level back button.
+export function backLink(label, onClick) {
+  return h('button', { type: 'button', class: 'back-link', 'aria-label': label, onClick }, icon('arrow_right'), label);
+}

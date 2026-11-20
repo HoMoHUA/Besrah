@@ -957,3 +957,26 @@ a, button { text-decoration: none !important; }
 .tp-station { font-weight: 600; }
 .sh-scope { margin: 0; font: 600 12px/1.9 var(--font-sans); color: var(--muted); overflow-wrap: anywhere; }
 .sh-source { justify-self: start; }
+
+/* ── Page chrome (U15): one back button and one header rhythm for every service page ─────────────────────────── */
+.view-back { flex: none; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); font-size: 20px; box-shadow: 0 1px 2px rgba(0, 0, 0, .05); transition: transform .12s ease, background-color .12s ease; }
+.view-back:active { transform: scale(.94); background: var(--surface-2); }
+.view-back:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.metro-head { gap: 10px; min-height: 48px; padding-top: 4px; margin-bottom: 4px; }
+.metro-head > div { min-width: 0; }
+.metro-head h1, .view--metro .metro-head h1 { font-size: 24px; line-height: 1.45; font-weight: 900; }
+.metro-head p { margin-top: 2px; }
+.view--metro .metro-head { flex-wrap: wrap; row-gap: 6px; }
+.view--metro .metro-access { margin-inline-start: auto; }
+.view--metro .metro-optout { max-width: none; min-height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 18px; white-space: nowrap; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .view-back { transition: none; } .view-back:active { transform: none; } }
+
+/* Service cards: logo spans both rows, copy and the open button share one column, the heart sits on the first row. */
+.service-card { grid-template-rows: auto auto; align-items: center; row-gap: 10px; }
+.service-card > .service-logo { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.service-card__copy { grid-column: 2; grid-row: 1; align-self: end; }
+.service-card > .service-save { grid-column: 3; grid-row: 1; align-self: start; }
+.service-card__actions { grid-column: 2 / -1; grid-row: 2; justify-self: start; align-self: start; }
+.metro-head > img, .view--metro .metro-head > img { flex: none; width: 40px; height: 40px; }
+.pay-soon { margin: 0; }
+.fd-detail > .back-link { justify-self: start; margin-block: -6px -2px; }

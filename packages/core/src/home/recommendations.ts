@@ -60,7 +60,7 @@ export function homeRecommendations(nowSec: number, stations: readonly StationGe
   cards.push({ id: userIntent ? `food.intent.${intent}` : `food.${slot}`, kind: 'food',
     title: `${title}${point ? ' در اطراف شما' : ''}`,
     why: userIntent ? 'این موضوع را خودتان برای جست‌وجو انتخاب کردید' :
-      `ساعت ${hms.slice(0, 5)} به وقت مشهد است${preferred ? '؛ این دسته را در پروفایل انتخاب کرده‌اید' : ''}`,
+      `ساعت ${hms.slice(0, 5).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[Number(d)])} به وقت مشهد است${preferred ? '؛ این دسته را در پروفایل انتخاب کرده‌اید' : ''}`,
     detail: mealLate && !userIntent ? 'بسیاری از فروشگاه ها این ساعت بسته اند و وضعیت باز بودن لحظه ای نیست؛ در پلتفرم سفارش بررسی کنید.' :
       'این پیشنهاد، فهرست فروشگاه‌های مرتبط را باز می‌کند؛ موجودی، قیمت و ساعات فعالیت باید در پلتفرم اصلی تأیید شوند.',
     evidence: { source: userIntent ? 'user_selection' : 'clock', kind: userIntent ? 'user_intent' : 'clock' },
