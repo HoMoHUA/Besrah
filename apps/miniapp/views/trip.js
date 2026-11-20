@@ -318,5 +318,15 @@ export function createTripView(ctx) {
       h('div', null, h('h1', null, 'مسیر مکان به مکان'), h('p', null, 'با مترو، خودرو یا پیاده؛ هر زمان با منشأ و میزان قطعیتش'))),
     form, out);
   drawChosen(); drawLocate(); drawSubmit(); drawOut(); ['from', 'to'].forEach(drawPick); drawOrigin();
-  return { el, onShow(options) { fillSelect('from'); fillSelect('to'); if (options?.focus === 'to') inputs.to?.focus?.(); }, onHide() { tripController?.abort(); for (const k of ['from', 'to']) { controllers[k]?.abort(); clearTimeout(timers[k]); } } };
+  // «از بسراه بپرس» hands over place names as typed; they fill the fields and run the usual place search, the person picks.
+  const prefill = (key, text) => {
+    if (typeof text !== 'string' || !text.trim() || !inputs[key]) return false;
+    const value = text.trim().slice(0, 60);
+    inputs[key].value = value; S.pick[key].q = value; search(key);
+    return true;
+  };
+  return { el, onShow(options) { fillSelect('from'); fillSelect('to');
+    const from = prefill('from', options?.fromText), to = prefill('to', options?.toText);
+    if (from) { S.gps = false; drawChosen(); drawSubmit(); drawOrigin(); }   // a typed origin replaces «my location»
+    if (options?.focus === 'to' || to) inputs.to?.focus?.(); }, onHide() { tripController?.abort(); for (const k of ['from', 'to']) { controllers[k]?.abort(); clearTimeout(timers[k]); } } };
 }

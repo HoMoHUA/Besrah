@@ -162,8 +162,18 @@ export function createBusView(ctx) {
     if (status === 'loading' || status === 'ready') return;
     status = 'loading'; paint();
     try { index = buildIndex(await api.busGuide()); status = 'ready'; } catch { status = 'error'; }
-    paint(); if (status === 'ready') renderRoutes();
+    paint(); if (status === 'ready') { renderRoutes(); openPendingLine(); }
   }
+  // «از بسراه بپرس» can name a line: open its stops once the guide is here; a line the guide lacks is searched (and shown missing).
+  let pendingLine = null;
+  function openPendingLine() {
+    if (!pendingLine || !index) return;
+    const want = pendingLine.replace('/', '.'); pendingLine = null;
+    const line = index.lines.find(l => l.ref.replace('/', '.') === want);
+    if (line) showLine(line);
+    else { query = want; input.value = want; paint(); }
+  }
+
 
   /* Sheets. A line opens its ordered stops and every stop opens its live arrivals; a stop found by search opens its lines.
      Inside an open sheet each next page is pushed: it slides in and Back (button, Android, Telegram) returns one page.
@@ -359,5 +369,11 @@ export function createBusView(ctx) {
       h('p', { text: SOURCE_NOTE }), officialLinks(''),
       h('p', { dir: 'ltr', text: `© OpenStreetMap contributors · ODbL-1.0${dateText() ? ' · ' + dateText() : ''}` })));
   paint();
-  return { el: root, mount() { init(root); }, onShow() { load(); }, onHide() {} };
+  return { el: root, mount() { init(root); },
+    // «از بسراه بپرس» can preset the search text or name a line to open once the guide has loaded.
+    onShow(options) {
+      if (typeof options?.q === 'string' && options.q !== query) { query = options.q; input.value = query; paint(); }
+      if (typeof options?.line === 'string' && /^\d{1,3}([./]\d)?$/.test(options.line)) pendingLine = options.line;
+      if (status === 'ready') openPendingLine(); else load();
+    }, onHide() {} };
 }

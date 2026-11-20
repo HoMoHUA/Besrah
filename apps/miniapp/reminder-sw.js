@@ -12,7 +12,7 @@ const VERSION = 'besrah-shell-v1';
 const SHELL = ['./', 'offline.html', 'offline.css', 'manifest.webmanifest', 'theme-boot.js', 'reminders.js',
   'assets/telegram-web-app.js', 'vendor/hm7/tokens.css', 'skin.css', 'vendor/hm7/components/bundle.css', 'app.css',
   'vendor/hm7/components/bundle.js',
-  'app.js', 'navigation.js', 'service-store.js', 'state.js', 'tg.js', 'logic.js', 'search.js', 'store.js', 'async.js',
+  'app.js', 'navigation.js', 'service-store.js', 'state.js', 'tg.js', 'logic.js', 'search.js', 'ask.js', 'store.js', 'async.js',
   'api.js', 'format.js', 'route.js', 'hero.js', 'services.js', 'journey.js', 'bus-data.js', 'bus-paths.js', 'bus-sources.js',
   'ui/dom.js', 'ui/hm7.js', 'ui/searchbox.js', 'ui/sheet.js', 'ui/board.js', 'ui/planner.js', 'ui/station.js',
   'ui/carousel.js', 'ui/service-search.js', 'ui/segmented.js', 'ui/service-card.js', 'ui/ride-tabs.js', 'ui/tracker.js',

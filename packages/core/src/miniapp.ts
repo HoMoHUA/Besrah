@@ -61,6 +61,7 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
   ['/app/tg.js', 'tg.js'],
   ['/app/logic.js', 'logic.js'],
   ['/app/search.js', 'search.js'],
+  ['/app/ask.js', 'ask.js'],
   ['/app/store.js', 'store.js'],
   ['/app/async.js', 'async.js'],
   ['/app/api.js', 'api.js'],

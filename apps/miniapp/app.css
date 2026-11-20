@@ -1036,3 +1036,7 @@ a, button { text-decoration: none !important; }
   .bus-eta-row__time { font-size: 16px; }
   .bus-eta-row__time.is-now { font-size: 13px; }
 }
+
+/* «از بسراه بپرس» in the header search: the asked text under the label, the bubble in the accent colour. */
+.search-option--ask .hms { color: var(--accent); }
+.search-option--ask small { display: block; overflow: hidden; color: var(--muted); font-size: 12.5px; text-overflow: ellipsis; white-space: nowrap; }
