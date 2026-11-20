@@ -13,7 +13,16 @@ import org.json.JSONObject;
 final class NativeBridge {
     private final MainActivity activity;
     private final WebView web;
-    NativeBridge(MainActivity activity, WebView web) { this.activity = activity; this.web = web; }
+    private final SnappNative snapp;
+    NativeBridge(MainActivity activity, WebView web) { this.activity = activity; this.web = web; this.snapp = new SnappNative(web); }
+
+    /** Snapp from the person's own phone (see SnappNative): only for our page, only fixed endpoints. The answer arrives at
+     *  window.__besrahSnappDone(id, status, body). */
+    @JavascriptInterface
+    public void snappRequest(String id, String key, String body, String bearer, String extra) {
+        if (!fromOurPage()) return;
+        snapp.request(id, key, body, bearer, extra);
+    }
 
     // The URL of the page now loaded, kept up to date by MainActivity on every navigation (JS calls arrive off the UI thread).
     private boolean fromOurPage() {
@@ -22,7 +31,7 @@ final class NativeBridge {
     }
 
     @JavascriptInterface
-    public int version() { return 1; }
+    public int version() { return 2; }
 
     @JavascriptInterface
     public boolean liveNotifications() { return TripNotifier.liveCapsuleEnabled(activity); }

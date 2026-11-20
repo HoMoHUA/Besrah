@@ -1,6 +1,7 @@
 // Same-origin API client. URLs stay relative so the app works at any mount (public host root -> /app/).
 import { linkedTimeout } from './async.js';
 import { validAskResult } from './ask.js';
+import { validSnappSession } from './store.js';
 
 const isDate = value => {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
@@ -199,6 +200,34 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     async ask(q, signal) {
       const data = await post('api/ask', { q }, signal);
       if (!validAskResult(data)) throw new ApiError('server');
+      return data;
+    },
+    // Snapp (F4). Linking: the SMS code goes through this app's server to Snapp; the session comes back to THIS device only.
+    async snappOtp(phone, captcha, signal) {
+      const data = await post('api/snapp/otp', { phone, ...(captcha ? { captcha } : {}) }, signal);
+      if (data?.status === 'sent' || (data?.status === 'captcha' && typeof data.captcha?.image === 'string' && typeof data.captcha?.refId === 'string')) return data;
+      throw new ApiError('server');
+    },
+    async snappVerify(phone, code, captcha, signal) {
+      const data = await post('api/snapp/verify', { phone, code, ...(captcha ? { captcha } : {}) }, signal);
+      if (data?.status === 'captcha' && typeof data.captcha?.image === 'string') return data;
+      if (data?.status !== 'linked' || !validSnappSession(data.session)) throw new ApiError('server');
+      return data;
+    },
+    async snappConfig(signal) {
+      const data = await get('api/snapp/config', signal);
+      if (data?.schemaVersion !== 1 || ![data.clientId, data.clientSecret, data.captchaClient].every(v => typeof v === 'string' && v.length > 5 && v.length < 200)) throw new ApiError('server');
+      return data;
+    },
+    async snappCandidates(from, to, signal) {
+      const data = await post('api/snapp/candidates', { from, to }, signal);
+      const ok = c => c && Number.isFinite(c.lat) && Number.isFinite(c.lon) && Number.isFinite(c.walkM);
+      if (data?.schemaVersion !== 1 || !Array.isArray(data.origins) || !Array.isArray(data.destinations) || ![...data.origins, ...data.destinations].every(ok)) throw new ApiError('server');
+      return data;
+    },
+    async snappPrice(from, to, session, signal) {
+      const data = await post('api/snapp/price', { from, to, ...(session ? { session } : {}) }, signal);
+      if (data?.schemaVersion !== 1 || !Array.isArray(data.services) || (data.session && !validSnappSession(data.session))) throw new ApiError('server');
       return data;
     },
     async busGuide(signal) {

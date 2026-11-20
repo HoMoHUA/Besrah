@@ -1,7 +1,7 @@
 // Device-local preferences. Only station NAMES and display preferences are kept — never coordinates.
 // The storage object is injected so the module is testable and survives blocked/full storage.
 export const KEYS = Object.freeze({
-  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1', activeTrip: 'besrah:active-trip:v1',
+  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1', activeTrip: 'besrah:active-trip:v1', snapp: 'besrah:snapp-session:v1',
 });
 const MAX_NAME = 64;
 const THEMES = ['auto', 'light', 'dark'];
@@ -74,6 +74,10 @@ export function sanitizeMealPlanEntry(input) {
   if (Object.keys(input).some(k => !['day','slot','vertical'].includes(k))) return null;
   return {day:input.day,slot:input.slot,vertical:input.vertical};
 }
+// A Snapp session the person created by logging in to their own Snapp inside Besrah. It stays on this device; it is
+// sent only with Snapp price requests and removed by «قطع اتصال».
+export const validSnappSession = s => Boolean(s) && typeof s.access === 'string' && typeof s.refresh === 'string' && typeof s.deviceId === 'string'
+  && s.access.length > 20 && s.access.length < 4096 && s.refresh.length > 10 && s.refresh.length < 2048 && /^[0-9a-f-]{36}$/i.test(s.deviceId);
 export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}) {
   const listeners = new Set();
   const read = key => { try { return storage?.getItem(key) ?? null; } catch { return null; } };
@@ -148,7 +152,17 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     emit(key);
   };
 
+  let snapp = null;
+  try { const v = JSON.parse(read(KEYS.snapp)); if (v && validSnappSession(v.session) && /^\d{4}$/.test(v.phoneHint ?? '')) snapp = { session: v.session, phoneHint: v.phoneHint, since: Number(v.since) || null }; } catch { snapp = null; }
   return {
+    snappLink: () => (snapp ? { phoneHint: snapp.phoneHint, since: snapp.since } : null),
+    snappSession: () => snapp?.session ?? null,
+    setSnappSession(session, phoneHint) {
+      if (session === null) { snapp = null; try { storage?.removeItem(KEYS.snapp); } catch { /* ignore */ } emit('snapp'); return; }
+      if (!validSnappSession(session)) return;
+      snapp = { session, phoneHint: /^\d{4}$/.test(phoneHint ?? '') ? phoneHint : (snapp?.phoneHint ?? '0000'), since: snapp?.since ?? Date.now() };
+      write(KEYS.snapp, JSON.stringify(snapp)); emit('snapp');
+    },
     recents: () => [...state.recents],
     favourites: () => [...state.favs],
     last: () => state.last,
