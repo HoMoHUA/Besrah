@@ -67,6 +67,33 @@ describe('linking a person’s own Snapp (SMS code), session kept on their devic
     expect(calls.find(c => c.url.endsWith('/v3/mutotp/auth') && c.body.token === '12345')?.body).toMatchObject({ grant_type: 'sms', client_id: 'client-id', cellphone: '+989121234567', referrer: 'pwa' });
     expect(service.value()).toBeNull();                                                  // nothing kept on the server
   });
+  it('when Snapp wants a captcha for the code check too, a fresh one comes first and goes with the same code; no new SMS', async () => {
+    // The loop the owner hit on 2026-11-20: code -> captcha -> (new code) -> captcha ... Snapp's web app shows a fresh
+    // captcha before the code check when the code answer says captcha_type, and retries the check with the same code.
+    let images = 0;
+    const { calls, client } = fakeSnapp((url, body) => {
+      if (url.includes('/captcha/api/v1/generate/text/')) { images++; return json({ data: { image: 'data:image/png;base64,AAAA', ref_id: `ref-${images}` } }); }
+      if (url.endsWith('/v3/mutotp')) return json({ method: 'sms', ttl: 120, captcha_type: 'numeric' });
+      if (url.endsWith('/v3/mutotp/auth')) {
+        if (!body.captcha) return json({ status: 2001 }, 403);
+        if (body.captcha.solution !== '55555') return json({ status: 2101 }, 403);
+        return json({ access_token: 'x'.repeat(40), refresh_token: 'y'.repeat(30) });
+      }
+      return json({}, 404);
+    });
+    const app = buildServer({ snapp: { client, service: memoryService(null) } });
+    expect((await post(app, '/app/api/snapp/otp', { phone: '09121234567' })).json()).toEqual({ status: 'sent', ttlS: 120 });
+    const ask = await post(app, '/app/api/snapp/verify', { phone: '09121234567', code: '12345' });
+    expect(ask.json()).toEqual({ status: 'captcha', wrong: false, captcha: { type: 'numeric', image: 'data:image/png;base64,AAAA', refId: 'ref-1' } });
+    expect(calls.filter(c => c.url.endsWith('/v3/mutotp/auth'))).toHaveLength(0);     // no code attempt spent on a sure refusal
+    const wrong = await post(app, '/app/api/snapp/verify', { phone: '09121234567', code: '12345', captcha: { type: 'numeric', refId: 'ref-1', solution: '11111' } });
+    expect(wrong.json()).toMatchObject({ status: 'captcha', wrong: true, captcha: { type: 'numeric', refId: 'ref-2' } });
+    const linked = await post(app, '/app/api/snapp/verify', { phone: '09121234567', code: '12345', captcha: { type: 'numeric', refId: 'ref-2', solution: '55555' } });
+    expect(linked.json()).toMatchObject({ status: 'linked', phoneHint: '4567' });
+    expect(calls.filter(c => c.url.endsWith('/v3/mutotp'))).toHaveLength(1);           // one SMS code for the whole login
+    expect(calls.filter(c => c.url.endsWith('/v3/mutotp/auth')).at(-1)?.body).toMatchObject({ token: '12345', attestation: { method: 'numeric', platform: 'captcha' },
+      captcha: { client_id: 'captcha-client', solution: '55555', ref_id: 'ref-2', type: 'numeric' } });
+  });
   it('validates input, is rate limited, and says so when Snapp is not configured', async () => {
     const { client } = fakeSnapp(() => json({ method: 'sms', ttl: 120 }));
     const app = buildServer({ snapp: { client, service: memoryService(null) }, limiterClock: () => 0 });

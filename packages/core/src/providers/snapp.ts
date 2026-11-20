@@ -21,6 +21,7 @@ const MASHHAD = { latMin: 35.9, latMax: 36.7, lonMin: 59.0, lonMax: 60.2 };
 // alphanumeric); 2101-2103 = the captcha answer was wrong.
 const CAPTCHA_REQUIRED: Record<number, 'numeric' | 'alphabetic' | 'alphanumeric'> = { 2001: 'numeric', 2002: 'alphabetic', 2003: 'alphanumeric', 2201: 'numeric', 2202: 'alphabetic', 2203: 'alphanumeric' };
 const CAPTCHA_WRONG = new Set([2101, 2102, 2103]);
+const CAPTCHA_TYPES: readonly string[] = ['numeric', 'alphabetic', 'alphanumeric'];
 
 export interface SnappConfig { clientId: string; clientSecret: string; captchaClient: string }
 export interface SnappSession { access: string; refresh: string; deviceId: string }
@@ -85,14 +86,16 @@ export function createSnappClient(cfg: SnappConfig, opts: { fetch?: typeof fetch
   const statusOf = (r: { status: number; body: any }) => (typeof r.body?.status === 'number' ? r.body.status : r.status);
   function attestationError(code: number): SnappError | null {
     if (CAPTCHA_REQUIRED[code]) return new SnappError('captcha', CAPTCHA_REQUIRED[code]);
-    if (CAPTCHA_WRONG.has(code)) return new SnappError('captcha_wrong', 'numeric');
+    if (CAPTCHA_WRONG.has(code)) return new SnappError('captcha_wrong', CAPTCHA_TYPES[(code % 10) - 1] ?? 'numeric');
     return null;
   }
   return {
     /** Ask Snapp to send the SMS code. Throws SnappError('captcha', type) when Snapp wants a captcha first. */
-    async requestOtp(cellphone: string, captcha?: Captcha): Promise<{ method: string | null; ttlS: number | null }> {
+    /** `captchaType` (from Snapp's `captcha_type`) says whether the code check needs a fresh captcha too, as in Snapp's web app. */
+    async requestOtp(cellphone: string, captcha?: Captcha): Promise<{ method: string | null; ttlS: number | null; captchaType: string | null }> {
       const r = await call(`${OAUTH}/v3/mutotp`, { method: 'POST', headers: headers(), body: JSON.stringify({ cellphone, attestation: attestation(captcha), extra_methods: [], captcha: captchaBody(captcha) }) });
-      if (r.status >= 200 && r.status < 300 && r.body) return { method: typeof r.body.method === 'string' ? r.body.method : null, ttlS: typeof r.body.ttl === 'number' ? r.body.ttl : null };
+      if (r.status >= 200 && r.status < 300 && r.body) return { method: typeof r.body.method === 'string' ? r.body.method : null, ttlS: typeof r.body.ttl === 'number' ? r.body.ttl : null,
+        captchaType: CAPTCHA_TYPES.includes(r.body.captcha_type as string) ? r.body.captcha_type as string : null };
       const code = statusOf(r);
       throw attestationError(code) ?? new SnappError(code === 429 ? 'limited' : code === 400 ? 'bad_phone' : 'upstream');
     },
@@ -169,7 +172,7 @@ export function registerSnapp(app: FastifyInstance, opts: { config?: SnappConfig
   const otpLimit = createWindowLimiter(3, 10 * 60_000, clock), verifyLimit = createWindowLimiter(8, 10 * 60_000, clock);
   const priceLimit = createWindowLimiter(20, 60_000, clock), sharedGlobal = createWindowLimiter(40, 60_000, clock);
   const cache = new Map<string, { at: number; ttlMs: number; result: PriceResult }>();
-  const pending = new Map<string, { method: string | null; at: number }>();       // phone -> method, 10 minutes, memory only
+  const pending = new Map<string, { method: string | null; captchaType: string | null; at: number }>();   // phone -> method, 10 minutes, memory only
   const noStore = (reply: import('fastify').FastifyReply) => reply.header('Cache-Control', 'no-store').header('X-Content-Type-Options', 'nosniff');
   const bad = (reply: import('fastify').FastifyReply, error = 'bad_request') => reply.code(400).send({ error });
   const fail = (reply: import('fastify').FastifyReply, e: unknown) => {
@@ -201,7 +204,7 @@ export function registerSnapp(app: FastifyInstance, opts: { config?: SnappConfig
     if (!phone) return bad(reply, 'bad_phone');
     try {
       const r = await client.requestOtp(phone, captchaFrom(b?.captcha));
-      pending.set(phone, { method: r.method, at: now() });
+      pending.set(phone, { method: r.method, captchaType: r.captchaType, at: now() });
       for (const [k, v] of pending) if (now() - v.at > 10 * 60_000) pending.delete(k);
       return { status: 'sent', ttlS: r.ttlS };
     } catch (e) { return withCaptcha(reply, e); }
@@ -216,8 +219,11 @@ export function registerSnapp(app: FastifyInstance, opts: { config?: SnappConfig
     const phone = normalizePhone(b?.phone);
     const code = typeof b?.code === 'string' ? b.code.replace(/[۰-۹]/g, c => String(c.charCodeAt(0) - 0x06f0)).trim() : '';
     if (!phone || !/^\d{4,6}$/.test(code)) return bad(reply, phone ? 'bad_code' : 'bad_phone');
+    const captcha = captchaFrom(b?.captcha), wants = pending.get(phone)?.captchaType;
+    // Snapp said the code check needs a captcha: hand one out first instead of spending a code attempt on a sure refusal.
+    if (!captcha && wants) return withCaptcha(reply, new SnappError('captcha', wants));
     try {
-      const session = await client.verifyOtp(phone, code, pending.get(phone)?.method ?? null, captchaFrom(b?.captcha));
+      const session = await client.verifyOtp(phone, code, pending.get(phone)?.method ?? null, captcha);
       pending.delete(phone);
       return { status: 'linked', session, phoneHint: phone.slice(-4) };
     } catch (e) { return withCaptcha(reply, e); }

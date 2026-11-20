@@ -7,6 +7,7 @@ import { ApiError } from './api.js';
 
 const CAPTCHA_REQUIRED = { 2001: 'numeric', 2002: 'alphabetic', 2003: 'alphanumeric', 2201: 'numeric', 2202: 'alphabetic', 2203: 'alphanumeric' };
 const CAPTCHA_WRONG = new Set([2101, 2102, 2103]);
+const CAPTCHA_TYPES = ['numeric', 'alphabetic', 'alphanumeric'];
 const fail = (kind, reason, status = 0) => Object.assign(new ApiError(kind), { reason, status });
 
 let seq = 0;
@@ -56,16 +57,16 @@ const uuid = () => globalThis.crypto?.randomUUID?.() ?? 'xxxxxxxx-xxxx-4xxx-8xxx
 export function withDeviceSnapp(api, native, { now = () => Date.now() } = {}) {
   let config = null;
   const cfg = async () => (config ??= await api.snappConfig());
-  const methods = new Map();                                      // phone -> the method Snapp said it used, memory only
+  const methods = new Map();            // phone -> { method, captchaType } Snapp gave with the code, memory only
   const attestation = c => ({ method: c ? c.type : 'skip', platform: c ? 'captcha' : 'skip' });
   const captchaBody = async c => (c ? { client_id: (await cfg()).captchaClient, solution: c.solution, ref_id: c.refId, type: c.type } : undefined);
-  async function captchaAnswer(code) {
-    const type = CAPTCHA_REQUIRED[code] ?? 'numeric';
+  async function freshCaptcha(type, wrong = false) {
     const r = await nativeSnapp(native, 'captcha', null, '', `${type}/${(await cfg()).captchaClient}`);
     const d = r.body?.data ?? r.body;
     if (r.status !== 200 || typeof d?.image !== 'string' || typeof d?.ref_id !== 'string') throw fail('server', 'unavailable');
-    return { status: 'captcha', wrong: CAPTCHA_WRONG.has(code), captcha: { type, image: d.image, refId: d.ref_id } };
+    return { status: 'captcha', wrong, captcha: { type, image: d.image, refId: d.ref_id } };
   }
+  const captchaAnswer = code => freshCaptcha(CAPTCHA_REQUIRED[code] ?? CAPTCHA_TYPES[(code % 10) - 1] ?? 'numeric', CAPTCHA_WRONG.has(code));
   const codeOf = r => (typeof r.body?.status === 'number' ? r.body.status : r.status);
   return {
     ...api,
@@ -74,7 +75,10 @@ export function withDeviceSnapp(api, native, { now = () => Date.now() } = {}) {
       const cellphone = normalizePhone(phone);
       if (!cellphone) throw fail('server', 'bad_phone', 400);
       const r = await nativeSnapp(native, 'otp', { cellphone, attestation: attestation(captcha), extra_methods: [], captcha: await captchaBody(captcha) });
-      if (r.status >= 200 && r.status < 300 && r.body) { methods.set(cellphone, typeof r.body.method === 'string' ? r.body.method : null); return { status: 'sent', ttlS: typeof r.body.ttl === 'number' ? r.body.ttl : null }; }
+      if (r.status >= 200 && r.status < 300 && r.body) {
+        methods.set(cellphone, { method: typeof r.body.method === 'string' ? r.body.method : null, captchaType: CAPTCHA_TYPES.includes(r.body.captcha_type) ? r.body.captcha_type : null });
+        return { status: 'sent', ttlS: typeof r.body.ttl === 'number' ? r.body.ttl : null };
+      }
       const code = codeOf(r);
       if (CAPTCHA_REQUIRED[code] || CAPTCHA_WRONG.has(code)) return captchaAnswer(code);
       throw fail(code === 429 ? 'rate_limited' : 'server', code === 429 ? 'rate_limited' : code === 400 ? 'bad_phone' : 'unavailable', r.status);
@@ -82,8 +86,11 @@ export function withDeviceSnapp(api, native, { now = () => Date.now() } = {}) {
     async snappVerify(phone, code, captcha) {
       const cellphone = normalizePhone(phone), token = String(code ?? '').replace(/[۰-۹]/g, c => String(c.charCodeAt(0) - 0x06f0)).trim();
       if (!cellphone || !/^\d{4,6}$/.test(token)) throw fail('server', cellphone ? 'bad_code' : 'bad_phone', 400);
+      // As in Snapp's web app: when Snapp said the code check needs a captcha, a fresh one comes first.
+      const wants = methods.get(cellphone)?.captchaType;
+      if (!captcha && wants) return freshCaptcha(wants);
       const c = await cfg(), deviceId = uuid();
-      const r = await nativeSnapp(native, 'verify', { attestation: attestation(captcha), grant_type: methods.get(cellphone) ?? 'sms', client_id: c.clientId, client_secret: c.clientSecret,
+      const r = await nativeSnapp(native, 'verify', { attestation: attestation(captcha), grant_type: methods.get(cellphone)?.method ?? 'sms', client_id: c.clientId, client_secret: c.clientSecret,
         cellphone, token, referrer: 'pwa', device_id: deviceId, captcha: await captchaBody(captcha) });
       if (r.status >= 200 && r.status < 300 && typeof r.body?.access_token === 'string' && typeof r.body?.refresh_token === 'string') {
         methods.delete(cellphone);
