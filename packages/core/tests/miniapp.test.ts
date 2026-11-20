@@ -6,7 +6,7 @@ import { MINIAPP_ASSETS } from '../src/miniapp.js';
 
 const ROOT = new URL('../../../apps/miniapp/', import.meta.url);
 // Pinned on purpose: any change to the policy must be a conscious edit of this test and the README.
-const CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
+const CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://image.searchwise.ir https://web-cdn.snapp.ir; connect-src 'self' https://app.snapppay.ir; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
 const MIME: Record<string, string> = {
   html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8',
   svg: 'image/svg+xml', png: 'image/png', woff2: 'font/woff2', json: 'application/json; charset=utf-8', webmanifest: 'application/manifest+json',
@@ -88,7 +88,9 @@ describe('miniapp static files', () => {
     expect(shell.headers['content-security-policy']).not.toContain('unsafe-inline');
     expect(shell.headers['content-security-policy']).not.toContain('unsafe-eval');
     // data: is allowed for images only (HM7 builds dissolve masks at run time); never for scripts, styles or fonts
-    expect(shell.headers['content-security-policy']).toMatch(/img-src 'self' data:;/);
+    expect(shell.headers['content-security-policy']).toMatch(/img-src 'self' data: https:\/\/image\.searchwise\.ir https:\/\/web-cdn\.snapp\.ir;/);
+    // F6: the only other host the page may talk to is Snapp Pay's own API (the person's device, the person's session)
+    expect(shell.headers['content-security-policy']).toMatch(/connect-src 'self' https:\/\/app\.snapppay\.ir;/);
     expect(shell.headers['content-security-policy']).not.toMatch(/(script|style|font|connect)-src[^;]*data:/);
     expect(shell.headers['referrer-policy']).toBe('no-referrer');
     expect(shell.headers['permissions-policy']).toBe('geolocation=(self)');

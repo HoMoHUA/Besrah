@@ -1054,3 +1054,34 @@ a, button { text-decoration: none !important; }
 .snapp-best { display: grid; gap: 4px; padding: 10px 12px; border-radius: 14px; background: rgba(var(--accent-rgb), .12); }
 .snapp-best p { margin: 0; font: 600 13px/1.8 var(--font-sans); }
 .snapp-best__price { color: var(--ink); font-weight: 900 !important; font-size: 14.5px !important; }
+
+/* F6: Snapp Pay in Profile and بسپی */
+.spay-link .fd-input { margin-top: 4px; text-align: left; letter-spacing: .04em; }
+.spay-link--compact { margin-bottom: 10px; }
+.spay-acct-box { margin: 0 0 10px; }
+.spay-acct { display: grid; gap: 8px; padding: 14px; }
+.spay-acct__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.spay-acct__head h3 { margin: 0; font: 800 15px/1.5 var(--font-sans); }
+.spay-acct__total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0; }
+.spay-acct__total span { color: var(--muted); font: 600 12.5px/1.6 var(--font-sans); }
+.spay-acct__total b { color: var(--ink); font: 900 20px/1.3 var(--font-sans); }
+.spay-acct__total small { color: var(--muted); font: 600 12px/1.6 var(--font-sans); }
+.spay-acct__list { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.spay-acct__list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 10px; padding: 8px 12px; border-radius: 14px; background: var(--surface-2); }
+.spay-acct__label { font: 700 13px/1.6 var(--font-sans); }
+.spay-acct__value { color: var(--ink); font: 900 14.5px/1.4 var(--font-sans); white-space: nowrap; }
+.spay-acct__list small { grid-column: 1 / -1; color: var(--muted); font: 600 11.5px/1.7 var(--font-sans); }
+.spay-acct__warn { color: var(--danger, #c0392b); font-weight: 800; }
+.spay-modes { margin-bottom: 8px; }
+.spay-subhead { margin: 4px 0 6px; font: 800 13.5px/1.6 var(--font-sans); }
+.spay-stores .fd-scroll { padding-bottom: 4px; }
+.spay-prod { display: grid; gap: 8px; padding: 12px 14px; }
+.spay-prod__main { display: flex; gap: 10px; align-items: flex-start; }
+.spay-prod__img { flex: none; width: 64px; height: 64px; object-fit: cover; border-radius: 12px; background: var(--surface-2); }
+.spay-prod__text { min-width: 0; }
+.spay-prod__name { margin: 0; font: 700 13.5px/1.7 var(--font-sans); overflow-wrap: anywhere; }
+.spay-prod__price { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0; }
+.spay-prod__price b { color: var(--ink); font: 900 15px/1.4 var(--font-sans); }
+.spay-prod__price s { color: var(--muted); font: 600 12px/1.4 var(--font-sans); }
+.spay-branch { display: grid; gap: 6px; padding: 12px 14px; }
+.spay-branch__addr { margin: 0; font: 600 12.5px/1.8 var(--font-sans); color: var(--ink); }

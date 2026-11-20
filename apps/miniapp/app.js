@@ -31,6 +31,7 @@ import { createSavedView } from './views/saved.js';
 import { isLive } from './services.js';
 import { askRoute } from './ask.js';
 import { withDeviceSnapp } from './snapp-device.js';
+import { createSnappPay } from './snapppay.js';
 import { isSupported, lineLabel } from './format.js';
 
 const TITLES = { home: 'خانه', metro: 'بسراه', bus: 'اتوبوس', food: 'بسفود', trip: 'مسیر مکان به مکان', shop: 'بسپی', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', profile: 'پروفایل', about: 'درباره' };
@@ -296,7 +297,9 @@ const actions = {
   },
 };
 
-const ctx = { state, store, serviceStore, actions, api, sheet };
+// F6: the person's own Snapp Pay, asked from this device (snapppay.js); only login and token refresh use Besrah's server.
+const snappPay = typeof api.snappPayLogin === 'function' ? createSnappPay({ api, store }) : null;
+const ctx = { state, store, serviceStore, actions, api, sheet, snappPay };
 views.home = createHomeView(ctx);
 views.metro = createMetroView(ctx);
 views.bus = createBusView(ctx);
