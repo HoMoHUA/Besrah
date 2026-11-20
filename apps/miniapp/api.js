@@ -1,5 +1,6 @@
 // Same-origin API client. URLs stay relative so the app works at any mount (public host root -> /app/).
 import { linkedTimeout } from './async.js';
+import { validAskResult } from './ask.js';
 
 const isDate = value => {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
@@ -192,6 +193,12 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
         && (s.match === null || (s.match && Number.isInteger(s.match.number) && typeof s.match.name === 'string'))
         && s.candidates.every(c => c && Number.isInteger(c.number) && typeof c.name === 'string');
       if (data?.schemaVersion !== 1 || data.variant !== Number(variant) || !Array.isArray(data.stops) || !data.stops.every(okStop)) throw new ApiError('server');
+      return data;
+    },
+    // «از بسراه بپرس»: POST so the question never lands in a URL; the answer is checked against ask.js.
+    async ask(q, signal) {
+      const data = await post('api/ask', { q }, signal);
+      if (!validAskResult(data)) throw new ApiError('server');
       return data;
     },
     async busGuide(signal) {

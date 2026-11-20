@@ -29,6 +29,7 @@ import { segmented, TRANSPORT_TABS } from './ui/segmented.js';
 import { createSettingsView } from './views/settings.js';
 import { createSavedView } from './views/saved.js';
 import { isLive } from './services.js';
+import { askRoute } from './ask.js';
 import { isSupported, lineLabel } from './format.js';
 
 const TITLES = { home: 'خانه', metro: 'بسراه', bus: 'اتوبوس', food: 'بسفود', trip: 'مسیر مکان به مکان', shop: 'بسپی', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', profile: 'پروفایل', about: 'درباره' };
@@ -269,6 +270,22 @@ const actions = {
     else if (action.id === 'open') openStation(action.station);
     else if (action.id === 'about') go('about');
   },
+  // «از بسراه بپرس»: the server understands the question (rules first, a model only when unclear); Besrah then opens
+  // the matching page with the person's own words. The reply is a fixed sentence built on the server.
+  async ask(text) {
+    const wait = setTimeout(() => toast({ title: 'از بسراه بپرس', text: 'در حال فهم پرسش…', icon: 'ellipsis_bubble', life: 2600 }), 450);
+    let result;
+    try { result = await api.ask(text); }
+    catch (error) {
+      clearTimeout(wait);
+      return toast({ title: 'از بسراه بپرس', text: error?.kind === 'rate_limited' ? 'پرسش‌ها زیاد شد؛ چند ثانیه بعد دوباره بپرسید.' : 'الان نتوانستم پرسش را بفهمم؛ دوباره امتحان کنید.', icon: 'info_circle_fill' });
+    }
+    clearTimeout(wait);
+    const route = askRoute(result);
+    toast({ title: 'از بسراه بپرس', text: result.reply, icon: route.kind === 'none' ? 'questionmark_circle' : 'ellipsis_bubble', life: route.kind === 'none' ? 6000 : 4200 });
+    if (route.kind === 'view') go(route.view, route.options);
+    else if (route.kind === 'station') openStation(route.name);
+  },
   serviceAction(service) {
     if (!isLive(service)) return toast({ title: service.title, text: 'این سرویس هنوز در دسترس نیست. زمان عرضه ای اعلام نشده است.', icon: 'info_circle_fill' });
     const a = service.action;
@@ -298,7 +315,7 @@ for (const id of ['metro', 'trip']) {
 /* ── header: search + menu ── */
 const search = createServiceSearch({
   host: $('#search-host'), input: $('#q'), clearButton: $('#q-clear'), popup: $('#suggest'), listbox: $('#suggest-list'), live: $('#suggest-live'),
-  onPick: actions.serviceAction,
+  onPick: actions.serviceAction, onAsk: text => actions.ask(text),
 });
 
 rotatePlaceholder({ input: $('#q'), phrases: ['جست وجو', 'مترو مشهد', 'خط های اتوبوس', 'مسیر مکان به مکان', 'سفارش غذا بسفود', 'مقایسه قیمت کالا'] });
