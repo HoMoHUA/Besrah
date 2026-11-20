@@ -112,8 +112,9 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
 // time (canvas.toDataURL -> CSS mask-image: url(data:...)), e.g. when a toast dissolves. Nothing else is relaxed:
 // scripts and styles stay 'self' only (no 'unsafe-inline', no 'unsafe-eval').
 // F6 (Snapp Pay): the person's device asks Snapp Pay itself with their own session (account, search, in-store map), so
-// connect-src names exactly app.snapppay.ir; product pictures and shop logos come from Snapp Pay's two image hosts.
-export const MINIAPP_CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://image.searchwise.ir https://web-cdn.snapp.ir; connect-src 'self' https://app.snapppay.ir; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
+// connect-src names exactly app.snapppay.ir; product pictures and shop logos come from Snapp Pay's two image hosts,
+// and Besfood's item pictures and vendor logos from Snappfood's and Tapsi Food's own image hosts (2026-11 rescan).
+export const MINIAPP_CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://image.searchwise.ir https://web-cdn.snapp.ir https://cdn.snappfood.ir https://cdn.tapsi.food; connect-src 'self' https://app.snapppay.ir; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
 
 interface Loaded { body: Buffer; etag: string; mtimeMs: number; size: number }
 const cache = new Map<string, Loaded>();

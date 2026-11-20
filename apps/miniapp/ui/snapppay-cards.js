@@ -5,6 +5,8 @@ import { fa } from '../format.js';
 const toman = v => `${Number(v).toLocaleString('fa-IR')} تومان`;
 export const distanceText = m => (!Number.isFinite(m) ? '' : m < 1000 ? `${fa(Math.max(10, Math.round(m / 10) * 10))} متر` : `${(Math.round(m / 100) / 10).toLocaleString('fa-IR')} کیلومتر`);
 const faDigits = t => String(t).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const logo = (src, size = 40) => (typeof src === 'string' && /^https:\/\/(web-cdn\.snapp\.ir|image\.searchwise\.ir)\//.test(src)
+  ? h('img', { class: 'spay-logo', src, alt: '', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer', width: size, height: size, onError: e => e?.target?.remove?.() }) : null);
 const chips = list => (list?.length ? h('p', { class: 'tp-labels' }, list.map(t => h('span', { class: 'tp-label', text: t }))) : null);
 
 export function productCard(p, { openLink }) {
@@ -25,7 +27,7 @@ export function productCard(p, { openLink }) {
 
 export function storeChip(s, { openLink }) {
   const label = [s.name, s.cashback ? `${fa(s.cashback)}٪ بازگشت وجه` : null, s.inStore ? 'حضوری' : null].filter(Boolean).join(' · ');
-  return s.link ? h('button', { type: 'button', class: ['cm-chip', 'fd-chip'], onClick: () => openLink(s.link) }, label) : h('span', { class: ['cm-chip', 'fd-chip'], text: label });
+  return s.link ? h('button', { type: 'button', class: ['cm-chip', 'fd-chip', 'spay-chip'], onClick: () => openLink(s.link) }, logo(s.logo, 20), label) : h('span', { class: ['cm-chip', 'fd-chip', 'spay-chip'] }, logo(s.logo, 20), label);
 }
 
 /** One in-store branch: who, where, how far, when open, which payment ways, and «مسیر» into the trip planner. */
@@ -33,6 +35,7 @@ export function branchCard(b, { onRoute, canRoute }) {
   const where = b.nearest ?? b;
   return h('article', { class: 'cm-card spay-branch' },
     h('header', { class: 'fd-card__head' },
+      logo(b.logo),
       h('div', { class: 'fd-card__title' }, h('h3', { text: b.name }), h('p', { class: 'fd-card__sub', text: [where.branch, where.city && !where.branch?.includes(where.city) ? where.city : null].filter(Boolean).join(' · ') })),
       Number.isFinite(where.distanceM) ? h('span', { class: 'cm-badge', text: distanceText(where.distanceM) }) : null),
     where.address ? h('p', { class: 'spay-branch__addr', text: faDigits(where.address) }) : null,

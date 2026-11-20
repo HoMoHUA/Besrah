@@ -7,12 +7,15 @@ import { assessVertical, FOOD_VERTICAL_LABELS, isMealVertical, verticalMatches, 
 
 export const FOOD_INDEX_URL = new URL('../../../../data/food/food-index-v1.json.gz', import.meta.url);
 
-/** [name, variation, price|null, discountedPrice|null, menuCategory] */
-type RawItem = [string, string, number | null, number | null, string];
+/** [name, variation, price|null, discountedPrice|null, menuCategory, picture?] (the picture only in indexes built from the 2026-11 rescan) */
+type RawItem = [string, string, number | null, number | null, string, string?];
 interface RawVendor {
   id: string; s: 's' | 't'; c: string; n: string; b: string; t: string; la: number; lo: number; a: string;
-  m: number | null; r: number | null; cc: number | null; o: 0 | 1 | null; cap: number | null; lk: string; i: RawItem[];
+  m: number | null; r: number | null; cc: number | null; o: 0 | 1 | null; cap: number | null; lk: string; i: RawItem[]; lg?: string;
 }
+// Provider pictures are passed on only from the providers' own image hosts (the Mini App's CSP allows exactly these).
+const PICTURE = /^https:\/\/(cdn\.snappfood\.ir|cdn\.tapsi\.food)\/[\w./%-]{1,280}$/;
+const picture = (u: unknown): string | null => (typeof u === 'string' && PICTURE.test(u) ? u : null);
 interface RawIndex { v: 1; capturedFrom: number | null; capturedTo: number | null; vendors: RawVendor[] }
 
 const DIGITS: Record<string, string> = { '۰': '0', '۱': '1', '۲': '2', '۳': '3', '۴': '4', '۵': '5', '۶': '6', '۷': '7', '۸': '8', '۹': '9', '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4', '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9' };
@@ -52,11 +55,11 @@ export function loadFoodIndex(path: URL | string = FOOD_INDEX_URL): FoodIndex {
 }
 
 export type PriceState = 'known' | 'unknown';
-export interface FoodItemDto { name: string; variation: string | null; category: string | null; priceToman: number | null; finalPriceToman: number | null; discounted: boolean; priceState: PriceState }
+export interface FoodItemDto { name: string; variation: string | null; category: string | null; priceToman: number | null; finalPriceToman: number | null; discounted: boolean; priceState: PriceState; image?: string | null }
 const itemDto = (it: RawItem): FoodItemDto => {
   const price = it[2], disc = it[3];
   const final = disc !== null && price !== null && disc < price ? disc : price;
-  return { name: it[0], variation: it[1] || null, category: it[4] || null, priceToman: price, finalPriceToman: final, discounted: final !== null && price !== null && final < price, priceState: price === null ? 'unknown' : 'known' };
+  return { name: it[0], variation: it[1] || null, category: it[4] || null, priceToman: price, finalPriceToman: final, discounted: final !== null && price !== null && final < price, priceState: price === null ? 'unknown' : 'known', image: picture(it[5]) };
 };
 const finalPrice = (it: RawItem): number | null => { const f = it[3] !== null && it[2] !== null && it[3] < it[2] ? it[3] : it[2]; return f; };
 
@@ -76,7 +79,7 @@ export interface FoodQuery {
   limit?: number; offset?: number; vertical?: FoodVerticalFilter | null;
 }
 export interface FoodVendorDto {
-  id: string; provider: 'snappfood' | 'tapsifood'; name: string; branch: string | null; category: string; vertical: FoodVertical; verticalLabel: string; verticalBasis: VerticalAssessment['basis']; address: string | null;
+  id: string; provider: 'snappfood' | 'tapsifood'; logo?: string | null; name: string; branch: string | null; category: string; vertical: FoodVertical; verticalLabel: string; verticalBasis: VerticalAssessment['basis']; address: string | null;
   lat: number; lon: number; distanceM: number | null; rating: number | null; commentCount: number | null;
   minOrderToman: number | null; minOrderState: 'known' | 'unknown';
   openSnapshot: { value: 'open' | 'closed' | 'unknown'; capturedAt: string | null; note: string };
@@ -105,7 +108,7 @@ function vendorDto(v: RawVendor, matched: RawItem[], total: number, near: FoodQu
   const classification = assessVertical(v.t, v.n, v.i.map(item => item[4]));
   const prices = matched.map(finalPrice).filter((p): p is number => p !== null);
   return {
-    id: v.id, provider: v.s === 's' ? 'snappfood' : 'tapsifood', name: v.n, branch: v.b || null, category: v.t, vertical: classification.vertical, verticalLabel: FOOD_VERTICAL_LABELS[classification.vertical], verticalBasis: classification.basis, address: v.a || null, lat: v.la, lon: v.lo,
+    id: v.id, provider: v.s === 's' ? 'snappfood' : 'tapsifood', logo: picture(v.lg), name: v.n, branch: v.b || null, category: v.t, vertical: classification.vertical, verticalLabel: FOOD_VERTICAL_LABELS[classification.vertical], verticalBasis: classification.basis, address: v.a || null, lat: v.la, lon: v.lo,
     distanceM: near ? Math.round(distanceM(near.lat, near.lon, v.la, v.lo)) : null, rating: v.r, commentCount: v.cc,
     minOrderToman: v.m, minOrderState: v.m === null ? 'unknown' : 'known',
     openSnapshot: { value: open, capturedAt: iso(v.cap), note: 'وضعیت باز یا بسته فقط در زمان ثبت دادهٔ فروشگاه دیده شده است؛ وضعیت فعلی را در پلتفرم سفارش ببینید.' },

@@ -1085,3 +1085,14 @@ a, button { text-decoration: none !important; }
 .spay-prod__price s { color: var(--muted); font: 600 12px/1.4 var(--font-sans); }
 .spay-branch { display: grid; gap: 6px; padding: 12px 14px; }
 .spay-branch__addr { margin: 0; font: 600 12.5px/1.8 var(--font-sans); color: var(--ink); }
+
+/* Provider pictures in Besfood (2026-11 rescan): vendor logo and item thumbnails, fixed sizes, no layout shift. */
+.fd-logo { flex: none; width: 40px; height: 40px; border-radius: 12px; object-fit: cover; background: var(--surface-2); }
+.fd-logo--lg { width: 56px; height: 56px; border-radius: 16px; }
+.fd-card__head:has(.fd-logo) { align-items: center; gap: 10px; }
+.fd-item--pic { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+.fd-thumb { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; background: var(--surface-2); }
+.spay-logo { flex: none; width: 40px; height: 40px; border-radius: 12px; object-fit: contain; background: #fff; }
+.spay-chip { display: inline-flex; align-items: center; gap: 6px; }
+.spay-chip .spay-logo { width: 20px; height: 20px; border-radius: 6px; }
+.spay-branch .fd-card__head { align-items: center; gap: 10px; }
