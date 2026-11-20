@@ -12,6 +12,8 @@ const SOURCE_NOTE = 'مسیرهای این راهنما از OpenStreetMap هس�
 const fa = n => Number(n).toLocaleString('fa-IR');
 // Identifiers (line and stop numbers) in Persian digits, without thousands separators.
 const faId = v => String(v).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]).replace(/\./g, '٫');
+// Running text with Persian digits ("خط 38/1" -> "خط ۳۸/۱").
+const faText = v => String(v).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
 // One line per arrival. Minutes only for a live, provider-backed estimate.
 export function arrivalText(a) {
   const to = a.destination ? ` به ${a.destination}` : '', line = faId(a.line);
@@ -20,6 +22,10 @@ export function arrivalText(a) {
   if (a.state === 'stale') return `خط ${line}${to}: زمان نامعلوم (موقعیت اتوبوس قدیمی است)`;
   return `خط ${line}${to}: زمان نامعلوم`;
 }
+// Same line in the guide and in the municipal answer ("38/1" is "38.1" there); express refs only match themselves.
+const lineKey = v => String(v ?? '').trim().replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))).replace(/\//g, '.').toLowerCase();
+export const sameLine = (a, b) => lineKey(a) !== '' && lineKey(a) === lineKey(b);
+const baseKey = v => String(v ?? '').replace(/[\u200c\s()]/g, '').replace(/^ایستگاه/, '').replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/[0-9۰-۹]+$/, '');
 const ageText = a => (a.bus && Number.isInteger(a.bus.ageS) ? (a.bus.ageS < 60 ? 'موقعیت چند ثانیه پیش' : `موقعیت ${fa(Math.round(a.bus.ageS / 60))} دقیقه پیش`) : '');
 
 export function createBusView(ctx) {
@@ -159,51 +165,181 @@ export function createBusView(ctx) {
     paint(); if (status === 'ready') renderRoutes();
   }
 
-  /* sheets: a stop opens its lines; a line opens its ordered stops. Content swaps in place when a sheet is already open. */
-  function present(content) {
-    if (sheet.isOpen) {
-      sheet.element.replaceChildren(content);
-      sheet.element.setAttribute('aria-labelledby', 'bus-sheet-title');
-      content.querySelector('#bus-sheet-title')?.focus({ preventScroll: true });
-    } else sheet.open(content, { labelledBy: 'bus-sheet-title' });
+  /* Sheets. A line opens its ordered stops and every stop opens its live arrivals; a stop found by search opens its lines.
+     Inside an open sheet each next page is pushed: it slides in and Back (button, Android, Telegram) returns one page.
+     A sheet host without pages (older callers, tests) swaps the content instead. */
+  let pageSeq = 0;
+  const stackable = () => typeof sheet.push === 'function' && sheet.isOpen;
+  function present(content, labelledBy, { onClosed, onLeave } = {}) {
+    if (stackable()) sheet.push(content, { labelledBy, onLeave });
+    else sheet.open(content, { labelledBy, onClosed, stacked: true });
     init(content);
   }
-  const sheetHead = (title, sub) => h('div', { class: 'station__head' },
-    h('div', { class: 'station__titles' }, h('h2', { class: 'station__name', id: 'bus-sheet-title', tabindex: '-1', 'data-autofocus': '', text: title }), sub && h('p', { class: 'station__sub', text: sub })),
+  const sheetHead = (title, sub, id, back) => h('div', { class: 'station__head' },
+    back ? backButton('بازگشت به صفحهٔ قبل', () => sheet.pop?.()) : null,
+    h('div', { class: 'station__titles' }, h('h2', { class: 'station__name', id, tabindex: '-1', 'data-autofocus': '', text: title }), sub ? h('p', { class: 'station__sub', text: sub }) : null),
     h('button', { class: 'cm-icon-btn cm-frost station__close el', type: 'button', 'aria-label': 'بستن', onClick: () => sheet.close() }, icon('xmark')));
+
+  // Official station of every stop of a variant, from this app's server (null when the link is not available).
+  const variantMatches = new Map();
+  function matchesFor(variant) {
+    if (typeof api.busVariantStops !== 'function') return Promise.resolve(null);
+    if (!variantMatches.has(variant.id)) {
+      variantMatches.set(variant.id, api.busVariantStops(variant.id)
+        .then(r => (r.stops.length === variant.stops.length ? r.stops : null))
+        .catch(() => { variantMatches.delete(variant.id); return null; }));
+    }
+    return variantMatches.get(variant.id);
+  }
 
   function showLine(line, startId) {
     let active = line.variants.find(v => v.id === startId) ?? line.variants[0];
+    const id = `bus-line-${++pageSeq}`, back = stackable();
     const variants = h('div', { class: 'cm-chips bus-variants', role: 'group', 'aria-label': 'مسیرهای ثبت شده' });
     const list = h('ol', { class: 'bus-stops' });
     const notes = h('div', { class: 'bus-notes' });
-    const title = line.title || `خط ${line.ref}`;
+    const title = faText(line.title || `خط ${line.ref}`);
     const isExp = line.isExpress || /^EXP-/i.test(line.ref);
     const paintLine = () => {
+      const variant = active;
       variants.replaceChildren(...(line.variants.length > 1 ? line.variants.map(v => h('button', { type: 'button', class: 'cm-chip bus-variant', 'aria-pressed': String(v === active),
         onClick: () => { active = v; paintLine(); } }, `از ${v.from} به ${v.to}`)) : []));
-      list.replaceChildren(...active.stops.map(name => h('li', { text: name })));
+      const numbers = variant.stops.map(() => h('small', { class: 'bus-stop__no' }));
+      const buttons = variant.stops.map((name, seq) => h('button', { type: 'button', class: 'bus-stop', dataset: { seq: String(seq) }, 'aria-label': `${name}، زمان رسیدن`,
+        onClick: () => showStopPage(line, variant, seq) }, h('span', { class: 'bus-stop__name', text: name }), numbers[seq], icon('chevron_left')));
+      list.replaceChildren(...buttons.map(b => h('li', null, b)));
+      matchesFor(variant).then(stops => {
+        if (!stops || active !== variant) return;
+        stops.forEach((s, i) => { if (s?.match) numbers[i].textContent = faId(s.match.number); });
+      });
       // Native replaceChildren renders `false` as text, so conditional notes are filtered explicitly.
       notes.replaceChildren(...[
-        h('p', { class: 'bus-note', text: `${active.stops.length} ایستگاه ثبت شده، به ترتیب داده منبع.` }),
+        h('p', { class: 'bus-note', text: `${active.stops.length} ایستگاه ثبت شده، به ترتیب داده منبع. روی هر ایستگاه بزنید تا زمان رسیدن اتوبوس‌ها را ببینید.` }),
         isExp && h('p', { class: 'bus-note bus-note--express', text: 'این خط تندرو (اکسپرس) است و در مسیر خود تنها در ایستگاه‌های منتخب توقف دارد.' }),
         loopVariant(active) && h('p', { class: 'bus-note', text: 'ایستگاه اول و آخر این مسیر یکی است؛ ممکن است مسیر گردشی باشد.' }),
-        active.derived && h('p', { class: 'bus-note', text: 'مبدا و مقصد این مسیر در داده منبع ثبت نشده و از نام انگلیسی همان مسیر و نام پایانه ها برداشته شده است.' }),
-        h('p', { class: 'bus-note', text: SOURCE_NOTE })].filter(Boolean));
+        active.derived && h('p', { class: 'bus-note', text: 'مبدا و مقصد این مسیر در داده منبع ثبت نشده و از نام انگلیسی همان مسیر و نام پایانه ها برداشته شده است.' })].filter(Boolean));
     };
     paintLine();
-    present(h('div', { class: 'station bus-sheet' }, sheetHead(title, isExp ? 'ایستگاه های منتخب (خط تندرو)' : 'ایستگاه های ثبت شده'), h('div', { class: 'station__scroll' }, variants, list, notes)));
+    present(h('div', { class: 'station bus-sheet' }, sheetHead(title, isExp ? 'ایستگاه های منتخب (خط تندرو)' : 'ایستگاه های ثبت شده', id, back), h('div', { class: 'station__scroll' }, variants, list, notes)), id);
+  }
+
+  // One stop of one line: its official station and the municipal live arrivals there, this line first.
+  function showStopPage(line, variant, seq) {
+    const name = variant.stops[seq], title = faText(line.title || `خط ${line.ref}`);
+    const id = `bus-stop-${++pageSeq}`, back = stackable();
+    const st = { station: null, status: 'matching', data: null, candidates: [], searched: false, timer: null, ctrl: null };
+    const official = h('p', { class: 'bus-stop-page__official' });
+    const out = h('div', { class: 'bus-eta', 'aria-live': 'polite' });
+    const refresh = h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'bus-eta__refresh'], hidden: true, onClick: () => load() }, icon('arrow_clockwise'), 'به‌روزرسانی');
+    const note = text => h('p', { class: 'bus-note', text });
+    const etaRow = (a, current) => {
+      const live = a.state === 'live' && Number.isInteger(a.etaMin);
+      const time = live ? (a.etaMin <= 0 ? 'در حال رسیدن' : `${fa(a.etaMin)} دقیقه`) : a.state === 'no_bus' ? 'اتوبوسی در راه نیست' : a.state === 'stale' ? 'نامعلوم (موقعیت قدیمی)' : 'نامعلوم';
+      // Minutes get their own column; any other state is a quiet second line, so the destination keeps its width.
+      return h('div', { class: ['bus-eta-row', current && 'is-current', live && 'is-live'] },
+        h('bdi', { class: 'bus-eta-row__line', dir: 'ltr', text: current ? faText(line.label || line.ref) : faId(a.line) }),
+        h('span', { class: 'bus-eta-row__body' }, h('b', { text: a.destination ? `به ${a.destination}` : `خط ${faId(a.line)}` }),
+          live ? (ageText(a) ? h('small', { text: ageText(a) }) : null) : h('small', { class: 'bus-eta-row__state', text: time })),
+        live ? h('span', { class: ['bus-eta-row__time', a.etaMin <= 0 && 'is-now'], text: time }) : null);
+    };
+    function draw() {
+      const kids = [];
+      if (['matching', 'loading', 'searching'].includes(st.status)) kids.push(h('div', { class: 'cm-skel bus-eta__skel', 'aria-busy': 'true', 'aria-label': 'در حال دریافت' }));
+      if (st.status === 'choose') kids.push(note(st.searched ? 'ایستگاه خودتان را از فهرست شهرداری انتخاب کنید:' : 'چند ایستگاه رسمی با همین نام کنار هم هست (مثلاً سکوهای یک پایانه)؛ ایستگاه خودتان را انتخاب کنید:'),
+        h('div', { class: 'cm-chips' }, st.candidates.map(c => h('button', { type: 'button', class: ['cm-chip', 'bus-live__stop'], onClick: () => choose(c, 'user') }, `${c.name} · ${faId(c.number)}`))));
+      if (st.status === 'nomatch' || st.status === 'nomap') kids.push(note(st.status === 'nomap' ? 'پیوند این ایستگاه با سامانهٔ شهرداری الان در دسترس نیست.' : 'شمارهٔ رسمی این ایستگاه با اطمینان پیدا نشد؛ برای همین زمانی حدس زده نمی‌شود.'),
+        h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm'], onClick: search }, 'جست‌وجو در فهرست شهرداری'));
+      if (st.status === 'nostop') kids.push(note('ایستگاهی با این نام در فهرست شهرداری پیدا نشد؛ شمارهٔ ایستگاه را در بخش «زمان رسیدن زنده» بنویسید.'));
+      if (st.status === 'searcherror') kids.push(note('جست‌وجوی فهرست شهرداری الان در دسترس نیست.'));
+      if (st.status === 'busy') kids.push(note('درخواست‌ها زیاد است؛ چند ثانیه بعد دوباره امتحان کنید.'));
+      if (st.status === 'etaerror') kids.push(note('سامانهٔ شهرداری الان جواب نداد؛ زمان رسیدن نامعلوم است.'));
+      if (st.status === 'eta' && st.data) {
+        const rows = st.data.arrivals, mine = rows.filter(a => sameLine(a.line, line.ref)), others = rows.filter(a => !sameLine(a.line, line.ref));
+        kids.push(h('div', { class: 'bus-eta__mine' }, mine.length ? mine.map(a => etaRow(a, true)) : note(`سامانهٔ شهرداری برای ${title} در این ایستگاه زمانی گزارش نکرد.`)));
+        if (others.length) kids.push(h('div', { class: 'bus-eta__others' }, h('h4', { class: 'bus-eta__h', text: 'خط‌های دیگر در این ایستگاه' }), others.map(a => etaRow(a, false))));
+        kids.push(note(`منبع: سامانهٔ شهرداری مشهد، دریافت ${new Date(st.data.retrievedAt).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Tehran' })}. زمان‌ها برآورد خود سامانه‌اند و هر ۳۰ ثانیه تازه می‌شوند.`));
+      }
+      out.replaceChildren(...kids);
+      refresh.hidden = !st.station || st.status === 'loading';
+    }
+    async function load(background = false) {
+      if (!st.station) return;
+      st.ctrl?.abort?.();
+      const ctrl = st.ctrl = typeof AbortController === 'function' ? new AbortController() : {};
+      if (!background) { st.status = 'loading'; draw(); }
+      try {
+        const data = await api.busEta(st.station.number, ctrl.signal);
+        if (ctrl !== st.ctrl) return;
+        st.data = data; st.status = 'eta';
+      } catch (e) {
+        if (ctrl !== st.ctrl || e?.kind === 'aborted') return;
+        // A missed background refresh keeps the last answer for a short while; older minutes are never left on screen.
+        const age = st.data ? Date.now() - Date.parse(st.data.retrievedAt) : Infinity;
+        if (!background || !(age < 90_000)) st.status = e?.kind === 'rate_limited' ? 'busy' : 'etaerror';
+      }
+      draw();
+    }
+    const stop = () => { clearInterval(st.timer); st.timer = null; st.ctrl?.abort?.(); };
+    function choose(station, how) {
+      st.station = station;
+      const renamed = station.name && baseKey(station.name) !== baseKey(name);
+      official.textContent = `ایستگاه رسمی ${faId(station.number)}${renamed ? ` · در سامانهٔ شهرداری: ${station.name}` : ''}${how === 'user' ? ' (انتخاب شما)' : how === 'nearby_name' || how === 'nearby_side' ? ' (تطبیق با نام و فاصله)' : ''}`;
+      load();
+      clearInterval(st.timer);
+      st.timer = setInterval(() => {
+        if (page.isConnected === false) return stop();
+        if (page.closest?.('[inert]') || globalThis.document?.hidden) return;
+        load(true);
+      }, 30_000);
+      st.timer?.unref?.();
+    }
+    async function search() {
+      st.status = 'searching'; st.searched = true; draw();
+      try {
+        const r = await api.busStops(name.replace(/^ایستگاه\s*/, '').slice(0, 60));
+        st.candidates = r.stops.slice(0, 8); st.status = st.candidates.length ? 'choose' : 'nostop';
+      } catch { st.status = 'searcherror'; }
+      draw();
+    }
+    const prev = variant.stops[seq - 1], next = variant.stops[seq + 1];
+    const guideStop = index?.stops.find(x => x.name === name);
+    const otherLines = (guideStop?.refs ?? []).filter(ref => ref !== line.ref).map(ref => index.byRef.get(ref)).filter(Boolean);
+    const page = h('div', { class: 'station bus-sheet bus-stop-page' },
+      sheetHead(name, `${title} · به سمت ${variant.to}`, id, back),
+      h('div', { class: 'station__scroll' },
+        official,
+        h('section', { class: 'bus-eta-card', 'aria-labelledby': `${id}-eta` },
+          h('div', { class: 'bus-eta-card__head' }, h('h3', { id: `${id}-eta`, text: 'زمان رسیدن' }), refresh), out),
+        h('div', { class: 'bus-stop-page__route' },
+          h('p', null, h('b', { text: 'ایستگاه قبلی' }), h('span', { text: prev ?? 'ابتدای مسیر' })),
+          h('p', null, h('b', { text: 'ایستگاه بعدی' }), h('span', { text: next ?? 'انتهای مسیر' }))),
+        otherLines.length ? h('section', { class: 'bus-stop-page__lines' }, h('h3', { class: 'bus-eta__h', text: 'خط‌های دیگری که در راهنما از این ایستگاه می‌گذرند' }),
+          h('div', { class: 'cm-chips' }, otherLines.map(l => h('button', { type: 'button', class: 'cm-chip', onClick: () => showLine(l) }, faText(l.title || `خط ${l.ref}`))))) : null,
+        officialLinks(name)));
+    present(page, id, { onLeave: stop });
+    draw();
+    matchesFor(variant).then(stops => {
+      if (st.station) return;
+      const s = stops?.[seq];
+      if (s?.match) return choose({ number: s.match.number, name: s.match.name }, s.match.method);
+      st.candidates = s?.candidates ?? [];
+      st.status = !stops ? 'nomap' : st.candidates.length ? 'choose' : 'nomatch';
+      draw();
+    });
   }
 
   function showStop(stop) {
-    present(h('div', { class: 'station bus-sheet' }, sheetHead(stop.name, `${stop.refs.length} خط عبوری ثبت شده`),
+    let chosenInput = null;
+    const id = `bus-guide-stop-${++pageSeq}`;
+    present(h('div', { class: 'station bus-sheet' }, sheetHead(stop.name, `${stop.refs.length} خط عبوری ثبت شده`, id, stackable()),
       h('div', { class: 'station__scroll' },
         h('div', { class: 'cm-chips' },
-          h('button', { type: 'button', class: 'cm-chip', onClick: () => { pickStop(stop.name, 'from'); sheet.close(); }, text: 'انتخاب مبدأ' }),
-          h('button', { type: 'button', class: 'cm-chip', onClick: () => { pickStop(stop.name, 'to'); sheet.close(); }, text: 'انتخاب مقصد' })),
+          h('button', { type: 'button', class: 'cm-chip', onClick: () => { pickStop(stop.name, 'from'); chosenInput = fromInput; sheet.close(); }, text: 'انتخاب مبدأ' }),
+          h('button', { type: 'button', class: 'cm-chip', onClick: () => { pickStop(stop.name, 'to'); chosenInput = toInput; sheet.close(); }, text: 'انتخاب مقصد' })),
+        h('p', { class: 'bus-note', text: 'برای زمان رسیدن، خط را باز کنید و روی همین ایستگاه بزنید؛ جهت حرکت خط، ایستگاه درست را مشخص می‌کند.' }),
         ...stop.refs.map(ref => lineButton(index.byRef.get(ref))),
-        officialLinks(stop.name),
-        h('p', { class: 'bus-note', text: 'این فهرست از داده منبع است و زمان رسیدن اتوبوس را نشان نمی‌دهد.' }))));
+        officialLinks(stop.name))), id,
+      { onClosed: () => { if (chosenInput) { chosenInput.focus?.(); chosenInput.scrollIntoView?.({ block: 'center' }); } } });
   }
 
   input.addEventListener('input', () => { query = input.value; paint(); });

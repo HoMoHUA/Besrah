@@ -185,6 +185,15 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       if (data?.status !== 'ok' || !Array.isArray(data?.arrivals)) throw new ApiError('server');
       return data;
     },
+    // The official station behind each stop of one guide variant (null when not certain; same-name candidates then).
+    async busVariantStops(variant, signal) {
+      const data = await get('api/bus/variant-stops?variant=' + encodeURIComponent(String(variant)), signal);
+      const okStop = s => s && typeof s === 'object' && Array.isArray(s.candidates)
+        && (s.match === null || (s.match && Number.isInteger(s.match.number) && typeof s.match.name === 'string'))
+        && s.candidates.every(c => c && Number.isInteger(c.number) && typeof c.name === 'string');
+      if (data?.schemaVersion !== 1 || data.variant !== Number(variant) || !Array.isArray(data.stops) || !data.stops.every(okStop)) throw new ApiError('server');
+      return data;
+    },
     async busGuide(signal) {
       const data = await get('assets/bus-guide.json', signal);
       if (data?.v !== 1 || !Array.isArray(data?.n) || !Array.isArray(data?.l)) throw new ApiError('server');

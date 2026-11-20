@@ -7,6 +7,7 @@ import type { FastifyInstance } from 'fastify';
 import { readFileSync } from 'node:fs';
 import { clientKey, createWindowLimiter } from '../journey-beta/limits.js';
 import { normName } from '../network.js';
+import { createStopMatcher, type StopPoint, type VariantStop } from './stop-match.js';
 
 export const BUS_ETA_SOURCE = 'mashhad_geoportal';
 export const MAX_POSITION_AGE_S = 180;
@@ -129,7 +130,7 @@ export function searchOfficialStops(stops: readonly OfficialStop[], q: string, l
   return [...starts, ...contains].slice(0, limit);
 }
 
-export function registerBusEta(app: FastifyInstance, opts: { eta?: BusEta; limiterClock?: () => number; stops?: () => readonly OfficialStop[] | null } = {}) {
+export function registerBusEta(app: FastifyInstance, opts: { eta?: BusEta; limiterClock?: () => number; stops?: () => readonly OfficialStop[] | null; points?: () => ReadonlyMap<number, readonly StopPoint[]> | null } = {}) {
   const eta = opts.eta ?? createBusEta();
   const limiter = createWindowLimiter(30, 60_000, opts.limiterClock ?? Date.now);
   app.get<{ Querystring: { station?: string } }>('/app/api/bus/eta', async (req, reply) => {
@@ -149,5 +150,29 @@ export function registerBusEta(app: FastifyInstance, opts: { eta?: BusEta; limit
     const list = stopList();
     if (!list) return reply.code(503).send({ error: 'stops_unavailable' });
     return { schemaVersion: 1, source: BUS_ETA_SOURCE, stops: searchOfficialStops(list, b.q).map(s => ({ number: s.number, name: s.name })) };
+  });
+
+  // The official station behind every stop of one guide variant (stop-match.ts), so a stop opened from a line can show
+  // its live arrivals. Static per deployment: computed once per variant and cacheable by the browser for 10 minutes.
+  let points: ReadonlyMap<number, readonly StopPoint[]> | null | undefined;
+  const pointList = () => { if (points !== undefined) return points; try { points = opts.points ? opts.points() : null; } catch { points = null; } return points; };
+  let matcher: ReturnType<typeof createStopMatcher> | null = null;
+  const matched = new Map<number, VariantStop[]>();
+  const variantLimiter = createWindowLimiter(60, 60_000, opts.limiterClock ?? Date.now);
+  app.get<{ Querystring: { variant?: string } }>('/app/api/bus/variant-stops', async (req, reply) => {
+    reply.header('Cache-Control', 'no-store').header('X-Content-Type-Options', 'nosniff');
+    if (!variantLimiter.allow(clientKey(req))) return reply.code(429).header('Retry-After', '10').send({ error: 'rate_limited' });
+    const raw = typeof req.query.variant === 'string' ? req.query.variant.trim() : '';
+    if (!/^\d{1,12}$/.test(raw)) return reply.code(400).send({ error: 'bad_variant' });
+    const list = stopList(), all = pointList();
+    if (!list || !all) return reply.code(503).send({ error: 'stops_unavailable' });
+    const id = Number(raw), variantPoints = all.get(id);
+    if (!variantPoints) return reply.code(404).send({ error: 'unknown_variant' });
+    let stops = matched.get(id);
+    if (!stops) { matcher ??= createStopMatcher(list); stops = matcher.matchVariant(variantPoints); matched.set(id, stops); }
+    reply.header('Cache-Control', 'private, max-age=600');
+    return { schemaVersion: 1, source: BUS_ETA_SOURCE, variant: id,
+      stops: stops.map(s => ({ match: s.match ? { number: s.match.number, name: s.match.name, method: s.match.method } : null,
+        candidates: s.candidates.map(c => ({ number: c.number, name: c.name })) })) };
   });
 }
