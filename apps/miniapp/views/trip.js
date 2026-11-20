@@ -4,6 +4,8 @@
 import { h, backButton } from '../ui/dom.js';
 import { canOpenLocationSettings, locationAdvice, openLocationSettings, resolveUserCoords } from '../logic.js';
 import { fa } from '../format.js';
+import { snappPriceBlock } from '../ui/snapp-link.js';
+import { cheapestSnapp } from '../snapp-search.js';
 
 const DEBOUNCE_MS = 400;
 const BASIS = { routed: 'اندازه گیری مسیریاب', model: 'مدل برنامهٔ قطار', assumption: 'فرض', unknown: 'نامعلوم' };
@@ -199,6 +201,43 @@ export function createTripView(ctx) {
   const submit = h('button', { type: 'button', class: 'cm-btn tp-submit', onClick: () => plan() }, 'مسیر را پیدا کن');
   function drawSubmit() { submit.disabled = !(S.to && (S.from || S.gps)) || S.status === 'loading'; submit.textContent = S.status === 'loading' ? 'در حال محاسبه…' : 'مسیر را پیدا کن'; }
 
+  // Live Snapp price for the same trip: the person's own session when they linked Snapp in Profile, else the shared check.
+  // A rotated session comes back and replaces the stored one; an expired link is removed and said so; no price, no block.
+  let snappController = null;
+  // One Snapp ask with the person's own session (rotated sessions are kept; the device keeps the session).
+  const snappAsk = async (a, b) => { const data = await api.snappPrice(a, b, store?.snappSession?.() ?? null); if (data.session) store.setSnappSession(data.session); return data; };
+  async function findCheapest() {
+    const trip = S.snappTrip; if (!trip || S.snappSearch?.status === 'running') return;
+    S.snappSearch = { status: 'running', step: 0, total: 0 }; drawOut();
+    try {
+      const c = await api.snappCandidates(trip.from, trip.to);
+      const result = await cheapestSnapp({ from: trip.from, to: trip.to, origins: c.origins.slice(0, 6), destinations: c.destinations.slice(0, 6), ask: snappAsk,
+        isCancelled: () => S.snappTrip !== trip, onStep: (step, total) => { S.snappSearch = { status: 'running', step, total }; drawOut(); } });
+      if (S.snappTrip !== trip) return;
+      S.snappSearch = { status: 'done', result };
+    } catch (error) {
+      S.snappSearch = { status: 'error', message: error?.reason === 'no_roads' ? 'نقشهٔ خیابان‌ها برای این جست‌وجو هنوز روی سرور نیست.' : '' };
+    }
+    drawOut();
+  }
+  async function snappPrice(from, to) {
+    S.snapp = null; S.snappSearch = null; S.snappTrip = { from, to };
+    if (typeof api.snappPrice !== 'function') return;
+    snappController?.abort?.(); snappController = typeof AbortController === 'function' ? new AbortController() : null; const mine = snappController;
+    const session = store?.snappSession?.() ?? null;
+    try {
+      const data = await api.snappPrice(from, to, session, mine?.signal);
+      if (mine !== snappController) return;
+      if (data.session) store.setSnappSession(data.session);
+      S.snapp = { data };
+    } catch (error) {
+      if (mine !== snappController || error?.kind === 'aborted') return;
+      if (session && error?.status === 401) { store.setSnappSession(null); S.snapp = { note: 'اتصال حساب اسنپ منقضی شد؛ در پروفایل دوباره وارد شوید.' }; }
+      else if (!session && error?.reason === 'no_shared_session') S.snapp = { note: 'برای دیدن قیمت لحظه‌ای اسنپ و کمترین قیمت ممکن، در پروفایل وارد حساب اسنپ خودتان شوید.' };
+      else S.snapp = null;
+    }
+    drawOut();
+  }
   async function plan() {
     if (!(S.to && (S.from || S.gps))) return;
     if (!S.from) {
@@ -214,6 +253,7 @@ export function createTripView(ctx) {
       const result = await api.trip(payload, mine.signal);
       if (mine !== tripController) return;
       S.result = result; S.status = 'ok';
+      snappPrice(payload.from, payload.to);
     } catch (error) {
       if (mine !== tripController || error?.kind === 'aborted') return;
       S.status = error?.kind === 'outside_coverage' ? 'outside' : error?.kind === 'rate_limited' ? 'busy' : 'error';
@@ -286,6 +326,7 @@ export function createTripView(ctx) {
       r.status !== 'ok' ? h('p', { class: 'tp-status', role: 'status', text: REASONS[r.reason] ?? 'نتیجه ناقص است.' }) : null,
       r.options.length ? r.options.map((o, i, all) => optionCard(o, r.decision, i, all)) : h('div', { class: 'empty-state' }, h('p', { text: REASONS[r.reason] ?? 'گزینه ای پیدا نشد.' })),
       questionBlock(r.decision),
+      S.snapp?.data ? snappPriceBlock(S.snapp.data, { faTime: t => new Date(t).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Tehran' }), search: S.snappSearch ?? { status: 'idle' }, onFind: typeof api.snappCandidates === 'function' ? findCheapest : null }) : S.snapp?.note ? h('p', { class: 'fd-note', role: 'status', text: S.snapp.note }) : null,
       r.decision?.notes?.length ? h('ul', { class: 'fd-notes' }, r.decision.notes.map(t => h('li', { text: t }))) : null,
       h('ul', { class: 'fd-notes' }, [...(r.disclaimers ?? []), r.routing?.trafficLabel].filter(Boolean).map(t => h('li', { text: t })))));
   }

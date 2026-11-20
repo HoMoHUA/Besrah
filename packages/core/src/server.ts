@@ -10,6 +10,7 @@ import { registerHomeRecommendations } from './home/recommendations.js';
 import { loadOfficialStops, registerBusEta, type BusEta, type OfficialStop } from './bus/eta.js';
 import { loadStopPoints, STOP_POINTS_URL, type StopPoint } from './bus/stop-match.js';
 import { registerAsk, type AskResult } from './ask/index.js';
+import { registerSnapp, type SnappClient, createServiceSession } from './providers/snapp.js';
 import { registerShop, type ShopRoutesOptions } from './shop/search.js';
 import { registerShopV2, loadShopV2Catalog, type ShopV2RoutesOptions } from './shop/v2.js';
 import { createNeshan, neshanOptionsFromEnv } from './trip/neshan.js';
@@ -19,7 +20,7 @@ import { registerJourneyBeta, type JourneyBetaConfig } from './journey-beta/inde
 import type { TimetableSource } from './transit-journey/contracts.js';
 import { createTimetableModel, type TimetableModel } from './timetable-overlay.js';
 
-export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof fetch; journeyBeta?: Partial<JourneyBetaConfig>; journeySource?: TimetableSource; limiterClock?: () => number; food?: FoodRoutesOptions; trip?: TripRoutesOptions; account?: AccountRoutesOptions; shop?: ShopRoutesOptions; shopV2?: ShopV2RoutesOptions; timetable?: TimetableModel; busEta?: BusEta; busStops?: () => readonly OfficialStop[] | null; busPoints?: () => ReadonlyMap<number, readonly StopPoint[]> | null; ask?: (q: string) => Promise<AskResult> } = {}) {
+export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof fetch; journeyBeta?: Partial<JourneyBetaConfig>; journeySource?: TimetableSource; limiterClock?: () => number; food?: FoodRoutesOptions; trip?: TripRoutesOptions; account?: AccountRoutesOptions; shop?: ShopRoutesOptions; shopV2?: ShopV2RoutesOptions; timetable?: TimetableModel; busEta?: BusEta; busStops?: () => readonly OfficialStop[] | null; busPoints?: () => ReadonlyMap<number, readonly StopPoint[]> | null; ask?: (q: string) => Promise<AskResult>; snapp?: { config?: import('./providers/snapp.js').SnappConfig | null; client?: SnappClient | null; service?: ReturnType<typeof createServiceSession>; roads?: () => import('./geo/pickup.js').RoadIndex | null } } = {}) {
   // Product wiring: the validated overlay (or, on any problem, the baseline generator) serves board, tracker and journey alike.
   const timetable = opts.timetable ?? createTimetableModel();
   const svc = createService(undefined, undefined, timetable);
@@ -81,6 +82,8 @@ export function buildServer(opts: { now?: () => number; foodStatusFetch?: typeof
   registerHomeRecommendations(app, { now, limiterClock: opts.limiterClock });
   // «از بسراه بپرس»: rules first, the local model bridge only for unclear questions (src/ask).
   registerAsk(app, { ...(opts.ask ? { ask: opts.ask } : {}), ...(opts.limiterClock ? { limiterClock: opts.limiterClock } : {}) });
+  // Snapp ride prices (F4): the person's own session (kept on their device) or the shared service session.
+  registerSnapp(app, { ...opts.snapp, ...(opts.limiterClock ? { limiterClock: opts.limiterClock } : {}), now });
   // Live bus arrivals from the municipal geoportal; needs an Iranian egress in production (see docs/transit).
   const busStopsFile = process.env.BESRAH_BUS_STOPS_FILE?.trim();
   registerBusEta(app, { ...(opts.busEta ? { eta: opts.busEta } : {}), ...(opts.limiterClock ? { limiterClock: opts.limiterClock } : {}),

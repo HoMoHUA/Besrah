@@ -30,6 +30,7 @@ import { createSettingsView } from './views/settings.js';
 import { createSavedView } from './views/saved.js';
 import { isLive } from './services.js';
 import { askRoute } from './ask.js';
+import { withDeviceSnapp } from './snapp-device.js';
 import { isSupported, lineLabel } from './format.js';
 
 const TITLES = { home: 'خانه', metro: 'بسراه', bus: 'اتوبوس', food: 'بسفود', trip: 'مسیر مکان به مکان', shop: 'بسپی', saved: 'ذخیره ها', services: 'سرویس ها', favourites: 'ایستگاه های من', settings: 'تنظیمات', profile: 'پروفایل', about: 'درباره' };
@@ -43,7 +44,8 @@ const safeStorage = (() => { try { return window.localStorage; } catch { return 
 if (safeStorage) void createReminders({ storage: safeStorage }).recover().catch(() => {});
 const store = createStore(safeStorage);
 const serviceStore = createServiceStore(safeStorage);
-const api = createApi();
+// Inside the Besrah Android app the phone talks to Snapp itself (snapp-device.js); elsewhere through this app's server.
+const api = (() => { const base = createApi(); const native = window.BesrahNative; return native && typeof native.snappRequest === 'function' ? withDeviceSnapp(base, native) : base; })();
 const state = createState({
   status: 'loading', stations: [], order: [], order2: [], maxKm: 10, view: 'home',
   nearest: { phase: 'idle' }, recent: null, asOf: null,
