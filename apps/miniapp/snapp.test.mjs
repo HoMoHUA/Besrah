@@ -67,6 +67,42 @@ test('Profile card: number -> captcha when Snapp asks -> SMS code -> linked; the
   assert.equal(store.snappSession(), null);
 });
 
+test('Profile card: a captcha asked at the code check is answered with the same code, never a new SMS code', async t => {
+  // The loop the owner hit on 2026-11-20 from the web: code -> captcha -> new code -> captcha ...
+  installFoodDom(t);
+  const calls = [];
+  const challenge = refId => ({ status: 'captcha', captcha: { type: 'numeric', image: 'data:image/png;base64,AA', refId } });
+  const api = {
+    async snappOtp(phone, captcha) { calls.push(['otp', captcha?.solution ?? null]); return { status: 'sent', ttlS: 120 }; },
+    async snappVerify(phone, code, captcha) {
+      calls.push(['verify', code, captcha?.solution ?? null]);
+      if (!captcha) return challenge('ref-1');
+      if (captcha.solution !== '55555') return { ...challenge('ref-2'), wrong: true };
+      return { status: 'linked', session: SESSION, phoneHint: '4567' };
+    },
+  };
+  const store = createStore(memoryStorage());
+  const card = createSnappLinkCard({ api, store });
+  const inputs = () => findAll(card.el, n => n.tagName === 'input');
+  inputs()[0].value = '09121234567';
+  await button(card.el, 'دریافت کد پیامک').dispatch('click'); await flushView();
+  inputs()[0].value = '12345';
+  await button(card.el, 'ورود به اسنپ').dispatch('click'); await flushView();
+  assert.match(text(card.el), /اسنپ برای تأیید کد، یک تصویر امنیتی خواسته است/);
+  await button(card.el, 'انصراف').dispatch('click'); await flushView();
+  assert.ok(button(card.el, 'کد تازه'), '«انصراف» goes back to the code screen, not to the number');
+  inputs()[0].value = '12345';
+  await button(card.el, 'ورود به اسنپ').dispatch('click'); await flushView();
+  inputs()[0].value = '11111';
+  await button(card.el, 'ورود به اسنپ').dispatch('click'); await flushView();
+  assert.match(text(card.el), /پاسخ تصویر درست نبود/);
+  inputs()[0].value = '55555';
+  await button(card.el, 'ورود به اسنپ').dispatch('click'); await flushView();
+  assert.deepEqual(calls, [['otp', null], ['verify', '12345', null], ['verify', '12345', null], ['verify', '12345', '11111'], ['verify', '12345', '55555']]);
+  assert.equal(calls.filter(c => c[0] === 'otp').length, 1, 'one SMS code for the whole login');
+  assert.deepEqual(store.snappSession(), SESSION);
+});
+
 test('price block: bookable services only, in tomans, with where the price came from', t => {
   installFoodDom(t);
   const shared = snappPriceBlock(PRICE);
@@ -171,4 +207,28 @@ test('in the Android app the phone talks to Snapp itself: captcha, code, session
   assert.equal(price.session.access, 'n'.repeat(40), 'the refreshed session goes back to the device');
   await assert.rejects(api.snappPrice({ lat: 36.3, lon: 59.6 }, { lat: 36.31, lon: 59.61 }, null), e => e.reason === 'no_shared_session');
   assert.equal(serverCalls, 0, 'nothing went through Besrah’s server');
+});
+
+test('Android app: when Snapp wants a captcha for the code check, a fresh one comes first and goes with the same code', async t => {
+  installFoodDom(t);
+  const { withDeviceSnapp } = await import('./snapp-device.js');
+  const CFG = { schemaVersion: 1, clientId: 'client-id-x', clientSecret: 'client-secret-x', captchaClient: '00000000-0000-4000-8000-000000000000' };
+  const sent = [];
+  const answer = (key, body) => {
+    if (key === 'otp') return [200, { method: 'sms', ttl: 120, captcha_type: 'numeric' }];
+    if (key === 'captcha') return [200, { data: { image: 'data:image/png;base64,AA', ref_id: `ref-${sent.filter(s => s.key === 'captcha').length}` } }];
+    if (key === 'verify') return body.captcha ? [200, { access_token: 'x'.repeat(40), refresh_token: 'y'.repeat(30) }] : [403, { status: 2001 }];
+    return [0, null];
+  };
+  const native = { snappRequest(id, key, body, bearer, extra) { const b = body ? JSON.parse(body) : null; sent.push({ key, body: b, extra }); const [status, res] = answer(key, b); setImmediate(() => globalThis.window.__besrahSnappDone(id, status, res ? JSON.stringify(res) : '')); } };
+  const api = withDeviceSnapp({ async snappConfig() { return CFG; } }, native);
+  assert.deepEqual(await api.snappOtp('09121234567'), { status: 'sent', ttlS: 120 });
+  const ask = await api.snappVerify('09121234567', '12345');
+  assert.deepEqual(ask, { status: 'captcha', wrong: false, captcha: { type: 'numeric', image: 'data:image/png;base64,AA', refId: 'ref-1' } });
+  assert.equal(sent.filter(s => s.key === 'verify').length, 0, 'no code attempt spent on a sure refusal');
+  const linked = await api.snappVerify('09121234567', '12345', { type: 'numeric', refId: 'ref-1', solution: '48213' });
+  assert.equal(linked.status, 'linked');
+  assert.deepEqual(sent.find(s => s.key === 'verify').body.attestation, { method: 'numeric', platform: 'captcha' });
+  assert.deepEqual(sent.find(s => s.key === 'verify').body.captcha, { client_id: '00000000-0000-4000-8000-000000000000', solution: '48213', ref_id: 'ref-1', type: 'numeric' });
+  assert.equal(sent.filter(s => s.key === 'otp').length, 1);
 });

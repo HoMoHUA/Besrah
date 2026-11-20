@@ -16,7 +16,9 @@ const ERRORS = {
 const faDigits = s => String(s).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
 
 export function createSnappLinkCard({ api, store, onLinked = () => {} }) {
-  const S = { step: 'phone', phone: '', captcha: null, wrongCaptcha: false, busy: false, message: '' };
+  // captchaFor: which step the captcha answers. A captcha asked at the code check is sent back with the same code; it must
+  // never request a new SMS code (that loops: new code -> captcha -> new code ...).
+  const S = { step: 'phone', phone: '', code: '', captcha: null, captchaFor: 'otp', wrongCaptcha: false, busy: false, message: '' };
   const el = h('section', { class: 'cm-card about-card snapp-link', 'aria-labelledby': 'pf-snapp' });
   const field = (attrs) => h('input', { class: 'fd-input', dir: 'ltr', autocomplete: 'off', ...attrs });
   const errorText = e => ERRORS[e?.reason] ?? ERRORS[e?.kind === 'rate_limited' ? 'rate_limited' : 'unavailable'];
@@ -25,18 +27,21 @@ export function createSnappLinkCard({ api, store, onLinked = () => {} }) {
     S.busy = true; S.message = ''; draw();
     try {
       const r = await api.snappOtp(S.phone, captcha);
-      if (r.status === 'captcha') { S.step = 'captcha'; S.captcha = r.captcha; S.wrongCaptcha = Boolean(r.wrong); }
-      else { S.step = 'code'; S.captcha = null; S.message = 'کد پیامک اسنپ برای شما فرستاده شد.'; }
+      if (r.status === 'captcha') { S.step = 'captcha'; S.captchaFor = 'otp'; S.captcha = r.captcha; S.wrongCaptcha = Boolean(r.wrong); }
+      else { S.step = 'code'; S.code = ''; S.captcha = null; S.message = 'کد پیامک اسنپ برای شما فرستاده شد.'; }
     } catch (e) { S.message = errorText(e); }
     S.busy = false; draw();
   }
-  async function verify(code) {
-    S.busy = true; S.message = ''; draw();
+  async function verify(code, captcha) {
+    S.busy = true; S.message = ''; S.code = code; draw();
     try {
-      const r = await api.snappVerify(S.phone, code);
-      if (r.status === 'captcha') { S.step = 'captcha'; S.captcha = r.captcha; S.wrongCaptcha = Boolean(r.wrong); }
-      else { store.setSnappSession(r.session, r.phoneHint); S.step = 'phone'; S.phone = ''; S.message = 'حساب اسنپ شما وصل شد.'; onLinked(); }
-    } catch (e) { S.message = errorText(e); }
+      const r = await api.snappVerify(S.phone, code, captcha);
+      if (r.status === 'captcha') { S.step = 'captcha'; S.captchaFor = 'verify'; S.captcha = r.captcha; S.wrongCaptcha = Boolean(r.wrong); }
+      else { store.setSnappSession(r.session, r.phoneHint); S.step = 'phone'; S.phone = ''; S.code = ''; S.captcha = null; S.message = 'حساب اسنپ شما وصل شد.'; onLinked(); }
+    } catch (e) {
+      S.message = errorText(e);
+      if (S.step === 'captcha') S.step = 'code';               // a wrong code is typed again on the code screen
+    }
     S.busy = false; draw();
   }
 
@@ -56,11 +61,15 @@ export function createSnappLinkCard({ api, store, onLinked = () => {} }) {
         kids.push(phone, h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn', disabled: S.busy ? 'true' : null, onClick: () => { S.phone = phone.value.trim(); sendCode(); } }, 'دریافت کد پیامک')));
       } else if (S.step === 'captcha') {
         const answer = field({ type: 'text', inputmode: S.captcha?.type === 'numeric' ? 'numeric' : 'text', maxlength: '8', 'aria-label': 'پاسخ تصویر امنیتی اسنپ' });
-        kids.push(h('p', { class: 'fd-note', text: S.wrongCaptcha ? 'پاسخ تصویر درست نبود؛ تصویر تازه را بنویسید.' : 'اسنپ پیش از فرستادن کد، یک تصویر امنیتی خواسته است:' }),
+        const forCode = S.captchaFor === 'verify';
+        kids.push(h('p', { class: 'fd-note', text: S.wrongCaptcha ? 'پاسخ تصویر درست نبود؛ تصویر تازه را بنویسید.' : forCode ? 'اسنپ برای تأیید کد، یک تصویر امنیتی خواسته است:' : 'اسنپ پیش از فرستادن کد، یک تصویر امنیتی خواسته است:' }),
           h('img', { class: 'snapp-link__captcha', src: S.captcha?.image ?? '', alt: 'تصویر امنیتی اسنپ', width: 150, height: 50 }),
           answer, h('div', { class: 'fd-actions' },
-            h('button', { type: 'button', class: 'cm-btn', disabled: S.busy ? 'true' : null, onClick: () => sendCode({ type: S.captcha.type, refId: S.captcha.refId, solution: answer.value.trim() }) }, 'ادامه'),
-            h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { S.step = 'phone'; draw(); } }, 'انصراف')));
+            h('button', { type: 'button', class: 'cm-btn', disabled: S.busy ? 'true' : null, onClick: () => {
+              const c = { type: S.captcha.type, refId: S.captcha.refId, solution: answer.value.trim() };
+              return forCode ? verify(S.code, c) : sendCode(c);
+            } }, forCode ? 'ورود به اسنپ' : 'ادامه'),
+            h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { S.step = forCode ? 'code' : 'phone'; S.captcha = null; draw(); } }, 'انصراف')));
       } else {
         const code = field({ type: 'text', inputmode: 'numeric', autocomplete: 'one-time-code', maxlength: '6', 'aria-label': 'کد پیامک اسنپ' });
         kids.push(code, h('div', { class: 'fd-actions' },
