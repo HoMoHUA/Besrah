@@ -122,7 +122,7 @@ export function createHomeView({ actions, api, store }) {
   }
 
   root.append(
-    h('div', { class: 'home-greeting' }, h('div', {}, h('p', { class: 'eyebrow', text: 'بِسراه · مشهد' }), h('h1', { text: 'امروز، کجا می روید؟' }))),
+    h('div', { class: 'home-greeting' }, h('div', {}, h('p', { class: 'eyebrow', text: 'بِسراه' }), h('h1', { text: 'سلام! امروز چه برنامه‌ای دارید؟' }))),
     liveHost,
     h('button', { type: 'button', class: 'rt-card', 'aria-label': 'مقصد را انتخاب کنید؛ مبدأ موقعیت فعلی شماست', onClick: () => actions.go('trip', { focus: 'to' }) },
       art,

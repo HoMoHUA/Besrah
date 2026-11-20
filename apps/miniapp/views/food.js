@@ -179,11 +179,19 @@ export function createFoodView(ctx) {
       weeklyPlan());
   }
 
+  // Provider pictures (2026-11 rescan): Core passes them only from the providers' own image hosts. Lazy, no referrer,
+  // fixed size so a slow picture never moves the text; a broken one simply disappears.
+  const picture = (src, cls, size) => (typeof src === 'string' && /^https:\/\/(cdn\.snappfood\.ir|cdn\.tapsi\.food)\//.test(src)
+    ? h('img', { class: cls, src, alt: '', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer', width: size, height: size, onError: e => e?.target?.remove?.() }) : null);
+  const thumb = src => picture(src, 'fd-thumb', 44);
+  const logoImg = (src, extra) => picture(src, ['fd-logo', extra].filter(Boolean).join(' '), extra ? 56 : 40);
+
   function vendorCard(v) {
     const open = v.openSnapshot;
     const openText = open.value === 'unknown' ? 'وضعیت باز بودن نامشخص' : `${open.value === 'open' ? 'باز' : 'بسته'} در زمان ثبت (${dayLabel(open.capturedAt)})`;
     return h('article', { class: 'fd-card cm-card', dataset: { id: v.id } },
       h('header', { class: 'fd-card__head' },
+        logoImg(v.logo),
         h('div', { class: 'fd-card__title' }, h('h3', { text: v.name + (v.branch ? ` · ${v.branch}` : '') }), h('p', { class: 'fd-card__sub', text: v.verticalLabel ? `${v.verticalLabel} · ${v.category || 'نوع ثبت‌شده نامعلوم'}` : v.category })),
         h('span', { class: 'cm-badge', text: PROVIDERS[v.provider] })),
       h('p', { class: 'fd-card__meta' },
@@ -192,7 +200,7 @@ export function createFoodView(ctx) {
         h('span', { text: v.minOrderState === 'known' ? `حداقل سفارش ${toman(v.minOrderToman)}` : 'حداقل سفارش نامشخص' })),
       S.decision?.byVendor?.[v.id]?.label ? h('p', { class: 'fd-note', text: S.decision.byVendor[v.id].label + '؛ فقط قیمت قلم، بدون هزینه ارسال.' }) : null,
       h('p', { class: ['fd-card__open', `is-${open.value}`], text: openText }),
-      v.matched.length ? h('ul', { class: 'fd-items' }, v.matched.map(it => h('li', { class: 'fd-item' }, h('span', { class: 'fd-item__name', text: it.name + (it.variation && it.variation !== it.name ? ` · ${it.variation}` : '') }), priceLine(it)))) : h('p', { class: 'fd-card__sub', text: 'منو در دادهٔ ثبت شده خالی است.' }),
+      v.matched.length ? h('ul', { class: 'fd-items' }, v.matched.map(it => h('li', { class: ['fd-item', it.image && 'fd-item--pic'] }, thumb(it.image), h('span', { class: 'fd-item__name', text: it.name + (it.variation && it.variation !== it.name ? ` · ${it.variation}` : '') }), priceLine(it)))) : h('p', { class: 'fd-card__sub', text: 'منو در دادهٔ ثبت شده خالی است.' }),
       v.matchedCount > v.matched.length ? h('p', { class: 'fd-card__sub', text: `و ${fa(v.matchedCount - v.matched.length)} قلم دیگر در منو` }) : null,
       h('div', { class: 'fd-actions' },
         h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => openVendor(v.id) }, v.vertical && !['restaurant','fast_food','cafe'].includes(v.vertical) ? 'محصولات و جزئیات' : 'منو و جزئیات'),
@@ -257,7 +265,7 @@ export function createFoodView(ctx) {
       statusPanel(v),
       h('button', { type: 'button', class: 'cm-btn fd-order', onClick: () => openPlatformVendor(v.provider, v.orderCode, v.orderUrl, v.vertical) }, `${v.vertical && !['restaurant','fast_food','cafe'].includes(v.vertical) ? 'مشاهدهٔ محصولات در' : 'سفارش در'} ${PROVIDERS[v.provider]}`),
       v.itemCount ? filter : null,
-      groups.length ? groups.map(g => h('section', { class: 'fd-menu' }, h('h3', { text: g.category }), h('ul', { class: 'fd-items' }, g.items.map(it => h('li', { class: 'fd-item' }, h('span', { class: 'fd-item__name', text: it.name + (it.variation && it.variation !== it.name ? ` · ${it.variation}` : '') }), priceLine(it))))))
+      groups.length ? groups.map(g => h('section', { class: 'fd-menu' }, h('h3', { text: g.category }), h('ul', { class: 'fd-items' }, g.items.map(it => h('li', { class: ['fd-item', it.image && 'fd-item--pic'] }, thumb(it.image), h('span', { class: 'fd-item__name', text: it.name + (it.variation && it.variation !== it.name ? ` · ${it.variation}` : '') }), priceLine(it))))))
         : h('div', { class: 'empty-state' }, h('p', { text: v.itemCount ? 'موردی با این نام در منو نیست.' : 'منو در دادهٔ ثبت شده خالی است؛ منو را در پلتفرم ببینید.' })),
       v.truncated ? h('p', { class: 'fd-note', text: `فقط ${fa(400)} قلم اول از ${fa(v.itemCount)} قلم نمایش داده شد؛ منوی کامل را در پلتفرم ببینید.` }) : null);
   }

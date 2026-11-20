@@ -6,6 +6,7 @@ import { fa } from '../format.js';
 import { sanitizePrefs } from '../store.js';
 import { createReminders } from '../reminders.js';
 import { createSnappLinkCard } from '../ui/snapp-link.js';
+import { createSnappPayLinkCard } from '../ui/snapppay-link.js';
 
 const WALK = [5, 10, 15, 20, 30];
 const PRIORITY = [['time', 'زمان رسیدن'], ['walk', 'پیاده روی کمتر'], ['balanced', 'هر دو'], ['cost', 'هزینه']];
@@ -27,6 +28,7 @@ export function createProfileView(ctx) {
   const el = h('div', { class: 'view view--profile', dataset: { view: 'profile' } });
   // Snapp login lives in its own card so a redraw of the profile never loses a half-typed number or code.
   const snappCard = typeof api?.snappOtp === 'function' && typeof store?.snappLink === 'function' ? createSnappLinkCard({ api, store }) : null;
+  const snappPayCard = typeof api?.snappPayLogin === 'function' && typeof store?.snappPayLink === 'function' ? createSnappPayLinkCard({ api, store }) : null;
   const body = h('div', { class: 'pf-body' });
   const tgInitData = () => { try { return globalThis.window?.Telegram?.WebApp?.initData || ''; } catch { return ''; } };
   const synced = () => S.session?.authenticated && S.session.consents?.sync_preferences?.status === 'granted';
@@ -223,7 +225,7 @@ export function createProfileView(ctx) {
   }
 
   function draw() {
-    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), snappCard?.el ?? null, reminderCard(), codeCard(), prefsCard(), savedCard(), privacyCard()].filter(Boolean));
+    body.replaceChildren(...[S.message ? h('p', { class: 'tp-status', role: 'status', text: S.message }) : null, accountCard(), snappCard?.el ?? null, snappPayCard?.el ?? null, reminderCard(), codeCard(), prefsCard(), savedCard(), privacyCard()].filter(Boolean));
   }
   el.append(h('header', { class: 'view__head' }, h('p', { class: 'eyebrow', text: 'PROFILE' }), h('h1', { class: 'view__title', text: 'پروفایل' }), h('p', { class: 'view__sub', text: 'ترجیحات و حساب شما؛ همه چیز اختیاری است.' })), body);
   draw();

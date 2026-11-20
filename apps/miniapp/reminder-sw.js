@@ -16,7 +16,7 @@ const SHELL = ['./', 'offline.html', 'offline.css', 'manifest.webmanifest', 'the
   'api.js', 'format.js', 'route.js', 'hero.js', 'services.js', 'journey.js', 'bus-data.js', 'bus-paths.js', 'bus-sources.js',
   'ui/dom.js', 'ui/hm7.js', 'ui/searchbox.js', 'ui/sheet.js', 'ui/board.js', 'ui/planner.js', 'ui/station.js',
   'ui/carousel.js', 'ui/service-search.js', 'ui/segmented.js', 'ui/service-card.js', 'ui/ride-tabs.js', 'ui/tracker.js',
-  'ui/rotating-placeholder.js', 'ui/snapp-link.js', 'snapp-search.js', 'snapp-device.js',
+  'ui/rotating-placeholder.js', 'ui/snapp-link.js', 'snapp-search.js', 'snapp-device.js', 'snapppay.js', 'ui/snapppay-link.js', 'ui/snapppay-cards.js',
   'views/home.js', 'views/stations.js', 'views/services.js', 'views/favourites.js', 'views/about.js', 'views/metro.js',
   'views/bus.js', 'views/food.js', 'views/trip.js', 'views/shop.js', 'views/profile.js', 'views/settings.js',
   'views/saved.js',

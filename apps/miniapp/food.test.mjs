@@ -169,3 +169,13 @@ test('no stated budget means no budget: nothing is inferred', async t => {
   view.onShow(); await flushView();
   assert.doesNotMatch(search(requests)[0].url, /maxPrice/);
 });
+test('pictures: the vendor logo and item thumbnails appear when Core gives them, only from the providers’ hosts; none when absent', async t => {
+  const pic = 'https://cdn.snappfood.ir/200x201/cdn/34/49/4/product_image/zoodfood/b.jpeg', logo = 'https://cdn.tapsi.food/chef/bl-images/e08e.webp';
+  const { view } = setup(t, {}, async url => (url.startsWith('api/food/search') ? new Response(JSON.stringify(reply([
+    vendor('t:pic', 'پیتزا عکس‌دار', { logo, matched: [{ name: 'پیتزا مخصوص', variation: null, category: 'پیتزا', priceToman: 250000, finalPriceToman: 250000, discounted: false, priceState: 'known', image: pic },
+      { name: 'پیتزا قارچ', variation: null, category: 'پیتزا', priceToman: 200000, finalPriceToman: 200000, discounted: false, priceState: 'known', image: 'https://evil.example/x.jpg' }], matchedCount: 2 }),
+    vendor('t:plain', 'پیتزا ساده')]))) : null));
+  view.onShow(); await flushView(); await flushView();
+  const imgs = findAll(view.el, n => n.tagName === 'img').map(n => [n.getAttribute('src'), n.getAttribute('loading'), n.getAttribute('referrerpolicy')]);
+  assert.deepEqual(imgs, [[logo, 'lazy', 'no-referrer'], [pic, 'lazy', 'no-referrer']], 'only provider-host pictures, lazy, no referrer');
+});

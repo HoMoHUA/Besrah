@@ -1,7 +1,7 @@
 // Same-origin API client. URLs stay relative so the app works at any mount (public host root -> /app/).
 import { linkedTimeout } from './async.js';
 import { validAskResult } from './ask.js';
-import { validSnappSession } from './store.js';
+import { validSnappSession, validSnappPaySession } from './store.js';
 
 const isDate = value => {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
@@ -72,7 +72,15 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
     if (!response.ok) {
       const failure = new ApiError(response.status === 422 ? 'outside_coverage' : response.status === 429 ? 'rate_limited' : response.status === 401 ? 'unauthenticated' : response.status === 403 ? 'forbidden' : response.status === 409 ? 'conflict' : 'server');
       failure.status = response.status;
-      try { const body = await response.json(); if (typeof body?.error === 'string') failure.reason = body.error; if (Number.isInteger(body?.version)) failure.version = body.version; } catch { /* no body */ }
+      try {
+        const body = await response.json();
+        if (typeof body?.error === 'string') failure.reason = body.error;
+        if (Number.isInteger(body?.version)) failure.version = body.version;
+        // Provider wording and waits (Snapp Pay's own Persian message, seconds to wait, attempts left) when the server passes them on.
+        if (typeof body?.message === 'string') failure.providerMessage = body.message.slice(0, 200);
+        if (Number.isFinite(body?.retryAfterS)) failure.retryAfterS = body.retryAfterS;
+        if (Number.isInteger(body?.remaining)) failure.remaining = body.remaining;
+      } catch { /* no body */ }
       throw failure;
     }
     try { return await response.json(); } catch { throw new ApiError('server'); }
@@ -229,6 +237,33 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       const data = await post('api/snapp/price', { from, to, ...(session ? { session } : {}) }, signal);
       if (data?.schemaVersion !== 1 || !Array.isArray(data.services) || (data.session && !validSnappSession(data.session))) throw new ApiError('server');
       return data;
+    },
+    // Snapp Pay (F6). Only the SSO login and the token refresh pass through Besrah's server (Snapp Pay closes them to other
+    // sites); the session comes back to this device. Account, search and in-store map go from the device (snapppay.js).
+    async snappPayLogin(phone, signal) {
+      const data = await post('api/snapppay/login', { phone }, signal);
+      if (data?.status === 'sent' && typeof data.loginId === 'string') return data;
+      throw new ApiError('server');
+    },
+    async snappPayResend(loginId, signal) {
+      const data = await post('api/snapppay/resend', { loginId }, signal);
+      if (data?.status === 'sent') return data;
+      throw new ApiError('server');
+    },
+    async snappPayVerify(loginId, code, signal) {
+      const data = await post('api/snapppay/verify', { loginId, code }, signal);
+      if (data?.status === 'linked' && validSnappPaySession(data.session)) return data;
+      throw new ApiError('server');
+    },
+    async snappPayRefresh(refresh, signal) {
+      const data = await post('api/snapppay/refresh', { refresh }, signal);
+      if (data?.status === 'ok' && validSnappPaySession(data.session)) return data.session;
+      throw new ApiError('server');
+    },
+    async geoCells(lat, lon, resolution = 7, ring = 1, signal) {
+      const data = await post('api/geo/h3', { lat, lon, resolution, ring }, signal);
+      if (Array.isArray(data?.cells) && data.cells.every(c => /^[0-9a-f]{15}$/.test(c))) return data;
+      throw new ApiError('server');
     },
     async busGuide(signal) {
       const data = await get('assets/bus-guide.json', signal);

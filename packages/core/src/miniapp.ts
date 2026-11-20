@@ -63,8 +63,11 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
   ['/app/search.js', 'search.js'],
   ['/app/ask.js', 'ask.js'],
   ['/app/ui/snapp-link.js', 'ui/snapp-link.js'],
+  ['/app/ui/snapppay-link.js', 'ui/snapppay-link.js'],
+  ['/app/ui/snapppay-cards.js', 'ui/snapppay-cards.js'],
   ['/app/snapp-search.js', 'snapp-search.js'],
   ['/app/snapp-device.js', 'snapp-device.js'],
+  ['/app/snapppay.js', 'snapppay.js'],
   ['/app/store.js', 'store.js'],
   ['/app/async.js', 'async.js'],
   ['/app/api.js', 'api.js'],
@@ -108,7 +111,10 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
 // img-src allows data: for one measured reason: the vendored HM7 runtime builds its dissolve / sweep masks at run
 // time (canvas.toDataURL -> CSS mask-image: url(data:...)), e.g. when a toast dissolves. Nothing else is relaxed:
 // scripts and styles stay 'self' only (no 'unsafe-inline', no 'unsafe-eval').
-export const MINIAPP_CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
+// F6 (Snapp Pay): the person's device asks Snapp Pay itself with their own session (account, search, in-store map), so
+// connect-src names exactly app.snapppay.ir; product pictures and shop logos come from Snapp Pay's two image hosts,
+// and Besfood's item pictures and vendor logos from Snappfood's and Tapsi Food's own image hosts (2026-11 rescan).
+export const MINIAPP_CSP = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://image.searchwise.ir https://web-cdn.snapp.ir https://cdn.snappfood.ir https://cdn.tapsi.food; connect-src 'self' https://app.snapppay.ir; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors https://web.telegram.org https://*.telegram.org";
 
 interface Loaded { body: Buffer; etag: string; mtimeMs: number; size: number }
 const cache = new Map<string, Loaded>();

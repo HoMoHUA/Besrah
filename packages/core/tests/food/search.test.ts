@@ -181,3 +181,23 @@ describe('routes', () => {
     expect((await broken.inject({ method: 'GET', url: '/app/api/next?station=' + encodeURIComponent('هفت‌تیر') + '&line=1' })).statusCode).toBe(200);
   });
 });
+
+describe('pictures from the 2026-11 rescan', () => {
+  it('passes on item thumbnails and the vendor logo only from the two providers’ image hosts; old indexes stay picture-less', () => {
+    const idx = parseFoodIndex(gzipSync(Buffer.from(JSON.stringify({ v: 1, capturedFrom: CAP, capturedTo: CAP, vendors: [
+      vendor('s:pic', 'پیتزا عکس‌دار', { lg: 'https://cdn.snappfood.ir/media/cache/vendor_logo/uploads/images/vendors/logos/a.jpg', i: [
+        ['پیتزا مخصوص', '', 250000, null, 'پیتزا', 'https://cdn.snappfood.ir/200x201/cdn/34/49/4/product_image/zoodfood/b.jpeg'],
+        ['پیتزا قارچ', '', 200000, null, 'پیتزا', 'https://evil.example/x.jpg'],
+        ['پیتزا ساده', '', 150000, null, 'پیتزا']] }),
+      vendor('t:pic', 'کباب عکس‌دار', { lg: 'javascript:alert(1)', i: [['کباب کوبیده', '', 300000, null, 'کباب', 'https://cdn.tapsi.food/vendor/product/513x65/c.jpg']] }),
+    ]}))));
+    const r = searchFood(idx, { q: 'پیتزا' }, NOW);
+    const v = r.vendors.find(x => x.id === 's:pic')!;
+    expect(v.logo).toBe('https://cdn.snappfood.ir/media/cache/vendor_logo/uploads/images/vendors/logos/a.jpg');
+    expect(Object.fromEntries(v.matched.map(i => [i.name, i.image]))).toEqual({ 'پیتزا مخصوص': 'https://cdn.snappfood.ir/200x201/cdn/34/49/4/product_image/zoodfood/b.jpeg', 'پیتزا قارچ': null, 'پیتزا ساده': null });
+    const t = searchFood(idx, { q: 'کباب' }, NOW).vendors.find(x => x.id === 't:pic')!;
+    expect(t.logo).toBeNull();
+    expect(t.matched[0]!.image).toBe('https://cdn.tapsi.food/vendor/product/513x65/c.jpg');
+    expect(searchFood(fixture(), { q: 'پیتزا' }, NOW).vendors.every(x => x.logo === null && x.matched.every(i => i.image === null))).toBe(true);
+  });
+});

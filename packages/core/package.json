@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "fastify": "^5.12.7",
+    "h3-js": "^4.5.0",
     "ipaddr.js": "^2.5.0",
     "web-push": "^3.6.7"
   }

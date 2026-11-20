@@ -1,7 +1,7 @@
 // Device-local preferences. Only station NAMES and display preferences are kept — never coordinates.
 // The storage object is injected so the module is testable and survives blocked/full storage.
 export const KEYS = Object.freeze({
-  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1', activeTrip: 'besrah:active-trip:v1', snapp: 'besrah:snapp-session:v1',
+  recents: 'besrah:recents', favs: 'besrah:favs', last: 'besrah:last', theme: 'besrah:theme', prefs: 'besrah:prefs', suggest: 'besrah:suggest-location', choices: 'besrah:explicit-saves:v1', mealPlan: 'besrah:meal-plan:v1', dismissed: 'besrah:dismissed-suggestions:v1', activeTrip: 'besrah:active-trip:v1', snapp: 'besrah:snapp-session:v1', snappPay: 'besrah:snapppay-session:v1',
 });
 const MAX_NAME = 64;
 const THEMES = ['auto', 'light', 'dark'];
@@ -78,6 +78,10 @@ export function sanitizeMealPlanEntry(input) {
 // sent only with Snapp price requests and removed by «قطع اتصال».
 export const validSnappSession = s => Boolean(s) && typeof s.access === 'string' && typeof s.refresh === 'string' && typeof s.deviceId === 'string'
   && s.access.length > 20 && s.access.length < 4096 && s.refresh.length > 10 && s.refresh.length < 2048 && /^[0-9a-f-]{36}$/i.test(s.deviceId);
+// A Snapp Pay session the person created by logging in to their own Snapp Pay inside Besrah (F6). It stays on this device;
+// the device itself asks Snapp Pay for the account summary, search and in-store shops with it. «قطع اتصال» removes it.
+export const validSnappPaySession = s => Boolean(s) && typeof s.access === 'string' && typeof s.refresh === 'string'
+  && s.access.length > 20 && s.access.length < 8192 && s.refresh.length > 10 && s.refresh.length < 4096 && (s.expAt === null || Number.isFinite(s.expAt));
 export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}) {
   const listeners = new Set();
   const read = key => { try { return storage?.getItem(key) ?? null; } catch { return null; } };
@@ -152,9 +156,18 @@ export function createStore(storage, { maxRecents = 6, maxFavourites = 24 } = {}
     emit(key);
   };
 
-  let snapp = null;
+  let snapp = null, snappPay = null;
+  try { const v = JSON.parse(read(KEYS.snappPay)); if (v && validSnappPaySession(v.session) && /^\d{4}$/.test(v.phoneHint ?? '')) snappPay = { session: v.session, phoneHint: v.phoneHint, since: Number(v.since) || null }; } catch { snappPay = null; }
   try { const v = JSON.parse(read(KEYS.snapp)); if (v && validSnappSession(v.session) && /^\d{4}$/.test(v.phoneHint ?? '')) snapp = { session: v.session, phoneHint: v.phoneHint, since: Number(v.since) || null }; } catch { snapp = null; }
   return {
+    snappPayLink: () => (snappPay ? { phoneHint: snappPay.phoneHint, since: snappPay.since } : null),
+    snappPaySession: () => snappPay?.session ?? null,
+    setSnappPaySession(session, phoneHint) {
+      if (session === null) { snappPay = null; try { storage?.removeItem(KEYS.snappPay); } catch { /* ignore */ } emit('snappPay'); return; }
+      if (!validSnappPaySession(session)) return;
+      snappPay = { session, phoneHint: /^\d{4}$/.test(phoneHint ?? '') ? phoneHint : (snappPay?.phoneHint ?? '0000'), since: snappPay?.since ?? Date.now() };
+      write(KEYS.snappPay, JSON.stringify(snappPay)); emit('snappPay');
+    },
     snappLink: () => (snapp ? { phoneHint: snapp.phoneHint, since: snapp.since } : null),
     snappSession: () => snapp?.session ?? null,
     setSnappSession(session, phoneHint) {

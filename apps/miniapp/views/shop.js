@@ -3,6 +3,8 @@
 // warranty/colour differences stay unknown, and a seller with several different prices is shown unresolved instead of guessed.
 import { h, backButton, backLink } from '../ui/dom.js';
 import { fa } from '../format.js';
+import { createSnappPayLinkCard, snappPayAccountBlock, snappPayErrorText } from '../ui/snapppay-link.js';
+import { productCard as spayProductCard, storeChip, branchCard } from '../ui/snapppay-cards.js';
 
 const BUDGETS = [null, 500000, 1000000, 2000000, 5000000];
 const QUICK = ['هدفون', 'ساعت هوشمند', 'پاوربانک', 'اسپیکر', 'کیبورد'];
@@ -31,16 +33,78 @@ export function priceRange(p) {
 }
 
 export function createShopView(ctx) {
-  const { actions, api, store } = ctx;
-  const S = { fromProfile: false, q: '', budget: null, sort: 'relevance', status: 'idle', products: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null };
+  const { actions, api, store, snappPay } = ctx;
+  const S = { fromProfile: false, q: '', budget: null, sort: 'relevance', status: 'idle', products: [], total: 0, notes: [], snapshot: null, offset: 0, detail: null,
+    // F6: Snapp Pay search (the person's own account). mode: 'online' (searchwise products + shops), 'near' (in-store
+    // branches around the person), 'catalog' (the small curated price comparison). Linked people start on 'online'.
+    mode: null, spay: { status: 'idle', products: [], stores: [], hasNext: false, page: 1, sessionId: null, corrected: null, message: '' },
+    near: { status: 'idle', at: null, items: [], message: '' }, acct: { status: 'idle', data: null } };
+  const linked = () => Boolean(snappPay?.linked?.());
+  const mode = () => S.mode ?? (linked() ? 'online' : 'catalog');
+  const acctBox = h('div', { class: 'spay-acct-box' });
+  const linkCard = snappPay && typeof api?.snappPayLogin === 'function' ? createSnappPayLinkCard({ api, store, compact: true, onLinked: () => { S.mode = 'online'; loadAccount(); if (S.q.trim()) run(true); else draw(); } }) : null;
   let timer = 0, controller = null;
   const el = h('div', { class: 'view view--shop', dataset: { view: 'shop' } });
   const body = h('div', { class: 'fd-body' });
   const searchBox = h('div', { class: 'fd-search' });
   const input = h('input', { class: 'fd-input', type: 'search', inputmode: 'search', enterkeyhint: 'search', autocomplete: 'off', placeholder: 'چه کالایی؟ مثلاً هدفون', 'aria-label': 'جست وجوی کالا' });
   searchBox.append(input);
-  input.addEventListener('input', () => { S.q = input.value; clearTimeout(timer); timer = setTimeout(() => run(true), DEBOUNCE_MS); });
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') run(true); });
+  input.addEventListener('input', () => { S.q = input.value; clearTimeout(timer); timer = setTimeout(() => runCurrent(true), mode() === 'catalog' ? DEBOUNCE_MS : 600); });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') runCurrent(true); });
+
+  async function loadAccount() {
+    if (!linked()) { S.acct = { status: 'idle', data: null }; drawAccount(); return; }
+    S.acct = { status: 'loading', data: S.acct.data }; drawAccount();
+    try { S.acct = { status: 'ok', data: await snappPay.account() }; }
+    catch (e) { S.acct = { status: e?.kind === 'unauthenticated' ? 'unauthenticated' : 'error', data: null }; }
+    drawAccount();
+  }
+  function drawAccount() {
+    if (!snappPay) { acctBox.replaceChildren(h('div', { class: 'pay-soon', role: 'note' }, h('b', { text: 'پرداخت و کیف پول' }), h('span', { class: 'cm-badge', text: 'به زودی' }))); return; }
+    acctBox.replaceChildren(linked() ? snappPayAccountBlock(S.acct.data, { status: S.acct.status === 'idle' ? 'loading' : S.acct.status, onRetry: loadAccount }) : (linkCard?.draw(), linkCard?.el ?? null));
+  }
+  async function runSnappPay(reset) {
+    clearTimeout(timer); controller?.abort(); controller = new AbortController();
+    const mine = controller, q = S.q.trim();
+    if (!q) { S.spay = { ...S.spay, status: 'idle', products: [], stores: [] }; draw(); return; }
+    const page = reset ? 1 : S.spay.page + 1;
+    S.spay = reset ? { status: 'loading', products: [], stores: [], hasNext: false, page: 1, sessionId: null, corrected: null, message: '' } : { ...S.spay, status: 'more' };
+    draw();
+    try {
+      const r = await snappPay.search(q, { page, sessionId: reset ? null : S.spay.sessionId, maxToman: S.budget ?? undefined }, mine.signal);
+      if (mine !== controller) return;
+      S.spay = { status: 'ok', products: reset ? r.products : S.spay.products.concat(r.products), stores: reset ? r.stores : S.spay.stores, hasNext: r.hasNext, page, sessionId: r.sessionId, corrected: r.corrected, message: '' };
+    } catch (e) {
+      if (mine !== controller || e?.kind === 'aborted') return;
+      if (e?.kind === 'unauthenticated') { S.mode = 'catalog'; loadAccount(); }
+      S.spay = { ...S.spay, status: 'error', message: e?.kind === 'unauthenticated' ? 'اتصال اسنپ‌پی منقضی شد؛ دوباره وارد شوید.' : 'جست‌وجوی اسنپ‌پی انجام نشد؛ اتصال را بررسی کنید.' };
+    }
+    draw();
+  }
+  // In-store shops near the person: the position is read only when they tap «فروشگاه‌های حضوری نزدیک من» (D1).
+  async function locateAndRunNear() {
+    if (!globalThis.navigator?.geolocation) { S.near = { ...S.near, status: 'error', message: 'این دستگاه موقعیت را نمی‌دهد.' }; draw(); return; }
+    S.near = { ...S.near, status: 'locating', message: '' }; draw();
+    navigator.geolocation.getCurrentPosition(p => { S.near.at = { lat: Math.round(p.coords.latitude * 1e5) / 1e5, lon: Math.round(p.coords.longitude * 1e5) / 1e5 }; runNear(); },
+      () => { S.near = { ...S.near, status: 'error', message: 'موقعیت خوانده نشد؛ اجازهٔ موقعیت را بدهید و دوباره بزنید.' }; draw(); }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+  }
+  async function runNear() {
+    clearTimeout(timer); controller?.abort(); controller = new AbortController();
+    const mine = controller, q = S.q.trim();
+    if (!S.near.at) { S.near = { ...S.near, status: 'idle' }; draw(); return; }
+    S.near = { ...S.near, status: 'loading', items: [] }; draw();
+    try {
+      const items = q ? await snappPay.instore(q, S.near.at, mine.signal) : (await snappPay.nearby(S.near.at, {}, mine.signal)).branches;
+      if (mine !== controller) return;
+      S.near = { ...S.near, status: 'ok', items };
+    } catch (e) {
+      if (mine !== controller || e?.kind === 'aborted') return;
+      if (e?.kind === 'unauthenticated') { S.mode = 'catalog'; loadAccount(); }
+      S.near = { ...S.near, status: 'error', message: e?.kind === 'unauthenticated' ? 'اتصال اسنپ‌پی منقضی شد؛ دوباره وارد شوید.' : 'فروشگاه‌های حضوری الان دریافت نشد.' };
+    }
+    draw();
+  }
+  const runCurrent = reset => (mode() === 'online' ? runSnappPay(reset) : mode() === 'near' ? runNear() : run(reset));
 
   async function run(reset) {
     clearTimeout(timer); controller?.abort(); controller = new AbortController();
@@ -134,23 +198,75 @@ export function createShopView(ctx) {
       h('ul', { class: 'fd-notes' }, p.notes.map(t => h('li', { text: t }))));
   }
 
-  function draw() { searchBox.hidden = Boolean(S.detail); body.replaceChildren(...(S.detail ? [detailView()] : [controls(), results()])); }
+  // F6: where to search. Without a linked Snapp Pay the first two say how to link; the curated catalog always works.
+  function modeChips() {
+    if (!snappPay) return null;
+    return h('div', { class: 'fd-scroll spay-modes', role: 'group', 'aria-label': 'جست‌وجو در' }, [['online', 'اسنپ‌پی آنلاین'], ['near', 'حضوری نزدیک من'], ['catalog', 'کالاهای منتخب']]
+      .map(([k, label]) => chip(label, mode() === k, () => { S.mode = k; if (k === 'near' && !S.near.at) draw(); else runCurrent(true); })));
+  }
+  const linkPrompt = () => h('div', { class: 'empty-state' }, h('p', { text: 'برای جست‌وجو در اسنپ‌پی، بالای همین صفحه وارد حساب اسنپ‌پی خودتان شوید.' }));
+  const skeleton = label => h('div', { class: 'fd-skeleton', 'aria-busy': 'true', 'aria-label': label }, [0, 1, 2].map(() => h('div', { class: 'cm-skel fd-skeleton__card' })));
+  function spayResults() {
+    if (!linked()) return linkPrompt();
+    const sp = S.spay;
+    if (!S.q.trim()) return h('div', { class: 'empty-state' }, h('p', { text: 'نام کالا را بنویسید؛ مثلاً «کفش ورزشی» یا «ساعت». نتیجه از جست‌وجوی خود اسنپ‌پی می‌آید.' }));
+    if (sp.status === 'loading') return skeleton('در حال جست‌وجو در اسنپ‌پی');
+    if (sp.status === 'error') return h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: sp.message }), h('button', { type: 'button', class: 'cm-btn', onClick: () => runSnappPay(true) }, 'تلاش دوباره'));
+    if (!sp.products.length && !sp.stores.length) return h('div', { class: 'empty-state' }, h('p', { text: 'در اسنپ‌پی چیزی پیدا نشد؛ عبارت دیگری بنویسید.' }));
+    return h('div', { class: 'fd-results' },
+      sp.corrected ? h('p', { class: 'fd-note', text: `نتیجه برای «${sp.corrected}»` }) : null,
+      sp.stores.length ? h('div', { class: 'spay-stores' }, h('h3', { class: 'spay-subhead', text: 'فروشگاه‌ها' }), h('div', { class: 'fd-scroll' }, sp.stores.slice(0, 12).map(st => storeChip(st, { openLink })))) : null,
+      ...sp.products.map(pr => spayProductCard(pr, { openLink })),
+      sp.hasNext ? h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'fd-more'], disabled: sp.status === 'more' ? 'true' : null, onClick: () => runSnappPay(false) }, sp.status === 'more' ? 'در حال دریافت…' : 'نمایش بیشتر') : null,
+      h('p', { class: 'fd-note', text: 'قیمت‌ها از اسنپ‌پی، همین لحظه. خرید در سایت خود فروشگاه انجام می‌شود و قسط اول خرید آنلاین در درگاه همان فروشگاه پرداخت می‌شود.' }));
+  }
+  // «مسیر» opens the trip planner with the branch as destination (the planner covers Mashhad today).
+  const canRoute = w => w.lat >= 35.9 && w.lat <= 36.7 && w.lon >= 59.0 && w.lon <= 60.2;
+  const onRoute = (w, b) => actions.go?.('trip', { to: { lat: w.lat, lon: w.lon, name: [b.name, w.branch].filter(Boolean).join('، ').slice(0, 80) } });
+  function nearResults() {
+    if (!linked()) return linkPrompt();
+    const n = S.near;
+    const locate = h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn', disabled: n.status === 'locating' || n.status === 'loading' ? 'true' : null, onClick: locateAndRunNear }, n.at ? 'به‌روزرسانی موقعیت' : 'فروشگاه‌های حضوری نزدیک من'));
+    if (n.status === 'locating') return h('div', null, locate, h('p', { class: 'tp-status', role: 'status', text: 'در حال خواندن موقعیت…' }));
+    if (!n.at) return h('div', { class: 'empty-state' }, h('p', { text: 'خرید حضوری با اسنپ‌پی پیش‌پرداخت ندارد؛ بارکد پرداخت را به صندوقدار نشان می‌دهید. برای دیدن نزدیک‌ترین فروشگاه‌ها موقعیت‌تان را بدهید؛ موقعیت فقط برای همین جست‌وجو خوانده می‌شود.' }), n.message ? h('p', { class: 'fd-note', role: 'status', text: n.message }) : null, locate);
+    if (n.status === 'loading') return h('div', null, locate, skeleton('در حال یافتن فروشگاه‌های حضوری'));
+    if (n.status === 'error') return h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: n.message }), locate);
+    if (!n.items.length) return h('div', null, locate, h('div', { class: 'empty-state' }, h('p', { text: S.q.trim() ? `فروشگاه حضوری «${S.q.trim()}» در اسنپ‌پی پیدا نشد.` : 'فروشگاه حضوری‌ای در این اطراف پیدا نشد.' })));
+    return h('div', { class: 'fd-results' }, locate,
+      h('p', { class: 'fd-count', role: 'status', text: S.q.trim() ? `فروشگاه‌های حضوری «${S.q.trim()}»، نزدیک‌ترین شعبه به شما` : `${fa(n.items.length)} شعبهٔ حضوری نزدیک شما` }),
+      ...n.items.map(b => branchCard(b, { onRoute, canRoute })));
+  }
+
+  function draw() {
+    searchBox.hidden = Boolean(S.detail);
+    const m = mode();
+    body.replaceChildren(...(S.detail ? [detailView()] : [modeChips(), m === 'catalog' ? controls() : null, m === 'catalog' ? results() : m === 'online' ? spayResults() : nearResults()].filter(Boolean)));
+  }
 
   el.append(h('header', { class: 'metro-head' },
     backButton('بازگشت', () => actions.back()),
     h('div', null, h('h1', null, 'بسخرید'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
-    h('div', { class: 'pay-soon', role: 'note' }, h('b', { text: 'بسپی · پرداخت و کیف پول' }), h('span', { class: 'cm-badge', text: 'به زودی' }), h('p', { text: 'پرداخت درون برنامه هنوز ساخته نشده و زمانی برایش اعلام نشده است. فعلاً قیمت ها را مقایسه کنید و خرید را در فروشگاه انجام دهید.' })),
-    searchBox, body);
+    acctBox, searchBox, body);
+  drawAccount();
   draw();
+  store?.subscribe?.(key => { if (key === 'snappPay') { if (!linked() && S.mode !== 'catalog') S.mode = null; loadAccount(); draw(); } });
   let started = false;
   return { el, onShow(options) {
-    let changed = false;
-    if (options?.q && options.q !== S.q) { S.q = options.q; input.value = options.q; changed = true; }
-    if (started) { if (changed) run(true); return; }
-    started = true;
-    // A budget the user stated in Profile is the starting point of the first search; it is announced and never inferred.
-    const stated = store?.prefs?.().shopBudgetToman;
-    if (stated && BUDGETS.includes(stated)) { S.budget = stated; S.fromProfile = true; }
-    run(true);
+    // A hint from the header can preset the query or a Profile-sized budget; each preset runs one search.
+    const hasQuery = typeof options?.q === 'string' && options.q !== S.q;
+    const hasBudget = options?.budget != null && BUDGETS.includes(options.budget) && options.budget !== S.budget;
+    if (hasQuery) { S.q = options.q; input.value = options.q; }
+    if (hasBudget) { S.budget = options.budget; S.fromProfile = true; }
+    if (hasQuery || hasBudget) S.detail = null;
+    if (!started) {
+      started = true;
+      if (linked()) loadAccount();
+      // A budget the user stated in Profile is the starting point of the first search; it is announced and never inferred.
+      const stated = store?.prefs?.().shopBudgetToman;
+      if (!hasBudget && stated && BUDGETS.includes(stated)) { S.budget = stated; S.fromProfile = true; }
+      runCurrent(true);
+      return;
+    }
+    if (hasQuery || hasBudget) runCurrent(true);
   }, onHide() { controller?.abort(); clearTimeout(timer); } };
 }
