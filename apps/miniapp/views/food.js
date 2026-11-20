@@ -195,7 +195,7 @@ export function createFoodView(ctx) {
         h('div', { class: 'fd-card__title' }, h('h3', { text: v.name + (v.branch ? ` · ${v.branch}` : '') }), h('p', { class: 'fd-card__sub', text: v.verticalLabel ? `${v.verticalLabel} · ${v.category || 'نوع ثبت‌شده نامعلوم'}` : v.category })),
         h('span', { class: 'cm-badge', text: PROVIDERS[v.provider] })),
       h('p', { class: 'fd-card__meta' },
-        v.rating ? h('span', { text: `امتیاز ${fa(v.rating)}` }) : null,
+        v.rating ? h('span', { text: `امتیاز ${fa(Math.round(v.rating * 10) / 10)}` }) : null,
         v.distanceM != null ? h('span', { text: distanceLabel(v.distanceM) }) : null,
         h('span', { text: v.minOrderState === 'known' ? `حداقل سفارش ${toman(v.minOrderToman)}` : 'حداقل سفارش نامشخص' })),
       S.decision?.byVendor?.[v.id]?.label ? h('p', { class: 'fd-note', text: S.decision.byVendor[v.id].label + '؛ فقط قیمت قلم، بدون هزینه ارسال.' }) : null,
@@ -259,7 +259,7 @@ export function createFoodView(ctx) {
     filter.addEventListener('input', () => { d.filter = filter.value; const caret = filter.value.length; draw(); const next = body.querySelector('.fd-detail .fd-input'); next?.focus?.(); next?.setSelectionRange?.(caret, caret); });
     return h('div', { class: 'fd-detail' }, back,
       h('header', { class: 'fd-detail__head' }, h('h2', { text: v.name + (v.branch ? ` · ${v.branch}` : '') }), h('p', { class: 'fd-card__sub', text: `${v.verticalLabel || v.category} · ${PROVIDERS[v.provider]}` }), v.address ? h('p', { class: 'fd-card__sub', text: v.address }) : null),
-      h('p', { class: 'fd-card__meta' }, v.rating ? h('span', { text: `امتیاز ${fa(v.rating)}` }) : null, v.distanceM != null ? h('span', { text: distanceLabel(v.distanceM) }) : null,
+      h('p', { class: 'fd-card__meta' }, v.rating ? h('span', { text: `امتیاز ${fa(Math.round(v.rating * 10) / 10)}` }) : null, v.distanceM != null ? h('span', { text: distanceLabel(v.distanceM) }) : null,
         h('span', { text: v.minOrderState === 'known' ? `حداقل سفارش ${toman(v.minOrderToman)}` : 'حداقل سفارش نامشخص' })),
       h('p', { class: 'fd-snapshot', text: `منو و قیمت ها آخرین ثبت: ${dayLabel(v.capturedAt)}. هزینهٔ ارسال، تخفیف روز و محدودهٔ ارسال را در پلتفرم ببینید.` }),
       statusPanel(v),
