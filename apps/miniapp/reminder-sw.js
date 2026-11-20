@@ -1,13 +1,32 @@
 // Besrah service worker (one worker for the whole app scope).
 // 1. Offline app shell: same-origin static files (HTML, CSS, JS, fonts, icons, static JSON assets) are fetched from the
-//    network first and the cache is refreshed on every success, so the app always follows the live site; only when the
-//    network fails or is too slow is the cached copy used. API calls (/api/, /app/api/) are NEVER cached or intercepted:
+//    network first and the cache is refreshed on every success, so the app always follows the live site; the cached copy
+//    is used only when the network fails, or takes longer than 4 s while a cached copy exists. API calls (/api/, /app/api/) are NEVER cached or intercepted:
 //    timetable estimates, prices, accounts and locations always come from the server or show their own offline state.
 // 2. Push: the metro reminder notification (generic text only, no journey data).
 const VERSION = 'besrah-shell-v1';
-const SHELL = ['./', 'offline.html', 'offline.css', 'app.css', 'skin.css', 'app.js', 'theme-boot.js', 'vendor/hm7/tokens.css',
-  'vendor/hm7/components/bundle.css', 'vendor/hm7/components/bundle.js', 'vendor/hm7/fonts/AzarMehr-Regular.woff2',
-  'vendor/hm7/fonts/HMSymbol.woff2', 'assets/logo.svg', 'assets/icon-192.png', 'manifest.webmanifest'];
+// Everything the first screen needs to start without a network: the page, its styles and scripts, EVERY module
+// app.js imports (a single missing module stops the whole app at the preloader), fonts and the small static assets.
+// Left out on purpose: the 6 MB food catalogue and the 512px icon (fetched when needed and cached on success).
+// asset-allowlist.test.mjs fails if a module reachable from app.js is missing here.
+const SHELL = ['./', 'offline.html', 'offline.css', 'manifest.webmanifest', 'theme-boot.js', 'reminders.js',
+  'assets/telegram-web-app.js', 'vendor/hm7/tokens.css', 'skin.css', 'vendor/hm7/components/bundle.css', 'app.css',
+  'vendor/hm7/components/bundle.js',
+  'app.js', 'navigation.js', 'service-store.js', 'state.js', 'tg.js', 'logic.js', 'search.js', 'store.js', 'async.js',
+  'api.js', 'format.js', 'route.js', 'hero.js', 'services.js', 'journey.js', 'bus-data.js', 'bus-paths.js', 'bus-sources.js',
+  'ui/dom.js', 'ui/hm7.js', 'ui/searchbox.js', 'ui/sheet.js', 'ui/board.js', 'ui/planner.js', 'ui/station.js',
+  'ui/carousel.js', 'ui/service-search.js', 'ui/segmented.js', 'ui/service-card.js', 'ui/ride-tabs.js', 'ui/tracker.js',
+  'ui/rotating-placeholder.js',
+  'views/home.js', 'views/stations.js', 'views/services.js', 'views/favourites.js', 'views/about.js', 'views/metro.js',
+  'views/bus.js', 'views/food.js', 'views/trip.js', 'views/shop.js', 'views/profile.js', 'views/settings.js',
+  'views/saved.js',
+  'vendor/hm7/fonts/AzarMehr-Regular.woff2', 'vendor/hm7/fonts/AzarMehr-Medium.woff2',
+  'vendor/hm7/fonts/AzarMehr-SemiBold.woff2', 'vendor/hm7/fonts/AzarMehr-Bold.woff2',
+  'vendor/hm7/fonts/AzarMehr-ExtraBold.woff2', 'vendor/hm7/fonts/AzarMehr-Black.woff2', 'vendor/hm7/fonts/HMSymbol.woff2',
+  'vendor/hm7/fonts/JetBrainsMono-Regular.woff2', 'vendor/hm7/fonts/JetBrainsMono-Bold.woff2',
+  'assets/logo.svg', 'assets/icon-192.png', 'assets/hero-brand.svg', 'assets/hero-metro.svg', 'assets/bus-guide.json',
+  'assets/services/besrah.svg', 'assets/services/food.svg', 'assets/services/pay.svg', 'assets/services/rail.svg',
+  'assets/services/caravan.svg', 'assets/services/rahyab.svg', 'assets/services/savar.svg'];
 const NETWORK_TIMEOUT_MS = 4000;
 
 const isApi = url => /\/(app\/)?api\//.test(url.pathname);
@@ -25,21 +44,24 @@ self.addEventListener('activate', event => {
     .then(() => self.clients.claim()));
 });
 
-function fromNetwork(request) {
-  return new Promise((resolve, reject) => {
-    const timer = setTimeout(() => reject(new Error('timeout')), NETWORK_TIMEOUT_MS);
-    fetch(request).then(response => { clearTimeout(timer); resolve(response); }, error => { clearTimeout(timer); reject(error); });
-  });
-}
-
+// The 4 s limit only applies when there is a cached copy to fall back on. Without one, a slow network is still the only
+// way to get the file, so we keep waiting for it instead of failing (a 503 for a module would break the app online).
 async function networkFirst(request, isNavigation) {
   const cache = await caches.open(VERSION);
-  try {
-    const response = await fromNetwork(request);
-    if (response && response.ok && response.type === 'basic') cache.put(isNavigation ? './' : request, response.clone()).catch(() => {});
+  const key = isNavigation ? './' : request;
+  const network = fetch(request).then(response => {
+    if (response && response.ok && response.type === 'basic') cache.put(key, response.clone()).catch(() => {});
     return response;
+  });
+  network.catch(() => {});   // a late failure after the cached copy was served is not an error
+  const cached = await cache.match(key, { ignoreSearch: isNavigation });
+  try {
+    if (!cached) return await network;
+    let timer;
+    const slow = new Promise(resolve => { timer = setTimeout(() => resolve(null), NETWORK_TIMEOUT_MS); });
+    const fresh = await Promise.race([network, slow]).finally(() => clearTimeout(timer));
+    return fresh ?? cached;
   } catch {
-    const cached = await cache.match(isNavigation ? './' : request, { ignoreSearch: isNavigation });
     if (cached) return cached;
     if (isNavigation) { const page = await cache.match('offline.html'); if (page) return page; }
     return new Response('', { status: 503, statusText: 'offline' });
