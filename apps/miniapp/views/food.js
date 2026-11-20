@@ -1,6 +1,6 @@
 // Besfood: real food search over the stored vendor/menu snapshot, with vendor menus and a hand-off to the platform.
 // Location is only ever read after an explicit tap, rounded to ~100 m and sent only to this app's own server to sort one search.
-import { h } from '../ui/dom.js';
+import { h, backButton, backLink } from '../ui/dom.js';
 import { canOpenLocationSettings, locationAdvice, openLocationSettings, resolveUserCoords } from '../logic.js';
 import { fa } from '../format.js';
 
@@ -242,7 +242,7 @@ export function createFoodView(ctx) {
 
   function detailView() {
     const d = S.detail;
-    const back = h('button', { type: 'button', class: 'btn-back', 'aria-label': 'بازگشت به نتایج', onClick: () => { S.detail = null; draw(); } }, '←');
+    const back = backLink('بازگشت به نتایج', () => { S.detail = null; draw(); });
     if (d.status === 'loading') return h('div', { class: 'fd-detail' }, back, h('div', { class: 'cm-skel fd-skeleton__card' }));
     if (d.status === 'error') return h('div', { class: 'fd-detail' }, back, h('div', { class: 'empty-state', role: 'alert' }, h('p', { text: 'منوی این فروشگاه دریافت نشد.' }), h('button', { type: 'button', class: 'cm-btn', onClick: () => openVendor(d.id) }, 'تلاش دوباره')));
     const v = d.data, f = d.filter.trim();
@@ -269,7 +269,7 @@ export function createFoodView(ctx) {
 
   el.append(
     h('header', { class: 'metro-head' },
-      h('button', { type: 'button', class: 'btn-back', onClick: () => actions.go('services'), 'aria-label': 'بازگشت' }, '←'),
+      backButton('بازگشت', () => actions.back()),
       h('div', null, h('h1', null, 'بسفود'), h('p', null, 'کشف غذا، کافه، شیرینی، گل و فروشگاه‌های اسنپ‌فود و تپسی‌فود؛ دسته‌ها و قیمت‌ها براساس آخرین ثبت'))),
     h('div', { class: 'fd-search' }, input), body);
 

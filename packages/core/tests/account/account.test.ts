@@ -177,7 +177,7 @@ describe('home recommendations', () => {
     const r = homeRecommendations(NOW, stations, null);
     expect(r).toMatchObject({ slot: 'lunch', locationUsed: false });
     expect(r.cards.map(c => c.id)).toEqual(['food.lunch']);
-    expect(r.cards[0]!.why).toContain('12:00');
+    expect(r.cards[0]!.why).toContain('۱۲:۰۰');
     expect(JSON.stringify(r)).not.toMatch(/ارزان|باز است|ارسال رایگان/);
   });
   it('with a point inside Mashhad: nearest station labelled as a straight line, never as walking time', () => {

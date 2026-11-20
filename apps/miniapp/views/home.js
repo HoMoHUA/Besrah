@@ -107,7 +107,7 @@ export function createHomeView({ actions, api, store }) {
     if (s.status === 'loading') { sugHost.replaceChildren(h('div', { class: 'cm-skel sg-skeleton', 'aria-busy': 'true' })); return; }
     sugHost.replaceChildren(...[
       h('div', { class: 'section-head' }, h('h2', { text: 'پیشنهاد حالا' })),
-      h('div', { class: 'sg-intents fd-row', role: 'group', 'aria-label': 'موضوع پیشنهاد' },
+      h('div', { class: 'sg-intents fd-scroll', role: 'group', 'aria-label': 'موضوع پیشنهاد' },
         INTENTS.map(([id, label]) => h('button', {
           type: 'button', class: ['cm-chip','fd-chip'], 'aria-pressed': String(chosenIntent === id),
           onClick: () => { if (chosenIntent !== id) { chosenIntent = id; load(lastPoint); } },
