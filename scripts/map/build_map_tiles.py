@@ -137,55 +137,56 @@ def line_pieces(pts):
     return {t: r for t, r in out.items() if r}
 
 
-def clip_ring(ring, a, b, c, d):
-    """Sutherland-Hodgman against an axis-aligned box."""
-    def clip(points, inside, cross):
-        res = []
-        if not points:
-            return res
-        prev = points[-1]
-        for cur in points:
-            if inside(cur):
-                if not inside(prev):
-                    res.append(cross(prev, cur))
-                res.append(cur)
-            elif inside(prev):
-                res.append(cross(prev, cur))
-            prev = cur
-        return res
-    def ix(p, q, x):
-        t = (x - p[0]) / (q[0] - p[0]); return (x, p[1] + t * (q[1] - p[1]))
-    def iy(p, q, y):
-        t = (y - p[1]) / (q[1] - p[1]); return (p[0] + t * (q[0] - p[0]), y)
-    pts = ring
-    pts = clip(pts, lambda p: p[0] >= a, lambda p, q: ix(p, q, a))
-    pts = clip(pts, lambda p: p[0] <= c, lambda p, q: ix(p, q, c))
-    pts = clip(pts, lambda p: p[1] >= b, lambda p, q: iy(p, q, b))
-    pts = clip(pts, lambda p: p[1] <= d, lambda p, q: iy(p, q, d))
-    return pts
+def clip_axis(points, axis, bound, keep_greater):
+    """One Sutherland-Hodgman clipping edge."""
+    if not points:
+        return []
+    result = []
+    prev = points[-1]
+    prev_inside = prev[axis] >= bound if keep_greater else prev[axis] <= bound
+    for cur in points:
+        inside = cur[axis] >= bound if keep_greater else cur[axis] <= bound
+        if inside != prev_inside:
+            t = (bound - prev[axis]) / (cur[axis] - prev[axis])
+            other = prev[1 - axis] + t * (cur[1 - axis] - prev[1 - axis])
+            result.append((bound, other) if axis == 0 else (other, bound))
+        if inside:
+            result.append(cur)
+        prev, prev_inside = cur, inside
+    return result
 
 
 def poly_pieces(rings):
-    """rings: [outer, inner...] in global coords -> {(tx, ty): [ring, ...]} tile-local."""
-    xs = [p[0] for p in rings[0]]; ys = [p[1] for p in rings[0]]
+    """Clip each vertical tile strip once, then split it into tile-local rings."""
+    xs = [x for x, _ in rings[0]]
     out = {}
     for tx in range(int((min(xs) - BUF) // E), int((max(xs) + BUF) // E) + 1):
+        ox = tx * E
+        strips = []
+        for k, ring in enumerate(rings):
+            strip = clip_axis(clip_axis(ring, 0, ox - BUF, True), 0, ox + E + BUF, False)
+            if len(strip) >= 3:
+                strips.append(strip)
+            elif k == 0:
+                break
+        if not strips:
+            continue
+        ys = [y for _, y in strips[0]]
         for ty in range(int((min(ys) - BUF) // E), int((max(ys) + BUF) // E) + 1):
-            ox, oy = tx * E, ty * E
+            oy = ty * E
             got = []
-            for k, ring in enumerate(rings):
-                local = [(x - ox, y - oy) for x, y in ring]
-                c = clip_ring(local, -BUF, -BUF, E + BUF, E + BUF)
-                q = []
-                for x, y in c:
-                    p = (round(x), round(y))
-                    if not q or q[-1] != p:
-                        q.append(p)
-                if len(q) >= 3:
-                    got.append(q)
+            for k, strip in enumerate(strips):
+                clipped = clip_axis(clip_axis(strip, 1, oy - BUF, True), 1, oy + E + BUF, False)
+                points = []
+                for x, y in clipped:
+                    point = (round(x - ox), round(y - oy))
+                    if not points or points[-1] != point:
+                        points.append(point)
+                if len(points) >= 3:
+                    got.append(points)
                 elif k == 0:
                     break
-            if got and len(got[0]) >= 3:
+            if got:
                 out[(tx, ty)] = got
     return out
 
