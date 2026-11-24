@@ -1,6 +1,7 @@
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { createHash } from 'node:crypto';
 import { readFileSync, statSync } from 'node:fs';
+import { registerMapTiles } from './map-tiles.js';
 import { NETWORK_PATH } from './network.js';
 
 const APP_ROOT = new URL('../../../apps/miniapp/', import.meta.url);
@@ -62,6 +63,7 @@ export const MINIAPP_ASSETS: ReadonlyArray<readonly [route: string, file: string
   ['/app/logic.js', 'logic.js'],
   ['/app/search.js', 'search.js'],
   ['/app/ask.js', 'ask.js'],
+  ['/app/ui/map-picker.js', 'ui/map-picker.js'],
   ['/app/ui/snapp-link.js', 'ui/snapp-link.js'],
   ['/app/ui/snapppay-link.js', 'ui/snapppay-link.js'],
   ['/app/ui/snapppay-cards.js', 'ui/snapppay-cards.js'],
@@ -152,6 +154,7 @@ function serve(file: string, mime: string) {
 }
 
 export function registerMiniapp(app: FastifyInstance) {
+  registerMapTiles(app);
   app.get('/app', async (_req, reply) => reply.redirect('/app/'));
   for (const [route, file] of MINIAPP_ASSETS) {
     const mime = MIME[file.split('.').pop() as string];

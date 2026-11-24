@@ -42,3 +42,6 @@ research/vendors.sqlite
 
 # Android shell build output (signed APKs are attached to releases, never committed)
 apps/android/build/
+
+# Generated OpenStreetMap tile archive and builder scratch files
+/data/map/

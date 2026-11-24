@@ -31,7 +31,7 @@ final class NativeBridge {
     }
 
     @JavascriptInterface
-    public int version() { return 2; }
+    public int version() { return 3; }
 
     @JavascriptInterface
     public boolean liveNotifications() { return TripNotifier.liveCapsuleEnabled(activity); }

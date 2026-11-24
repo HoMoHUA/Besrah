@@ -1,5 +1,5 @@
 // Snapp from the person's own phone. Inside the Besrah Android app (window.BesrahNative.snappRequest) the SMS-code login
-// and the ride prices go straight from the phone to Snapp over the person's own connection: the phone number, the code
+// and the ride prices and requests go straight from the phone to Snapp over the person's own connection: the phone number, the code
 // and the session never pass through Besrah's server. Browsers and Telegram cannot do this (Snapp's API does not allow
 // other sites), so there the same calls go through api/snapp/* with the session still kept on the device.
 // Same requests and answers as packages/core/src/providers/snapp.ts.
@@ -56,6 +56,7 @@ const uuid = () => globalThis.crypto?.randomUUID?.() ?? 'xxxxxxxx-xxxx-4xxx-8xxx
 /** The api object with Snapp's login and price calls made by the phone itself; candidates stay on the server (OSM). */
 export function withDeviceSnapp(api, native, { now = () => Date.now() } = {}) {
   let config = null;
+  const canRequestRide = (native.version?.() ?? 0) >= 3;
   const cfg = async () => (config ??= await api.snappConfig());
   const methods = new Map();            // phone -> { method, captchaType } Snapp gave with the code, memory only
   const attestation = c => ({ method: c ? c.type : 'skip', platform: c ? 'captcha' : 'skip' });
@@ -71,6 +72,18 @@ export function withDeviceSnapp(api, native, { now = () => Date.now() } = {}) {
   return {
     ...api,
     deviceSnapp: true,
+    snappRequestAvailable: canRequestRide,
+    async snappRequest(from, to, serviceId, session) {
+      if (!canRequestRide || !session?.access) throw fail('server', 'unavailable');
+      const r = await nativeSnapp(native, 'ride', {
+        origin_lat: from.lat, origin_lng: from.lon, destination_lat: to.lat, destination_lng: to.lon,
+        service_type: serviceId, preferences: {}, is_paid_by_recipient: false,
+      }, session.access);
+      const accepted = r.status === 204 || (r.status >= 200 && r.status < 300
+        && r.body && typeof r.body === 'object' && !(r.body.status >= 400));
+      if (!accepted) throw fail('server', 'unavailable', r.status);
+      return { status: 'requested' };
+    },
     async snappOtp(phone, captcha) {
       const cellphone = normalizePhone(phone);
       if (!cellphone) throw fail('server', 'bad_phone', 400);

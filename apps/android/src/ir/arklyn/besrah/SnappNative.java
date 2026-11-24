@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 /**
  * Snapp requests made by the person's own phone (their own Iranian connection), for the Besrah page only.
- * Only five fixed Snapp endpoints can be reached: ride price, request SMS code, verify code, refresh session, captcha.
+ * Only fixed Snapp endpoints can be reached for ride requests, price, SMS login, session refresh and captcha.
  * The page builds the JSON body; the answer goes back to the page. Nothing is stored or logged here.
  */
 final class SnappNative {
@@ -28,6 +28,7 @@ final class SnappNative {
     static String urlFor(String key, String extra) {
         switch (key) {
             case "price": return API + "/v3/price";
+            case "ride": return API + "/api-base/v2/passenger/ride";
             case "otp": return OAUTH + "/v3/mutotp";
             case "verify": return OAUTH + "/v3/mutotp/auth";
             case "refresh": return OAUTH + "/v2/auth";
@@ -54,11 +55,19 @@ final class SnappNative {
                 c.setRequestProperty("Referer", "https://app.snapp.taxi/");
                 c.setRequestProperty("locale", "fa-IR");
                 if (bearer != null && !bearer.isEmpty()) c.setRequestProperty("Authorization", "Bearer " + bearer);
+                if ("ride".equals(key)) {
+                    c.setRequestProperty("App-Version", "pwa");
+                    c.setRequestProperty("x-app-name", "passenger-pwa");
+                    c.setRequestProperty("x-app-version", "v18.50.1");
+                    c.setRequestProperty("x-app-version-code", "0");
+                }
                 if ("captcha".equals(key)) c.setRequestMethod("GET");
                 else {
                     c.setRequestMethod("POST"); c.setDoOutput(true);
                     c.setRequestProperty("Content-Type", "application/json");
-                    try (OutputStream o = c.getOutputStream()) { o.write((body == null ? "{}" : body).getBytes(StandardCharsets.UTF_8)); }
+                    byte[] payload = (body == null ? "{}" : body).getBytes(StandardCharsets.UTF_8);
+                    if ("ride".equals(key)) c.setFixedLengthStreamingMode(payload.length);
+                    try (OutputStream o = c.getOutputStream()) { o.write(payload); }
                 }
                 status = c.getResponseCode();
                 InputStream in = status >= 400 ? c.getErrorStream() : c.getInputStream();

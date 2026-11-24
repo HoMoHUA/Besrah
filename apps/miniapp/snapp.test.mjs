@@ -232,3 +232,28 @@ test('Android app: when Snapp wants a captcha for the code check, a fresh one co
   assert.deepEqual(sent.find(s => s.key === 'verify').body.captcha, { client_id: '00000000-0000-4000-8000-000000000000', solution: '48213', ref_id: 'ref-1', type: 'numeric' });
   assert.equal(sent.filter(s => s.key === 'otp').length, 1);
 });
+
+test('Android sends a confirmed ride from the device and older bridges never relay it', async t => {
+  installFoodDom(t);
+  const { withDeviceSnapp } = await import('./snapp-device.js');
+  const server = { snappRequest: () => assert.fail('personal Android session must stay on the device') };
+  const from = { lat: 36.297, lon: 59.606 }, to = { lat: 36.31, lon: 59.62 };
+  const session = { access: 'personal-access' };
+  let nativeCalls = 0;
+  const native = {
+    version: () => 3,
+    snappRequest(id, key, body, bearer) {
+      nativeCalls++;
+      assert.equal(key, 'ride');
+      assert.equal(bearer, session.access);
+      assert.deepEqual(JSON.parse(body), { origin_lat: from.lat, origin_lng: from.lon, destination_lat: to.lat, destination_lng: to.lon,
+        service_type: 2, preferences: {}, is_paid_by_recipient: false });
+      window.__besrahSnappDone(id, 200, '{}');
+    },
+  };
+  assert.deepEqual(await withDeviceSnapp(server, native).snappRequest(from, to, 2, session), { status: 'requested' });
+  const old = withDeviceSnapp(server, { ...native, version: () => 2 });
+  assert.equal(old.snappRequestAvailable, false);
+  await assert.rejects(old.snappRequest(from, to, 2, session));
+  assert.equal(nativeCalls, 1);
+});

@@ -233,6 +233,11 @@ export function createApi({ fetch: fetchImpl = globalThis.fetch?.bind(globalThis
       if (data?.schemaVersion !== 1 || !Array.isArray(data.origins) || !Array.isArray(data.destinations) || ![...data.origins, ...data.destinations].every(ok)) throw new ApiError('server');
       return data;
     },
+    async snappRequest(from, to, serviceId, session) {
+      const data = await post('api/snapp/request', { from, to, serviceId, session });
+      if (data?.status !== 'requested') throw new ApiError('server');
+      return data;
+    },
     async snappPrice(from, to, session, signal) {
       const data = await post('api/snapp/price', { from, to, ...(session ? { session } : {}) }, signal);
       if (data?.schemaVersion !== 1 || !Array.isArray(data.services) || (data.session && !validSnappSession(data.session))) throw new ApiError('server');
