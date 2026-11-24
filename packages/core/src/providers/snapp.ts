@@ -133,7 +133,9 @@ export function createSnappClient(cfg: SnappConfig, opts: { fetch?: typeof fetch
       });
       if (r.status === 401 || r.status === 403) throw new SnappError('unauthorized');
       if (r.status === 429) throw new SnappError('limited');
-      if (r.status < 200 || r.status >= 300 || (typeof r.body?.status === 'number' && r.body.status >= 400)) throw new SnappError('upstream');
+      if (r.status === 204) return;
+      if (r.status < 200 || r.status >= 300 || !r.body || typeof r.body !== 'object'
+        || (typeof r.body.status === 'number' && r.body.status >= 400)) throw new SnappError('upstream');
     },
     async price(s: SnappSession, from: Point, to: Point): Promise<PriceResult> {
       const r = await call(`${API}/v3/price`, { method: 'POST', headers: headers({ Authorization: `Bearer ${s.access}` }), body: JSON.stringify({

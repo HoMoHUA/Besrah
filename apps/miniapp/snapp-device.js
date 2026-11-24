@@ -79,7 +79,9 @@ export function withDeviceSnapp(api, native, { now = () => Date.now() } = {}) {
         origin_lat: from.lat, origin_lng: from.lon, destination_lat: to.lat, destination_lng: to.lon,
         service_type: serviceId, preferences: {}, is_paid_by_recipient: false,
       }, session.access);
-      if (r.status < 200 || r.status >= 300 || r.body?.status >= 400) throw fail('server', 'unavailable', r.status);
+      const accepted = r.status === 204 || (r.status >= 200 && r.status < 300
+        && r.body && typeof r.body === 'object' && !(r.body.status >= 400));
+      if (!accepted) throw fail('server', 'unavailable', r.status);
       return { status: 'requested' };
     },
     async snappOtp(phone, captcha) {
