@@ -142,6 +142,28 @@ test('Profile card: number -> 6-digit code -> linked; Snapp Pay’s wording on a
   assert.equal(store.snappPaySession(), null);
 });
 
+test('resend countdown preserves the OTP input through expiry', async t => {
+  installFoodDom(t);
+  t.mock.timers.enable({ apis: ['Date', 'setInterval'] });
+  const api = { snappPayLogin: async () => ({ loginId: 'id-1', resendAfterS: 2 }) };
+  const { el } = createSnappPayLinkCard({ api, store: createStore(memoryStorage()) });
+  const input = () => findAll(el, n => n.tagName === 'input')[0];
+  input().value = '09121234567';
+  await button(el, 'دریافت کد اسنپ‌پی').dispatch('click');
+  await flushView();
+  const code = input();
+  code.value = '12';
+  t.mock.timers.tick(1000);
+  assert.equal(input(), code);
+  assert.equal(input().value, '12');
+  assert.ok(button(el, 'کد تازه (۱)').disabled);
+  code.value += '3456';
+  t.mock.timers.tick(1000);
+  assert.equal(input(), code);
+  assert.equal(input().value, '123456');
+  assert.equal(button(el, 'کد تازه').disabled, false);
+});
+
 test('account block: the three balances, score and the dates; a passed settlement date is said so', t => {
   installFoodDom(t);
   const a = parseAccount({ ...HOME.response, settleDateHasPassed: true });
