@@ -1119,7 +1119,7 @@ a, button { text-decoration: none !important; }
 .tp-map__viewport canvas { display: block; width: 100%; height: min(47vh, 400px); min-height: 180px; touch-action: none; cursor: grab; font-family: var(--font-sans); }
 .tp-map__viewport canvas:active { cursor: grabbing; }
 .tp-map__viewport canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
-.tp-map__pin { position: absolute; top: 50%; left: 50%; width: 23px; height: 23px; border: 2px solid var(--surface); border-radius: 50% 50% 50% 2px; background: var(--accent); box-shadow: 0 2px 8px #0005; transform: translate(-50%, -86%) rotate(-45deg); pointer-events: none; }
+.tp-map__pin { position: absolute; top: 50%; left: 50%; width: 23px; height: 23px; border: 2px solid var(--surface); border-radius: 50% 50% 50% 2px; background: var(--accent); box-shadow: 0 2px 8px #0005; transform: translate(-50%, -117%) rotate(-45deg); pointer-events: none; }
 .tp-map__zoom { position: absolute; inset-inline-end: 8px; inset-block-end: 8px; display: grid; gap: 4px; }
 .tp-map__zoom button { background: var(--surface); font-size: 22px; }
 .tp-map__credit { color: var(--muted); font-size: 11px; direction: ltr; }
