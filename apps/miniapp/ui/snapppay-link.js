@@ -30,9 +30,23 @@ export function snappPayErrorText(e) {
 export function createSnappPayLinkCard({ api, store, onLinked = () => {}, compact = false }) {
   const S = { step: 'phone', phone: '', loginId: null, masked: null, resendAt: 0, busy: false, message: '' };
   let tick = 0;
+  let resendButton;
   const el = h('section', { class: ['cm-card', 'about-card', 'spay-link', compact && 'spay-link--compact'], 'aria-labelledby': 'pf-spay' });
   const field = attrs => h('input', { class: 'fd-input', dir: 'ltr', autocomplete: 'off', ...attrs });
-  const startTimer = s => { S.resendAt = Date.now() + (Number.isFinite(s) ? s : 60) * 1000; clearInterval(tick); tick = setInterval(() => { if (Date.now() >= S.resendAt) clearInterval(tick); draw(); }, 1000); tick.unref?.(); };
+  function updateCountdown() {
+    const wait = Math.max(0, Math.ceil((S.resendAt - Date.now()) / 1000));
+    if (wait === 0) clearInterval(tick);
+    if (resendButton) {
+      resendButton.disabled = S.busy || wait > 0;
+      resendButton.textContent = wait > 0 ? `کد تازه (${fa(wait)})` : 'کد تازه';
+    }
+  }
+  function startTimer(seconds) {
+    S.resendAt = Date.now() + (Number.isFinite(seconds) ? seconds : 60) * 1000;
+    clearInterval(tick);
+    tick = setInterval(updateCountdown, 1000);
+    tick.unref?.();
+  }
 
   async function sendCode() {
     S.busy = true; S.message = ''; draw();
@@ -63,6 +77,7 @@ export function createSnappPayLinkCard({ api, store, onLinked = () => {}, compac
   }
 
   function draw() {
+    resendButton = null;
     const link = store.snappPayLink?.();
     const kids = [h('h2', { class: 'about-card__title', id: 'pf-spay', text: 'حساب اسنپ‌پی' })];
     if (link) {
@@ -78,10 +93,11 @@ export function createSnappPayLinkCard({ api, store, onLinked = () => {}, compac
         kids.push(phone, h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn', disabled: S.busy ? 'true' : null, onClick: () => { S.phone = phone.value.trim(); sendCode(); } }, 'دریافت کد اسنپ‌پی')));
       } else {
         const code = field({ type: 'text', inputmode: 'numeric', autocomplete: 'one-time-code', maxlength: '6', 'aria-label': 'کد پیامک اسنپ‌پی' });
-        const wait = Math.max(0, Math.ceil((S.resendAt - Date.now()) / 1000));
+        resendButton = h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: resend });
+        updateCountdown();
         kids.push(code, h('div', { class: 'fd-actions' },
           h('button', { type: 'button', class: 'cm-btn', disabled: S.busy ? 'true' : null, onClick: () => verify(code.value.trim()) }, 'ورود به اسنپ‌پی'),
-          h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], disabled: S.busy || wait > 0 ? 'true' : null, onClick: resend }, wait > 0 ? `کد تازه (${fa(wait)})` : 'کد تازه'),
+          resendButton,
           h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { S.step = 'phone'; S.loginId = null; clearInterval(tick); draw(); } }, 'شمارهٔ دیگر')));
       }
     }
