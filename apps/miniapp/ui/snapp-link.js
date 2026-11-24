@@ -53,7 +53,7 @@ export function createSnappLinkCard({ api, store, onLinked = () => {} }) {
         h('p', { class: 'fd-note', text: 'قیمت سفر با حساب خود شما از اسنپ پرسیده می‌شود. بسراه سفر ثبت نمی‌کند و پرداختی انجام نمی‌دهد.' }),
         h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: () => { store.setSnappSession(null); S.message = 'اتصال اسنپ از این دستگاه برداشته شد.'; draw(); } }, 'قطع اتصال')));
     } else {
-      kids.push(h('p', { class: 'fd-note', text: 'با ورود به اسنپ خودتان، قیمت لحظه‌ای سفر با تخفیف‌های حساب شما زیر گزینه‌های سفر نمایش داده می‌شود و می‌توانید کمترین قیمت ممکن را برای همان مبدأ و مقصد پیدا کنید. بسراه فقط قیمت را می‌پرسد؛ سفر ثبت نمی‌کند و پرداختی انجام نمی‌دهد. نشست اسنپ فقط روی همین دستگاه می‌ماند و در سرور ذخیره نمی‌شود.' }));
+      kids.push(h('p', { class: 'fd-note', text: 'با ورود به اسنپ خودتان، قیمت لحظه‌ای سفر با تخفیف‌های حساب شما زیر گزینه‌های سفر نمایش داده می‌شود و می‌توانید کمترین قیمت ممکن را برای همان مبدأ و مقصد پیدا کنید. برای ارسال درخواست سفر باید آن را جداگانه تأیید کنید. وضعیت سفر و پرداخت در اسنپ است. نشست اسنپ فقط روی همین دستگاه می‌ماند و در سرور ذخیره نمی‌شود.' }));
       if (api.deviceSnapp) kids.push(h('p', { class: 'fd-note', text: 'در برنامهٔ بِسراه، شماره و کد مستقیم از گوشی شما به اسنپ می‌رود و از سرور بسراه نمی‌گذرد.' }));
       if (S.step === 'phone') {
         const phone = field({ type: 'tel', inputmode: 'tel', placeholder: '۰۹۱۲۱۲۳۴۵۶۷', 'aria-label': 'شمارهٔ همراه اسنپ', value: S.phone });
@@ -85,7 +85,7 @@ export function createSnappLinkCard({ api, store, onLinked = () => {} }) {
 }
 
 /** «قیمت لحظه‌ای اسنپ» block for a trip: at most four bookable services, with where the price came from and when. */
-export function snappPriceBlock(data, { faTime, onFind, search } = {}) {
+export function snappPriceBlock(data, { faTime, onFind, search, onRequest } = {}) {
   const items = (data?.services ?? []).filter(s => s.enabled && Number.isInteger(s.priceToman)).slice(0, 4);
   if (!items.length) return null;
   const when = faTime ? faTime(data.retrievedAt) : '';
@@ -94,22 +94,82 @@ export function snappPriceBlock(data, { faTime, onFind, search } = {}) {
     h('ul', { class: 'snapp-price__list' }, items.map(s => h('li', null,
       h('span', { class: 'snapp-price__name', text: s.name }),
       h('b', { class: 'snapp-price__toman', text: `${s.priceToman.toLocaleString('fa-IR')} تومان` }),
-      Number.isInteger(s.etaMin) ? h('small', { text: `رسیدن راننده حدود ${fa(s.etaMin)} دقیقه` }) : null))),
+      Number.isInteger(s.etaMin) ? h('small', { text: `رسیدن راننده حدود ${fa(s.etaMin)} دقیقه` }) : null,
+      onRequest && [1, 2].includes(s.id) ? h('button', { type: 'button', class: 'cm-btn cm-btn--ghost cm-btn--sm',
+        onClick: () => onRequest(s) }, `درخواست ${s.name}`) : null))),
     h('p', { class: 'fd-note', text: `${data.viaDevice ? 'با حساب اسنپ شما، مستقیم از گوشی' : data.sessionKind === 'user' ? 'با حساب اسنپ شما' : 'استعلام عمومی (برای قیمت با تخفیف‌های خودتان، در پروفایل وارد اسنپ شوید)'}${when ? `، دریافت ${when}` : ''}. قیمت قطعی هنگام درخواست سفر در اسنپ تعیین می‌شود.` }),
-    onFind ? searchPart(search, onFind) : null);
+    onFind ? searchPart(search, onFind, onRequest) : null);
 }
 
 const walk = m => `حدود ${fa(Math.max(10, Math.round(m / 10) * 10))} متر`;
 /** «کمترین قیمت ممکن»: the button, the progress while points are priced, and what was found. */
-function searchPart(search, onFind) {
+function searchPart(search, onFind, onRequest) {
   if (!search || search.status === 'idle') return h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost'], onClick: onFind }, 'کمترین قیمت ممکن را پیدا کن'));
   if (search.status === 'running') return h('p', { class: 'tp-status', role: 'status', text: search.total ? `در حال پرسیدن قیمت نقطه‌های نزدیک… ${fa(search.step)} از ${fa(search.total)}` : 'در حال پیدا کردن نقطه‌های نزدیک روی خیابان‌ها…' });
   if (search.status === 'error') return h('p', { class: 'fd-note', role: 'status', text: search.message || 'جست‌وجوی قیمت کمتر الان انجام نشد.' });
   const r = search.result, best = r?.best;
   if (!best || !(best.saving >= 1000) || !(best.pickup || best.dropoff)) return h('p', { class: 'fd-note', role: 'status', text: `از ${fa(r?.tried?.length ?? 0)} قیمت نقطه‌های نزدیک، ارزان‌تر از همین نقطه پیدا نشد.` });
-  return h('div', { class: 'snapp-best', role: 'status' },
+  const service = best.data?.services?.find(s => s.id === 1 && s.enabled);
+  return h('div', { class: 'snapp-best' },
     h('p', { class: 'snapp-best__price', text: `ارزان‌ترین: ${best.price.toLocaleString('fa-IR')} تومان، ${best.saving.toLocaleString('fa-IR')} تومان کمتر` }),
     best.pickup ? h('p', { text: `سوار شدن: ${best.pickup.street ? `«${best.pickup.street}»` : 'خیابان کناری'}، ${walk(best.pickup.walkM)} پیاده از مبدأ.` }) : null,
     best.dropoff ? h('p', { text: `پیاده شدن: ${best.dropoff.street ? `«${best.dropoff.street}»` : 'خیابان کناری'}، ${walk(best.dropoff.walkM)} تا مقصد.` }) : null,
-    h('p', { class: 'fd-note', text: `از ${fa(r.tried.length)} قیمت لحظه‌ای؛ تا چند دقیقه معتبر است. در اسنپ همین نقطه‌ها را انتخاب کنید.` }));
+    h('p', { class: 'fd-note', text: `از ${fa(r.tried.length)} قیمت لحظه‌ای؛ تا چند دقیقه معتبر است.` }),
+    onRequest && service ? h('button', { type: 'button', class: 'cm-btn', onClick: () => onRequest(service, best) }, 'درخواست اسنپ با این نقاط') : null);
+}
+
+const SNAPP_WEB = 'https://app.snapp.taxi/';
+
+export function createSnappRequest({ api, store, service, from, to, fromName, toName, onClose }) {
+  const message = h('p', { class: 'tp-status', role: 'status' });
+  const controller = new AbortController();
+  let quoteExpires = 0, closed = false;
+  const confirm = h('button', { type: 'button', class: 'cm-btn', disabled: true, onClick: async () => {
+    if (confirm.disabled || closed) return;
+    if (Date.now() >= quoteExpires) { await quote(); return; }
+    const session = store?.snappSession?.();
+    if (!session) { message.textContent = 'برای ارسال درخواست، حساب اسنپ را در پروفایل وصل کنید.'; return; }
+    confirm.disabled = true;
+    message.textContent = 'در حال ارسال درخواست به اسنپ…';
+    try {
+      await api.snappRequest(from, to, service.id, session);
+      message.textContent = 'درخواست در اسنپ ثبت شد. وضعیت سفر را در اسنپ دنبال کنید.';
+    } catch {
+      message.textContent = 'ثبت درخواست تأیید نشد. پیش از درخواست دوباره، وضعیت سفر را در اسنپ بررسی کنید.';
+    }
+    confirm.hidden = true;
+  } }, 'تأیید و ارسال درخواست');
+  async function quote() {
+    confirm.disabled = true;
+    if (api.snappRequestAvailable === false) {
+      message.textContent = 'برای ثبت سفر با این نسخهٔ بسراه، در اسنپ ادامه دهید.';
+      return;
+    }
+    const session = store?.snappSession?.();
+    if (!session) { message.textContent = 'برای ارسال درخواست، حساب اسنپ را در پروفایل وصل کنید یا در اسنپ ادامه دهید.'; return; }
+    message.textContent = 'در حال دریافت قیمت از اسنپ…';
+    try {
+      const data = await api.snappPrice(from, to, session, controller.signal);
+      if (data.session) store.setSnappSession(data.session);
+      if (closed) return;
+      const selected = data.services.find(s => s.id === service.id && s.enabled && Number.isInteger(s.priceToman));
+      if (!selected) { message.textContent = 'این نوع سفر در حال حاضر برای این مسیر در دسترس نیست.'; return; }
+      const quotedAt = Date.parse(data.retrievedAt);
+      quoteExpires = (Number.isFinite(quotedAt) ? quotedAt : Date.now()) + Math.min(60, data.ttlS || 60) * 1000;
+      message.textContent = `قیمت فعلی ${selected.priceToman.toLocaleString('fa-IR')} تومان. اسنپ مبلغ نهایی را هنگام ثبت تعیین می‌کند.`;
+      confirm.disabled = false;
+    } catch {
+      if (!closed) message.textContent = 'قیمت این مسیر از اسنپ دریافت نشد. می‌توانید در اسنپ ادامه دهید.';
+    }
+  }
+  const pointLabel = ({ lat, lon }) => fa(`${lat.toFixed(5)}، ${lon.toFixed(5)}`);
+  const el = h('div', { class: 'tp-map' },
+    h('header', { class: 'tp-map__head' },
+      h('h2', { id: 'snapp-request-title', text: `درخواست ${service.name}` }),
+      h('button', { type: 'button', class: 'cm-btn cm-btn--ghost cm-btn--sm', onClick: onClose }, 'بستن')),
+    h('p', { text: `مبدأ: ${fromName || 'نقطهٔ انتخابی'} (${pointLabel(from)})` }),
+    h('p', { text: `مقصد: ${toName || 'نقطهٔ انتخابی'} (${pointLabel(to)})` }),
+    message, h('div', { class: 'fd-actions' }, confirm,
+      h('a', { class: 'cm-btn cm-btn--ghost', href: SNAPP_WEB, target: '_blank', rel: 'noopener noreferrer' }, 'ادامه در اسنپ')));
+  return { el, quote, close() { closed = true; controller.abort(); } };
 }

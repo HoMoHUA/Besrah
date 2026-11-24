@@ -159,3 +159,27 @@ describe('GET /app/api/snapp/config', () => {
     expect((await buildServer({ snapp: { config: null, client: null } }).inject({ method: 'GET', url: '/app/api/snapp/config' })).statusCode).toBe(503);
   });
 });
+
+describe('confirmed Snapp requests', () => {
+  it('sends both selected coordinates and the service once, using only the personal session', async () => {
+    const { calls, client } = fakeSnapp(() => json({ status: 200 }));
+    const app = buildServer({ snapp: { client, service: memoryService(SESSION) } });
+    const from = { lat: 36.2975, lon: 59.6059 }, to = { lat: 36.3341, lon: 59.5462 };
+    const payload = { from, to, serviceId: 2 };
+    const url = '/app/api/snapp/request';
+    try {
+      expect((await post(app, url, payload)).statusCode).toBe(401);
+      const response = await post(app, url, { ...payload, session: SESSION });
+      expect(response.json()).toEqual({ status: 'requested' });
+      expect(response.headers['cache-control']).toBe('no-store');
+      expect((await post(app, url, { ...payload, session: SESSION })).statusCode).toBe(429);
+      expect(calls).toMatchObject([{
+        url: 'https://app.snapp.taxi/api/api-base/v2/passenger/ride',
+        auth: `Bearer ${SESSION.access}`,
+        body: { origin_lat: from.lat, origin_lng: from.lon, destination_lat: to.lat, destination_lng: to.lon, service_type: 2 },
+      }]);
+    } finally {
+      await app.close();
+    }
+  });
+});

@@ -4,7 +4,8 @@
 import { h, backButton } from '../ui/dom.js';
 import { canOpenLocationSettings, locationAdvice, openLocationSettings, resolveUserCoords } from '../logic.js';
 import { fa } from '../format.js';
-import { snappPriceBlock } from '../ui/snapp-link.js';
+import { createMapPicker } from '../ui/map-picker.js';
+import { snappPriceBlock, createSnappRequest } from '../ui/snapp-link.js';
 import { cheapestSnapp } from '../snapp-search.js';
 
 const DEBOUNCE_MS = 400;
@@ -95,7 +96,7 @@ function legRow(leg) {
 }
 
 export function createTripView(ctx) {
-  const { actions, api, store } = ctx;
+  const { actions, api, store, sheet } = ctx;
   const S = { gps: true, from: null, to: null, time: '', result: null, status: 'idle', locating: 'idle', pick: { from: { q: '', status: 'idle', places: [] }, to: { q: '', status: 'idle', places: [] } } };
   let timers = { from: 0, to: 0 }, controllers = { from: null, to: null }, tripController = null;
   const el = h('div', { class: 'view view--trip', dataset: { view: 'trip' } });
@@ -151,8 +152,13 @@ export function createTripView(ctx) {
     return PRECISION[place.precision] ?? '';
   }
   function choose(key, place) {
+    clearTimeout(timers[key]); controllers[key]?.abort(); controllers[key] = null;
+    tripController?.abort(); tripController = null;
+    snappController?.abort(); snappController = null;
+    S.snappTrip = null;
     S[key] = { lat: place.lat, lon: place.lon, name: place.name, precision: place.precision };
     if (key === 'from') S.gps = false;
+    drawOrigin();
     S.pick[key] = { q: '', status: 'idle', places: [] }; inputs[key].value = '';
     if (selects[key]) selects[key].value = '';
     drawPick(key); drawChosen(); S.result = null; S.status = 'idle'; drawOut(); drawSubmit();
@@ -212,14 +218,30 @@ export function createTripView(ctx) {
     try {
       const c = await api.snappCandidates(trip.from, trip.to);
       const result = await cheapestSnapp({ from: trip.from, to: trip.to, origins: c.origins.slice(0, 6), destinations: c.destinations.slice(0, 6), ask: snappAsk,
-        isCancelled: () => S.snappTrip !== trip, onStep: (step, total) => { S.snappSearch = { status: 'running', step, total }; drawOut(); } });
+        isCancelled: () => S.snappTrip !== trip, onStep: (step, total) => { if (S.snappTrip !== trip) return; S.snappSearch = { status: 'running', step, total }; drawOut(); } });
       if (S.snappTrip !== trip) return;
       S.snappSearch = { status: 'done', result };
     } catch (error) {
+      if (S.snappTrip !== trip) return;
       S.snappSearch = { status: 'error', message: error?.reason === 'no_roads' ? 'نقشهٔ خیابان‌ها برای این جست‌وجو هنوز روی سرور نیست.' : '' };
     }
     drawOut();
   }
+  function requestSnapp(service, suggestion) {
+    const trip = S.snappTrip;
+    if (!sheet || !trip || !S.result) return;
+    const from = suggestion?.pickup ?? trip.from;
+    const to = suggestion?.dropoff ?? trip.to;
+    const request = createSnappRequest({
+      api, store, service, from, to,
+      fromName: suggestion?.pickup?.street || (suggestion?.pickup ? 'مبدأ پیشنهادی' : S.from?.name),
+      toName: suggestion?.dropoff?.street || (suggestion?.dropoff ? 'مقصد پیشنهادی' : S.to?.name),
+      onClose: () => sheet.close(),
+    });
+    sheet.open(request.el, { labelledBy: 'snapp-request-title', onClosed: request.close });
+    request.quote();
+  }
+
   async function snappPrice(from, to) {
     S.snapp = null; S.snappSearch = null; S.snappTrip = { from, to };
     if (typeof api.snappPrice !== 'function') return;
@@ -247,6 +269,7 @@ export function createTripView(ctx) {
       if (!ok) { S.gps = false; S.status = 'needorigin'; drawChosen(); drawOrigin(); drawOut(); drawSubmit(); inputs.from?.focus?.(); return; }
     }
     tripController?.abort(); tripController = new AbortController(); const mine = tripController;
+    snappController?.abort(); snappController = null; S.snappTrip = null;
     S.status = 'loading'; S.result = null; drawOut(); drawSubmit();
     try {
       const payload = { from: { lat: S.from.lat, lon: S.from.lon }, to: { lat: S.to.lat, lon: S.to.lon }, ...(S.time ? { time: S.time } : {}), ...(store?.prefs?.().transitMaxWalkMin ? { maxWalkMin: store.prefs().transitMaxWalkMin } : {}), ...(store?.prefs?.().transitPriority ? { priority: store.prefs().transitPriority } : {}) };
@@ -326,13 +349,23 @@ export function createTripView(ctx) {
       r.status !== 'ok' ? h('p', { class: 'tp-status', role: 'status', text: REASONS[r.reason] ?? 'نتیجه ناقص است.' }) : null,
       r.options.length ? r.options.map((o, i, all) => optionCard(o, r.decision, i, all)) : h('div', { class: 'empty-state' }, h('p', { text: REASONS[r.reason] ?? 'گزینه ای پیدا نشد.' })),
       questionBlock(r.decision),
-      S.snapp?.data ? snappPriceBlock(S.snapp.data, { faTime: t => new Date(t).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Tehran' }), search: S.snappSearch ?? { status: 'idle' }, onFind: typeof api.snappCandidates === 'function' ? findCheapest : null }) : S.snapp?.note ? h('p', { class: 'fd-note', role: 'status', text: S.snapp.note }) : null,
+      S.snapp?.data ? snappPriceBlock(S.snapp.data, { faTime: t => new Date(t).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Tehran' }), search: S.snappSearch ?? { status: 'idle' }, onFind: typeof api.snappCandidates === 'function' ? findCheapest : null, onRequest: sheet && typeof api.snappRequest === 'function' ? requestSnapp : null }) : S.snapp?.note ? h('p', { class: 'fd-note', role: 'status', text: S.snapp.note }) : null,
       r.decision?.notes?.length ? h('ul', { class: 'fd-notes' }, r.decision.notes.map(t => h('li', { text: t }))) : null,
       h('ul', { class: 'fd-notes' }, [...(r.disclaimers ?? []), r.routing?.trafficLabel].filter(Boolean).map(t => h('li', { text: t })))));
   }
 
   let originControls = null;
   function drawOrigin() { if (originControls) originControls.hidden = Boolean(S.gps && !S.from); }
+  function openMap(key, label) {
+    const other = S[key === 'from' ? 'to' : 'from'];
+    const picker = createMapPicker({
+      label, start: S[key] ?? other ?? undefined, other,
+      onPick: point => { choose(key, point); sheet.close(); },
+      onClose: () => sheet.close(),
+    });
+    sheet.open(picker.el, { labelledBy: 'trip-map-title', onClosed: picker.stop, onRestore: () => openMap(key, label) });
+    picker.start();
+  }
   const pickerBlock = (key, label, extra) => {
     const input = h('input', { class: 'fd-input', type: 'search', enterkeyhint: 'search', autocomplete: 'off', placeholder: `${label}: نام ایستگاه یا نشانی`, 'aria-label': label });
     input.addEventListener('input', () => { S.pick[key].q = input.value; clearTimeout(timers[key]); timers[key] = setTimeout(() => search(key), DEBOUNCE_MS); });
@@ -342,7 +375,8 @@ export function createTripView(ctx) {
     selects[key] = select; fillSelect(key);
     const controls = h('div', { class: 'tp-controls' }, input, lists[key], select, extra ?? null);
     if (key === 'from') originControls = controls;
-    return h('section', { class: 'tp-pick', 'aria-label': label }, h('h2', { text: label }), chosen[key], controls);
+    return h('section', { class: 'tp-pick', 'aria-label': label }, h('h2', { text: label }), chosen[key], controls,
+      sheet ? h('button', { type: 'button', class: 'cm-btn cm-btn--ghost cm-btn--sm', onClick: () => openMap(key, label) }, `انتخاب ${label} روی نقشه`) : null);
   };
 
   form.append(
@@ -350,8 +384,7 @@ export function createTripView(ctx) {
     h('button', { type: 'button', class: ['cm-btn', 'cm-btn--ghost', 'cm-btn--sm', 'tp-swap'], 'aria-label': 'جابه جایی مبدأ و مقصد', onClick: () => { [S.from, S.to] = [S.to, S.from]; S.result = null; S.status = 'idle'; drawChosen(); drawOut(); drawSubmit(); drawOrigin(); } }, '⇅ جابه جایی'),
     pickerBlock('to', 'مقصد'),
     h('label', { class: 'tp-when' }, h('span', { text: 'ساعت حرکت (خالی یعنی اکنون)' }), timeInput),
-    submit,
-    h('p', { class: 'fd-note', text: 'انتخاب نقطه روی نقشه هنوز در دسترس نیست. ایستگاه را از فهرست انتخاب کنید، موقعیت خودتان را بدهید، یا پیوند اشتراک یک نقطه را از برنامهٔ نقشه در کادر بچسبانید.' }));
+    submit);
 
   el.append(
     h('header', { class: 'metro-head' },

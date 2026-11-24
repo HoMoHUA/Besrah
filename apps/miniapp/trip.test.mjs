@@ -121,11 +121,6 @@ test('outside coverage, rate limit, server error and an unavailable result each 
   assert.match(text(none.view), /گزینهٔ قابل اتکایی نداریم/);
 });
 
-test('the map picker is honestly absent', async t => {
-  const { view } = setup(t);
-  assert.match(text(view), /انتخاب نقطه روی نقشه هنوز در دسترس نیست/);
-});
-
 test('default origin is the current position: nothing is read on load, one tap on search reads it once and plans', async t => {
   let calls = 0;
   const { view, requests } = setup(t, { browser: ok => { calls++; ok({ coords: gps }); } });

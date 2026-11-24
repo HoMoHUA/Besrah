@@ -246,7 +246,10 @@ export function createShopView(ctx) {
   el.append(h('header', { class: 'metro-head' },
     backButton('بازگشت', () => actions.back()),
     h('div', null, h('h1', null, 'بسخرید'), h('p', null, 'مقایسهٔ قیمت ثبت شدهٔ چند کالای منتخب، با منشأ و زمان هر قیمت'))),
-    acctBox, searchBox, body);
+    acctBox,
+    h('div', { class: 'fd-actions' }, h('button', { type: 'button', class: 'cm-btn cm-btn--ghost',
+      onClick: () => openLink('https://app.snapppay.ir/in-store-purchases') }, 'دریافت بارکد پرداخت در اسنپ‌پی')),
+    searchBox, body);
   drawAccount();
   draw();
   store?.subscribe?.(key => { if (key === 'snappPay') { if (!linked() && S.mode !== 'catalog') S.mode = null; loadAccount(); draw(); } });

@@ -1,4 +1,5 @@
-// Snapp ride prices for Besrah (F4). Two ways to ask, both price-only (Besrah never orders a ride or pays):
+// Snapp ride prices for Besrah (F4). A confirmed ride request requires the person's own linked session.
+// Two ways to ask for a price:
 //  - user:   the person logged in to their own Snapp inside Besrah (SMS code). Their session lives on THEIR device and is
 //            sent with each price request; the server uses it for that one call (refreshing it if expired and handing the
 //            new one back) and never stores or logs it, nor the phone number or the code.
@@ -7,7 +8,7 @@
 // Endpoints and payloads mirror Snapp's passenger web app (app.snapp.taxi, read 2026-11-20). Client credentials come
 // from the environment (BESRAH_SNAPP_*), never from the repository.
 import type { FastifyInstance } from 'fastify';
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { clientKey, createWindowLimiter } from '../journey-beta/limits.js';
 import { createRoadIndex, loadRoads, pickupCandidates, type RoadIndex } from '../geo/pickup.js';
@@ -120,6 +121,19 @@ export function createSnappClient(cfg: SnappConfig, opts: { fetch?: typeof fetch
       const r = await call(`${OAUTH}/v2/auth`, { method: 'POST', headers: headers(), body: JSON.stringify({ grant_type: 'refresh_token', client_id: cfg.clientId, client_secret: cfg.clientSecret, device_id: s.deviceId, refresh_token: s.refresh }) });
       if (r.status === 200 && typeof r.body?.access_token === 'string') return { access: r.body.access_token, refresh: typeof r.body.refresh_token === 'string' ? r.body.refresh_token : s.refresh, deviceId: s.deviceId };
       throw new SnappError(r.status === 401 || r.status === 400 ? 'unauthorized' : 'upstream');
+    },
+    async requestRide(s: SnappSession, from: Point, to: Point, serviceId: number): Promise<void> {
+      const r = await call(`${API}/api-base/v2/passenger/ride`, {
+        method: 'POST',
+        headers: headers({ Authorization: `Bearer ${s.access}`, 'App-Version': 'pwa', 'x-app-name': 'passenger-pwa', 'x-app-version': 'v18.50.1', 'x-app-version-code': '0' }),
+        body: JSON.stringify({
+          origin_lat: from.lat, origin_lng: from.lon, destination_lat: to.lat, destination_lng: to.lon,
+          service_type: serviceId, preferences: {}, is_paid_by_recipient: false,
+        }),
+      });
+      if (r.status === 401 || r.status === 403) throw new SnappError('unauthorized');
+      if (r.status === 429) throw new SnappError('limited');
+      if (r.status < 200 || r.status >= 300 || (typeof r.body?.status === 'number' && r.body.status >= 400)) throw new SnappError('upstream');
     },
     async price(s: SnappSession, from: Point, to: Point): Promise<PriceResult> {
       const r = await call(`${API}/v3/price`, { method: 'POST', headers: headers({ Authorization: `Bearer ${s.access}` }), body: JSON.stringify({
@@ -254,6 +268,35 @@ export function registerSnapp(app: FastifyInstance, opts: { config?: SnappConfig
     const index = roadIndex();
     if (!index) return reply.code(503).send({ error: 'no_roads' });
     return { schemaVersion: 1, source: 'osm', origins: pickupCandidates(index, b!.from as Point), destinations: pickupCandidates(index, b!.to as Point) };
+  });
+
+  const requestLimit = createWindowLimiter(8, 60_000, clock);
+  const recentRequests = new Map<string, number>();
+  const activeRequests = new Set<string>();
+  app.post('/app/api/snapp/request', { bodyLimit: 8192 }, async (req, reply) => {
+    noStore(reply);
+    if (!client) return reply.code(503).send({ error: 'not_configured' });
+    const b = req.body as { from?: unknown; to?: unknown; serviceId?: unknown; session?: unknown } | null;
+    if (!b || !validPoint(b.from) || !validPoint(b.to) || (b.serviceId !== 1 && b.serviceId !== 2)) return bad(reply);
+    if (b.from.lat === b.to.lat && b.from.lon === b.to.lon) return bad(reply, 'same_points');
+    if (!validSession(b.session)) return reply.code(401).send({ error: 'personal_session_required' });
+    const sessionKey = createHash('sha256').update(b.session.access).digest('base64url');
+    const current = clock();
+    for (const [key, expiry] of recentRequests) if (expiry <= current) recentRequests.delete(key);
+    if (activeRequests.has(sessionKey) || recentRequests.has(sessionKey) || recentRequests.size >= 5000 || !requestLimit.allow(clientKey(req))) {
+      return reply.code(429).header('Retry-After', '30').send({ error: 'rate_limited' });
+    }
+    activeRequests.add(sessionKey);
+    try {
+      // This creates a ride. Never refresh and replay it automatically after an uncertain response.
+      await client.requestRide(b.session, b.from, b.to, b.serviceId);
+      return { status: 'requested' };
+    } catch (e) {
+      return fail(reply, e);
+    } finally {
+      recentRequests.set(sessionKey, clock() + 30_000);
+      activeRequests.delete(sessionKey);
+    }
   });
 
   // 3. Live prices: the person's own session when given, else the shared service session (cached, capped).
